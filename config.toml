@@ -1,0 +1,14 @@
+baseURL = 'https://bc-design-patterns.github.io/AL-Dev-Help/'
+languageCode = 'en-us'
+title = 'BC AL Help'
+
+# Change the default theme to be use when building the site with Hugo
+theme = "relearn"
+
+# For search functionality
+[outputs]
+home = [ "HTML", "RSS", "JSON"]
+
+[params]
+  # Change default color scheme with a variant one. Can be empty, "red", "blue", "green".
+  themeVariant = "blue"
