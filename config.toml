@@ -12,3 +12,19 @@ home = [ "HTML", "RSS", "JSON"]
 [params]
   # Change default color scheme with a variant one. Can be empty, "red", "blue", "green".
   themeVariant = "blue"
+  # If set to false, a Home button will appear below the search bar on the menu.
+  # It is redirecting to the landing page of the current language if specified. (Default is "/")
+  disableLandingPageButton = true
+
+# Additional menu (left sidebar) area links
+[[menu.shortcuts]]
+name = "<i class='fab fa-github'></i> GitHub repo"
+identifier = "gh"
+url = "https://github.com/BC-Design-Patterns/AL-Dev-Help"
+weight = 10
+
+[[menu.shortcuts]]
+name = "<i class='fab fa-discord'></i> BC Discord"
+identifier = "ds"
+url = "https://discord.gg/4wbfNv3"
+weight = 10
