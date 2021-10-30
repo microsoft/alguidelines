@@ -1,7 +1,7 @@
 +++
 chapter = true
 pre = "<b><i class='fas fa-medal'></i> </b>"
-title = "BC Development Best Practices"
+title = "BC Dev. Best Practices"
 weight = 15
 +++
 
