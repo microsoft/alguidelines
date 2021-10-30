@@ -2,7 +2,7 @@
 title = "Instructions in the UI"
 weight = 670
 +++
-_by Nikola Kukrika at Microsoft Development Center Copenhagen_
+_Originally by Nikola Kukrika at Microsoft Development Center Copenhagen_
 
 ## Abstract
 

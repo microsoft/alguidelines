@@ -2,7 +2,7 @@
 title = "Multilanguage Application Data"
 weight = 820
 +++
-_by Bogdana Botez at Microsoft Development Center Copenhagen_
+_Originally by Bogdana Botez at Microsoft Development Center Copenhagen_
 
 ## Abstract
 

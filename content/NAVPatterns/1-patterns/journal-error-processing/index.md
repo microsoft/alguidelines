@@ -2,7 +2,7 @@
 title = "Journal Error Processing"
 weight = 710
 +++
-_by Bogdana Botez at Microsoft Development Center Copenhagen_ 
+_Originally by Bogdana Botez at Microsoft Development Center Copenhagen_ 
 
 ## Abstract
 

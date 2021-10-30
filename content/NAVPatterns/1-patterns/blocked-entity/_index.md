@@ -1,8 +1,8 @@
 +++
-title = "Blocked Entity.md"
+title = "Blocked Entity"
 weight = 270
 +++
-_by Abhishek Ghosh at Microsoft Development Center Copenhagen_ 
+_Originally by Abhishek Ghosh at Microsoft Development Center Copenhagen_ 
 
 ## Abstract
 
@@ -14,7 +14,7 @@ The Blocked Entity is used when it is required to stop transactions for an entit
 
 To block entities through metadata, read this pattern. To do the same thing through data, read [Data Driven Blocked Entity pattern][anchor1].  
 
-The business entity holds a state that controls if a given transaction is allowed. The state is used by the logic controlling transactions.****The change of state could either be temporary or permanent.
+The business entity holds a state that controls if a given transaction is allowed. The state is used by the logic controlling transactions.  The change of state could either be temporary or permanent.
 
 An example of a temporary halt is when a retail chain selling items has received lot of complaints about an item, and the company wants to stop all transactions, both purchase and sale, with that item until the dealer has clarified the issue with his supplier and possibly received a replacement for the defective stock. Another common example is during counting the physical inventory using cycle counting where the counting is done in one section of a warehouse at a time, so that the regular operations can continue in the other parts of the warehouse. In these situations, it is necessary to block all transactions, such as picks and put-aways, for a bin while warehouse counting is in progress for that bin.
 
@@ -34,7 +34,9 @@ Add a Boolean field named Blocked in the table.
 
 In the relevant logic, add a condition to check the status of the Blocked flag. The cheapest way is to use a TESTFIELD:
 
-_<rec variable\>.TESTFIELD(Blocked,FALSE);_
+```AL
+<rec variable\>.TESTFIELD(Blocked,FALSE);
+```
 
 Alternatively, you can throw a custom error message. However, you should only do that if the default error message thrown by TESTFIELD is not sufficient.
 
@@ -62,9 +64,10 @@ An example of the Boolean implementation on the Item card.
 
 In codeunit 22 -- Item Jnl.-Post Line, the following lines of code have implemented a check based on the value of the Blocked field:
 
-    IF NOT CalledFromAdjustment THEN
+```AL
+IF NOT CalledFromAdjustment THEN
     Item.TESTFIELD(Blocked,FALSE);
-
+```
 ### Option-Field Implementation
 
 [![ ][image2]][anchor3]

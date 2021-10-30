@@ -2,7 +2,7 @@
 title = "TryFunction NET Exception Handling in CAL"
 weight = 1240
 +++
-_by Mostafa Balat, Microsoft Development Center Copenhagen_
+_Originally by Mostafa Balat, Microsoft Development Center Copenhagen_
 
 ## Abstract
 

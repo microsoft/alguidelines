@@ -2,7 +2,7 @@
 title = "Activity Logs"
 weight = 210
 +++
-## _by Ciprian Iordache at Microsoft Development Center Copenhagen_
+_Originally by Ciprian Iordache at Microsoft Development Center Copenhagen_
 
 ## Activity Log 
 
@@ -51,18 +51,22 @@ The following parameters should be provided to the function:
 
 To show the log, add a page action, with the caption including the name "<prefix\> Log" and link it to the image named "Log":
 
-    { ;1 ;Action ;
+```AL
+{ ;1 ;Action ;
     Name=ActivityLog;
-    CaptionML=ENU=Activity Log;
-    ToolTipML=ENU=View the status and any errors if the document was sent as an electronic document or OCR file through the document exchange service.;
-    ApplicationArea=\#Basic,\#Suite;
+    CaptionML=ENU='Activity Log';
+    ToolTipML=ENU='View the status and any errors if the document was sent as an electronic document or OCR file through the document exchange service.';
+    ApplicationArea=#Basic,#Suite;
     Image=Log;
-    OnAction=VAR  
-    ActivityLog@1000 : Record 710;   
+    OnAction=
+    VAR  
+        ActivityLog@1000 : Record 710;   
     BEGIN
-    ActivityLog.ShowEntries(RECORDID);
+        ActivityLog.ShowEntries(RECORDID);
     END;
     }
+```
+    
 
 **NAV usages**
 

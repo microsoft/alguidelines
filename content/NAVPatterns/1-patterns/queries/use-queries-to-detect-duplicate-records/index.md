@@ -2,7 +2,7 @@
 title = "use Queries to Detect Duplicate Records"
 weight = 1340
 +++
-_by Abshishek Ghosh and Bogdan Sturzoiu at Microsoft Development Center Copenhagen**  
+_Originally by Abshishek Ghosh and Bogdan Sturzoiu at Microsoft Development Center Copenhagen**  
 **_
 
 ## **Abstract**

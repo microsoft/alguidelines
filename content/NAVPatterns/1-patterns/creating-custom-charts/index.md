@@ -2,7 +2,7 @@
 title = "Creating Custom Charts"
 weight = 420
 +++
-_by Nikola Kukrika at Microsoft Development Center Copenhagen_
+_Originally by Nikola Kukrika at Microsoft Development Center Copenhagen_
 
 ## Abstract
 

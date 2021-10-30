@@ -2,7 +2,7 @@
 title = "Feature Localization For Data Structures"
 weight = 570
 +++
-_by Bogdan Sturzoiu at Microsoft Development Center Copenhagen_ 
+_Originally by Bogdan Sturzoiu at Microsoft Development Center Copenhagen_ 
 
 ## Abstract
 

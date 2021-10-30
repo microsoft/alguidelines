@@ -2,7 +2,7 @@
 title = "Journal Template Batch Line"
 weight = 720
 +++
-_by Bogdana Botez at Microsoft Development Center Copenhagen_
+_Originally by Bogdana Botez at Microsoft Development Center Copenhagen_
 
 ## Abstract
 

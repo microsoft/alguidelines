@@ -2,7 +2,7 @@
 title = "Easy Update Of Setup Or Supplementary Information"
 weight = 520
 +++
-_by Anders Larsen at Microsoft Development Center Copenhagen_
+_Originally by Anders Larsen at Microsoft Development Center Copenhagen_
 
 ## Abstract
 

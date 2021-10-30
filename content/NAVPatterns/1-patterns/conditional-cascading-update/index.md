@@ -2,14 +2,13 @@
 title = "Conditional Cascading Update"
 weight = 370
 +++
-_by Jan Hoek at IDYN _
+_Originally by Jan Hoek at IDYN _
 
 ## **Abstract**
 
 The Conditional Cascading Update pattern is used to intelligently populate fields whose values depend on other field values. In this pattern description, the field triggering the update will be called "source field", and the depending field will be called "target field". 
 
-## **Description  
-**
+## **Description**
 
 The value of one table field sometimes depends on the value of another field, typically following an application-defined transformation (note that we're talking about transformations of field values here. This has nothing to do with e.g. form transformation), such as conversion to uppercase, removal of certain characters etc.
 

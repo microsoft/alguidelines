@@ -4,11 +4,9 @@ weight = 470
 +++
 _Written by Bogdan Andrei Sturzoiu, at Microsoft Development Center Copenhagen_
 
-******Abstract**
+**Abstract**
 
 This pattern implements a generic mechanism for dynamically restricting and allowing usage of a record by the business process administrator. 
-
-[![ ][image0]][anchor0]
 
 **Problem**
 
@@ -42,7 +40,9 @@ Currently, the restrictions are record-based and type-less. They act as simple t
 
 You must make sure to differentiate between the reason and the purpose. That is because the restriction can only be added once per record, but consumed in multiple places.
 
-******Example**
+****
+
+**Example**
 
 For example, we want to restrict posting Gen. Journal Lines if a customer has not been added in Account No. field.
 
@@ -66,34 +66,37 @@ The code behind the "Add record restriction" workflow response:
 
 The code behind the "Remove record restriction" response:
 
-    RecRef.GETTABLE(Variant);
-    CASE RecRef.NUMBER OF
+```AL
+RecRef.GETTABLE(Variant);
+CASE RecRef.NUMBER OF
     DATABASE::"Approval Entry":
-    BEGIN
-    RecordRestrictionMgt.AllowRecordUsage(RecRef.RECORDID);
-    RecRef.SETTABLE(ApprovalEntry);
-    RecRef.GET(ApprovalEntry."Record ID to Approve");
-    AllowRecordUsage(RecRef);
-    END;
+        BEGIN
+            RecordRestrictionMgt.AllowRecordUsage(RecRef.RECORDID);
+            RecRef.SETTABLE(ApprovalEntry);
+            RecRef.GET(ApprovalEntry."Record ID to Approve");
+            AllowRecordUsage(RecRef);
+        END;
     DATABASE::"Gen. Journal Batch":
-    BEGIN
-    RecRef.SETTABLE(GenJournalBatch);
-    RecordRestrictionMgt.AllowGenJournalBatchUsage(GenJournalBatch);
-    END
+        BEGIN
+            RecRef.SETTABLE(GenJournalBatch);
+            RecordRestrictionMgt.AllowGenJournalBatchUsage(GenJournalBatch);
+        END
     ELSE
-    RecordRestrictionMgt.AllowRecordUsage(RecRef.RECORDID);
-    END;
-    
+        RecordRestrictionMgt.AllowRecordUsage(RecRef.RECORDID);
+END;
+```
 
-Notice****how lifting a restriction for a Gen. Journal Batch involves lifting all the restrictions for the individual journal lines in the batch (hence the special branching of the code).
+Notice how lifting a restriction for a Gen. Journal Batch involves lifting all the restrictions for the individual journal lines in the batch (hence the special branching of the code).
 
-******Consequences**
+****
+
+**Consequences**
 
 Currently, there can only be one restriction per record. There are no restriction types.
 
 In the future, a type field should be added to the restriction table, to allow adding restrictions for different purposes, and to refine their consumption. For example, a posting restriction might only be enforced for restrictions originating from approvals.
 
-**NAV** **Versions**
+**NAV Versions**
 
 This pattern has been introduced in Dynamics NAV 2016\.
 

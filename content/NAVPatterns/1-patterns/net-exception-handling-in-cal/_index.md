@@ -2,7 +2,7 @@
 title = "NET Exception Handling in CAL"
 weight = 860
 +++
-_by Mostafa Balat, Microsoft Development Center Copenhagen_
+_Originally by Mostafa Balat, Microsoft Development Center Copenhagen_
 
 ## Abstract
 

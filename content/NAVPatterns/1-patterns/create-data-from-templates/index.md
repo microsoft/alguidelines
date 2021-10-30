@@ -2,7 +2,7 @@
 title = "Create Data from Templates"
 weight = 400
 +++
-_by Nikola Kukrika at Microsoft Development Center Copenhagen_
+_Originally by Nikola Kukrika at Microsoft Development Center Copenhagen_
 
 ## Abstract
 
