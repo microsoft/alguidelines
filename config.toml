@@ -15,6 +15,8 @@ home = [ "HTML", "RSS", "JSON"]
   # If set to false, a Home button will appear below the search bar on the menu.
   # It is redirecting to the landing page of the current language if specified. (Default is "/")
   disableLandingPageButton = true
+  # Enable GitHub editing
+  editURL = "https://github.com/BC-Design-Patterns/AL-Dev-Help/edit/main/content"
 
 # Additional menu (left sidebar) area links
 [[menu.shortcuts]]
