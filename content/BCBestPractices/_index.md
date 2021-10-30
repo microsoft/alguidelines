@@ -1,12 +1,15 @@
 +++
 chapter = true
 pre = "<b><i class='fas fa-medal'></i> </b>"
-title = "BCBestPractices"
+title = "BC Development Best Practices"
 weight = 15
 +++
 
-### Chapter X
+# Business Central Best Practices
 
-# Some Chapter title
+## Coming soon!
 
-Lorem Ipsum.
+This section will be cover things that aren't as simple as Design Patterns, but will help make sure your development is:
+- high-performance
+- complies with good designs
+- has high maintability

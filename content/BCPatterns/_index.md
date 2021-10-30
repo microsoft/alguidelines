@@ -1,12 +1,12 @@
 +++
 chapter = true
 pre = "<b><i class='fas fa-clone'></i> </b>"
-title = "BCPatterns"
+title = "BC Patterns"
 weight = 10
 +++
 
-### Chapter X
+# Business Central Design Patterns
 
-# Some Chapter title
+## Coming soon!
 
-Lorem Ipsum.
+This section will be all about the Design Patterns for BC and AL.
