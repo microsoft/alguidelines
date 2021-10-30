@@ -4,7 +4,7 @@ title = "Home"
 
 ## Business Central Design Patterns & Best Practices
 
-This site is meant to house some of the community's knowledge about Business Central AL Development best practices, particularly around hosting Design Patterns.
+This site is meant to house some of the community's knowledge about Microsoft Dynamics 365 Business Central AL Development best practices, particularly around hosting Design Patterns.
 
 ### What are Design Patterns?
 
@@ -20,3 +20,9 @@ In 2013, Microsoft NAV Dev Team and prominent members of the community collabora
 
 For some history on this, Waldo's posts [Code is Poetry](https://www.waldo.be/2013/06/14/code-is-poetry/) and [Design is Philosophy](https://www.waldo.be/2013/08/28/design-is-philosophy-2/) are a great read.
 
+### Contributing
+
+Contributions to this project are [released](https://help.github.com/articles/github-terms-of-service/#6-contributions-under-repository-license) to the public under the [project's open source license](https://github.com/BC-Design-Patterns/AL-Dev-Help/blob/main/LICENSE).
+
+This project adheres to the [Contributor Covenant Code of Conduct](http://contributor-covenant.org/).
+By participating, you are expected to uphold this code.
