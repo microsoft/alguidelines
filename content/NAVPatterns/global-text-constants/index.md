@@ -1,5 +1,5 @@
 +++
-title = "global-text-constants.md"
+title = "Global Text Constants"
 weight = 610
 +++
 Declare Text Constant as global variables.

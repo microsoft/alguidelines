@@ -1,5 +1,5 @@
 +++
-title = "unnecessary-separators.md"
+title = "Unnecessary Separators"
 weight = 1290
 +++
 There should be no unnecessary separators. Bad code

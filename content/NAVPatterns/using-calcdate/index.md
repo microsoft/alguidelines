@@ -1,5 +1,5 @@
 +++
-title = "using-calcdate.md"
+title = "Using Calcdate"
 weight = 1370
 +++
 CALCDATE should only be used with DateFormula variables. Alternatively the string should be enclosed using the <\> symbols.

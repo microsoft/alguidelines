@@ -1,5 +1,5 @@
 +++
-title = "released-entity.md"
+title = "Released Entity"
 weight = 1000
 +++
 Authors: Henrik Langbak and Kim Ginnerup, Bording Data

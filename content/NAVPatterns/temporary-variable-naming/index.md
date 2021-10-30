@@ -1,5 +1,5 @@
 +++
-title = "temporary-variable-naming.md"
+title = "Temporary Variable Naming"
 weight = 1200
 +++
 The name of a temporary variable must be prefixed with the word Temp and not otherwise. Bad code

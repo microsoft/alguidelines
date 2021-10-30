@@ -1,5 +1,5 @@
 +++
-title = "reusable-bugs.md"
+title = "Reusable Bugs"
 weight = 1020
 +++
 # Reusable Bugs

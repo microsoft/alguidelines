@@ -1,5 +1,5 @@
 +++
-title = "template-for-writing-nav-design-patterns.md"
+title = "Template for writing Nav Design Patterns"
 weight = 1180
 +++
 This is a guideline, some parts are optional (if there's no content, remove the whole paragraph).

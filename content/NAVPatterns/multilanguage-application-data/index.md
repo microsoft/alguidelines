@@ -1,5 +1,5 @@
 +++
-title = "multilanguage-application-data.md"
+title = "Multilanguage Application Data"
 weight = 820
 +++
 _by Bogdana Botez at Microsoft Development Center Copenhagen_

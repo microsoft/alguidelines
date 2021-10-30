@@ -1,5 +1,5 @@
 +++
-title = "create-urls-to-nav-clients.md"
+title = "Create URLs to NAV Clients"
 weight = 410
 +++
 _By Mike Borg Cardona and Bogdana Botez at Microsoft Development Center Copenhagen_

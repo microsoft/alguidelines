@@ -1,5 +1,5 @@
 +++
-title = "internally-used-dot-net-types.md"
+title = "Internally-used DotNet Types"
 weight = 690
 +++
 ## **Internally used Dot Net Types**

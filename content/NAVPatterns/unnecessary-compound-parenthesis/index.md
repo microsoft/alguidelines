@@ -1,5 +1,5 @@
 +++
-title = "unnecessary-compound-parenthesis.md"
+title = "Unnecessary Compound Parenthesis"
 weight = 1260
 +++
 Use parenthesis only to enclose compound expressions inside compound expressions.

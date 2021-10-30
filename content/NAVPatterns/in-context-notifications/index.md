@@ -1,5 +1,5 @@
 +++
-title = "in-context-notifications.md"
+title = "In-context Notifications"
 weight = 640
 +++
 ___By Soumya Dutta at Microsoft Development Center Copenhagen_

@@ -1,5 +1,5 @@
 +++
-title = "confirm.md"
+title = "CONFIRM"
 weight = 380
 +++
 Always end CONFIRM with a question mark.

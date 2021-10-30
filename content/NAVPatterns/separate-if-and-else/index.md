@@ -1,5 +1,5 @@
 +++
-title = "separate-if-and-else.md"
+title = "Separate IF and ELSE"
 weight = 1050
 +++
 IF and ELSE statements should be on separate lines. Bad code

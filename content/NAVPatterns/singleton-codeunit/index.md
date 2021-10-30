@@ -1,5 +1,5 @@
 +++
-title = "singleton-codeunit.md"
+title = "Singleton Codeunit"
 weight = 1100
 +++
 ## Singleton Codeunit

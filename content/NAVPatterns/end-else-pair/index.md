@@ -1,5 +1,5 @@
 +++
-title = "end-else-pair.md"
+title = "END ELSE Pair"
 weight = 540
 +++
 The END ELSE pair should always appear on the same line.

@@ -1,5 +1,5 @@
 +++
-title = "select-distinct-with-queries.md"
+title = "SELECT DISTINCT with Queries"
 weight = 1040
 +++
 _By Bogdana Botez, at Microsoft Development Center Copenhagen_

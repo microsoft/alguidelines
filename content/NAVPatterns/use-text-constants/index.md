@@ -1,5 +1,5 @@
 +++
-title = "use-text-constants.md"
+title = "Use Text Constants"
 weight = 1360
 +++
 Pass user messages using Text Constants. It makes translation easy.

@@ -1,5 +1,5 @@
 +++
-title = "colon-usage-in-case.md"
+title = "Colon usage in CASE"
 weight = 340
 +++
 The last possibility on a CASE statement must be immediately followed by a colon. Bad code

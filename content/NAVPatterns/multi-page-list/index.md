@@ -1,5 +1,5 @@
 +++
-title = "multi-page-list.md"
+title = "Multi-Page List"
 weight = 810
 +++
 _By Bogdana Botez at Microsoft Development Center Copenhagen_

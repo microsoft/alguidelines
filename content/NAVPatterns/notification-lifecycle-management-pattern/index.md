@@ -1,5 +1,5 @@
 +++
-title = "notification-lifecycle-management-pattern.md"
+title = "Notification Lifecycle Management Pattern"
 weight = 880
 +++
 **Notification Lifecycle Management pattern**

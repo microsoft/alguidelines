@@ -1,5 +1,5 @@
 +++
-title = "master-data.md"
+title = "Master Data"
 weight = 780
 +++
 __By [Soren Klemmensen][anchor0], [_Partner-Ready-Software_ ][anchor1]& [360 Visibility][anchor2]__

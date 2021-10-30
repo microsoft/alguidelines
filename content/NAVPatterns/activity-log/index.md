@@ -1,5 +1,5 @@
 +++
-title = "activity-log.md"
+title = "Activity Logs"
 weight = 210
 +++
 ## _by Ciprian Iordache at Microsoft Development Center Copenhagen_

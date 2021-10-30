@@ -1,5 +1,5 @@
 +++
-title = "variable-naming.md"
+title = "Variable Naming"
 weight = 1420
 +++
 Variables that refer to a C/AL object must contain the objects name, abbreviated where necessary.

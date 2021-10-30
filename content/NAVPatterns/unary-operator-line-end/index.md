@@ -1,5 +1,5 @@
 +++
-title = "unary-operator-line-end.md"
+title = "Unary Operator Line End"
 weight = 1250
 +++
 Do not end a line with unary operator.

@@ -1,5 +1,5 @@
 +++
-title = "lonely-repeat.md"
+title = "Lonely Repeat"
 weight = 760
 +++
 The REPEAT statement should always be alone on a line.

@@ -1,5 +1,5 @@
 +++
-title = "implementation-of-surrogate-keys-using-autoincrement-pattern.md"
+title = "Surrogate keys using Autoincrement Pattern"
 weight = 630
 +++
 _By [Soren Klemmensen][anchor0], [_Partner-Ready-Software_ ][anchor1]& [360 Visibility][anchor2]_

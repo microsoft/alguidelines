@@ -1,5 +1,5 @@
 +++
-title = "observer.md"
+title = "Observer"
 weight = 900
 +++
 #### _By Nikolai L'Estrange, from TVision Technology Ltd. in the UK__  

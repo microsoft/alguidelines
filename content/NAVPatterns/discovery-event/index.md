@@ -1,5 +1,5 @@
 +++
-title = "discovery-event.md"
+title = "Discovery Event"
 weight = 500
 +++
 by waldo

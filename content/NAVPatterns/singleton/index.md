@@ -1,5 +1,5 @@
 +++
-title = "singleton.md"
+title = "Singleton"
 weight = 1090
 +++
 ## Singleton

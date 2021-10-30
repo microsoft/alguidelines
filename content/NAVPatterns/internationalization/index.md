@@ -1,5 +1,5 @@
 +++
-title = "internationalization.md"
+title = "Internationalization"
 weight = 700
 +++
 ## C/AL Coding Guidelines

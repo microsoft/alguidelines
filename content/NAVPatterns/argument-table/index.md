@@ -1,5 +1,5 @@
 +++
-title = "argument-table.md"
+title = "Argument Table"
 weight = 220
 +++
 # Argument table pattern

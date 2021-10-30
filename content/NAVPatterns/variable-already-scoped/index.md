@@ -1,5 +1,5 @@
 +++
-title = "variable-already-scoped.md"
+title = "Variable Already Scoped"
 weight = 1400
 +++
 Do not use scope ''.'' qualifier unnecessarily when a variable is already implicitly or explicitly scoped. It keeps the code simpler.

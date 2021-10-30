@@ -1,5 +1,5 @@
 +++
-title = "initialized-variables.md"
+title = "Initialized Variables"
 weight = 660
 +++
 Variables should always be set to a specific value, before they are used.

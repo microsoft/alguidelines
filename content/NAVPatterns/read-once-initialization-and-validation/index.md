@@ -1,5 +1,5 @@
 +++
-title = "read-once-initialization-and-validation.md"
+title = "Read-once Initialization and Validation"
 weight = 970
 +++
 _By Tim Grant**  

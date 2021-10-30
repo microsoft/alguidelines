@@ -1,5 +1,5 @@
 +++
-title = "unnecessary-function-parenthesis.md"
+title = "Unnecessary Function Parenthesis"
 weight = 1280
 +++
 Do not use parenthesis in a function call if the function does not have any parameters.

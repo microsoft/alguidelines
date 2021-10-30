@@ -1,5 +1,5 @@
 +++
-title = "blank-lines.md"
+title = "Blank Lines.md"
 weight = 260
 +++
 Do not use blank lines at the beginning or end of any functions, after BEGIN, before END, or inside multiline expressions. Bad code

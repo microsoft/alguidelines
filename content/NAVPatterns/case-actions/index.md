@@ -1,5 +1,5 @@
 +++
-title = "case-actions.md"
+title = "CASE Action"
 weight = 310
 +++
 A CASE action should start on a line after the possibility. Bad code

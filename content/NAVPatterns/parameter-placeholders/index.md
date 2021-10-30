@@ -1,5 +1,5 @@
 +++
-title = "parameter-placeholders.md"
+title = "Parameter Placeholders"
 weight = 920
 +++
 The number of parameters passed to a string must match the placeholders.

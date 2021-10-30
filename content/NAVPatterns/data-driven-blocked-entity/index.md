@@ -1,5 +1,5 @@
 +++
-title = "data-driven-blocked-entity.md"
+title = "Data Driven Blocked Entity"
 weight = 470
 +++
 _Written by Bogdan Andrei Sturzoiu, at Microsoft Development Center Copenhagen_

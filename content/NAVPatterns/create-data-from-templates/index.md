@@ -1,5 +1,5 @@
 +++
-title = "create-data-from-templates.md"
+title = "Create Data from Templates"
 weight = 400
 +++
 _by Nikola Kukrika at Microsoft Development Center Copenhagen_

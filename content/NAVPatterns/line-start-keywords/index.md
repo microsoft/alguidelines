@@ -1,5 +1,5 @@
 +++
-title = "line-start-keywords.md"
+title = "Line Start Keywords"
 weight = 740
 +++
 The END, IF, REPEAT, FOR, WHILE, ELSE and CASE statement should always start a line. Bad code

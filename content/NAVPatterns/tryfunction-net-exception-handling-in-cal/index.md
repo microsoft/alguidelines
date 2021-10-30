@@ -1,5 +1,5 @@
 +++
-title = "tryfunction-net-exception-handling-in-cal.md"
+title = "TryFunction NET Exception Handling in CAL"
 weight = 1240
 +++
 _by Mostafa Balat, Microsoft Development Center Copenhagen_

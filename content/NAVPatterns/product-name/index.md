@@ -1,5 +1,5 @@
 +++
-title = "product-name.md"
+title = "Product Name"
 weight = 950
 +++
 #### **Abstract**

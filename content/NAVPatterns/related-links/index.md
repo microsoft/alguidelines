@@ -1,5 +1,5 @@
 +++
-title = "related-links.md"
+title = "Related Links"
 weight = 990
 +++
 Find below some related NAV Design Patterns links.

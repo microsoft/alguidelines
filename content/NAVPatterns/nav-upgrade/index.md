@@ -1,5 +1,5 @@
 +++
-title = "nav-upgrade.md"
+title = "Nav Upgrade"
 weight = 840
 +++
 ## Anti-Patterns in NAV Upgrade

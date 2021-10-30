@@ -1,5 +1,5 @@
 +++
-title = "with-scope-name-collision.md"
+title = "WITH Scope Name Collision"
 weight = 1450
 +++
 Do not use the WITH scope when it has a variable whose name is the same as a local variable. This can lead to wrong code assumptions.

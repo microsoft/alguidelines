@@ -1,5 +1,5 @@
 +++
-title = "hooks.md"
+title = "Hooks"
 weight = 620
 +++
 _By Eric Wauters ([waldo][anchor0]), Partner-Ready-Software_

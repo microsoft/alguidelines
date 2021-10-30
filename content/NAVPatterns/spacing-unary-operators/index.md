@@ -1,5 +1,5 @@
 +++
-title = "spacing-unary-operators.md"
+title = "Spacing Unary Operators"
 weight = 1140
 +++
 There must be no space between a unary operator and its argument (except for the NOT keyword).

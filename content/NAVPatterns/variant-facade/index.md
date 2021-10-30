@@ -1,5 +1,5 @@
 +++
-title = "variant-facade.md"
+title = "Variant Facade"
 weight = 1440
 +++
 # Variant Façade

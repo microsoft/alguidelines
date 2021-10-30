@@ -1,5 +1,5 @@
 +++
-title = "unnecessary-truefalse.md"
+title = "Unnecessary TRUE/FALSE"
 weight = 1300
 +++
 Do not use TRUE or FALSE keywords unnecessarily if the expression is already an logical expression.

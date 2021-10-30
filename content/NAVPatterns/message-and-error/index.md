@@ -1,5 +1,5 @@
 +++
-title = "message-and-error.md"
+title = "MESSAGE and ERROR"
 weight = 790
 +++
 Always end MESSAGE or ERROR with a period.

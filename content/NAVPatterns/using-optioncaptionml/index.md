@@ -1,5 +1,5 @@
 +++
-title = "using-optioncaptionml.md"
+title = "Using OptionCaptionML"
 weight = 1380
 +++
 The OptionCaptionML should be filled in for sourceexpression using option data types.

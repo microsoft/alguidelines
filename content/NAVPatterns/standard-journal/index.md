@@ -1,5 +1,5 @@
 +++
-title = "standard-journal.md"
+title = "Standard Journal"
 weight = 1150
 +++
 _By Bogdana Botez, at Microsoft Development Center Copenhagen_

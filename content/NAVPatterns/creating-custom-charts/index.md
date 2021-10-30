@@ -1,5 +1,5 @@
 +++
-title = "creating-custom-charts.md"
+title = "Creating Custom Charts"
 weight = 420
 +++
 _by Nikola Kukrika at Microsoft Development Center Copenhagen_

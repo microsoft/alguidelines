@@ -1,5 +1,5 @@
 +++
-title = "singleton-table.md"
+title = "Singleton Table"
 weight = 1110
 +++
 ## Singleton Table

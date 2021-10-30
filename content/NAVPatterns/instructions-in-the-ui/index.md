@@ -1,5 +1,5 @@
 +++
-title = "instructions-in-the-ui.md"
+title = "Instructions in the UI"
 weight = 670
 +++
 _by Nikola Kukrika at Microsoft Development Center Copenhagen_

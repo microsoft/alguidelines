@@ -1,5 +1,5 @@
 +++
-title = "data-migration-facade.md"
+title = "Data Migration Facade"
 weight = 480
 +++
 # **Data Migration Façade**

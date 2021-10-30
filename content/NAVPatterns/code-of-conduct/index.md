@@ -1,5 +1,5 @@
 +++
-title = "code-of-conduct.md"
+title = "Code of Conduct"
 weight = 330
 +++
 Find below the rules to be used when disseminating or relating to the NAV Design Patterns.

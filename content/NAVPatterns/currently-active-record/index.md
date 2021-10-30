@@ -1,5 +1,5 @@
 +++
-title = "currently-active-record.md"
+title = "Currently Active Record"
 weight = 450
 +++
 Authors: Henrik Langbak and Kim Ginnerup, Bording Data

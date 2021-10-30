@@ -1,5 +1,5 @@
 +++
-title = "actions-images.md"
+title = "Actions - Images"
 weight = 200
 +++
 All actions must have an image assigned to them.

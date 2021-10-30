@@ -1,5 +1,5 @@
 +++
-title = "feature-localization-for-data-structures.md"
+title = "Feature Localization For Data Structures"
 weight = 570
 +++
 _by Bogdan Sturzoiu at Microsoft Development Center Copenhagen_ 

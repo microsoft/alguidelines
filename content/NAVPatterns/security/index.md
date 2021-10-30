@@ -1,5 +1,5 @@
 +++
-title = "security.md"
+title = "Security"
 weight = 1030
 +++
 ## **Security patterns for NAV  

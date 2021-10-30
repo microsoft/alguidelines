@@ -1,5 +1,5 @@
 +++
-title = "no-series.md"
+title = "No Series"
 weight = 870
 +++
 _By Bogdana Botez, at Microsoft Development Center Copenhagen_

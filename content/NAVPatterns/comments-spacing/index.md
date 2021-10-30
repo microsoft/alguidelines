@@ -1,5 +1,5 @@
 +++
-title = "comments-spacing.md"
+title = "Comment Spacing"
 weight = 360
 +++
 Always start comments with // followed by one space character.

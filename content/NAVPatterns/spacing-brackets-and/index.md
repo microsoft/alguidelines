@@ -1,5 +1,5 @@
 +++
-title = "spacing-brackets-and.md"
+title = "Spacing Brackets and ::"
 weight = 1130
 +++
 There must be no spaces characters before and after \[\] dimension brackets symbols or :: option symbols.

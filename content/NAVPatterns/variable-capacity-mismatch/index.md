@@ -1,5 +1,5 @@
 +++
-title = "variable-capacity-mismatch.md"
+title = "Variable Capacity Mismatch"
 weight = 1410
 +++
 Do not assign a value to a variable whose capacity is smaller.

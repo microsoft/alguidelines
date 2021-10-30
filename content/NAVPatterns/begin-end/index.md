@@ -1,5 +1,5 @@
 +++
-title = "begin-end.md"
+title = "Begin-End - Compound Only"
 weight = 240
 +++
 Only use BEGIN..END to enclose compound statements.

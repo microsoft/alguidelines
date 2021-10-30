@@ -1,5 +1,5 @@
 +++
-title = "document.md"
+title = "Document"
 weight = 510
 +++
 _By Xavier Garonnat, knk Ingénierie (France), xgaronnat@knk.fr_

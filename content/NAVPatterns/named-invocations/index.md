@@ -1,5 +1,5 @@
 +++
-title = "named-invocations.md"
+title = "Named Invocations"
 weight = 830
 +++
 When calling an object statically use the name, not the number

@@ -1,5 +1,5 @@
 +++
-title = "extending-the-role-center-headlines.md"
+title = "Extending the Role Center Headlines"
 weight = 560
 +++
 _By David Bastide at Microsoft Development Center Copenhagen_

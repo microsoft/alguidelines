@@ -1,5 +1,5 @@
 +++
-title = "silent-file-upload-and-download.md"
+title = "Silent File Upload and Download"
 weight = 1080
 +++
 _By Bogdana Botez, at Microsoft Development Center Copenhagen_

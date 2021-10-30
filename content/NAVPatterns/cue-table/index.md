@@ -1,5 +1,5 @@
 +++
-title = "cue-table.md"
+title = "Cue Table"
 weight = 440
 +++
 ## Cue Table

@@ -1,5 +1,5 @@
 +++
-title = "copy-document.md"
+title = "Copy Document"
 weight = 390
 +++
 _By Bogdan Sturzoiu at Microsoft Development Center Copenhagen_ 

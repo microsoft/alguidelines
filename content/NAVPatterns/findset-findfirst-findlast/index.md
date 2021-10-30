@@ -1,5 +1,5 @@
 +++
-title = "findset-findfirst-findlast.md"
+title = "FINDSET FINDFIRST FINDLAST"
 weight = 600
 +++
 FINDSET, FIND('+') or FIND('-') should only be used when NEXT is used and vice versa.

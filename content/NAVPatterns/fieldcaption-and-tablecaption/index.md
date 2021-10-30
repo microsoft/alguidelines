@@ -1,5 +1,5 @@
 +++
-title = "fieldcaption-and-tablecaption.md"
+title = "FIELDCAPTION and TABLECAPTION"
 weight = 580
 +++
 For user messages, errors etc., use FIELDCAPTION not FIELDNAME and TABLECAPTION not TABLENAME.

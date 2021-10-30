@@ -1,5 +1,5 @@
 +++
-title = "easy-update-of-setup-or-supplementary-information.md"
+title = "Easy Update Of Setup Or Supplementary Information"
 weight = 520
 +++
 _by Anders Larsen at Microsoft Development Center Copenhagen_

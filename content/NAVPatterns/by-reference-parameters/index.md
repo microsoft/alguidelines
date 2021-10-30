@@ -1,5 +1,5 @@
 +++
-title = "by-reference-parameters.md"
+title = "By Reference Parameters.md"
 weight = 280
 +++
 Do not declare parameters by reference if their values are not intended to be changed.

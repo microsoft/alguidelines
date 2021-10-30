@@ -1,5 +1,5 @@
 +++
-title = "journal-error-processing.md"
+title = "Journal Error Processing"
 weight = 710
 +++
 _by Bogdana Botez at Microsoft Development Center Copenhagen_ 

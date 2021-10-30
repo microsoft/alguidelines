@@ -1,5 +1,5 @@
 +++
-title = "multi-file-download.md"
+title = "Multi-file Download"
 weight = 800
 +++
 #### _By Martin Dam at Microsoft Development Center Copenhagen_

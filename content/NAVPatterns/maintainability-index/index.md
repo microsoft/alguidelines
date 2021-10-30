@@ -1,5 +1,5 @@
 +++
-title = "maintainability-index.md"
+title = "Maintainability Index"
 weight = 770
 +++
 [Maintainability Index][anchor0]: Do not write functions that have a very low maintainability index. This makes the code hard to maintain.

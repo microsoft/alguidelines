@@ -1,5 +1,5 @@
 +++
-title = "ux.md"
+title = "UX"
 weight = 1390
 +++
 ## C/AL Coding Guidelines

@@ -1,5 +1,5 @@
 +++
-title = "class-coupling.md"
+title = "Class Coupling"
 weight = 320
 +++
 Do not write functions that have high class coupling. This makes the code hard to maintain.

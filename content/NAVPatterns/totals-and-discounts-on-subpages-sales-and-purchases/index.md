@@ -1,5 +1,5 @@
 +++
-title = "totals-and-discounts-on-subpages-sales-and-purchases.md"
+title = "Totals and Discounts on Subpages Sales and Purchases"
 weight = 1220
 +++
 _By Nikola Kukrika at Microsoft Development Center Copenhagen_

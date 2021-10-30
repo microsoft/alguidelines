@@ -1,5 +1,5 @@
 +++
-title = "unused-variables.md"
+title = "Unused Variables"
 weight = 1330
 +++
 Do not declare variables that are unused.

@@ -1,5 +1,5 @@
 +++
-title = "spacing-binary-operators.md"
+title = "Spacing Binary Operators"
 weight = 1120
 +++
 There must be exactly one space character on each side of a binary operator such as = + - AND OR =. The parameter comma operator however, should have no spaces.

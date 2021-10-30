@@ -1,5 +1,5 @@
 +++
-title = "suggested-abbreviations.md"
+title = "Suggested Abbreviations"
 weight = 1170
 +++
 ### Suggested Abbreviations

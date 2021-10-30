@@ -1,5 +1,5 @@
 +++
-title = "localizability.md"
+title = "Localizability"
 weight = 750
 +++
 ## C/AL Coding Guidelines

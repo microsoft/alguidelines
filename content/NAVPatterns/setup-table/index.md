@@ -1,5 +1,5 @@
 +++
-title = "setup-table.md"
+title = "Setup Table"
 weight = 1070
 +++
 ## Setup Table

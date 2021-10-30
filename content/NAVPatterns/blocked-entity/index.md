@@ -1,5 +1,5 @@
 +++
-title = "blocked-entity.md"
+title = "Blocked Entity.md"
 weight = 270
 +++
 _by Abhishek Ghosh at Microsoft Development Center Copenhagen_ 

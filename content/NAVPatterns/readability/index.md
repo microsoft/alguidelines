@@ -1,5 +1,5 @@
 +++
-title = "readability.md"
+title = "Readability"
 weight = 980
 +++
 ## C/AL Coding Guidelines

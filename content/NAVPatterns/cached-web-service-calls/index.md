@@ -1,5 +1,5 @@
 +++
-title = "cached-web-service-calls.md"
+title = "Cached Web Server Calls.md"
 weight = 290
 +++
 _by Mostafa Balat, Microsoft Development Center Copenhagen_

@@ -1,5 +1,5 @@
 +++
-title = "design.md"
+title = "Design"
 weight = 490
 +++
 ## C/AL Coding Guidelines

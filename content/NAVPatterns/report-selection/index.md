@@ -1,5 +1,5 @@
 +++
-title = "report-selection.md"
+title = "Report Selection"
 weight = 1010
 +++
 From the PRS workshop at NAVTechDays 2013, this pattern was written by 2 work groups

@@ -1,5 +1,5 @@
 +++
-title = "cross-session-events.md"
+title = "Cross Session Events"
 weight = 430
 +++
 #### _By Nikolai L'Estrange, from TVision Technology Ltd. in the UK__  

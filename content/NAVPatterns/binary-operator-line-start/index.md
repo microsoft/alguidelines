@@ -1,5 +1,5 @@
 +++
-title = "binary-operator-line-start.md"
+title = "Binary Operator to Start Line"
 weight = 250
 +++
 Do not start a line with a binary operator. Bad code

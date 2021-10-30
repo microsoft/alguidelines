@@ -1,5 +1,5 @@
 +++
-title = "setup-specificity-fallback.md"
+title = "Setup Specificity Fallback"
 weight = 1060
 +++
 _By Jan Hoek at IDYN_
