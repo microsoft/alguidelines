@@ -1,4 +1,5 @@
 +++
+chapter = true
 title = "3-cal-coding-guidelines.md"
 weight = 150
 +++

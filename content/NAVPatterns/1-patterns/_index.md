@@ -1,4 +1,5 @@
 +++
+chapter = true
 title = "1-patterns.md"
 weight = 110
 +++
