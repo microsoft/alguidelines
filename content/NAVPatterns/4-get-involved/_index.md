@@ -1,8 +1,12 @@
 +++
 chapter = true
-title = "4-get-involved.md"
+title = "(OLD) Get Involved"
 weight = 170
 +++
+
+**Reminder, this is an ARCHIVE of the Patterns site, this information is not current.**
+---
+
 **Spread the info**
 
 NAV Design Patterns are excellent materials for training and knowledge transfer. In your company, you can help new developer get to speed with NAV by recommending them to read and then present to the team one of the most common patterns: [No. Series][anchor0], [Setup Table][anchor1] and definitely [Hooks ][anchor2]which will be a great investment in reducing your upgrade time. The more experienced developers can read directly the newer patterns, like [Surrogate Key][anchor3], [Easy Update][anchor4], [Totals on Subpages][anchor5], [Using Queries instead of nested loops][anchor6] etc.

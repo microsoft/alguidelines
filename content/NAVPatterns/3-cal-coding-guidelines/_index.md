@@ -1,6 +1,6 @@
 +++
 chapter = true
-title = "3-cal-coding-guidelines.md"
+title = "3. CAL Coding Guidelines"
 weight = 150
 +++
 We've decided to publish our current C/AL coding guidelines. They are actual, as per January 2015 when this is published (but might fall out of sync as time goes by). 

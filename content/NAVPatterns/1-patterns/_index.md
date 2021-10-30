@@ -1,6 +1,6 @@
 +++
 chapter = true
-title = "1-patterns.md"
+title = "1. Patterns"
 weight = 110
 +++
 ## Browse design patterns by tags
