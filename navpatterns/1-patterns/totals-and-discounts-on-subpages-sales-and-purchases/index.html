@@ -1,0 +1,352 @@
+<!doctype html><html lang=en class="js csstransforms3d">
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=generator content="Hugo 0.89.0">
+<meta name=description content>
+<title>Totals and Discounts on Subpages Sales and Purchases :: BC AL Help</title>
+<link href=/bcalhelp/css/nucleus.css?1636061748 rel=stylesheet>
+<link href=/bcalhelp/css/fontawesome-all.min.css?1636061748 rel=stylesheet>
+<link href=/bcalhelp/css/featherlight.min.css?1636061748 rel=stylesheet>
+<link href=/bcalhelp/css/perfect-scrollbar.min.css?1636061748 rel=stylesheet>
+<link href=/bcalhelp/css/auto-complete.css?1636061748 rel=stylesheet>
+<link href=/bcalhelp/css/theme.css?1636061748 rel=stylesheet>
+<link href=/bcalhelp/css/theme-blue.css?1636061748 rel=stylesheet>
+<link href=/bcalhelp/css/variant.css?1636061748 rel=stylesheet>
+<link href=/bcalhelp/css/print.css?1636061748 rel=stylesheet media=print>
+<script src=/bcalhelp/js/jquery.min.js?1636061748></script>
+<style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
+</head>
+<body data-url=/bcalhelp/navpatterns/1-patterns/totals-and-discounts-on-subpages-sales-and-purchases/>
+<script>var index_url="/bcalhelp/index.json",root_url="/",baseUri=root_url.replace(/\/$/,'')</script>
+<nav id=sidebar>
+<div id=header-wrapper>
+<div id=header>
+<a id=logo href=/bcalhelp/ style="color:#f5f5f5;font-family:novacento sans wide,helvetica,tahoma,geneva,arial,sans-serif;font-size:30px;font-weight:700;margin-top:-2px">
+BC AL Help . dev
+</a>
+<i style=color:#f5f5f5>Code is Poetry</i>
+</div>
+<div class=searchbox>
+<label for=search-by><i class="fas fa-search"></i></label>
+<input data-search-input id=search-by type=search placeholder=Search...>
+<span data-search-clear><i class="fas fa-times"></i></span>
+</div>
+<script src=/bcalhelp/js/lunr.min.js?1636061748></script>
+<script src=/bcalhelp/js/auto-complete.js?1636061748></script>
+<script src=/bcalhelp/js/search.js?1636061748></script>
+</div>
+<div class=highlightable>
+<ul class=topics>
+<li data-nav-id=/bcalhelp/welcome/ title=Welcome class=dd-item><a href=/bcalhelp/welcome/><b><i class="fas fa-home"></i> </b>Welcome</a><ul></ul></li>
+<li data-nav-id=/bcalhelp/bcpatterns/ title="BC Patterns" class=dd-item><a href=/bcalhelp/bcpatterns/><b><i class="fas fa-clone"></i> </b>BC Patterns</a><ul></ul></li>
+<li data-nav-id=/bcalhelp/bcbestpractices/ title="BC Dev. Best Practices" class=dd-item><a href=/bcalhelp/bcbestpractices/><b><i class="fas fa-medal"></i> </b>BC Dev. Best Practices</a><ul></ul></li>
+<li data-nav-id=/bcalhelp/navpatterns/ title="NAV Patterns Archive" class="dd-item parent"><a href=/bcalhelp/navpatterns/><b><i class="fas fa-save"></i> </b>NAV Patterns Archive</a><ul>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/ title="1. Patterns" class="dd-item parent"><a href=/bcalhelp/navpatterns/1-patterns/>1. Patterns</a><ul>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/activity-log/ title="Activity Logs" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/activity-log/>Activity Logs</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/argument-table/ title="Argument Table" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/argument-table/>Argument Table</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/blocked-entity/ title="Blocked Entity" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/blocked-entity/>Blocked Entity</a><ul>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/blocked-entity/data-driven-blocked-entity/ title="Data Driven Blocked Entity" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/blocked-entity/data-driven-blocked-entity/>Data Driven Blocked Entity</a></li></ul></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/cached-web-service-calls/ title="Cached Web Server Calls" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/cached-web-service-calls/>Cached Web Server Calls</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/conditional-cascading-update/ title="Conditional Cascading Update" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/conditional-cascading-update/>Conditional Cascading Update</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/copy-document/ title="Copy Document" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/copy-document/>Copy Document</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/create-data-from-templates/ title="Create Data from Templates" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/create-data-from-templates/>Create Data from Templates</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/create-urls-to-nav-clients/ title="Create URLs to NAV Clients" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/create-urls-to-nav-clients/>Create URLs to NAV Clients</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/creating-custom-charts/ title="Creating Custom Charts" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/creating-custom-charts/>Creating Custom Charts</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/cross-session-events/ title="Cross Session Events" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/cross-session-events/>Cross Session Events</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/currently-active-record/ title="Currently Active Record" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/currently-active-record/>Currently Active Record</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/data-migration-facade/ title="Data Migration Facade" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/data-migration-facade/>Data Migration Facade</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/discovery-event/ title="Discovery Event" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/discovery-event/>Discovery Event</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/document/ title=Document class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/document/>Document</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/easy-update-of-setup-or-supplementary-information/ title="Easy Update Of Setup Or Supplementary Information" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/easy-update-of-setup-or-supplementary-information/>Easy Update Of Setup Or Supplementary Information</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/error-message-processing/ title="Error Message Processing" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/error-message-processing/>Error Message Processing</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/extending-the-role-center-headlines/ title="Extending the Role Center Headlines" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/extending-the-role-center-headlines/>Extending the Role Center Headlines</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/feature-localization-for-data-structures/ title="Feature Localization For Data Structures" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/feature-localization-for-data-structures/>Feature Localization For Data Structures</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/hooks/ title=Hooks class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/hooks/>Hooks</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/implementation-of-surrogate-keys-using-autoincrement-pattern/ title="Surrogate keys using Autoincrement Pattern" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/implementation-of-surrogate-keys-using-autoincrement-pattern/>Surrogate keys using Autoincrement Pattern</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/instructions-in-the-ui/ title="Instructions in the UI" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/instructions-in-the-ui/>Instructions in the UI</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/integration-of-addresses/ title="Integration of Addresses" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/integration-of-addresses/>Integration of Addresses</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/journal-error-processing/ title="Journal Error Processing" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/journal-error-processing/>Journal Error Processing</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/journal-template-batch-line/ title="Journal Template Batch Line" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/journal-template-batch-line/>Journal Template Batch Line</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/master-data/ title="Master Data" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/master-data/>Master Data</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/multi-file-download/ title="Multi-file Download" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/multi-file-download/>Multi-file Download</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/multi-page-list/ title="Multi-Page List" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/multi-page-list/>Multi-Page List</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/multilanguage-application-data/ title="Multilanguage Application Data" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/multilanguage-application-data/>Multilanguage Application Data</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/net-exception-handling-in-cal/ title="NET Exception Handling in CAL" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/net-exception-handling-in-cal/>NET Exception Handling in CAL</a><ul>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/net-exception-handling-in-cal/tryfunction-net-exception-handling-in-cal/ title="TryFunction NET Exception Handling in CAL" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/net-exception-handling-in-cal/tryfunction-net-exception-handling-in-cal/>TryFunction NET Exception Handling in CAL</a></li></ul></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/no-series/ title="No Series" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/no-series/>No Series</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/notifications/ title=Notifications class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/notifications/>Notifications</a><ul>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/notifications/in-context-notifications/ title="In-context Notifications" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/notifications/in-context-notifications/>In-context Notifications</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/notifications/notification-lifecycle-management-pattern/ title="Notification Lifecycle Management Pattern" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/notifications/notification-lifecycle-management-pattern/>Notification Lifecycle Management Pattern</a></li></ul></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/observer/ title=Observer class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/observer/>Observer</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/posting-routine-select-behavior/ title="Posting Routine - Select Behavior" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/posting-routine-select-behavior/>Posting Routine - Select Behavior</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/product-name/ title="Product Name" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/product-name/>Product Name</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/queries/ title=Queries class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/queries/>Queries</a><ul>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/queries/select-distinct-with-queries/ title="SELECT DISTINCT with Queries" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/queries/select-distinct-with-queries/>SELECT DISTINCT with Queries</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/queries/use-queries-to-detect-duplicate-records/ title="use Queries to Detect Duplicate Records" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/queries/use-queries-to-detect-duplicate-records/>use Queries to Detect Duplicate Records</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/queries/use-queries-to-replace-nested-loops/ title="Use Queries to Replace Nested Loops" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/queries/use-queries-to-replace-nested-loops/>Use Queries to Replace Nested Loops</a></li></ul></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/read-once-initialization-and-validation/ title="Read-once Initialization and Validation" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/read-once-initialization-and-validation/>Read-once Initialization and Validation</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/released-entity/ title="Released Entity" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/released-entity/>Released Entity</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/report-selection/ title="Report Selection" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/report-selection/>Report Selection</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/security/ title=Security class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/security/>Security</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/setup-specificity-fallback/ title="Setup Specificity Fallback" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/setup-specificity-fallback/>Setup Specificity Fallback</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/silent-file-upload-and-download/ title="Silent File Upload and Download" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/silent-file-upload-and-download/>Silent File Upload and Download</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/singleton/ title=Singleton class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/singleton/>Singleton</a><ul>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/singleton/singleton-codeunit/ title="Singleton Codeunit" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/singleton/singleton-codeunit/>Singleton Codeunit</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/singleton/singleton-table/ title="Singleton Table" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/singleton/singleton-table/>Singleton Table</a><ul>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/singleton/singleton-table/cue-table/ title="Cue Table" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/singleton/singleton-table/cue-table/>Cue Table</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/singleton/singleton-table/setup-table/ title="Setup Table" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/singleton/singleton-table/setup-table/>Setup Table</a></li></ul></li></ul></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/standard-journal/ title="Standard Journal" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/standard-journal/>Standard Journal</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/temporary-dataset-report/ title="Temporary Dataset Report" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/temporary-dataset-report/>Temporary Dataset Report</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/totals-and-discounts-on-subpages-sales-and-purchases/ title="Totals and Discounts on Subpages Sales and Purchases" class="dd-item active"><a href=/bcalhelp/navpatterns/1-patterns/totals-and-discounts-on-subpages-sales-and-purchases/>Totals and Discounts on Subpages Sales and Purchases</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/transfer-custom-fields/ title="Transfer Custom Fields" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/transfer-custom-fields/>Transfer Custom Fields</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/1-patterns/variant-facade/ title="Variant Facade" class=dd-item><a href=/bcalhelp/navpatterns/1-patterns/variant-facade/>Variant Facade</a></li></ul></li>
+<li data-nav-id=/bcalhelp/navpatterns/2-anti-patterns/ title="2. Anti-Patterns" class=dd-item><a href=/bcalhelp/navpatterns/2-anti-patterns/>2. Anti-Patterns</a><ul>
+<li data-nav-id=/bcalhelp/navpatterns/2-anti-patterns/nav-upgrade/ title="Nav Upgrade" class=dd-item><a href=/bcalhelp/navpatterns/2-anti-patterns/nav-upgrade/>Nav Upgrade</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/2-anti-patterns/reusable-bugs/ title="Reusable Bugs" class=dd-item><a href=/bcalhelp/navpatterns/2-anti-patterns/reusable-bugs/>Reusable Bugs</a></li></ul></li>
+<li data-nav-id=/bcalhelp/navpatterns/3-cal-coding-guidelines/ title="3. CAL Coding Guidelines" class=dd-item><a href=/bcalhelp/navpatterns/3-cal-coding-guidelines/>3. CAL Coding Guidelines</a><ul>
+<li data-nav-id=/bcalhelp/navpatterns/3-cal-coding-guidelines/design/ title=Design class=dd-item><a href=/bcalhelp/navpatterns/3-cal-coding-guidelines/design/>Design</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/3-cal-coding-guidelines/internally-used-dot-net-types/ title="Internally-used DotNet Types" class=dd-item><a href=/bcalhelp/navpatterns/3-cal-coding-guidelines/internally-used-dot-net-types/>Internally-used DotNet Types</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/3-cal-coding-guidelines/internationalization/ title=Internationalization class=dd-item><a href=/bcalhelp/navpatterns/3-cal-coding-guidelines/internationalization/>Internationalization</a><ul>
+<li data-nav-id=/bcalhelp/navpatterns/3-cal-coding-guidelines/internationalization/using-calcdate/ title="Using Calcdate" class=dd-item><a href=/bcalhelp/navpatterns/3-cal-coding-guidelines/internationalization/using-calcdate/>Using Calcdate</a></li></ul></li>
+<li data-nav-id=/bcalhelp/navpatterns/3-cal-coding-guidelines/localizability/ title=Localizability class=dd-item><a href=/bcalhelp/navpatterns/3-cal-coding-guidelines/localizability/>Localizability</a><ul>
+<li data-nav-id=/bcalhelp/navpatterns/3-cal-coding-guidelines/localizability/captionml-for-system-tables/ title="CaptionML on System Pages" class=dd-item><a href=/bcalhelp/navpatterns/3-cal-coding-guidelines/localizability/captionml-for-system-tables/>CaptionML on System Pages</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/3-cal-coding-guidelines/localizability/fieldcaption-and-tablecaption/ title="FIELDCAPTION and TABLECAPTION" class=dd-item><a href=/bcalhelp/navpatterns/3-cal-coding-guidelines/localizability/fieldcaption-and-tablecaption/>FIELDCAPTION and TABLECAPTION</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/3-cal-coding-guidelines/localizability/global-text-constants/ title="Global Text Constants" class=dd-item><a href=/bcalhelp/navpatterns/3-cal-coding-guidelines/localizability/global-text-constants/>Global Text Constants</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/3-cal-coding-guidelines/localizability/use-text-constants/ title="Use Text Constants" class=dd-item><a href=/bcalhelp/navpatterns/3-cal-coding-guidelines/localizability/use-text-constants/>Use Text Constants</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/3-cal-coding-guidelines/localizability/using-optioncaptionml/ title="Using OptionCaptionML" class=dd-item><a href=/bcalhelp/navpatterns/3-cal-coding-guidelines/localizability/using-optioncaptionml/>Using OptionCaptionML</a></li></ul></li>
+<li data-nav-id=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/ title=Readability class=dd-item><a href=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/>Readability</a><ul>
+<li data-nav-id=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/begin-as-an-afterword/ title="Begin as an 'After Word'" class=dd-item><a href=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/begin-as-an-afterword/>Begin as an 'After Word'</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/begin-end/ title="Begin-End - Compound Only" class=dd-item><a href=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/begin-end/>Begin-End - Compound Only</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/binary-operator-line-start/ title="Binary Operator to Start Line" class=dd-item><a href=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/binary-operator-line-start/>Binary Operator to Start Line</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/blank-lines/ title="Blank Lines.md" class=dd-item><a href=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/blank-lines/>Blank Lines.md</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/case-actions/ title="CASE Action" class=dd-item><a href=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/case-actions/>CASE Action</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/colon-usage-in-case/ title="Colon usage in CASE" class=dd-item><a href=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/colon-usage-in-case/>Colon usage in CASE</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/comments-curly-brackets/ title="Comments inside Curly Brackets" class=dd-item><a href=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/comments-curly-brackets/>Comments inside Curly Brackets</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/comments-spacing/ title="Comment Spacing" class=dd-item><a href=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/comments-spacing/>Comment Spacing</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/end-else-pair/ title="END ELSE Pair" class=dd-item><a href=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/end-else-pair/>END ELSE Pair</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/indentation/ title=Indentation class=dd-item><a href=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/indentation/>Indentation</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/keyword-pairs-indentation/ title="Keyword Pairs - Indentation" class=dd-item><a href=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/keyword-pairs-indentation/>Keyword Pairs - Indentation</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/line-start-keywords/ title="Line Start Keywords" class=dd-item><a href=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/line-start-keywords/>Line Start Keywords</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/lonely-repeat/ title="Lonely Repeat" class=dd-item><a href=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/lonely-repeat/>Lonely Repeat</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/named-invocations/ title="Named Invocations" class=dd-item><a href=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/named-invocations/>Named Invocations</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/nested-withs/ title="Nested WITHs" class=dd-item><a href=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/nested-withs/>Nested WITHs</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/one-statement-per-line/ title="One Statement Per Line" class=dd-item><a href=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/one-statement-per-line/>One Statement Per Line</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/separate-if-and-else/ title="Separate IF and ELSE" class=dd-item><a href=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/separate-if-and-else/>Separate IF and ELSE</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/spacing-binary-operators/ title="Spacing Binary Operators" class=dd-item><a href=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/spacing-binary-operators/>Spacing Binary Operators</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/spacing-brackets-and/ title="Spacing Brackets and ::" class=dd-item><a href=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/spacing-brackets-and/>Spacing Brackets and ::</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/spacing-unary-operators/ title="Spacing Unary Operators" class=dd-item><a href=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/spacing-unary-operators/>Spacing Unary Operators</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/suggested-abbreviations/ title="Suggested Abbreviations" class=dd-item><a href=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/suggested-abbreviations/>Suggested Abbreviations</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/temporary-variable-naming/ title="Temporary Variable Naming" class=dd-item><a href=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/temporary-variable-naming/>Temporary Variable Naming</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/textconst-suffixes/ title="TextConst Suffixes" class=dd-item><a href=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/textconst-suffixes/>TextConst Suffixes</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/unary-operator-line-end/ title="Unary Operator Line End" class=dd-item><a href=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/unary-operator-line-end/>Unary Operator Line End</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/unnecessary-compound-parenthesis/ title="Unnecessary Compound Parenthesis" class=dd-item><a href=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/unnecessary-compound-parenthesis/>Unnecessary Compound Parenthesis</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/unnecessary-else/ title="Unnecessary ELSE" class=dd-item><a href=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/unnecessary-else/>Unnecessary ELSE</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/unnecessary-function-parenthesis/ title="Unnecessary Function Parenthesis" class=dd-item><a href=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/unnecessary-function-parenthesis/>Unnecessary Function Parenthesis</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/unnecessary-separators/ title="Unnecessary Separators" class=dd-item><a href=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/unnecessary-separators/>Unnecessary Separators</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/unnecessary-truefalse/ title="Unnecessary TRUE/FALSE" class=dd-item><a href=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/unnecessary-truefalse/>Unnecessary TRUE/FALSE</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/variable-already-scoped/ title="Variable Already Scoped" class=dd-item><a href=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/variable-already-scoped/>Variable Already Scoped</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/variable-naming/ title="Variable Naming" class=dd-item><a href=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/variable-naming/>Variable Naming</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/variables-declarations-order/ title="Variables Declarations Order" class=dd-item><a href=/bcalhelp/navpatterns/3-cal-coding-guidelines/readability/variables-declarations-order/>Variables Declarations Order</a></li></ul></li>
+<li data-nav-id=/bcalhelp/navpatterns/3-cal-coding-guidelines/ux/ title=UX class=dd-item><a href=/bcalhelp/navpatterns/3-cal-coding-guidelines/ux/>UX</a><ul>
+<li data-nav-id=/bcalhelp/navpatterns/3-cal-coding-guidelines/ux/actions-images/ title="Actions - Images" class=dd-item><a href=/bcalhelp/navpatterns/3-cal-coding-guidelines/ux/actions-images/>Actions - Images</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/3-cal-coding-guidelines/ux/confirm/ title=CONFIRM class=dd-item><a href=/bcalhelp/navpatterns/3-cal-coding-guidelines/ux/confirm/>CONFIRM</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/3-cal-coding-guidelines/ux/fielderror/ title=FIELDERROR class=dd-item><a href=/bcalhelp/navpatterns/3-cal-coding-guidelines/ux/fielderror/>FIELDERROR</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/3-cal-coding-guidelines/ux/message-and-error/ title="MESSAGE and ERROR" class=dd-item><a href=/bcalhelp/navpatterns/3-cal-coding-guidelines/ux/message-and-error/>MESSAGE and ERROR</a></li></ul></li></ul></li>
+<li data-nav-id=/bcalhelp/navpatterns/4-get-involved/ title="(OLD) Get Involved" class=dd-item><a href=/bcalhelp/navpatterns/4-get-involved/>(OLD) Get Involved</a><ul>
+<li data-nav-id=/bcalhelp/navpatterns/4-get-involved/code-of-conduct/ title="Code of Conduct" class=dd-item><a href=/bcalhelp/navpatterns/4-get-involved/code-of-conduct/>Code of Conduct</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/4-get-involved/patterns-authors/ title="Patterns Authors" class=dd-item><a href=/bcalhelp/navpatterns/4-get-involved/patterns-authors/>Patterns Authors</a></li>
+<li data-nav-id=/bcalhelp/navpatterns/4-get-involved/template-for-writing-nav-design-patterns/ title="Template for writing Nav Design Patterns" class=dd-item><a href=/bcalhelp/navpatterns/4-get-involved/template-for-writing-nav-design-patterns/>Template for writing Nav Design Patterns</a></li></ul></li>
+<li data-nav-id=/bcalhelp/navpatterns/related-links/ title="Related Links" class=dd-item><a href=/bcalhelp/navpatterns/related-links/>Related Links</a></li></ul></li>
+</ul>
+<div id=shortcuts>
+<div class=nav-title>More</div>
+<ul>
+<li><a class=padding href=https://discord.gg/4wbfNv3><i class="fab fa-discord"></i> BC Discord</a></li>
+<li><a class=padding href=https://github.com/microsoft/bcalhelp><i class="fab fa-github"></i> GitHub repo</a></li>
+</ul>
+</div>
+<div id=footer>
+<p>Built with <a href=https://github.com/McShelby/hugo-theme-relearn><i class="fas fa-heart"></i></a> by <a href=https://gohugo.io/>Hugo</a></p>
+</div>
+</div>
+</nav>
+<div id=body>
+<div id=overlay></div>
+<div class="padding highlightable">
+<div id=top-bar>
+<div id=top-github-link>
+<a class=github-link title="Edit this page" href=https://github.com/microsoft/bcalhelp/edit/main/content/NAVPatterns/1-patterns/totals-and-discounts-on-subpages-sales-and-purchases/index.md target=blank>
+<i class="fas fa-code-branch"></i>
+<span id=top-github-link-text>Edit this page</span>
+</a>
+</div>
+<div id=breadcrumbs>
+<span id=sidebar-toggle-span>
+<a href=# id=sidebar-toggle data-sidebar-toggle>
+<i class="fas fa-bars"></i>
+</a>
+</span>
+<span id=toc-menu><i class="fas fa-list-alt"></i></span>
+<ol class=links itemscope itemtype=http://schema.org/BreadcrumbList>
+<meta itemprop=itemListOrder content="Descending">
+<li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="4"><a itemprop=item href=/bcalhelp/><span itemprop=name>Home</span></a> > </li>
+<li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3"><a itemprop=item href=/bcalhelp/navpatterns/><span itemprop=name>NAV Patterns Archive</span></a> > </li>
+<li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="2"><a itemprop=item href=/bcalhelp/navpatterns/1-patterns/><span itemprop=name>1. Patterns</span></a> > </li>
+<li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="1"><a itemprop=item href=/bcalhelp/navpatterns/1-patterns/totals-and-discounts-on-subpages-sales-and-purchases/ aria-disabled=true><span itemprop=name>Totals and Discounts on Subpages Sales and Purchases</span></a></li>
+</ol>
+</div>
+<div class=progress>
+<div class=wrapper>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#abstract>Abstract</a></li>
+<li><a href=#description>Description</a></li>
+<li><a href=#usages>Usages</a>
+<ul>
+<li><a href=#flags-that-totals-are-not-updated>Flags That Totals Are Not Updated</a></li>
+<li><a href=#total-calculation-and-update-logic>Total Calculation and Update Logic</a></li>
+<li><a href=#ui-related-updates>UI-Related Updates</a></li>
+<li><a href=#update-controls>Update Controls</a></li>
+<li><a href=#ui----presentation-layer>UI &ndash; Presentation Layer:</a></li>
+<li><a href=#ui----manual-totals-update>UI &ndash; Manual Totals Update</a></li>
+</ul>
+</li>
+<li><a href=#nav-usages>NAV Usages</a></li>
+<li><a href=#ideas-for-improvement>Ideas for Improvement</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div id=head-tags>
+</div>
+<main id=body-inner>
+<h1>Totals and Discounts on Subpages Sales and Purchases</h1>
+<p><em>By Nikola Kukrika at Microsoft Development Center Copenhagen</em></p>
+<h2 id=abstract>Abstract</h2>
+<p>To increase discoverability and productivity, critical information, such as statistics, can be moved from separate pages onto the document where it is needed.</p>
+<p>For example, documents should clearly display totals and discounts information to provide quick overview, make it easy to relate the amounts to the document currency, and to allow the user to see and apply discounts directly on the document.</p>
+<h2 id=description>Description</h2>
+<p>Before Microsoft Dynamics NAV 2015, totals and discount information was scattered between the document and the Statistics page, which made it less discover-able and less usable for new users. It was difficult to see the discount amounts, relate the amounts to the currency of the invoice, and it was not-intuitive that you had to update the Statistics page to see updates on the document. In addition, the result of the update was not visible on the main document, which added to the confusion.</p>
+<p>Totals and discount information logically belongs on the document, as is the case on many competitor products.</p>
+<p>The Statistics page contains too much information for most common scenarios, and only a part of the information is visible on the related document. See the following example for sales order statistics.</p>
+<p><a href=4300.Fig-1.jpg><img src=4300.Fig-1.jpg alt=" "></a></p>
+<p>With the pattern implemented, selected statistics fields are placed on the sales order, as in the following example.</p>
+<p><a href=Fig-2.jpg><img src=Fig-2.jpg alt=" "></a></p>
+<p>This new layout gives precise and complete information about totals and discounts, with discounts on the left side and totals on the right side. The currency is clearly shown, and the layout resembles a printed document. The values are always updated (with some exceptions that are explained in the next following sections), and the user can apply a discount directly on the document.</p>
+<p>Options considered when deciding on the layout:</p>
+<ul>
+<li>A new FactBox</li>
+<li>A new FastTab</li>
+<li>On the Lines subpage</li>
+</ul>
+<p>The Lines subpage option was chosen because:</p>
+<ul>
+<li>Can be made with cleaner code</li>
+<li>Is always visible, not collapsible, as opposed to FactBox and FastTab options</li>
+<li>Less chrome in the UI</li>
+</ul>
+<h2 id=usages>Usages</h2>
+<p>Concerning update of totals and discounts, the following were considered:</p>
+<ul>
+<li>All code should be in one place</li>
+<li>Existing VAT, invoice discount calculation, etc. should be reused and not re-implemented.</li>
+<li>The presentation layer should be separated from the logic.</li>
+<li>Presentation layer should have simple (one liner) calls to the logic</li>
+<li>System responsiveness should not be significantly affected</li>
+<li>Totals and discounts should be updated &ldquo;on-the-fly&rdquo; on any change that affects amounts</li>
+</ul>
+<p>The following artifacts were implemented to achieve the desired functionality.</p>
+<h3 id=flags-that-totals-are-not-updated>Flags That Totals Are Not Updated</h3>
+<p>In order to always update the totals, the system must have a way to mark that a specific change should trigger a recalculation of the totals. To achieve this, the following was implemented.</p>
+<ul>
+<li>On the lines:
+<ul>
+<li>A new field, Recalculate Invoice Discount, was added and set to FALSE by default.</li>
+</ul>
+</li>
+</ul>
+<p>The _UpdateAmounts_function sets the new field to TRUE for any execution. This function was chosen as it is a central entry point for any amount-related change.</p>
+<p><a href=Fig-3.jpg><img src=Fig-3.jpg alt=" "></a></p>
+<ul>
+<li>On the header:
+<ul>
+<li>A new FlowField, Recalculate Invoice Discount was added. This field is TRUE if at least one line (that relates to the header) has been marked as &ldquo;dirty&rdquo;, meaning that totals must be recalculated.</li>
+</ul>
+</li>
+</ul>
+<p><a href=6305.Fig-4.jpg><img src=6305.Fig-4.jpg alt=" "></a></p>
+<p>Update diagram</p>
+<p><a href=Fig-5.jpg><img src=Fig-5.jpg alt=" "></a></p>
+<h3 id=total-calculation-and-update-logic>Total Calculation and Update Logic</h3>
+<p>The following new codeunits were added:</p>
+<ul>
+<li>COD56 and COD66 (one for sales and one for purchase) are responsible for the &ldquo;heavy&rdquo; tasks of calculating/applying totals and discounts by calling into existing code, similarly to how the Statistics page works.</li>
+<li>After recalculation, the flag field is reset on all the lines related to a specific header.</li>
+<li>These calculations, in the existing implementation, are triggered ONLY in case of UI scenarios. Non-UI scenarios are not affected.</li>
+</ul>
+<p><strong>Note:</strong> In case of web-service implementations that do not use the existing pages, the total calculation and the invoice discount logic should be called specifically to display similar functionality.</p>
+<h3 id=ui-related-updates>UI-Related Updates</h3>
+<p>A new CU, COD57 has been added and it contains the logic used to update the fields that will, in the end, be displayed in the UI. Decision was to merge both the sales and purchase functionality into one place.</p>
+<h3 id=update-controls>Update Controls</h3>
+<p>The pattern is applied to both non-posted documents (orders, invoices, etc.) and posted documents (posted Invoice, etc.). Because the posted document is a document that does not change, the implementation is simplified as follows.</p>
+<h4 id=subpage---non-posted-documents>Subpage - Non-posted documents</h4>
+<p>The <em>OnAfterGetCurrRecord</em> function call is responsible for updating the totals- and discount-related controls.</p>
+<p>To avoid duplicating lots of code in many places, a single function with more parameters &ldquo;pattern&rdquo; was chosen. The function returns all the controls updated in a single call, as follows.</p>
+<p><a href=Fig-6.jpg><img src=Fig-6.jpg alt=" "></a></p>
+<p>Manual invoice discount. One function call when applying a manual invoice discount, as follows.</p>
+<p><a href=Fig-7.jpg><img src=Fig-7.jpg alt=" "></a></p>
+<p><strong>Note:</strong> After applying the manual discount, the lines should be refreshed as they will be changed in batch mode.</p>
+<p>The following &ldquo;decorators&rdquo; were added to recalculate amounts on the fly:</p>
+<ul>
+<li>Totals should always be updated as soon as the user leaves the field.</li>
+</ul>
+<p>Code should be added to the validate triggers of the controls that are changing the amounts in order to refresh the total controls.<a href=Fig-8.jpg><img src=Fig-8.jpg alt=" "></a></p>
+<p><strong>Note:</strong> Amounts will not always be up to date because of the following:</p>
+<ul>
+<li>Performance. The update must be triggered manually if the number of lines is above 100. (100 was chosen because performance measurements have demonstrated that with more than 100 lines, the performance was worse than 0.5-1s in update time.)</li>
+<li>Missed/customized triggers or header changes - cannot trigger lines update from header. Likewise, lines cannot trigger the header to update.</li>
+<li>In the above cases, a link next to the totals will be displayed informing user that totals/discounts might not be updated and they can be updated by selecting the link</li>
+</ul>
+<h4 id=subpage----posted-documents>Subpage &ndash; Posted Documents</h4>
+<p>Only the _OnAfterGetCurrRecord _function will have code because posted documents cannot be changed. Therefore, totals do not need to be updated.</p>
+<p><a href=Fig-9.jpg><img src=Fig-9.jpg alt=" "></a></p>
+<h3 id=ui----presentation-layer>UI &ndash; Presentation Layer:</h3>
+<p>After Platform added support for this specific case, the layout is very simple, as follows.</p>
+<p><a href=Fig-10.jpg><img src=Fig-10.jpg alt=" "></a></p>
+<p>This will produce the layout we wanted:</p>
+<p><a href=/cfs-file.ashx/__key/communityserver-wikis-components-files/00-00-00-00-42/Fig-11.jpg><img src=/resized-image.ashx/__size/550x0/__key/communityserver-wikis-components-files/00-00-00-00-42/Fig-11.jpg alt=" "></a></p>
+<h3 id=ui----manual-totals-update>UI &ndash; Manual Totals Update</h3>
+<p>As mentioned before, there are cases when the user is informed that totals/discounts might not be up to date and that it should select a link in order to get the updated values.</p>
+<p>The link is part of the sub-part where totals and discounts are added. The visibility is controlled by actually controlling the text (message, or empty), because Platform does not support making only one visible/invisible (it must be a group). When the link is displayed, the styling is also changed for the total/discount controls, and the values are set to 0.</p>
+<p><a href=/cfs-file.ashx/__key/communityserver-wikis-components-files/00-00-00-00-42/Fig-12.jpg><img src=/resized-image.ashx/__size/550x0/__key/communityserver-wikis-components-files/00-00-00-00-42/Fig-12.jpg alt=" "></a></p>
+<h2 id=nav-usages>NAV Usages</h2>
+<p>We have implemented these scenarios for sales and purchase documents (order, invoice, quote, credit memos, return orders, including posted documents). Note that the implementation in NAV 2015 is a bit different than the one in NAV 2014 C5 objects (1300 range). It was decided not to merge the two implementations, among other reasons because the NAV 2014 C5 implementation does not fit the full application.</p>
+<p>The pattern can easily be extended to new sales and purchase documents. If the pattern is followed, it can also be extended to other types of documents, such as in services, jobs, etc.</p>
+<hr>
+<p><strong>Note:</strong> This new pattern is not implemented in the North America and India versions. This is due to special local features in the two versions regions and the multitude of sales tax/vat options that would make the solution non-user friendly and not optimized for performance.</p>
+<h2 id=ideas-for-improvement>Ideas for Improvement</h2>
+<p>Platform support to be able to trigger full-page update from the lines. Support does exist today, but it is not programmatically controlled at design time. This means that it cannot be used in all cases.</p>
+<p><a href="https://www.youtube.com/watch?v=U3noU-WT8Xk&list=PLhZ3P-LY7CqmVszuvtJLujFyHpsVN0U_w&index=22">watch?v=U3noU WT8Xk&list=PLhZ3P LY7CqmVszuvtJLujFyHpsVN0Uw&index=22</a></p>
+<footer class=footline>
+</footer>
+</main>
+</div>
+<div id=navigation>
+<a class="nav nav-prev" href=/bcalhelp/navpatterns/1-patterns/temporary-dataset-report/ title="Temporary Dataset Report"><i class="fa fa-chevron-left"></i></a>
+<a class="nav nav-next" href=/bcalhelp/navpatterns/1-patterns/transfer-custom-fields/ title="Transfer Custom Fields"><i class="fa fa-chevron-right"></i></a>
+</div>
+</div>
+<div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
+<div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
+</div>
+<script src=/bcalhelp/js/clipboard.min.js?1636061749></script>
+<script src=/bcalhelp/js/perfect-scrollbar.min.js?1636061749></script>
+<script src=/bcalhelp/js/perfect-scrollbar.jquery.min.js?1636061749></script>
+<script src=/bcalhelp/js/jquery.svg.pan.zoom.js?1636061749></script>
+<script src=/bcalhelp/js/featherlight.min.js?1636061749></script>
+<script src=/bcalhelp/js/modernizr.custom-3.6.0.js?1636061749></script>
+<script src=/bcalhelp/js/relearn.js?1636061749></script>
+</body>
+</html>

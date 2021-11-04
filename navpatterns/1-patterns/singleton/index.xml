@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Singleton on BC AL Help</title><link>https://microsoft.github.io/bcalhelp/navpatterns/1-patterns/singleton/</link><description>Recent content in Singleton on BC AL Help</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="https://microsoft.github.io/bcalhelp/navpatterns/1-patterns/singleton/index.xml" rel="self" type="application/rss+xml"/><item><title>Singleton Table</title><link>https://microsoft.github.io/bcalhelp/navpatterns/1-patterns/singleton/singleton-table/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://microsoft.github.io/bcalhelp/navpatterns/1-patterns/singleton/singleton-table/</guid><description>Singleton Table By Elly Nkya at Microsoft Development Center Copenhagen
+_
+_
+Problem: The developer needs to define a single record that can contain a set of rules and behavior (optional, mandatory, or defaulting mechanisms), that apply to a functionality, and can be configured by a user.
+Forces
+You want a central place to define the address and logo of your company (see Company Information table). You want to define the no.</description></item><item><title>Singleton Codeunit</title><link>https://microsoft.github.io/bcalhelp/navpatterns/1-patterns/singleton/singleton-codeunit/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://microsoft.github.io/bcalhelp/navpatterns/1-patterns/singleton/singleton-codeunit/</guid><description>Singleton Codeunit _By Bogdana Botez at Microsoft Development Center Copenhagen
+_
+_
+_
+Problem: In some situations, global state needs to be preserved at runtime throughout a session.
+There are functionality areas in NAV where centralized application management code is needed, like for example managing permissions, notifications, the debugger etc. State needs to be preserved across calls to the management codeunit.
+For example:
+The debugger needs to remember the session which is being debugged The permission manager has a testability function, where it can be set to emulate that it&amp;rsquo;s running as a SaaS (Software As A Service &amp;ndash; the cloud) platform, even when the tests run in a &amp;ldquo;on-premise&amp;rdquo; local lab.</description></item></channel></rss>
