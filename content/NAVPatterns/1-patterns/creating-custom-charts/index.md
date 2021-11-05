@@ -58,7 +58,7 @@ The most commonly used actions are:
 * **Set Period**, **Work Date**
 * Actions to filter the data set
 * **Refresh**
-* **Chart Information **-- a tooltip with a description of the chart and how data is calculated.
+* **Chart Information** -- a tooltip with a description of the chart and how data is calculated.
 
 ### Optional: Preserving User Personalization
 
@@ -96,33 +96,32 @@ If you need a setup record and codeunit, then it is a good idea to encapsulate t
 
 Implementation of the **Finance Performance Chart** page (762)
 
-**BusinessChart::AddInReady()**
+```al
+BusinessChart::AddInReady()
+    UpdateChart(Period::" ");
 
-UpdateChart(Period::" ");
+LOCAL UpdateChart(Period : ',Next,Previous')
+    MoveAndUpdateChart(Period,0);
 
-**LOCAL UpdateChart(Period : ',Next,Previous')**
+LOCAL MoveAndUpdateChart(Period : ',Next,Previous';Move : Integer)
+    AccSchedChartManagement.GetSetupRecordset(AccountSchedulesChartSetup,AccountSchedulesChartSetup.Name,Move);
 
-MoveAndUpdateChart(Period,0);
+    AccSchedChartManagement.UpdateData(Rec,Period,AccountSchedulesChartSetup);
 
-**LOCAL MoveAndUpdateChart(Period : ',Next,Previous';Move : Integer)**
+    Update(CurrPage.BusinessChart);
 
-AccSchedChartManagement.GetSetupRecordset(AccountSchedulesChartSetup,AccountSchedulesChartSetup.Name,Move);
-
-AccSchedChartManagement.UpdateData(Rec,Period,AccountSchedulesChartSetup);
-
-Update(CurrPage.BusinessChart);
-
-StatusText := GetCurrentSelectionText("Period Filter Start Date","Period Filter End Date");
+    StatusText := GetCurrentSelectionText("Period Filter Start Date","Period Filter End Date");
+```
 
 In the MoveAndUpdateChart method, the AccSchedChartManagement codeunit gets a setup record and updates it if necessary. Then, it initializes the chart with setup data and sets the StatusText to show the period for which data is displayed. The same method is used by the actions to move and update the chart so that there is no code duplication.
 
 The following code is used to implement **DataPointClicked**
 
-******BusinessChart::DataPointClicked(point : DotNet "Microsoft.Dynamics.Nav.Client.BusinessChart.BusinessChartDataPoint")**
-
-SetDrillDownIndexes(point);
-
-AccSchedChartManagement.DrillDown(Rec,AccountSchedulesChartSetup);
+```al
+BusinessChart::DataPointClicked(point : DotNet "Microsoft.Dynamics.Nav.Client.BusinessChart.BusinessChartDataPoint")
+    SetDrillDownIndexes(point);
+    AccSchedChartManagement.DrillDown(Rec,AccountSchedulesChartSetup);
+```
 
 SetDrillDownindexes is a method from the **Business Chart Buffer** table that maps the DotNet point variable to C/AL data, so it must be used. The next method that you must implement is the action to be performed on Drilldown.
 
