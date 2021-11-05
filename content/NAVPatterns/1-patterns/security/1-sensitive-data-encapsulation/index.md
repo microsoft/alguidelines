@@ -98,7 +98,7 @@ _Figure 2 - Data access before and after **Sensitive** **Data** **Encapsulation.
 
 \[4\]
 
-E. Wauters, "How Do I: Manage Companies in Microsoft Dynamics NAV 2013 R2".
+waldo, "How Do I: Manage Companies in Microsoft Dynamics NAV 2013 R2".
 
 \[5\]
 

@@ -173,7 +173,7 @@ In the end, Stan chooses a location for the encryption key on disk, in a standar
 
 \[4\]
 
-E. Wauters, "How Do I: Manage Companies in Microsoft Dynamics NAV 2013 R2".
+waldo, "How Do I: Manage Companies in Microsoft Dynamics NAV 2013 R2".
 
 \[5\]
 

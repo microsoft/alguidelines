@@ -67,7 +67,7 @@ This shows how pattern application is an iterative process, where one step follo
 
 \[4\]
 
-E. Wauters, "How Do I: Manage Companies in Microsoft Dynamics NAV 2013 R2".
+waldo, "How Do I: Manage Companies in Microsoft Dynamics NAV 2013 R2".
 
 \[5\]
 

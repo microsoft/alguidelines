@@ -69,7 +69,7 @@ Authors (in alphabetical order):
 * Singleton Table
 * Anti-patterns: reusable bugs
 
-* Eric Wauters, iFacto, PRS (6 patterns)
+* Eric Wauters (waldo), iFacto, PRS (6 patterns)
 
 * Hooks
 * Posting Routine - Select Behaviour
@@ -153,7 +153,7 @@ They have also invested their time and energy in this project:
 
 Pattern evangelists:
 
-* Eric Wauters, iFacto, PRS
+* Eric Wauters (waldo), iFacto, PRS
 * Gary Winter, agiles, PRS
 * Mark Brummel, Brummel Dynamics Services, PRS
 * Mike Doster, Mergetool
