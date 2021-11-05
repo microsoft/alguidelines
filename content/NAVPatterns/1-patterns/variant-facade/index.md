@@ -4,7 +4,7 @@ weight = 1440
 +++
 # Variant Façade
 
-By Nikola Kukrika, Waldo and Gary Winter
+By Nikola Kukrika, waldo and Gary Winter
 
 # Abstract
 

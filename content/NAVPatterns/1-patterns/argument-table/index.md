@@ -2,17 +2,17 @@
 title = "Argument Table"
 weight = 220
 +++
-# Argument table pattern
+## Argument table pattern
 
-_Originally By Nikola Kukrika and Waldo_
+_Originally By Nikola Kukrika and waldo_
 
-# Abstract
+### Abstract
 
 The Argument Table pattern is used to provide an extension point for adding new arguments without changing the signature. By grouping multiple arguments into a table the code becomes more readable (function signature and the usage of the function).
 
 [![ ][image0]][anchor0]
 
-# Problem
+### Problem
 
 In CAL overloading function signature is not supported. It is also not possible to provide default values for the function arguments.
 
@@ -24,7 +24,7 @@ The last problem that can be solved is high number of arguments. Functions with 
 
 Few examples of the bad implementations are as illustrated here:
 
-## Bad example 1
+#### Bad example 1
 
   
 ```AL
@@ -40,7 +40,7 @@ FillInVATReturnData(NoSeries, NextLineID, CustomerID, DocumentNo, SingleCopy, ??
 
 In this example the code is hard to read and understand. Adding an additional argument will require refactoring of the existing function. Each time a new argument is added a new function will be created.
 
-## Bad example 2
+#### Bad example 2
 
 ```AL
 LOCAL PROCEDURE GetTableSyncSetupW1@3(OldTableId@1002 : Integer; VAR UpgradeTableId@1001 : Integer; VAR TableUpgradeMode@1000 : 'Check, Copy, Move, Force') : Boolean;  
@@ -61,7 +61,7 @@ END;
 
 In this example each time a new argument is added all function calls will have to be updated. Option is duplicated in the signature, which will cause issues if a new option is defined or the existing options are renamed.
 
-# Solution
+### Solution
 
 By grouping the arguments within the table it is possible to add additional argument and reuse it where it is needed without changing the signature.
 
@@ -73,7 +73,7 @@ Argument table should preferably be a temporary table since the implementation i
 
 The examples of usages addressing problems shown above are:
 
-## Good example 1
+#### Good example 1
 
 New table  
 ```AL
@@ -92,7 +92,7 @@ FillInVATReturnData(VATReturnData);
 
 By introducing an argument table, code is much more readable since there is a single argument for a function. It is easy to see which arguments are passed in and which are modified in a function.
 
-## Good example 2
+#### Good example 2
 
 Good example  
 ```AL
@@ -106,17 +106,17 @@ END;
 
 Option definition is not encapsulated within the table. Arguments are grouped and we can add additional arguments without the need to change the signature.
 
-# Downsides
+### Downsides
 
 You need to create one more table
 
 Complex types can't be embedded as fields in tables (cannot have a record field type etc).
 
-# NAV Usages
+### NAV Usages
 
 Upgrade Codeunits
 
-# Related Patterns
+### Related Patterns
 
 Posting Routine, Select behavior: Setting fields on existing records in order not to change the signatures. 
 
