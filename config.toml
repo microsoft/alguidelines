@@ -1,4 +1,4 @@
-baseURL = 'https://microsoft.github.io/bcalhelp/'
+baseURL = 'https://bcalhelp.dev/'
 languageCode = 'en-us'
 title = 'BC AL Help'
 
