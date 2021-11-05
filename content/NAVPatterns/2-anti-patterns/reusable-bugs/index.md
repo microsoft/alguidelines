@@ -2,7 +2,8 @@
 title = "Reusable Bugs"
 weight = 1020
 +++
-# Reusable Bugs
+
+<!-- # Reusable Bugs -->
 
 _By Bogdana Botez, Andreas Moth, Eric Wauters (waldo), Elly Nkya, Nikola Kukrika_
 
@@ -20,18 +21,15 @@ One example of a reusable bug is to find a heavily used table, like table 36 Sal
 
 The main benefit of this reusable bug is that code changed in one place, has impact in multiple sides on the application: document creation and handling, posting etc.
 
-**Application Management  
-**
+**Application Management**
 
 Codeunit 1, ApplicationManagement is a good place for creating reusable bugs. A simple INSERT on the RecRef on the first line of OnDatabaseInsert will create a sure and versatile bug that is reusable all over the application. Redundancy on database insertion ensures that data is surely conveyed to the data storage layer, twice.
 
-**God objects  
-**
+**God objects**
 
 We are considering to no longer make localization builds for countries. It consumes lab resources to keep running multiple country builds. Instead, we will merge everything into one single build. This is a bigger scale implementation of the ["God object"][anchor0]. Inside this unique build, we will use IF statements and sporadically CASE statements to select each country's behavior. For more help on how to use IFs, see also the IF .. THEN|ELSE C/AL Coding Guideline.
 
-**Field length economy  
-**
+**Field length economy**
 
 When you post a document, make sure to transfer data to a field that is smaller than the field you are assigning from. This will not immediately be caught and will only hurt a subset of the customers who uses Microsoft Dynamics NAV to its fullest.
 
