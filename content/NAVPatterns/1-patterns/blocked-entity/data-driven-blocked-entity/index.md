@@ -4,11 +4,11 @@ weight = 470
 +++
 _Written by Bogdan Andrei Sturzoiu, at Microsoft Development Center Copenhagen_
 
-**Abstract**
+## Abstract
 
 This pattern implements a generic mechanism for dynamically restricting and allowing usage of a record by the business process administrator. 
 
-**Problem**
+## Problem
 
 A NAV record can be used in a number of functionalities across the app. There are situations, however, when the administrator wants to restrict the consumption of such a record, as well as lift the restriction when it is no longer relevant.
 
@@ -23,7 +23,7 @@ The blocked entity pattern involves:
 
 In contrast, the Data-driven Blocked Entity pattern involves adding a new record (data change) to mark the restriction, instead of adding a new field (metadata change).
 
-**Solution**
+## Solution
 
 This pattern describes a generic mechanism of adding and lifting restrictions for any type of record.
 
@@ -40,9 +40,9 @@ Currently, the restrictions are record-based and type-less. They act as simple t
 
 You must make sure to differentiate between the reason and the purpose. That is because the restriction can only be added once per record, but consumed in multiple places.
 
-****
 
-**Example**
+
+## Example
 
 For example, we want to restrict posting Gen. Journal Lines if a customer has not been added in Account No. field.
 
@@ -52,7 +52,7 @@ For this, the following components are needed:
 2. When you validate a Customer No. as Account no. and Customer as Account Type, lift the restrictions by calling AllowRecordUsage in COD1550\.
 3. The consumption of the restriction at posting is already implemented as an event in TAB81, OnCheckGenJournalLinePostRestrictions. No further action necessary.
 
-**NAV Usage**
+## NAV Usage
 
 All the approval workflows include a response that restricts usage of a record, and then, at the end of an approval loop, a response that allows the usage again by lifting the restriction. See responses "Add record restriction" and "Remove record restriction" implemented in COD1521\.[  
 ][anchor2]
@@ -88,15 +88,15 @@ END;
 
 Notice how lifting a restriction for a Gen. Journal Batch involves lifting all the restrictions for the individual journal lines in the batch (hence the special branching of the code).
 
-****
 
-**Consequences**
+
+## Consequences
 
 Currently, there can only be one restriction per record. There are no restriction types.
 
 In the future, a type field should be added to the restriction table, to allow adding restrictions for different purposes, and to refine their consumption. For example, a posting restriction might only be enforced for restrictions originating from approvals.
 
-**NAV Versions**
+## NAV Versions
 
 This pattern has been introduced in Dynamics NAV 2016\.
 

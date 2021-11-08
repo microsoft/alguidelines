@@ -18,7 +18,7 @@ A design pattern is a repeatable template of how to solve a common development c
 
 In 2013, Microsoft NAV Dev Team and prominent members of the community collaborated on a Community and Microsoft collection of commonly needed / used Design Patterns.
 
-For some history on this, Waldo's posts [Code is Poetry](https://www.waldo.be/2013/06/14/code-is-poetry/) and [Design is Philosophy](https://www.waldo.be/2013/08/28/design-is-philosophy-2/) are a great read.
+For some history on this, waldo's posts [Code is Poetry](https://www.waldo.be/2013/06/14/code-is-poetry/) and [Design is Philosophy](https://www.waldo.be/2013/08/28/design-is-philosophy-2/) are a great read.
 
 ### Contributing
 

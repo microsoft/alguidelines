@@ -50,6 +50,7 @@ The Copy Document pattern involves the following entities:
   * Source Document No.
   * Include Header (optional)
   * Recalculate Lines (optional)
+
 Example: REP901, Copy Assembly Document
 
 [![ ][image0]][anchor0]
@@ -103,16 +104,16 @@ In the standard version of Microsoft Dynamics NAV, the Copy Document functionali
 
 
 
-[anchor0]: /cfs-file/__key/communityserver-wikis-components-files/00-00-00-00-42/clip_5F00_image002.gif
-[anchor1]: /cfs-file/__key/communityserver-wikis-components-files/00-00-00-00-42/clip_5F00_image004.gif
+[anchor0]: clip_image002.gif-750x0.png
+[anchor1]: clip_image004.gif-750x0.png
 [anchor2]: clip_5F00_image006.jpg
 [anchor3]: clip_5F00_image008.jpg
 [anchor4]: clip_5F00_image010.jpg
 [anchor5]: https://www.youtube.com/watch?v=aTiwroXwW_0&list=PLhZ3P-LY7CqmVszuvtJLujFyHpsVN0U_w&index=17
 
 
-[image0]: /resized-image/__size/750x0/__key/communityserver-wikis-components-files/00-00-00-00-42/clip_5F00_image002.gif
-[image1]: /resized-image/__size/750x0/__key/communityserver-wikis-components-files/00-00-00-00-42/clip_5F00_image004.gif
+[image0]: clip_image002.gif-750x0.png
+[image1]: clip_image004.gif-750x0.png
 [image2]: clip_5F00_image006.jpg
 [image3]: clip_5F00_image008.jpg
 [image4]: clip_5F00_image010.jpg

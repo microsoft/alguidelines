@@ -38,9 +38,11 @@ Where:
 * **Object Type** and **Object ID** define the type of the application object to run (Table, Page, Report, Codeunit, Query, or XMLport) and its ID.
 * **Record** specifies the actual data to run the URL on, such as:
 
+```al
 Vendor.GET("Account No.");
 
 GETURL(CLIENTTYPE:WEB,COMPANYNAME, OBJECTTYPE::Page,27,Vendor)
+```
 
 **Note**: It is currently not possible to set filters on the record that you sent as a last parameter to the GETURL function. However, it is possible to write your own code to compute and append the filter string to the URL that is created by the GETURL function.
 
@@ -61,7 +63,7 @@ The following are examples of calls to GETURL and their corresponding return val
 **Command**
 
 **URL**
-
+```al
 GETURL(CLIENTTYPE::Win)
 
 dynamicsnav://MyServer:7046/DynamicsNAV71//
@@ -202,12 +204,15 @@ GETURL(CLIENTTYPE::Web,COMPANYNAME,OBJECTTYPE::Report,6)
 
 https://navwebsrvr:443/DynamicsNAV71\_Instance1/Webclient?company=CRONUS&report=6
 
+```
+
 If the GETURL function is called with invalid parameters, it will return an empty string. In that case, you can find the related error text by calling the GETLASTERRORTEXT function.
 
 **Function Call**
 
 **Error Message**
 
+```al
 GETURL(CLIENTTYPE::Web,COMPANYNAME,OBJECTTYPE::Table,27)
 
 The specified object type parameter for the GetUrl function is not valid.
@@ -273,6 +278,8 @@ GETURL(CLIENTTYPE::SOAP,COMPANYNAME,OBJECTTYPE::XmlPort,5150)
 The specified object type parameter for the GetUrl function is not valid.
 
 GETURL(CLIENTTYPE::SOAP,COMPANYNAME,OBJECTTYPE::Page,27,record)
+
+```
 
 You cannot specify a record parameter for the GetUrl function when the object type is SOAP
 

@@ -51,67 +51,44 @@ Code example (Insert a record, apply a template, and insert the related template
 
 **// Apply a template RecRef.GETTABLE(Customer);**
 
+```al
 ConfigTemplateMgt.UpdateRecord(ConfigTemplateHeader,RecRef);
-
 RecRef.SETTABLE(Customer);
+```
 
 **// Insert Dimensions -- related templates**
-
+```al
 MiniDimensionsTemplate.InsertDimensionsFromTemplates(ConfigTemplateHeader,Customer."No.",DATABASE::Customer); 
-
+```
 Code to insert related templates (dimensions): 
-
-**FUNCTION InsertDimensionsFromTemplates(ConfigTemplateHeader : Record "Config. Template Header";MasterRecordNo : Code\[20\];TableID : Integer)**
-
-**// There are multiple records (multiple dimensions per master record)**
-
-**// We have to set filter******
-
-ConfigTemplateLine.SETRANGE(Type,ConfigTemplateLine.Type::"Related Template");****
-
-ConfigTemplateLine.SETRANGE("Data Template Code",ConfigTemplateHeader.Code);****
-
-****
-
-IF ConfigTemplateLine.FINDSET THEN****
-
-REPEAT****
-
-ConfigTemplateHeader.GET(ConfigTemplateLine."Template Code");
-
-**// Ensure that the table where the template belongs to is Dimensions**
-
-**// We could have other related templates******
-
-IF ConfigTemplateHeader."Table ID" = DATABASE::"Default Dimension" THEN****
-
-InsertDimensionFromTemplate(ConfigTemplateHeader,MasterRecordNo,TableID);****
-
-UNTIL ConfigTemplateLine.NEXT = 0;****
-
-****
+```al
+FUNCTION InsertDimensionsFromTemplates(ConfigTemplateHeader : Record "Config. Template Header";MasterRecordNo : Code\[20\];TableID : Integer)
+  // There are multiple records (multiple dimensions per master record)
+  // We have to set filter
+  ConfigTemplateLine.SETRANGE(Type,ConfigTemplateLine.Type::"Related Template");
+  ConfigTemplateLine.SETRANGE("Data Template Code",ConfigTemplateHeader.Code
+  IF ConfigTemplateLine.FINDSET THEN
+  REPEAT
+    ConfigTemplateHeader.GET(ConfigTemplateLine."Template Code");
+    // Ensure that the table where the template belongs to is Dimensions
+    // We could have other related templates
+    IF ConfigTemplateHeader."Table ID" = DATABASE::"Default Dimension" THEN
+    InsertDimensionFromTemplate(ConfigTemplateHeader,MasterRecordNo,TableID);
+  UNTIL ConfigTemplateLine.NEXT = 0;
+```
 
 **// Create a new Dimensions Record and link it to the Master Record******
-
-**FUNCTION InsertDimensionFromTemplate(ConfigTemplateHeader : Record "Config. Template Header";MasterRecordNo : Code\[20\];TableID : Integer)**
-
-DefaultDimension.INIT;
-
-DefaultDimension."No." := MasterRecordNo;****
-
-DefaultDimension."Table ID" := TableID;****
-
-DefaultDimension."Dimension Code" := GetDefaultDimensionCode(ConfigTemplateHeader);****
-
-DefaultDimension.INSERT;****
-
-****
-
-RecRef.GETTABLE(DefaultDimension);****
-
-ConfigTemplateMgt.UpdateRecord(ConfigTemplateHeader,RecRef);****
-
-RecRef.SETTABLE(DefaultDimension); 
+```al
+FUNCTION InsertDimensionFromTemplate(ConfigTemplateHeader : Record "Config. Template Header";MasterRecordNo : Code\[20\];TableID : Integer)
+  DefaultDimension.INIT;
+  DefaultDimension."No." := MasterRecordNo;
+  DefaultDimension."Table ID" := TableID;
+  DefaultDimension."Dimension Code" := GetDefaultDimensionCode(ConfigTemplateHeader);
+  DefaultDimension.INSERT;
+  RecRef.GETTABLE(DefaultDimension);
+  ConfigTemplateMgt.UpdateRecord(ConfigTemplateHeader,RecRef);
+  RecRef.SETTABLE(DefaultDimension); 
+```
 
 **To surface the action in the product, you have three options:**
 
@@ -119,7 +96,7 @@ RecRef.SETTABLE(DefaultDimension);
 2. **Optional** - Implement the apply template function on the document itself. This is especially good in scenarios where users are allowed to change the template.
 3. **Alternative** - Remove the new action by configuration or set Insert Allowed to FALSE on the list (this will block the creation of new records from the lookup). Implement an application action named **New** and tie it to your code.
 
-**Note: ** In Microsoft Dynamics C5 2014, we chose to remove the **New** action with configuration since we wanted to promote the functionality and avoid the confusion in having too many options. However this might be difficult to maintain with a larger set of pages.
+**Note:** In Microsoft Dynamics C5 2014, we chose to remove the **New** action with configuration since we wanted to promote the functionality and avoid the confusion in having too many options. However this might be difficult to maintain with a larger set of pages.
 
 **To view or edit templates, you have two options:**
 
@@ -167,7 +144,9 @@ The user opens the **Customers List** window and selects **New**
 
 **[![ ][image3]][anchor3]**
 
-**[][anchor3]**From this page, the user can view the template, edit it, or create a new one. Selecting a template will populate the customer card and open a new record. From the existing record, the user has options to save as a template or opening a list of templates to maintain available templates. Selecting a template will populate the customer card and open a new record. From the existing record, the user has options to save as a template or opening a list of templates to maintain available templates.
+**[][anchor3]** 
+
+From this page, the user can view the template, edit it, or create a new one. Selecting a template will populate the customer card and open a new record. From the existing record, the user has options to save as a template or opening a list of templates to maintain available templates. Selecting a template will populate the customer card and open a new record. From the existing record, the user has options to save as a template or opening a list of templates to maintain available templates.
 
 [![ ][image4]][anchor4]
 
@@ -180,14 +159,14 @@ From the **Customer Card Template **window, we can invoke the **Dimensions** act
 This pattern is used in Microsoft Dynamics C5 2014 in the following objects:
 
 * Temporary template tables:
-  * **Mini Customer Template **table (1300)
-  * **Mini Item Template **table (1301)
+  * **Mini Customer Template** table (1300)
+  * **Mini Item Template** table (1301)
   * **Mini Dimensions Template** table(1302)
   * **Mini Vendor Template** table (1303)
 
 * Pages to define templates:
   * **Mini Customer Template Card** page (1341)
-  * **Mini Item Template Card **page (,1342)
+  * **Mini Item Template Card** page (,1342)
   * **Mini Dimensions Template List** page (1343)
   * **Mini Vendor Template Card** page (1344)
 

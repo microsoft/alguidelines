@@ -13,12 +13,12 @@ A side effect is reduced and simplified code, increased performance and a more s
 
 There is no way in NAV to get a set of records from the database, which all have the newest starting date, that is less than or equal to today's date. Having an ending date on the record will help, but it introduces some other problems. In Dynamics NAV this is normally done by reading too many records, either at the SQL Server level or in the middle tier and throw away the ones you do not need. That is a waste of resources:
 
-< --\[if supportLists\]--\>\* < --\[endif\]--\>The SQL Server is reading too many records
+* The SQL Server is reading too many records
 
-< --\[if supportLists\]--\>\* < --\[endif\]--\>There would be too much data sent over the network.  
+* There would be too much data sent over the network.  
 (If the SQL Server and the NAV Service tier are on different machines.)
 
-< --\[if supportLists\]--\>\* < --\[endif\]--\>The NAV Service Tier receives and throws away data.
+* The NAV Service Tier receives and throws away data.
 
 ### Ending Date Problem
 
@@ -38,99 +38,85 @@ Use the pattern whenever you read a set of data containing a Starting Date and y
 
 In the following example, we have a fictive table containing: Code, Starting Date and Price. The Primary Key consist of Code, Starting Date. The Database is the Demo Database, and the Company is Cronus.  
 
-< --\[if supportLineBreakNewLine\]--\>[![ ][image0]][anchor0]  
-< --\[endif\]--\>
+[![ ][image0]][anchor0]  
 
-### 1\. Create the view
+
+### 1. Create the view
 
 You will need to create the view before you define the Table Object.  
 You will need to create a view for every company in the database. 
-
-CREATE VIEW \[dbo\].\[CRONUS$PriceView\]  
-AS  
-SELECT \[Code\], \[Starting Date\], \[Price\]  
-FROM dbo.\[CRONUS$Price\] AS A  
-WHERE \[Starting Date\] =  
-(SELECT MAX(\[Starting Date\])  
-FROM dbo.\[CRONUS$Price\] AS B  
-WHERE B.\[Code\] = A.\[Code\] AND  
-B.\[Starting Date\] <= GETDATE())
+```sql
+    CREATE VIEW [dbo].[CRONUS$PriceView]  
+    AS  
+    SELECT [Code], [Starting Date], [Price]  
+    FROM dbo.[CRONUS$Price] AS A  
+    WHERE [Starting Date] =  
+    (SELECT MAX([Starting Date])  
+    FROM dbo.[CRONUS$Price] AS B  
+    WHERE B.[Code] = A.[Code] AND  
+    B.[Starting Date] <= GETDATE())
+```
 
 Test the view to ensure that you get the correct result. It is much easier to test now than later.
 
-### 2\. Create the Table object
+### 2. Create the Table object
 
 Remember to set the link table property before you save it.
 
-### 3\. Implement the code
+### 3. Implement the code
 
 IF PriceView.FINDSET THEN // You have them
 
-### 4\. Create a deployment codeunit
+### 4. Create a deployment codeunit
 
 Create a SQL Deployment codeunit to manage your views.  
 The codeunit needs to Create or Alter the views for all companies.  
-To see an example of how to talk to SQL Server using .NET see Waldo's blog here:  
+To see an example of how to talk to SQL Server using .NET see waldo's blog here:  
 [http://dynamicsuser.net/blogs/waldo/archive/2011/07/19/net-interop-calling-stored-procedures-on-sql-server-example-1.aspx][anchor1]  
-< --\[if supportLineBreakNewLine\]--\>  
-< --\[endif\]--\>
 
-### 5\. Deployment
+### 5. Deployment
 
 You need to deploy in three steps:
 
-< --\[if supportLists\]--\>1\. < --\[endif\]--\>Delete the table objects referencing the views 
-
-< --\[if supportLists\]--\>2\. < --\[endif\]--\>Deploy and run the deployment codeunit
-
-< --\[if supportLists\]--\>3\. < --\[endif\]--\>Deploy the new table objects that reference the views 
+1. Delete the table objects referencing the views 
+2. Deploy and run the deployment codeunit
+3. Deploy the new table objects that reference the views 
 
 ### General precaution
 
 If you later want to change the view, you need to follow these rules:
 
-< --\[if supportLists\]--\>\* < --\[endif\]--\>If you add columns, you need to add them to the view first and then add them to the Table Object.
-
-< --\[if supportLists\]--\>\* < --\[endif\]--\>If you want to remove columns from the view, you need to delete the Table Object, then change the view and last recreate the Table Object without the new columns.
+\* If you add columns, you need to add them to the view first and then add them to the Table Object.
+\* If you want to remove columns from the view, you need to delete the Table Object, then change the view and last recreate the Table Object without the new columns.
 
 ### Code example that accomplish the same but without using the pattern
 
 This following example will give you the same result but the performance will deteriorate as time goes by and you get more and more old data.
-
+```al
 Price.SETCURRENTKEY(Code,"Starting Date"); 
-
 Price.SETFILTER("Starting Date",'..%1', TODAY  
-
 IF Price.FINDSET THEN BEGIN  
-REPEAT
-
-Price.SETRANGE(Code, Price.Code);
-
-Price.FINDLAST;
-
-Price.SETRANGE(Code);
-
-PriceTemp := Price;
-
-PriceTemp.INSERT;
-
-UNTIL Price.NEXT = 0;
-
+    REPEAT
+        Price.SETRANGE(Code, Price.Code);
+        Price.FINDLAST;
+        Price.SETRANGE(Code);
+        PriceTemp := Price;
+        PriceTemp.INSERT;
+    UNTIL Price.NEXT = 0;
 END;   
 // PriceTemp will contain the Prices
+```
 
 ### Comparison
 
 The above NAV example is for a very simple date controlled solution and is provided to give an idea of what the pattern changes seen from a NAV development point of view. But consider the following:
 
-< --\[if supportLists\]--\>\* < --\[endif\]--\>The table has a more complex key.  
+* The table has a more complex key.  
 This will require setting and clearing more filters
-
-< --\[if supportLists\]--\>\* < --\[endif\]--\>You need to read from more than one table.  
+* You need to read from more than one table.  
 Say you need to apply discount from a separate table.  
 This may give several lines in PriceTemp. 
-
-< --\[if supportLists\]--\>\* < --\[endif\]--\>If the Code field is controlled by a Type field.  
+* If the Code field is controlled by a Type field.  
 The Code field reference keys in different tables
 
 All three examples above can be implemented directly in the view. By using the pattern, it will still only require a single line of NAV code.
