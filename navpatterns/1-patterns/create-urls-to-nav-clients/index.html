@@ -2,19 +2,19 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=generator content="Hugo 0.89.0">
+<meta name=generator content="Hugo 0.89.1">
 <meta name=description content>
 <title>Create URLs to NAV Clients :: BC AL Help</title>
-<link href=/css/nucleus.css?1636104707 rel=stylesheet>
-<link href=/css/fontawesome-all.min.css?1636104707 rel=stylesheet>
-<link href=/css/featherlight.min.css?1636104707 rel=stylesheet>
-<link href=/css/perfect-scrollbar.min.css?1636104707 rel=stylesheet>
-<link href=/css/auto-complete.css?1636104707 rel=stylesheet>
-<link href=/css/theme.css?1636104707 rel=stylesheet>
-<link href=/css/theme-blue.css?1636104707 rel=stylesheet>
-<link href=/css/variant.css?1636104707 rel=stylesheet>
-<link href=/css/print.css?1636104707 rel=stylesheet media=print>
-<script src=/js/jquery.min.js?1636104707></script>
+<link href=/css/nucleus.css?1636386789 rel=stylesheet>
+<link href=/css/fontawesome-all.min.css?1636386789 rel=stylesheet>
+<link href=/css/featherlight.min.css?1636386789 rel=stylesheet>
+<link href=/css/perfect-scrollbar.min.css?1636386789 rel=stylesheet>
+<link href=/css/auto-complete.css?1636386789 rel=stylesheet>
+<link href=/css/theme.css?1636386789 rel=stylesheet>
+<link href=/css/theme-blue.css?1636386789 rel=stylesheet>
+<link href=/css/variant.css?1636386789 rel=stylesheet>
+<link href=/css/print.css?1636386789 rel=stylesheet media=print>
+<script src=/js/jquery.min.js?1636386789></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
 <body data-url=/navpatterns/1-patterns/create-urls-to-nav-clients/>
@@ -32,9 +32,9 @@ BC AL Help . dev
 <input data-search-input id=search-by type=search placeholder=Search...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script src=/js/lunr.min.js?1636104707></script>
-<script src=/js/auto-complete.js?1636104707></script>
-<script src=/js/search.js?1636104707></script>
+<script src=/js/lunr.min.js?1636386789></script>
+<script src=/js/auto-complete.js?1636386789></script>
+<script src=/js/search.js?1636386789></script>
 </div>
 <div class=highlightable>
 <ul class=topics>
@@ -239,9 +239,10 @@ BC AL Help . dev
 <li><strong>Object Type</strong> and <strong>Object ID</strong> define the type of the application object to run (Table, Page, Report, Codeunit, Query, or XMLport) and its ID.</li>
 <li><strong>Record</strong> specifies the actual data to run the URL on, such as:</li>
 </ul>
-<p>Vendor.GET(&ldquo;Account No.");</p>
-<p>GETURL(CLIENTTYPE:WEB,COMPANYNAME, OBJECTTYPE::Page,27,Vendor)</p>
-<p><strong>Note</strong>: It is currently not possible to set filters on the record that you sent as a last parameter to the GETURL function. However, it is possible to write your own code to compute and append the filter string to the URL that is created by the GETURL function.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>Vendor<span style=color:#f92672>.</span>GET<span style=color:#f92672>(</span>&#34;Account No.&#34;<span style=color:#f92672>)</span>;
+
+GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>:WEB,COMPANYNAME, <span style=color:#66d9ef>OBJECTTYPE</span>::<span style=color:#66d9ef>Page</span>,<span style=color:#ae81ff>27</span>,Vendor<span style=color:#f92672>)
+</span></code></pre></div><p><strong>Note</strong>: It is currently not possible to set filters on the record that you sent as a last parameter to the GETURL function. However, it is possible to write your own code to compute and append the filter string to the URL that is created by the GETURL function.</p>
 <p>The server name and instance are extracted automatically by GETURL and do not need to be specified by the C/AL developer. Furthermore, the multitenancy setup is transparent to the C/AL developer. No multitenancy parameters are specified when you call GETURL, because the function knows from the server setup if it is running in a multitenant environment and if so, it will add a string like &ldquo;&tenant=MyTenant&rdquo; to the URL.</p>
 <h2 id=when-to-use>When to Use</h2>
 <p>The GETURL function can generally be used every time a URL must be created. The following are some scenarios where the function is particularly useful.</p>
@@ -254,113 +255,216 @@ BC AL Help . dev
 <p>The following are examples of calls to GETURL and their corresponding return value:</p>
 <p><strong>Command</strong></p>
 <p><strong>URL</strong></p>
-<p>GETURL(CLIENTTYPE::Win)</p>
-<p>dynamicsnav://MyServer:7046/DynamicsNAV71//</p>
-<p>GETURL(CLIENTTYPE::Web)</p>
-<p>https://navwebsrvr:443/DynamicsNAV71_Instance1/Webclient</p>
-<p>GETURL(CLIENTTYPE::OData)</p>
-<p>http://MyServer:7048/DynamicsNAV71/OData</p>
-<p>GETURL(CLIENTTYPE::SOAP)</p>
-<p>http://MyServer:7047/DynamicsNAV71/WS/Services</p>
-<p>GETURL(CLIENTTYPE::Current) ie. When running this code on a Win client session</p>
-<p>dynamicsnav://MyServer:7046/DynamicsNAV71//</p>
-<p>GETURL(CLIENTTYPE::Default) ie. When the Server config key DefaultClient is set to Windows</p>
-<p>dynamicsnav://MyServer:7046/DynamicsNAV71//</p>
-<p>GETURL(CLIENTTYPE::Windows,COMPANYNAME)</p>
-<p>dynamicsnav://MyServer:7046/DynamicsNAV71/CRONUS/</p>
-<p>GETURL(CLIENTTYPE::Windows,'')</p>
-<p>dynamicsnav://MyServer:7046/DynamicsNAV71//</p>
-<p>GETURL(CLIENTTYPE::Windows,&lsquo;NONEXISTING Corp&rsquo;)</p>
-<p>dynamicsnav://MyServer:7046/DynamicsNAV71/NONEXISTING Corp/</p>
-<p>GETURL(CLIENTTYPE::Web,COMPANYNAME)</p>
-<p>https://navwebsrvr:443/DynamicsNAV71_Instance1/Webclient?company=CRONUS</p>
-<p>GETURL(CLIENTTYPE::Web,'')</p>
-<p>https://navwebsrvr:443/DynamicsNAV71_Instance1/Webclient</p>
-<p>GETURL(CLIENTTYPE::Web,&lsquo;NONEXISTING Corp&rsquo;)</p>
-<p>https://navwebsrvr:443/DynamicsNAV71_Instance1/Webclient?company=NONEXISTING Corp</p>
-<p>GETURL(CLIENTTYPE::OData,COMPANYNAME)</p>
-<p>http://MyServer:7048/DynamicsNAV71/OData/Company(&lsquo;CRONUS&rsquo;)</p>
-<p>GETURL(CLIENTTYPE::OData,'')</p>
-<p>http://MyServer:7048/DynamicsNAV71/OData</p>
-<p>GETURL(CLIENTTYPE::OData,&lsquo;NONEXISTING Corp&rsquo;)</p>
-<p>http://MyServer:7048/DynamicsNAV71/OData/Company(&lsquo;NONEXISTING Corp&rsquo;)</p>
-<p>GETURL(CLIENTTYPE::SOAP,COMPANYNAME)</p>
-<p>http://MyServer:7047/DynamicsNAV71/WS/CRONUS/Services</p>
-<p>GETURL(CLIENTTYPE::SOAP,'')</p>
-<p>http://MyServer:7047/DynamicsNAV71/WS/Services</p>
-<p>GETURL(CLIENTTYPE::SOAP,&lsquo;NONEXISTING Corp&rsquo;)</p>
-<p>http://MyServer:7047/DynamicsNAV71/WS/NONEXISTING Corp/Services</p>
-<p>GETURL(CLIENTTYPE::Windows,COMPANYNAME,OBJECTTYPE::Table,27)</p>
-<p>dynamicsnav://MyServer:7046/DynamicsNAV71/CRONUS/runtable?table=27</p>
-<p>GETURL(CLIENTTYPE::Windows,COMPANYNAME,OBJECTTYPE::Page,27)</p>
-<p>dynamicsnav://MyServer:7046/DynamicsNAV71/CRONUS/runpage?page=27</p>
-<p>GETURL(CLIENTTYPE::Windows,COMPANYNAME,OBJECTTYPE::Report,6)</p>
-<p>dynamicsnav://MyServer:7046/DynamicsNAV71/CRONUS/runreport?report=6</p>
-<p>GETURL(CLIENTTYPE::Windows,COMPANYNAME,OBJECTTYPE::Codeunit,5065)</p>
-<p>dynamicsnav://MyServer:7046/DynamicsNAV71/CRONUS/runcodeunit?codeunit=5065</p>
-<p>GETURL(CLIENTTYPE::Windows,COMPANYNAME,OBJECTTYPE::Query,9150)</p>
-<p>dynamicsnav://MyServer:7046/DynamicsNAV71/CRONUS/runquery?query=9150</p>
-<p>GETURL(CLIENTTYPE::Windows,COMPANYNAME,OBJECTTYPE::XmlPort,5150)</p>
-<p>dynamicsnav://MyServer:7046/DynamicsNAV71/CRONUS/runxmlport?xmlport=5150</p>
-<p>GETURL(CLIENTTYPE::OData,COMPANYNAME,OBJECTTYPE::Page,27) ie. When the Web Service is published</p>
-<p>http://MyServer:7048/DynamicsNAV71/OData/Company(&lsquo;CRONUS&rsquo;)/PAG27Vendors</p>
-<p>GETURL(CLIENTTYPE::OData,COMPANYNAME,OBJECTTYPE::Query,9150) ie. When the Web Service is published</p>
-<p>http://MyServer:7048/DynamicsNAV71/OData/Company(&lsquo;CRONUS&rsquo;)/QUE9150MyCustomers</p>
-<p>GETURL(CLIENTTYPE::SOAP,COMPANYNAME,OBJECTTYPE::Page,27)Â ie. When the Web Service is published</p>
-<p>http://MyServer:7047/DynamicsNAV71/WS/CRONUS/Page/PAG27Vendors</p>
-<p>GETURL(CLIENTTYPE::SOAP,COMPANYNAME,OBJECTTYPE::Codeunit,5065) ie. When the Web Service is published</p>
-<p>http://MyServer:7047/DynamicsNAV71/WS/CRONUS/Codeunit/COD5065EmailLogging</p>
-<p>GETURL(CLIENTTYPE::Windows,COMPANYNAME,OBJECTTYPE::Page,27,record) List Page</p>
-<p>dynamicsnav://MyServer:7046/DynamicsNAV71/CRONUS/runpage?page=27&bookmark=23;FwAAAAJ7/0kAQwAxADAAMwAw</p>
-<p>GETURL(CLIENTTYPE::Windows,COMPANYNAME,OBJECTTYPE::Page,26,record) Card Page</p>
-<p>dynamicsnav://MyServer:7046/DynamicsNAV71/CRONUS/runpage?page=26&bookmark=23;FwAAAAJ7/0kAQwAxADAAMwAw</p>
-<p>GETURL(CLIENTTYPE::Web,COMPANYNAME,OBJECTTYPE::Page,27,record) List Page</p>
-<p>https://navwebsrvr:443/DynamicsNAV71_Instance1/Webclient?company=CRONUS&page=27&bookmark=23;FwAAAAJ7/0kAQwAxADAAMwAw</p>
-<p>GETURL(CLIENTTYPE::Web,COMPANYNAME,OBJECTTYPE::Page,26,record) Card Page</p>
-<p>https://navwebsrvr:443/DynamicsNAV71_Instance1/Webclient?company=CRONUS&page=26&bookmark=23;FwAAAAJ7/0kAQwAxADAAMwAw</p>
-<p>GETURL(CLIENTTYPE::OData,COMPANYNAME,OBJECTTYPE::Page,27,record)</p>
-<p>http://MyServer:7048/DynamicsNAV71/OData/Company(&lsquo;CRONUS&rsquo;)/PAG27Vendors(&lsquo;IC1030&rsquo;)</p>
-<p>GETURL(CLIENTTYPE::Web,COMPANYNAME,OBJECTTYPE::Page,27)</p>
-<p>https://navwebsrvr:443/DynamicsNAV71_Instance1/Webclient?company=CRONUS&page=27</p>
-<p>GETURL(CLIENTTYPE::Web,COMPANYNAME,OBJECTTYPE::Report,6)</p>
-<p>https://navwebsrvr:443/DynamicsNAV71_Instance1/Webclient?company=CRONUS&report=6</p>
-<p>If the GETURL function is called with invalid parameters, it will return an empty string. In that case, you can find the related error text by calling the GETLASTERRORTEXT function.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::Win<span style=color:#f92672>)
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>dynamicsnav:<span style=color:#75715e>//MyServer:7046/DynamicsNAV71//
+</span><span style=color:#75715e></span>
+GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::Web<span style=color:#f92672>)
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>https:<span style=color:#75715e>//navwebsrvr:443/DynamicsNAV71\_Instance1/Webclient
+</span><span style=color:#75715e></span>
+GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::OData<span style=color:#f92672>)
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>http:<span style=color:#75715e>//MyServer:7048/DynamicsNAV71/OData
+</span><span style=color:#75715e></span>
+GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::SOAP<span style=color:#f92672>)
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>http:<span style=color:#75715e>//MyServer:7047/DynamicsNAV71/WS/Services
+</span><span style=color:#75715e></span>
+GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::Current<span style=color:#f92672>) </span>ie<span style=color:#f92672>. </span>When running this <span style=color:#66d9ef>code</span> on a Win client session
+
+dynamicsnav:<span style=color:#75715e>//MyServer:7046/DynamicsNAV71//
+</span><span style=color:#75715e></span>
+GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::Default<span style=color:#f92672>) </span>ie<span style=color:#f92672>. </span>When the Server config <span style=color:#66d9ef>key</span> DefaultClient is set <span style=color:#66d9ef>to</span> Windows
+
+dynamicsnav:<span style=color:#75715e>//MyServer:7046/DynamicsNAV71//
+</span><span style=color:#75715e></span>
+GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::Windows,COMPANYNAME<span style=color:#f92672>)
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>dynamicsnav:<span style=color:#75715e>//MyServer:7046/DynamicsNAV71/CRONUS/
+</span><span style=color:#75715e></span>
+GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::Windows,<span style=color:#e6db74>&#39;&#39;</span><span style=color:#f92672>)
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>dynamicsnav:<span style=color:#75715e>//MyServer:7046/DynamicsNAV71//
+</span><span style=color:#75715e></span>
+GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::Windows,<span style=color:#e6db74>&#39;NONEXISTING Corp&#39;</span><span style=color:#f92672>)
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>dynamicsnav:<span style=color:#75715e>//MyServer:7046/DynamicsNAV71/NONEXISTING Corp/
+</span><span style=color:#75715e></span>
+GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::Web,COMPANYNAME<span style=color:#f92672>)
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>https:<span style=color:#75715e>//navwebsrvr:443/DynamicsNAV71\_Instance1/Webclient?company=CRONUS
+</span><span style=color:#75715e></span>
+GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::Web,<span style=color:#e6db74>&#39;&#39;</span><span style=color:#f92672>)
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>https:<span style=color:#75715e>//navwebsrvr:443/DynamicsNAV71\_Instance1/Webclient
+</span><span style=color:#75715e></span>
+GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::Web,<span style=color:#e6db74>&#39;NONEXISTING Corp&#39;</span><span style=color:#f92672>)
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>https:<span style=color:#75715e>//navwebsrvr:443/DynamicsNAV71\_Instance1/Webclient?company=NONEXISTING Corp
+</span><span style=color:#75715e></span>
+GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::OData,COMPANYNAME<span style=color:#f92672>)
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>http:<span style=color:#75715e>//MyServer:7048/DynamicsNAV71/OData/Company(&#39;CRONUS&#39;)
+</span><span style=color:#75715e></span>
+GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::OData,<span style=color:#e6db74>&#39;&#39;</span><span style=color:#f92672>)
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>http:<span style=color:#75715e>//MyServer:7048/DynamicsNAV71/OData
+</span><span style=color:#75715e></span>
+GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::OData,<span style=color:#e6db74>&#39;NONEXISTING Corp&#39;</span><span style=color:#f92672>)
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>http:<span style=color:#75715e>//MyServer:7048/DynamicsNAV71/OData/Company(&#39;NONEXISTING Corp&#39;)
+</span><span style=color:#75715e></span>
+GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::SOAP,COMPANYNAME<span style=color:#f92672>)
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>http:<span style=color:#75715e>//MyServer:7047/DynamicsNAV71/WS/CRONUS/Services
+</span><span style=color:#75715e></span>
+GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::SOAP,<span style=color:#e6db74>&#39;&#39;</span><span style=color:#f92672>)
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>http:<span style=color:#75715e>//MyServer:7047/DynamicsNAV71/WS/Services
+</span><span style=color:#75715e></span>
+GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::SOAP,<span style=color:#e6db74>&#39;NONEXISTING Corp&#39;</span><span style=color:#f92672>)
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>http:<span style=color:#75715e>//MyServer:7047/DynamicsNAV71/WS/NONEXISTING Corp/Services
+</span><span style=color:#75715e></span>
+GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::Windows,COMPANYNAME,<span style=color:#66d9ef>OBJECTTYPE</span>::<span style=color:#66d9ef>Table</span>,<span style=color:#ae81ff>27</span><span style=color:#f92672>)
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>dynamicsnav:<span style=color:#75715e>//MyServer:7046/DynamicsNAV71/CRONUS/runtable?table=27
+</span><span style=color:#75715e></span>
+GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::Windows,COMPANYNAME,<span style=color:#66d9ef>OBJECTTYPE</span>::<span style=color:#66d9ef>Page</span>,<span style=color:#ae81ff>27</span><span style=color:#f92672>)
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>dynamicsnav:<span style=color:#75715e>//MyServer:7046/DynamicsNAV71/CRONUS/runpage?page=27
+</span><span style=color:#75715e></span>
+GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::Windows,COMPANYNAME,<span style=color:#66d9ef>OBJECTTYPE</span>::<span style=color:#66d9ef>Report</span>,<span style=color:#ae81ff>6</span><span style=color:#f92672>)
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>dynamicsnav:<span style=color:#75715e>//MyServer:7046/DynamicsNAV71/CRONUS/runreport?report=6
+</span><span style=color:#75715e></span>
+GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::Windows,COMPANYNAME,<span style=color:#66d9ef>OBJECTTYPE</span>::<span style=color:#66d9ef>Codeunit</span>,<span style=color:#ae81ff>5065</span><span style=color:#f92672>)
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>dynamicsnav:<span style=color:#75715e>//MyServer:7046/DynamicsNAV71/CRONUS/runcodeunit?codeunit=5065
+</span><span style=color:#75715e></span>
+GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::Windows,COMPANYNAME,<span style=color:#66d9ef>OBJECTTYPE</span>::<span style=color:#66d9ef>Query</span>,<span style=color:#ae81ff>9150</span><span style=color:#f92672>)
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>dynamicsnav:<span style=color:#75715e>//MyServer:7046/DynamicsNAV71/CRONUS/runquery?query=9150
+</span><span style=color:#75715e></span>
+GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::Windows,COMPANYNAME,<span style=color:#66d9ef>OBJECTTYPE</span>::<span style=color:#66d9ef>XmlPort</span>,<span style=color:#ae81ff>5150</span><span style=color:#f92672>)
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>dynamicsnav:<span style=color:#75715e>//MyServer:7046/DynamicsNAV71/CRONUS/runxmlport?xmlport=5150
+</span><span style=color:#75715e></span>
+GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::OData,COMPANYNAME,<span style=color:#66d9ef>OBJECTTYPE</span>::<span style=color:#66d9ef>Page</span>,<span style=color:#ae81ff>27</span><span style=color:#f92672>) </span>ie<span style=color:#f92672>. </span>When the Web Service is published
+
+http:<span style=color:#75715e>//MyServer:7048/DynamicsNAV71/OData/Company(&#39;CRONUS&#39;)/PAG27Vendors
+</span><span style=color:#75715e></span>
+GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::OData,COMPANYNAME,<span style=color:#66d9ef>OBJECTTYPE</span>::<span style=color:#66d9ef>Query</span>,<span style=color:#ae81ff>9150</span><span style=color:#f92672>) </span>ie<span style=color:#f92672>. </span>When the Web Service is published
+
+http:<span style=color:#75715e>//MyServer:7048/DynamicsNAV71/OData/Company(&#39;CRONUS&#39;)/QUE9150MyCustomers
+</span><span style=color:#75715e></span>
+GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::SOAP,COMPANYNAME,<span style=color:#66d9ef>OBJECTTYPE</span>::<span style=color:#66d9ef>Page</span>,<span style=color:#ae81ff>27</span><span style=color:#f92672>)</span>Â ie<span style=color:#f92672>. </span>When the Web Service is published
+
+http:<span style=color:#75715e>//MyServer:7047/DynamicsNAV71/WS/CRONUS/Page/PAG27Vendors
+</span><span style=color:#75715e></span>
+GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::SOAP,COMPANYNAME,<span style=color:#66d9ef>OBJECTTYPE</span>::<span style=color:#66d9ef>Codeunit</span>,<span style=color:#ae81ff>5065</span><span style=color:#f92672>) </span>ie<span style=color:#f92672>. </span>When the Web Service is published
+
+http:<span style=color:#75715e>//MyServer:7047/DynamicsNAV71/WS/CRONUS/Codeunit/COD5065EmailLogging
+</span><span style=color:#75715e></span>
+GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::Windows,COMPANYNAME,<span style=color:#66d9ef>OBJECTTYPE</span>::<span style=color:#66d9ef>Page</span>,<span style=color:#ae81ff>27</span>,<span style=color:#66d9ef>record</span><span style=color:#f92672>) </span><span style=color:#66d9ef>List</span> <span style=color:#66d9ef>Page</span>
+
+dynamicsnav:<span style=color:#75715e>//MyServer:7046/DynamicsNAV71/CRONUS/runpage?page=27&amp;bookmark=23;FwAAAAJ7/0kAQwAxADAAMwAw
+</span><span style=color:#75715e></span>
+GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::Windows,COMPANYNAME,<span style=color:#66d9ef>OBJECTTYPE</span>::<span style=color:#66d9ef>Page</span>,<span style=color:#ae81ff>26</span>,<span style=color:#66d9ef>record</span><span style=color:#f92672>) </span>Card <span style=color:#66d9ef>Page</span>
+
+dynamicsnav:<span style=color:#75715e>//MyServer:7046/DynamicsNAV71/CRONUS/runpage?page=26&amp;bookmark=23;FwAAAAJ7/0kAQwAxADAAMwAw
+</span><span style=color:#75715e></span>
+GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::Web,COMPANYNAME,<span style=color:#66d9ef>OBJECTTYPE</span>::<span style=color:#66d9ef>Page</span>,<span style=color:#ae81ff>27</span>,<span style=color:#66d9ef>record</span><span style=color:#f92672>) </span><span style=color:#66d9ef>List</span> <span style=color:#66d9ef>Page</span>
+
+https:<span style=color:#75715e>//navwebsrvr:443/DynamicsNAV71\_Instance1/Webclient?company=CRONUS&amp;page=27&amp;bookmark=23;FwAAAAJ7/0kAQwAxADAAMwAw
+</span><span style=color:#75715e></span>
+GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::Web,COMPANYNAME,<span style=color:#66d9ef>OBJECTTYPE</span>::<span style=color:#66d9ef>Page</span>,<span style=color:#ae81ff>26</span>,<span style=color:#66d9ef>record</span><span style=color:#f92672>) </span>Card <span style=color:#66d9ef>Page</span>
+
+https:<span style=color:#75715e>//navwebsrvr:443/DynamicsNAV71\_Instance1/Webclient?company=CRONUS&amp;page=26&amp;bookmark=23;FwAAAAJ7/0kAQwAxADAAMwAw
+</span><span style=color:#75715e></span>
+GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::OData,COMPANYNAME,<span style=color:#66d9ef>OBJECTTYPE</span>::<span style=color:#66d9ef>Page</span>,<span style=color:#ae81ff>27</span>,<span style=color:#66d9ef>record</span><span style=color:#f92672>)
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>http:<span style=color:#75715e>//MyServer:7048/DynamicsNAV71/OData/Company(&#39;CRONUS&#39;)/PAG27Vendors(&#39;IC1030&#39;)
+</span><span style=color:#75715e></span>
+GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::Web,COMPANYNAME,<span style=color:#66d9ef>OBJECTTYPE</span>::<span style=color:#66d9ef>Page</span>,<span style=color:#ae81ff>27</span><span style=color:#f92672>)
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>https:<span style=color:#75715e>//navwebsrvr:443/DynamicsNAV71\_Instance1/Webclient?company=CRONUS&amp;page=27
+</span><span style=color:#75715e></span>
+GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::Web,COMPANYNAME,<span style=color:#66d9ef>OBJECTTYPE</span>::<span style=color:#66d9ef>Report</span>,<span style=color:#ae81ff>6</span><span style=color:#f92672>)
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>https:<span style=color:#75715e>//navwebsrvr:443/DynamicsNAV71\_Instance1/Webclient?company=CRONUS&amp;report=6
+</span><span style=color:#75715e></span>
+</code></pre></div><p>If the GETURL function is called with invalid parameters, it will return an empty string. In that case, you can find the related error text by calling the GETLASTERRORTEXT function.</p>
 <p><strong>Function Call</strong></p>
 <p><strong>Error Message</strong></p>
-<p>GETURL(CLIENTTYPE::Web,COMPANYNAME,OBJECTTYPE::Table,27)</p>
-<p>The specified object type parameter for the GetUrl function is not valid.</p>
-<p>GETURL(CLIENTTYPE::Web,COMPANYNAME,OBJECTTYPE::Codeunit,5065)</p>
-<p>The specified object type parameter for the GetUrl function is not valid.</p>
-<p>GETURL(CLIENTTYPE::Web,COMPANYNAME,OBJECTTYPE::Query,9150)</p>
-<p>The specified object type parameter for the GetUrl function is not valid.</p>
-<p>GETURL(CLIENTTYPE::Web,COMPANYNAME,OBJECTTYPE::XmlPort,5150)</p>
-<p>The specified object type parameter for the GetUrl function is not valid.</p>
-<p>GETURL(CLIENTTYPE::OData,COMPANYNAME,OBJECTTYPE::Table,27)</p>
-<p>The specified object type parameter for the GetUrl function is not valid.</p>
-<p>GETURL(CLIENTTYPE::OData,COMPANYNAME,OBJECTTYPE::Page,27)</p>
-<p>The Page object, 27, that is specified for the GetUrl function has not been published in the Web Services table.</p>
-<p>GETURL(CLIENTTYPE::OData,COMPANYNAME,OBJECTTYPE::Report,6)</p>
-<p>The specified object type parameter for the GetUrl function is not valid.</p>
-<p>GETURL(CLIENTTYPE::OData,COMPANYNAME,OBJECTTYPE::Codeunit,5065)</p>
-<p>The specified object type parameter for the GetUrl function is not valid.</p>
-<p>GETURL(CLIENTTYPE::OData,COMPANYNAME,OBJECTTYPE::Query,9150)</p>
-<p>The Query object, 9150, that is specified for the GetUrl function has not been published in the Web Services table.</p>
-<p>GETURL(CLIENTTYPE::OData,COMPANYNAME,OBJECTTYPE::XmlPort,5150)</p>
-<p>The specified object type parameter for the GetUrl function is not valid.</p>
-<p>GETURL(CLIENTTYPE::SOAP,COMPANYNAME,OBJECTTYPE::Table,27)</p>
-<p>The specified object type parameter for the GetUrl function is not valid.</p>
-<p>GETURL(CLIENTTYPE::SOAP,COMPANYNAME,OBJECTTYPE::Page,27)</p>
-<p>The Page object, 27, that is specified for the GetUrl function has not been published in the Web Services table.</p>
-<p>GETURL(CLIENTTYPE::SOAP,COMPANYNAME,OBJECTTYPE::Report,6)</p>
-<p>The specified object type parameter for the GetUrl function is not valid.</p>
-<p>GETURL(CLIENTTYPE::SOAP,COMPANYNAME,OBJECTTYPE::Codeunit,5065)</p>
-<p>The Codeunit object, 5065, that is specified for the GetUrl function has not been published in the Web Services table.</p>
-<p>GETURL(CLIENTTYPE::SOAP,COMPANYNAME,OBJECTTYPE::Query,9150)</p>
-<p>The specified object type parameter for the GetUrl function is not valid.</p>
-<p>GETURL(CLIENTTYPE::SOAP,COMPANYNAME,OBJECTTYPE::XmlPort,5150)</p>
-<p>The specified object type parameter for the GetUrl function is not valid.</p>
-<p>GETURL(CLIENTTYPE::SOAP,COMPANYNAME,OBJECTTYPE::Page,27,record)</p>
-<p>You cannot specify a record parameter for the GetUrl function when the object type is SOAP</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::Web,COMPANYNAME,<span style=color:#66d9ef>OBJECTTYPE</span>::<span style=color:#66d9ef>Table</span>,<span style=color:#ae81ff>27</span><span style=color:#f92672>)
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>The specified object <span style=color:#66d9ef>type</span> parameter <span style=color:#66d9ef>for</span> the GetUrl <span style=color:#66d9ef>function</span> is <span style=color:#f92672>not</span> valid<span style=color:#f92672>.
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::Web,COMPANYNAME,<span style=color:#66d9ef>OBJECTTYPE</span>::<span style=color:#66d9ef>Codeunit</span>,<span style=color:#ae81ff>5065</span><span style=color:#f92672>)
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>The specified object <span style=color:#66d9ef>type</span> parameter <span style=color:#66d9ef>for</span> the GetUrl <span style=color:#66d9ef>function</span> is <span style=color:#f92672>not</span> valid<span style=color:#f92672>.
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::Web,COMPANYNAME,<span style=color:#66d9ef>OBJECTTYPE</span>::<span style=color:#66d9ef>Query</span>,<span style=color:#ae81ff>9150</span><span style=color:#f92672>)
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>The specified object <span style=color:#66d9ef>type</span> parameter <span style=color:#66d9ef>for</span> the GetUrl <span style=color:#66d9ef>function</span> is <span style=color:#f92672>not</span> valid<span style=color:#f92672>.
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::Web,COMPANYNAME,<span style=color:#66d9ef>OBJECTTYPE</span>::<span style=color:#66d9ef>XmlPort</span>,<span style=color:#ae81ff>5150</span><span style=color:#f92672>)
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>The specified object <span style=color:#66d9ef>type</span> parameter <span style=color:#66d9ef>for</span> the GetUrl <span style=color:#66d9ef>function</span> is <span style=color:#f92672>not</span> valid<span style=color:#f92672>.
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::OData,COMPANYNAME,<span style=color:#66d9ef>OBJECTTYPE</span>::<span style=color:#66d9ef>Table</span>,<span style=color:#ae81ff>27</span><span style=color:#f92672>)
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>The specified object <span style=color:#66d9ef>type</span> parameter <span style=color:#66d9ef>for</span> the GetUrl <span style=color:#66d9ef>function</span> is <span style=color:#f92672>not</span> valid<span style=color:#f92672>.
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::OData,COMPANYNAME,<span style=color:#66d9ef>OBJECTTYPE</span>::<span style=color:#66d9ef>Page</span>,<span style=color:#ae81ff>27</span><span style=color:#f92672>)
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>The <span style=color:#66d9ef>Page</span> object, <span style=color:#ae81ff>27</span>, that is specified <span style=color:#66d9ef>for</span> the GetUrl <span style=color:#66d9ef>function</span> has <span style=color:#f92672>not</span> been published <span style=color:#66d9ef>in</span> the Web Services <span style=color:#66d9ef>table</span><span style=color:#f92672>.
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::OData,COMPANYNAME,<span style=color:#66d9ef>OBJECTTYPE</span>::<span style=color:#66d9ef>Report</span>,<span style=color:#ae81ff>6</span><span style=color:#f92672>)
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>The specified object <span style=color:#66d9ef>type</span> parameter <span style=color:#66d9ef>for</span> the GetUrl <span style=color:#66d9ef>function</span> is <span style=color:#f92672>not</span> valid<span style=color:#f92672>.
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::OData,COMPANYNAME,<span style=color:#66d9ef>OBJECTTYPE</span>::<span style=color:#66d9ef>Codeunit</span>,<span style=color:#ae81ff>5065</span><span style=color:#f92672>)
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>The specified object <span style=color:#66d9ef>type</span> parameter <span style=color:#66d9ef>for</span> the GetUrl <span style=color:#66d9ef>function</span> is <span style=color:#f92672>not</span> valid<span style=color:#f92672>.
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::OData,COMPANYNAME,<span style=color:#66d9ef>OBJECTTYPE</span>::<span style=color:#66d9ef>Query</span>,<span style=color:#ae81ff>9150</span><span style=color:#f92672>)
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>The <span style=color:#66d9ef>Query</span> object, <span style=color:#ae81ff>9150</span>, that is specified <span style=color:#66d9ef>for</span> the GetUrl <span style=color:#66d9ef>function</span> has <span style=color:#f92672>not</span> been published <span style=color:#66d9ef>in</span> the Web Services <span style=color:#66d9ef>table</span><span style=color:#f92672>.
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::OData,COMPANYNAME,<span style=color:#66d9ef>OBJECTTYPE</span>::<span style=color:#66d9ef>XmlPort</span>,<span style=color:#ae81ff>5150</span><span style=color:#f92672>)
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>The specified object <span style=color:#66d9ef>type</span> parameter <span style=color:#66d9ef>for</span> the GetUrl <span style=color:#66d9ef>function</span> is <span style=color:#f92672>not</span> valid<span style=color:#f92672>.
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::SOAP,COMPANYNAME,<span style=color:#66d9ef>OBJECTTYPE</span>::<span style=color:#66d9ef>Table</span>,<span style=color:#ae81ff>27</span><span style=color:#f92672>)
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>The specified object <span style=color:#66d9ef>type</span> parameter <span style=color:#66d9ef>for</span> the GetUrl <span style=color:#66d9ef>function</span> is <span style=color:#f92672>not</span> valid<span style=color:#f92672>.
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::SOAP,COMPANYNAME,<span style=color:#66d9ef>OBJECTTYPE</span>::<span style=color:#66d9ef>Page</span>,<span style=color:#ae81ff>27</span><span style=color:#f92672>)
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>The <span style=color:#66d9ef>Page</span> object, <span style=color:#ae81ff>27</span>, that is specified <span style=color:#66d9ef>for</span> the GetUrl <span style=color:#66d9ef>function</span> has <span style=color:#f92672>not</span> been published <span style=color:#66d9ef>in</span> the Web Services <span style=color:#66d9ef>table</span><span style=color:#f92672>.
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::SOAP,COMPANYNAME,<span style=color:#66d9ef>OBJECTTYPE</span>::<span style=color:#66d9ef>Report</span>,<span style=color:#ae81ff>6</span><span style=color:#f92672>)
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>The specified object <span style=color:#66d9ef>type</span> parameter <span style=color:#66d9ef>for</span> the GetUrl <span style=color:#66d9ef>function</span> is <span style=color:#f92672>not</span> valid<span style=color:#f92672>.
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::SOAP,COMPANYNAME,<span style=color:#66d9ef>OBJECTTYPE</span>::<span style=color:#66d9ef>Codeunit</span>,<span style=color:#ae81ff>5065</span><span style=color:#f92672>)
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>The <span style=color:#66d9ef>Codeunit</span> object, <span style=color:#ae81ff>5065</span>, that is specified <span style=color:#66d9ef>for</span> the GetUrl <span style=color:#66d9ef>function</span> has <span style=color:#f92672>not</span> been published <span style=color:#66d9ef>in</span> the Web Services <span style=color:#66d9ef>table</span><span style=color:#f92672>.
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::SOAP,COMPANYNAME,<span style=color:#66d9ef>OBJECTTYPE</span>::<span style=color:#66d9ef>Query</span>,<span style=color:#ae81ff>9150</span><span style=color:#f92672>)
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>The specified object <span style=color:#66d9ef>type</span> parameter <span style=color:#66d9ef>for</span> the GetUrl <span style=color:#66d9ef>function</span> is <span style=color:#f92672>not</span> valid<span style=color:#f92672>.
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::SOAP,COMPANYNAME,<span style=color:#66d9ef>OBJECTTYPE</span>::<span style=color:#66d9ef>XmlPort</span>,<span style=color:#ae81ff>5150</span><span style=color:#f92672>)
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>The specified object <span style=color:#66d9ef>type</span> parameter <span style=color:#66d9ef>for</span> the GetUrl <span style=color:#66d9ef>function</span> is <span style=color:#f92672>not</span> valid<span style=color:#f92672>.
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>GETURL<span style=color:#f92672>(</span><span style=color:#66d9ef>CLIENTTYPE</span>::SOAP,COMPANYNAME,<span style=color:#66d9ef>OBJECTTYPE</span>::<span style=color:#66d9ef>Page</span>,<span style=color:#ae81ff>27</span>,<span style=color:#66d9ef>record</span><span style=color:#f92672>)
+</span><span style=color:#f92672>
+</span></code></pre></div><p>You cannot specify a record parameter for the GetUrl function when the object type is SOAP</p>
 <h2 id=nav-specific-example>NAV Specific Example</h2>
 <p>The following example shows how to use the GETURL function in codeunit 440 to ensure that the notification mail in Document Approvals can link to both the Microsoft Dynamics NAV Windows client and the Microsoft Dynamics NAV web client:</p>
 <p><a href=1778.url1.jpg><img src=1778.url1.jpg alt=" "></a></p>
@@ -379,12 +483,12 @@ BC AL Help . dev
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/js/clipboard.min.js?1636104707></script>
-<script src=/js/perfect-scrollbar.min.js?1636104707></script>
-<script src=/js/perfect-scrollbar.jquery.min.js?1636104707></script>
-<script src=/js/jquery.svg.pan.zoom.js?1636104707></script>
-<script src=/js/featherlight.min.js?1636104707></script>
-<script src=/js/modernizr.custom-3.6.0.js?1636104707></script>
-<script src=/js/relearn.js?1636104707></script>
+<script src=/js/clipboard.min.js?1636386789></script>
+<script src=/js/perfect-scrollbar.min.js?1636386789></script>
+<script src=/js/perfect-scrollbar.jquery.min.js?1636386789></script>
+<script src=/js/jquery.svg.pan.zoom.js?1636386789></script>
+<script src=/js/featherlight.min.js?1636386789></script>
+<script src=/js/modernizr.custom-3.6.0.js?1636386789></script>
+<script src=/js/relearn.js?1636386789></script>
 </body>
 </html>

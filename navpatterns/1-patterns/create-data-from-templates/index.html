@@ -2,19 +2,19 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=generator content="Hugo 0.89.0">
+<meta name=generator content="Hugo 0.89.1">
 <meta name=description content>
 <title>Create Data from Templates :: BC AL Help</title>
-<link href=/css/nucleus.css?1636104707 rel=stylesheet>
-<link href=/css/fontawesome-all.min.css?1636104707 rel=stylesheet>
-<link href=/css/featherlight.min.css?1636104707 rel=stylesheet>
-<link href=/css/perfect-scrollbar.min.css?1636104707 rel=stylesheet>
-<link href=/css/auto-complete.css?1636104707 rel=stylesheet>
-<link href=/css/theme.css?1636104707 rel=stylesheet>
-<link href=/css/theme-blue.css?1636104707 rel=stylesheet>
-<link href=/css/variant.css?1636104707 rel=stylesheet>
-<link href=/css/print.css?1636104707 rel=stylesheet media=print>
-<script src=/js/jquery.min.js?1636104707></script>
+<link href=/css/nucleus.css?1636386789 rel=stylesheet>
+<link href=/css/fontawesome-all.min.css?1636386789 rel=stylesheet>
+<link href=/css/featherlight.min.css?1636386789 rel=stylesheet>
+<link href=/css/perfect-scrollbar.min.css?1636386789 rel=stylesheet>
+<link href=/css/auto-complete.css?1636386789 rel=stylesheet>
+<link href=/css/theme.css?1636386789 rel=stylesheet>
+<link href=/css/theme-blue.css?1636386789 rel=stylesheet>
+<link href=/css/variant.css?1636386789 rel=stylesheet>
+<link href=/css/print.css?1636386789 rel=stylesheet media=print>
+<script src=/js/jquery.min.js?1636386789></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
 <body data-url=/navpatterns/1-patterns/create-data-from-templates/>
@@ -32,9 +32,9 @@ BC AL Help . dev
 <input data-search-input id=search-by type=search placeholder=Search...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script src=/js/lunr.min.js?1636104707></script>
-<script src=/js/auto-complete.js?1636104707></script>
-<script src=/js/search.js?1636104707></script>
+<script src=/js/lunr.min.js?1636386789></script>
+<script src=/js/auto-complete.js?1636386789></script>
+<script src=/js/search.js?1636386789></script>
 </div>
 <div class=highlightable>
 <ul class=topics>
@@ -250,44 +250,41 @@ BC AL Help . dev
 <p>Code example (Insert a record, apply a template, and insert the related templates):</p>
 <p><strong>// First insert a record Customer.INSERT(TRUE);</strong></p>
 <p><strong>// Apply a template RecRef.GETTABLE(Customer);</strong></p>
-<p>ConfigTemplateMgt.UpdateRecord(ConfigTemplateHeader,RecRef);</p>
-<p>RecRef.SETTABLE(Customer);</p>
-<p><strong>// Insert Dimensions &ndash; related templates</strong></p>
-<p>MiniDimensionsTemplate.InsertDimensionsFromTemplates(ConfigTemplateHeader,Customer.&ldquo;No.",DATABASE::Customer);</p>
-<p>Code to insert related templates (dimensions):</p>
-<p><strong>FUNCTION InsertDimensionsFromTemplates(ConfigTemplateHeader : Record &ldquo;Config. Template Header&rdquo;;MasterRecordNo : Code[20];TableID : Integer)</strong></p>
-<p><strong>// There are multiple records (multiple dimensions per master record)</strong></p>
-<p><strong>// We have to set filter</strong>****</p>
-<p>ConfigTemplateLine.SETRANGE(Type,ConfigTemplateLine.Type::&ldquo;Related Template&rdquo;);****</p>
-<p>ConfigTemplateLine.SETRANGE(&ldquo;Data Template Code&rdquo;,ConfigTemplateHeader.Code);****</p>
-<hr>
-<p>IF ConfigTemplateLine.FINDSET THEN****</p>
-<p>REPEAT****</p>
-<p>ConfigTemplateHeader.GET(ConfigTemplateLine.&ldquo;Template Code&rdquo;);</p>
-<p><strong>// Ensure that the table where the template belongs to is Dimensions</strong></p>
-<p><strong>// We could have other related templates</strong>****</p>
-<p>IF ConfigTemplateHeader.&ldquo;Table ID&rdquo; = DATABASE::&ldquo;Default Dimension&rdquo; THEN****</p>
-<p>InsertDimensionFromTemplate(ConfigTemplateHeader,MasterRecordNo,TableID);****</p>
-<p>UNTIL ConfigTemplateLine.NEXT = 0;****</p>
-<hr>
-<p><strong>// Create a new Dimensions Record and link it to the Master Record</strong>****</p>
-<p><strong>FUNCTION InsertDimensionFromTemplate(ConfigTemplateHeader : Record &ldquo;Config. Template Header&rdquo;;MasterRecordNo : Code[20];TableID : Integer)</strong></p>
-<p>DefaultDimension.INIT;</p>
-<p>DefaultDimension.&ldquo;No.&rdquo; := MasterRecordNo;****</p>
-<p>DefaultDimension.&ldquo;Table ID&rdquo; := TableID;****</p>
-<p>DefaultDimension.&ldquo;Dimension Code&rdquo; := GetDefaultDimensionCode(ConfigTemplateHeader);****</p>
-<p>DefaultDimension.INSERT;****</p>
-<hr>
-<p>RecRef.GETTABLE(DefaultDimension);****</p>
-<p>ConfigTemplateMgt.UpdateRecord(ConfigTemplateHeader,RecRef);****</p>
-<p>RecRef.SETTABLE(DefaultDimension);</p>
-<p><strong>To surface the action in the product, you have three options:</strong></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>ConfigTemplateMgt<span style=color:#f92672>.</span>UpdateRecord<span style=color:#f92672>(</span>ConfigTemplateHeader,RecRef<span style=color:#f92672>)</span>;
+RecRef<span style=color:#f92672>.</span>SETTABLE<span style=color:#f92672>(</span>Customer<span style=color:#f92672>)</span>;
+</code></pre></div><p><strong>// Insert Dimensions &ndash; related templates</strong></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>MiniDimensionsTemplate<span style=color:#f92672>.</span>InsertDimensionsFromTemplates<span style=color:#f92672>(</span>ConfigTemplateHeader,Customer<span style=color:#f92672>.</span>&#34;No.&#34;,<span style=color:#66d9ef>DATABASE</span>::Customer<span style=color:#f92672>)</span>; 
+</code></pre></div><p>Code to insert related templates (dimensions):</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=color:#66d9ef>FUNCTION</span> InsertDimensionsFromTemplates<span style=color:#f92672>(</span>ConfigTemplateHeader : <span style=color:#66d9ef>Record</span> &#34;Config. Template Header&#34;;MasterRecordNo : <span style=color:#66d9ef>Code</span>\[<span style=color:#ae81ff>20</span>\];TableID : <span style=color:#66d9ef>Integer</span><span style=color:#f92672>)
+</span><span style=color:#f92672>  </span><span style=color:#75715e>// There are multiple records (multiple dimensions per master record)
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// We have to set filter
+</span><span style=color:#75715e></span>  ConfigTemplateLine<span style=color:#f92672>.</span>SETRANGE<span style=color:#f92672>(</span><span style=color:#66d9ef>Type</span>,ConfigTemplateLine<span style=color:#f92672>.</span><span style=color:#66d9ef>Type</span>::&#34;Related Template&#34;<span style=color:#f92672>)</span>;
+  ConfigTemplateLine<span style=color:#f92672>.</span>SETRANGE<span style=color:#f92672>(</span>&#34;Data Template Code&#34;,ConfigTemplateHeader<span style=color:#f92672>.</span><span style=color:#66d9ef>Code</span>
+  <span style=color:#66d9ef>IF</span> ConfigTemplateLine<span style=color:#f92672>.</span>FINDSET <span style=color:#66d9ef>THEN</span>
+  <span style=color:#66d9ef>REPEAT</span>
+    ConfigTemplateHeader<span style=color:#f92672>.</span>GET<span style=color:#f92672>(</span>ConfigTemplateLine<span style=color:#f92672>.</span>&#34;Template Code&#34;<span style=color:#f92672>)</span>;
+    <span style=color:#75715e>// Ensure that the table where the template belongs to is Dimensions
+</span><span style=color:#75715e></span>    <span style=color:#75715e>// We could have other related templates
+</span><span style=color:#75715e></span>    <span style=color:#66d9ef>IF</span> ConfigTemplateHeader<span style=color:#f92672>.</span>&#34;Table ID&#34; = <span style=color:#66d9ef>DATABASE</span>::&#34;Default Dimension&#34; <span style=color:#66d9ef>THEN</span>
+    InsertDimensionFromTemplate<span style=color:#f92672>(</span>ConfigTemplateHeader,MasterRecordNo,TableID<span style=color:#f92672>)</span>;
+  <span style=color:#66d9ef>UNTIL</span> ConfigTemplateLine<span style=color:#f92672>.</span>NEXT = <span style=color:#ae81ff>0</span>;
+</code></pre></div><p><strong>// Create a new Dimensions Record and link it to the Master Record</strong>****</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=color:#66d9ef>FUNCTION</span> InsertDimensionFromTemplate<span style=color:#f92672>(</span>ConfigTemplateHeader : <span style=color:#66d9ef>Record</span> &#34;Config. Template Header&#34;;MasterRecordNo : <span style=color:#66d9ef>Code</span>\[<span style=color:#ae81ff>20</span>\];TableID : <span style=color:#66d9ef>Integer</span><span style=color:#f92672>)
+</span><span style=color:#f92672>  </span>DefaultDimension<span style=color:#f92672>.</span>INIT;
+  DefaultDimension<span style=color:#f92672>.</span>&#34;No.&#34; <span style=color:#f92672>:=</span> MasterRecordNo;
+  DefaultDimension<span style=color:#f92672>.</span>&#34;Table ID&#34; <span style=color:#f92672>:=</span> TableID;
+  DefaultDimension<span style=color:#f92672>.</span>&#34;Dimension Code&#34; <span style=color:#f92672>:=</span> GetDefaultDimensionCode<span style=color:#f92672>(</span>ConfigTemplateHeader<span style=color:#f92672>)</span>;
+  DefaultDimension<span style=color:#f92672>.</span>INSERT;
+  RecRef<span style=color:#f92672>.</span>GETTABLE<span style=color:#f92672>(</span>DefaultDimension<span style=color:#f92672>)</span>;
+  ConfigTemplateMgt<span style=color:#f92672>.</span>UpdateRecord<span style=color:#f92672>(</span>ConfigTemplateHeader,RecRef<span style=color:#f92672>)</span>;
+  RecRef<span style=color:#f92672>.</span>SETTABLE<span style=color:#f92672>(</span>DefaultDimension<span style=color:#f92672>)</span>; 
+</code></pre></div><p><strong>To surface the action in the product, you have three options:</strong></p>
 <ol>
 <li><strong>Recommended</strong> - Implement a separate action called <strong>New from Template</strong>.</li>
 <li><strong>Optional</strong> - Implement the apply template function on the document itself. This is especially good in scenarios where users are allowed to change the template.</li>
 <li><strong>Alternative</strong> - Remove the new action by configuration or set Insert Allowed to FALSE on the list (this will block the creation of new records from the lookup). Implement an application action named <strong>New</strong> and tie it to your code.</li>
 </ol>
-<p>**Note: ** In Microsoft Dynamics C5 2014, we chose to remove the <strong>New</strong> action with configuration since we wanted to promote the functionality and avoid the confusion in having too many options. However this might be difficult to maintain with a larger set of pages.</p>
+<p><strong>Note:</strong> In Microsoft Dynamics C5 2014, we chose to remove the <strong>New</strong> action with configuration since we wanted to promote the functionality and avoid the confusion in having too many options. However this might be difficult to maintain with a larger set of pages.</p>
 <p><strong>To view or edit templates, you have two options:</strong></p>
 <ol>
 <li>Use the <strong>Config. Template List</strong> table (8620) and the **Config. Template Header Card **table (8618).</li>
@@ -322,7 +319,8 @@ BC AL Help . dev
 <p>In C5 2014, this is the workflow:</p>
 <p>The user opens the <strong>Customers List</strong> window and selects <strong>New</strong></p>
 <p>**<a href=4341.Picture4.png><img src=4341.Picture4.png alt=" "></a>**</p>
-<p>**<a href=4341.Picture4.png></a>**From this page, the user can view the template, edit it, or create a new one. Selecting a template will populate the customer card and open a new record. From the existing record, the user has options to save as a template or opening a list of templates to maintain available templates. Selecting a template will populate the customer card and open a new record. From the existing record, the user has options to save as a template or opening a list of templates to maintain available templates.</p>
+<p><strong><a href=4341.Picture4.png></a></strong></p>
+<p>From this page, the user can view the template, edit it, or create a new one. Selecting a template will populate the customer card and open a new record. From the existing record, the user has options to save as a template or opening a list of templates to maintain available templates. Selecting a template will populate the customer card and open a new record. From the existing record, the user has options to save as a template or opening a list of templates to maintain available templates.</p>
 <p><a href=3482.Picture-5.png><img src=3482.Picture-5.png alt=" "></a></p>
 <p>From the **Customer Card Template **window, we can invoke the <strong>Dimensions</strong> action, through which we can define the dimensions that will be inserted together with the template:</p>
 <p><a href=2134.Picture6.png><img src=2134.Picture6.png alt=" "></a></p>
@@ -332,8 +330,8 @@ BC AL Help . dev
 <li>
 <p>Temporary template tables:</p>
 <ul>
-<li>**Mini Customer Template **table (1300)</li>
-<li>**Mini Item Template **table (1301)</li>
+<li><strong>Mini Customer Template</strong> table (1300)</li>
+<li><strong>Mini Item Template</strong> table (1301)</li>
 <li><strong>Mini Dimensions Template</strong> table(1302)</li>
 <li><strong>Mini Vendor Template</strong> table (1303)</li>
 </ul>
@@ -342,7 +340,7 @@ BC AL Help . dev
 <p>Pages to define templates:</p>
 <ul>
 <li><strong>Mini Customer Template Card</strong> page (1341)</li>
-<li>**Mini Item Template Card **page (,1342)</li>
+<li><strong>Mini Item Template Card</strong> page (,1342)</li>
 <li><strong>Mini Dimensions Template List</strong> page (1343)</li>
 <li><strong>Mini Vendor Template Card</strong> page (1344)</li>
 </ul>
@@ -380,12 +378,12 @@ BC AL Help . dev
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/js/clipboard.min.js?1636104707></script>
-<script src=/js/perfect-scrollbar.min.js?1636104707></script>
-<script src=/js/perfect-scrollbar.jquery.min.js?1636104707></script>
-<script src=/js/jquery.svg.pan.zoom.js?1636104707></script>
-<script src=/js/featherlight.min.js?1636104707></script>
-<script src=/js/modernizr.custom-3.6.0.js?1636104707></script>
-<script src=/js/relearn.js?1636104707></script>
+<script src=/js/clipboard.min.js?1636386789></script>
+<script src=/js/perfect-scrollbar.min.js?1636386789></script>
+<script src=/js/perfect-scrollbar.jquery.min.js?1636386789></script>
+<script src=/js/jquery.svg.pan.zoom.js?1636386789></script>
+<script src=/js/featherlight.min.js?1636386789></script>
+<script src=/js/modernizr.custom-3.6.0.js?1636386789></script>
+<script src=/js/relearn.js?1636386789></script>
 </body>
 </html>

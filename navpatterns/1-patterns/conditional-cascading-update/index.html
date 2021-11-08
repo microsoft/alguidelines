@@ -2,19 +2,19 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=generator content="Hugo 0.89.0">
+<meta name=generator content="Hugo 0.89.1">
 <meta name=description content>
 <title>Conditional Cascading Update :: BC AL Help</title>
-<link href=/css/nucleus.css?1636104707 rel=stylesheet>
-<link href=/css/fontawesome-all.min.css?1636104707 rel=stylesheet>
-<link href=/css/featherlight.min.css?1636104707 rel=stylesheet>
-<link href=/css/perfect-scrollbar.min.css?1636104707 rel=stylesheet>
-<link href=/css/auto-complete.css?1636104707 rel=stylesheet>
-<link href=/css/theme.css?1636104707 rel=stylesheet>
-<link href=/css/theme-blue.css?1636104707 rel=stylesheet>
-<link href=/css/variant.css?1636104707 rel=stylesheet>
-<link href=/css/print.css?1636104707 rel=stylesheet media=print>
-<script src=/js/jquery.min.js?1636104707></script>
+<link href=/css/nucleus.css?1636386789 rel=stylesheet>
+<link href=/css/fontawesome-all.min.css?1636386789 rel=stylesheet>
+<link href=/css/featherlight.min.css?1636386789 rel=stylesheet>
+<link href=/css/perfect-scrollbar.min.css?1636386789 rel=stylesheet>
+<link href=/css/auto-complete.css?1636386789 rel=stylesheet>
+<link href=/css/theme.css?1636386789 rel=stylesheet>
+<link href=/css/theme-blue.css?1636386789 rel=stylesheet>
+<link href=/css/variant.css?1636386789 rel=stylesheet>
+<link href=/css/print.css?1636386789 rel=stylesheet media=print>
+<script src=/js/jquery.min.js?1636386789></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
 <body data-url=/navpatterns/1-patterns/conditional-cascading-update/>
@@ -32,9 +32,9 @@ BC AL Help . dev
 <input data-search-input id=search-by type=search placeholder=Search...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script src=/js/lunr.min.js?1636104707></script>
-<script src=/js/auto-complete.js?1636104707></script>
-<script src=/js/search.js?1636104707></script>
+<script src=/js/lunr.min.js?1636386789></script>
+<script src=/js/auto-complete.js?1636386789></script>
+<script src=/js/search.js?1636386789></script>
 </div>
 <div class=highlightable>
 <ul class=topics>
@@ -200,11 +200,11 @@ BC AL Help . dev
 <div class=wrapper>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#abstract><strong>Abstract</strong></a></li>
-<li><a href=#description><strong>Description</strong></a></li>
-<li><a href=#usage><strong>Usage</strong></a></li>
-<li><a href=#nav-specific-example><strong>NAV Specific Example</strong></a></li>
-<li><a href=#consequences><strong>Consequences</strong></a></li>
+<li><a href=#abstract>Abstract</a></li>
+<li><a href=#description>Description</a></li>
+<li><a href=#usage>Usage</a></li>
+<li><a href=#nav-specific-example>NAV Specific Example</a></li>
+<li><a href=#consequences>Consequences</a></li>
 </ul>
 </nav>
 </div>
@@ -215,18 +215,18 @@ BC AL Help . dev
 <main id=body-inner>
 <h1>Conditional Cascading Update</h1>
 <p>_Originally by Jan Hoek at IDYN _</p>
-<h2 id=abstract><strong>Abstract</strong></h2>
+<h2 id=abstract>Abstract</h2>
 <p>The Conditional Cascading Update pattern is used to intelligently populate fields whose values depend on other field values. In this pattern description, the field triggering the update will be called &ldquo;source field&rdquo;, and the depending field will be called &ldquo;target field&rdquo;.</p>
-<h2 id=description><strong>Description</strong></h2>
+<h2 id=description>Description</h2>
 <p>The value of one table field sometimes depends on the value of another field, typically following an application-defined transformation (note that we&rsquo;re talking about transformations of field values here. This has nothing to do with e.g. form transformation), such as conversion to uppercase, removal of certain characters etc.</p>
 <p>If the target field is non-editable, said transformation is usually the only way for the target field to receive new values, so no irreproducible information can be lost. However, if the target field is editable, the user may have cared enough to override the default (transformed) value, in which case revalidating the source field should not blindly replace the target field&rsquo;s value.</p>
-<h2 id=usage><strong>Usage</strong></h2>
+<h2 id=usage>Usage</h2>
 <p>In the OnValidate trigger of the source field, test if the target field value is either blank, or equal to the transformed value of the source field&rsquo;s previous contents. If it is, populate the target field&rsquo;s value with the transformed source field value. If it is not, do nothing (effectively preserving the value set by the user).</p>
-<h2 id=nav-specific-example><strong>NAV Specific Example</strong></h2>
+<h2 id=nav-specific-example>NAV Specific Example</h2>
 <p>In the base application, this pattern can be found in Search Name/Search Description fields, which are updated with the uppercase value from the corresponding Name/Description field when the latter is validated, only if the Search Name/Description in question is currently blank, or equal to the (uppercase equivalent) of the previous contents of the Name/Description field.</p>
 <p><a href=3124.T18_5F00_Name_5F00_OnValidate.png><img src=3124.T18_5F00_Name_5F00_OnValidate.png alt=" "></a></p>
 <p>In this particular case, the transformation between source and target fields is implicit and due to the different data types of the fields (text vs. code). Note how the field triggers of the Search Name field itself do not contain any logic linked to this pattern.</p>
-<h2 id=consequences><strong>Consequences</strong></h2>
+<h2 id=consequences>Consequences</h2>
 <p>There is a case when this pattern should not be used. If the target field is non-editable, this pattern will not add any value, since there won&rsquo;t be any user-overridden values to protect.</p>
 <footer class=footline>
 </footer>
@@ -240,12 +240,12 @@ BC AL Help . dev
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/js/clipboard.min.js?1636104707></script>
-<script src=/js/perfect-scrollbar.min.js?1636104707></script>
-<script src=/js/perfect-scrollbar.jquery.min.js?1636104707></script>
-<script src=/js/jquery.svg.pan.zoom.js?1636104707></script>
-<script src=/js/featherlight.min.js?1636104707></script>
-<script src=/js/modernizr.custom-3.6.0.js?1636104707></script>
-<script src=/js/relearn.js?1636104707></script>
+<script src=/js/clipboard.min.js?1636386789></script>
+<script src=/js/perfect-scrollbar.min.js?1636386789></script>
+<script src=/js/perfect-scrollbar.jquery.min.js?1636386789></script>
+<script src=/js/jquery.svg.pan.zoom.js?1636386789></script>
+<script src=/js/featherlight.min.js?1636386789></script>
+<script src=/js/modernizr.custom-3.6.0.js?1636386789></script>
+<script src=/js/relearn.js?1636386789></script>
 </body>
 </html>
