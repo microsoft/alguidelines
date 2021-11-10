@@ -28,10 +28,10 @@ For some history on this, waldo's posts [Code is Poetry](https://www.waldo.be/20
 #### Behind This Project
 
 This project is a Microsoft Business Central Community initiative with support from the Microsoft Business Central team.  The founding community members are
-* [Waldo](https://twitter.com/waldo1001)
-* [Arend-Jan Kauffmann](https://twitter.com/ajkauffmann)
-* [Henrik Helgesen](https://twitter.com/TheDoubleH)
-* [Jeremy Vyska](https://twitter.com/JeremyVyska)
+* waldo ([Twitter](https://twitter.com/waldo1001), [Blog](https://www.waldo.be), [GitHub](https://github.com/waldo1001))
+* Arend-Jan Kauffmann ([Twitter](https://twitter.com/ajkauffmann), [Blog](https://www.kauffmann.nl/), [GitHub](https://github.com/ajkauffmann))
+* Henrik Helgesen ([Twitter](https://twitter.com/TheDoubleH), [GitHub](https://github.com/thedoubleh))
+* Jeremy Vyska ([Twitter](https://twitter.com/JeremyVyska),[Blog](https://jeremy.vyska.info/articles), [GitHub](https://github.com/JeremyVyska))
 
 #### Contibuting
 
