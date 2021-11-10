@@ -1,6 +1,6 @@
-baseURL = 'https://bcalhelp.dev/'
+baseURL = 'https://alguidelines.dev/'
 languageCode = 'en-us'
-title = 'BC AL Help'
+title = 'AL Guidelines'
 
 # Change the default theme to be use when building the site with Hugo
 theme = "relearn"
