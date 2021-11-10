@@ -36,4 +36,4 @@ This project is a Microsoft Business Central Community initiative with support f
 #### Contibuting
 
 To find out more about contributing, read up here:
-[Contributing](/Contributing/)
+[Contributing](/contributing/)
