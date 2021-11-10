@@ -14,16 +14,26 @@ To quote the original NAV Team blog post about the NAV Design Patterns:
 
 A design pattern is a repeatable template of how to solve a common development challenge.
 
+### What are Development Best Practices?
+
+(more text coming soon)
+
 ### History of "NAV Design Patterns"
 
 In 2013, Microsoft NAV Dev Team and prominent members of the community collaborated on a Community and Microsoft collection of commonly needed / used Design Patterns.
 
 For some history on this, waldo's posts [Code is Poetry](https://www.waldo.be/2013/06/14/code-is-poetry/) and [Design is Philosophy](https://www.waldo.be/2013/08/28/design-is-philosophy-2/) are a great read.
 
-### Contributing
 
-This project welcomes contributions and suggestions. Most contributions require you to agree to a Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
+#### Behind This Project
 
-When you submit a pull request, a CLA bot will automatically determine whether you need to provide a CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions provided by the bot. You will only need to do this once across all repos using our CLA.
+This project is a Microsoft Business Central Community initiative with support from the Microsoft Business Central team.  The founding community members are
+* [Waldo](https://twitter.com/waldo1001)
+* [Arend-Jan Kauffmann](https://twitter.com/ajkauffmann)
+* [Henrik Helgesen](https://twitter.com/TheDoubleH)
+* [Jeremy Vyska](https://twitter.com/JeremyVyska)
 
-This project has adopted the Microsoft Open Source Code of Conduct. For more information see the Code of Conduct FAQ or contact opencode@microsoft.com with any additional questions or comments.
+#### Contibuting
+
+To find out more about contributing, read up here:
+[Contributing](/Contributing/)
