@@ -16,7 +16,7 @@ home = [ "HTML", "RSS", "JSON"]
   # It is redirecting to the landing page of the current language if specified. (Default is "/")
   disableLandingPageButton = true
   # Enable GitHub editing
-  editURL = "https://github.com/microsoft/bcalhelp/edit/main/content/"
+  editURL = "https://github.com/microsoft/alguidelines/edit/main/content/"
   # This controls whether submenus will be expanded (true), or collapsed (false) in the
   # menu; if no setting is given, the first menu level is set to false, all others to true;
   # this can be overridden in the pages frontmatter
@@ -26,7 +26,7 @@ home = [ "HTML", "RSS", "JSON"]
 [[menu.shortcuts]]
 name = "<i class='fab fa-github'></i> GitHub repo"
 identifier = "gh"
-url = "https://github.com/microsoft/bcalhelp"
+url = "https://github.com/microsoft/alguidelines"
 weight = 10
 
 [[menu.shortcuts]]
