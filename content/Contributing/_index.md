@@ -17,6 +17,8 @@ This project has adopted the Microsoft Open Source Code of Conduct. For more inf
 
 ## Steps to Contribute
 
-* Guide to Fork & PR (coming soon)
-* Templates for Patterns and Best Practices (coming soon)
-* Understanding the Approval Process (coming soon)
+* [Guide to Fork & PR](/content/Contributing/ForkAndPR/index.md)
+* Templates:
+  - For [patterns](/content/Contributing/Templates/Patterns/index.md)
+  - For [guidelines](/content/Contributing/Templates/Guidelines/index.md)
+* [Understanding the Approval Process](/content/Contributing/TheApprovalProcess/index.md)
