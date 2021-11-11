@@ -22,3 +22,6 @@ This project has adopted the Microsoft Open Source Code of Conduct. For more inf
   - For [patterns](/contributing/templates/patterns/)
   - For [guidelines](/contributing/templates/guidelines/)
 * [Understanding the Approval Process](/contributing/theapprovalprocess/)
+
+Here are some [tips and tricks in terms of working with MarkDown and Hugo](/contributing/formattingtips/).
+
