@@ -46,21 +46,21 @@ It basically means we are able to use easy notations to do cool things.  Let's p
 ### Twitter
 
 ```
-{{< tweet user="waldo1001" id="1458787011024805892" >}}
+{{</* tweet user="waldo1001" id="1458787011024805892" */>}}
 ```
 makes:
 {{< tweet user="waldo1001" id="1458787011024805892" >}}
 
 ### YouTube
 ```
-{{< youtube QVOMCYitLEc >}}
+{{</* youtube QVOMCYitLEc */>}}
 ```
 makes: 
 {{< youtube QVOMCYitLEc >}}
 
 ### Figure
 ```
-{{< figure src="http://www.waldo.be/wp-content/uploads/2021/11/business-central-logo.png" title="Business Central" >}}
+{{</* figure src="http://www.waldo.be/wp-content/uploads/2021/11/business-central-logo.png" title="Business Central" */>}}
 ```
 makes:
 {{< figure src="http://www.waldo.be/wp-content/uploads/2021/11/business-central-logo.png" title="Business Central" >}}
