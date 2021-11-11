@@ -4,20 +4,20 @@
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=generator content="Hugo 0.89.2">
 <meta name=description content>
-<title>Error Message Processing :: AL Guidelines</title>
-<link href=/css/nucleus.css?1636637738 rel=stylesheet>
-<link href=/css/fontawesome-all.min.css?1636637738 rel=stylesheet>
-<link href=/css/featherlight.min.css?1636637738 rel=stylesheet>
-<link href=/css/perfect-scrollbar.min.css?1636637738 rel=stylesheet>
-<link href=/css/auto-complete.css?1636637738 rel=stylesheet>
-<link href=/css/theme.css?1636637738 rel=stylesheet>
-<link href=/css/theme-blue.css?1636637738 rel=stylesheet>
-<link href=/css/variant.css?1636637738 rel=stylesheet>
-<link href=/css/print.css?1636637738 rel=stylesheet media=print>
-<script src=/js/jquery.min.js?1636637738></script>
+<title>Tips and tricks in terms of working with MarkDown and Hugo :: AL Guidelines</title>
+<link href=/css/nucleus.css?1636637737 rel=stylesheet>
+<link href=/css/fontawesome-all.min.css?1636637737 rel=stylesheet>
+<link href=/css/featherlight.min.css?1636637737 rel=stylesheet>
+<link href=/css/perfect-scrollbar.min.css?1636637737 rel=stylesheet>
+<link href=/css/auto-complete.css?1636637737 rel=stylesheet>
+<link href=/css/theme.css?1636637737 rel=stylesheet>
+<link href=/css/theme-blue.css?1636637737 rel=stylesheet>
+<link href=/css/variant.css?1636637737 rel=stylesheet>
+<link href=/css/print.css?1636637737 rel=stylesheet media=print>
+<script src=/js/jquery.min.js?1636637737></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
-<body data-url=/navpatterns/1-patterns/error-message-processing/>
+<body data-url=/contributing/formattingtips/>
 <script>var index_url="/index.json",root_url="/",baseUri=root_url.replace(/\/$/,'')</script>
 <nav id=sidebar>
 <div id=header-wrapper>
@@ -32,17 +32,17 @@ ALGuidelines.dev
 <input data-search-input id=search-by type=search placeholder=Search...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script src=/js/lunr.min.js?1636637738></script>
-<script src=/js/auto-complete.js?1636637738></script>
-<script src=/js/search.js?1636637738></script>
+<script src=/js/lunr.min.js?1636637737></script>
+<script src=/js/auto-complete.js?1636637737></script>
+<script src=/js/search.js?1636637737></script>
 </div>
 <div class=highlightable>
 <ul class=topics>
 <li data-nav-id=/welcome/ title=Welcome class=dd-item><a href=/welcome/><b><i class="fas fa-home"></i> </b>Welcome</a><ul></ul></li>
 <li data-nav-id=/bcpatterns/ title="BC Patterns" class=dd-item><a href=/bcpatterns/><b><i class="fas fa-clone"></i> </b>BC Patterns</a><ul></ul></li>
 <li data-nav-id=/bcbestpractices/ title="BC Dev. Best Practices" class=dd-item><a href=/bcbestpractices/><b><i class="fas fa-medal"></i> </b>BC Dev. Best Practices</a><ul></ul></li>
-<li data-nav-id=/navpatterns/ title="NAV Patterns Archive" class="dd-item parent"><a href=/navpatterns/><b><i class="fas fa-save"></i> </b>NAV Patterns Archive</a><ul>
-<li data-nav-id=/navpatterns/1-patterns/ title="1. Patterns" class="dd-item parent"><a href=/navpatterns/1-patterns/>1. Patterns</a><ul>
+<li data-nav-id=/navpatterns/ title="NAV Patterns Archive" class=dd-item><a href=/navpatterns/><b><i class="fas fa-save"></i> </b>NAV Patterns Archive</a><ul>
+<li data-nav-id=/navpatterns/1-patterns/ title="1. Patterns" class=dd-item><a href=/navpatterns/1-patterns/>1. Patterns</a><ul>
 <li data-nav-id=/navpatterns/1-patterns/activity-log/ title="Activity Logs" class=dd-item><a href=/navpatterns/1-patterns/activity-log/>Activity Logs</a></li>
 <li data-nav-id=/navpatterns/1-patterns/argument-table/ title="Argument Table" class=dd-item><a href=/navpatterns/1-patterns/argument-table/>Argument Table</a></li>
 <li data-nav-id=/navpatterns/1-patterns/blocked-entity/ title="Blocked Entity" class=dd-item><a href=/navpatterns/1-patterns/blocked-entity/>Blocked Entity</a><ul>
@@ -59,7 +59,7 @@ ALGuidelines.dev
 <li data-nav-id=/navpatterns/1-patterns/discovery-event/ title="Discovery Event" class=dd-item><a href=/navpatterns/1-patterns/discovery-event/>Discovery Event</a></li>
 <li data-nav-id=/navpatterns/1-patterns/document/ title=Document class=dd-item><a href=/navpatterns/1-patterns/document/>Document</a></li>
 <li data-nav-id=/navpatterns/1-patterns/easy-update-of-setup-or-supplementary-information/ title="Easy Update Of Setup Or Supplementary Information" class=dd-item><a href=/navpatterns/1-patterns/easy-update-of-setup-or-supplementary-information/>Easy Update Of Setup Or Supplementary Information</a></li>
-<li data-nav-id=/navpatterns/1-patterns/error-message-processing/ title="Error Message Processing" class="dd-item active"><a href=/navpatterns/1-patterns/error-message-processing/>Error Message Processing</a></li>
+<li data-nav-id=/navpatterns/1-patterns/error-message-processing/ title="Error Message Processing" class=dd-item><a href=/navpatterns/1-patterns/error-message-processing/>Error Message Processing</a></li>
 <li data-nav-id=/navpatterns/1-patterns/extending-the-role-center-headlines/ title="Extending the Role Center Headlines" class=dd-item><a href=/navpatterns/1-patterns/extending-the-role-center-headlines/>Extending the Role Center Headlines</a></li>
 <li data-nav-id=/navpatterns/1-patterns/feature-localization-for-data-structures/ title="Feature Localization For Data Structures" class=dd-item><a href=/navpatterns/1-patterns/feature-localization-for-data-structures/>Feature Localization For Data Structures</a></li>
 <li data-nav-id=/navpatterns/1-patterns/hooks/ title=Hooks class=dd-item><a href=/navpatterns/1-patterns/hooks/>Hooks</a></li>
@@ -158,8 +158,8 @@ ALGuidelines.dev
 <li data-nav-id=/navpatterns/4-get-involved/patterns-authors/ title="Patterns Authors" class=dd-item><a href=/navpatterns/4-get-involved/patterns-authors/>Patterns Authors</a></li>
 <li data-nav-id=/navpatterns/4-get-involved/template-for-writing-nav-design-patterns/ title="Template for writing Nav Design Patterns" class=dd-item><a href=/navpatterns/4-get-involved/template-for-writing-nav-design-patterns/>Template for writing Nav Design Patterns</a></li></ul></li>
 <li data-nav-id=/navpatterns/related-links/ title="Related Links" class=dd-item><a href=/navpatterns/related-links/>Related Links</a></li></ul></li>
-<li data-nav-id=/contributing/ title=Contributing class=dd-item><a href=/contributing/><b><i class="fas fa-clone"></i> </b>Contributing</a><ul>
-<li data-nav-id=/contributing/formattingtips/ title="Tips and tricks in terms of working with MarkDown and Hugo" class=dd-item><a href=/contributing/formattingtips/><b><i class="fas fa-clone"></i> </b>Formatting tips</a></li>
+<li data-nav-id=/contributing/ title=Contributing class="dd-item parent"><a href=/contributing/><b><i class="fas fa-clone"></i> </b>Contributing</a><ul>
+<li data-nav-id=/contributing/formattingtips/ title="Tips and tricks in terms of working with MarkDown and Hugo" class="dd-item active"><a href=/contributing/formattingtips/><b><i class="fas fa-clone"></i> </b>Formatting tips</a></li>
 <li data-nav-id=/contributing/forkandpr/ title="Guide to Fork & PR" class=dd-item><a href=/contributing/forkandpr/><b><i class="fas fa-clone"></i> </b>Guide to Fork & PR</a></li>
 <li data-nav-id=/contributing/templates/ title=Templates class=dd-item><a href=/contributing/templates/><b><i class="fas fa-clone"></i> </b>Templates</a><ul>
 <li data-nav-id=/contributing/templates/guidelines/ title="Title of the Guideline" class=dd-item><a href=/contributing/templates/guidelines/>Title of the Guideline</a></li>
@@ -183,7 +183,7 @@ ALGuidelines.dev
 <div class="padding highlightable">
 <div id=top-bar>
 <div id=top-github-link>
-<a class=github-link title="Edit this page" href=https://github.com/microsoft/alguidelines/edit/main/content/NAVPatterns/1-patterns/error-message-processing/index.md target=blank>
+<a class=github-link title="Edit this page" href=https://github.com/microsoft/alguidelines/edit/main/content/Contributing/FormattingTips/index.md target=blank>
 <i class="fas fa-code-branch"></i>
 <span id=top-github-link-text>Edit this page</span>
 </a>
@@ -194,121 +194,80 @@ ALGuidelines.dev
 <i class="fas fa-bars"></i>
 </a>
 </span>
-<span id=toc-menu><i class="fas fa-list-alt"></i></span>
 <ol class=links itemscope itemtype=http://schema.org/BreadcrumbList>
 <meta itemprop=itemListOrder content="Descending">
-<li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="4"><a itemprop=item href=/><span itemprop=name>Home</span></a> > </li>
-<li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3"><a itemprop=item href=/navpatterns/><span itemprop=name>NAV Patterns Archive</span></a> > </li>
-<li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="2"><a itemprop=item href=/navpatterns/1-patterns/><span itemprop=name>1. Patterns</span></a> > </li>
-<li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="1"><a itemprop=item href=/navpatterns/1-patterns/error-message-processing/ aria-disabled=true><span itemprop=name>Error Message Processing</span></a></li>
+<li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3"><a itemprop=item href=/><span itemprop=name>Home</span></a> > </li>
+<li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="2"><a itemprop=item href=/contributing/><span itemprop=name>Contributing</span></a> > </li>
+<li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="1"><a itemprop=item href=/contributing/formattingtips/ aria-disabled=true><span itemprop=name>Tips and tricks in terms of working with MarkDown and Hugo</span></a></li>
 </ol>
-</div>
-<div class=progress>
-<div class=wrapper>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#abstract>Abstract</a></li>
-<li><a href=#description>Description</a></li>
-<li><a href=#usage>Usage</a></li>
-<li><a href=#nav-specific-example>NAV Specific Example</a></li>
-<li><a href=#ideas-for-improvement>Ideas for improvement</a></li>
-</ul>
-</nav>
-</div>
 </div>
 </div>
 <div id=head-tags>
 </div>
+<div id=chapter>
 <main id=body-inner>
-<h1>Error Message Processing</h1>
-<p><em>By Jesper Schulz at Microsoft Development Center Copenhagen</em></p>
-<p>Note: This pattern describes new functionality which makes it possible to generalize the <a href=/nav/w/designpatterns/124.journal-error-processing.aspx>Journal Error Processing</a> pattern.</p>
-<h2 id=abstract>Abstract</h2>
-<p>Missing, invalid or incomplete data is a common issue during data processing in NAV. This article describes how to collect all error messages during processing using the error message component and present them to the user in a unified way, which enables the user to correct the errors efficiently. By leveraging the integrated error message logging functions, you can log a message with a single line of code and present it to the user with another one-liner.</p>
-<h2 id=description>Description</h2>
-<p>This article describes how to use the Error Message component in NAV, which in short gives you the possibility to:</p>
-<p>1. Link an error mesesage to the page which enables you to resolve the problem.<br>
-2. Assemble all error messages in one central view instead of having to encounter them one by one.</p>
-<p>Validating data is a common task during data processing in NAV. Unfortunately, validation is often done using NAV&rsquo;s integrated ERROR and TESTFIELD functions, which halt execution of the process. The user will then have to locate the invalid / missing data, correct it and reinitiate the process, possibly running into the next error, making the cycle repeat itself. This can be a very tedious, time-consuming and frustrating process. The error message component aims at improving this experience by providing a lightweight framework for error message logging and this article will explain how to leverage this functionality in your code. By doing so, all error messages are gathered during (pre-)processing and are finally presented to the user. The user then has the possibility to click on the error message, which will open the record where the invalid / missing data is located, thereby enabling the user to correct all mistakes efficiently, from one central place and in one go.</p>
-<p>The example below comes from a Mexican localization, where the user has to export financial balances and transactions into an XML file for government audit purposes. In order to generate valid files, some mandatory data needs to be entered in the system. By leveraging the error message component, the user will be presented with the following page, if missing or invalid data was discovered:</p>
-<p><a href=image001.png><img src=image001.png alt=" "></a></p>
-<p>By clicking on the error message, the user will be presented with the entity, where the invalid / missing data should be corrected / added. This is done by applying the related pattern <a href=/nav/w/designpatterns/104.easy-update-of-setup-or-supplementary-information.aspx>Easy Update of Setup or Supplementary Information</a>.</p>
-<p><a href=image003.png><img src=image003.png alt=" "></a></p>
-<h2 id=usage>Usage</h2>
-<p>In the processing function, define a temporary record of type &ldquo;Error Message&rdquo;. Use the functions on that record to populate the record with error message, a few of them being:</p>
-<ul>
-<li><strong>LogIfEmpty</strong>****</li>
-<li><strong>LogIfLengthExceeded</strong>****</li>
-<li><strong>LogIfInvalidCharacters</strong>****</li>
-<li><strong>LogIfOutsideRange</strong>****</li>
-<li><strong>LogIfGreaterThan</strong>****</li>
-<li><strong>LogIfEqualTo</strong>****</li>
-<li><strong>LogMessage</strong>****</li>
-</ul>
-<p>The following parameters must be provided to these functions:</p>
-<ul>
-<li><strong>Record:</strong> The record which you want to check</li>
-<li><strong>Field Number:</strong> The field number of the field you want to verify the value of</li>
-<li><strong>Condition:</strong> The condition the field must meet (e.g. length, range, valid characters)</li>
-<li><strong>Message Type:</strong> The type of message, which can be Error, Warning or Message</li>
-</ul>
-<p>When the processing is complete, you can check if any error messages of type &ldquo;Error&rdquo; were logged by calling the <strong>HasErrors</strong> function and you can show the list or error messages by calling the <strong>ShowErrorMessages</strong> function. You can also integrate the error messages list as a FactBox, but that is not part of this example.</p>
-<h2 id=nav-specific-example>NAV Specific Example</h2>
-<p>The code below is an example of how the error message component was used in one part of the before mentioned Mexican feature. This code iterates over all G/L Accounts and pipes information out into an XML file. While doing so, it is validated that all mandatory fields have values and meet certain conditions. And only if that is the case, is the XML document actually exported. Also notice, that an error message is logged, in case no G/L Accounts are found given the provided filters. That way, the user can be guided to setup the system correctly.</p>
-<pre><code>PROCEDURE ExportChartOfAccounts@1(Year@1000 : Integer;Month@1001 : Integer);
-VAR
-**TempErrorMessage@1003 : TEMPORARY Record 700;
-**BEGIN
-**TempErrorMessage.ClearLog;** // only necessary if variable is global
-...
-CreateXMLHeader(Document,RootNode,CatalogoNodeTxt,Namespace,Year,Month,'1.1');
-IF GLAccount.FINDSET THEN BEGIN
-REPEAT
-**TempErrorMessage.LogIfEmpty (GLAccount,GLAccount.FIELDNO(Name),TempErrorMessage.&quot;Message Type&quot;::Error);
-</code></pre>
-<p>**
-XMLDOMManagement.AddElement(RootNode,&lsquo;Ctas&rsquo;,'',Namespace,Node);
-XMLDOMManagement.AddAttribute(Node,&lsquo;CodAgrup&rsquo;,GLAccount.&ldquo;SAT Account Code&rdquo;);
-&mldr;
-CASE GLAccount.&ldquo;Debit/Credit&rdquo; OF
-GLAccount.&ldquo;Debit/Credit&rdquo;::Debit:
-XMLDOMManagement.AddAttribute(Node,&lsquo;Natur&rsquo;,&lsquo;D&rsquo;);
-GLAccount.&ldquo;Debit/Credit&rdquo;::Credit:
-XMLDOMManagement.AddAttribute(Node,&lsquo;Natur&rsquo;,&lsquo;A&rsquo;);
-ELSE
-**TempErrorMessage.LogMessage(
-GLAccount,GLAccount.FIELDNO(&ldquo;Debit/Credit&rdquo;),TempErrorMessage.&ldquo;Message Type&rdquo;::Error,
-STRSUBSTNO(GLAccountTypeErr,GLAccount.&ldquo;Debit/Credit&rdquo;,GLAccount.RECORDID));
-** END;
-UNTIL GLAccount.NEXT = 0;
-END ELSE
-**TempErrorMessage.LogSimpleMessage(TempErrorMessage.&ldquo;Message Type&rdquo;::Error,NoSATAccountDefinedErr);
-**
-**IF NOT TempErrorMessage.HasErrors(TRUE) THEN
-** SaveXMLToClient(Document,Year,Month,&lsquo;CT&rsquo;);
-**TempErrorMessage.ShowErrorMessages(FALSE);
-**END;</p>
-<p>One could also do pre-processing in a function of its own, and only if the pre-processing results in no error messages of type &ldquo;Error&rdquo; would the processing continue.</p>
-<h2 id=ideas-for-improvement>Ideas for improvement</h2>
-<p>By using this easy to use component, we have the possibility to extend this functionality going forward. A nice addition to the error message component would be the possibility to log the error messages persistently in a grouped manner, thereby allowing 3rd parties to see the issues the users bump into the most, or allowing 3rd parties to get an detailed insight into what happened, thereby enabling them to provide better support.</p>
+<h1 id=heading></h1>
+<h2 id=markdown-cheat-sheet>Markdown Cheat Sheet</h2>
+<p>Here you can find a rather interesting Cheat Sheet regarding markdown: <a href=https://www.markdownguide.org/cheat-sheet>https://www.markdownguide.org/cheat-sheet</a></p>
+<h2 id=code-fences--syntax-highlighting>Code Fences / Syntax highlighting</h2>
+<p>The syntax to use codefences is with backticks. If you provide the language after the first block of backticks, github will automatically put that in decent syntax highlighting. So, A simple code fence with AL code, can simply be done by:</p>
+<pre tabindex=0><code>```al
+  procedure ALGuidelinesRock()
+  var
+    Customer: Record Customer;
+  begin
+    Customer.Get('10000');
+    Customer.Name := 'waldo';
+    Customer.Modify(true);
+  end;
+```
+</code></pre><p>Results in:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>  <span style=color:#66d9ef>procedure</span> ALGuidelinesRock<span style=color:#f92672>()
+</span><span style=color:#f92672>  </span><span style=color:#66d9ef>var</span>
+    Customer: <span style=color:#66d9ef>Record</span> Customer;
+  <span style=color:#66d9ef>begin</span>
+    Customer<span style=color:#f92672>.</span>Get<span style=color:#f92672>(</span><span style=color:#e6db74>&#39;10000&#39;</span><span style=color:#f92672>)</span>;
+    Customer<span style=color:#f92672>.</span>Name <span style=color:#f92672>:=</span> <span style=color:#e6db74>&#39;waldo&#39;</span>;
+    Customer<span style=color:#f92672>.</span><span style=color:#66d9ef>Modify</span><span style=color:#f92672>(</span>true<span style=color:#f92672>)</span>;
+  <span style=color:#66d9ef>end</span>;
+</code></pre></div><h2 id=hugo-shortcodes>Hugo Shortcodes</h2>
+<p>Since we&rsquo;re using &ldquo;Hugo&rdquo;, we can use it&rsquo;s shortcode. Here is a reference: <a href=https://gohugo.io/content-management/shortcodes/>https://gohugo.io/content-management/shortcodes/</a></p>
+<p>It basically means we are able to use easy notations to do cool things. Let&rsquo;s point out some useful shortcodes:</p>
+<h3 id=twitter>Twitter</h3>
+<p><code><blockquote class=twitter-tweet><p lang=en dir=ltr>"Code is Poetry!"<a href="https://twitter.com/hashtag/msdyn365bc?src=hash&ref_src=twsrc%5Etfw">#msdyn365bc</a></p>&mdash; waldo (@waldo1001) <a href="https://twitter.com/waldo1001/status/1458787011024805892?ref_src=twsrc%5Etfw">November 11, 2021</a></blockquote>
+<script async src=https://platform.twitter.com/widgets.js></script>
+</code></p>
+<h3 id=youtube>YouTube</h3>
+<p><code>
+<div style=position:relative;padding-bottom:56.25%;height:0;overflow:hidden>
+<iframe src=https://www.youtube.com/embed/QVOMCYitLEc style=position:absolute;top:0;left:0;width:100%;height:100%;border:0 allowfullscreen title="YouTube Video"></iframe>
+</div>
+</code></p>
+<h3 id=figure>Figure</h3>
+<p><code><figure><img src=/media/spf13.jpg><figcaption>
+<h4>Steve Francia</h4>
+</figcaption>
+</figure>
+</code></p>
 <footer class=footline>
 </footer>
+</div>
 </main>
 </div>
 <div id=navigation>
-<a class="nav nav-prev" href=/navpatterns/1-patterns/easy-update-of-setup-or-supplementary-information/ title="Easy Update Of Setup Or Supplementary Information"><i class="fa fa-chevron-left"></i></a>
-<a class="nav nav-next" href=/navpatterns/1-patterns/extending-the-role-center-headlines/ title="Extending the Role Center Headlines"><i class="fa fa-chevron-right"></i></a>
+<a class="nav nav-prev" href=/contributing/ title=Contributing><i class="fa fa-chevron-left"></i></a>
+<a class="nav nav-next" href=/contributing/forkandpr/ title="Guide to Fork & PR"><i class="fa fa-chevron-right"></i></a>
 </div>
 </div>
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/js/clipboard.min.js?1636637738></script>
-<script src=/js/perfect-scrollbar.min.js?1636637738></script>
-<script src=/js/perfect-scrollbar.jquery.min.js?1636637738></script>
-<script src=/js/jquery.svg.pan.zoom.js?1636637738></script>
-<script src=/js/featherlight.min.js?1636637738></script>
-<script src=/js/modernizr.custom-3.6.0.js?1636637738></script>
-<script src=/js/relearn.js?1636637738></script>
+<script src=/js/clipboard.min.js?1636637737></script>
+<script src=/js/perfect-scrollbar.min.js?1636637737></script>
+<script src=/js/perfect-scrollbar.jquery.min.js?1636637737></script>
+<script src=/js/jquery.svg.pan.zoom.js?1636637737></script>
+<script src=/js/featherlight.min.js?1636637737></script>
+<script src=/js/modernizr.custom-3.6.0.js?1636637737></script>
+<script src=/js/relearn.js?1636637737></script>
 </body>
 </html>
