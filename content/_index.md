@@ -33,7 +33,7 @@ This project is a Microsoft Business Central Community initiative with support f
 * Henrik Helgesen ([Twitter](https://twitter.com/TheDoubleH), [GitHub](https://github.com/thedoubleh))
 * Jeremy Vyska ([Twitter](https://twitter.com/JeremyVyska),[Blog](https://jeremy.vyska.info/articles), [GitHub](https://github.com/JeremyVyska))
 
-#### Contibuting
+#### Contributing
 
 To find out more about contributing, read up here:
 [Contributing](/contributing/)
