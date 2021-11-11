@@ -1,12 +1,11 @@
 +++
 chapter = true
 pre = "<b><i class='fas fa-clone'></i> </b>"
-title = "Tips and tricks in terms of working with MarkDown and Hugo"
-linktitle = "Formatting tips"
+title = "Formatting tips"
 weight = 100
 +++
 
-# 
+# Tips and tricks in terms of working with MarkDown and Hugo
 
 ## Markdown Cheat Sheet
 Here you can find a rather interesting Cheat Sheet regarding markdown: [https://www.markdownguide.org/cheat-sheet](https://www.markdownguide.org/cheat-sheet)
@@ -46,12 +45,22 @@ It basically means we are able to use easy notations to do cool things.  Let's p
 
 ### Twitter
 
+````
+`{{< tweet user="waldo1001" id="1458787011024805892" >}}`
+````
+makes:
 `{{< tweet user="waldo1001" id="1458787011024805892" >}}`
 
 ### YouTube
-
+````
+`{{< youtube QVOMCYitLEc >}}`
+````
+makes: 
 `{{< youtube QVOMCYitLEc >}}`
 
 ### Figure
-
-`{{< figure src="/media/spf13.jpg" title="Steve Francia" >}}`
+````
+`{{< figure src="http://www.waldo.be/wp-content/uploads/2021/11/business-central-logo.png" title="Business Central" >}}`
+````
+makes
+`{{< figure src="http://www.waldo.be/wp-content/uploads/2021/11/business-central-logo.png" title="Business Central" >}}`
