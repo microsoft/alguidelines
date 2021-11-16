@@ -14,7 +14,7 @@ Here you can find a rather interesting Cheat Sheet regarding markdown: [https://
 
 The syntax to use codefences is with backticks.  If you provide the language after the first block of backticks, github will automatically put that in decent syntax highlighting.  So, A simple code fence with AL code, can simply be done by:
 ````
-```al
+```AL
   procedure ALGuidelinesRock()
   var
     Customer: Record Customer;
@@ -27,7 +27,7 @@ The syntax to use codefences is with backticks.  If you provide the language aft
 ````
 
 Results in: 
-```al
+```AL
   procedure ALGuidelinesRock()
   var
     Customer: Record Customer;
