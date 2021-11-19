@@ -7,7 +7,7 @@ _Created by Gary Winter (Cloud Ready Software), Described by waldo (iFacto Busin
 
 ## Abstract
 
-The goal of this pattern is to facilitate a lot of things in one single awesome way of writing code.  If you apply this apply this pattern as a general pattern, you'll implement:
+The goal of this pattern is to facilitate a lot of things in one single awesome way of writing code.  If you apply this pattern as a general pattern, you'll implement:
 - Extensibility
 - Decouplability
 - Readability
@@ -28,7 +28,7 @@ What if we have some kind of "standard way" to always write our code.  The *Gene
 
 ### What is a method?
 
-Well, a method is *a significant piece of business logic* - may be best explained by some examples:
+Well, a method is *a significant piece of business logic* - maybe best explained by some examples:
 
 - Posting a document
 - Any button on a page that executes business logic
@@ -42,7 +42,7 @@ In a way, except "data validation", most of the things we write in our daily lif
 **One method, one codeunit**
 The idea is to put the code in one *encapsulated* codeunit with the purpose to have all the code in that one codeunit function for that one method.  This way, the codeunit will stay relatively small and readable.
 
-Let me start by showing an example, so you can re:
+Let me start by showing an example, so you can refer to this complete example during the rest of the article:
 
 ```AL
 codeunit 53100 "WLD BlockCustomer Meth"
@@ -211,7 +211,7 @@ codeunit 53100 "WLD BlockCustomer Meth"
 }
 ```
 Usually indicated with a "do"-function, the business logic takes place in that procedure.  Obviously, when you have a decent amount of code, it's recommended that you make it readable by applying all the Best Practices in terms of readability in the codeunit.  Though, a few pointers here:
-- keep the cyclomatic complexity low
+- keep the [cyclomatic complexity](https://en.wikipedia.org/wiki/Cyclomatic_complexity) low
   - one line (functioncall) after an IF-clause
   - one line (functioncall) after a repeat
 - readable function calls
@@ -236,7 +236,7 @@ tableextension 53100 "Customer Ext BASE" extends Customer
 }
 ```
 
-This practice improves readability.  In fact, by doing this, you just extended the suggesions-list in VSCode (IntelliSense) indicating a new method that your class can do.  This is very convenient for the developer that might need your new method.
+This practice improves readability.  In fact, by doing this, you just extended the suggestions-list in VSCode (IntelliSense) indicating a new method that your class can do.  This is very convenient for the developer that might need your new method.
 
 *Note - it could very well be that there simply isn't any table that can act as a class for our method.  In that case, you could use a codeunit as well.*
 
@@ -263,9 +263,9 @@ Thanks to the *event layer*, by applying this pattern for all methods, we will a
 ### Decouplability
 Thanks to these same events, and the fact the pattern foresees a handler as well, we are able to "decouple" our method as well.  What do I mean with that?  Well, we can simply subscribe to the `OnBefore`event, and set `handled` to `true`. This means it will never execute the do-procedure, which means, the original procedure/method/business logic is "decoupled".
 
-We can use this obviously for implementing our own method (a new way to accomplish this method), or the disable the method by simply subscribing to it, and only providing the `handled := true` in our subscriber.  However, there are many more usages where we can use this for.  
+We can use this obviously for implementing our own method (a new way to accomplish this method), or to disable the method by simply subscribing to it, and only providing the `handled := true` in our subscriber.  However, there are many more usages where we can use this for.  
 
-May be one more example:
+Maybe one more example:
 if you would apply this pattern to your product, at the customer, you'll be able to hotfix your methods simply by decoupling them and fixing the method in stead of waiting for a hotfix from the hotfix-departement.
 
 This gives a lot of flexibility.
@@ -299,7 +299,7 @@ Solution: simply - within your test-codeunit - subscribe (with a manual subscrib
 
 ### Encapsulation
 Don't underestimate the power of the encapsulation part of this pattern.  One of the first questions that people ask themselves when reading into this pattern is: "*isn't it going to consume all my codeunit-id's*" or "*so many codeunits, that can't be readable, right?*".  
-The fact that the functionality of one method is encapsulated in one codeunit is very powerfull.  You'll avoid [Boat anchors](https://sourcemaking.com/antipatterns/boat-anchor) simply because because, thanks to the encapsulation, there is a limited amount of code in the codeunit, of course.  
+The fact that the functionality of one method is encapsulated in one codeunit is very powerful.  You'll avoid [Boat anchors](https://sourcemaking.com/antipatterns/boat-anchor) simply because because, thanks to the encapsulation, there is a limited amount of code in the codeunit, of course.  
 And because of that, it so much more maintainable, upgradable, readable, .. .  Only advantages.
 
 ## When not to use
