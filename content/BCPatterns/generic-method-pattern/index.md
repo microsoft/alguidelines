@@ -9,7 +9,7 @@ _Created by Gary Winter (Cloud Ready Software), Described by waldo (iFacto Busin
 
 The goal of this pattern is to facilitate a lot of things in one single awesome way of writing code.  If you apply this pattern as a general pattern, you'll implement:
 - Extensibility
-- Decouplability
+- Decoupling
 - Readability
 - Testability
 - Encapsulation
@@ -47,7 +47,7 @@ Let me start by showing an example, so you can refer to this complete example du
 ```AL
 codeunit 53100 "WLD BlockCustomer Meth"
 {
-    internal procedure BlockCustomer(var Cust: Record Customer; HideDialog: Boolean);
+    internal procedure BlockCustomer(var Cust: Record Customer; HideDialog: Boolean)
     var
         Handled: Boolean;
     begin
@@ -103,7 +103,7 @@ Within that codeunit, the pattern is always the same:
 - One public (internal) procedure
 - The rest is always local
 
-So, from outside the codeunit, there is only one clear entrypiont: that one global function with its parameters.
+So, from outside the codeunit, there is only one clear entrypoint: that one  (public) internal function with its parameters.
 
 The **pattern** within the codeunit exists of a few layers:
 - The UI layer
@@ -111,14 +111,14 @@ The **pattern** within the codeunit exists of a few layers:
 - The method layer
 
 *The UI layer*
-The UI layer takes care of the UI, obviously.  What is important in this case, is that you always make sure that there is an "HideDialog" parameter that the business logic can use to still decide whether to use the dialog or not.
+The UI layer takes care of the UI, obviously.  What is important in this case, is that you always make sure that there is a "HideDialog" parameter that the business logic can use to still decide whether to use the dialog or not.
 
 These are the UI Layer parts, where you see the public function gets the HideDialog, and passes it to the UI-related procedures, where the business logic for showing the UI takes place.  Also, the default answer of the confirmation is handled there as well (what if the businesslogic calls this method with HideDialog to "true").
 
 ```AL
 codeunit 53100 "WLD BlockCustomer Meth"
 {
-    internal procedure BlockCustomer(var Cust: Record Customer; HideDialog: Boolean);
+    internal procedure BlockCustomer(var Cust: Record Customer; HideDialog: Boolean)
     var
         Handled: Boolean;
     begin
@@ -159,7 +159,7 @@ This is the relevant code for the event layer:
 ```AL
 codeunit 53100 "WLD BlockCustomer Meth"
 {
-    internal procedure BlockCustomer(var Cust: Record Customer; HideDialog: Boolean);
+    internal procedure BlockCustomer(var Cust: Record Customer; HideDialog: Boolean)
     var
         Handled: Boolean;
     begin
@@ -212,8 +212,8 @@ codeunit 53100 "WLD BlockCustomer Meth"
 ```
 Usually indicated with a "do"-function, the business logic takes place in that procedure.  Obviously, when you have a decent amount of code, it's recommended that you make it readable by applying all the Best Practices in terms of readability in the codeunit.  Though, a few pointers here:
 - keep the [cyclomatic complexity](https://en.wikipedia.org/wiki/Cyclomatic_complexity) low
-  - one line (functioncall) after an IF-clause
-  - one line (functioncall) after a repeat
+  - one line (function call) after an IF-clause
+  - one line (function call) after a repeat
 - readable function calls
 - ...
 
@@ -233,6 +233,10 @@ tableextension 53100 "Customer Ext BASE" extends Customer
         WLDBlockCustomerMeth.BlockCustomer(Rec, HideDialog);
     end;
 
+    procedure BlockCustomer()
+    begin
+        BlockCustomer(false);
+    end;
 }
 ```
 
@@ -258,15 +262,15 @@ TODO
 As I said, it will facilitate a lot of advantages.  Let's explain a bit more in depth:
 
 ### Extensibility
-Thanks to the *event layer*, by applying this pattern for all methods, we will automatically have the bare minimum of events that we need to hook into a method: the `OnBefore-` and the `OnAfter`.  Of course it would make sense to even add more events to the method when it would make sense (eg, when you're inserting a record in a table, it might be interesting to also raise an event just before you call the insert).
+Thanks to the *event layer*, by applying this pattern for all methods, we will automatically have the bare minimum of events that we need to hook into a method: the `OnBefore-` and the `OnAfter`.  Of course it would make sense to even add more events to the method when appropriate (eg, when you're inserting a record in a table, it might be interesting to also raise an event just before you call the insert).
 
-### Decouplability
-Thanks to these same events, and the fact the pattern foresees a handler as well, we are able to "decouple" our method as well.  What do I mean with that?  Well, we can simply subscribe to the `OnBefore`event, and set `handled` to `true`. This means it will never execute the do-procedure, which means, the original procedure/method/business logic is "decoupled".
+### Decoupling
+Thanks to these same events, and the fact the pattern foresees a handler as well, we are able to "decouple" our method as well.  What do I mean with that?  Well, we can simply subscribe to the `OnBefore`event, and set `Handled` to `true`. This means it will never execute the do-procedure, which means, the original procedure/method/business logic is "decoupled".
 
-We can use this obviously for implementing our own method (a new way to accomplish this method), or to disable the method by simply subscribing to it, and only providing the `handled := true` in our subscriber.  However, there are many more usages where we can use this for.  
+We can use this obviously for implementing our own method (a new way to accomplish this method), or to disable the method by simply subscribing to it, and only providing the `Handled := true` in our subscriber.  However, there are many more usages where we can use this for.  
 
 Maybe one more example:
-if you would apply this pattern to your product, at the customer, you'll be able to hotfix your methods simply by decoupling them and fixing the method in stead of waiting for a hotfix from the hotfix-departement.
+if you would apply this pattern to your product, at the customer, you'll be able to hotfix your methods simply by decoupling them and fixing the method instead of waiting for a hotfix from the hotfix-departement.
 
 This gives a lot of flexibility.
 
@@ -294,8 +298,8 @@ So you could simply set up rules in your company like: EVERY method needs a test
 The pattern describes the tests that needs to be written.
 
 *Disabling methods*
-Coming back to the "decouplability" part - in tests, you actually might need it more than you realize.  Just imagine: you want to test method 1, but method 2 comes in the way by interfering with configurations that you need to do, or UI that is popping up, while it could be completely pointless.  
-Solution: simply - within your test-codeunit - subscribe (with a manual subscriber) to method 2, set `handled` to `false` - done!
+Coming back to the "decoupling" part - in tests, you actually might need it more than you realize.  Just imagine: you want to test method 1, but method 2 comes in the way by interfering with configurations that you need to do, or UI that is popping up, while it could be completely pointless.  
+Solution: simply - within your test-codeunit - subscribe (with a manual subscriber) to method 2, set `Handled` to `false` - done!
 
 ### Encapsulation
 Don't underestimate the power of the encapsulation part of this pattern.  One of the first questions that people ask themselves when reading into this pattern is: "*isn't it going to consume all my codeunit-id's*" or "*so many codeunits, that can't be readable, right?*".  
