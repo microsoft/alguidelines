@@ -254,8 +254,9 @@ You might have noticed that the naming of our method is quite strict:
 It is important to align these namings.  It indicates that the codeunit only does one thing (remember: encapsulation), and it improves searchability from outside the codeunit (for example when you're searching symbols or something).
 
 ## Usage: 
+Currently, there is no usage of this pattern in the BaseApp.  
 
-TODO
+The pattern has a main advantage in an ISV product, just because of the decoupling and extensibility.  Although, I have seen many occasions where parts of the pattern was useful on PTE's as well.  You simply never know if ever at the customer site, there is going to be another partner that needs to create its own PTE, and has to depend on yours.  So I'd say, this pattern is everywhere applicable, no matter the type of the app.
 
 ## Benefits:
 
