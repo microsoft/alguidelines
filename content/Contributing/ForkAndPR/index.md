@@ -31,7 +31,7 @@ In order to work on the repository, You must [Fork](https://docs.github.com/en/g
 
 By forking the repository, You essentially create a copy into Your own account. 
 
-Start by going to the GitHub Repository (https://github.com/microsoft/alguidelines), and press the Fork ![Fork Button](./fork_button.jpg "Fork")
+Start by going to the GitHub Repository (https://github.com/microsoft/alguidelines\), and press the Fork ![Fork Button](./fork_button.jpg "Fork")
 
 Once You have successfully forked the repository, go to your own GitHub repository : ![Forked Repository Representation](./ForkedRepro.png "Forked repository")
 
