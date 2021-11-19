@@ -7,7 +7,7 @@ weight = 100
 
 ## Abstract
 
-AL Guidelines is a community project, and as such YOU are encouraged to submit corrections and new ideas. In order to get your content included, you must submit a pull request to the GitHub Repository (Located here: https://github.com/microsoft/alguidelines). All Pull Requests are subject to approval by a minimum three admins.
+AL Guidelines is a community project, and as such YOU are encouraged to submit corrections and new ideas. In order to get your content included, you must submit a pull request to the GitHub Repository (Located here: https://github.com/microsoft/alguidelines). All Pull Requests are subject to approval by a minimum of three admins.
 
 If You are toying with an idea, but You aren't ready to create a document just yet, you are encouraged to create a project discussion thread here: https://github.com/microsoft/alguidelines/discussions
 
@@ -31,7 +31,7 @@ In order to work on the repository, You must [Fork](https://docs.github.com/en/g
 
 By forking the repository, You essentially create a copy into Your own account. 
 
-Start by going to the GitHub Repository (), and press the Fork ![Fork Button](./fork_button.jpg "Fork")
+Start by going to the GitHub Repository (https://github.com/microsoft/alguidelines), and press the Fork ![Fork Button](./fork_button.jpg "Fork")
 
 Once You have successfully forked the repository, go to your own GitHub repository : ![Forked Repository Representation](./ForkedRepro.png "Forked repository")
 
