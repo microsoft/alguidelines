@@ -2,19 +2,19 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=generator content="Hugo 0.89.3">
+<meta name=generator content="Hugo 0.89.4">
 <meta name=description content>
 <title>Guide to Fork & PR :: AL Guidelines</title>
-<link href=/css/nucleus.css?1637101370 rel=stylesheet>
-<link href=/css/fontawesome-all.min.css?1637101370 rel=stylesheet>
-<link href=/css/featherlight.min.css?1637101370 rel=stylesheet>
-<link href=/css/perfect-scrollbar.min.css?1637101370 rel=stylesheet>
-<link href=/css/auto-complete.css?1637101370 rel=stylesheet>
-<link href=/css/theme.css?1637101370 rel=stylesheet>
-<link href=/css/theme-blue.css?1637101370 rel=stylesheet>
-<link href=/css/variant.css?1637101370 rel=stylesheet>
-<link href=/css/print.css?1637101370 rel=stylesheet media=print>
-<script src=/js/jquery.min.js?1637101370></script>
+<link href=/css/nucleus.css?1637312434 rel=stylesheet>
+<link href=/css/fontawesome-all.min.css?1637312434 rel=stylesheet>
+<link href=/css/featherlight.min.css?1637312434 rel=stylesheet>
+<link href=/css/perfect-scrollbar.min.css?1637312434 rel=stylesheet>
+<link href=/css/auto-complete.css?1637312434 rel=stylesheet>
+<link href=/css/theme.css?1637312434 rel=stylesheet>
+<link href=/css/theme-blue.css?1637312434 rel=stylesheet>
+<link href=/css/variant.css?1637312434 rel=stylesheet>
+<link href=/css/print.css?1637312434 rel=stylesheet media=print>
+<script src=/js/jquery.min.js?1637312434></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
 <body data-url=/contributing/forkandpr/>
@@ -32,9 +32,9 @@ ALGuidelines.Dev
 <input data-search-input id=search-by type=search placeholder=Search...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script src=/js/lunr.min.js?1637101370></script>
-<script src=/js/auto-complete.js?1637101370></script>
-<script src=/js/search.js?1637101370></script>
+<script src=/js/lunr.min.js?1637312434></script>
+<script src=/js/auto-complete.js?1637312434></script>
+<script src=/js/search.js?1637312434></script>
 </div>
 <div class=highlightable>
 <ul class=topics>
@@ -207,11 +207,39 @@ ALGuidelines.Dev
 <div id=chapter>
 <main id=body-inner>
 <h2 id=abstract>Abstract</h2>
-<p>(coming soon)</p>
+<p>AL Guidelines is a community project, and as such YOU are encouraged to submit corrections and new ideas. In order to get your content included, you must submit a pull request to the GitHub Repository (Located here: <a href=https://github.com/microsoft/alguidelines)>https://github.com/microsoft/alguidelines)</a>. All Pull Requests are subject to approval by a minimum three admins.</p>
+<p>If You are toying with an idea, but You aren&rsquo;t ready to create a document just yet, you are encouraged to create a project discussion thread here: <a href=https://github.com/microsoft/alguidelines/discussions>https://github.com/microsoft/alguidelines/discussions</a></p>
+<div class="notices warning">
+<div class=label>Warning</div><p>If You haven&rsquo;t worked in collaboration with &ldquo;external&rdquo; GitHub repositories before, please familiarize yourself with that process by visiting:</p>
+<p><a href=https://docs.github.com/en/pull-requests/collaborating-with-pull-requests>https://docs.github.com/en/pull-requests/collaborating-with-pull-requests</a></p>
+</div>
 <h2 id=steps>Steps</h2>
+<p>Now that You have decided that You are ready to contribute, these are the steps to take.
+<div class="notices info">
+<div class=label>Info</div><p>You can read more about this process here:</p>
+<p><a href=https://docs.github.com/en/get-started/quickstart/contributing-to-projects>https://docs.github.com/en/get-started/quickstart/contributing-to-projects</a></p>
+</div></p>
 <h3 id=step-1-fork>Step 1: Fork</h3>
+<p>In order to work on the repository, You must <a href=https://docs.github.com/en/get-started/quickstart/fork-a-repo>Fork</a> the repository.</p>
+<p>By forking the repository, You essentially create a copy into Your own account.</p>
+<p>Start by going to the GitHub Repository (), and press the Fork <img src=./fork_button.jpg alt="Fork Button" title=Fork></p>
+<p>Once You have successfully forked the repository, go to your own GitHub repository : <img src=./ForkedRepro.png alt="Forked Repository Representation" title="Forked repository"></p>
+<p>You are now able to clone your own repository to your local pc and start editing using your favorite editor. <a href=https://code.visualstudio.com/>Visual Studio Code</a> is perfectly fine for this task.</p>
+<div class="notices info">
+<div class=label>Info</div><p>You can read more about forking here:</p>
+<p><a href=https://docs.github.com/en/get-started/quickstart/fork-a-repo>https://docs.github.com/en/get-started/quickstart/fork-a-repo</a></p>
+</div>
 <h3 id=step-2-branch>Step 2: Branch</h3>
-<h3 id=step-3-pullrequest>Step 3: Pullrequest</h3>
+<p>While not necessarily a must, it is always good practice to create a branch off of your forked repository. That will allow you to work on multiple contributions at the same time and won&rsquo;t have to wait for pull requests to be approved before you can continue on your next contribution.</p>
+<div class="notices info">
+<div class=label>Info</div><p>You can read more about Branches here:
+<a href=https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches>https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches</a></p>
+</div>
+<h3 id=step-3-pull-request>Step 3: Pull Request</h3>
+<p>Once you are happy with your contibution, it&rsquo;s time to create a pull request to propose changes into the main project! This is the final step in producing a fork of someone else&rsquo;s project, and arguably the most important. If you&rsquo;ve made a change that you feel would benefit the community as a whole, you should definitely consider contributing back.</p>
+<p>To do so, head on over to the repository on GitHub where your project lives. For this example, it would be at <code>https://www.github.com/&lt;your_username>/alguidelines</code>. You&rsquo;ll see a banner indicating that your branch is one commit ahead of microsoft:main. Click <strong>Contribute</strong> and then <strong>Open a pull request.</strong></p>
+<p>GitHub will bring you to a page that shows the differences between your fork and the microsoft/alguidelines repository. Click <strong>Create pull request.</strong></p>
+<p>GitHub will bring you to a page where you can enter a title and a description of your changes. <em>It&rsquo;s important to provide as much useful information and a rationale for why you&rsquo;re making this pull request in the first place.</em> The project owners needs to be able to determine whether your change is as useful to everyone as you think it is. Finally, click <strong>Create pull request.</strong></p>
 <footer class=footline>
 </footer>
 </div>
@@ -225,12 +253,12 @@ ALGuidelines.Dev
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/js/clipboard.min.js?1637101370></script>
-<script src=/js/perfect-scrollbar.min.js?1637101370></script>
-<script src=/js/perfect-scrollbar.jquery.min.js?1637101370></script>
-<script src=/js/jquery.svg.pan.zoom.js?1637101370></script>
-<script src=/js/featherlight.min.js?1637101370></script>
-<script src=/js/modernizr.custom-3.6.0.js?1637101370></script>
-<script src=/js/relearn.js?1637101370></script>
+<script src=/js/clipboard.min.js?1637312434></script>
+<script src=/js/perfect-scrollbar.min.js?1637312434></script>
+<script src=/js/perfect-scrollbar.jquery.min.js?1637312434></script>
+<script src=/js/jquery.svg.pan.zoom.js?1637312434></script>
+<script src=/js/featherlight.min.js?1637312434></script>
+<script src=/js/modernizr.custom-3.6.0.js?1637312434></script>
+<script src=/js/relearn.js?1637312434></script>
 </body>
 </html>
