@@ -1,14 +1,8 @@
-# Project
+# Business Central Design Patterns & Best Practices
 
-> This repo has been populated by an initial template to help get you started. Please
-> make sure to update the content to build a great experience for community-building.
+This site is meant to house some of the community's knowledge about Microsoft Dynamics 365 Business Central AL Development best practices, particularly around hosting Design Patterns.
 
-As the maintainer of this project, please make a few updates:
-
-- Improving this README.MD file to provide a great experience
-- Updating SUPPORT.MD with content about this project's support experience
-- Understanding the security reporting process in SECURITY.MD
-- Remove this section from the README
+Please see the [ALGuidelines.dev](https://alguidelines.dev/) site for the full information about this project.
 
 ## Contributing
 
