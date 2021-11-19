@@ -7,7 +7,7 @@ weight = 100
 
 ## Abstract
 
-AL Guidelines is a community project, and as such YOU are encouraged to submit corrections and new ideas. In order to get your content included, you must submit a pull request to the GitHub Repository (Located here: https://github.com/microsoft/alguidelines). All Pull Requests are subject to approval by a minimum three admins.
+AL Guidelines is a community project, and as such YOU are encouraged to submit corrections and new ideas. In order to get your content included, you must submit a pull request to the GitHub Repository (Located here: https://github.com/microsoft/alguidelines\). All Pull Requests are subject to approval by a minimum three admins.
 
 If You are toying with an idea, but You aren't ready to create a document just yet, you are encouraged to create a project discussion thread here: https://github.com/microsoft/alguidelines/discussions
 
