@@ -72,7 +72,6 @@ codeunit 3971 Image
     /// Creates an image from the specified data stream.
     /// </summary>
     /// <param name="InStream">A Stream that contains the image data.</param>
-    /// <error>Stream do not contain valid image data</error>
     procedure FromStream(InStream: InStream)
     begin
         ImageImpl.FromStream(InStream);
