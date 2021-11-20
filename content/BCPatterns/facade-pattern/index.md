@@ -7,7 +7,7 @@ _Created by Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides (Gang of Fo
 
 ## Abstract
 
-The intent of this pattern is to provide a unified API to a collection of potentially complex subsystems. If you apply this pattern as a general pattern, you'll implement:
+The intent of this pattern is to provide a unified API to a single or a collection of potentially complex subsystems. If you apply this pattern as a general pattern, you will ensure improved:
 - Decoupling
 - Encapsulation
 - Readability
@@ -16,12 +16,12 @@ The intent of this pattern is to provide a unified API to a collection of potent
 
 ## Context: 
 
-Whenever you have to write an isolated piece of business logic, this pattern should be applicable.
+Whenever you want to write an isolated piece of business logic, from now on referred to as subsystem, this pattern should be applicable.
 
 ## Problem: 
 
-In AL, the facade pattern addresses two main problems:
-- Over time as systems grow, they tend to become complex and harder to comprehend. By adding a facade on top of the subsystem, that complexity is hidden and a clear API is defined.
+The facade pattern addresses two main problems:
+- Over time as systems grow, they tend to become complex and harder to comprehend. By adding a facade on top of the subsystem, that complexity is hidden, and a clear API is defined.
 - Any object or method which is publicly accessible, may not receive breaking changes in future releases without announced deprecation. This complicates maintainability of the system. By adding a facade, you ensure that the subsystem is inaccessible to the outside systems, enabling you to change the implementation details of the subsystem at will.
 
 ## Description
@@ -33,7 +33,7 @@ The facade pattern is one of the most commonly used and known patterns, first de
 - Ensures that your code remains loosely coupled and encapsulated, as no other subsystem can take dependencies on your internal implementation details. This also fosters the reusability of your code.
 - Suggests what needs most attention in your tests, as you would want to make sure that your subsystem's public API behaves as designed.
 
-Whenever you develop a functional group or an independent system, which has a clear API, you should add a facade to achieve the above mentioned benefits.
+Whenever you develop a functional group or an independent system, which has a clear API, you should add a facade to achieve the above-mentioned benefits.
 
 ### What is a subsystem?
 
@@ -94,11 +94,11 @@ The facade codeunit above has some characteristics:
 - All methods are public.
 - All methods are documented.
 - No methods contain any logic. They merely point to implementation details.
-- The object naming suggests, that it will get referenced from the outside.
+- The object naming suggests that it will get referenced from the outside.
 
 Anyone who wants to access the subsystem, will only have to take a dependency on the facade; the implementation details are not needed nor accessible.
 
-Anyone who wants to access the subsystem, will only have to relate to this one public facade; the documentation makes it easy to understand the subsystem's capabilities.
+Anyone who wants to access the subsystem, will only have to relate to this one public facade; the documentation makes it easy-to-understand the subsystem's capabilities.
 
 Test of the subsystem can be limited to testing the facade - it is strictly speaking the only thing that needs verification, that it functions as designed. It is the contract of the subsystem.
 
@@ -132,7 +132,7 @@ codeunit 3970 "Image Impl."
 }
 ```
 
-There are no rules for the subsystem, except that access needs to be **internal**. How you implement, how much you document, how you test, is entirely up to you and not the business of the outside caller. Of course you should apply all of the best practices and patterns anyway, as you and possibly other developers will have to understand, extend and maintain the subsystem too. But from the view of this pattern, the complexity of the subsystem is irrelevant - just as long as it's not accessible.
+There are no rules for the subsystem, except that access needs to be **internal**. How you implement, how much you document, how you test, is entirely up to you and not the business of the outside caller. Of course, you should apply all of the best practices and patterns anyway, as you and possibly other developers will have to understand, extend and maintain the subsystem too. But from the view of this pattern, the complexity of the subsystem is irrelevant - just as long as it's not accessible.
 
 ## Usage: 
 The facade pattern is one of the most prominent patterns in the [system application](https://github.com/microsoft/ALAppExtensions/tree/main/Modules/System). You will find plenty of examples here.
@@ -151,7 +151,7 @@ The entire purpose of this very pattern is to encapsulate complexity; you hide a
 If done right, the developer doesn't need to be able to understand the details of the subsystem. Everything relevant to using the subsystem is described in the facade.
 
 ### Testability
-Ensuring the correct behavior of the subsystem can be done by testing the facade. The facade defines the contract of your subsystem - what does it expose and how should it behave. That contract should be covered with adequate tests, which will ensure that it is upheld, even if you decide to change the implementation of the subsystem.
+Ensuring the correct behaviour of the subsystem can be done by testing the facade. The facade defines the contract of your subsystem - what does it expose and how should it behave. That contract should be covered with adequate tests, which will ensure that it is upheld, even if you decide to change the implementation of the subsystem.
 
 ### Maintainability
 The one thing you may not change freely, is the facade and the test of the facade. It can be extended, but you should not break any existing APIs. But that leaves the entire subsystem to be completely rewritten, if you desire to do so. As no external dependencies can exist, there is no risk of introducing any syntactical breaking changes to the outside world. And as the tests of the public facade remain, there is no risk of introducing semantical breaking changes either - the contract is upheld, as long as your tests pass.
