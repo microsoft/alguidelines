@@ -172,3 +172,6 @@ This is one of the most commonly used and discussed, initially described here:
 It is also a key pattern in the design of our system application modules, which is described here:
 
 [Module Architecture](https://docs.microsoft.com/en-us/dynamics365/business-central/dev-itpro/developer/devenv-blueprint)
+
+## Discussions
+You can discuss this pattern [here](https://github.com/microsoft/alguidelines/discussions/42)
