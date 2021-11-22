@@ -330,3 +330,7 @@ The snippets are:
 There have been a number of occasions where people have been sharing this pattern.  Here is one:
 
 {{< youtube id="CWpaD9RUa6U" yt_start="1516" >}}
+
+
+## Discussions
+You can discuss this pattern [here](https://github.com/microsoft/alguidelines/discussions/41)

@@ -41,3 +41,7 @@ Usually, there are occasions where NOT to implement the pattern.  List the disad
 ## List of references
 
 Youtube-link? BaseApp? Tweet? ...
+
+## Discussions
+
+Create a discussions-page of your pattern, and add the sentence "You can discuss this pattern [here](https://github.com/microsoft/alguidelines/discussions/42)" with the right link to that discussions-page.  
