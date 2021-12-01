@@ -162,7 +162,7 @@ Table 15 G/L Account, Page 17 G/L Account Card & Page 18 G/L Account List
 
 Table 27: Item, Page 30 Item Card & Page 31 Item List
 
-Table 156: Resouce, Page 76 Resource Card & Page 77 Resource List
+Table 156: Resource, Page 76 Resource Card & Page 77 Resource List
 
 Table 5600: Fixed Asset, Page 5600 Fixed Asset Card & Page 5601 Fixed Asset List
 

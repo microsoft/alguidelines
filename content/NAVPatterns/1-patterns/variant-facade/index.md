@@ -234,7 +234,7 @@ Setup table would contain the list of the reports and their usages. Based on Tab
 
 For example:
 
-ReportSelectionSetup.SETRANGE("Table ID", RecordRef.NUBMER);
+ReportSelectionSetup.SETRANGE("Table ID", RecordRef.NUMBER);
 
 ReportSelectionSetup.SETRANGE("Usage Type", RecordRef.FieldValue(ArgumentTable."Usage Type");
 

@@ -69,7 +69,7 @@ Step 4: implement the business logic, by calling out to a new function. And impl
 
 ## Consequences
 
-This pattern can be used in all cases to put busines logic. But I see three possible approaches
+This pattern can be used in all cases to put business logic. But I see three possible approaches
 
 1. You only declare the most important and most used hooks
   * This way, you limit the amount of objects and hooks to only a few in the default product

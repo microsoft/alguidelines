@@ -126,7 +126,7 @@ To format headlines, you should use Codeunit 1439 Headline Management functions:
     EssentialBusinessHeadline."Headline Name"::SalesIncrease,
     EssentialBusinessHeadline."Headline Name"::TopCustomer);
     AtLeastOneHeadlineVisible := not EssentialBusinessHeadline.IsEmpty();
-    // only modify the var if this extension is making some headlines visible, setting to false could overrride some other extensions setting the value to true
+    // only modify the var if this extension is making some headlines visible, setting to false could override some other extensions setting the value to true
     if AtLeastOneHeadlineVisible then
     ExtensionHeadlinesVisible := true;
     end;

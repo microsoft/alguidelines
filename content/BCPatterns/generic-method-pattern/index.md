@@ -113,7 +113,7 @@ The **pattern** within the codeunit exists of a few layers:
 *The UI layer*
 The UI layer takes care of the UI, obviously.  What is important in this case, is that you always make sure that there is a "HideDialog" parameter that the business logic can use to still decide whether to use the dialog or not.
 
-These are the UI Layer parts, where you see the public function gets the HideDialog, and passes it to the UI-related procedures, where the business logic for showing the UI takes place.  Also, the default answer of the confirmation is handled there as well (what if the businesslogic calls this method with HideDialog to "true").
+These are the UI Layer parts, where you see the public function gets the HideDialog, and passes it to the UI-related procedures, where the business logic for showing the UI takes place.  Also, the default answer of the confirmation is handled there as well (what if the business logic calls this method with HideDialog to "true").
 
 ```AL
 codeunit 53100 "WLD BlockCustomer Meth"
@@ -286,7 +286,7 @@ you simply get
 ```AL
 SalesHeader.Post();
 ```
-THAT is readabile.  The previous is not!  That is just something we got used to.
+THAT is readable.  The previous is not!  That is just something we got used to.
 
 ### Testability
 There are two things in terms of testability where this pattern helps a lot.
