@@ -14,7 +14,7 @@ Missing, invalid or incomplete data is a common issue during data processing in 
 
 This article describes how to use the Error Message component in NAV, which in short gives you the possibility to:
 
-1\. Link an error mesesage to the page which enables you to resolve the problem.  
+1\. Link an error message to the page which enables you to resolve the problem.  
 2\. Assemble all error messages in one central view instead of having to encounter them one by one.
 
 Validating data is a common task during data processing in NAV. Unfortunately, validation is often done using NAV's integrated ERROR and TESTFIELD functions, which halt execution of the process. The user will then have to locate the invalid / missing data, correct it and reinitiate the process, possibly running into the next error, making the cycle repeat itself. This can be a very tedious, time-consuming and frustrating process. The error message component aims at improving this experience by providing a lightweight framework for error message logging and this article will explain how to leverage this functionality in your code. By doing so, all error messages are gathered during (pre-)processing and are finally presented to the user. The user then has the possibility to click on the error message, which will open the record where the invalid / missing data is located, thereby enabling the user to correct all mistakes efficiently, from one central place and in one go.

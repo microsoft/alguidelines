@@ -67,7 +67,7 @@ The pattern depends on .NET library System.IO.Compression.ZipFile, which from NA
 
 * CreateZipArchiveObject: Which creates a System.IO.Compression.ZipArchive on a server side file
 * AddFileToZipArchive: Which adds a server side file to the archive using System.IO.Compression.ZipFileExtensions.CreateEntryFromFile(). This function allows to use arbitrary naming and does not require to create a server directory before creating the ZIP achieve.
-* CloseZipArhive: Which simply closes the ZIP file and saves it to disk.
+* CloseZipArchive: Which simply closes the ZIP file and saves it to disk.
 
 The pattern is integrated into the report/codeunit in question by providing a filename field on the request page if it is on WinClient but hidden if it is in Web client. On the Web client, a meaningful default filename is used for the file to download, e.g. in Code 1, Filename is set by the user on the request page if it is WinClient, and set to a default value in Web client. 
 

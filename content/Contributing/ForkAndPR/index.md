@@ -51,7 +51,7 @@ You can read more about Branches here:
 https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches
 {{% /notice %}}
 ### Step 3: Pull Request
-Once you are happy with your contibution, it's time to create a pull request to propose changes into the main project! This is the final step in producing a fork of someone else's project, and arguably the most important. If you've made a change that you feel would benefit the community as a whole, you should definitely consider contributing back.
+Once you are happy with your contribution, it's time to create a pull request to propose changes into the main project! This is the final step in producing a fork of someone else's project, and arguably the most important. If you've made a change that you feel would benefit the community as a whole, you should definitely consider contributing back.
 
 To do so, head on over to the repository on GitHub where your project lives. For this example, it would be at `https://www.github.com/<your_username>/alguidelines`. You'll see a banner indicating that your branch is one commit ahead of microsoft:main. Click **Contribute** and then **Open a pull request.**
 

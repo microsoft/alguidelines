@@ -12,4 +12,4 @@ weight = 15
 This section will be cover things that aren't as simple as Design Patterns, but will help make sure your development is:
 - high-performance
 - complies with good designs
-- has high maintability
+- has high maintainability
