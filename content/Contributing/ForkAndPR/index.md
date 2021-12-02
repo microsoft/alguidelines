@@ -48,6 +48,7 @@ While not necessarily a must, it is always good practice to create a branch off 
 
 {{% notice info %}}
 You can read more about Branches here:
+
 https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches
 {{% /notice %}}
 ### Step 3: Pull Request
