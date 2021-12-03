@@ -49,18 +49,18 @@ codeunit 53100 "WLD BlockCustomer Meth"
 {
     internal procedure BlockCustomer(var Cust: Record Customer; HideDialog: Boolean)
     var
-        Handled: Boolean;
+        IsHandled: Boolean;
     begin
         if not ConfirmBlockCustomer(HideDialog) then exit;
-        OnBeforeBlockCustomer(Cust, Handled);
-        DoBlockCustomer(Cust, Handled);
+        OnBeforeBlockCustomer(Cust, IsHandled);
+        DoBlockCustomer(Cust, IsHandled);
         OnAfterBlockCustomer(Cust);
         AcknowledgeBlockCustomer(HideDialog)
     end;
 
-    local procedure DoBlockCustomer(var Cust: Record Customer; Handled: Boolean);
+    local procedure DoBlockCustomer(var Cust: Record Customer; IsHandled: Boolean);
     begin
-        if Handled then
+        if IsHandled then
             exit;
 
         Cust.Blocked := Cust.Blocked::All;
@@ -88,7 +88,7 @@ codeunit 53100 "WLD BlockCustomer Meth"
     end;
 
     [IntegrationEvent(false, false)]
-    local procedure OnBeforeBlockCustomer(var Cust: Record Customer; var Handled: Boolean);
+    local procedure OnBeforeBlockCustomer(var Cust: Record Customer; var IsHandled: Boolean);
     begin
     end;
 
@@ -120,7 +120,7 @@ codeunit 53100 "WLD BlockCustomer Meth"
 {
     internal procedure BlockCustomer(var Cust: Record Customer; HideDialog: Boolean)
     var
-        Handled: Boolean;
+        IsHandled: Boolean;
     begin
         if not ConfirmBlockCustomer(HideDialog) then exit;
         ...
@@ -161,17 +161,17 @@ codeunit 53100 "WLD BlockCustomer Meth"
 {
     internal procedure BlockCustomer(var Cust: Record Customer; HideDialog: Boolean)
     var
-        Handled: Boolean;
+        IsHandled: Boolean;
     begin
         ...
-        OnBeforeBlockCustomer(Cust, Handled);
+        OnBeforeBlockCustomer(Cust, IsHandled);
         ...
         OnAfterBlockCustomer(Cust);
         ...
     end;
 ...    
     [IntegrationEvent(false, false)]
-    local procedure OnBeforeBlockCustomer(var Cust: Record Customer; var Handled: Boolean);
+    local procedure OnBeforeBlockCustomer(var Cust: Record Customer; var IsHandled: Boolean);
     begin
     end;
 
@@ -192,16 +192,16 @@ codeunit 53100 "WLD BlockCustomer Meth"
 {
     internal procedure BlockCustomer(var Cust: Record Customer; HideDialog: Boolean);
     var
-        Handled: Boolean;
+        IsHandled: Boolean;
     begin
         ...
-        DoBlockCustomer(Cust, Handled);
+        DoBlockCustomer(Cust, IsHandled);
         ...
     end;
 
-    local procedure DoBlockCustomer(var Cust: Record Customer; Handled: Boolean);
+    local procedure DoBlockCustomer(var Cust: Record Customer; IsHandled: Boolean);
     begin
-        if Handled then
+        if IsHandled then
             exit;
 
         Cust.Blocked := Cust.Blocked::All;
@@ -266,9 +266,9 @@ As I said, it will facilitate a lot of advantages.  Let's explain a bit more in 
 Thanks to the *event layer*, by applying this pattern for all methods, we will automatically have the bare minimum of events that we need to hook into a method: the `OnBefore-` and the `OnAfter`.  Of course it would make sense to even add more events to the method when appropriate (eg, when you're inserting a record in a table, it might be interesting to also raise an event just before you call the insert).
 
 ### Decoupling
-Thanks to these same events, and the fact the pattern foresees a handler as well, we are able to "decouple" our method as well.  What do I mean with that?  Well, we can simply subscribe to the `OnBefore`event, and set `Handled` to `true`. This means it will never execute the do-procedure, which means, the original procedure/method/business logic is "decoupled".
+Thanks to these same events, and the fact the pattern foresees a handler as well, we are able to "decouple" our method as well.  What do I mean with that?  Well, we can simply subscribe to the `OnBefore`event, and set `IsHandled` to `true`. This means it will never execute the do-procedure, which means, the original procedure/method/business logic is "decoupled".
 
-We can use this obviously for implementing our own method (a new way to accomplish this method), or to disable the method by simply subscribing to it, and only providing the `Handled := true` in our subscriber.  However, there are many more usages where we can use this for.  
+We can use this obviously for implementing our own method (a new way to accomplish this method), or to disable the method by simply subscribing to it, and only providing the `IsHandled := true` in our subscriber.  However, there are many more usages where we can use this for.  
 
 Maybe one more example:
 if you would apply this pattern to your product, at the customer, you'll be able to hotfix your methods simply by decoupling them and fixing the method instead of waiting for a hotfix from the hotfix-departement.
@@ -300,7 +300,7 @@ The pattern describes the tests that needs to be written.
 
 *Disabling methods*
 Coming back to the "decoupling" part - in tests, you actually might need it more than you realize.  Just imagine: you want to test method 1, but method 2 comes in the way by interfering with configurations that you need to do, or UI that is popping up, while it could be completely pointless.  
-Solution: simply - within your test-codeunit - subscribe (with a manual subscriber) to method 2, set `Handled` to `false` - done!
+Solution: simply - within your test-codeunit - subscribe (with a manual subscriber) to method 2, set `IsHandled` to `false` - done!
 
 ### Encapsulation
 Don't underestimate the power of the encapsulation part of this pattern.  One of the first questions that people ask themselves when reading into this pattern is: "*isn't it going to consume all my codeunit-id's*" or "*so many codeunits, that can't be readable, right?*".  
