@@ -6,13 +6,13 @@ weight = 840
 
 _By Carlos Raul Garcia and Bogdana Botez at Microsoft Development Center Copenhagen_
 
-_[![ ][image0]][anchor0]_
+[![ ][image0]][anchor0]
 
 **Context**: when NAV is upgraded, whether on-premises or in the cloud, developers have the chance to write upgrade code to move data across changing data structures. Writing good quality code will help successful upgrades.
 
 ### General on upgrade
 
-**Problem: **assuming that the upgrade table contains data.
+**Problem:** assuming that the upgrade table contains data.
 
 If the table is empty, it means that either the upgrade has run, or there was no data in the original tenant; in both cases, the upgrade code should exit immediately.
 
@@ -37,17 +37,17 @@ The examples below have happened in real live NAV PaaS upgrade:
 **Table data overwrite**
 
 * **Problem**: at upgrade, a new column has bee­n added to a table and initialized with default values. In the meanwhile, during production, some of the default values are changed to production real life values. The second time the upgrade runs, those values will be overwritten with defaults, any personalization lost.
-* **Solution: **before initializing with default values, check if non-default values exist.
+* **Solution:** before initializing with default values, check if non-default values exist.
 
 **Crash on math operations**
 
-* **Problem: **one tenant upgrade managed to divide by zero, by assuming a non-zero value.
-* **Solution: **don't assume values can never be zero, always check before using them in divisions.
+* **Problem:** one tenant upgrade managed to divide by zero, by assuming a non-zero value.
+* **Solution:** don't assume values can never be zero, always check before using them in divisions.
 
 **Use of external components**
 
-* **Problem: **a one-time registration through web services to an external service failed when attempting to register a second time.
-* **Solution: **check if already registered, before attempting again.
+* **Problem:** a one-time registration through web services to an external service failed when attempting to register a second time.
+* **Solution:** check if already registered, before attempting again.
 
 ### Parallelism
 
@@ -59,7 +59,7 @@ When modifications to the same table are being made from two or more different p
 
 ### Access to cloud machines
 
-**Problem: **dependencies on manual installation steps do not fit in the cloud.
+**Problem:** dependencies on manual installation steps do not fit in the cloud.
 
 If Dynamics NAV is installed on-premises, then any additional setup (like dependencies of external dlls, manual configuration steps etc.) can be done manually or semi-manually by the IT admin, at first setup and upgrade.
 
