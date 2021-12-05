@@ -17,7 +17,7 @@ Answer: all new C/AL code is bound to follow the guidelines (else it cannot be c
 
 We're looking forward to your comments. Where you can, do provide concrete examples of the alternatives, Good and Bad.
 
-[watch?v=z6skKy0pkmU&list=PLhZ3P LY7CqmVszuvtJLujFyHpsVN0Uw&index=26][anchor2]
+{{< youtube z6skKy0pkmU >}}
 
 
 

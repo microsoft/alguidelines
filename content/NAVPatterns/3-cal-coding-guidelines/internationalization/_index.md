@@ -6,6 +6,5 @@ weight = 700
 
 ## **Internationalization**
 
-### 
 
 Find the C/AL guidelines by expanding the menu in the left.
