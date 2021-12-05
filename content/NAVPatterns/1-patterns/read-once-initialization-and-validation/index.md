@@ -2,8 +2,7 @@
 title = "Read-once Initialization and Validation"
 weight = 970
 +++
-_By Tim Grant**  
-**_
+_By Tim Grant_
 
 ## **Abstract**
 
@@ -39,7 +38,7 @@ E.g. If there is a bespoke change, then this existing **GetGLSetup** can be call
 
 [][anchor3][![ ][image4]][anchor4]
 
-This means that by the time the code reaches the original **GetGLSetup** code requirement, this record is already in memory as the status flag is set to True, eliminating another check. For such Patterns the setup record should never be cleared, it should be called once globally, initiated and left in memory for future checks. It should **not** be declared locally at the same time, review your code for matching local variable usage before implementing this.**** 
+This means that by the time the code reaches the original **GetGLSetup** code requirement, this record is already in memory as the status flag is set to True, eliminating another check. For such Patterns the setup record should never be cleared, it should be called once globally, initiated and left in memory for future checks. It should **not** be declared locally at the same time, review your code for matching local variable usage before implementing this.
 
 ****
 
@@ -47,8 +46,7 @@ This means that by the time the code reaches the original **GetGLSetup** code re
 
 Merge **Singleton Table** with dynamic validation field meta configuration. This removes the coding of **TESTFIELD** to a central setup check.
 
-Example with the **Sales & Receivables Setup****  
-**
+Example with the **Sales & Receivables Setup**
 
 [![ ][image5]][anchor5]
 

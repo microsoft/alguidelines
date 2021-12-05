@@ -25,7 +25,7 @@ To build this example from scratch, you will need:
 * Two tables, one for the header (called "Document Header"), and one for the document lines (called "Document Line"). Each document will be composed of "1 to N" line(s).
 * Three pages, one for the header, one for the subpage (lines), and the last for the document list obviously.Table "Document Header"
 
-**Table "Document Header" **: Is the "header" table of your document (like Sales Header, Purchase Header, Transfer Header ...) 
+**Table "Document Header"**: Is the "header" table of your document (like Sales Header, Purchase Header, Transfer Header ...) 
 
 * Add a field "No." (Code 20): Should be the first field and primary key of your documents, to be driven by Serial No. (See corresponding design pattern)
 
@@ -63,7 +63,7 @@ Then simply add your subpage as new line in the designer, and adjust the propert
 
 **[![ ][image1]][anchor1]**
 
-**Page "Document List": **Use the Page wizard to create a List page based on the Document table and add fields, FactBox (RecordLinks, Notes...), etc. 
+**Page "Document List":** Use the Page wizard to create a List page based on the Document table and add fields, FactBox (RecordLinks, Notes...), etc. 
 
 Once created:
 
@@ -74,7 +74,7 @@ Save our page and add it to the Role Page "Order Processor Role Center" for exam
 
 Now, observe how "Line No." is calculated on the first line, and when inserting a new line between the first and second one.
 
-Code sample (copy link to your browser) : https://knk1fr-my.sharepoint.com/personal/xgaronnat\_knk\_fr/\_layouts/15/guestaccess.aspx?guestaccesstoken=hL0P%2fyQ1ZreY5KlSPc%2b8dHrO4zjUkqQbg8DnGSbgd1Y%3d&docid=02b3cb93e1ff1459380891795fb8441fc
+Code sample (copy link to your browser) : https://knk1fr-my.sharepoint.com/personal/xgaronnat_knk_fr/_layouts/15/guestaccess.aspx?guestaccesstoken=hL0P%2fyQ1ZreY5KlSPc%2b8dHrO4zjUkqQbg8DnGSbgd1Y%3d&docid=02b3cb93e1ff1459380891795fb8441fc
 
 ## NAV Usages
 
@@ -98,7 +98,7 @@ Use Series No. Pattern for your documents, and Copy Document to implement docume
 ## References
 
 Walkthrough: Creating a Document Page : [http://msdn.microsoft.com/en-us/library/dd338599(v=nav.71).aspx][anchor2]  
-[][anchor2][watch?v=S9cRD2D4c0&list=PLhZ3P LY7CqmVszuvtJLujFyHpsVN0Uw&index=27][anchor3]
+{{< youtube S9cRD2D4c0>}}
 
 
 

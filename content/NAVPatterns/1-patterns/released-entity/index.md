@@ -2,7 +2,7 @@
 title = "Released Entity"
 weight = 1000
 +++
-Authors: Henrik Langbak and Kim Ginnerup, Bording Data
+_Authors: Henrik Langbak and Kim Ginnerup, Bording Data_
 
 ## **Abstract**
 
@@ -53,7 +53,7 @@ The important and critical part of this pattern is that the whole application ne
 
 ## **Usage**
 
-## To use this pattern you need to create an Option Field named: "Release State" with at least the two states: Open, Released. 
+To use this pattern you need to create an Option Field named: "Release State" with at least the two states: Open, Released. 
 
 ### Automatic pending or release
 

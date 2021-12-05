@@ -54,7 +54,7 @@ The Change Observer table identifies the Subscriber using Server ID and Session 
 
 The Change Notification table then has the same three fields plus an Entry No. as its Primary Key, and in this example borrows heavily from the Change Log code to fill in the rest of the message.
 
-_**Note:** _Other examples of the pattern could have very different fields to identify the Subscriber, Filters and then whatever fields needed for content of the Message.
+_**Note:**_ Other examples of the pattern could have very different fields to identify the Subscriber, Filters and then whatever fields needed for content of the Message.
 
 Our Message Broker Codeunit will also serve as a central place to create Subscribers (Listen and StopListening functions) and a place to Poll for Messages. Note that the Poll function deletes the Messages as it reads them.
 ```al
@@ -112,7 +112,7 @@ Our Message Broker Codeunit will also serve as a central place to create Subscri
     END;
 ```
 
-**__**The final part of this example is an object that calls the functions above. In this example we will use a Page with a PingPong Timer Control to do the polling in (almost) real time. These are the functions on the page:
+**__** The final part of this example is an object that calls the functions above. In this example we will use a Page with a PingPong Timer Control to do the polling in (almost) real time. These are the functions on the page:
 
 ```al
     //OnQueryClosePage(CloseAction : Action None) : Boolean**

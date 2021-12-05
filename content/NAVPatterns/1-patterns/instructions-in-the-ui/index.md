@@ -42,7 +42,7 @@ Dismissible dialogs show the instructional message about the functionality, with
 
 On a recent usability study of the **Description** field on sales or purchase lines, most users ignored the **No.** field and started entering text in the description field before proceeded to enter a quantity. In the solution in question, text only is treated as a line comment if the **No.** field is blank. The fix was to update the field name to **Description/Comment** and to provide a message that typing in the field creates a comment only. Users that often use comments can then choose "Do not show again" to get rid of the instructional text.
 
-**When to use: **Recommendation is to use only when many users are entering data in the wrong way and modifying the code is costly. This is an interrupting dialog, but the benefits are that it is very hard to overlook this dialog.
+**When to use:** Recommendation is to use only when many users are entering data in the wrong way and modifying the code is costly. This is an interrupting dialog, but the benefits are that it is very hard to overlook this dialog.
 
 ## FastTabs with Instructional Text
 
@@ -76,21 +76,21 @@ Example of the embed code:
 
 <iframe width="560" height="315" src="//www.youtube.com/embed/7SGp9pA9cAY" frameborder="0" allowfullscreen\></iframe\>
 
-You must assign**src attribute **to src of the embed code, for example:
+You must assign **src attribute** to src of the embed code, for example:
 
-VideoPlayer.SetFrameAttribute('src', 'https://www.youtube.com/embed/7SGp9pA9cAY');
+    VideoPlayer.SetFrameAttribute('src', 'https://www.youtube.com/embed/7SGp9pA9cAY');
 
 Without this, the video will not play. You can use the same function to assign other attributes, for example to remove frame border use:
 
-VideoPlayer.SetFrameAttribute(' frameborder', '0');
+    VideoPlayer.SetFrameAttribute(' frameborder', '0');
 
 Height and width should be set by using the following functions, since they ensure that the video will be centered on the page.
 
-VideoPlayerAddIn.SetHeight(Height) and VideoPlayerAddIn.SetWidth(Width);
+    VideoPlayerAddIn.SetHeight(Height) and VideoPlayerAddIn.SetWidth(Width);
 
 If you would like to reuse the **Mini Video Player Page** page (1395), then use:
 
-SetParameters(Height,Width,Src,Caption), which uses the functions described above.
+    SetParameters(Height,Width,Src,Caption), which uses the functions described above.
 
 4\. As a last step you need to implement the action on the group and assign a video icon
 
@@ -136,7 +136,7 @@ Provide the support for the invoking any Help topics (URL on the Help Server fro
 
 Implement tooltips across the application and in all country versions. (Requires a run-time infrastructure system.)
 
-[watch?v=loobQ1TVO3o&list=PLhZ3P LY7CqmVszuvtJLujFyHpsVN0Uw&index=14][anchor6]
+{{< youtube loobQ1TVO3o>}}
 
 
 

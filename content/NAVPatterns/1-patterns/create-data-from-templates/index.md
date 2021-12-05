@@ -189,7 +189,7 @@ Implement the solution in the standard version of Microsoft Dynamics NAV and ext
 
 It is possible that users end up with a large number of templates if they need many different data combinations. An improvement could be to split templates into smaller groups, grouping only part of the fields that are related, and then apply only these. 
 
-[watch?v=F0CTvoyKSmI&list=PLhZ3P LY7CqmVszuvtJLujFyHpsVN0Uw&index=20][anchor6]
+{{< youtube F0CTvoyKSmI >}}
 
 
 

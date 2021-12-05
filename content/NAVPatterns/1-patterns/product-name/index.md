@@ -16,7 +16,7 @@ When you want to refer to product name in informational messages or errors, it's
 
 Instead of hardcoding the product name like "Dynamics NAV 2017", it's recommended to use **ProductName** System Object that platform provides.
 
-You can use **ProductName** to refer to the product name, this you can use in text messages. **ProductName **has 3 values **ProductName.Short**, **ProductName.Full**, and **ProductName.Marketing**, each one should be used according to the context of your message. 
+You can use **ProductName** to refer to the product name, this you can use in text messages. **ProductName** has 3 values **ProductName.Short**, **ProductName.Full**, and **ProductName.Marketing**, each one should be used according to the context of your message. 
 
 It's recommended to use **ProductName.Short** for most in-product texts , **ProductName.Full** when other dynamics apps are present in the message context (like CRM), and **ProductName.Marketing** only when absolutely necessary.
 

@@ -125,7 +125,7 @@ BusinessChart::DataPointClicked(point : DotNet "Microsoft.Dynamics.Nav.Client.Bu
 
 SetDrillDownindexes is a method from the **Business Chart Buffer** table that maps the DotNet point variable to C/AL data, so it must be used. The next method that you must implement is the action to be performed on Drilldown.
 
-The **DataPointDoubleClicked **trigger has the same implementation logic as the DataPointClicked trigger.
+The **DataPointDoubleClicked** trigger has the same implementation logic as the DataPointClicked trigger.
 
 ### NAV Specific Example 2
 
@@ -133,11 +133,11 @@ Implementation of chart part 1390 on the **Small Business Role Center** page (90
 
 [![ ][image5]][anchor5]
 
-This chart part contains data from multiple charts within a single part. The **Status Text** field shows the name of the chart and the current period. Users can browse through the charts with **Next Chart **and**Previous Chart** or use **Select Chart** to choose from a list of available charts.
+This chart part contains data from multiple charts within a single part. The **Status Text** field shows the name of the chart and the current period. Users can browse through the charts with **Next Chart** and **Previous Chart** or use **Select Chart** to choose from a list of available charts.
 
 [![ ][image6]][anchor6]
 
-On this dialog, users can choose if a chart should be enabled or disabled. If the chart is not enabled, it will be skipped on the **Previous Chart **and **Next Chart** actions. Charts used by this part use different codeunits and setup records. If the user changes the selected chart, this option will be saved and applied next time role center is opened.
+On this dialog, users can choose if a chart should be enabled or disabled. If the chart is not enabled, it will be skipped on the **Previous Chart** and **Next Chart** actions. Charts used by this part use different codeunits and setup records. If the user changes the selected chart, this option will be saved and applied next time role center is opened.
 
 Users can also change the period length.
 

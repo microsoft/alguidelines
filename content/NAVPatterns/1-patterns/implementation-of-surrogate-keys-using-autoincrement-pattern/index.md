@@ -2,7 +2,7 @@
 title = "Surrogate keys using Autoincrement Pattern"
 weight = 630
 +++
-_By [Soren Klemmensen][anchor0], [_Partner-Ready-Software_ ][anchor1]& [360 Visibility][anchor2]_
+_By [Soren Klemmensen][anchor0], [_Partner-Ready-Software_ ][anchor1] & [360 Visibility][anchor2]_
 
 ## **Abstract**
 
@@ -137,7 +137,7 @@ Other risks could be if Transfer Fields are used and data is being copied uninte
 
 This is a new pattern not currently used in Microsoft Dynamics NAV.
 
-## **Ideas for improvement ******
+## **Ideas for improvement**
 
 The reason for doing it this way is that you now can reuse your code again and again with only creating the same link on other tables instead of building it from scratch each time reducing testing needed and improving the quality of the overall product.
 

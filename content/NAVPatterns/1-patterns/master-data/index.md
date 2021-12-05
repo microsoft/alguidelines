@@ -2,7 +2,7 @@
 title = "Master Data"
 weight = 780
 +++
-__By [Soren Klemmensen][anchor0], [_Partner-Ready-Software_ ][anchor1]& [360 Visibility][anchor2]__
+_By [Soren Klemmensen][anchor0], [_Partner-Ready-Software_ ][anchor1] & [360 Visibility][anchor2]_
 
 # Abstract
 
