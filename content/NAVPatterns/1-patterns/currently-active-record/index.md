@@ -2,7 +2,7 @@
 title = "Currently Active Record"
 weight = 450
 +++
-Authors: Henrik Langbak and Kim Ginnerup, Bording Data
+_Authors: Henrik Langbak and Kim Ginnerup, Bording Data_
 
 ## Abstract
 
@@ -65,7 +65,9 @@ Remember to set the link table property before you save it.
 
 ### 3. Implement the code
 
-IF PriceView.FINDSET THEN // You have them
+```al
+    IF PriceView.FINDSET THEN // You have them
+```
 
 ### 4. Create a deployment codeunit
 
@@ -86,8 +88,8 @@ You need to deploy in three steps:
 
 If you later want to change the view, you need to follow these rules:
 
-\* If you add columns, you need to add them to the view first and then add them to the Table Object.
-\* If you want to remove columns from the view, you need to delete the Table Object, then change the view and last recreate the Table Object without the new columns.
+* If you add columns, you need to add them to the view first and then add them to the Table Object.
+* If you want to remove columns from the view, you need to delete the Table Object, then change the view and last recreate the Table Object without the new columns.
 
 ### Code example that accomplish the same but without using the pattern
 

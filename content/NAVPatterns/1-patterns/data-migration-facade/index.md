@@ -1,9 +1,7 @@
 +++
-title = "Data Migration Facade"
+title = "Data Migration Façade"
 weight = 480
 +++
-# **Data Migration Façade**
-
 _By David Bastide and Soumya Dutta at Microsoft Development Center Copenhagen_
 
 [![ ][image0]][anchor0] 
@@ -124,7 +122,7 @@ The following example shows how to migrate items without staging tables:
     end;
 ```  
 
-_Figure 2: Example of Item and Item Unit of Measure migration without staging tables _
+_Figure 2: Example of Item and Item Unit of Measure migration without staging tables_
 
 ### Usage with staging tables:
 
@@ -139,10 +137,8 @@ The overall workflow is:
 * From the event subscribers, call the façade procedures to create entities and set their field values: 
 
 *   * **"Item Data Migration Façade".CreateItemIfNeeded('ITEM042','My Item Description';'My Item Description 2';ItemTypeToSet::Inventory)**
-  * 
-**"Item Data Migration Façade".SetBaseUnitOfMeasure('BOX')**
-  * 
-**"Item Data Migration Façade".ModifyItem(true)**
+  * **"Item Data Migration Façade".SetBaseUnitOfMeasure('BOX')**
+  * **"Item Data Migration Façade".ModifyItem(true)**
 
 [![ ][image2]][anchor2] 
 
@@ -267,7 +263,7 @@ The following Entity data migration façade codeunits are available:
 
 ## References:
 
-Façade pattern on Wikipedia: https://en.wikipedia.org/wiki/Facade\_pattern 
+Façade pattern on Wikipedia: https://en.wikipedia.org/wiki/Facade_pattern
 
 
 

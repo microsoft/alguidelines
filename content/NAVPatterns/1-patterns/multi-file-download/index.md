@@ -2,7 +2,7 @@
 title = "Multi-file Download"
 weight = 800
 +++
-#### _By Martin Dam at Microsoft Development Center Copenhagen_
+_By Martin Dam at Microsoft Development Center Copenhagen_
 
 ## Abstract
 

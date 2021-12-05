@@ -58,37 +58,36 @@ For example, the NAV page Sales List (page ID 45), which displays the Sales Head
 
 For this purpose, a new action ("Card") is added to the Sales List page. The OnAction trigger of this new action contains the page selection logic:
 
-CASE "Document Type" OF
+    CASE "Document Type" OF
 
-"Document Type"::Quote:
+    "Document Type"::Quote:
 
-PAGE.RUN(PAGE::"Sales Quote",Rec);
+    PAGE.RUN(PAGE::"Sales Quote",Rec);
 
-"Document Type"::Order:
+    "Document Type"::Order:
 
-PAGE.RUN(PAGE::"Sales Order",Rec);
+    PAGE.RUN(PAGE::"Sales Order",Rec);
 
-"Document Type"::Invoice:
+    "Document Type"::Invoice:
 
-PAGE.RUN(PAGE::"Sales Invoice",Rec);
+    PAGE.RUN(PAGE::"Sales Invoice",Rec);
 
-"Document Type"::"Return Order":
+    "Document Type"::"Return Order":
 
-PAGE.RUN(PAGE::"Sales Return Order",Rec);
+    PAGE.RUN(PAGE::"Sales Return Order",Rec);
 
-"Document Type"::"Credit Memo":
+    "Document Type"::"Credit Memo":
 
-PAGE.RUN(PAGE::"Sales Credit Memo",Rec);
+    PAGE.RUN(PAGE::"Sales Credit Memo",Rec);
 
-"Document Type"::"Blanket Order":[  
-][anchor2]
+    "Document Type"::"Blanket Order":[  
+    ][anchor2]
 
-PAGE.RUN(PAGE::"Blanket Sales Order",Rec);
+    PAGE.RUN(PAGE::"Blanket Sales Order",Rec);
 
-END;
+    END;
 
-### **NAV Usages**[  
-][anchor3]
+### **NAV Usages**[  ][anchor3]
 
 Some of the NAV implementations of this pattern can be found in the following pages:
 

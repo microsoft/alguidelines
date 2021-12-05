@@ -2,11 +2,9 @@
 title = "Setup Table"
 weight = 1070
 +++
-## Setup Table
-
 _By Abhishek Ghosh, at Microsoft Development Center Copenhagen_
 
-## [![ ][image0]][anchor0]
+[![ ][image0]][anchor0]
 
 This is the first and most well-known of the two usual applications of the **Singleton Table** pattern in Dynamics NAV.
 
@@ -58,7 +56,7 @@ Several Setup tables in NAV implement this pattern. Some of those are:
 * Table 313 Inventory Setup
 * Table 242 Source Code Setup
 
-**Variation: **While most tables just insert a record with empty primary key in codeunit 2, table 242 ("Source Code Setup") offers an example of inserting default values into all fields of the table (method "InitSourceCodeSetup"). This practice, wherever feasible, is likely to reduce the effort during implementation.
+**Variation:** While most tables just insert a record with empty primary key in codeunit 2, table 242 ("Source Code Setup") offers an example of inserting default values into all fields of the table (method "InitSourceCodeSetup"). This practice, wherever feasible, is likely to reduce the effort during implementation.
 
 **Related resources:** [Considerations on optimizing the Singleton Table, by Søren Klemmensen][anchor2].
 

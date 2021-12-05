@@ -23,11 +23,11 @@ Let's consider the **VAT Entry** table as below: [
 
 [![ ][image0]][anchor1]
 
-The goal is to select one line for each separate document that produced VAT Entries. In other words, we want records grouped by **Type, Document Type **and**Document No.**. However, if there are multiple lines with the same value of the triad **Type, Document Type **and**Document No.** in the **VAT Entry **table, we only want to see one of them.
+The goal is to select one line for each separate document that produced VAT Entries. In other words, we want records grouped by **Type, Document Type** and **Document No.**. However, if there are multiple lines with the same value of the triad **Type, Document Type** and **Document No.** in the **VAT Entry** table, we only want to see one of them.
 
 #### **Solution**
 
-Create a new query object **VAT Entry Distinct Document No.**, with a single DataItem sourced from **VAT Entry** table. Add the three desired group-by fields **Type, Document Type **and**Document No. **as columns.
+Create a new query object **VAT Entry Distinct Document No.**, with a single DataItem sourced from **VAT Entry** table. Add the three desired group-by fields **Type, Document Type** and **Document No.** as columns.
 
 [![ ][image1]][anchor2] 
 
@@ -45,7 +45,7 @@ Running the query yields a single record per document. You can notice in the sec
 
 One thing is to be noted: there is a limitation to how much information you can take out from the records. For example, if we need to extract more information than just the one we already have in the columns, then the following apply: adding one more column of **Method Type** = **None** will indeed show more information, but it _might_ affect the grouping. More details below.
 
-**The grouping is affected **for example****when the additional column is the **VAT Entry No**. In this case, this column brings up additional grouping criteria and one group for each entry number will end up being created.
+**The grouping is affected** for example when the additional column is the **VAT Entry No**. In this case, this column brings up additional grouping criteria and one group for each entry number will end up being created.
 
 [![ ][image4]][anchor5]
 

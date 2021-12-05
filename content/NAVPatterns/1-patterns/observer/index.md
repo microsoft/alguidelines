@@ -2,7 +2,7 @@
 title = "Observer"
 weight = 900
 +++
-#### _By Nikolai L'Estrange, from TVision Technology Ltd. in the UK__  
+_By Nikolai L'Estrange, from TVision Technology Ltd. in the UK_
 _
 
 ### Abstract

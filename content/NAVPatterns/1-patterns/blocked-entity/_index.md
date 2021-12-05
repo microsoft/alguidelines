@@ -90,16 +90,13 @@ Entities where the Blocked Entity has been implemented include:
 
 The [Released Entity][anchor4].
 
-[watch?v=O2R fTSup1o&list=PLhZ3P LY7CqmVszuvtJLujFyHpsVN0Uw&index=16][anchor5]  
-
-
+{{< youtube O2R-fTSup1o >}}
 
 [anchor0]: 2260.BlockedEntityPattern.png
 [anchor1]: /nav/w/designpatterns/247.data-driven-blocked-entity/edit
 [anchor2]: 8637.BlockedEntityPattern_5F00_5F00_5F00_Boolean.png
 [anchor3]: 3056.BlockedEntityPattern_5F00_5F00_5F00_Option.png
 [anchor4]: /nav/w/designpatterns/115.released-entity.aspx
-[anchor5]: https://www.youtube.com/watch?v=O2R-fTSup1o&list=PLhZ3P-LY7CqmVszuvtJLujFyHpsVN0U_w&index=16
 
 
 [image0]: 2260.BlockedEntityPattern.png

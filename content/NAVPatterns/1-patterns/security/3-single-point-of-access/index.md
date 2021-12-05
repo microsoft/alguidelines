@@ -1,9 +1,7 @@
 +++
-title = "3-single-point-of-access.md"
+title = "Single Point of Access"
 weight = 160
 +++
-## Single Point of Access
-
 _By Bogdana Botez at Microsoft Development Center Copenhagen_
 
 _[![ ][image0]][anchor0]   
@@ -19,8 +17,8 @@ __
 
 **Forces:**
 
-* **Code duplication: **if each entity attempts to write its own routines for data access, invariably this will bring duplication.
-* **No knowledge reuse: **if a bug is found and fixed in one of the implementations, there is no guarantee that all the other implementations will be updated. For example
+* **Code duplication:** if each entity attempts to write its own routines for data access, invariably this will bring duplication.
+* **No knowledge reuse:** if a bug is found and fixed in one of the implementations, there is no guarantee that all the other implementations will be updated. For example
   * **Double-Encryption**: lack of care or knowledge could lead a NAV developer to attempt to double-encrypt strings, which would render them unusable.
   * **Multi-company configuration \[4\]**: in NAV, it is possible to store multiple companies on the same tenant \[5\] database. A developer who has not investigated such a configuration and its consequences on encryption, can attempt to encrypt data in (for example) a Setup Table \[6\] of only one company, which would make this table unusable from any unencrypted company (since the server will observe that encryption is enabled, and try to retrieve it as it were enabled for all companies and fails).
   * **"Shotgun surgery" \[7\]:** one change in the data access technique (like a new requirement to validate the user's identity before viewing any protected data), calls for updates in every single implementation of data access, if multiple implementations exist. Hence, one change of requirement triggers multiple efforts to update the product.
@@ -33,7 +31,7 @@ You can observe that, in panel 3, each usage needs to access separately the encr
 
 [![ ][image1]][anchor4]
 
-_Figure 1- **Single Point of Access **pattern applied._
+_Figure 1- **Single Point of Access** pattern applied._
 
 This shows how pattern application is an iterative process, where one step follows another. Refactoring \[8\] the code to apply one pattern, cleans and clarifies the code and in some cases, makes clear the possibility of further refactoring.
 
@@ -43,9 +41,9 @@ This shows how pattern application is an iterative process, where one step follo
 
 * **Simplicity**: only one implementation exists.
 * **Knowledge reuse**: if a bug is found and fixed, there is just one place which needs to be repaired. Therefore, there is no risk that some of the usages would still be flawed by the same bug. For example:
-  * **Double encryption**: The**Single Point of Access** API already implements knowledge to avoid encryption of already encrypted strings.
-  * **Multi-company**: The**Single Point of Access** API already implements knowledge for handling encryption in a multi-company setup.
-  * **Easy maintenance**:****a change in specification needs only one code update.
+  * **Double encryption**: The **Single Point of Access** API already implements knowledge to avoid encryption of already encrypted strings.
+  * **Multi-company**: The **Single Point of Access** API already implements knowledge for handling encryption in a multi-company setup.
+  * **Easy maintenance**: a change in specification needs only one code update.
 
 **Consequences:**
 

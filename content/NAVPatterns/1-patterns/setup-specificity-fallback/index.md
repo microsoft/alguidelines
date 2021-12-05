@@ -8,8 +8,7 @@ _By Jan Hoek at IDYN_
 
 The Setup Specificity Fallback pattern allows users to efficiently define a potentially complex setup in terms of rules and exceptions to these rules, exceptions to the exceptions, etc.
 
-## **Description  
-**
+## **Description**
 
 The pattern involves a setup table with a compound (i.e. consisting of more than one field) primary key, where each record in the table maps a combination of primary key values to a particular setup value. However, setting up and maintaining each and every combination could prove to be rather labour-intensive. 
 

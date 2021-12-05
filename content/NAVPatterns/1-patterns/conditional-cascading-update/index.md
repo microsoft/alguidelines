@@ -2,7 +2,7 @@
 title = "Conditional Cascading Update"
 weight = 370
 +++
-_Originally by Jan Hoek at IDYN _
+_Originally by Jan Hoek at IDYN_
 
 ## Abstract
 

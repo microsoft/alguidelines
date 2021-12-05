@@ -2,7 +2,7 @@
 title = "In-context Notifications"
 weight = 640
 +++
-___By Soumya Dutta at Microsoft Development Center Copenhagen_
+_By Soumya Dutta at Microsoft Development Center Copenhagen_
 
 ## Context
 

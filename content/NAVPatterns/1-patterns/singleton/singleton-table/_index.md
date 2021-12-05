@@ -28,13 +28,13 @@ In a functionality that is large enough (such as sales, inventory, fixed) you ma
 
 **Implementation**
 
-**1\. Define: **Create a Setup Table with Dummy a Primary Key. Typically with type Code=10\. Then add fields to define the global rules.
+**1\. Define:** Create a Setup Table with Dummy a Primary Key. Typically with type Code=10\. Then add fields to define the global rules.
 
-**2\. Instantiate: **Place the instantiation code in a central place where it is guaranteed to be invoked before the functionality uses it. This is done in Codeunit 2\.
+**2\. Instantiate:** Place the instantiation code in a central place where it is guaranteed to be invoked before the functionality uses it. This is done in Codeunit 2\.
 
-**3\. Enforce: **Give the user access to the record so that he can change the default setup, by creating a Card page. On the page, enforce the singleton to prevent deletion of the record or insertion of a new record
+**3\. Enforce:** Give the user access to the record so that he can change the default setup, by creating a Card page. On the page, enforce the singleton to prevent deletion of the record or insertion of a new record
 
-**4\. Use: **Access the rule in code and use it
+**4\. Use:** Access the rule in code and use it
 
 ****
 
@@ -87,7 +87,7 @@ The **Singleton Table** has two established applications in Dynamics NAV:
 
 YouTube Video of NAV Singleton:
 
-[watch?v=aQPu s9FkYI&list=PLhZ3P LY7CqmVszuvtJLujFyHpsVN0Uw&index=13][anchor3]
+{{< youtube aQPu-s9FkYI>}}
 
 
 

@@ -2,7 +2,7 @@
 title = "Use Queries to Replace Nested Loops"
 weight = 1350
 +++
-#### _Originally by Bogdan Sturzoiu, Microsoft Development Center Copenhagen_
+_Originally by Bogdan Sturzoiu, Microsoft Development Center Copenhagen_
 
 ## **Abstract**
 
@@ -28,7 +28,7 @@ The join operation has traditionally been done in C/AL by record looping. When N
 
 [![ ][image0]][anchor0]
 
-Figure 1\. The pattern elements
+_Figure 1\. The pattern elements_
 
 ### **Usage**
 
@@ -72,7 +72,7 @@ The classic C/AL approach is to:
     END;
 
   
-******Solution Using Query**
+**Solution Using Query**
 
 The new query-based approach involves:
 

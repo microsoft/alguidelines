@@ -154,7 +154,7 @@ Where:
 * **DefaultNoSeriesCode** is typically found in the application domain setup table.
 * **OldNoSeriesCode** is typically the previous value of the "No. Series" code, which is found in **xRec."No. Series"**
 * **NewDate** is typically 0D (empty date)
-* NewNo and **NewNoSeriesCode** are the current values found in **"No." ** and **"No. Series"**
+* NewNo and **NewNoSeriesCode** are the current values found in **"No."** and **"No. Series"**
 
 ## NAV Usages
 
@@ -254,7 +254,7 @@ IF AssistEdit(xRec) THEN
 
 CurrPage.UPDATE;
 
-[watch?v=1lG9rYdmM4&list=PLhZ3P LY7CqmVszuvtJLujFyHpsVN0Uw&index=8][anchor3]
+{{< youtube 1lG9rY_dmM4>}}
 
 
 

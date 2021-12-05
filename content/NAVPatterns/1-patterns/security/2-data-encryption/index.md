@@ -1,9 +1,7 @@
 +++
-title = "2-data-encryption.md"
+title = "Data Encryption"
 weight = 140
 +++
-## Encryption
-
 _By Bogdana Botez at Microsoft Development Center Copenhagen_
 
 __
@@ -38,9 +36,9 @@ _Figure 1- **Encryption** becomes easier after first applying [**Sensitive Data 
 
 Table 1- Encryption functionality in Dynamics NAV (found in codeunit 1266 Encryption Management)
 
-**Procedure******
+**Procedure**
 
-**Description******
+**Description**
 
 **EnableEncryption**
 
@@ -140,7 +138,7 @@ _Figure 6- The administrator chooses a strong password._
 
 In the end, Stan chooses a location for the encryption key on disk, in a standard file save dialog. The layout of the file save dialog depends on the display target used (web browser, rich client etc.).
 
-**NAV Usages. **Encryption examples can be found in NAV in the following places:
+**NAV Usages.** Encryption examples can be found in NAV in the following places:
 
 * Page 1260 Bank Data Conv. Service Setup
 * Page 1270 OCR Service Setup
@@ -154,7 +152,7 @@ In the end, Stan chooses a location for the encryption key on disk, in a standar
 **Anti-patterns:**
 
 * **Performance:** Do not encrypt everything, because it will have a performance impact on the system. Only important information should be encrypted.
-* **System calls and "Do It Yourself" solutions**: Although system calls for encryptions are available in NAV (ENCRYPT, DECRYPT and <action\>ENCRYPTIONKEY), unless there is no other way, refrain from using them directly. Use instead he API in codeunit 1266 Encryption Management, which is safer to use, because it protects against common mistakes (like attempting to encrypt an already encrypted string, enabling encryption in only one company which makes data not usable in another on the same tenant etc.). Use the [**Single Point of Access **][anchor9]pattern to handle sensitive data which needs to be encrypted.
+* **System calls and "Do It Yourself" solutions**: Although system calls for encryptions are available in NAV (ENCRYPT, DECRYPT and <action\>ENCRYPTIONKEY), unless there is no other way, refrain from using them directly. Use instead he API in codeunit 1266 Encryption Management, which is safer to use, because it protects against common mistakes (like attempting to encrypt an already encrypted string, enabling encryption in only one company which makes data not usable in another on the same tenant etc.). Use the [**Single Point of Access**][anchor9] pattern to handle sensitive data which needs to be encrypted.
 * **System-level encryption.** The similar codeunit API 1803 Encrypted Key/Value Management is not intended to be reused by partner NAV developers. Normal NAV users do not have permission to access this resource. This stores sensitive data to be accessed by system NAV functionality.
 
 **References**
