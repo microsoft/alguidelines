@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Security on AL Guidelines</title><link>https://alguidelines.dev/navpatterns/1-patterns/security/</link><description>Recent content in Security on AL Guidelines</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="https://alguidelines.dev/navpatterns/1-patterns/security/index.xml" rel="self" type="application/rss+xml"/><item><title>Sensitive Data Encapsulation</title><link>https://alguidelines.dev/navpatterns/1-patterns/security/1-sensitive-data-encapsulation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/navpatterns/1-patterns/security/1-sensitive-data-encapsulation/</guid><description>By Bogdana Botez at Microsoft Development Center Copenhagen
+_
+_
+**
+**
+Aliases: Encapsulation, Separation of Concerns [1]
+**
+**
+Context: You want to store and protect sensitive data which already exists in a system, but it is not clear which data needs protection and how to store it.
+Problem: Sensitive data is scattered and mixed with other data in various parts of the system (passwords residing in the same table with non-sensitive data, part of the private information might be stored in files, hardcoded text constants, hardcoded info as part of the code etc.</description></item><item><title>Data Encryption</title><link>https://alguidelines.dev/navpatterns/1-patterns/security/2-data-encryption/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/navpatterns/1-patterns/security/2-data-encryption/</guid><description>By Bogdana Botez at Microsoft Development Center Copenhagen
+__
+_
+_
+Context: After applying Sensitive Data Encapsulation, all sensitive data is gathered in a known place in the database. This makes it possible to apply further protection best practices.
+Problem: If any non-authorized actor manages to get access to a copy of the database, the sensitive data is immediately available in clear-text.
+**
+**
+Forces:
+Accessibility: anyone who managed to steal a copy of the database can at once read the sensitive information.</description></item><item><title>Single Point of Access</title><link>https://alguidelines.dev/navpatterns/1-patterns/security/3-single-point-of-access/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/navpatterns/1-patterns/security/3-single-point-of-access/</guid><description>By Bogdana Botez at Microsoft Development Center Copenhagen
+_
+_
+__
+Context: Protected data needs to be used. There are many types of entities which might attempt to use the data.
+Problem: If no standard way of accessing data exists, then each entity might attempt to build its own system for handing the sensitive data. The data access layer might be implemented over and over again by each entity, without reuse of known best practices and with a lot of code duplication.</description></item><item><title>Masked Text</title><link>https://alguidelines.dev/navpatterns/1-patterns/security/4-masked-text/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/navpatterns/1-patterns/security/4-masked-text/</guid><description>By Bogdana Botez at Microsoft Development Center Copenhagen
+_
+_
+__
+Aliases: Masking out
+Context: In the user interface (UI) of a software system, the user enters protected information such as a password, an access key, a credit card number etc.
+Problem: The entered information is visible during data entry and whenever any user (the one who entered the data, or a foreign user) opens the UI.
+Forces:
+Information disclosure: sensitive data is visible in the UI.</description></item><item><title>SSL in NAV</title><link>https://alguidelines.dev/navpatterns/1-patterns/security/5-ssl-in-nav/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/navpatterns/1-patterns/security/5-ssl-in-nav/</guid><description>By Bogdana Botez at Microsoft Development Center Copenhagen
+_
+_
+__
+Context: The security of data transmission is just as important as the security of data storage. When data is transmitted over the web, Secure Sockets Layer (SSL) is available to be used with the web client in Dynamics NAV. Microsoft&amp;rsquo;s NAV cloud solution has SSL enabled by default. However, if a partner company chooses to deploy their own NAV, then they need to handle SSL explicitly.</description></item></channel></rss>
