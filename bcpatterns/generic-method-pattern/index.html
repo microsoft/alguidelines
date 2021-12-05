@@ -5,16 +5,16 @@
 <meta name=generator content="Hugo 0.89.4">
 <meta name=description content>
 <title>Generic Method Pattern :: AL Guidelines</title>
-<link href=/css/nucleus.css?1638459669 rel=stylesheet>
-<link href=/css/fontawesome-all.min.css?1638459669 rel=stylesheet>
-<link href=/css/featherlight.min.css?1638459669 rel=stylesheet>
-<link href=/css/perfect-scrollbar.min.css?1638459669 rel=stylesheet>
-<link href=/css/auto-complete.css?1638459669 rel=stylesheet>
-<link href=/css/theme.css?1638459669 rel=stylesheet>
-<link href=/css/theme-blue.css?1638459669 rel=stylesheet>
-<link href=/css/variant.css?1638459669 rel=stylesheet>
-<link href=/css/print.css?1638459669 rel=stylesheet media=print>
-<script src=/js/jquery.min.js?1638459669></script>
+<link href=/css/nucleus.css?1638662726 rel=stylesheet>
+<link href=/css/fontawesome-all.min.css?1638662726 rel=stylesheet>
+<link href=/css/featherlight.min.css?1638662726 rel=stylesheet>
+<link href=/css/perfect-scrollbar.min.css?1638662726 rel=stylesheet>
+<link href=/css/auto-complete.css?1638662726 rel=stylesheet>
+<link href=/css/theme.css?1638662726 rel=stylesheet>
+<link href=/css/theme-blue.css?1638662726 rel=stylesheet>
+<link href=/css/variant.css?1638662726 rel=stylesheet>
+<link href=/css/print.css?1638662726 rel=stylesheet media=print>
+<script src=/js/jquery.min.js?1638662726></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
 <body data-url=/bcpatterns/generic-method-pattern/>
@@ -32,9 +32,9 @@ ALGuidelines.Dev
 <input data-search-input id=search-by type=search placeholder=Search...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script src=/js/lunr.min.js?1638459669></script>
-<script src=/js/auto-complete.js?1638459669></script>
-<script src=/js/search.js?1638459669></script>
+<script src=/js/lunr.min.js?1638662726></script>
+<script src=/js/auto-complete.js?1638662726></script>
+<script src=/js/search.js?1638662726></script>
 </div>
 <div class=highlightable>
 <ul class=topics>
@@ -273,18 +273,18 @@ The idea is to put the code in one <em>encapsulated</em> codeunit with the purpo
 {
     <span style=color:#66d9ef>internal</span> <span style=color:#66d9ef>procedure</span> BlockCustomer<span style=color:#f92672>(</span><span style=color:#66d9ef>var</span> Cust: <span style=color:#66d9ef>Record</span> Customer; HideDialog: <span style=color:#66d9ef>Boolean</span><span style=color:#f92672>)
 </span><span style=color:#f92672>    </span><span style=color:#66d9ef>var</span>
-        Handled: <span style=color:#66d9ef>Boolean</span>;
+        IsHandled: <span style=color:#66d9ef>Boolean</span>;
     <span style=color:#66d9ef>begin</span>
         <span style=color:#66d9ef>if</span> <span style=color:#f92672>not</span> ConfirmBlockCustomer<span style=color:#f92672>(</span>HideDialog<span style=color:#f92672>) </span><span style=color:#66d9ef>then</span> <span style=color:#66d9ef>exit</span>;
-        OnBeforeBlockCustomer<span style=color:#f92672>(</span>Cust, Handled<span style=color:#f92672>)</span>;
-        DoBlockCustomer<span style=color:#f92672>(</span>Cust, Handled<span style=color:#f92672>)</span>;
+        OnBeforeBlockCustomer<span style=color:#f92672>(</span>Cust, IsHandled<span style=color:#f92672>)</span>;
+        DoBlockCustomer<span style=color:#f92672>(</span>Cust, IsHandled<span style=color:#f92672>)</span>;
         OnAfterBlockCustomer<span style=color:#f92672>(</span>Cust<span style=color:#f92672>)</span>;
         AcknowledgeBlockCustomer<span style=color:#f92672>(</span>HideDialog<span style=color:#f92672>)
 </span><span style=color:#f92672>    </span><span style=color:#66d9ef>end</span>;
 
-    <span style=color:#66d9ef>local</span> <span style=color:#66d9ef>procedure</span> DoBlockCustomer<span style=color:#f92672>(</span><span style=color:#66d9ef>var</span> Cust: <span style=color:#66d9ef>Record</span> Customer; Handled: <span style=color:#66d9ef>Boolean</span><span style=color:#f92672>)</span>;
+    <span style=color:#66d9ef>local</span> <span style=color:#66d9ef>procedure</span> DoBlockCustomer<span style=color:#f92672>(</span><span style=color:#66d9ef>var</span> Cust: <span style=color:#66d9ef>Record</span> Customer; IsHandled: <span style=color:#66d9ef>Boolean</span><span style=color:#f92672>)</span>;
     <span style=color:#66d9ef>begin</span>
-        <span style=color:#66d9ef>if</span> Handled <span style=color:#66d9ef>then</span>
+        <span style=color:#66d9ef>if</span> IsHandled <span style=color:#66d9ef>then</span>
             <span style=color:#66d9ef>exit</span>;
 
         Cust<span style=color:#f92672>.</span>Blocked <span style=color:#f92672>:=</span> Cust<span style=color:#f92672>.</span>Blocked::All;
@@ -312,7 +312,7 @@ The idea is to put the code in one <em>encapsulated</em> codeunit with the purpo
     <span style=color:#66d9ef>end</span>;
 
     [IntegrationEvent<span style=color:#f92672>(</span>false, false<span style=color:#f92672>)</span>]
-    <span style=color:#66d9ef>local</span> <span style=color:#66d9ef>procedure</span> OnBeforeBlockCustomer<span style=color:#f92672>(</span><span style=color:#66d9ef>var</span> Cust: <span style=color:#66d9ef>Record</span> Customer; <span style=color:#66d9ef>var</span> Handled: <span style=color:#66d9ef>Boolean</span><span style=color:#f92672>)</span>;
+    <span style=color:#66d9ef>local</span> <span style=color:#66d9ef>procedure</span> OnBeforeBlockCustomer<span style=color:#f92672>(</span><span style=color:#66d9ef>var</span> Cust: <span style=color:#66d9ef>Record</span> Customer; <span style=color:#66d9ef>var</span> IsHandled: <span style=color:#66d9ef>Boolean</span><span style=color:#f92672>)</span>;
     <span style=color:#66d9ef>begin</span>
     <span style=color:#66d9ef>end</span>;
 
@@ -340,7 +340,7 @@ The UI layer takes care of the UI, obviously. What is important in this case, is
 {
     <span style=color:#66d9ef>internal</span> <span style=color:#66d9ef>procedure</span> BlockCustomer<span style=color:#f92672>(</span><span style=color:#66d9ef>var</span> Cust: <span style=color:#66d9ef>Record</span> Customer; HideDialog: <span style=color:#66d9ef>Boolean</span><span style=color:#f92672>)
 </span><span style=color:#f92672>    </span><span style=color:#66d9ef>var</span>
-        Handled: <span style=color:#66d9ef>Boolean</span>;
+        IsHandled: <span style=color:#66d9ef>Boolean</span>;
     <span style=color:#66d9ef>begin</span>
         <span style=color:#66d9ef>if</span> <span style=color:#f92672>not</span> ConfirmBlockCustomer<span style=color:#f92672>(</span>HideDialog<span style=color:#f92672>) </span><span style=color:#66d9ef>then</span> <span style=color:#66d9ef>exit</span>;
         <span style=color:#f92672>...
@@ -376,17 +376,17 @@ This layer is going to add flexibility to any app that has a dependency on this 
 {
     <span style=color:#66d9ef>internal</span> <span style=color:#66d9ef>procedure</span> BlockCustomer<span style=color:#f92672>(</span><span style=color:#66d9ef>var</span> Cust: <span style=color:#66d9ef>Record</span> Customer; HideDialog: <span style=color:#66d9ef>Boolean</span><span style=color:#f92672>)
 </span><span style=color:#f92672>    </span><span style=color:#66d9ef>var</span>
-        Handled: <span style=color:#66d9ef>Boolean</span>;
+        IsHandled: <span style=color:#66d9ef>Boolean</span>;
     <span style=color:#66d9ef>begin</span>
         <span style=color:#f92672>...
-</span><span style=color:#f92672>        </span>OnBeforeBlockCustomer<span style=color:#f92672>(</span>Cust, Handled<span style=color:#f92672>)</span>;
+</span><span style=color:#f92672>        </span>OnBeforeBlockCustomer<span style=color:#f92672>(</span>Cust, IsHandled<span style=color:#f92672>)</span>;
         <span style=color:#f92672>...
 </span><span style=color:#f92672>        </span>OnAfterBlockCustomer<span style=color:#f92672>(</span>Cust<span style=color:#f92672>)</span>;
         <span style=color:#f92672>...
 </span><span style=color:#f92672>    </span><span style=color:#66d9ef>end</span>;
 <span style=color:#f92672>...    
 </span><span style=color:#f92672>    </span>[IntegrationEvent<span style=color:#f92672>(</span>false, false<span style=color:#f92672>)</span>]
-    <span style=color:#66d9ef>local</span> <span style=color:#66d9ef>procedure</span> OnBeforeBlockCustomer<span style=color:#f92672>(</span><span style=color:#66d9ef>var</span> Cust: <span style=color:#66d9ef>Record</span> Customer; <span style=color:#66d9ef>var</span> Handled: <span style=color:#66d9ef>Boolean</span><span style=color:#f92672>)</span>;
+    <span style=color:#66d9ef>local</span> <span style=color:#66d9ef>procedure</span> OnBeforeBlockCustomer<span style=color:#f92672>(</span><span style=color:#66d9ef>var</span> Cust: <span style=color:#66d9ef>Record</span> Customer; <span style=color:#66d9ef>var</span> IsHandled: <span style=color:#66d9ef>Boolean</span><span style=color:#f92672>)</span>;
     <span style=color:#66d9ef>begin</span>
     <span style=color:#66d9ef>end</span>;
 
@@ -402,16 +402,16 @@ The last layer is obviously where the business logic will be written.</p>
 {
     <span style=color:#66d9ef>internal</span> <span style=color:#66d9ef>procedure</span> BlockCustomer<span style=color:#f92672>(</span><span style=color:#66d9ef>var</span> Cust: <span style=color:#66d9ef>Record</span> Customer; HideDialog: <span style=color:#66d9ef>Boolean</span><span style=color:#f92672>)</span>;
     <span style=color:#66d9ef>var</span>
-        Handled: <span style=color:#66d9ef>Boolean</span>;
+        IsHandled: <span style=color:#66d9ef>Boolean</span>;
     <span style=color:#66d9ef>begin</span>
         <span style=color:#f92672>...
-</span><span style=color:#f92672>        </span>DoBlockCustomer<span style=color:#f92672>(</span>Cust, Handled<span style=color:#f92672>)</span>;
+</span><span style=color:#f92672>        </span>DoBlockCustomer<span style=color:#f92672>(</span>Cust, IsHandled<span style=color:#f92672>)</span>;
         <span style=color:#f92672>...
 </span><span style=color:#f92672>    </span><span style=color:#66d9ef>end</span>;
 
-    <span style=color:#66d9ef>local</span> <span style=color:#66d9ef>procedure</span> DoBlockCustomer<span style=color:#f92672>(</span><span style=color:#66d9ef>var</span> Cust: <span style=color:#66d9ef>Record</span> Customer; Handled: <span style=color:#66d9ef>Boolean</span><span style=color:#f92672>)</span>;
+    <span style=color:#66d9ef>local</span> <span style=color:#66d9ef>procedure</span> DoBlockCustomer<span style=color:#f92672>(</span><span style=color:#66d9ef>var</span> Cust: <span style=color:#66d9ef>Record</span> Customer; IsHandled: <span style=color:#66d9ef>Boolean</span><span style=color:#f92672>)</span>;
     <span style=color:#66d9ef>begin</span>
-        <span style=color:#66d9ef>if</span> Handled <span style=color:#66d9ef>then</span>
+        <span style=color:#66d9ef>if</span> IsHandled <span style=color:#66d9ef>then</span>
             <span style=color:#66d9ef>exit</span>;
 
         Cust<span style=color:#f92672>.</span>Blocked <span style=color:#f92672>:=</span> Cust<span style=color:#f92672>.</span>Blocked::All;
@@ -465,8 +465,8 @@ The last layer is obviously where the business logic will be written.</p>
 <h3 id=extensibility>Extensibility</h3>
 <p>Thanks to the <em>event layer</em>, by applying this pattern for all methods, we will automatically have the bare minimum of events that we need to hook into a method: the <code>OnBefore-</code> and the <code>OnAfter</code>. Of course it would make sense to even add more events to the method when appropriate (eg, when you&rsquo;re inserting a record in a table, it might be interesting to also raise an event just before you call the insert).</p>
 <h3 id=decoupling>Decoupling</h3>
-<p>Thanks to these same events, and the fact the pattern foresees a handler as well, we are able to &ldquo;decouple&rdquo; our method as well. What do I mean with that? Well, we can simply subscribe to the <code>OnBefore</code>event, and set <code>Handled</code> to <code>true</code>. This means it will never execute the do-procedure, which means, the original procedure/method/business logic is &ldquo;decoupled&rdquo;.</p>
-<p>We can use this obviously for implementing our own method (a new way to accomplish this method), or to disable the method by simply subscribing to it, and only providing the <code>Handled := true</code> in our subscriber. However, there are many more usages where we can use this for.</p>
+<p>Thanks to these same events, and the fact the pattern foresees a handler as well, we are able to &ldquo;decouple&rdquo; our method as well. What do I mean with that? Well, we can simply subscribe to the <code>OnBefore</code>event, and set <code>IsHandled</code> to <code>true</code>. This means it will never execute the do-procedure, which means, the original procedure/method/business logic is &ldquo;decoupled&rdquo;.</p>
+<p>We can use this obviously for implementing our own method (a new way to accomplish this method), or to disable the method by simply subscribing to it, and only providing the <code>IsHandled := true</code> in our subscriber. However, there are many more usages where we can use this for.</p>
 <p>Maybe one more example:
 if you would apply this pattern to your product, at the customer, you&rsquo;ll be able to hotfix your methods simply by decoupling them and fixing the method instead of waiting for a hotfix from the hotfix-departement.</p>
 <p>This gives a lot of flexibility.</p>
@@ -485,7 +485,7 @@ You can interpret &ldquo;unit testing&rdquo; very broadly. But just imagine: whe
 <p>The pattern describes the tests that needs to be written.</p>
 <p><em>Disabling methods</em>
 Coming back to the &ldquo;decoupling&rdquo; part - in tests, you actually might need it more than you realize. Just imagine: you want to test method 1, but method 2 comes in the way by interfering with configurations that you need to do, or UI that is popping up, while it could be completely pointless.<br>
-Solution: simply - within your test-codeunit - subscribe (with a manual subscriber) to method 2, set <code>Handled</code> to <code>false</code> - done!</p>
+Solution: simply - within your test-codeunit - subscribe (with a manual subscriber) to method 2, set <code>IsHandled</code> to <code>false</code> - done!</p>
 <h3 id=encapsulation>Encapsulation</h3>
 <p>Don&rsquo;t underestimate the power of the encapsulation part of this pattern. One of the first questions that people ask themselves when reading into this pattern is: &ldquo;<em>isn&rsquo;t it going to consume all my codeunit-id&rsquo;s</em>&rdquo; or &ldquo;<em>so many codeunits, that can&rsquo;t be readable, right?</em>&rdquo;.<br>
 The fact that the functionality of one method is encapsulated in one codeunit is very powerful. You&rsquo;ll avoid <a href=https://sourcemaking.com/antipatterns/boat-anchor>Boat anchors</a> simply because because, thanks to the encapsulation, there is a limited amount of code in the codeunit, of course.<br>
@@ -521,12 +521,12 @@ And because of that, it so much more maintainable, upgradable, readable, .. . On
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/js/clipboard.min.js?1638459669></script>
-<script src=/js/perfect-scrollbar.min.js?1638459669></script>
-<script src=/js/perfect-scrollbar.jquery.min.js?1638459669></script>
-<script src=/js/jquery.svg.pan.zoom.js?1638459669></script>
-<script src=/js/featherlight.min.js?1638459669></script>
-<script src=/js/modernizr.custom-3.6.0.js?1638459669></script>
-<script src=/js/relearn.js?1638459669></script>
+<script src=/js/clipboard.min.js?1638662726></script>
+<script src=/js/perfect-scrollbar.min.js?1638662726></script>
+<script src=/js/perfect-scrollbar.jquery.min.js?1638662726></script>
+<script src=/js/jquery.svg.pan.zoom.js?1638662726></script>
+<script src=/js/featherlight.min.js?1638662726></script>
+<script src=/js/modernizr.custom-3.6.0.js?1638662726></script>
+<script src=/js/relearn.js?1638662726></script>
 </body>
 </html>
