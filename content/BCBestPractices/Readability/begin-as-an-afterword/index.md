@@ -3,7 +3,7 @@ title = "begin as an 'After Word'"
 weight = 230
 +++
 
-<_Created by Microsfot, Described by waldo_\>
+<_Created by Microsoft, Described by waldo_\>
 
 ## Description
 
