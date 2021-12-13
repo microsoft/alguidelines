@@ -15,7 +15,7 @@ A CASE action should start on a line after the possibility.
     case Letter of
         'A': Letter2 := '10';
         'B': Letter2 := '11';
-    ...
+    end;
 ```
 
 ## Good code
@@ -26,7 +26,7 @@ A CASE action should start on a line after the possibility.
             Letter2 := '10';
         'B':
             Letter2 := '11';
-    ...
+    end;
 ```
 
 ## [Discussions](https://github.com/microsoft/alguidelines/discussions/categories/bc-best-practices?discussions_q=case+action+on+next+line+category%3A%22BC+Best+Practices%22)
