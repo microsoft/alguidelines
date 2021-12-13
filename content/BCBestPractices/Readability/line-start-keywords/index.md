@@ -25,7 +25,8 @@ The `end`, `if`, `repeat`, `for`, `while`, `else` and `case` statement should al
         if IsSalespersonCode then
             ValidateSalespersonCode
         else
-            if IsSalesCycleCode then ValidatSalesCycleCode;
+            if IsSalesCycleCode then 
+                ValidatSalesCycleCode;
 ```
 
 
