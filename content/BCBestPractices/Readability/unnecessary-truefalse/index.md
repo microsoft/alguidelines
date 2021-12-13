@@ -17,7 +17,7 @@ Do not use `true` or `false` keywords unnecessarily if the expression is already
 ## Good code
 
 ```al
-    if IsPositive then  
+    if IsPositive() then  
 ```      
     
 
