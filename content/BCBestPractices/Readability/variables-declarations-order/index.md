@@ -6,7 +6,24 @@ weight = 1430
 <_Created by Microsoft, Described by waldo_\>
 
 ## Description
-Variables declarations should be ordered by type. In general, object and complex variable types are listed first followed by simple variables. The order should be **the same as the object list in the object designer for AL objects**. Afterwards come the complex variables like RecordRef, .NET, FieldRef etc. At the end come all the simple data types in no particular order. 
+Variables declarations should be ordered by type. In general, object and complex variable types are listed first followed by simple variables. The order should be:
+
+- Record
+- Report
+- Codeunit
+- XmlPort
+- Page
+- Query
+- Notification
+- BigText
+- DateFormula
+- RecordId
+- RecordRef
+- FieldRef
+- FilterPageBuilder
+
+(Ref: [Microsoft Docs](https://docs.microsoft.com/en-us/dynamics365/business-central/dev-itpro/developer/analyzers/codecop-aa0021))
+
 
 ## Bad code
 
