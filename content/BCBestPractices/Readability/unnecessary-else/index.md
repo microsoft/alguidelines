@@ -6,7 +6,7 @@ weight = 1270
 <_Created by Microsoft, Described by waldo_\>
 
 ## Description
-`else` should not be used when the last action in the `then` part is an `exit`, `break`, `skip`, `quite`, `error`. 
+`else` should not be used when the last action in the `then` part is an `exit`, `break`, `skip`, `quit`, `error`. 
 
 ## Bad code
 
