@@ -18,6 +18,7 @@ The `end else` pair should always appear on the same line.
         end
         else
         ... 
+        end;
 ```
 
 ## Good code
@@ -28,6 +29,7 @@ The `end else` pair should always appear on the same line.
         ...
         end else
         ...
+        end;
 ```
 
 ## [Discussions](https://github.com/microsoft/alguidelines/discussions/categories/bc-best-practices?discussions_q=end+else/pair+category%3A%22BC+Best+Practices%22)
