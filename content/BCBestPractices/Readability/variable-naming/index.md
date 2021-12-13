@@ -6,7 +6,7 @@ weight = 1420
 <_Created by Microsoft, Described by waldo_\>
 
 ## Description
-Variables that refer to a C/AL object must contain the objects name, abbreviated where necessary.
+Variables that refer to a AL object must contain the objects name, abbreviated where necessary.
 
 A variable must begin with a capital letter.
 
