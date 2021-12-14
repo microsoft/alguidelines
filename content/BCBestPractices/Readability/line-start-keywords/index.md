@@ -11,22 +11,22 @@ The `end`, `if`, `repeat`, `for`, `while`, `else` and `case` statement should al
 ## Bad code
 
 ```al
-    if IsContactName then ValidateContactName
-    else if IsSalespersonCode then ValidateSalespersonCode
-    else if IsSalesCycleCode then ValidatSalesCycleCode;
+    if IsContactName then ValidateContactName()
+    else if IsSalespersonCode then ValidateSalespersonCode()
+    else if IsSalesCycleCode then ValidatSalesCycleCode();
 ```
 
 ## Good code
 
 ```al
     if IsContactName then
-        ValidateContactName
+        ValidateContactName()
     else
         if IsSalespersonCode then
-            ValidateSalespersonCode
+            ValidateSalespersonCode()
         else
             if IsSalesCycleCode then 
-                ValidatSalesCycleCode;
+                ValidatSalesCycleCode();
 ```
 
 
