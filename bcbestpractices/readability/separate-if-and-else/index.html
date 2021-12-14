@@ -3,22 +3,21 @@
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=generator content="Hugo 0.90.1">
-<link rel=alternate type=application/rss+xml href=/navpatterns/1-patterns/queries/index.xml title="AL Guidelines">
 <meta name=description content>
-<title>Queries :: AL Guidelines</title>
-<link href=/css/nucleus.css?1639515047 rel=stylesheet>
-<link href=/css/fontawesome-all.min.css?1639515047 rel=stylesheet>
-<link href=/css/featherlight.min.css?1639515047 rel=stylesheet>
-<link href=/css/perfect-scrollbar.min.css?1639515047 rel=stylesheet>
-<link href=/css/auto-complete.css?1639515047 rel=stylesheet>
-<link href=/css/theme.css?1639515047 rel=stylesheet>
-<link href=/css/theme-blue.css?1639515047 rel=stylesheet>
-<link href=/css/variant.css?1639515047 rel=stylesheet>
-<link href=/css/print.css?1639515047 rel=stylesheet media=print>
-<script src=/js/jquery.min.js?1639515047></script>
+<title>Separate if and else :: AL Guidelines</title>
+<link href=/css/nucleus.css?1639515045 rel=stylesheet>
+<link href=/css/fontawesome-all.min.css?1639515045 rel=stylesheet>
+<link href=/css/featherlight.min.css?1639515045 rel=stylesheet>
+<link href=/css/perfect-scrollbar.min.css?1639515045 rel=stylesheet>
+<link href=/css/auto-complete.css?1639515045 rel=stylesheet>
+<link href=/css/theme.css?1639515045 rel=stylesheet>
+<link href=/css/theme-blue.css?1639515045 rel=stylesheet>
+<link href=/css/variant.css?1639515045 rel=stylesheet>
+<link href=/css/print.css?1639515045 rel=stylesheet media=print>
+<script src=/js/jquery.min.js?1639515045></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
-<body data-url=/navpatterns/1-patterns/queries/>
+<body data-url=/bcbestpractices/readability/separate-if-and-else/>
 <script>var index_url="/index.json",root_url="/",baseUri=root_url.replace(/\/$/,'')</script>
 <nav id=sidebar>
 <div id=header-wrapper>
@@ -33,9 +32,9 @@ ALGuidelines.Dev
 <input data-search-input id=search-by type=search placeholder=Search...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script src=/js/lunr.min.js?1639515047></script>
-<script src=/js/auto-complete.js?1639515047></script>
-<script src=/js/search.js?1639515047></script>
+<script src=/js/lunr.min.js?1639515045></script>
+<script src=/js/auto-complete.js?1639515045></script>
+<script src=/js/search.js?1639515045></script>
 </div>
 <div class=highlightable>
 <ul class=topics>
@@ -43,16 +42,16 @@ ALGuidelines.Dev
 <li data-nav-id=/bcpatterns/ title="BC Patterns" class=dd-item><a href=/bcpatterns/><b><i class="fas fa-clone"></i> </b>BC Patterns</a><ul>
 <li data-nav-id=/bcpatterns/facade-pattern/ title="Facade Pattern" class=dd-item><a href=/bcpatterns/facade-pattern/>Facade Pattern</a></li>
 <li data-nav-id=/bcpatterns/generic-method-pattern/ title="Generic Method Pattern" class=dd-item><a href=/bcpatterns/generic-method-pattern/>Generic Method Pattern</a></li></ul></li>
-<li data-nav-id=/bcbestpractices/ title="BC Dev. Best Practices" class=dd-item><a href=/bcbestpractices/><b><i class="fas fa-medal"></i> </b>BC Dev. Best Practices</a><ul>
-<li data-nav-id=/bcbestpractices/readability/ title=Readability class=dd-item><a href=/bcbestpractices/readability/>Readability</a><ul>
-<li data-nav-id=/bcbestpractices/readability/separate-if-and-else/ title="Separate if and else" class=dd-item><a href=/bcbestpractices/readability/separate-if-and-else/>Separate if and else</a></li>
+<li data-nav-id=/bcbestpractices/ title="BC Dev. Best Practices" class="dd-item parent"><a href=/bcbestpractices/><b><i class="fas fa-medal"></i> </b>BC Dev. Best Practices</a><ul>
+<li data-nav-id=/bcbestpractices/readability/ title=Readability class="dd-item parent"><a href=/bcbestpractices/readability/>Readability</a><ul>
+<li data-nav-id=/bcbestpractices/readability/separate-if-and-else/ title="Separate if and else" class="dd-item active"><a href=/bcbestpractices/readability/separate-if-and-else/>Separate if and else</a></li>
 <li data-nav-id=/bcbestpractices/readability/spacing-binary-operators/ title="Spacing Binary Operators" class=dd-item><a href=/bcbestpractices/readability/spacing-binary-operators/>Spacing Binary Operators</a></li>
 <li data-nav-id=/bcbestpractices/readability/suggested-abbreviations/ title="Suggested Abbreviations" class=dd-item><a href=/bcbestpractices/readability/suggested-abbreviations/>Suggested Abbreviations</a></li>
 <li data-nav-id=/bcbestpractices/readability/unnecessary-else/ title="Unnecessary 'else'" class=dd-item><a href=/bcbestpractices/readability/unnecessary-else/>Unnecessary 'else'</a></li>
 <li data-nav-id=/bcbestpractices/readability/variable-naming/ title="Variable Naming" class=dd-item><a href=/bcbestpractices/readability/variable-naming/>Variable Naming</a></li>
 <li data-nav-id=/bcbestpractices/readability/variables-declarations-order/ title="Variables Declarations Order" class=dd-item><a href=/bcbestpractices/readability/variables-declarations-order/>Variables Declarations Order</a></li></ul></li></ul></li>
-<li data-nav-id=/navpatterns/ title="NAV Patterns Archive" class="dd-item parent"><a href=/navpatterns/><b><i class="fas fa-save"></i> </b>NAV Patterns Archive</a><ul>
-<li data-nav-id=/navpatterns/1-patterns/ title="1. Patterns" class="dd-item parent"><a href=/navpatterns/1-patterns/>1. Patterns</a><ul>
+<li data-nav-id=/navpatterns/ title="NAV Patterns Archive" class=dd-item><a href=/navpatterns/><b><i class="fas fa-save"></i> </b>NAV Patterns Archive</a><ul>
+<li data-nav-id=/navpatterns/1-patterns/ title="1. Patterns" class=dd-item><a href=/navpatterns/1-patterns/>1. Patterns</a><ul>
 <li data-nav-id=/navpatterns/1-patterns/activity-log/ title="Activity Logs" class=dd-item><a href=/navpatterns/1-patterns/activity-log/>Activity Logs</a></li>
 <li data-nav-id=/navpatterns/1-patterns/argument-table/ title="Argument Table" class=dd-item><a href=/navpatterns/1-patterns/argument-table/>Argument Table</a></li>
 <li data-nav-id=/navpatterns/1-patterns/blocked-entity/ title="Blocked Entity" class=dd-item><a href=/navpatterns/1-patterns/blocked-entity/>Blocked Entity</a><ul>
@@ -91,7 +90,7 @@ ALGuidelines.Dev
 <li data-nav-id=/navpatterns/1-patterns/observer/ title=Observer class=dd-item><a href=/navpatterns/1-patterns/observer/>Observer</a></li>
 <li data-nav-id=/navpatterns/1-patterns/posting-routine-select-behavior/ title="Posting Routine - Select Behavior" class=dd-item><a href=/navpatterns/1-patterns/posting-routine-select-behavior/>Posting Routine - Select Behavior</a></li>
 <li data-nav-id=/navpatterns/1-patterns/product-name/ title="Product Name" class=dd-item><a href=/navpatterns/1-patterns/product-name/>Product Name</a></li>
-<li data-nav-id=/navpatterns/1-patterns/queries/ title=Queries class="dd-item active parent"><a href=/navpatterns/1-patterns/queries/>Queries</a><ul>
+<li data-nav-id=/navpatterns/1-patterns/queries/ title=Queries class=dd-item><a href=/navpatterns/1-patterns/queries/>Queries</a><ul>
 <li data-nav-id=/navpatterns/1-patterns/queries/select-distinct-with-queries/ title="SELECT DISTINCT with Queries" class=dd-item><a href=/navpatterns/1-patterns/queries/select-distinct-with-queries/>SELECT DISTINCT with Queries</a></li>
 <li data-nav-id=/navpatterns/1-patterns/queries/use-queries-to-detect-duplicate-records/ title="Use Queries to Detect Duplicate Records" class=dd-item><a href=/navpatterns/1-patterns/queries/use-queries-to-detect-duplicate-records/>Use Queries to Detect Duplicate Records</a></li>
 <li data-nav-id=/navpatterns/1-patterns/queries/use-queries-to-replace-nested-loops/ title="Use Queries to Replace Nested Loops" class=dd-item><a href=/navpatterns/1-patterns/queries/use-queries-to-replace-nested-loops/>Use Queries to Replace Nested Loops</a></li></ul></li>
@@ -212,7 +211,7 @@ ALGuidelines.Dev
 <div class="padding highlightable">
 <div id=top-bar>
 <div id=top-github-link>
-<a class=github-link title="Edit this page" href=https://github.com/microsoft/alguidelines/edit/main/content/NAVPatterns/1-patterns/queries/_index.md target=blank>
+<a class=github-link title="Edit this page" href=https://github.com/microsoft/alguidelines/edit/main/content/BCBestPractices/Readability/separate-if-and-else/index.md target=blank>
 <i class="fas fa-code-branch"></i>
 <span id=top-github-link-text>Edit this page</span>
 </a>
@@ -227,40 +226,62 @@ ALGuidelines.Dev
 <ol class=links itemscope itemtype=http://schema.org/BreadcrumbList>
 <meta itemprop=itemListOrder content="Descending">
 <li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="4"><a itemprop=item href=/><span itemprop=name>Home</span></a> > </li>
-<li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3"><a itemprop=item href=/navpatterns/><span itemprop=name>NAV Patterns Archive</span></a> > </li>
-<li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="2"><a itemprop=item href=/navpatterns/1-patterns/><span itemprop=name>1. Patterns</span></a> > </li>
-<li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="1"><a itemprop=item href=/navpatterns/1-patterns/queries/ aria-disabled=true><span itemprop=name>Queries</span></a></li>
+<li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3"><a itemprop=item href=/bcbestpractices/><span itemprop=name>BC Dev. Best Practices</span></a> > </li>
+<li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="2"><a itemprop=item href=/bcbestpractices/readability/><span itemprop=name>Readability</span></a> > </li>
+<li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="1"><a itemprop=item href=/bcbestpractices/readability/separate-if-and-else/ aria-disabled=true><span itemprop=name>Separate if and else</span></a></li>
 </ol>
 </div>
 <div class=progress>
 <div class=wrapper>
-<nav id=TableOfContents></nav>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#description>Description</a></li>
+<li><a href=#bad-code>Bad code</a></li>
+<li><a href=#good-code>Good code</a></li>
+<li><a href=#discussionshttpsgithubcommicrosoftalguidelinesdiscussionscategoriesbc-best-practicesdiscussions_qseparateifandelsecategory3a22bcbestpractices22><a href="https://github.com/microsoft/alguidelines/discussions/categories/bc-best-practices?discussions_q=separate+if+and+else+category%3A%22BC+Best+Practices%22">Discussions</a></a></li>
+</ul>
+</nav>
 </div>
 </div>
 </div>
 <div id=head-tags>
 </div>
 <main id=body-inner>
-<h1>Queries</h1>
-<p>Expand to see NAV design patterns which use queries.</p>
+<h1>Separate if and else</h1>
+<p>&lt;<em>Created by Microsoft, Described by waldo</em>></p>
+<h2 id=description>Description</h2>
+<p><code>if</code> and <code>else</code> statements should be on separate lines.</p>
+<h2 id=bad-code>Bad code</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>    <span style=color:#66d9ef>if</span> Atom = <span style=color:#e6db74>&#39;\&gt;&#39;</span> <span style=color:#66d9ef>then</span> HasLogicalOperator <span style=color:#f92672>:=</span> TRUE <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>begin</span>
+    <span style=color:#f92672>...
+</span><span style=color:#f92672>    </span><span style=color:#66d9ef>end</span>;
+</code></pre></div><h2 id=good-code>Good code</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>    <span style=color:#66d9ef>if</span> Atom = <span style=color:#e6db74>&#39;\&gt;&#39;</span> <span style=color:#66d9ef>then</span>
+        HasLogicalOperator <span style=color:#f92672>:=</span> true
+    <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>begin</span>
+        <span style=color:#f92672>...
+</span><span style=color:#f92672>    </span><span style=color:#66d9ef>end</span>;
+</code></pre></div><h2 id=discussionshttpsgithubcommicrosoftalguidelinesdiscussionscategoriesbc-best-practicesdiscussions_qseparateifandelsecategory3a22bcbestpractices22><a href="https://github.com/microsoft/alguidelines/discussions/categories/bc-best-practices?discussions_q=separate+if+and+else+category%3A%22BC+Best+Practices%22">Discussions</a></h2>
+<p>You can find discussions on all &ldquo;Best Practices&rdquo; <a href=https://github.com/microsoft/alguidelines/discussions/categories/bc-best-practices>here</a>.</p>
+<p>If you don&rsquo;t find the discussion of this guideline, please feel fee to create a new one with the same title as this article.</p>
 <footer class=footline>
 </footer>
 </main>
 </div>
 <div id=navigation>
-<a class="nav nav-prev" href=/navpatterns/1-patterns/product-name/ title="Product Name"><i class="fa fa-chevron-left"></i></a>
-<a class="nav nav-next" href=/navpatterns/1-patterns/queries/select-distinct-with-queries/ title="SELECT DISTINCT with Queries"><i class="fa fa-chevron-right"></i></a>
+<a class="nav nav-prev" href=/bcbestpractices/readability/ title=Readability><i class="fa fa-chevron-left"></i></a>
+<a class="nav nav-next" href=/bcbestpractices/readability/spacing-binary-operators/ title="Spacing Binary Operators"><i class="fa fa-chevron-right"></i></a>
 </div>
 </div>
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/js/clipboard.min.js?1639515047></script>
-<script src=/js/perfect-scrollbar.min.js?1639515047></script>
-<script src=/js/perfect-scrollbar.jquery.min.js?1639515047></script>
-<script src=/js/jquery.svg.pan.zoom.js?1639515047></script>
-<script src=/js/featherlight.min.js?1639515047></script>
-<script src=/js/modernizr.custom-3.6.0.js?1639515047></script>
-<script src=/js/relearn.js?1639515047></script>
+<script src=/js/clipboard.min.js?1639515045></script>
+<script src=/js/perfect-scrollbar.min.js?1639515045></script>
+<script src=/js/perfect-scrollbar.jquery.min.js?1639515045></script>
+<script src=/js/jquery.svg.pan.zoom.js?1639515045></script>
+<script src=/js/featherlight.min.js?1639515045></script>
+<script src=/js/modernizr.custom-3.6.0.js?1639515045></script>
+<script src=/js/relearn.js?1639515045></script>
 </body>
 </html>
