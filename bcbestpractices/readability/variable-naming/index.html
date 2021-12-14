@@ -4,20 +4,20 @@
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=generator content="Hugo 0.90.1">
 <meta name=description content>
-<title>Integration of Addresses :: AL Guidelines</title>
-<link href=/css/nucleus.css?1639514365 rel=stylesheet>
-<link href=/css/fontawesome-all.min.css?1639514365 rel=stylesheet>
-<link href=/css/featherlight.min.css?1639514365 rel=stylesheet>
-<link href=/css/perfect-scrollbar.min.css?1639514365 rel=stylesheet>
-<link href=/css/auto-complete.css?1639514365 rel=stylesheet>
-<link href=/css/theme.css?1639514365 rel=stylesheet>
-<link href=/css/theme-blue.css?1639514365 rel=stylesheet>
-<link href=/css/variant.css?1639514365 rel=stylesheet>
-<link href=/css/print.css?1639514365 rel=stylesheet media=print>
-<script src=/js/jquery.min.js?1639514365></script>
+<title>Variable Naming :: AL Guidelines</title>
+<link href=/css/nucleus.css?1639514364 rel=stylesheet>
+<link href=/css/fontawesome-all.min.css?1639514364 rel=stylesheet>
+<link href=/css/featherlight.min.css?1639514364 rel=stylesheet>
+<link href=/css/perfect-scrollbar.min.css?1639514364 rel=stylesheet>
+<link href=/css/auto-complete.css?1639514364 rel=stylesheet>
+<link href=/css/theme.css?1639514364 rel=stylesheet>
+<link href=/css/theme-blue.css?1639514364 rel=stylesheet>
+<link href=/css/variant.css?1639514364 rel=stylesheet>
+<link href=/css/print.css?1639514364 rel=stylesheet media=print>
+<script src=/js/jquery.min.js?1639514364></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
-<body data-url=/navpatterns/1-patterns/integration-of-addresses/>
+<body data-url=/bcbestpractices/readability/variable-naming/>
 <script>var index_url="/index.json",root_url="/",baseUri=root_url.replace(/\/$/,'')</script>
 <nav id=sidebar>
 <div id=header-wrapper>
@@ -32,9 +32,9 @@ ALGuidelines.Dev
 <input data-search-input id=search-by type=search placeholder=Search...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script src=/js/lunr.min.js?1639514365></script>
-<script src=/js/auto-complete.js?1639514365></script>
-<script src=/js/search.js?1639514365></script>
+<script src=/js/lunr.min.js?1639514364></script>
+<script src=/js/auto-complete.js?1639514364></script>
+<script src=/js/search.js?1639514364></script>
 </div>
 <div class=highlightable>
 <ul class=topics>
@@ -42,12 +42,12 @@ ALGuidelines.Dev
 <li data-nav-id=/bcpatterns/ title="BC Patterns" class=dd-item><a href=/bcpatterns/><b><i class="fas fa-clone"></i> </b>BC Patterns</a><ul>
 <li data-nav-id=/bcpatterns/facade-pattern/ title="Facade Pattern" class=dd-item><a href=/bcpatterns/facade-pattern/>Facade Pattern</a></li>
 <li data-nav-id=/bcpatterns/generic-method-pattern/ title="Generic Method Pattern" class=dd-item><a href=/bcpatterns/generic-method-pattern/>Generic Method Pattern</a></li></ul></li>
-<li data-nav-id=/bcbestpractices/ title="BC Dev. Best Practices" class=dd-item><a href=/bcbestpractices/><b><i class="fas fa-medal"></i> </b>BC Dev. Best Practices</a><ul>
-<li data-nav-id=/bcbestpractices/readability/ title=Readability class=dd-item><a href=/bcbestpractices/readability/>Readability</a><ul>
-<li data-nav-id=/bcbestpractices/readability/variable-naming/ title="Variable Naming" class=dd-item><a href=/bcbestpractices/readability/variable-naming/>Variable Naming</a></li>
+<li data-nav-id=/bcbestpractices/ title="BC Dev. Best Practices" class="dd-item parent"><a href=/bcbestpractices/><b><i class="fas fa-medal"></i> </b>BC Dev. Best Practices</a><ul>
+<li data-nav-id=/bcbestpractices/readability/ title=Readability class="dd-item parent"><a href=/bcbestpractices/readability/>Readability</a><ul>
+<li data-nav-id=/bcbestpractices/readability/variable-naming/ title="Variable Naming" class="dd-item active"><a href=/bcbestpractices/readability/variable-naming/>Variable Naming</a></li>
 <li data-nav-id=/bcbestpractices/readability/variables-declarations-order/ title="Variables Declarations Order" class=dd-item><a href=/bcbestpractices/readability/variables-declarations-order/>Variables Declarations Order</a></li></ul></li></ul></li>
-<li data-nav-id=/navpatterns/ title="NAV Patterns Archive" class="dd-item parent"><a href=/navpatterns/><b><i class="fas fa-save"></i> </b>NAV Patterns Archive</a><ul>
-<li data-nav-id=/navpatterns/1-patterns/ title="1. Patterns" class="dd-item parent"><a href=/navpatterns/1-patterns/>1. Patterns</a><ul>
+<li data-nav-id=/navpatterns/ title="NAV Patterns Archive" class=dd-item><a href=/navpatterns/><b><i class="fas fa-save"></i> </b>NAV Patterns Archive</a><ul>
+<li data-nav-id=/navpatterns/1-patterns/ title="1. Patterns" class=dd-item><a href=/navpatterns/1-patterns/>1. Patterns</a><ul>
 <li data-nav-id=/navpatterns/1-patterns/activity-log/ title="Activity Logs" class=dd-item><a href=/navpatterns/1-patterns/activity-log/>Activity Logs</a></li>
 <li data-nav-id=/navpatterns/1-patterns/argument-table/ title="Argument Table" class=dd-item><a href=/navpatterns/1-patterns/argument-table/>Argument Table</a></li>
 <li data-nav-id=/navpatterns/1-patterns/blocked-entity/ title="Blocked Entity" class=dd-item><a href=/navpatterns/1-patterns/blocked-entity/>Blocked Entity</a><ul>
@@ -70,7 +70,7 @@ ALGuidelines.Dev
 <li data-nav-id=/navpatterns/1-patterns/hooks/ title=Hooks class=dd-item><a href=/navpatterns/1-patterns/hooks/>Hooks</a></li>
 <li data-nav-id=/navpatterns/1-patterns/implementation-of-surrogate-keys-using-autoincrement-pattern/ title="Surrogate keys using Autoincrement Pattern" class=dd-item><a href=/navpatterns/1-patterns/implementation-of-surrogate-keys-using-autoincrement-pattern/>Surrogate keys using Autoincrement Pattern</a></li>
 <li data-nav-id=/navpatterns/1-patterns/instructions-in-the-ui/ title="Instructions in the UI" class=dd-item><a href=/navpatterns/1-patterns/instructions-in-the-ui/>Instructions in the UI</a></li>
-<li data-nav-id=/navpatterns/1-patterns/integration-of-addresses/ title="Integration of Addresses" class="dd-item active"><a href=/navpatterns/1-patterns/integration-of-addresses/>Integration of Addresses</a></li>
+<li data-nav-id=/navpatterns/1-patterns/integration-of-addresses/ title="Integration of Addresses" class=dd-item><a href=/navpatterns/1-patterns/integration-of-addresses/>Integration of Addresses</a></li>
 <li data-nav-id=/navpatterns/1-patterns/journal-error-processing/ title="Journal Error Processing" class=dd-item><a href=/navpatterns/1-patterns/journal-error-processing/>Journal Error Processing</a></li>
 <li data-nav-id=/navpatterns/1-patterns/journal-template-batch-line/ title="Journal Template Batch Line" class=dd-item><a href=/navpatterns/1-patterns/journal-template-batch-line/>Journal Template Batch Line</a></li>
 <li data-nav-id=/navpatterns/1-patterns/master-data/ title="Master Data" class=dd-item><a href=/navpatterns/1-patterns/master-data/>Master Data</a></li>
@@ -207,7 +207,7 @@ ALGuidelines.Dev
 <div class="padding highlightable">
 <div id=top-bar>
 <div id=top-github-link>
-<a class=github-link title="Edit this page" href=https://github.com/microsoft/alguidelines/edit/main/content/NAVPatterns/1-patterns/integration-of-addresses/index.md target=blank>
+<a class=github-link title="Edit this page" href=https://github.com/microsoft/alguidelines/edit/main/content/BCBestPractices/Readability/variable-naming/index.md target=blank>
 <i class="fas fa-code-branch"></i>
 <span id=top-github-link-text>Edit this page</span>
 </a>
@@ -222,42 +222,71 @@ ALGuidelines.Dev
 <ol class=links itemscope itemtype=http://schema.org/BreadcrumbList>
 <meta itemprop=itemListOrder content="Descending">
 <li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="4"><a itemprop=item href=/><span itemprop=name>Home</span></a> > </li>
-<li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3"><a itemprop=item href=/navpatterns/><span itemprop=name>NAV Patterns Archive</span></a> > </li>
-<li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="2"><a itemprop=item href=/navpatterns/1-patterns/><span itemprop=name>1. Patterns</span></a> > </li>
-<li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="1"><a itemprop=item href=/navpatterns/1-patterns/integration-of-addresses/ aria-disabled=true><span itemprop=name>Integration of Addresses</span></a></li>
+<li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3"><a itemprop=item href=/bcbestpractices/><span itemprop=name>BC Dev. Best Practices</span></a> > </li>
+<li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="2"><a itemprop=item href=/bcbestpractices/readability/><span itemprop=name>Readability</span></a> > </li>
+<li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="1"><a itemprop=item href=/bcbestpractices/readability/variable-naming/ aria-disabled=true><span itemprop=name>Variable Naming</span></a></li>
 </ol>
 </div>
 <div class=progress>
 <div class=wrapper>
-<nav id=TableOfContents></nav>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#description>Description</a></li>
+<li><a href=#bad-code>Bad code</a></li>
+<li><a href=#good-code>Good code</a></li>
+<li><a href=#bad-code-1>Bad code</a></li>
+<li><a href=#good-code-1>Good code</a></li>
+<li><a href=#bad-code-2>Bad code</a></li>
+<li><a href=#good-code-2>Good code</a></li>
+<li><a href=#discussionshttpsgithubcommicrosoftalguidelinesdiscussionscategoriesbc-best-practicesdiscussions_qonevariablenamingcategory3a22bcbestpractices22><a href="https://github.com/microsoft/alguidelines/discussions/categories/bc-best-practices?discussions_q=one+variable+naming+category%3A%22BC+Best+Practices%22">Discussions</a></a></li>
+</ul>
+</nav>
 </div>
 </div>
 </div>
 <div id=head-tags>
 </div>
 <main id=body-inner>
-<h1>Integration of Addresses</h1>
-<div style=position:relative;padding-bottom:56.25%;height:0;overflow:hidden>
-<iframe src=https://www.youtube.com/embed/60Wrx9N-gfY style=position:absolute;top:0;left:0;width:100%;height:100%;border:0 allowfullscreen title="YouTube Video"></iframe>
-</div>
+<h1>Variable Naming</h1>
+<p>&lt;<em>Created by Microsoft, Described by waldo</em>></p>
+<h2 id=description>Description</h2>
+<p>Variables that refer to a AL object must contain the objects name, abbreviated where necessary.</p>
+<p>A variable must begin with a capital letter.</p>
+<p>Blanks, periods, and other characters (such as parentheses) that would make quotation marks around a variable necessary must be omitted.</p>
+<p>If a variable is a compound of two or more words or abbreviations, each word or abbreviation should begin with a capital letter.</p>
+<h2 id=bad-code>Bad code</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>    WIPBuffer : <span style=color:#66d9ef>Record</span> &#34;Job WIP Buffer&#34;
+</code></pre></div><h2 id=good-code>Good code</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>    JobWIPBuffer : <span style=color:#66d9ef>Record</span> &#34;Job WIP Buffer&#34;    
+</code></pre></div><h2 id=bad-code-1>Bad code</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>    Postline : <span style=color:#66d9ef>Codeunit</span> &#34;Gen. Jnl.-Post Line&#34;;    
+</code></pre></div><h2 id=good-code-1>Good code</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>    GenJnlPostLine : <span style=color:#66d9ef>Codeunit</span> &#34;Gen. Jnl.-Post Line&#34;;
+</code></pre></div><h2 id=bad-code-2>Bad code</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>    &#34;Amount (LCY)&#34;: <span style=color:#66d9ef>Decimal</span>;    
+</code></pre></div><h2 id=good-code-2>Good code</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>    AmountLCY: <span style=color:#66d9ef>Decimal</span>;        
+</code></pre></div><h2 id=discussionshttpsgithubcommicrosoftalguidelinesdiscussionscategoriesbc-best-practicesdiscussions_qonevariablenamingcategory3a22bcbestpractices22><a href="https://github.com/microsoft/alguidelines/discussions/categories/bc-best-practices?discussions_q=one+variable+naming+category%3A%22BC+Best+Practices%22">Discussions</a></h2>
+<p>You can find discussions on all &ldquo;Best Practices&rdquo; <a href=https://github.com/microsoft/alguidelines/discussions/categories/bc-best-practices>here</a>.</p>
+<p>If you don&rsquo;t find the discussion of this guideline, please feel fee to create a new one with the same title as this article.</p>
 <footer class=footline>
 </footer>
 </main>
 </div>
 <div id=navigation>
-<a class="nav nav-prev" href=/navpatterns/1-patterns/instructions-in-the-ui/ title="Instructions in the UI"><i class="fa fa-chevron-left"></i></a>
-<a class="nav nav-next" href=/navpatterns/1-patterns/journal-error-processing/ title="Journal Error Processing"><i class="fa fa-chevron-right"></i></a>
+<a class="nav nav-prev" href=/bcbestpractices/readability/ title=Readability><i class="fa fa-chevron-left"></i></a>
+<a class="nav nav-next" href=/bcbestpractices/readability/variables-declarations-order/ title="Variables Declarations Order"><i class="fa fa-chevron-right"></i></a>
 </div>
 </div>
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/js/clipboard.min.js?1639514365></script>
-<script src=/js/perfect-scrollbar.min.js?1639514365></script>
-<script src=/js/perfect-scrollbar.jquery.min.js?1639514365></script>
-<script src=/js/jquery.svg.pan.zoom.js?1639514365></script>
-<script src=/js/featherlight.min.js?1639514365></script>
-<script src=/js/modernizr.custom-3.6.0.js?1639514365></script>
-<script src=/js/relearn.js?1639514365></script>
+<script src=/js/clipboard.min.js?1639514364></script>
+<script src=/js/perfect-scrollbar.min.js?1639514364></script>
+<script src=/js/perfect-scrollbar.jquery.min.js?1639514364></script>
+<script src=/js/jquery.svg.pan.zoom.js?1639514364></script>
+<script src=/js/featherlight.min.js?1639514364></script>
+<script src=/js/modernizr.custom-3.6.0.js?1639514364></script>
+<script src=/js/relearn.js?1639514364></script>
 </body>
 </html>
