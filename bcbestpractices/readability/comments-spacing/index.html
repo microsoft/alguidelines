@@ -4,20 +4,20 @@
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=generator content="Hugo 0.90.1">
 <meta name=description content>
-<title>Read-once Initialization and Validation :: AL Guidelines</title>
-<link href=/css/nucleus.css?1639517086 rel=stylesheet>
-<link href=/css/fontawesome-all.min.css?1639517086 rel=stylesheet>
-<link href=/css/featherlight.min.css?1639517086 rel=stylesheet>
-<link href=/css/perfect-scrollbar.min.css?1639517086 rel=stylesheet>
-<link href=/css/auto-complete.css?1639517086 rel=stylesheet>
-<link href=/css/theme.css?1639517086 rel=stylesheet>
-<link href=/css/theme-blue.css?1639517086 rel=stylesheet>
-<link href=/css/variant.css?1639517086 rel=stylesheet>
-<link href=/css/print.css?1639517086 rel=stylesheet media=print>
-<script src=/js/jquery.min.js?1639517086></script>
+<title>Comment Spacing :: AL Guidelines</title>
+<link href=/css/nucleus.css?1639517085 rel=stylesheet>
+<link href=/css/fontawesome-all.min.css?1639517085 rel=stylesheet>
+<link href=/css/featherlight.min.css?1639517085 rel=stylesheet>
+<link href=/css/perfect-scrollbar.min.css?1639517085 rel=stylesheet>
+<link href=/css/auto-complete.css?1639517085 rel=stylesheet>
+<link href=/css/theme.css?1639517085 rel=stylesheet>
+<link href=/css/theme-blue.css?1639517085 rel=stylesheet>
+<link href=/css/variant.css?1639517085 rel=stylesheet>
+<link href=/css/print.css?1639517085 rel=stylesheet media=print>
+<script src=/js/jquery.min.js?1639517085></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
-<body data-url=/navpatterns/1-patterns/read-once-initialization-and-validation/>
+<body data-url=/bcbestpractices/readability/comments-spacing/>
 <script>var index_url="/index.json",root_url="/",baseUri=root_url.replace(/\/$/,'')</script>
 <nav id=sidebar>
 <div id=header-wrapper>
@@ -32,9 +32,9 @@ ALGuidelines.Dev
 <input data-search-input id=search-by type=search placeholder=Search...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script src=/js/lunr.min.js?1639517086></script>
-<script src=/js/auto-complete.js?1639517086></script>
-<script src=/js/search.js?1639517086></script>
+<script src=/js/lunr.min.js?1639517085></script>
+<script src=/js/auto-complete.js?1639517085></script>
+<script src=/js/search.js?1639517085></script>
 </div>
 <div class=highlightable>
 <ul class=topics>
@@ -42,12 +42,12 @@ ALGuidelines.Dev
 <li data-nav-id=/bcpatterns/ title="BC Patterns" class=dd-item><a href=/bcpatterns/><b><i class="fas fa-clone"></i> </b>BC Patterns</a><ul>
 <li data-nav-id=/bcpatterns/facade-pattern/ title="Facade Pattern" class=dd-item><a href=/bcpatterns/facade-pattern/>Facade Pattern</a></li>
 <li data-nav-id=/bcpatterns/generic-method-pattern/ title="Generic Method Pattern" class=dd-item><a href=/bcpatterns/generic-method-pattern/>Generic Method Pattern</a></li></ul></li>
-<li data-nav-id=/bcbestpractices/ title="BC Dev. Best Practices" class=dd-item><a href=/bcbestpractices/><b><i class="fas fa-medal"></i> </b>BC Dev. Best Practices</a><ul>
-<li data-nav-id=/bcbestpractices/readability/ title=Readability class=dd-item><a href=/bcbestpractices/readability/>Readability</a><ul>
+<li data-nav-id=/bcbestpractices/ title="BC Dev. Best Practices" class="dd-item parent"><a href=/bcbestpractices/><b><i class="fas fa-medal"></i> </b>BC Dev. Best Practices</a><ul>
+<li data-nav-id=/bcbestpractices/readability/ title=Readability class="dd-item parent"><a href=/bcbestpractices/readability/>Readability</a><ul>
 <li data-nav-id=/bcbestpractices/readability/begin-as-an-afterword/ title="begin as an 'After Word'" class=dd-item><a href=/bcbestpractices/readability/begin-as-an-afterword/>begin as an 'After Word'</a></li>
 <li data-nav-id=/bcbestpractices/readability/begin-end/ title="Begin-End - Compound Only" class=dd-item><a href=/bcbestpractices/readability/begin-end/>Begin-End - Compound Only</a></li>
 <li data-nav-id=/bcbestpractices/readability/binary-operator-line-start/ title="Binary Operator to Start Line" class=dd-item><a href=/bcbestpractices/readability/binary-operator-line-start/>Binary Operator to Start Line</a></li>
-<li data-nav-id=/bcbestpractices/readability/comments-spacing/ title="Comment Spacing" class=dd-item><a href=/bcbestpractices/readability/comments-spacing/>Comment Spacing</a></li>
+<li data-nav-id=/bcbestpractices/readability/comments-spacing/ title="Comment Spacing" class="dd-item active"><a href=/bcbestpractices/readability/comments-spacing/>Comment Spacing</a></li>
 <li data-nav-id=/bcbestpractices/readability/keyword-pairs-indentation/ title="Keyword Pairs - Indentation" class=dd-item><a href=/bcbestpractices/readability/keyword-pairs-indentation/>Keyword Pairs - Indentation</a></li>
 <li data-nav-id=/bcbestpractices/readability/lonely-repeat/ title="Lonely Repeat" class=dd-item><a href=/bcbestpractices/readability/lonely-repeat/>Lonely Repeat</a></li>
 <li data-nav-id=/bcbestpractices/readability/named-invocations/ title="Named Invocations" class=dd-item><a href=/bcbestpractices/readability/named-invocations/>Named Invocations</a></li>
@@ -58,8 +58,8 @@ ALGuidelines.Dev
 <li data-nav-id=/bcbestpractices/readability/unnecessary-else/ title="Unnecessary 'else'" class=dd-item><a href=/bcbestpractices/readability/unnecessary-else/>Unnecessary 'else'</a></li>
 <li data-nav-id=/bcbestpractices/readability/variable-naming/ title="Variable Naming" class=dd-item><a href=/bcbestpractices/readability/variable-naming/>Variable Naming</a></li>
 <li data-nav-id=/bcbestpractices/readability/variables-declarations-order/ title="Variables Declarations Order" class=dd-item><a href=/bcbestpractices/readability/variables-declarations-order/>Variables Declarations Order</a></li></ul></li></ul></li>
-<li data-nav-id=/navpatterns/ title="NAV Patterns Archive" class="dd-item parent"><a href=/navpatterns/><b><i class="fas fa-save"></i> </b>NAV Patterns Archive</a><ul>
-<li data-nav-id=/navpatterns/1-patterns/ title="1. Patterns" class="dd-item parent"><a href=/navpatterns/1-patterns/>1. Patterns</a><ul>
+<li data-nav-id=/navpatterns/ title="NAV Patterns Archive" class=dd-item><a href=/navpatterns/><b><i class="fas fa-save"></i> </b>NAV Patterns Archive</a><ul>
+<li data-nav-id=/navpatterns/1-patterns/ title="1. Patterns" class=dd-item><a href=/navpatterns/1-patterns/>1. Patterns</a><ul>
 <li data-nav-id=/navpatterns/1-patterns/activity-log/ title="Activity Logs" class=dd-item><a href=/navpatterns/1-patterns/activity-log/>Activity Logs</a></li>
 <li data-nav-id=/navpatterns/1-patterns/argument-table/ title="Argument Table" class=dd-item><a href=/navpatterns/1-patterns/argument-table/>Argument Table</a></li>
 <li data-nav-id=/navpatterns/1-patterns/blocked-entity/ title="Blocked Entity" class=dd-item><a href=/navpatterns/1-patterns/blocked-entity/>Blocked Entity</a><ul>
@@ -102,7 +102,7 @@ ALGuidelines.Dev
 <li data-nav-id=/navpatterns/1-patterns/queries/select-distinct-with-queries/ title="SELECT DISTINCT with Queries" class=dd-item><a href=/navpatterns/1-patterns/queries/select-distinct-with-queries/>SELECT DISTINCT with Queries</a></li>
 <li data-nav-id=/navpatterns/1-patterns/queries/use-queries-to-detect-duplicate-records/ title="Use Queries to Detect Duplicate Records" class=dd-item><a href=/navpatterns/1-patterns/queries/use-queries-to-detect-duplicate-records/>Use Queries to Detect Duplicate Records</a></li>
 <li data-nav-id=/navpatterns/1-patterns/queries/use-queries-to-replace-nested-loops/ title="Use Queries to Replace Nested Loops" class=dd-item><a href=/navpatterns/1-patterns/queries/use-queries-to-replace-nested-loops/>Use Queries to Replace Nested Loops</a></li></ul></li>
-<li data-nav-id=/navpatterns/1-patterns/read-once-initialization-and-validation/ title="Read-once Initialization and Validation" class="dd-item active"><a href=/navpatterns/1-patterns/read-once-initialization-and-validation/>Read-once Initialization and Validation</a></li>
+<li data-nav-id=/navpatterns/1-patterns/read-once-initialization-and-validation/ title="Read-once Initialization and Validation" class=dd-item><a href=/navpatterns/1-patterns/read-once-initialization-and-validation/>Read-once Initialization and Validation</a></li>
 <li data-nav-id=/navpatterns/1-patterns/released-entity/ title="Released Entity" class=dd-item><a href=/navpatterns/1-patterns/released-entity/>Released Entity</a></li>
 <li data-nav-id=/navpatterns/1-patterns/report-selection/ title="Report Selection" class=dd-item><a href=/navpatterns/1-patterns/report-selection/>Report Selection</a></li>
 <li data-nav-id=/navpatterns/1-patterns/security/ title=Security class=dd-item><a href=/navpatterns/1-patterns/security/>Security</a><ul>
@@ -219,7 +219,7 @@ ALGuidelines.Dev
 <div class="padding highlightable">
 <div id=top-bar>
 <div id=top-github-link>
-<a class=github-link title="Edit this page" href=https://github.com/microsoft/alguidelines/edit/main/content/NAVPatterns/1-patterns/read-once-initialization-and-validation/index.md target=blank>
+<a class=github-link title="Edit this page" href=https://github.com/microsoft/alguidelines/edit/main/content/BCBestPractices/Readability/comments-spacing/index.md target=blank>
 <i class="fas fa-code-branch"></i>
 <span id=top-github-link-text>Edit this page</span>
 </a>
@@ -234,22 +234,19 @@ ALGuidelines.Dev
 <ol class=links itemscope itemtype=http://schema.org/BreadcrumbList>
 <meta itemprop=itemListOrder content="Descending">
 <li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="4"><a itemprop=item href=/><span itemprop=name>Home</span></a> > </li>
-<li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3"><a itemprop=item href=/navpatterns/><span itemprop=name>NAV Patterns Archive</span></a> > </li>
-<li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="2"><a itemprop=item href=/navpatterns/1-patterns/><span itemprop=name>1. Patterns</span></a> > </li>
-<li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="1"><a itemprop=item href=/navpatterns/1-patterns/read-once-initialization-and-validation/ aria-disabled=true><span itemprop=name>Read-once Initialization and Validation</span></a></li>
+<li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3"><a itemprop=item href=/bcbestpractices/><span itemprop=name>BC Dev. Best Practices</span></a> > </li>
+<li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="2"><a itemprop=item href=/bcbestpractices/readability/><span itemprop=name>Readability</span></a> > </li>
+<li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="1"><a itemprop=item href=/bcbestpractices/readability/comments-spacing/ aria-disabled=true><span itemprop=name>Comment Spacing</span></a></li>
 </ol>
 </div>
 <div class=progress>
 <div class=wrapper>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#abstract><strong>Abstract</strong></a></li>
-<li><a href=#description><strong>Description</strong></a></li>
-<li><a href=#nav-specific-example><strong>NAV Specific Example</strong></a></li>
-<li><a href=#nav-usages><strong>NAV Usages</strong></a></li>
-<li><a href=#ideas-for-improvement><strong>Ideas for improvement</strong></a></li>
-<li><a href=#consequences><strong>Consequences</strong></a></li>
-<li><a href=#related-topics><strong>Related Topics</strong></a></li>
+<li><a href=#description>Description</a></li>
+<li><a href=#bad-code>Bad code</a></li>
+<li><a href=#good-code>Good code</a></li>
+<li><a href=#discussionshttpsgithubcommicrosoftalguidelinesdiscussionscategoriesbc-best-practicesdiscussions_qcommentspacingcategory3a22bcbestpractices22><a href="https://github.com/microsoft/alguidelines/discussions/categories/bc-best-practices?discussions_q=comment+spacing+category%3A%22BC+Best+Practices%22">Discussions</a></a></li>
 </ul>
 </nav>
 </div>
@@ -258,56 +255,35 @@ ALGuidelines.Dev
 <div id=head-tags>
 </div>
 <main id=body-inner>
-<h1>Read-once Initialization and Validation</h1>
-<p><em>By Tim Grant</em></p>
-<h2 id=abstract><strong>Abstract</strong></h2>
-<p>One time query and validation of a setup table.</p>
-<hr>
-<h2 id=description><strong>Description</strong></h2>
-<p>Firstly identifies if a setup table record is in memory, removing the need to execute and validate the re-query again within a code unit. (From NAV 2013+ service tier database caching exists).</p>
-<p>If you need to query a setup table, but not sure if the table is yet in memory from earlier code, this helps to determine this call (see Singleton Table pattern).</p>
-<p>Allows a central function to validate critical fields before processing automated code. <strong>TESTFIELD</strong> calls are added to the function and not the INIT call in order to ensure that critical functions do not run without this human check in place as these may rely on key configuration. If you have a design where specific field values are critical (custom or standard) for integrity, then INIT INSERT is a dangerous default which could result in the corruption of processes. This is separate automated INIT INSERT from a setup page.</p>
-<h2 id=nav-specific-example><strong>NAV Specific Example</strong></h2>
-<p>A global variable record and a global status indicator, but within the context of a local function.</p>
-<p><a href=6332.1.png><img src=6332.1.png alt=" "></a></p>
-<p><a href=5025.2.png><img src=5025.2.png alt=" "></a></p>
-<p><img src=5672.8.png alt=" "></p>
-<h2 id=nav-usages><strong>NAV Usages</strong></h2>
-<p>A similar example of this is in Codeunit 80, but without any validation.</p>
-<p><a href=4.png><img src=4.png alt=" "></a></p>
-<p>E.g. If there is a bespoke change, then this existing <strong>GetGLSetup</strong> can be called earlier to accommodate for an earlier bespoke change:</p>
-<p><a href=5.png></a><a href=2465.5.png><img src=2465.5.png alt=" "></a></p>
-<p>This means that by the time the code reaches the original <strong>GetGLSetup</strong> code requirement, this record is already in memory as the status flag is set to True, eliminating another check. For such Patterns the setup record should never be cleared, it should be called once globally, initiated and left in memory for future checks. It should <strong>not</strong> be declared locally at the same time, review your code for matching local variable usage before implementing this.</p>
-<hr>
-<h2 id=ideas-for-improvement><strong>Ideas for improvement</strong></h2>
-<p>Merge <strong>Singleton Table</strong> with dynamic validation field meta configuration. This removes the coding of <strong>TESTFIELD</strong> to a central setup check.</p>
-<p>Example with the <strong>Sales & Receivables Setup</strong></p>
-<p><a href=5857.1.png><img src=5857.1.png alt=" "></a></p>
-<p><a href=4477.2.png><img src=4477.2.png alt=" "></a></p>
-<p><a href=4314.3.png><img src=4314.3.png alt=" "></a></p>
-<hr>
-<h2 id=consequences><strong>Consequences</strong></h2>
-<p>If in the circumstance that a field value in the setup table is expected to change within the life of the code component instance. e.g. If a CHANGECOMPANY is required to cross reference another Setup table, use a separate variable.</p>
-<h2 id=related-topics><strong>Related Topics</strong></h2>
-<p>This is related to the <strong>Singleton Table</strong> pattern.</p>
+<h1>Comment Spacing</h1>
+<p>&lt;<em>Created by Microsoft, Described by waldo</em>></p>
+<h2 id=description>Description</h2>
+<p>Always start comments with // followed by one space character.</p>
+<h2 id=bad-code>Bad code</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>RowNo <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1000</span>; <span style=color:#75715e>//Move way below the budget  
+</span></code></pre></div><h2 id=good-code>Good code</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>RowNo <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1000</span>; <span style=color:#75715e>// Move way below the budget
+</span></code></pre></div><h2 id=discussionshttpsgithubcommicrosoftalguidelinesdiscussionscategoriesbc-best-practicesdiscussions_qcommentspacingcategory3a22bcbestpractices22><a href="https://github.com/microsoft/alguidelines/discussions/categories/bc-best-practices?discussions_q=comment+spacing+category%3A%22BC+Best+Practices%22">Discussions</a></h2>
+<p>You can find discussions on all &ldquo;Best Practices&rdquo; <a href=https://github.com/microsoft/alguidelines/discussions/categories/bc-best-practices>here</a>.</p>
+<p>If you don&rsquo;t find the discussion of this guideline, please feel fee to create a new one with the same title as this article.</p>
 <footer class=footline>
 </footer>
 </main>
 </div>
 <div id=navigation>
-<a class="nav nav-prev" href=/navpatterns/1-patterns/queries/use-queries-to-replace-nested-loops/ title="Use Queries to Replace Nested Loops"><i class="fa fa-chevron-left"></i></a>
-<a class="nav nav-next" href=/navpatterns/1-patterns/released-entity/ title="Released Entity"><i class="fa fa-chevron-right"></i></a>
+<a class="nav nav-prev" href=/bcbestpractices/readability/binary-operator-line-start/ title="Binary Operator to Start Line"><i class="fa fa-chevron-left"></i></a>
+<a class="nav nav-next" href=/bcbestpractices/readability/keyword-pairs-indentation/ title="Keyword Pairs - Indentation"><i class="fa fa-chevron-right"></i></a>
 </div>
 </div>
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/js/clipboard.min.js?1639517086></script>
-<script src=/js/perfect-scrollbar.min.js?1639517086></script>
-<script src=/js/perfect-scrollbar.jquery.min.js?1639517086></script>
-<script src=/js/jquery.svg.pan.zoom.js?1639517086></script>
-<script src=/js/featherlight.min.js?1639517086></script>
-<script src=/js/modernizr.custom-3.6.0.js?1639517086></script>
-<script src=/js/relearn.js?1639517086></script>
+<script src=/js/clipboard.min.js?1639517085></script>
+<script src=/js/perfect-scrollbar.min.js?1639517085></script>
+<script src=/js/perfect-scrollbar.jquery.min.js?1639517085></script>
+<script src=/js/jquery.svg.pan.zoom.js?1639517085></script>
+<script src=/js/featherlight.min.js?1639517085></script>
+<script src=/js/modernizr.custom-3.6.0.js?1639517085></script>
+<script src=/js/relearn.js?1639517085></script>
 </body>
 </html>
