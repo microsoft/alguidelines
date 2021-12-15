@@ -19,7 +19,7 @@ A line of code should not have more than one statement.
 
 ```al
     if OppEntry.Find('-') then   
-        exit();  
+        exit;  
 ```   
     
 ## Bad code
