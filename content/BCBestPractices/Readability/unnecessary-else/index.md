@@ -14,9 +14,9 @@ weight = 1270
     procedure SomeProcedure()
     begin
         if IsAdjmtBinCodeChanged() then
-            Error(AdjmtBinCodeChangeNotAllowedErr,...)
+            Error(AdjmtBinCodeChangeNotAllowedErr, ...)
         else
-            Error(BinCodeChangeNotAllowedErr,...);
+            Error(BinCodeChangeNotAllowedErr, ...);
     end;
 ```
 
@@ -25,8 +25,8 @@ weight = 1270
     procedure SomeProcedure()
     begin
         if IsAdjmtBinCodeChanged() then
-            Error(AdjmtBinCodeChangeNotAllowedErr,...)
-        Error(BinCodeChangeNotAllowedErr,...);
+            Error(AdjmtBinCodeChangeNotAllowedErr, ...)
+        Error(BinCodeChangeNotAllowedErr, ...);
     end;
 ```
 
