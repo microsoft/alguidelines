@@ -28,15 +28,15 @@ Variables declarations should be ordered by type. In general, object and complex
 ## Bad code
 
 ```al
-    StartingDateFilter : Text;
-    Vendor : Record Vendor;
+    StartingDateFilter: Text;
+    Vendor: Record Vendor;
 ```
 
 ## Good code
 
 ```al
-    Vendor : Record Vendor;
-    StartingDateFilter : Text;
+    Vendor: Record Vendor;
+    StartingDateFilter: Text;
 ```
 
 ## [Discussions](https://github.com/microsoft/alguidelines/discussions/categories/bc-best-practices?discussions_q=one+variables+declarations+order+category%3A%22BC+Best+Practices%22)
