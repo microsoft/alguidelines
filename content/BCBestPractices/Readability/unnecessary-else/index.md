@@ -13,7 +13,7 @@ weight = 1270
 ```al
     procedure SomeProcedure()
     begin
-        if IsAdjmtBinCodeChanged then
+        if IsAdjmtBinCodeChanged() then
             Error(AdjmtBinCodeChangeNotAllowedErr,...)
         else
             Error(BinCodeChangeNotAllowedErr,...);
@@ -24,7 +24,7 @@ weight = 1270
 ```al
     procedure SomeProcedure()
     begin
-        if IsAdjmtBinCodeChanged then
+        if IsAdjmtBinCodeChanged() then
             Error(AdjmtBinCodeChangeNotAllowedErr,...)
         Error(BinCodeChangeNotAllowedErr,...);
     end;
