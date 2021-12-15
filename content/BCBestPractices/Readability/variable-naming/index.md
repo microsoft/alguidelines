@@ -17,19 +17,19 @@ If a variable is a compound of two or more words or abbreviations, each word or 
 ## Bad code
 
 ```al
-    WIPBuffer : Record "Job WIP Buffer"
+    WIPBuffer: Record "Job WIP Buffer"
 ```
 ## Good code
 ```al
-    JobWIPBuffer : Record "Job WIP Buffer"    
+    JobWIPBuffer: Record "Job WIP Buffer"    
 ```
 ## Bad code
 ```al
-    Postline : Codeunit "Gen. Jnl.-Post Line";    
+    Postline: Codeunit "Gen. Jnl.-Post Line";    
 ```
 ## Good code
 ```al
-    GenJnlPostLine : Codeunit "Gen. Jnl.-Post Line";
+    GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line";
 ```
 ## Bad code
 ```al

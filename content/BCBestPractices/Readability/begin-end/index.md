@@ -20,7 +20,7 @@ end;
 ## Good code
 
 ```AL
-IF FindSet() then
+if FindSet() then
     repeat
     ...
     until next() = 0;
@@ -29,24 +29,24 @@ IF FindSet() then
 ## Bad code
 
 ```AL
-IF IsAssemblyOutputLine then begin
-    TestField("Order Line No.",0);
+if IsAssemblyOutputLine then begin
+    TestField("Order Line No.", 0);
 end;
 ```
 
 ## Good code
 
 ```AL
-IF IsAssemblyOutputLine then
-    TestField("Order Line No.",0);
+if IsAssemblyOutputLine then
+    TestField("Order Line No.", 0);
 ```
 
 ## Exception
 
 ```AL
 // Except for this case
-IF X then begin
-    IF Y then 
+if X then begin
+    if Y then 
         //DO SOMETHING;
 end else 
     (not X)

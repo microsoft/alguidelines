@@ -17,6 +17,7 @@ The `end else` pair should always appear on the same line.
         ...
         end
         else
+        begin
         ... 
         end;
 ```
@@ -27,7 +28,7 @@ The `end else` pair should always appear on the same line.
     if OppEntry.Find('-') then
         if SalesCycleStage.Find('-') then begin
         ...
-        end else
+        end else begin
         ...
         end;
 ```

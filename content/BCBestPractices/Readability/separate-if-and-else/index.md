@@ -11,7 +11,7 @@ weight = 1050
 ## Bad code
 
 ```al
-    if Atom = '\>' then HasLogicalOperator := TRUE else begin
+    if Atom = '\>' then HasLogicalOperator := true else begin
     ...
     end;
 ```
