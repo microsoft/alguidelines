@@ -30,7 +30,7 @@ if FindSet() then
 
 ```AL
 if IsAssemblyOutputLine then begin
-    TestField("Order Line No.",0);
+    TestField("Order Line No.", 0);
 end;
 ```
 
@@ -38,7 +38,7 @@ end;
 
 ```AL
 if IsAssemblyOutputLine then
-    TestField("Order Line No.",0);
+    TestField("Order Line No.", 0);
 ```
 
 ## Exception
