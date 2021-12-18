@@ -2,13 +2,10 @@
 title = "Singleton Codeunit"
 weight = 1100
 +++
-## Singleton Codeunit
+_By Bogdana Botez at Microsoft Development Center Copenhagen_
 
-_By Bogdana Botez at Microsoft Development Center Copenhagen   
-_
+[![ ][image0]][anchor0]  
 
-_[![ ][image0]][anchor0]  
-_
 
 **Problem**: In some situations, global state needs to be preserved at runtime throughout a session.
 

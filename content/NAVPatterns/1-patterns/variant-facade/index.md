@@ -2,9 +2,7 @@
 title = "Variant Facade"
 weight = 1440
 +++
-# Variant Façade
-
-By Nikola Kukrika, waldo and Gary Winter
+_By Nikola Kukrika, waldo and Gary Winter_
 
 # Abstract
 
@@ -48,9 +46,9 @@ Problems arising from this way of implementing code are:
 
 **Testing the code** is hard since the tests need to be replicated.
 
-**Constant cost of adding support for new tables **-- when the new record type needs to be supported, it has a constant cost. Adding a support for a new record will increase the Maintenance tax and it will make the code harder to understand and extend. ****
+**Constant cost of adding support for new tables** -- when the new record type needs to be supported, it has a constant cost. Adding a support for a new record will increase the Maintenance tax and it will make the code harder to understand and extend.
 
-**Conclusion **- **If the functionality needs to be used for many records the approach of duplicating the functions should be avoided.**
+**Conclusion** - **If the functionality needs to be used for many records the approach of duplicating the functions should be avoided.**
 
 # Solution
 

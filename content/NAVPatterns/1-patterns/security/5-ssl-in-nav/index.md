@@ -1,9 +1,7 @@
 +++
-title = "5-ssl-in-nav.md"
+title = "SSL in NAV"
 weight = 190
 +++
-## SSL in NAV
-
 _By Bogdana Botez at Microsoft Development Center Copenhagen_
 
 _[![ ][image0]][anchor0]   
@@ -17,7 +15,7 @@ __
 
 **Forces:**
 
-* **Insecure communication: **When the user enters a password, if unprotected, a network sniffer \[12\] could catch and read it. A sniffer is either a software program or hardware device which examine network traffic. Years ago, sniffers were tools used exclusively by professional network engineers, but nowadays, they are also popular with Internet hackers and people just curious about networking.****A****public Wi-Fi network could easily be eavesdropped by an unwanted actor.
+* **Insecure communication:** When the user enters a password, if unprotected, a network sniffer \[12\] could catch and read it. A sniffer is either a software program or hardware device which examine network traffic. Years ago, sniffers were tools used exclusively by professional network engineers, but nowadays, they are also popular with Internet hackers and people just curious about networking. A public Wi-Fi network could easily be eavesdropped by an unwanted actor.
 
 By using data storage patterns like **Sensitive Data Encapsulation**, **Encryption, Single Point of Access** or **Azure Key Vault**, the sensitive data is preserved securely in the implementation of Dynamics NAV. But before it gets into a secure store, this data needs to be transmitted from the user, through a user interface, on a client-server connection and all the way to the database. Is the data safe while being transmitted?
 
@@ -30,9 +28,6 @@ Figure 1 shows data communication between the client (where the user enters data
 **[![ ][image1]][anchor1]**
 
 _Figure 1 - Data transmission before (http://...) and after SSL encryption (https://...)._
-
-_  
-_
 
 **Usage**: the latest information about how to configure SSL for the web client in Dynamics NAV is found online at on MSDN at [https://msdn.microsoft.com/en-us/library/hh167264(v=nav.90).aspx][anchor2].
 

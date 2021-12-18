@@ -100,7 +100,7 @@ In the standard version of Microsoft Dynamics NAV, the Copy Document functionali
 3. Copy Service Document (REP5979)
 4. Copy Assembly Document (REP901)
 
-[watch?v=aTiwroXwW0&list=PLhZ3P LY7CqmVszuvtJLujFyHpsVN0Uw&index=17][anchor5]
+{{< youtube aTiwroXwW0 >}}
 
 
 

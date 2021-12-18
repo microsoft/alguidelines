@@ -1,9 +1,8 @@
 +++
-title = "use Queries to Detect Duplicate Records"
+title = "Use Queries to Detect Duplicate Records"
 weight = 1340
 +++
-_Originally by Abshishek Ghosh and Bogdan Sturzoiu at Microsoft Development Center Copenhagen**  
-**_
+_Originally by Abshishek Ghosh and Bogdan Sturzoiu at Microsoft Development Center Copenhagen_
 
 ## **Abstract**
 
@@ -33,13 +32,13 @@ Before Dynamics NAV 2013, the only possibility was to iterate through the table 
 
 This code would involve setting filters on the **Customer** table as many times as there are records in the table. This is an expensive operation.
 
-Starting with Dynamics NAV 2013, we can use queries to create a more efficient implementation of the same logic.****
+Starting with Dynamics NAV 2013, we can use queries to create a more efficient implementation of the same logic.
 
 ## **Usage**
 
 The solution involves that you create a query to return duplicates, and then invoke it from a method that would test the value of the query to identify if duplicates were found.
 
-**Step 1 ****--****Creating the Query**
+**Step 1** -- **Creating the Query**
 
 * The query must be created with the table we want to search in as the dataitem.
 * The field we want to search for must be created as a grouped field.
@@ -84,7 +83,7 @@ Here is an alternate implementation of the **HasDuplicateCustomers** method usin
 
 **Examples**
 
-* **Acc. Sched. Chart Management **codeunit (762),   
+* **Acc. Sched. Chart Management** codeunit (762),   
 methods CheckDuplicateAccScheduleLineDescription and CheckDuplicateColumnLayoutColumnHeader
 * **Analysis Report Chart Mgt.** codeunit (770),   
 methods CheckDuplicateAnalysisLineDescription and CheckDuplicateAnalysisColumnHeader

@@ -52,7 +52,7 @@ When saving the journal lines, the Save as Standard Gen. Journal report (750) is
 1. Standard General Journal
 2. Standard Item Journal
 
-[watch?v=XeTKmO2Eqgw&list=PLhZ3P LY7CqmVszuvtJLujFyHpsVN0Uw&index=21][anchor9]
+{{< youtube XeTKmO2Eqgw>}}
 
 
 

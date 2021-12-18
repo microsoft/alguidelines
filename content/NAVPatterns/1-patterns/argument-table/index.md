@@ -2,8 +2,6 @@
 title = "Argument Table"
 weight = 220
 +++
-## Argument table pattern
-
 _Originally By Nikola Kukrika and waldo_
 
 ### Abstract

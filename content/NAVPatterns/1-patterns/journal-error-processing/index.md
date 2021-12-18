@@ -118,6 +118,7 @@ Following the flow above, the code (in the SEPA Credit Transfer example) is as f
 
 The public interface of this table contains simple functionality for adding/deleting errors and for interrogation on if any errors are associated with the current journal template and batch.
 
+```AL
 CreateNew(GenJnlLine : Record "Gen. Journal Line";NewText : Text)
 
 SetLineFilters(GenJnlLine);
@@ -161,6 +162,7 @@ DeleteJnlBatchErrors(GenJnlLine : Record "Gen. Journal Line")
 IF JnlBatchHasErrors(GenJnlLine) THEN
 
 DELETEALL;
+```
 
 ## NAV Usages 
 

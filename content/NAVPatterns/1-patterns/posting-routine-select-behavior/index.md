@@ -16,7 +16,7 @@ For a processing routine to behave correctly, it needs sometimes input of a user
 2. There are extra fields on the processing table, that are used internally and act like parameters. These Fields get filled according to the selections that the user has made
 3. The processing codeunit receives the processing table, and therefor also the parameters
 
-**[![ ][image0]][anchor0]**
+[![ ][image0]][anchor0]
 
 ## Usage
 
@@ -65,7 +65,7 @@ On the other hand, as we are handling tables as being "classes" in many cases, i
 
 I would like to add a pattern like "Using Argument tables" (as a sub-pattern for the facade-pattern). It somewhat is related to this way of handling parameters: using tablefields to pass a flexible amount of parameters to functions/codeunits.
 
-[watch?v=SxywT2XSpcI&list=PLhZ3P LY7CqmVszuvtJLujFyHpsVN0Uw&index=7][anchor4]
+{{< youtube SxywT2XSpcI>}}
 
 
 

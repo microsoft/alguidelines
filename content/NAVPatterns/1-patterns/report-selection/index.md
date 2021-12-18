@@ -48,7 +48,7 @@ If the Report Selection is related to a Test Report relating to a Document:
 
 4) Print after posting. If the Report Selection is related to an existing Document (posted):
 
-* The specific document related posted header table is used along with a typical function: **PrintRecords **within the respective table.
+* The specific document related posted header table is used along with a typical function: **PrintRecords** within the respective table.
 
 ## **Example**
 

@@ -2,13 +2,10 @@
 title = "Cue Table"
 weight = 440
 +++
-## Cue Table
+_By Bogdana Botez at Microsoft Development Center Copenhagen_
 
-_By Bogdana Botez at Microsoft Development Center Copenhagen  
-_
+[![ ][image0]][anchor0]  
 
-_[![ ][image0]][anchor0]  
-_
 
 Cues are the second usual application of the [**Singleton Table**][anchor1] pattern in Dynamics NAV, after [**Setup Tables**][anchor2].
 
@@ -22,8 +19,6 @@ The overview information consists of summed-up numbers, calculated from business
 
 **Problem**: NAV stores data in tables. By definition, a table is a repetitive structure containing multiple lines, each line having a different piece of the information. But sometimes this repetitive information needs to be summed-up or otherwise synthetized, and presented as an overview.
 
-**  
-**
 
 **Solution:** Store overview information in a singleton table.
 
@@ -37,14 +32,13 @@ There are two ways of calculating overview information in NAV.
 *   * The way to calculate the overview is too complex for flow fields, or
   * The data needs to be pulled from an external system (like Dynamics CRM, QuickBooks or any external integration).
 
-**  
-**
+****
 
 The implementation of Cues is already described in detail on MSDN, in [Creating and Customizing Cues][anchor4] and in [Walkthrough: Creating a Cue Based on a FlowField][anchor5].
 
 **NAV Usages**
 
-Table 1 - Cue tables in Dynamics NAV****shows some examples of singleton tables used for creating Cues.
+_Table 1 - Cue tables in Dynamics NAV_ shows some examples of singleton tables used for creating Cues.
 
 Table ID
 

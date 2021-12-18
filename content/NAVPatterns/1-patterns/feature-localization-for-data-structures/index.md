@@ -63,6 +63,7 @@ The key question is: Where to tap into this flow when using a local data structu
 
 In W1, the codeunit simply outputs the same set of general journal lines that it receives as an input:
 
+```AL
 OnRun(VAR Rec : Record "Gen. Journal Line")
 
 GenJnlLine.COPYFILTERS(Rec);
@@ -92,6 +93,7 @@ LOCAL CreateTempJnlLines(VAR FromGenJnlLine : Record "Gen. Journal Line";VAR Tem
 // To fill TempGenJnlLine from the source identified by filters set on FromGenJnlLine
 
 TempGenJnlLine := FromGenJnlLine;
+```
 
 In a country, such as Italy, the codeunit will have the following functions:
 
@@ -103,6 +105,7 @@ In a country, such as Italy, the codeunit will have the following functions:
 
 1. Outputs the temporary general journal lines that will be further processed and exported, exactly as in W1\.
 
+```AL
 OnRun(VAR Rec : Record "Gen. Journal Line")
 
 GenJnlLine.COPYFILTERS(Rec);
@@ -222,6 +225,7 @@ Description := VendorBillLine.Description;
 INSERT;
 
 END;
+```
 
 The derived local feature flow is as follows:
 

@@ -4,7 +4,7 @@ weight = 1450
 +++
 Do not use the WITH scope when it has a variable whose name is the same as a local variable. This can lead to wrong code assumptions.
 
-**Given that **"Contract Type" is a field on table ServiceContractHeader, then in the following example there is a parameter name clash with the field name. Which one will be used?
+**Given that** "Contract Type" is a field on table ServiceContractHeader, then in the following example there is a parameter name clash with the field name. Which one will be used?
 
 Bad code
 

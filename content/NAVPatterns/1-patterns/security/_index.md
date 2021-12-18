@@ -2,12 +2,9 @@
 title = "Security"
 weight = 1030
 +++
-## **Security patterns for NAV  
-**
-
 _By Bogdana Botez at Microsoft Development Center Copenhagen_
 
-### ****
+## **Security patterns for NAV**
 
 ### **Problem statement**
 

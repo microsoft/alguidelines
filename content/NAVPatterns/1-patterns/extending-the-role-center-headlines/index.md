@@ -27,8 +27,7 @@ _
 < --\[if gte mso 9\]\>< \[endif\]--\>< --\[if gte mso 9\]\>< \[endif\]--\>< --\[if gte mso 9\]\>< \[endif\]--\>< --\[if gte mso 10\]\>
 < \[endif\]--\>
 
-_Figure 1: Qualifier, Payload and emphasized text.  
-_
+_Figure 1: Qualifier, Payload and emphasized text._
 
 ## Usage  
 
@@ -149,11 +148,9 @@ To format headlines, you should use Codeunit 1439 Headline Management functions:
 
 _Figure 2: Sequence diagram of headline usage_
 
-##   
-Usages in NAV:
+## Usages in NAV:
 
-* Essential Business Headlines extension_  
-_
+* Essential Business Headlines extension
 
 < --\[if gte mso 9\]\>< \[endif\]--\>< --\[if gte mso 9\]\>< \[endif\]--\>< --\[if gte mso 9\]\>< \[endif\]--\>< --\[if supportAnnotations\]--\>< --\[endif\]--\>< --\[if gte mso 10\]\>
 < \[endif\]--\>

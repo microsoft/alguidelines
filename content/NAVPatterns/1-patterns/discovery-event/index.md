@@ -2,7 +2,7 @@
 title = "Discovery Event"
 weight = 500
 +++
-by waldo
+_by waldo_
 
 # Abstract
 
@@ -51,7 +51,7 @@ When you publish an event, it should obviously be raised somewhere in the code a
 
 ## Step 3: Create one or more global functions, so that your subscriber can call into your functionality to configure, set up, or do whatever it needs to do to make itself discoverable
 
-The generic functionality that I want to call, should be part of the main class - in this case the**Module Discovery** class, or better, the table (**Module Status**). In this table, I create this global function, because I want to make it available for the subscribers:
+The generic functionality that I want to call, should be part of the main class - in this case the **Module Discovery** class, or better, the table (**Module Status**). In this table, I create this global function, because I want to make it available for the subscribers:
 
 [![ ][image3]][anchor3]   
 The business logic doesn't really matter for this pattern. This is obviously dependent on the functionality where you would like to implement the pattern.

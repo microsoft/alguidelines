@@ -58,7 +58,7 @@ In order to always update the totals, the system must have a way to mark that a 
 * On the lines:
   * A new field, Recalculate Invoice Discount, was added and set to FALSE by default.
 
-The _UpdateAmounts_function sets the new field to TRUE for any execution. This function was chosen as it is a central entry point for any amount-related change.
+The _UpdateAmounts_ function sets the new field to TRUE for any execution. This function was chosen as it is a central entry point for any amount-related change.
 
 [![ ][image2]][anchor2]  
 
@@ -153,7 +153,7 @@ The pattern can easily be extended to new sales and purchase documents. If the p
 
 Platform support to be able to trigger full-page update from the lines. Support does exist today, but it is not programmatically controlled at design time. This means that it cannot be used in all cases.
 
-[watch?v=U3noU WT8Xk&list=PLhZ3P LY7CqmVszuvtJLujFyHpsVN0Uw&index=22][anchor12]
+{{< youtube U3noU-WT8Xk>}}
 
 
 

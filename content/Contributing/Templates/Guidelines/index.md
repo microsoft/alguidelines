@@ -6,10 +6,6 @@ This is a guideline, some parts are optional (if there's no content, remove the 
 
 <_Created by (company), Described by (company)_\>
 
-## Abstract
-
-Short, descriptive and easy to remember description of this pattern.
-
 ## Description
 
 In depth description on what this Pattern is all about
@@ -18,12 +14,23 @@ In depth description on what this Pattern is all about
 - steps to implement
 - considerations to take
 
-## Good Example
+
+## Bad code
+
 ```al
 PutCodeblocksHere()
 ```
 
-## Bad Example
+## Good code
+
 ```al
 PutCodeblocksHere()
 ```
+
+## [Discussions](https://github.com/microsoft/alguidelines/discussions/categories/bc-best-practices?discussions_q=TITLEOFYOURGUIDELINEGOESHERE+category%3A%22BC+Best+Practices%22)
+
+<Please replace the "TITLEOFYOURGUIDELINEGOESHERE" in the link above, with the Title+of+the+Guideline (indeed, with "space" replaced by a "+") - and remove this line. \>
+
+You can find discussions on all "Best Practices" [here](https://github.com/microsoft/alguidelines/discussions/categories/bc-best-practices).
+
+If you don't find the discussion of this guideline, please feel fee to create a new one with the same title as this article.  

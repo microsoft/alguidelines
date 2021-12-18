@@ -1,9 +1,7 @@
 +++
-title = "Internally-used DotNet Types"
+title = "Internally used DotNet Types"
 weight = 690
 +++
-## **Internally used Dot Net Types**
-
 _(Dynamics NAV 2015)_
 
   

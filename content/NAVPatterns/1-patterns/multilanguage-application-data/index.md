@@ -74,7 +74,7 @@ Some of the NAV implementations of this pattern are:
 
 ## Related Topics
 
-The **Extended Text** pattern is a more powerful version of the **Multilanguage application data **pattern presented in this section. The main differences are: **Pattern**
+The **Extended Text** pattern is a more powerful version of the **Multilanguage application data** pattern presented in this section. The main differences are: **Pattern**
 **Multilanguage Application Data**
 **Extended Text**
 **Supports translation of application data**

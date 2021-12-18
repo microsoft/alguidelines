@@ -1,9 +1,7 @@
 +++
-title = "4-masked-text.md"
+title = "Masked Text"
 weight = 180
 +++
-## Masked Text
-
 _By Bogdana Botez at Microsoft Development Center Copenhagen_
 
 _[![ ][image0]][anchor0]  
@@ -25,7 +23,7 @@ __
 
 **Solution:** Use the "Masked" field property to display dots instead of characters on the sensitive text field in the UI.
 
-**Usage: **Figure 1 shows how an unmasked and a masked field look in Dynamics NAV. On page Microsoft Dynamics CRM Connection Setup, the first two fields (Dynamics CRM URL and User Name) are not masked. The next field (Password) is masked. As the user types text into the Password field, the characters are one by one replaced with dots. When the user had finished typing and had left the Password field (moved focus to another page element), then a pre-defined number of dots is showed in the field, no matter what the real length of the password is. This is done so that the length of the text is not disclosed. Hence, no matter if the text had 5, 10 or 20 characters, as soon as the user leaves the masked field, 10 dots will be visible.
+**Usage:** Figure 1 shows how an unmasked and a masked field look in Dynamics NAV. On page Microsoft Dynamics CRM Connection Setup, the first two fields (Dynamics CRM URL and User Name) are not masked. The next field (Password) is masked. As the user types text into the Password field, the characters are one by one replaced with dots. When the user had finished typing and had left the Password field (moved focus to another page element), then a pre-defined number of dots is showed in the field, no matter what the real length of the password is. This is done so that the length of the text is not disclosed. Hence, no matter if the text had 5, 10 or 20 characters, as soon as the user leaves the masked field, 10 dots will be visible.
 
 [![ ][image1]][anchor1]
 
@@ -33,11 +31,11 @@ _Figure 1 - The field "Password" is masked._
 
 To apply this pattern in Dynamics NAV, the developer has two choices:
 
-**1\. ****Mask everywhere**
+**1\.** **Mask everywhere**
 
 Mask the field in all pages which expose it or will expose it in the future. In this case, masking needs to be set at the table level, by opening the table in design mode and setting the field's property ExtendedDatatype=Masked.
 
-**2\. ****Mask only in selected pages**
+**2\.** **Mask only in selected pages**
 
 Mask the field in only a subset of pages. Open the pages where the field should be masked in design mode, open the property page for the field in question, and set ExtendedDatatype=Masked. This option can be used for example when a field should be hidden from most users (in most usual pages), but still visible to administrators in specific pages.
 

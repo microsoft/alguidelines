@@ -17,7 +17,7 @@ To guide users, we can prompt them with a dialog on which they can update the se
 Define two functions in the setup or supplementary table: One for verifying if the needed information is available, and another for exposing the page that contains the fields that the user must update.
 
 Call the code. For example:
-
+```AL
 Local IsXAvailable : Boolean   
 If field X <\> '' then   
 Exit(True)  
@@ -39,7 +39,7 @@ The calling code
 SetupTable.VerifyAndSetX
 
 ..
-
+```
 ## NAV Specific Example
 
 ****
@@ -53,10 +53,11 @@ Procedure VerifyAndSetOIOUBLPath(...)
 The code in the **Sales & Receivables Setup** table can now be called directly from the related processing codeunit, such as the **Sales-Post + Print** codeunit (82).
 
 Were the code is called:
-
+```AL
 IF ("EAN No." <\> '') THEN
 
 SalesSetup.VerifyAndSetOIOUBLPathSetup(SalesHeader."Document Type");
+```
 
 If the setup is not updated properly, the user is prompted to update it as follows.
 
@@ -82,7 +83,7 @@ The anti-pattern is to do a testfield on a field that is not in the table that y
 
 The test field message can often be confusing because the pages are often named differently than the tables, which can lead to misunderstanding and context-switching.
 
-[watch?v=oeASJN zqTo&list=PLhZ3P LY7CqmVszuvtJLujFyHpsVN0Uw&index=18][anchor2]
+{{< youtube oeASJN-zqTo>}}
 
 
 

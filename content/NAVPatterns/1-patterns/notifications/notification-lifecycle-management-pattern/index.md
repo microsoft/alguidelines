@@ -2,11 +2,9 @@
 title = "Notification Lifecycle Management Pattern"
 weight = 880
 +++
-**Notification Lifecycle Management pattern**
+_By David Bastide at Microsoft Development Center Copenhagen_
 
-_ By David Bastide at Microsoft Development Center Copenhagen _
-
- [![ ][image0]][anchor0]
+[![ ][image0]][anchor0]
 
   
 
@@ -26,11 +24,11 @@ However, some cases can be more complicated. For example, when you are adding li
 
 [![ ][image1]][anchor1] 
 
-_Figure 1: Notification that an item that is not in stock. The notification ID is a predefined GUID, 2712AD06-C48B-4C20-820E-347A60C9AD00, for example. _
+_Figure 1: Notification that an item that is not in stock. The notification ID is a predefined GUID, 2712AD06-C48B-4C20-820E-347A60C9AD00, for example._
 
 [![ ][image2]][anchor2]
 
-_Figure 2: You add a second item that is not in stock. the notification is fired with the same GUID, 2712AD06-C48B-4C20-820E-347A60C9AD00, for example. The previous notification is overwritten. _
+_Figure 2: You add a second item that is not in stock. the notification is fired with the same GUID, 2712AD06-C48B-4C20-820E-347A60C9AD00, for example. The previous notification is overwritten._
 
 Here is the code for this behavior: 
 
@@ -132,7 +130,7 @@ The simple case is:
 
 [![ ][image4]][anchor4]
 
-_Figure 4: without additional context****_
+_Figure 4: without additional context_
 
 [![ ][image5]][anchor5] 
 
@@ -156,7 +154,7 @@ The realistic case is:
 
 [![ ][image6]][anchor6] 
 
-_Figure 6: delayed insert, with additional context _
+_Figure 6: delayed insert, with additional context_
 
 **Usages in NAV:**
 

@@ -2,7 +2,7 @@
 title = "Integration of Addresses"
 weight = 680
 +++
-[watch?v=60Wrx9N gfY&list=PLhZ3P LY7CqmVszuvtJLujFyHpsVN0Uw&index=19][anchor0]
+{{< youtube 60Wrx9N-gfY>}}
 
 
 

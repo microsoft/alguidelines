@@ -4,19 +4,19 @@ weight = 1190
 +++
 _Originally by Abhishek Ghosh, at Microsoft Development Center Copenhagen_
 
-Abstract
+## Abstract
 
 This pattern generates the data to be displayed dynamically by combing/processing several data sources. It then displays the resulting dataset without writing to the database.
 
 [![ ][image0]][anchor0][][anchor1]
 
-Description
+## Description
 
 While writing reports in NAV, we have the luxury of using a built-in iterator. So, once we define the dataitem and the ordering, the runtime takes care of the iteration.
 
 The iterator has one shortcoming: It can only run through records written into the database. There are situations, however, where we want to display temporary datasets created at runtime by processing data from different sources. That is where the Temporary Dataset Report pattern can be used.
 
-Usage
+## Usage
 
 This pattern takes a two-step approach to displaying the data:
 
@@ -72,7 +72,7 @@ With the first approach, in the Integer-OnAfterGetRecord trigger, you must make 
 
 With the second approach, you must limit the number of times the report iterates through the Integer dataitem. The Number field in the Integer table will have a value of 1 in the first iteration and will increment automatically by 1 on every subsequent iteration. To ensure that the report iterates through the Integer dataitem "n" times, you must, therefore, filter the Integer dataitem on Number = 1..n. You must also move the temporary record variable to the next record in every iteration of the Integer-OnAfterGetRecord trigger. NOTE: This technique cannot be used if you use queries as the temporary data source, since queries do not (in NAV 2013) return the number of records.
 
-Example 
+## Example 
 
 Goal: To print a report that lists all contacts that have open documents (both sales and purchase) and displays those documents in chronological order
 
@@ -139,9 +139,8 @@ This is a commonly used pattern in several reports, such as:
 
 * Report 206 -- Sales -- Invoice 
 
-[watch?v=QHn5oEOJv0Q&list=PLhZ3P LY7CqmVszuvtJLujFyHpsVN0Uw&index=10][anchor8]
+{{< youtube QHn5oEOJv0Q>}}
 
-* * 
 
 [anchor0]: /cfs-file.ashx/__key/communityserver-wikis-components-files/00-00-00-00-42/0250.Temporary-Dataset-Report-1.gif
 [anchor1]: /cfs-file.ashx/__key/communityserver-wikis-components-files/00-00-00-00-42/8424.Temporary-Dataset-Report-1.gif
