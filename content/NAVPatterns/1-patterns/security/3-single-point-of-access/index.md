@@ -46,11 +46,11 @@ This shows how pattern application is an iterative process, where one step follo
 
 **References**
 
-[1] "Wikipedia," [Online]. Available: https://en.wikipedia.org/wiki/Separation\_of\_concerns.
+[1] "Wikipedia," [Online]. Available: https://en.wikipedia.org/wiki/Separation_of_concerns.
 
 [2] "GUID Structure," [Online]. Available: https://msdn.microsoft.com/en-us/library/aa373931(VS.85).aspx.
 
-[3] "Wikipedia," [Online]. Available: https://en.wikipedia.org/wiki/Binary\_large\_object.
+[3] "Wikipedia," [Online]. Available: https://en.wikipedia.org/wiki/Binary_large_object.
 
 [4] waldo, "How Do I: Manage Companies in Microsoft Dynamics NAV 2013 R2".
 
@@ -58,17 +58,17 @@ This shows how pattern application is an iterative process, where one step follo
 
 [6] B. Botez, "Setup Table design pattern," Microsoft, 2013\. [Online]. Available: https://community.dynamics.com/nav/w/designpatterns/76.setup-table. [Accessed 31 07 2016].
 
-[7] "Shotgun Surgery," [Online]. Available: https://en.wikipedia.org/wiki/Shotgun\_surgery. [Accessed 31 07 2016].
+[7] "Shotgun Surgery," [Online]. Available: https://en.wikipedia.org/wiki/Shotgun_surgery. [Accessed 31 07 2016].
 
 [8] M. Fowler, Refactoring: Improving the design of existing code, Addison Wesley, 1999\.
 
-[9] "Masking out," [Online]. Available: https://en.wikipedia.org/wiki/Data\_masking\#Masking\_out. [Accessed 29 7 2016].
+[9] "Masking out," [Online]. Available: https://en.wikipedia.org/wiki/Data_masking#Masking_out. [Accessed 29 7 2016].
 
 [10] "Key Vault," Microsoft, [Online]. Available: https://azure.microsoft.com/en-us/services/key-vault/.
 
 [11] "How to: Configure SSL to Secure the Connection to Microsoft Dynamics NAV Web Client," Microsoft, [Online]. Available: https://msdn.microsoft.com/en-us/library/hh167264(v=nav.90).aspx. [Accessed 2 8 2016].
 
-[12] "sniffer," [Online]. Available: http://compnetworking.about.com/od/networksecurityprivacy/g/bldef\_sniffer.htm. [Accessed 02 08 2016].
+[12] "sniffer," [Online]. Available: http://compnetworking.about.com/od/networksecurityprivacy/g/bldef_sniffer.htm. [Accessed 02 08 2016].
 
 
 

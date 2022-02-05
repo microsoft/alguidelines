@@ -31,7 +31,7 @@ I recommend to use this concept on:
 **Step 1** - if it doesn't exist yet - you create your Hook Codeunit. As the name assumes .. this is always a codeunit. We apply the following rules to it:
 
 * One Hook always hooks into one object. Which basically means that I will only declare this new codeunit in one other object (which is its parent object)
-* The naming convention is: "The\_Original\_Object\_Name Hook". Naming conventions are important, just to find your mapped object, and also to be able to group the Hooks.
+* The naming convention is: "The_Original_Object_Name Hook". Naming conventions are important, just to find your mapped object, and also to be able to group the Hooks.
 
 **Step 2**, you create the hook, which is basically a method (function) in your codeunit. The naming is important:
 

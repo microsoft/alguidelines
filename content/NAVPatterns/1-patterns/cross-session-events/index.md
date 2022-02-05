@@ -155,7 +155,7 @@ This pattern was originally described in the following blog:
 
 Below is the Wikipedia link to the PubSub pattern
 
-[https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe\_pattern][anchor1]
+[https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern][anchor1]
 
 
 

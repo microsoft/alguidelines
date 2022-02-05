@@ -57,7 +57,7 @@ Continuing with our Customer Name example, here is how the query would look:
     { 2 ;1 ;Column ; ;
     DataSource=Name }
     { 3 ;1 ;Column ; ;
-    ColumnFilter=Count\_=FILTER(\>1);
+    ColumnFilter=Count_=FILTER(\>1);
     MethodType=Totals;
     Method=Count }
     }
