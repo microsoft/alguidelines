@@ -74,31 +74,34 @@ BEGIN
 END;
 
 LOCAL PROCEDURE IdentifyCountryRegionCode@1(VAR BankDataConvBank@1002 : Record 1259;Filter@1000 : Text) : Text;
-    VAR
-        CompanyInformation@1001 : Record 79;
-        BlankFilter@1003 : Text;
-    BEGIN
-        BlankFilter := '''''';
-        IF Filter = BlankFilter THEN BEGIN
-            CompanyInformation.GET;
-            BankDataConvBank.SETFILTER("Country/Region Code",CompanyInformation."Country/Region Code");
-            EXIT(BankDataConvBank.GETFILTER("Country/Region Code"));
-        END;
-        EXIT(Filter);
+VAR
+    CompanyInformation@1001 : Record 79;
+    BlankFilter@1003 : Text;
+BEGIN
+    BlankFilter := '''''';
+
+    IF Filter = BlankFilter THEN BEGIN
+        CompanyInformation.GET;
+        BankDataConvBank.SETFILTER("Country/Region Code",CompanyInformation."Country/Region Code");
+        EXIT(BankDataConvBank.GETFILTER("Country/Region Code"));
     END;
 
+    EXIT(Filter);
+END;
+
 LOCAL PROCEDURE RefreshBankNamesOlderThanToday@5(CountryRegionCode@1000 : Text;ShowErrors@1002 : Boolean;Timeout@1004 : Integer);
-    VAR
-        BankDataConvBank@1001 : Record 1259;
-        ImpBankListExtDataHndl@1003 : Codeunit 1289;
-    BEGIN
-        IF CountryRegionCode <\> '' THEN
-            BankDataConvBank.SETFILTER("Country/Region Code",CountryRegionCode);
+VAR
+    BankDataConvBank@1001 : Record 1259;
+    ImpBankListExtDataHndl@1003 : Codeunit 1289;
+BEGIN
+    IF CountryRegionCode <> '' THEN
+        BankDataConvBank.SETFILTER("Country/Region Code",CountryRegionCode);
     BankDataConvBank.SETFILTER("Last Update Date",'<%1',TODAY);
     IF BankDataConvBank.FINDFIRST THEN
         ImpBankListExtDataHndl.GetBankListFromConversionService(ShowErrors,CountryRegionCode,Timeout);
 END;
 ```
+
 ## NAV Usages
 
 Bank name lookup on the Bank Account card for dynamically identifying the format to use to generate a bank-specific payment file.

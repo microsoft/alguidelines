@@ -30,7 +30,7 @@ Using the patterns involves three steps.
 
 1) As a first step, we must insert a record. This can be done either through C/AL code or by letting the user create a record using the **New** action. 
 
-2) After the record is created, we must apply the template. This is done by using the **UpdateRecord** function in the **Config. Template Management **codeunit (8612). 
+2) After the record is created, we must apply the template. This is done by using the **UpdateRecord** function in the **Config. Template Management** codeunit (8612). 
 
 **Config. Template Lines** records reference one **Config. Template Header** record (lines pattern). The lines can be of type:
 
@@ -39,7 +39,7 @@ Using the patterns involves three steps.
 
 The **UpdateRecord** function applies values to the record one line at the time. One of the requirements was to be possible to use configuration templates in different language/regional settings than the template was created in.
 
-To support this scenario, when applying the**Config. Template Line** record, **GLOBALLANGUAGE** is set to the language ID of the field. This is important because the default value is stored as text, so we need to use the same formatting that NAV was running on when the template was created. Otherwise, data types, such as Boolean, Date, etc., will raise validation errors. 
+To support this scenario, when applying the **Config. Template Line** record, **GLOBALLANGUAGE** is set to the language ID of the field. This is important because the default value is stored as text, so we need to use the same formatting that NAV was running on when the template was created. Otherwise, data types, such as Boolean, Date, etc., will raise validation errors. 
 
 Any updates to a **Config. Template Line** record will automatically update the language ID to the current one. Since lines are applied one by one, it is supported to have lines with different language IDs belonging to the same template.
 
@@ -47,38 +47,39 @@ Any updates to a **Config. Template Line** record will automatically update the 
 
 Code example (Insert a record, apply a template, and insert the related templates): 
 
-**// First insert a record Customer.INSERT(TRUE);**
-
-**// Apply a template RecRef.GETTABLE(Customer);**
-
 ```al
+// First insert a record Customer.INSERT(TRUE);
+
+// Apply a template RecRef.GETTABLE(Customer);
+
 ConfigTemplateMgt.UpdateRecord(ConfigTemplateHeader,RecRef);
 RecRef.SETTABLE(Customer);
-```
 
-**// Insert Dimensions -- related templates**
-```al
+// Insert Dimensions -- related templates
+
 MiniDimensionsTemplate.InsertDimensionsFromTemplates(ConfigTemplateHeader,Customer."No.",DATABASE::Customer); 
 ```
+
 Code to insert related templates (dimensions): 
+
 ```al
 FUNCTION InsertDimensionsFromTemplates(ConfigTemplateHeader : Record "Config. Template Header";MasterRecordNo : Code\[20\];TableID : Integer)
+
   // There are multiple records (multiple dimensions per master record)
   // We have to set filter
   ConfigTemplateLine.SETRANGE(Type,ConfigTemplateLine.Type::"Related Template");
   ConfigTemplateLine.SETRANGE("Data Template Code",ConfigTemplateHeader.Code
   IF ConfigTemplateLine.FINDSET THEN
-  REPEAT
-    ConfigTemplateHeader.GET(ConfigTemplateLine."Template Code");
-    // Ensure that the table where the template belongs to is Dimensions
-    // We could have other related templates
-    IF ConfigTemplateHeader."Table ID" = DATABASE::"Default Dimension" THEN
-    InsertDimensionFromTemplate(ConfigTemplateHeader,MasterRecordNo,TableID);
-  UNTIL ConfigTemplateLine.NEXT = 0;
-```
+    REPEAT
+      ConfigTemplateHeader.GET(ConfigTemplateLine."Template Code");
 
-**// Create a new Dimensions Record and link it to the Master Record******
-```al
+      // Ensure that the table where the template belongs to is Dimensions
+      // We could have other related templates
+      IF ConfigTemplateHeader."Table ID" = DATABASE::"Default Dimension" THEN
+        InsertDimensionFromTemplate(ConfigTemplateHeader,MasterRecordNo,TableID);
+    UNTIL ConfigTemplateLine.NEXT = 0;
+
+// Create a new Dimensions Record and link it to the Master Record
 FUNCTION InsertDimensionFromTemplate(ConfigTemplateHeader : Record "Config. Template Header";MasterRecordNo : Code\[20\];TableID : Integer)
   DefaultDimension.INIT;
   DefaultDimension."No." := MasterRecordNo;
@@ -100,7 +101,7 @@ FUNCTION InsertDimensionFromTemplate(ConfigTemplateHeader : Record "Config. Temp
 
 **To view or edit templates, you have two options:**
 
-1. Use the **Config. Template List** table (8620) and the **Config. Template Header Card **table (8618).
+1. Use the **Config. Template List** table (8620) and the **Config. Template Header Card** table (8618).
 
 This is a generic solution that is not very usable and is error-prone (no lookups, checks for length, table relation checks, etc.) The default value is a text field of 250 characters, which might be much more than the field length, and may lead to validation errors when used. Users will most likely not be able to use this page.
 
@@ -121,9 +122,9 @@ The goals of this solution were:
 * To avoid any lateral effects of doing validation on the temporary master record. Doing validation on fields, even though the record itself is temporary, could permanently modify other data in the database. For example, if you insert a new record in the **Customer** table, even in a temporary table, a Contact record is created, which will not be temporary.
 * Testability: It is easy to test through RecordRef that the template table matches the main table. We can compare field lengths, data types, table relations, etc. The test is able to detect that they are out of sync, so it is easy to prevent errors.
 
-One example in the product is the **Mini Customer Template **table (1300).
+One example in the product is the **Mini Customer Template** table (1300).
 
-The table itself contains very little code. OnModify, OnInsert, and OnDelete triggers update the **Configuration Header** and **Configuration Lines** tables. The following functions in the **Config. Template Management **codeunit (8612), are used for this:
+The table itself contains very little code. OnModify, OnInsert, and OnDelete triggers update the **Configuration Header** and **Configuration Lines** tables. The following functions in the **Config. Template Management** codeunit (8612), are used for this:
 
 * ConfigTemplateManagement.CreateConfigTemplateAndLines
 * ConfigTemplateManagement.UpdateConfigTemplateAndLines
@@ -142,15 +143,13 @@ In C5 2014, this is the workflow:
 
 The user opens the **Customers List** window and selects **New**
 
-**[![ ][image3]][anchor3]**
-
-**[][anchor3]** 
+[![ ][image3]][anchor3]
 
 From this page, the user can view the template, edit it, or create a new one. Selecting a template will populate the customer card and open a new record. From the existing record, the user has options to save as a template or opening a list of templates to maintain available templates. Selecting a template will populate the customer card and open a new record. From the existing record, the user has options to save as a template or opening a list of templates to maintain available templates.
 
 [![ ][image4]][anchor4]
 
-From the **Customer Card Template **window, we can invoke the **Dimensions** action, through which we can define the dimensions that will be inserted together with the template:
+From the **Customer Card Template** window, we can invoke the **Dimensions** action, through which we can define the dimensions that will be inserted together with the template:
 
 [![ ][image5]][anchor5]
 

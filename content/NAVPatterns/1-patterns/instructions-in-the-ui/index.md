@@ -74,19 +74,27 @@ Important parts:
   
 Example of the embed code:
 
+```js
 <iframe width="560" height="315" src="//www.youtube.com/embed/7SGp9pA9cAY" frameborder="0" allowfullscreen\></iframe\>
+```
 
 You must assign **src attribute** to src of the embed code, for example:
 
+```al
     VideoPlayer.SetFrameAttribute('src', 'https://www.youtube.com/embed/7SGp9pA9cAY');
+```
 
 Without this, the video will not play. You can use the same function to assign other attributes, for example to remove frame border use:
 
+```al
     VideoPlayer.SetFrameAttribute(' frameborder', '0');
+```
 
 Height and width should be set by using the following functions, since they ensure that the video will be centered on the page.
 
+```al
     VideoPlayerAddIn.SetHeight(Height) and VideoPlayerAddIn.SetWidth(Width);
+```
 
 If you would like to reuse the **Mini Video Player Page** page (1395), then use:
 

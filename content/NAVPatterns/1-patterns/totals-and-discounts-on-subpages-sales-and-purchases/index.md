@@ -129,7 +129,7 @@ After Platform added support for this specific case, the layout is very simple, 
 
 This will produce the layout we wanted:
 
-[![ ][image10]][anchor10]
+[![ ][image12]][anchor13]
 
 ### UI -- Manual Totals Update
 
@@ -137,15 +137,13 @@ As mentioned before, there are cases when the user is informed that totals/disco
 
 The link is part of the sub-part where totals and discounts are added. The visibility is controlled by actually controlling the text (message, or empty), because Platform does not support making only one visible/invisible (it must be a group). When the link is displayed, the styling is also changed for the total/discount controls, and the values are set to 0\.
 
-[![ ][image11]][anchor11]
+[![ ][image13]][anchor14]
 
 ## NAV Usages
 
 We have implemented these scenarios for sales and purchase documents (order, invoice, quote, credit memos, return orders, including posted documents). Note that the implementation in NAV 2015 is a bit different than the one in NAV 2014 C5 objects (1300 range). It was decided not to merge the two implementations, among other reasons because the NAV 2014 C5 implementation does not fit the full application.
 
 The pattern can easily be extended to new sales and purchase documents. If the pattern is followed, it can also be extended to other types of documents, such as in services, jobs, etc.
-
-****
 
 **Note:** This new pattern is not implemented in the North America and India versions. This is due to special local features in the two versions regions and the multitude of sales tax/vat options that would make the solution non-user friendly and not optimized for performance.
 
@@ -170,6 +168,8 @@ Platform support to be able to trigger full-page update from the lines. Support 
 [anchor10]: /cfs-file.ashx/__key/communityserver-wikis-components-files/00-00-00-00-42/Fig-11.jpg
 [anchor11]: /cfs-file.ashx/__key/communityserver-wikis-components-files/00-00-00-00-42/Fig-12.jpg
 [anchor12]: https://www.youtube.com/watch?v=U3noU-WT8Xk&list=PLhZ3P-LY7CqmVszuvtJLujFyHpsVN0U_w&index=22
+[anchor13]: Fig-11.jpg
+[anchor14]: Fig-12.jpg
 
 
 [image0]: 4300.Fig-1.jpg
@@ -184,3 +184,5 @@ Platform support to be able to trigger full-page update from the lines. Support 
 [image9]: Fig-10.jpg
 [image10]: /resized-image.ashx/__size/550x0/__key/communityserver-wikis-components-files/00-00-00-00-42/Fig-11.jpg
 [image11]: /resized-image.ashx/__size/550x0/__key/communityserver-wikis-components-files/00-00-00-00-42/Fig-12.jpg
+[image12]: Fig-11.jpg
+[image13]: Fig-12.jpg

@@ -4,12 +4,12 @@ weight = 1000
 +++
 _Authors: Henrik Langbak and Kim Ginnerup, Bording Data_
 
-## **Abstract**
+## Abstract
 
 This pattern prevent data from being used elsewhere before it is in a system consistent state.  
 NAV inserts a record as soon as the primary key has been set. But the record may not be in a valid state at this point in time. How do you know if a newly inserted record is ready for use?
 
-## **Description**
+## Description
 
 Whenever you need to stall the release of data, you can use this pattern.
 
@@ -24,22 +24,11 @@ The solution is an Option Field with two or three values:
 
 The states should be interpreted as:
 
-State
-
-Description
-
-Open
-
-Not all data is in place. The record is system inconsistent. The record or record hierarchy is invisible for all other parts of the system.
-
-Pending
-
-The record is system consistent. But is awaiting someone to manually raise the state to Released.  
-The record is still invisible.
-
-Released
-
-All data is in place and the record is system consistent, and ready for use. It is now visible for the rest of the system. The state can never be reversed.
+State | Description
+------|-----
+Open | Not all data is in place. The record is system inconsistent. The record or record hierarchy is invisible for all other parts of the system.
+Pending | The record is system consistent. But is awaiting someone to manually raise the state to Released. The record is still invisible.
+Released | All data is in place and the record is system consistent, and ready for use. It is now visible for the rest of the system. The state can never be reversed.
 
 The option field name: Release State.
 

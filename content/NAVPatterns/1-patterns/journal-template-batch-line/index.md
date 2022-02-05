@@ -10,7 +10,7 @@ The role of a journal line is to temporarily hold transaction data until the tra
 
 Journal templates are used to specify the underlying journal structure and to provide the default information for the journal batches. Journal batches usually serve to group journal lines, such as lines created by two different users.
 
-_[![ ][image0]][anchor0]_
+[![ ][image0]][anchor0]
 
 ## Description
 
@@ -28,31 +28,13 @@ The journal templates are located on the Journal Template page. A Journal Templa
 
 The Journal Template table stores the relevant attributes that define the nature and behavior of the journal templates, for example:
 
-Journal Template Table Field
-
-Description
-
-Test Report ID
-
-The journals offer the possibility of running test reports3. The role of a test report is to simulate the posting process. The verification criteria for the journal lines is ran, and the report can be displayed, all without doing the actual posting. This helps finding and correcting any errors that might exist in the data.
-
-The name of the test report is the same with the name of the corresponding journal, plus the suffix " - Test". For example, the General Journal has the associated test report named General Journal - Test.
-
-Posting Report ID
-
-This report is printed when a user selects Post and Print4.
-
-Page ID
-
-For some journals, more UI objects are required. For example, the General Journals have a special page for bank and cash.
-
-Source Code
-
-Here you can enter a Trail Code for all the postings done through this Journal4.
-
-Recurring
-
-Whenever you post lines from a recurring journal, new lines are automatically created with a posting date defined in the recurring date formula.
+Journal Template Table Field | Description
+-----|-----
+Test Report ID | The journals offer the possibility of running test reports3. The role of a test report is to simulate the posting process. The verification criteria for the journal lines is ran, and the report can be displayed, all without doing the actual posting. This helps finding and correcting any errors that might exist in the data. The name of the test report is the same with the name of the corresponding journal, plus the suffix " - Test". For example, the General Journal has the associated test report named General Journal - Test.
+Posting Report ID | This report is printed when a user selects Post and Print4.
+Page ID | For some journals, more UI objects are required. For example, the General Journals have a special page for bank and cash.
+Source Code | Here you can enter a Trail Code for all the postings done through this Journal4.
+Recurring | Whenever you post lines from a recurring journal, new lines are automatically created with a posting date defined in the recurring date formula.
 
 Each journal template defines a default value of those attributes. The values that are defined in a template will be inherited by the journal batches, which will be created from a journal template.
 
@@ -72,7 +54,7 @@ During posting, only the information from the journal lines is needed. However, 
 
 Posting creates ledger entries from the temporary content that is stored in the journal lines. Ledger entries are not created directly. Instead, they are posted from journal lines.
 
-_[![ ][image1]][anchor1]_
+[![ ][image1]][anchor1]
 
 ### Aggregation
 
@@ -119,30 +101,35 @@ The General Journals Batches page (251) is linked to the Gen. Journal Batch sour
 
 Some of the fields in the Gen. Journal Batch table are not editable. Instead, their value is automatically calculated from the parent Gen. Journal Template table. For example, the Recurring field (22) is a FlowField with the following calculation formula:
 
-    Lookup("Gen. Journal Template".Recurring WHERE (Name=FIELD(Journal Template Name)))
-
+```al
+Lookup("Gen. Journal Template".Recurring WHERE (Name=FIELD(Journal Template Name)))
+```
 
 Similarly, the Template Type field is a FlowField that gets its value from the parent table:
 
-    Lookup("Gen. Journal Template".Type WHERE (Name=FIELD(Journal Template Name)))
+```al
+Lookup("Gen. Journal Template".Type WHERE (Name=FIELD(Journal Template Name)))
+```
 
 ### Setting up a New Batch
 
 When the user creates a new batch, the following field values are transferred from the Gen. Journal Template table to the Gen. Journal Batch table:
 
-    "Bal. Account Type" := GenJnlTemplate."Bal. Account Type";
+```al
+"Bal. Account Type" := GenJnlTemplate."Bal. Account Type";
 
-    "Bal. Account No." := GenJnlTemplate."Bal. Account No.";
+"Bal. Account No." := GenJnlTemplate."Bal. Account No.";
 
-    "No. Series" := GenJnlTemplate."No. Series";
+"No. Series" := GenJnlTemplate."No. Series";
 
-    "Posting No. Series" := GenJnlTemplate."Posting No. Series";
+"Posting No. Series" := GenJnlTemplate."Posting No. Series";
 
-    "Reason Code" := GenJnlTemplate."Reason Code";
+"Reason Code" := GenJnlTemplate."Reason Code";
 
-    "Copy VAT Setup to Jnl. Lines" := GenJnlTemplate."Copy VAT Setup to Jnl. Lines";
+"Copy VAT Setup to Jnl. Lines" := GenJnlTemplate."Copy VAT Setup to Jnl. Lines";
 
-    "Allow VAT Difference" := GenJnlTemplate."Allow VAT Difference";
+"Allow VAT Difference" := GenJnlTemplate."Allow VAT Difference";
+```
 
 ### Cascade record deletion 
 

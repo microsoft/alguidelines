@@ -77,10 +77,7 @@ New table
 ```AL
 TAB 50003 VAT Return Data  
 PROCEDURE FillInVATReturnData@1200001(VAR VATReturnData@1200000 : Record 50003);
-```
 
-****
-```AL
 VATReturnData.INIT;  
 VATReturnData.NumberOfCopies := GetDefaultNumberOfCopies;  
 VATReturnData.Uploaded := FALSE;

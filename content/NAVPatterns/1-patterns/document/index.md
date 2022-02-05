@@ -61,7 +61,7 @@ Create the page for "Document Header" Table with the wizard by selecting the Doc
 
 Then simply add your subpage as new line in the designer, and adjust the property "SubFormPerLink" with "Document No.=FIELD(No.)" to link header and lines :
 
-**[![ ][image1]][anchor1]**
+[![ ][image1]][anchor1]
 
 **Page "Document List":** Use the Page wizard to create a List page based on the Document table and add fields, FactBox (RecordLinks, Notes...), etc. 
 

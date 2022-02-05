@@ -30,8 +30,8 @@ The implementation varies depending on the technology and language used. In obje
 
 [anchor0]: 0535.Singleton.png
 [anchor1]: https://en.wikipedia.org/wiki/Singleton_pattern
-[anchor2]: /nav/w/designpatterns/151.singleton-table
-[anchor3]: /nav/w/designpatterns/283.singleton-codeunit
+[anchor2]: /navpatterns/1-patterns/singleton/singleton-table/
+[anchor3]: /navpatterns/1-patterns/singleton/singleton-codeunit/
 
 
 [image0]: 0535.Singleton.png

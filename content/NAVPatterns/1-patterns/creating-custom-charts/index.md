@@ -38,7 +38,7 @@ This table is used to encapsulate the logic of the Business Chart Add-in. The ta
 * DrillDown logic
 * Other helper data related functions, for displaying date, periods, etc.\[Bogdana1\] \[NK2\] \[NK3\] 
 
-**Note:** It is recommended that you reuse the **Business Chart Buffer **table****(485) as a buffer table or extend. It is a generic table which should cover most of the use cases. Implement a new buffer table only if this table does not meet your needs.
+**Note:** It is recommended that you reuse the **Business Chart Buffer table** (485) as a buffer table or extend. It is a generic table which should cover most of the use cases. Implement a new buffer table only if this table does not meet your needs.
 
 ### CardPart page
 
@@ -67,10 +67,10 @@ One of the most common functionalities is personalization. If the chart can be c
 To do this, you need the following:
 
 * A setup record to store the data. You can use the **Business Chart User Setup** table (487) or create a new setup table if you need to store more information.
-* A management codeunit to write/apply the settings to the chart and to encapsulate other logic. Since we should not write code on pages, the code for the actions and other logic that does not apply to the setup record****should go in this codeunit.
+* A management codeunit to write/apply the settings to the chart and to encapsulate other logic. Since we should not write code on pages, the code for the actions and other logic that does not apply to the setup record should go in this codeunit.
 * Setup pages where users can customize how the chart is shown and set different settings.
 
-The relation between the components is visualized in the following diagram\[
+The relation between the components is visualized in the following diagram:
 
 [![ ][image3]][anchor3]
 
@@ -98,19 +98,22 @@ Implementation of the **Finance Performance Chart** page (762)
 
 ```al
 BusinessChart::AddInReady()
-    UpdateChart(Period::" ");
+
+UpdateChart(Period::" ");
 
 LOCAL UpdateChart(Period : ',Next,Previous')
-    MoveAndUpdateChart(Period,0);
+
+MoveAndUpdateChart(Period,0);
 
 LOCAL MoveAndUpdateChart(Period : ',Next,Previous';Move : Integer)
-    AccSchedChartManagement.GetSetupRecordset(AccountSchedulesChartSetup,AccountSchedulesChartSetup.Name,Move);
 
-    AccSchedChartManagement.UpdateData(Rec,Period,AccountSchedulesChartSetup);
+AccSchedChartManagement.GetSetupRecordset(AccountSchedulesChartSetup,AccountSchedulesChartSetup.Name,Move);
 
-    Update(CurrPage.BusinessChart);
+AccSchedChartManagement.UpdateData(Rec,Period,AccountSchedulesChartSetup);
 
-    StatusText := GetCurrentSelectionText("Period Filter Start Date","Period Filter End Date");
+Update(CurrPage.BusinessChart);
+
+StatusText := GetCurrentSelectionText("Period Filter Start Date","Period Filter End Date");
 ```
 
 In the MoveAndUpdateChart method, the AccSchedChartManagement codeunit gets a setup record and updates it if necessary. Then, it initializes the chart with setup data and sets the StatusText to show the period for which data is displayed. The same method is used by the actions to move and update the chart so that there is no code duplication.
@@ -119,8 +122,10 @@ The following code is used to implement **DataPointClicked**
 
 ```al
 BusinessChart::DataPointClicked(point : DotNet "Microsoft.Dynamics.Nav.Client.BusinessChart.BusinessChartDataPoint")
-    SetDrillDownIndexes(point);
-    AccSchedChartManagement.DrillDown(Rec,AccountSchedulesChartSetup);
+
+SetDrillDownIndexes(point);
+
+AccSchedChartManagement.DrillDown(Rec,AccountSchedulesChartSetup);
 ```
 
 SetDrillDownindexes is a method from the **Business Chart Buffer** table that maps the DotNet point variable to C/AL data, so it must be used. The next method that you must implement is the action to be performed on Drilldown.

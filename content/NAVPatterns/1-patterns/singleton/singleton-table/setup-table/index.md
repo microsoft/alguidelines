@@ -31,12 +31,14 @@ The **CardPage** type is most suitable for representing this kind of tables. In 
 
 In the **OnOpenPage** trigger, the following code should be added to insert a record when the user opens the page for the first time, if a record does not exist already.
 
-    OnOpenPage()
+```al
+OnOpenPage()
     RESET;
     IF NOT GET THEN BEGIN
-    INIT;
-    INSERT;
+        INIT;
+        INSERT;
     END;
+```
 
 The following diagram describes the flow of the program, once the user tries to access the setup information. The user opens the page. If the record containing setup information already exists, then the page opens on the existing record. Else, a new empty record is created and the page opens on it.
 

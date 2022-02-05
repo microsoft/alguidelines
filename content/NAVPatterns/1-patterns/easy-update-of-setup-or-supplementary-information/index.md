@@ -17,7 +17,7 @@ To guide users, we can prompt them with a dialog on which they can update the se
 Define two functions in the setup or supplementary table: One for verifying if the needed information is available, and another for exposing the page that contains the fields that the user must update.
 
 Call the code. For example:
-```AL
+```
 Local IsXAvailable : Boolean   
 If field X <\> '' then   
 Exit(True)  
@@ -31,9 +31,11 @@ Open the card page in edit mode
   
 If not IsXAvailable then  
 Error(Field X is missing a value. Please correct it.)
+```
 
 The calling code
 
+```
 ..
 
 SetupTable.VerifyAndSetX
@@ -42,17 +44,18 @@ SetupTable.VerifyAndSetX
 ```
 ## NAV Specific Example
 
-****
-
 In the **Sales & Receivables Setup** table (311) for the DK version, the following procedures have been added:
 
+```al
 Local Procedure IsOIOUBLPathAvailable(...)
 
 Procedure VerifyAndSetOIOUBLPath(...)
+```
 
 The code in the **Sales & Receivables Setup** table can now be called directly from the related processing codeunit, such as the **Sales-Post + Print** codeunit (82).
 
 Were the code is called:
+
 ```AL
 IF ("EAN No." <\> '') THEN
 

@@ -46,61 +46,31 @@ When the second payment journal line is selected, the FactBox shows errors for t
 
 In the following table, the Generic Object column contains the objects that you can use as a base for your implementation.
 
-Generic Object
+Generic Object | Description | Sample W1 implementation of SEPA Credit Transfer
+------|------|------
+Journal Page | This is the journal list page where the user invokes the processing action. | Payment Journal
+Action on Page | The processing action invoked by the user on the journal list page. | Export Payments to File
+Errors Page List Part | A FactBox that displays any journal line validation errors. 
+To improve user experience, the developer can highlight the lines with errors in red and conveniently sort the lines with errors at the top. | Payment Journal Errors Part
+Validation codeunit | Contains code that checks that the journal line contains correct, complete, and coherent data and that the line is ready for whatever process must be done next. | SEPA CT-Check Line
+Processing codeunit | Executes the processing of the journal lines. | SEPA CT-Export File
 
-Description
+**Generic Object:** Journal Error Text Table
 
-Sample W1 implementation of SEPA Credit Transfer\*
+**Description:**
 
-Journal Page
-
-This is the journal list page where the user invokes the processing action.
-
-Payment Journal
-
-Action on Page
-
-The processing action invoked by the user on the journal list page.
-
-Export Payments to File
-
-Errors Page List Part
-
-A FactBox that displays any journal line validation errors.
-
-To improve user experience, the developer can highlight the lines with errors in red and conveniently sort the lines with errors at the top.
-
-Payment Journal Errors Part
-
-Validation codeunit
-
-Contains code that checks that the journal line contains correct, complete, and coherent data and that the line is ready for whatever process must be done next.
-
-SEPA CT-Check Line
-
-Processing codeunit
-
-Executes the processing of the journal lines.
-
-SEPA CT-Export File
-
-Journal Error Text Table
-
-Contains
-
+Contains:
 * The error messages
-
-* Link information about where the error messages belong. For example, in table 1228, Payment Jnl. Export Error Text, the error is linked uniquely to a journal line by the following fields:
-
-* Journal Template Name, with TableRelation="Gen. Journal Template"
-* Journal Batch Name, with TableRelation="Gen. Journal Batch".Name WHERE (Journal Template Name=FIELD(Journal Template Name))
+* Link information about where the error messages belong. For example, in table 1228, Payment Jnl. Export Error Text, the error is linked uniquely to a journal line by the following fields: 
+* Journal Template Name, with TableRelation="Gen. Journal Template" 
+* Journal Batch Name, with TableRelation="Gen. Journal Batch".Name WHERE (Journal Template Name=FIELD(Journal Template Name)) 
 * Journal Line No.
 
 Other related information can be added, such as document number of the original source document, if the current journal line originates from a document.
 
 An extra improvement would be to add a drilldown or a link to the page where the user can fix the error. This would significantly simplify the scenario by excluding manual navigation and investigation by the user to find the page where the error can be fixed.
 
-Payment Jnl. Export Error Text
+**Sample W1 implementation of SEPA Credit Transfer:** Payment Jnl. Export Error Text
 
 \* The W1 implementation of file export for SEPA Credit Transfer contains the generic SEPA functionality. However, due to differences in data models and user scenarios in various country implementations, the selected local versions contain adaptations of the generic functionality.
 

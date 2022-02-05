@@ -48,30 +48,40 @@ For instance, if a failure to establish a connection to the web service due to l
 
 The "External Data Handling Codeunit" is a consumer of **COD1290 Web Service Mgt.** codeunit. If a runtime exception occurs, it gets handled as follows:
 
-    LOCAL PROCEDURE SendDataToConversionService@1(VAR PaymentFileTempBlob@1003 : Record 99008535;BodyTempBlob@1004 : Record 99008535;PostingExch@1007 : Record 1220);
-    VAR
+```al
+LOCAL PROCEDURE SendDataToConversionService@1(VAR PaymentFileTempBlob@1003 : Record 99008535;BodyTempBlob@1004 : Record 99008535;PostingExch@1007 : Record 1220);
+VAR
     BankDataConvServiceSetup@1000 : Record 1260;
     WebServiceRequestMgt@1001 : Codeunit 1290;
     BodyInStream@1005 : InStream;
     ResponseInStream@1002 : InStream;
-    BEGIN
+BEGIN
     IF NOT BodyTempBlob.Blob.HASVALUE THEN
-    ERROR(NoRequestBodyErr);
+        ERROR(NoRequestBodyErr);
+
     PrepareSOAPRequestBody(BodyTempBlob);
+
     COMMIT;
+
     BankDataConvServiceSetup.GET;
     BodyTempBlob.Blob.CREATEINSTREAM(BodyInStream);
     WebServiceRequestMgt.SetGlobals(BodyInStream,
-    BankDataConvServiceSetup."Service URL",BankDataConvServiceSetup."User Name",BankDataConvServiceSetup.GetPassword);
-    IF NOT WebServiceRequestMgt.RUN THEN
-    WebServiceRequestMgt.ProcessFaultResponse;
-    WebServiceRequestMgt.GetResponseContent(ResponseInStream);
-    CheckIfErrorsOccurred(ResponseInStream,PostingExch);
-    ReadContentFromResponse(PaymentFileTempBlob,ResponseInStream);
-    END;
+        BankDataConvServiceSetup."Service URL",BankDataConvServiceSetup."User Name",BankDataConvServiceSetup.GetPassword);
 
-    PROCEDURE ProcessFaultResponse@15();
-    VAR
+    IF NOT WebServiceRequestMgt.RUN THEN
+        WebServiceRequestMgt.ProcessFaultResponse;
+
+    WebServiceRequestMgt.GetResponseContent(ResponseInStream);
+
+    CheckIfErrorsOccurred(ResponseInStream,PostingExch);
+
+    ReadContentFromResponse(PaymentFileTempBlob,ResponseInStream);
+END;
+```
+
+```al
+PROCEDURE ProcessFaultResponse@15();
+VAR
     XMLDOMMgt@1006 : Codeunit 6224;
     DotNetExceptionHandler@1000 : Codeunit 1291;
     WebException@1005 : DotNet "'System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089'.System.Net.WebException";
@@ -80,77 +90,96 @@ The "External Data Handling Codeunit" is a consumer of **COD1290 Web Service Mgt
     HttpWebResponseError@1007 : DotNet "'System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089'.System.Net.HttpWebResponse";
     HttpStatusCode@1008 : DotNet "'System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089'.System.Net.HttpStatusCode";
     ResponseInputStream@1002 : InStream;
-    BEGIN
+BEGIN
     DotNetExceptionHandler.Collect;
+
     IF NOT DotNetExceptionHandler.CastToType(WebException,GETDOTNETTYPE(WebException)) THEN
-    DotNetExceptionHandler.Rethrow;
+        DotNetExceptionHandler.Rethrow;
+
     IF NOT WebException.Status.Equals(WebExceptionStatus.ProtocolError) THEN
-    ERROR(WebException.Message);
+        ERROR(WebException.Message);
+
     ResponseInputStream := WebException.Response.GetResponseStream;
     DebugLogStreamToTempFile(ResponseInputStream,'WebExceptionResponse',TempDebugLogTempBlob);
+
     HttpWebResponseError := WebException.Response;
     IF NOT (HttpWebResponseError.StatusCode.Equals(HttpStatusCode.Found) OR
-    HttpWebResponseError.StatusCode.Equals(HttpStatusCode.InternalServerError))
+        HttpWebResponseError.StatusCode.Equals(HttpStatusCode.InternalServerError))
     THEN
-    ERROR(WebException.Message);
+        ERROR(WebException.Message);
+
     XmlDoc := XmlDoc.XmlDocument;
     XmlDoc.Load(ResponseInputStream);
-    ERROR(XMLDOMMgt.FindNodeTextWithNamespace(XmlDoc.DocumentElement,FaultStringXmlPathTxt,'soap',SoapNamespaceTxt));
-    END;
 
-    OBJECT Codeunit 1291 DotNet Exception Handler
-    {
+    ERROR(XMLDOMMgt.FindNodeTextWithNamespace(XmlDoc.DocumentElement,FaultStringXmlPathTxt,'soap',SoapNamespaceTxt));
+END;
+```
+
+```al
+OBJECT Codeunit 1291 DotNet Exception Handler
+{
     OBJECT-PROPERTIES
     {
-    Date=;
-    Time=;
-    Version List=;
+        Date=;
+        Time=;
+        Version List=;
     }
     PROPERTIES
     {
-    OnRun=BEGIN
-    END;
+        OnRun=BEGIN
+              END;
+
     }
     CODE
     {
-    VAR
-    OuterException@1000 : DotNet "'mscorlib'.System.Exception";
-    PROCEDURE Catch@3(VAR Exception@1002 : DotNet "'mscorlib'.System.FormatException";Type@1007 : DotNet "'mscorlib'.System.Type");
-    BEGIN
-    Collect;
-    IF NOT CastToType(Exception,Type) THEN
-    Rethrow;
-    END;
-    PROCEDURE Collect@1();
-    BEGIN
-    OuterException := GETLASTERROROBJECT;
-    END;
-    PROCEDURE TryCastToType@5(Type@1000 : DotNet "'mscorlib'.System.Type") : Boolean;
-    VAR
-    Exception@1001 : DotNet "'mscorlib'.System.FormatException";
-    BEGIN
-    EXIT(CastToType(Exception,Type));
-    END;
-    PROCEDURE CastToType@2(VAR Exception@1002 : DotNet "'mscorlib'.System.FormatException";Type@1007 : DotNet "'mscorlib'.System.Type") : Boolean;
-    BEGIN
-    Exception := OuterException;
-    REPEAT
-    IF Type.Equals(Exception.GetType()) THEN
-    EXIT(TRUE);
-    Exception := Exception.InnerException;
-    UNTIL ISNULL(Exception);
-    EXIT(FALSE);
-    END;
-    PROCEDURE Rethrow@4();
-    BEGIN
-    IF NOT ISNULL(OuterException.InnerException) THEN
-    ERROR(OuterException.InnerException.Message);
-    ERROR(OuterException.Message);
-    END;
-    BEGIN
-    END.
+        VAR
+            OuterException@1000 : DotNet "'mscorlib'.System.Exception";
+    
+        PROCEDURE Catch@3(VAR Exception@1002 : DotNet "'mscorlib'.System.FormatException";Type@1007 : DotNet "'mscorlib'.System.Type");
+            BEGIN
+                Collect;
+                IF NOT CastToType(Exception,Type) THEN
+                    Rethrow;
+            END;
+
+        PROCEDURE Collect@1();
+        BEGIN
+            OuterException := GETLASTERROROBJECT;
+        END;
+
+        PROCEDURE TryCastToType@5(Type@1000 : DotNet "'mscorlib'.System.Type") : Boolean;
+        VAR
+            Exception@1001 : DotNet "'mscorlib'.System.FormatException";
+        BEGIN
+            EXIT(CastToType(Exception,Type));
+        END;
+
+        PROCEDURE CastToType@2(VAR Exception@1002 : DotNet "'mscorlib'.System.FormatException";Type@1007 : DotNet "'mscorlib'.System.Type") : Boolean;
+        BEGIN
+            Exception := OuterException;
+
+            REPEAT
+                IF Type.Equals(Exception.GetType()) THEN
+                    EXIT(TRUE);
+                Exception := Exception.InnerException;
+            UNTIL ISNULL(Exception);
+
+            EXIT(FALSE);
+        END;
+
+        PROCEDURE Rethrow@4();
+        BEGIN
+            IF NOT ISNULL(OuterException.InnerException) THEN
+                ERROR(OuterException.InnerException.Message);
+
+            ERROR(OuterException.Message);
+        END;
+        
+        BEGIN
+        END.
     }
-    }
+}
+```
 
 ## NAV Usages
 

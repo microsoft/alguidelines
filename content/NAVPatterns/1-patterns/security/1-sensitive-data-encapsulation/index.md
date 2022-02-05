@@ -4,24 +4,14 @@ weight = 120
 +++
 _By Bogdana Botez at Microsoft Development Center Copenhagen_
 
-_  
-_
-
 [![ ][image0]][anchor0]
 
-**  
-**
+**Aliases:** Encapsulation, Separation of Concerns [1]
 
-**Aliases:** Encapsulation, Separation of Concerns \[1\]
-
-**  
-**
 
 **Context**: You want to store and protect sensitive data which already exists in a system, but it is not clear which data needs protection and how to store it.
 
 **Problem**: Sensitive data is scattered and mixed with other data in various parts of the system (passwords residing in the same table with non-sensitive data, part of the private information might be stored in files, hardcoded text constants, hardcoded info as part of the code etc.).
-
-****
 
 **Forces:**
 
@@ -44,9 +34,6 @@ Figure 1 describes the definition of a table which is already available in Dynam
 
 _Figure 1- Example definition, table used for **Sensitive** **Data** **Encapsulation**_
 
-**  
-**
-
 Let's use a software system (which can be a Dynamics NAV extension or customization). Chances are that the system will look similar to the one described in part 1 of Figure 2: there is data handled in various places of the system, on various storage solutions. Intertwined with normal data, there is sensitive data. For example: Dynamics CRM (Customer Relationship Management) connection information could be all stored in one table, and consists of the connection URI (normal data), enabled/disabled status (normal data), and connection password (sensitive data).
 
 Figure 2 illustrates the system before and after applying the **Sensitive Data Encapsulation** pattern.
@@ -64,13 +51,11 @@ Furthermore, actors which have to interact with the data, need to remember where
 
 _Figure 2 - Data access before and after **Sensitive** **Data** **Encapsulation.**_
 
-.
-
 **Benefits:**
 
 * **Clarity:** when all sensitive data is encapsulated in one place, it is clear which is the information that needs to be protected.
 * **Simplicity:** easier to protect just a limited number of known resources when they are grouped.
-* **Homogeneity: **the same protection can be applied to all data, since it is stored in the same place.
+* **Homogeneity:** the same protection can be applied to all data, since it is stored in the same place.
 * **Separation of concerns:** treat each section of the computer program differently, by separating it and clearly addressing its own requirements and limitations. \[1\]
 * **Performance**: data protection techniques like **Access Control** and **Encryption** can now be applied only to the sensitive data (not to everything), which improves the performance of the system.
 
@@ -82,59 +67,35 @@ _Figure 2 - Data access before and after **Sensitive** **Data** **Encapsulation.
 
 **References**
 
-\[1\]
+\[1\] "Wikipedia," \[Online\]. Available: https://en.wikipedia.org/wiki/Separation_of_concerns.
 
-"Wikipedia," \[Online\]. Available: https://en.wikipedia.org/wiki/Separation\_of\_concerns.
+\[2\] "GUID Structure," \[Online\]. Available: https://msdn.microsoft.com/en-us/library/aa373931(VS.85).aspx.
 
-\[2\]
+\[3\] "Wikipedia," \[Online\]. Available: https://en.wikipedia.org/wiki/Binary_large_object.
 
-"GUID Structure," \[Online\]. Available: https://msdn.microsoft.com/en-us/library/aa373931(VS.85).aspx.
+\[4\] waldo, "How Do I: Manage Companies in Microsoft Dynamics NAV 2013 R2".
 
-\[3\]
+\[5\] Microsoft, "Multitenant Deployment Architecture," Microsoft, \[Online\]. Available: https://msdn.microsoft.com/en-us/library/dn271675(v=nav.90).aspx.
 
-"Wikipedia," \[Online\]. Available: https://en.wikipedia.org/wiki/Binary\_large\_object.
+\[6\] B. Botez, "Setup Table design pattern," Microsoft, 2013\. \[Online\]. Available: https://community.dynamics.com/nav/w/designpatterns/76.setup-table. \[Accessed 31 07 2016\].
 
-\[4\]
+\[7\] "Shotgun Surgery," \[Online\]. Available: https://en.wikipedia.org/wiki/Shotgun_surgery. \[Accessed 31 07 2016\].
 
-waldo, "How Do I: Manage Companies in Microsoft Dynamics NAV 2013 R2".
+\[8\] M. Fowler, Refactoring: Improving the design of existing code, Addison Wesley, 1999\.
 
-\[5\]
+\[9\] "Masking out," \[Online\]. Available: https://en.wikipedia.org/wiki/Data_masking#Masking_out. \[Accessed 29 7 2016\].
 
-Microsoft, "Multitenant Deployment Architecture," Microsoft, \[Online\]. Available: https://msdn.microsoft.com/en-us/library/dn271675(v=nav.90).aspx.
+\[10\] "Key Vault," Microsoft, \[Online\]. Available: https://azure.microsoft.com/en-us/services/key-vault/.
 
-\[6\]
+\[11\] "How to: Configure SSL to Secure the Connection to Microsoft Dynamics NAV Web Client," Microsoft, \[Online\]. Available: https://msdn.microsoft.com/en-us/library/hh167264(v=nav.90).aspx. \[Accessed 2 8 2016\].
 
-B. Botez, "Setup Table design pattern," Microsoft, 2013\. \[Online\]. Available: https://community.dynamics.com/nav/w/designpatterns/76.setup-table. \[Accessed 31 07 2016\].
-
-\[7\]
-
-"Shotgun Surgery," \[Online\]. Available: https://en.wikipedia.org/wiki/Shotgun\_surgery. \[Accessed 31 07 2016\].
-
-\[8\]
-
-M. Fowler, Refactoring: Improving the design of existing code, Addison Wesley, 1999\.
-
-\[9\]
-
-"Masking out," \[Online\]. Available: https://en.wikipedia.org/wiki/Data\_masking\#Masking\_out. \[Accessed 29 7 2016\].
-
-\[10\]
-
-"Key Vault," Microsoft, \[Online\]. Available: https://azure.microsoft.com/en-us/services/key-vault/.
-
-\[11\]
-
-"How to: Configure SSL to Secure the Connection to Microsoft Dynamics NAV Web Client," Microsoft, \[Online\]. Available: https://msdn.microsoft.com/en-us/library/hh167264(v=nav.90).aspx. \[Accessed 2 8 2016\].
-
-\[12\]
-
-"sniffer," \[Online\]. Available: http://compnetworking.about.com/od/networksecurityprivacy/g/bldef\_sniffer.htm. \[Accessed 02 08 2016\].
+\[12\] "sniffer," \[Online\]. Available: http://compnetworking.about.com/od/networksecurityprivacy/g/bldef_sniffer.htm. \[Accessed 02 08 2016\].
 
 
 
 [anchor0]: Logo-_2D00_-Protected-Data-Encapsulation.png
-[anchor1]: /nav/w/designpatterns/277.3-single-point-of-acces
-[anchor2]: /nav/w/designpatterns/276.2-data-encryption
+[anchor1]: /navpatterns/1-patterns/security/3-single-point-of-access/
+[anchor2]: /navpatterns/1-patterns/security/2-data-encryption/
 [anchor3]: Data-Encapsulation-_2D00_-figure-1.png
 [anchor4]: Multi-_2D00_-1-2.JPG
 

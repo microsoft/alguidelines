@@ -59,10 +59,11 @@ All the approval workflows include a response that restricts usage of a record, 
 
 The code behind the "Add record restriction" workflow response:
 
-    RecRef.GETTABLE(Variant);
-    Workflow.GET(WorkflowStepInstance."Workflow Code");
-    RecordRestrictionMgt.RestrictRecordUsage(RecRef.RECORDID,STRSUBSTNO(RestrictUsageDetailsTxt,Workflow.Code,Workflow.Description));
-    
+```AL
+RecRef.GETTABLE(Variant);
+Workflow.GET(WorkflowStepInstance."Workflow Code");
+RecordRestrictionMgt.RestrictRecordUsage(RecRef.RECORDID,STRSUBSTNO(RestrictUsageDetailsTxt,Workflow.Code,Workflow.Description));
+```
 
 The code behind the "Remove record restriction" response:
 
@@ -103,7 +104,7 @@ This pattern has been introduced in Dynamics NAV 2016\.
 
 
 [anchor0]: attention.jpg
-[anchor1]: /nav/w/designpatterns/79.blocked-entity
+[anchor1]: /navpatterns/1-patterns/blocked-entity/
 [anchor2]: https://microsoft.sharepoint.com/teams/DynamicsNAV/Wiki/Nav%20Wiki%20Documents/NAV%20App%20Patterns/NAV%20App%20Patterns%20for%20Review/Data-Driven%20Blocked%20Entity.docx#_msocom_2
 
 

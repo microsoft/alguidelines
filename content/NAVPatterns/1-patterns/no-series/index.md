@@ -26,30 +26,12 @@ From the implementation point of view, a number series is a record in the table 
 [![ ][image0]][anchor0]  
 
 The most relevant fields are:
-
-Code
-
-Code 10
-
-Used to identify the number series in further places where it will be used.
-
-Default Nos.
-
-Boolean
-
-The boolean **Default Nos.** decides whether this number series can use automatic numbering. If false, then the user is expected to manually look up the No. field and select it from the number series.
-
-Manual Nos.
-
-Boolean
-
-If the **Manual Nos.** is Yes, then the used will be allowed to manually type the value of the next number ("No.") field.
-
-Date Order
-
-Boolean
-
-**Date Order** is used to decide whether or not the numbers from the range are assigned chronologically.
+|
+----|----|----
+Code | Code 10 | Used to identify the number series in further places where it will be used.
+Default Nos. | Boolean | The boolean **Default Nos.** decides whether this number series can use automatic numbering. If false, then the user is expected to manually look up the No. field and select it from the number series.
+Manual Nos. | Boolean | If the **Manual Nos.** is Yes, then the used will be allowed to manually type the value of the next number ("No.") field.
+Date Order | Boolean | **Date Order** is used to decide whether or not the numbers from the range are assigned chronologically.
 
 ### Number Series sequence
 
@@ -61,47 +43,15 @@ The sequence definition is found in table 309 - No. Series Line. Contains the ex
 
 The most relevant fields are:
 
-Series Code
-
-Code 10
-
-Links it to the number series defined in table 308\.
-
-Starting No.
-
-Integer
-
-This is the first number in the sequence, for a book indexing application it can be BOOK0001\.
-
-Ending No.
-
-Integer
-
-The last number in the sequence, for example BOOK5000\.
-
-Warning No.
-
-Integer
-
-When this number is reached, the user will see a warning message stating that the number series is running out of assignable numbers.
-
-Increment-by No.
-
-Integer
-
-The value for incrementing the numeric part of the series.
-
-Last No. Used
-
-Code 20
-
-The last number from the sequence that was assigned.
-
-Last Date Used
-
-Date
-
-Stating when the last number was assigned.
+|
+----|----|----
+Series Code | Code 10 | Links it to the number series defined in table 308\.
+Starting No. | Integer | This is the first number in the sequence, for a book indexing application it can be BOOK0001\.
+Ending No. | Integer | The last number in the sequence, for example BOOK5000\.
+Warning No. | Integer | When this number is reached, the user will see a warning message stating that the number series is running out of assignable numbers.
+Increment-by No. | Integer | The value for incrementing the numeric part of the series.
+Last No. Used | Code 20 | The last number from the sequence that was assigned.
+Last Date Used | Date | Stating when the last number was assigned.
 
 ### Add the default number series to the setup
 
@@ -113,41 +63,41 @@ The default number series for a certain application area is typically stored in 
 
 The table which will host the number from the number series, needs the following fields:
 
-No.
-
-Code 20
-
-Contains the auto-generated sequential number.
-
-No. Series
-
-Code 10
-
-The number series definition, which decides what the next No. will be.
+|
+----|----|----
+No. | Code 20 | Contains the auto-generated sequential number.
+No. Series | Code 10 | The number series definition, which decides what the next No. will be.
 
 And the code to make the number series alive:
 
 **OnInsert**
 
+```al
 OnInsert()
 
 IF "No." = '' THEN 
-
-NoSeriesMgt.InitSeries(DefaultNoSeriesCode,OldNoSeriesCode,NewDate,NewNo,NewNoSeriesCode);
+    NoSeriesMgt.InitSeries(DefaultNoSeriesCode,OldNoSeriesCode,NewDate,NewNo,NewNoSeriesCode);
+```
 
 **Field "No."**
 
+```al
 No. - OnValidate()
 
-IF "No." <\> xRec."No." THEN BEGIN // Validate that "No." corresponds to the current No. Series rules NoSeriesMgt.TestManual(DefaultNoSeriesCode); "No. Series" := ''; END;
+IF "No." <> xRec."No." THEN BEGIN // Validate that "No." corresponds to the current No. Series rules 
+    NoSeriesMgt.TestManual(DefaultNoSeriesCode);
+    "No. Series" := '';
+END;
+```
 
 **AssistEdit**
 
+```al
 AssistEdit() : Boolean
 
 IF "No." = '' THEN 
-
-NoSeriesMgt.InitSeries(DefaultNoSeriesCode,OldNoSeriesCode,NewDate,NewNo,NewNoSeriesCode);
+    NoSeriesMgt.InitSeries(DefaultNoSeriesCode,OldNoSeriesCode,NewDate,NewNo,NewNoSeriesCode);
+```
 
 Where:
 
@@ -166,93 +116,80 @@ The setup table 311 (Sales & Receivables Setup) contains the default number seri
 
 The default number series defined in the setup is then used in the individual tables. For example, table 18 - Customer, has
 
-###   
-Field "No."
+### Field "No."
 
+```al
 { 1 ; ;No. ;Code20 ;AltSearchField=Search Name;
 
 OnValidate=
 
 BEGIN
+    IF "No." <> xRec."No." THEN BEGIN
+        SalesSetup.GET;
 
-IF "No." <\> xRec."No." THEN BEGIN
+        NoSeriesMgt.TestManual(SalesSetup."Customer Nos.");
 
-SalesSetup.GET;
+        "No. Series" := '';
+    END;
 
-NoSeriesMgt.TestManual(SalesSetup."Customer Nos.");
-
-"No. Series" := '';
-
+    IF "Invoice Disc. Code" = '' THEN
+        "Invoice Disc. Code" := "No.";
 END;
-
-IF "Invoice Disc. Code" = '' THEN
-
-"Invoice Disc. Code" := "No.";
-
-END;
-
 } 
+```
 
 ### Field "No. Series"
 
+```al
 { 107 ; ;No. Series ;Code10 ;TableRelation="No. Series"; Editable=No }
+```
 
 ### AssistEdit
 
+```al
 PROCEDURE AssistEdit@2(OldCust@1000 : Record 18) : Boolean;
-
-VAR Cust@1001 : Record 18;
-
+VAR
+    Cust@1001 : Record 18;
 BEGIN
+    WITH Cust DO BEGIN
+        Cust := Rec; 
+        SalesSetup.GET; 
 
-WITH Cust DO BEGIN
+        SalesSetup.TESTFIELD("Customer Nos."); 
 
-Cust := Rec; 
-
-SalesSetup.GET; 
-
-SalesSetup.TESTFIELD("Customer Nos."); 
-
-IF NoSeriesMgt.SelectSeries(SalesSetup."Customer Nos.",OldCust."No. Series","No. Series") THEN BEGIN
-
-NoSeriesMgt.SetSeries("No."); 
-
-Rec := Cust; 
-
-EXIT(TRUE); 
-
-END; 
-
+        IF NoSeriesMgt.SelectSeries(SalesSetup."Customer Nos.",OldCust."No. Series","No. Series") THEN BEGIN
+            NoSeriesMgt.SetSeries("No."); 
+            Rec := Cust; 
+            EXIT(TRUE); 
+        END; 
+    END;
 END;
-
-END;
+```
 
 ### OnInsert
 
+```al
 OnInsert=  
-BEGIN 
+    BEGIN 
+        IF "No." = '' THEN BEGIN 
+            SalesSetup.GET; 
 
-IF "No." = '' THEN BEGIN 
+            SalesSetup.TESTFIELD("Customer Nos.");
 
-SalesSetup.GET; 
-
-SalesSetup.TESTFIELD("Customer Nos.");
-
-NoSeriesMgt.InitSeries(SalesSetup."Customer Nos.",xRec."No. Series",0D,"No.","No. Series"); 
-
-END;
-
-...
-
-END
+            NoSeriesMgt.InitSeries(SalesSetup."Customer Nos.",xRec."No. Series",0D,"No.","No. Series"); 
+        END;
+    ...
+    END
+```
 
 To run the AssistEdit procedure, include this code on the No. - OnAssistEdit() trigger of the Page:
 
 ### No. - OnAssistEdit() 
 
+```al
 IF AssistEdit(xRec) THEN
-
-CurrPage.UPDATE;
+    CurrPage.UPDATE;
+```
 
 {{< youtube 1lG9rY_dmM4>}}
 

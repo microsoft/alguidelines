@@ -18,13 +18,15 @@ The pattern is most easily described when you look at an example. This example i
 
 [![ ][image0]][anchor0]
 
-The goal of this functionality is to:  
-• List all the different connections to external services,  
-• Have a central place to navigate to the corresponding setup of the service.  
+The goal of this functionality is to:
+
+* List all the different connections to external services,  
+* Have a central place to navigate to the corresponding setup of the service.  
   
-The functionality (**Service Connections**) itself, is not aware of the state nor setup nor any context of all the different services in the list. All it does is:  
-• It raises an event as an opportunity for all services within the NAV application to subscribe to,  
-• It has a public function **InsertServiceConnection** that the subscribers can use to register itself at the Service Connection.  
+The functionality (**Service Connections**) itself, is not aware of the state nor setup nor any context of all the different services in the list. All it does is:
+
+* It raises an event as an opportunity for all services within the NAV application to subscribe to,  
+* It has a public function **InsertServiceConnection** that the subscribers can use to register itself at the Service Connection.  
   
 The event **OnRegisterServiceConnection** is raised when the page (1279 - **Service Connections**) is opened.  
   

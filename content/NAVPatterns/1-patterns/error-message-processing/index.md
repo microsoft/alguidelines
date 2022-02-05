@@ -53,13 +53,14 @@ When the processing is complete, you can check if any error messages of type "Er
 The code below is an example of how the error message component was used in one part of the before mentioned Mexican feature. This code iterates over all G/L Accounts and pipes information out into an XML file. While doing so, it is validated that all mandatory fields have values and meet certain conditions. And only if that is the case, is the XML document actually exported. Also notice, that an error message is logged, in case no G/L Accounts are found given the provided filters. That way, the user can be guided to setup the system correctly.
 
 ```AL
-    PROCEDURE ExportChartOfAccounts@1(Year@1000 : Integer;Month@1001 : Integer);
-    VAR
-        TempErrorMessage@1003 : TEMPORARY Record 700;
-    BEGIN
+PROCEDURE ExportChartOfAccounts@1(Year@1000 : Integer;Month@1001 : Integer);
+VAR
+    TempErrorMessage@1003 : TEMPORARY Record 700;
+BEGIN
     TempErrorMessage.ClearLog; // only necessary if variable is global
     ...
     CreateXMLHeader(Document,RootNode,CatalogoNodeTxt,Namespace,Year,Month,'1.1');
+
     IF GLAccount.FINDSET THEN BEGIN
         REPEAT
             TempErrorMessage.LogIfEmpty (GLAccount,GLAccount.FIELDNO(Name),TempErrorMessage."Message Type"::Error);
@@ -73,18 +74,18 @@ The code below is an example of how the error message component was used in one 
                 GLAccount."Debit/Credit"::Credit:
                     XMLDOMManagement.AddAttribute(Node,'Natur','A');
             ELSE
-            TempErrorMessage.LogMessage(
-                GLAccount,GLAccount.FIELDNO("Debit/Credit"),TempErrorMessage."Message Type"::Error,
-                STRSUBSTNO(GLAccountTypeErr,GLAccount."Debit/Credit",GLAccount.RECORDID));
+                TempErrorMessage.LogMessage(
+                    GLAccount,GLAccount.FIELDNO("Debit/Credit"),TempErrorMessage."Message Type"::Error,
+                    STRSUBSTNO(GLAccountTypeErr,GLAccount."Debit/Credit",GLAccount.RECORDID));
             END;
         UNTIL GLAccount.NEXT = 0;
     END ELSE
         TempErrorMessage.LogSimpleMessage(TempErrorMessage."Message Type"::Error,NoSATAccountDefinedErr);
-    
+
         IF NOT TempErrorMessage.HasErrors(TRUE) THEN
             SaveXMLToClient(Document,Year,Month,'CT');
-            TempErrorMessage.ShowErrorMessages(FALSE);
-    END;
+        TempErrorMessage.ShowErrorMessages(FALSE);
+END;
 ```
 
 One could also do pre-processing in a function of its own, and only if the pre-processing results in no error messages of type "Error" would the processing continue.
@@ -95,9 +96,9 @@ By using this easy to use component, we have the possibility to extend this func
 
 
 
-[anchor0]: /nav/w/designpatterns/124.journal-error-processing.aspx
+[anchor0]: /navpatterns/1-patterns/journal-error-processing/
 [anchor1]: image001.png
-[anchor2]: /nav/w/designpatterns/104.easy-update-of-setup-or-supplementary-information.aspx
+[anchor2]: /navpatterns/1-patterns/easy-update-of-setup-or-supplementary-information/
 [anchor3]: image003.png
 
 
