@@ -54,7 +54,7 @@ VAR
 BEGIN
     BankAccRecLine.SETRANGE("Bank Account No.",BankAccReconciliation."Bank Account No.");
     BankAccRecLine.SETRANGE("Statement No.",BankAccReconciliation."Statement No.");
-    BankAccRecLine.SETFILTER(Difference,'<\>%1',0);
+    BankAccRecLine.SETFILTER(Difference,'<>%1',0);
     BankAccRecLine.SETRANGE(Type,BankAccRecLine.Type::"Bank Account Ledger Entry");
 
     IF BankAccRecLine.FINDSET THEN
@@ -62,7 +62,7 @@ BEGIN
             BankAccLedgerEntry.SETRANGE("Bank Account No.",BankAccRecLine."Bank Account No.");
             BankAccLedgerEntry.SETRANGE(Open,TRUE);
             BankAccLedgerEntry.SETRANGE("Statement Status",BankAccLedgerEntry."Statement Status"::Open);
-            BankAccLedgerEntry.SETFILTER("Remaining Amount",'<\>%1',0);
+            BankAccLedgerEntry.SETFILTER("Remaining Amount",'<>%1',0);
             IF BankAccLedgerEntry.FINDSET THEN
                 REPEAT
                     IF (BankAccRecLine.Difference = BankAccLedgerEntry."Remaining Amount") AND 
@@ -140,7 +140,7 @@ OBJECT Query 1252 Bank Rec. Match Candidates
             DataSource=Difference } 
         { 7 ;1 ;DataItem; ;
             DataItemTable=Table271;
-            DataItemTableFilter=Remaining Amount=FILTER(<\>0),
+            DataItemTableFilter=Remaining Amount=FILTER(<>0),
             Open=CONST(Yes),
             Statement Status=FILTER(Open);
             DataItemLink=Bank Account No.=Bank_Acc_Reconciliation_Line."Bank Account o.",

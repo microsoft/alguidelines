@@ -154,7 +154,7 @@ REPEAT
 
 VendorBillLine.TESTFIELD("Document Type",VendorBillLine."Document Type"::Invoice);
 
-IF ((VendorBillLine."Vendor No." <\> PrevVendorBillLine."Vendor No.") OR (VendorBillLine."Vendor Bank Acc. No." <\> PrevVendorBillLine."Vendor Bank Acc. No.")) THEN BEGIN InsertTempGenJnlLine(TempGenJnlLine,VendorBillHeader,PrevVendorBillLine,CumulativeAmount);
+IF ((VendorBillLine."Vendor No." <> PrevVendorBillLine."Vendor No.") OR (VendorBillLine."Vendor Bank Acc. No." <> PrevVendorBillLine."Vendor Bank Acc. No.")) THEN BEGIN InsertTempGenJnlLine(TempGenJnlLine,VendorBillHeader,PrevVendorBillLine,CumulativeAmount);
 
 CumulativeAmount := VendorBillLine."Amount to Pay";
 

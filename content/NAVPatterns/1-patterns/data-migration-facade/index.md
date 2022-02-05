@@ -191,7 +191,7 @@ var
     DescriptionToSet: Text[10]; 
 begin 
     // handle the event if it targets this extension's staging table 
-    if RecordIdToMigrate.TableNo <\> Database::"My Item Staging Table" then 
+    if RecordIdToMigrate.TableNo <> Database::"My Item Staging Table" then 
         exit;
 
     MyItemStagingTable.Get(RecordIdToMigrate); 

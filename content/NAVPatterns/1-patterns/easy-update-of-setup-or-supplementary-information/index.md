@@ -19,7 +19,7 @@ Define two functions in the setup or supplementary table: One for verifying if t
 Call the code. For example:
 ```
 Local IsXAvailable : Boolean   
-If field X <\> '' then   
+If field X <> '' then   
 Exit(True)  
 Exit(false)  
   
@@ -56,10 +56,9 @@ The code in the **Sales & Receivables Setup** table can now be called directly f
 
 Were the code is called:
 
-```AL
-IF ("EAN No." <\> '') THEN
-
-SalesSetup.VerifyAndSetOIOUBLPathSetup(SalesHeader."Document Type");
+```al
+IF ("EAN No." <> '') THEN
+    SalesSetup.VerifyAndSetOIOUBLPathSetup(SalesHeader."Document Type");
 ```
 
 If the setup is not updated properly, the user is prompted to update it as follows.
