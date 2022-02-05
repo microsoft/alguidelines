@@ -3,52 +3,67 @@ title = "Begin-End - Compound Only"
 weight = 240
 +++
 Only use BEGIN..END to enclose compound statements.
+
 Bad code
 
-    IF FINDSET THEN BEGIN
+```al
+IF FINDSET THEN BEGIN
     REPEAT
-    ...
+        ...
     UNTIL NEXT = 0;
-    END;
+END;
+```
 
 Good code
 
-    IF FINDSET THEN
+```al
+IF FINDSET THEN
     REPEAT
-    ...
+        ...
     UNTIL NEXT = 0;
+```
 
 Bad code
 
-    IF IsAssemblyOutputLine THEN BEGIN
+```al
+IF IsAssemblyOutputLine THEN BEGIN
     TESTFIELD("Order Line No.",0);
-    END;
+END;
+```
 
 Good code
 
-    IF IsAssemblyOutputLine THEN
+```al
+IF IsAssemblyOutputLine THEN
     TESTFIELD("Order Line No.",0);
+```
 
 Bad code
 
-    IF FINDSET THEN
+```al
+IF FINDSET THEN
     REPEAT
-    BEGIN
-    ...
-    END;
+        BEGIN
+            ...
+        END;
     UNTIL NEXT = 0;
+```
 
 Good code
 
-    IF FINDSET THEN
+```al
+IF FINDSET THEN
     REPEAT
-    ...
+        ...
     UNTIL NEXT = 0;
+```
 
 Exception
 
-    // Except for this case
-    IF X THEN BEGIN
+```al
+// Except for this case
+IF X THEN BEGIN
     IF Y THEN 
-    DO SOMETHING;
-    END ELSE (not X)
+        DO SOMETHING;
+END ELSE (not X)
+```

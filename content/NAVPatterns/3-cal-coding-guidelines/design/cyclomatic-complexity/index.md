@@ -6,7 +6,7 @@ Do not write functions that have high cyclomatic complexity. This makes the code
 
 Bad code
 
-    Any procedure / trigger that has a cyclomatic complexity \> 25, using the CC3 version mentioned in [this article][anchor0].  
+    Any procedure / trigger that has a cyclomatic complexity > 25, using the CC3 version mentioned in [this article][anchor0].  
       
     
 

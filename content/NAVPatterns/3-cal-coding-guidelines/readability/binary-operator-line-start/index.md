@@ -2,14 +2,20 @@
 title = "Binary Operator to Start Line"
 weight = 250
 +++
-Do not start a line with a binary operator. Bad code
+Do not start a line with a binary operator.
 
-    "Quantity to Ship" :=
+Bad code
+
+```al
+"Quantity to Ship" :=
     Quantity 
     - "Quantity Shipped"
+```
 
 Good code
 
-    "Quantity to Ship" :=
+```al
+"Quantity to Ship" :=
     Quantity -
     "Quantity Shipped"
+```

@@ -12,11 +12,11 @@ Bad code
 
 Good code
 
-    Any procedure / trigger that has a maintainability index \>= 20\.
+    Any procedure / trigger that has a maintainability index >= 20\.
     The Maintainability Index is computed as a function:
-    - Lines Of Code (inverse proportional)
-    - the Halstead Volume
-    - Cyclomatic Complexity (inverse proportional).
+        - Lines Of Code (inverse proportional)
+        - the Halstead Volume
+        - Cyclomatic Complexity (inverse proportional).
 
 More info
 
@@ -25,7 +25,7 @@ More info
 
 Bad code
 
-    Any procedure / trigger that is \> 100 lines of code  
+    Any procedure / trigger that is > 100 lines of code  
       
     
 

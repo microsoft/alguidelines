@@ -18,8 +18,6 @@ If the table is empty, it means that either the upgrade has run, or there was no
 
 **Solution:** if using an upgrade table, always validate that the table contains data before doing anything.
 
-****
-
 ### Upgrade code, can it be rerun safely?
 
 **Problem**: if the upgrade code is not written in a way that makes it runnable twice ([idempotent][anchor1]), then several failures can happen, including something as critical as data corruption.

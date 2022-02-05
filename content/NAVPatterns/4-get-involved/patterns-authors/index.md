@@ -163,5 +163,5 @@ And last but not least, we have collaborated with Plataan who hired Eric Wauters
 
 
 
-[anchor0]: /nav/w/designpatterns/106.be-a-nav-pattern-author.aspx
+[anchor0]: /navpatterns/4-get-involved/
 [anchor1]: /members/bogdana-botez/default.aspx "NAV Design Patterns project administrator"

@@ -2,12 +2,17 @@
 title = "Unnecessary Separators"
 weight = 1290
 +++
-There should be no unnecessary separators. Bad code
+There should be no unnecessary separators.
 
-    IF Customer.FINDFIRST THEN;;  
-      
+Bad code
+
+```al
+IF Customer.FINDFIRST THEN;;  
+```      
     
 
 Good code
 
-    IF Customer.FINDFIRST THEN;
+```al
+IF Customer.FINDFIRST THEN;
+```

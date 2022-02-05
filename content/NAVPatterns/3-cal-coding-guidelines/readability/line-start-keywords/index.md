@@ -2,19 +2,25 @@
 title = "Line Start Keywords"
 weight = 740
 +++
-The END, IF, REPEAT, FOR, WHILE, ELSE and CASE statement should always start a line. Bad code
+The END, IF, REPEAT, FOR, WHILE, ELSE and CASE statement should always start a line.
 
-    IF IsContactName THEN ValidateContactName
-    ELSE IF IsSalespersonCode THEN ValidateSalespersonCode
+Bad code
+
+```al
+IF IsContactName THEN ValidateContactName
+  ELSE IF IsSalespersonCode THEN ValidateSalespersonCode
     ELSE IF IsSalesCycleCode THEN ValidatSalesCycleCode;
+```
 
 Good code
 
-    IF IsContactName THEN
-    ValidateContactName
-    ELSE
-    IF IsSalespersonCode THEN
+```al
+IF IsContactName THEN
+  ValidateContactName
+ELSE
+  IF IsSalespersonCode THEN
     ValidateSalespersonCode
-    ELSE
+  ELSE
     IF IsSalesCycleCode THEN
-    ValidatSalesCycleCode;
+      ValidatSalesCycleCode;
+```
