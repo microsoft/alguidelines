@@ -33,7 +33,7 @@ _Figure 2: You add a second item that is not in stock. the notification is fired
 Here is the code for this behavior: 
 
 ```al
-LOCAL PROCEDURE CreateAndSendNotification@23(UnitOfMeasureCode@1010 : Code\[20\];InventoryQty@1009 : Decimal;GrossReq@1008 : Decimal;ReservedReq@1007 : Decimal;SchedRcpt@1006 : Decimal;ReservedRcpt@1005 : Decimal;CurrentQuantity@1004 : Decimal;CurrentReservedQty@1003 : Decimal;TotalQuantity@1002 : Decimal;EarliestAvailDate@1001 : Date) : Boolean; 
+LOCAL PROCEDURE CreateAndSendNotification@23(UnitOfMeasureCode@1010 : Code[20];InventoryQty@1009 : Decimal;GrossReq@1008 : Decimal;ReservedReq@1007 : Decimal;SchedRcpt@1006 : Decimal;ReservedRcpt@1005 : Decimal;CurrentQuantity@1004 : Decimal;CurrentReservedQty@1003 : Decimal;TotalQuantity@1002 : Decimal;EarliestAvailDate@1001 : Date) : Boolean; 
 VAR 
   ItemAvailabilityCheck@1011 : Page 1872; 
   AvailabilityCheckNotification@1000 : Notification; 
@@ -59,7 +59,7 @@ An easy fix would be to dynamically generate the notification ID. However, what 
 Here is the code for this possible fix: 
 
 ```al
-LOCAL PROCEDURE CreateAndSendNotification@23(UnitOfMeasureCode@1010 : Code\[20\];InventoryQty@1009 : Decimal;GrossReq@1008 : Decimal;ReservedReq@1007 : Decimal;SchedRcpt@1006 : Decimal;ReservedRcpt@1005 : Decimal;CurrentQuantity@1004 : Decimal;CurrentReservedQty@1003 : Decimal;TotalQuantity@1002 : Decimal;EarliestAvailDate@1001 : Date) : Boolean; 
+LOCAL PROCEDURE CreateAndSendNotification@23(UnitOfMeasureCode@1010 : Code[20];InventoryQty@1009 : Decimal;GrossReq@1008 : Decimal;ReservedReq@1007 : Decimal;SchedRcpt@1006 : Decimal;ReservedRcpt@1005 : Decimal;CurrentQuantity@1004 : Decimal;CurrentReservedQty@1003 : Decimal;TotalQuantity@1002 : Decimal;EarliestAvailDate@1001 : Date) : Boolean; 
 VAR 
   ItemAvailabilityCheck@1011 : Page 1872; 
   AvailabilityCheckNotification@1000 : Notification; 

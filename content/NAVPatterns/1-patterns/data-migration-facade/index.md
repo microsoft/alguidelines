@@ -110,7 +110,7 @@ procedure MigrateItemUnitOfMeasure(ItemDataMigrationFacade : Codeunit "Item Data
 var 
     MyUnitCodeStagingTable: Record "My Unit Code Staging Table"; 
     DataMigrationStatusFacade: Codeunit "Data Migration Status Facade"; 
-    DescriptionToSet: Text\[10\]; 
+    DescriptionToSet: Text[10]; 
     UnitCodeJson: Text; 
 begin 
     if ItemJson.UnitCode = '' then 

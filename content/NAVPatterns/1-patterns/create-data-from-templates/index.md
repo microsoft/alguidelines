@@ -63,7 +63,7 @@ MiniDimensionsTemplate.InsertDimensionsFromTemplates(ConfigTemplateHeader,Custom
 Code to insert related templates (dimensions): 
 
 ```al
-FUNCTION InsertDimensionsFromTemplates(ConfigTemplateHeader : Record "Config. Template Header";MasterRecordNo : Code\[20\];TableID : Integer)
+FUNCTION InsertDimensionsFromTemplates(ConfigTemplateHeader : Record "Config. Template Header";MasterRecordNo : Code[20];TableID : Integer)
 
   // There are multiple records (multiple dimensions per master record)
   // We have to set filter
@@ -80,7 +80,7 @@ FUNCTION InsertDimensionsFromTemplates(ConfigTemplateHeader : Record "Config. Te
     UNTIL ConfigTemplateLine.NEXT = 0;
 
 // Create a new Dimensions Record and link it to the Master Record
-FUNCTION InsertDimensionFromTemplate(ConfigTemplateHeader : Record "Config. Template Header";MasterRecordNo : Code\[20\];TableID : Integer)
+FUNCTION InsertDimensionFromTemplate(ConfigTemplateHeader : Record "Config. Template Header";MasterRecordNo : Code[20];TableID : Integer)
   DefaultDimension.INIT;
   DefaultDimension."No." := MasterRecordNo;
   DefaultDimension."Table ID" := TableID;

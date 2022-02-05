@@ -2,7 +2,7 @@
 title = "Spacing Brackets and ::"
 weight = 1130
 +++
-There must be no spaces characters before and after \[\] dimension brackets symbols or :: option symbols.
+There must be no spaces characters before and after [] dimension brackets symbols or :: option symbols.
 
 Bad code
 

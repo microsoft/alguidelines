@@ -27,8 +27,8 @@ To apply this pattern in Dynamics NAV, a table structure similar to Table 1261 S
 
 Figure 1 describes the definition of a table which is already available in Dynamics NAV. This table can be used for storing sensitive data. As a minimum, the table only needs two fields:
 
-1. The key is of type GUID (Globally Unique Identifier), which is a 128-bit value consisting of multiple groups of hexadecimal digits \[2\]. Each key needs to be unique and will be used for storing and retrieving the protected information.
-2. The value (the actual data to be encapsulated) is of type BLOB (Binary Large OBject) \[3\], which contains the encrypted or un-encrypted data (for encryption, see the related [**Encryption**][anchor2] pattern).
+1. The key is of type GUID (Globally Unique Identifier), which is a 128-bit value consisting of multiple groups of hexadecimal digits [2]. Each key needs to be unique and will be used for storing and retrieving the protected information.
+2. The value (the actual data to be encapsulated) is of type BLOB (Binary Large OBject) [3], which contains the encrypted or un-encrypted data (for encryption, see the related [**Encryption**][anchor2] pattern).
 
 [![Figure 1- Example definition, table used for Data Encapsulation][image1]][anchor3]
 
@@ -56,7 +56,7 @@ _Figure 2 - Data access before and after **Sensitive** **Data** **Encapsulation.
 * **Clarity:** when all sensitive data is encapsulated in one place, it is clear which is the information that needs to be protected.
 * **Simplicity:** easier to protect just a limited number of known resources when they are grouped.
 * **Homogeneity:** the same protection can be applied to all data, since it is stored in the same place.
-* **Separation of concerns:** treat each section of the computer program differently, by separating it and clearly addressing its own requirements and limitations. \[1\]
+* **Separation of concerns:** treat each section of the computer program differently, by separating it and clearly addressing its own requirements and limitations. [1]
 * **Performance**: data protection techniques like **Access Control** and **Encryption** can now be applied only to the sensitive data (not to everything), which improves the performance of the system.
 
 **Drawbacks:**
@@ -67,29 +67,29 @@ _Figure 2 - Data access before and after **Sensitive** **Data** **Encapsulation.
 
 **References**
 
-\[1\] "Wikipedia," \[Online\]. Available: https://en.wikipedia.org/wiki/Separation_of_concerns.
+[1] "Wikipedia," [Online]. Available: https://en.wikipedia.org/wiki/Separation_of_concerns.
 
-\[2\] "GUID Structure," \[Online\]. Available: https://msdn.microsoft.com/en-us/library/aa373931(VS.85).aspx.
+[2] "GUID Structure," [Online]. Available: https://msdn.microsoft.com/en-us/library/aa373931(VS.85).aspx.
 
-\[3\] "Wikipedia," \[Online\]. Available: https://en.wikipedia.org/wiki/Binary_large_object.
+[3] "Wikipedia," [Online]. Available: https://en.wikipedia.org/wiki/Binary_large_object.
 
-\[4\] waldo, "How Do I: Manage Companies in Microsoft Dynamics NAV 2013 R2".
+[4] waldo, "How Do I: Manage Companies in Microsoft Dynamics NAV 2013 R2".
 
-\[5\] Microsoft, "Multitenant Deployment Architecture," Microsoft, \[Online\]. Available: https://msdn.microsoft.com/en-us/library/dn271675(v=nav.90).aspx.
+[5] Microsoft, "Multitenant Deployment Architecture," Microsoft, [Online]. Available: https://msdn.microsoft.com/en-us/library/dn271675(v=nav.90).aspx.
 
-\[6\] B. Botez, "Setup Table design pattern," Microsoft, 2013\. \[Online\]. Available: https://community.dynamics.com/nav/w/designpatterns/76.setup-table. \[Accessed 31 07 2016\].
+[6] B. Botez, "Setup Table design pattern," Microsoft, 2013\. [Online]. Available: https://community.dynamics.com/nav/w/designpatterns/76.setup-table. [Accessed 31 07 2016].
 
-\[7\] "Shotgun Surgery," \[Online\]. Available: https://en.wikipedia.org/wiki/Shotgun_surgery. \[Accessed 31 07 2016\].
+[7] "Shotgun Surgery," [Online]. Available: https://en.wikipedia.org/wiki/Shotgun_surgery. [Accessed 31 07 2016].
 
-\[8\] M. Fowler, Refactoring: Improving the design of existing code, Addison Wesley, 1999\.
+[8] M. Fowler, Refactoring: Improving the design of existing code, Addison Wesley, 1999\.
 
-\[9\] "Masking out," \[Online\]. Available: https://en.wikipedia.org/wiki/Data_masking#Masking_out. \[Accessed 29 7 2016\].
+[9] "Masking out," [Online]. Available: https://en.wikipedia.org/wiki/Data_masking#Masking_out. [Accessed 29 7 2016].
 
-\[10\] "Key Vault," Microsoft, \[Online\]. Available: https://azure.microsoft.com/en-us/services/key-vault/.
+[10] "Key Vault," Microsoft, [Online]. Available: https://azure.microsoft.com/en-us/services/key-vault/.
 
-\[11\] "How to: Configure SSL to Secure the Connection to Microsoft Dynamics NAV Web Client," Microsoft, \[Online\]. Available: https://msdn.microsoft.com/en-us/library/hh167264(v=nav.90).aspx. \[Accessed 2 8 2016\].
+[11] "How to: Configure SSL to Secure the Connection to Microsoft Dynamics NAV Web Client," Microsoft, [Online]. Available: https://msdn.microsoft.com/en-us/library/hh167264(v=nav.90).aspx. [Accessed 2 8 2016].
 
-\[12\] "sniffer," \[Online\]. Available: http://compnetworking.about.com/od/networksecurityprivacy/g/bldef_sniffer.htm. \[Accessed 02 08 2016\].
+[12] "sniffer," [Online]. Available: http://compnetworking.about.com/od/networksecurityprivacy/g/bldef_sniffer.htm. [Accessed 02 08 2016].
 
 
 

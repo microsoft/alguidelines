@@ -15,8 +15,8 @@ _By Bogdana Botez at Microsoft Development Center Copenhagen_
 * **Code duplication:** if each entity attempts to write its own routines for data access, invariably this will bring duplication.
 * **No knowledge reuse:** if a bug is found and fixed in one of the implementations, there is no guarantee that all the other implementations will be updated. For example
   * **Double-Encryption**: lack of care or knowledge could lead a NAV developer to attempt to double-encrypt strings, which would render them unusable.
-  * **Multi-company configuration \[4\]**: in NAV, it is possible to store multiple companies on the same tenant \[5\] database. A developer who has not investigated such a configuration and its consequences on encryption, can attempt to encrypt data in (for example) a Setup Table \[6\] of only one company, which would make this table unusable from any unencrypted company (since the server will observe that encryption is enabled, and try to retrieve it as it were enabled for all companies and fails).
-  * **"Shotgun surgery" \[7\]:** one change in the data access technique (like a new requirement to validate the user's identity before viewing any protected data), calls for updates in every single implementation of data access, if multiple implementations exist. Hence, one change of requirement triggers multiple efforts to update the product.
+  * **Multi-company configuration [4]**: in NAV, it is possible to store multiple companies on the same tenant [5] database. A developer who has not investigated such a configuration and its consequences on encryption, can attempt to encrypt data in (for example) a Setup Table [6] of only one company, which would make this table unusable from any unencrypted company (since the server will observe that encryption is enabled, and try to retrieve it as it were enabled for all companies and fails).
+  * **"Shotgun surgery" [7]:** one change in the data access technique (like a new requirement to validate the user's identity before viewing any protected data), calls for updates in every single implementation of data access, if multiple implementations exist. Hence, one change of requirement triggers multiple efforts to update the product.
 
 **Solution:** In Dynamics NAV the same library which offers [**Encryption**][anchor1], is also intended to be used as a **Single Point of Access**. Write code to create, read and remove sensitive data only through codeunit 1266 Encryption Management, and never directly.
 
@@ -28,7 +28,7 @@ You can observe that, in panel 3, each usage needs to access separately the encr
 
 _Figure 1- **Single Point of Access** pattern applied._
 
-This shows how pattern application is an iterative process, where one step follows another. Refactoring \[8\] the code to apply one pattern, cleans and clarifies the code and in some cases, makes clear the possibility of further refactoring.
+This shows how pattern application is an iterative process, where one step follows another. Refactoring [8] the code to apply one pattern, cleans and clarifies the code and in some cases, makes clear the possibility of further refactoring.
 
 **Usage**: call the procedures available in codeunit 1266 Encryption Management to store and access sensitive data.
 
@@ -46,29 +46,29 @@ This shows how pattern application is an iterative process, where one step follo
 
 **References**
 
-\[1\] "Wikipedia," \[Online\]. Available: https://en.wikipedia.org/wiki/Separation\_of\_concerns.
+[1] "Wikipedia," [Online]. Available: https://en.wikipedia.org/wiki/Separation\_of\_concerns.
 
-\[2\] "GUID Structure," \[Online\]. Available: https://msdn.microsoft.com/en-us/library/aa373931(VS.85).aspx.
+[2] "GUID Structure," [Online]. Available: https://msdn.microsoft.com/en-us/library/aa373931(VS.85).aspx.
 
-\[3\] "Wikipedia," \[Online\]. Available: https://en.wikipedia.org/wiki/Binary\_large\_object.
+[3] "Wikipedia," [Online]. Available: https://en.wikipedia.org/wiki/Binary\_large\_object.
 
-\[4\] waldo, "How Do I: Manage Companies in Microsoft Dynamics NAV 2013 R2".
+[4] waldo, "How Do I: Manage Companies in Microsoft Dynamics NAV 2013 R2".
 
-\[5\] Microsoft, "Multitenant Deployment Architecture," Microsoft, \[Online\]. Available: https://msdn.microsoft.com/en-us/library/dn271675(v=nav.90).aspx.
+[5] Microsoft, "Multitenant Deployment Architecture," Microsoft, [Online]. Available: https://msdn.microsoft.com/en-us/library/dn271675(v=nav.90).aspx.
 
-\[6\] B. Botez, "Setup Table design pattern," Microsoft, 2013\. \[Online\]. Available: https://community.dynamics.com/nav/w/designpatterns/76.setup-table. \[Accessed 31 07 2016\].
+[6] B. Botez, "Setup Table design pattern," Microsoft, 2013\. [Online]. Available: https://community.dynamics.com/nav/w/designpatterns/76.setup-table. [Accessed 31 07 2016].
 
-\[7\] "Shotgun Surgery," \[Online\]. Available: https://en.wikipedia.org/wiki/Shotgun\_surgery. \[Accessed 31 07 2016\].
+[7] "Shotgun Surgery," [Online]. Available: https://en.wikipedia.org/wiki/Shotgun\_surgery. [Accessed 31 07 2016].
 
-\[8\] M. Fowler, Refactoring: Improving the design of existing code, Addison Wesley, 1999\.
+[8] M. Fowler, Refactoring: Improving the design of existing code, Addison Wesley, 1999\.
 
-\[9\] "Masking out," \[Online\]. Available: https://en.wikipedia.org/wiki/Data\_masking\#Masking\_out. \[Accessed 29 7 2016\].
+[9] "Masking out," [Online]. Available: https://en.wikipedia.org/wiki/Data\_masking\#Masking\_out. [Accessed 29 7 2016].
 
-\[10\] "Key Vault," Microsoft, \[Online\]. Available: https://azure.microsoft.com/en-us/services/key-vault/.
+[10] "Key Vault," Microsoft, [Online]. Available: https://azure.microsoft.com/en-us/services/key-vault/.
 
-\[11\] "How to: Configure SSL to Secure the Connection to Microsoft Dynamics NAV Web Client," Microsoft, \[Online\]. Available: https://msdn.microsoft.com/en-us/library/hh167264(v=nav.90).aspx. \[Accessed 2 8 2016\].
+[11] "How to: Configure SSL to Secure the Connection to Microsoft Dynamics NAV Web Client," Microsoft, [Online]. Available: https://msdn.microsoft.com/en-us/library/hh167264(v=nav.90).aspx. [Accessed 2 8 2016].
 
-\[12\] "sniffer," \[Online\]. Available: http://compnetworking.about.com/od/networksecurityprivacy/g/bldef\_sniffer.htm. \[Accessed 02 08 2016\].
+[12] "sniffer," [Online]. Available: http://compnetworking.about.com/od/networksecurityprivacy/g/bldef\_sniffer.htm. [Accessed 02 08 2016].
 
 
 

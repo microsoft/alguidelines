@@ -30,7 +30,7 @@ GETURL automatically handles:
 
 The format is:
 
-\[String :=\] GETURL(ClientType\[, Company\]\[, Object Type\]\[, Object Id\]\[, Record\])
+[String :=] GETURL(ClientType[, Company][, Object Type][, Object Id][, Record])
 
 Where:
 

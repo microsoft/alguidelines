@@ -23,7 +23,7 @@ The implementation of the pattern involves several considerations:
 
 Since this kind of tables is a collection of several environment or setup parameters, the primary key does not refer to any business attributes for this kind of tables. However, for maintaining the integrity of the database, it is necessary to define a primary key.
 
-So, the most common implementation is to have a field "Primary Key" of Code\[10\]. This is populated with a blank value when the record is inserted. This field is not added to the page, so that the user cannot be modify it later.
+So, the most common implementation is to have a field "Primary Key" of Code[10]. This is populated with a blank value when the record is inserted. This field is not added to the page, so that the user cannot be modify it later.
 
 **Creating a Page**
 

@@ -36,7 +36,7 @@ This table is used to encapsulate the logic of the Business Chart Add-in. The ta
 * Storing chart values and conversion from .NET to C/AL and vice versa
 * Handling of captions: We must use C/AL to provide multilanguage text in add-ins. In addition, the multilanguage text must be encapsulated in a single place, because we pass/read the same dataset from/to the add-in.
 * DrillDown logic
-* Other helper data related functions, for displaying date, periods, etc.\[Bogdana1\] \[NK2\] \[NK3\] 
+* Other helper data related functions, for displaying date, periods, etc.[Bogdana1] [NK2] [NK3] 
 
 **Note:** It is recommended that you reuse the **Business Chart Buffer table** (485) as a buffer table or extend. It is a generic table which should cover most of the use cases. Implement a new buffer table only if this table does not meet your needs.
 

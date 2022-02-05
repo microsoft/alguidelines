@@ -82,7 +82,7 @@ group(LargestSale)
 [EventSubscriber(ObjectType::Codeunit, Codeunit::"Headline RC Business Manager", 'OnComputeHeadlines', '', true, true)]
     procedure OnComputeHeadlinesBusinessManager()
     begin
-    // \[...\] compute headline, and init the EssentialBusinessHeadline record
+    // [...] compute headline, and init the EssentialBusinessHeadline record
     if not ShowHeadline then
         exit; // not enough data to compute headline
 
