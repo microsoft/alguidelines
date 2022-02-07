@@ -14,11 +14,11 @@ The intent of this pattern is to provide a unified API to a single or a collecti
 - Testability
 - Maintainability
 
-## Context: 
+## Context
 
 Whenever you want to write an isolated piece of business logic, from now on referred to as subsystem, this pattern should be applicable.
 
-## Problem: 
+## Problem
 
 The facade pattern addresses two main problems:
 - Over time as systems grow, they tend to become complex and harder to comprehend. By adding a facade on top of the subsystem, that complexity is hidden, and a clear API is defined.
@@ -133,10 +133,10 @@ codeunit 3970 "Image Impl."
 
 There are no rules for the subsystem, except that access needs to be **internal**. How you implement, how much you document, how you test, is entirely up to you and not the business of the outside caller. Of course, you should apply all of the best practices and patterns anyway, as you and possibly other developers will have to understand, extend and maintain the subsystem too. But from the view of this pattern, the complexity of the subsystem is irrelevant - just as long as it's not accessible.
 
-## Usage: 
+## Usage
 The facade pattern is one of the most prominent patterns in the [system application](https://github.com/microsoft/ALAppExtensions/tree/main/Modules/System). You will find plenty of examples here.
 
-## Benefits:
+## Benefits
 
 The benefits of this rather simple pattern should be abundantly clear by now. But let's go over them once more, structured by the advantages this patterns brings:
 
