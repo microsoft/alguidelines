@@ -111,4 +111,4 @@ Obviously, the events should be carefully considered: only the events that make 
 
 ## Discussions
 
-Create a discussions-page of your pattern, and add the sentence "You can discuss this pattern [here](https://github.com/microsoft/alguidelines/discussions/66)" with the right link to that discussions-page.  
+You can discuss this pattern [here](https://github.com/microsoft/alguidelines/discussions/66)
