@@ -10,11 +10,11 @@ This is a guideline, some parts are optional (if there's no content, remove the 
 
 Short, descriptive and easy to remember description of this pattern.
 
-## Context: 
+## Context
 
 Sets the stage where the pattern takes place. 1-2 sentences.
 
-## Problem: 
+## Problem
 
 What happens before this pattern is used? How can it go wrong? 1-5 lines.
 
@@ -26,11 +26,11 @@ In depth description on what this Pattern is all about
 - steps to implement
 - considerations to take
 
-## Usage: 
+## Usage
 
 If applicable: where is it used in an app.  You can refer to any app, BaseApp, or a (public) ISV app.
 
-## Benefits:
+## Benefits
 
 1-2 sentences: what did you just solve
 
