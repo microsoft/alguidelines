@@ -25,7 +25,9 @@ Therefore it's good practice to always check if the table is empty when performi
         EmptyTableWLD.DeleteAll(true);
 ```
 
-## [Discussions](https://github.com/microsoft/alguidelines/discussions/categories/bc-best-practices?discussions_q=DeleteAll+category%3A%22BC+Best+Practices%22)
+## Discussions
+
+You can discuss the guideline [here](https://github.com/microsoft/alguidelines/discussions/107)
 
 You can find discussions on all "Best Practices" [here](https://github.com/microsoft/alguidelines/discussions/categories/bc-best-practices).
 
