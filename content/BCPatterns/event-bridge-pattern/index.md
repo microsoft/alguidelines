@@ -60,7 +60,7 @@ codeunit 50407 "Scale Wrong" implements IScale
 
 ## Description
 
-To mitigate this problem, we can work with a new, dedicated, isolated, codeunit, with publish events to be able to raise them from different places.
+To mitigate this problem, we can work with a new, dedicated and isolated codeunit, with publisher events to be able to raise them from different places.
 
 ```AL
 codeunit 50406 "IScale Triggers"
