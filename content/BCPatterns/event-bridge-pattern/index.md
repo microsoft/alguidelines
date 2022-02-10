@@ -29,12 +29,11 @@ interface "IScale"
 Multiple apps can subscribe to certain events of the app.
 When a new implementation is created, we need to make sure that these events are raised at the right times.  If those events were published on the implementation codeunit, it might very well be that those events will not be raised, hard to find, or whatever.
 
-So, if we would implement it like this, it isn't really extensible, as a different implemention would impement different events .. and it's not possible to subscribe to all of them (inculding future implementations)
+So, if we would implement it like this, it isn't really extensible, as a different implemention would implement different events .. and it's not possible to subscribe to all of them (including future implementations)
 
 ```AL
 codeunit 50407 "Scale Wrong" implements IScale
 {
-
     procedure GetWeight() Result: Decimal;
     begin
         //TODO: Implement Bar GetWeight
@@ -63,7 +62,7 @@ codeunit 50407 "Scale Wrong" implements IScale
 
 To mitigate this problem, we can work with a new, dedicated, isolated, codeunit, with publish events to be able to raise them from different places.
 
-```
+```AL
 codeunit 50406 "IScale Triggers"
 {
     [IntegrationEvent(false, false)]
@@ -108,7 +107,7 @@ The naming convention (both starting with "IScale") also makes it very easy to f
 
 ## When not to use
 
-Obiously, the events should be carefully considered: only the events that make sense to "share" over all implementations, need this approach.
+Obviously, the events should be carefully considered: only the events that make sense to "share" over all implementations, need this approach.
 
 ## Discussions
 
