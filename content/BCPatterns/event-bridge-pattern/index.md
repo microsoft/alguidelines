@@ -4,7 +4,7 @@ weight = 1180
 +++
 This is a guideline, some parts are optional (if there's no content, remove the whole paragraph).
 
-<_Created by (company), Described by (company)_\>
+<_Created by waldo & Arend-Jan Kauffmann, Described by waldo_\>
 
 ## Abstract
 
