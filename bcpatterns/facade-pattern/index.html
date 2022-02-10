@@ -5,16 +5,16 @@
 <meta name=generator content="Hugo 0.92.1">
 <meta name=description content>
 <title>Facade Pattern :: AL Guidelines</title>
-<link href=/css/nucleus.css?1644506338 rel=stylesheet>
-<link href=/css/fontawesome-all.min.css?1644506338 rel=stylesheet>
-<link href=/css/featherlight.min.css?1644506338 rel=stylesheet>
-<link href=/css/perfect-scrollbar.min.css?1644506338 rel=stylesheet>
-<link href=/css/auto-complete.css?1644506338 rel=stylesheet>
-<link href=/css/theme.css?1644506338 rel=stylesheet>
-<link href=/css/theme-blue.css?1644506338 rel=stylesheet>
-<link href=/css/variant.css?1644506338 rel=stylesheet>
-<link href=/css/print.css?1644506338 rel=stylesheet media=print>
-<script src=/js/jquery.min.js?1644506338></script>
+<link href=/css/nucleus.css?1644506467 rel=stylesheet>
+<link href=/css/fontawesome-all.min.css?1644506467 rel=stylesheet>
+<link href=/css/featherlight.min.css?1644506467 rel=stylesheet>
+<link href=/css/perfect-scrollbar.min.css?1644506467 rel=stylesheet>
+<link href=/css/auto-complete.css?1644506467 rel=stylesheet>
+<link href=/css/theme.css?1644506467 rel=stylesheet>
+<link href=/css/theme-blue.css?1644506467 rel=stylesheet>
+<link href=/css/variant.css?1644506467 rel=stylesheet>
+<link href=/css/print.css?1644506467 rel=stylesheet media=print>
+<script src=/js/jquery.min.js?1644506467></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
 <body data-url=/bcpatterns/facade-pattern/>
@@ -32,9 +32,9 @@ ALGuidelines.Dev
 <input data-search-input id=search-by type=search placeholder=Search...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script src=/js/lunr.min.js?1644506338></script>
-<script src=/js/auto-complete.js?1644506338></script>
-<script src=/js/search.js?1644506338></script>
+<script src=/js/lunr.min.js?1644506467></script>
+<script src=/js/auto-complete.js?1644506467></script>
+<script src=/js/search.js?1644506467></script>
 </div>
 <div class=highlightable>
 <ul class=topics>
@@ -248,16 +248,16 @@ ALGuidelines.Dev
 <nav id=TableOfContents>
 <ul>
 <li><a href=#abstract>Abstract</a></li>
-<li><a href=#context>Context:</a></li>
-<li><a href=#problem>Problem:</a></li>
+<li><a href=#context>Context</a></li>
+<li><a href=#problem>Problem</a></li>
 <li><a href=#description>Description</a>
 <ul>
 <li><a href=#what-is-a-subsystem>What is a subsystem?</a></li>
 <li><a href=#the-pattern>The Pattern</a></li>
 </ul>
 </li>
-<li><a href=#usage>Usage:</a></li>
-<li><a href=#benefits>Benefits:</a>
+<li><a href=#usage>Usage</a></li>
+<li><a href=#benefits>Benefits</a>
 <ul>
 <li><a href=#decoupling>Decoupling</a></li>
 <li><a href=#encapsulation>Encapsulation</a></li>
@@ -289,9 +289,9 @@ ALGuidelines.Dev
 <li>Testability</li>
 <li>Maintainability</li>
 </ul>
-<h2 id=context>Context:</h2>
+<h2 id=context>Context</h2>
 <p>Whenever you want to write an isolated piece of business logic, from now on referred to as subsystem, this pattern should be applicable.</p>
-<h2 id=problem>Problem:</h2>
+<h2 id=problem>Problem</h2>
 <p>The facade pattern addresses two main problems:</p>
 <ul>
 <li>Over time as systems grow, they tend to become complex and harder to comprehend. By adding a facade on top of the subsystem, that complexity is hidden, and a clear API is defined.</li>
@@ -387,9 +387,9 @@ In Business Central, all modules in the System Application are subsystems. Examp
     <span style=color:#66d9ef>end</span>;
 }
 </code></pre></div><p>There are no rules for the subsystem, except that access needs to be <strong>internal</strong>. How you implement, how much you document, how you test, is entirely up to you and not the business of the outside caller. Of course, you should apply all of the best practices and patterns anyway, as you and possibly other developers will have to understand, extend and maintain the subsystem too. But from the view of this pattern, the complexity of the subsystem is irrelevant - just as long as it&rsquo;s not accessible.</p>
-<h2 id=usage>Usage:</h2>
+<h2 id=usage>Usage</h2>
 <p>The facade pattern is one of the most prominent patterns in the <a href=https://github.com/microsoft/ALAppExtensions/tree/main/Modules/System>system application</a>. You will find plenty of examples here.</p>
-<h2 id=benefits>Benefits:</h2>
+<h2 id=benefits>Benefits</h2>
 <p>The benefits of this rather simple pattern should be abundantly clear by now. But let&rsquo;s go over them once more, structured by the advantages this patterns brings:</p>
 <h3 id=decoupling>Decoupling</h3>
 <p>As the entire subsystem is inaccessible to outside systems, no dependencies can be taken. Hence this patterns strongly promotes the decoupling of objects.</p>
@@ -424,12 +424,12 @@ In Business Central, all modules in the System Application are subsystems. Examp
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/js/clipboard.min.js?1644506338></script>
-<script src=/js/perfect-scrollbar.min.js?1644506338></script>
-<script src=/js/perfect-scrollbar.jquery.min.js?1644506338></script>
-<script src=/js/jquery.svg.pan.zoom.js?1644506338></script>
-<script src=/js/featherlight.min.js?1644506338></script>
-<script src=/js/modernizr.custom-3.6.0.js?1644506338></script>
-<script src=/js/relearn.js?1644506338></script>
+<script src=/js/clipboard.min.js?1644506467></script>
+<script src=/js/perfect-scrollbar.min.js?1644506467></script>
+<script src=/js/perfect-scrollbar.jquery.min.js?1644506467></script>
+<script src=/js/jquery.svg.pan.zoom.js?1644506467></script>
+<script src=/js/featherlight.min.js?1644506467></script>
+<script src=/js/modernizr.custom-3.6.0.js?1644506467></script>
+<script src=/js/relearn.js?1644506467></script>
 </body>
 </html>
