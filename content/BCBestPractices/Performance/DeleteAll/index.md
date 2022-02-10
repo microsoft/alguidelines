@@ -2,7 +2,6 @@
 title = "DeleteAll"
 weight = 1180
 +++
-This is a guideline, some parts are optional (if there's no content, remove the whole paragraph).
 
 <_Created by waldo, Described by waldo_\>
 
@@ -14,14 +13,14 @@ Therefore it's good practice to always check if the table is empty when performi
 ## Bad code
 
 ```al
-    EmptyTableWLD.Setrange(Code, 'AJ');
+    EmptyTableWLD.SetRange(Code, 'AJ');
     EmptyTableWLD.DeleteAll(true);
 ```
 
 ## Good code
 
 ```al
-    EmptyTableWLD.Setrange(Code, 'AJ');
+    EmptyTableWLD.SetRange(Code, 'AJ');
     if not EmptyTableWLD.IsEmpty() then
         EmptyTableWLD.DeleteAll(true);
 ```
@@ -30,4 +29,4 @@ Therefore it's good practice to always check if the table is empty when performi
 
 You can find discussions on all "Best Practices" [here](https://github.com/microsoft/alguidelines/discussions/categories/bc-best-practices).
 
-If you don't find the discussion of this guideline, please feel fee to create a new one with the same title as this article.  
+If you don't find the discussion of this guideline, please feel free to create a new one with the same title as this article.  
