@@ -47,14 +47,11 @@ After those changes, when the customer (in this case the Danish "Lauritzen Konto
 Named "<Entity\> Translation" table, where <Entity\> is replaced with the name of the actual object being translated. For the Item example above, this table will be named "Item Translation".
 
 The table definition contains at a minimum:
-**Field**
-**Description**
-Entity ID field
-For example, Item No.
-Language Code
-Identifies the language of this translation string (for example, "DAN" (Danish), "BGR"(Bulgarian). This is one of the language codes defined in the Languages table.
-Translation
-The translated string.
+Field | Description
+---------|---------
+Entity ID field | For example, Item No.
+Language Code   | Identifies the language of this translation string (for example, "DAN" (Danish), "BGR"(Bulgarian). This is one of the language codes defined in the Languages table.
+Translation     | The translated string.
 
 The table above has a key composed of the first two fields.
 
@@ -74,18 +71,13 @@ Some of the NAV implementations of this pattern are:
 
 ## Related Topics
 
-The **Extended Text** pattern is a more powerful version of the **Multilanguage application data** pattern presented in this section. The main differences are: **Pattern**
-**Multilanguage Application Data**
-**Extended Text**
-**Supports translation of application data**
-Yes
-Yes
-**Format**
-Single- or multi-line
-Single-line
-**Applies to document type**
-Can choose which document types are affected.
-All document types are affected.
+The **Extended Text** pattern is a more powerful version of the **Multilanguage application data** pattern presented in this section. The main differences are: 
+
+Pattern | Multilanguage Application Data | Extended Text
+--------|--------------------------------|--------------
+Supports translation of application data | Yes | Yes
+Format | Single- or multi-line | Single-line
+Applies to document type | Can choose which document types are affected. | All document types are affected.
 
 
 

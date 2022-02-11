@@ -18,99 +18,74 @@ Examples of Master Data tables are:
 
 Business Data:
 
-Table 18: Customer
-
-Table 23: Vendor
-
-Table 270: Bank Account
-
-Table 5050: Contact
+* Table 18: Customer
+* Table 23: Vendor
+* Table 270: Bank Account
+* Table 5050: Contact
 
 Product Data:
 
-Table 15 G/L Account
-
-Table 27: Item
-
-Table 156: Resource
-
-Table 5600: Fixed Asset
-
-Table 5718: Nonstock Item
-
-Table 5913: Loaner
+* Table 15 G/L Account
+* Table 27: Item
+* Table 156: Resource
+* Table 5600: Fixed Asset
+* Table 5718: Nonstock Item
+* Table 5913: Loaner
 
 Master Data has attributes such as Location, Countries & Item Vendors. These tables are closely related to Master Data tables and are called Supplemental and Subsidiary tables.
 
 Supplemental:
 
-Table 9: Country/Region
-
-Table 14: Location
+* Table 9: Country/Region
+* Table 14: Location
 
 Subsidiary:
 
-Table 99: Item Vendor
+* Table 99: Item Vendor
 
 Master Data is among other used in journals, posting routines and historic data like ledger entries.
 
 **Naming & Conventions**
 
-****
-
 Table & Card Page
 
-Singular
+* Singular
 
-Examples: Customer, Vendor & Item
+* Examples: Customer, Vendor & Item
 
 List Page
 
-Plural if Editable = TRUE. 
+* Plural if Editable = TRUE. 
 
-Singular + "List" if Editable = FALSE.
+* Singular + "List" if Editable = FALSE.
 
 # Example
 
 The data entity has a single primary key field with the following properties:
 
-Field No.
-
-1
-
-Name
-
-"No."
-
-Date Type
-
-Code 20
+|
+----------|---------
+Field No. | 1
+Name      | "No."
+Date Type | Code 20
 
 Each master data entity has a field which gives a name tag to the data entity carrying the natural name of the entity. This field is called Name if the data entity refers to a living person or an organization, such as a customer or a vendor; it is called Description instead if the data entity does not refer to a person or organization, such as an item. The field has the following properties:
 
-Name
-
-Name or Description
-
-Date Type
-
-Text 50
+|
+----------|---------
+Name      | Name or Description
+Date Type | Text 50
 
 An added benefit of using the Name or Description field naming is that this will be part of the dropdown when looking up based on the table relation.
 
 The table properties of a master data table contain the following entries:
 
-LookupPageID
+|
+------------------|---------
+LookupPageID      | A ListType Page referring to the table which is not editable.
+DrillDownPageID   | The same page as defined in the LookupPageID
+DataCaptionFields | The primary key plus the field which provides the primary name tag for the record. This will typically be the Name or Description field defined earlier.
 
-A ListType Page referring to the table which is not editable.
-
-DrillDownPageID
-
-The same page as defined in the LookupPageID
-
-DataCaptionFields
-
-The primary key plus the field which provides the primary name tag for the record. This will typically be the Name or Description field defined earlier.
 
 # NAV Specific Example
 
@@ -148,27 +123,19 @@ You can see this pattern used in the following tables & pages:
 
 Business Data:
 
-Table 18: Customer, Page 21 Customer Card & Page 22 Customer List
-
-Table 23: Vendor, Page 26 Vendor Card & Page 27 Vendor List
-
-Table 270: Bank Account, Page 370 Bank Account Card & Page 371 Bank Account List
-
-Table 5050: Contact, Page 5050 Contact Card & Page 5052 Contact List
+* Table 18: Customer, Page 21 Customer Card & Page 22 Customer List
+* Table 23: Vendor, Page 26 Vendor Card & Page 27 Vendor List
+* Table 270: Bank Account, Page 370 Bank Account Card & Page 371 Bank Account List
+* Table 5050: Contact, Page 5050 Contact Card & Page 5052 Contact List
 
 Product Data:
 
-Table 15 G/L Account, Page 17 G/L Account Card & Page 18 G/L Account List
-
-Table 27: Item, Page 30 Item Card & Page 31 Item List
-
-Table 156: Resource, Page 76 Resource Card & Page 77 Resource List
-
-Table 5600: Fixed Asset, Page 5600 Fixed Asset Card & Page 5601 Fixed Asset List
-
-Table 5718: Nonstock Item, Page 5725 Nonstock Item Card & Page 5726 Nonstock Item List
-
-Table 5913: Loaner, Page 5922 Loaner Card & Page 5923 Loaner List
+* Table 15 G/L Account, Page 17 G/L Account Card & Page 18 G/L Account List
+* Table 27: Item, Page 30 Item Card & Page 31 Item List
+* Table 156: Resource, Page 76 Resource Card & Page 77 Resource List
+* Table 5600: Fixed Asset, Page 5600 Fixed Asset Card & Page 5601 Fixed Asset List
+* Table 5718: Nonstock Item, Page 5725 Nonstock Item Card & Page 5726 Nonstock Item List
+* Table 5913: Loaner, Page 5922 Loaner Card & Page 5923 Loaner List
 
 # Consequences
 

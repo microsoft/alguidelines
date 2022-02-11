@@ -18,7 +18,7 @@ This pattern is about sending notifications in Dynamics NAV, starting with versi
 
 Notifications are easy to use in a wide range of cases. Instead of using notifications in a fire-and-forget way, we need to track them so that we can recall them if we need to. 
 
-If we can have only one notification on a given page, an easy and efficient solution is to use a predefined Notification ID, as suggested in the "Using In-context Notifications" pattern. 
+If we can have only one notification on a given page, an easy and efficient solution is to use a predefined Notification ID, as suggested in the ["Using In-context Notifications"][anchor7] pattern. 
 
 However, some cases can be more complicated. For example, when you are adding lines to a table, what if several lines raise individual notifications? Using the same notification ID for each notification will no longer work because the latest notification overwrites the previous ones. Only one notification for a given notification ID can exist, and only the notification message would be updated. This is illustrated in Figure 1\. 
 
@@ -32,41 +32,48 @@ _Figure 2: You add a second item that is not in stock. the notification is fired
 
 Here is the code for this behavior: 
 
-    LOCAL PROCEDURE CreateAndSendNotification@23(UnitOfMeasureCode@1010 : Code\[20\];InventoryQty@1009 : Decimal;GrossReq@1008 : Decimal;ReservedReq@1007 : Decimal;SchedRcpt@1006 : Decimal;ReservedRcpt@1005 : Decimal;CurrentQuantity@1004 : Decimal;CurrentReservedQty@1003 : Decimal;TotalQuantity@1002 : Decimal;EarliestAvailDate@1001 : Date) : Boolean; 
-    VAR 
-    ItemAvailabilityCheck@1011 : Page 1872; 
-    AvailabilityCheckNotification@1000 : Notification; 
-    BEGIN 
-    **AvailabilityCheckNotification.ID(GetItemAvailabilityNotificationId);**
-    AvailabilityCheckNotification.MESSAGE(STRSUBSTNO(NotificationMsg,ItemNo)); 
-    AvailabilityCheckNotification.SCOPE(NOTIFICATIONSCOPE::LocalScope); 
-    AvailabilityCheckNotification.ADDACTION(DetailsTxt,CODEUNIT::"Item-Check Avail.",'ShowNotificationDetails'); 
-    ItemAvailabilityCheck.PopulateDataOnNotification(AvailabilityCheckNotification,ItemNo,UnitOfMeasureCode,InventoryQty,GrossReq,ReservedReq,SchedRcpt,ReservedRcpt,CurrentQuantity,CurrentReservedQty,TotalQuantity,EarliestAvailDate); 
-    AvailabilityCheckNotification.SEND; 
-    EXIT(FALSE); 
-    END;  
-    LOCAL PROCEDURE **GetItemAvailabilityNotificationId**@27() : GUID; 
-    BEGIN 
-    **EXIT('2712AD06-C48B-4C20-820E-347A60C9AD00');**
-    END; 
+```al
+LOCAL PROCEDURE CreateAndSendNotification@23(UnitOfMeasureCode@1010 : Code[20];InventoryQty@1009 : Decimal;GrossReq@1008 : Decimal;ReservedReq@1007 : Decimal;SchedRcpt@1006 : Decimal;ReservedRcpt@1005 : Decimal;CurrentQuantity@1004 : Decimal;CurrentReservedQty@1003 : Decimal;TotalQuantity@1002 : Decimal;EarliestAvailDate@1001 : Date) : Boolean; 
+VAR 
+  ItemAvailabilityCheck@1011 : Page 1872; 
+  AvailabilityCheckNotification@1000 : Notification; 
+BEGIN 
+  AvailabilityCheckNotification.ID(GetItemAvailabilityNotificationId);
+  AvailabilityCheckNotification.MESSAGE(STRSUBSTNO(NotificationMsg,ItemNo)); 
+  AvailabilityCheckNotification.SCOPE(NOTIFICATIONSCOPE::LocalScope); 
+  AvailabilityCheckNotification.ADDACTION(DetailsTxt,CODEUNIT::"Item-Check Avail.",'ShowNotificationDetails');
+
+  ItemAvailabilityCheck.PopulateDataOnNotification(AvailabilityCheckNotification,ItemNo,UnitOfMeasureCode,InventoryQty,GrossReq,ReservedReq,SchedRcpt,ReservedRcpt,CurrentQuantity,CurrentReservedQty,TotalQuantity,EarliestAvailDate); 
+  AvailabilityCheckNotification.SEND; 
+  EXIT(FALSE); 
+END;
+
+LOCAL PROCEDURE **GetItemAvailabilityNotificationId**@27() : GUID; 
+BEGIN 
+  EXIT('2712AD06-C48B-4C20-820E-347A60C9AD00');
+END; 
+```
 
 An easy fix would be to dynamically generate the notification ID. However, what if you fix the issue that triggered the notification? 
 
 Here is the code for this possible fix: 
 
-    LOCAL PROCEDURE CreateAndSendNotification@23(UnitOfMeasureCode@1010 : Code\[20\];InventoryQty@1009 : Decimal;GrossReq@1008 : Decimal;ReservedReq@1007 : Decimal;SchedRcpt@1006 : Decimal;ReservedRcpt@1005 : Decimal;CurrentQuantity@1004 : Decimal;CurrentReservedQty@1003 : Decimal;TotalQuantity@1002 : Decimal;EarliestAvailDate@1001 : Date) : Boolean; 
-    VAR 
-    ItemAvailabilityCheck@1011 : Page 1872; 
-    AvailabilityCheckNotification@1000 : Notification; 
-    BEGIN 
-    **AvailabilityCheckNotification.ID(CREATEGUID);**
-    AvailabilityCheckNotification.MESSAGE(STRSUBSTNO(NotificationMsg,ItemNo)); 
-    AvailabilityCheckNotification.SCOPE(NOTIFICATIONSCOPE::LocalScope); 
-    AvailabilityCheckNotification.ADDACTION(DetailsTxt,CODEUNIT::"Item-Check Avail.",'ShowNotificationDetails'); 
-    ItemAvailabilityCheck.PopulateDataOnNotification(AvailabilityCheckNotification,ItemNo,UnitOfMeasureCode,InventoryQty,GrossReq,ReservedReq,SchedRcpt,ReservedRcpt,CurrentQuantity,CurrentReservedQty,TotalQuantity,EarliestAvailDate); 
-    AvailabilityCheckNotification.SEND; 
-    EXIT(FALSE); 
-    END; 
+```al
+LOCAL PROCEDURE CreateAndSendNotification@23(UnitOfMeasureCode@1010 : Code[20];InventoryQty@1009 : Decimal;GrossReq@1008 : Decimal;ReservedReq@1007 : Decimal;SchedRcpt@1006 : Decimal;ReservedRcpt@1005 : Decimal;CurrentQuantity@1004 : Decimal;CurrentReservedQty@1003 : Decimal;TotalQuantity@1002 : Decimal;EarliestAvailDate@1001 : Date) : Boolean; 
+VAR 
+  ItemAvailabilityCheck@1011 : Page 1872; 
+  AvailabilityCheckNotification@1000 : Notification; 
+BEGIN 
+  AvailabilityCheckNotification.ID(CREATEGUID);
+  AvailabilityCheckNotification.MESSAGE(STRSUBSTNO(NotificationMsg,ItemNo)); 
+  AvailabilityCheckNotification.SCOPE(NOTIFICATIONSCOPE::LocalScope); 
+  AvailabilityCheckNotification.ADDACTION(DetailsTxt,CODEUNIT::"Item-Check Avail.",'ShowNotificationDetails'); 
+
+  ItemAvailabilityCheck.PopulateDataOnNotification(AvailabilityCheckNotification,ItemNo,UnitOfMeasureCode,InventoryQty,GrossReq,ReservedReq,SchedRcpt,ReservedRcpt,CurrentQuantity,CurrentReservedQty,TotalQuantity,EarliestAvailDate); 
+  AvailabilityCheckNotification.SEND; 
+  EXIT(FALSE); 
+END; 
+```
 
 Now, notifications do not replace each other, but we cannot recall them because we do not track each notification ID. 
 
@@ -107,7 +114,7 @@ The main functions provided by codeunit 1511 are:
   * Sends a notification and keeps track of it with additional information. For example, a GUID that represents the context in which the notification was sent, and an item with insufficient inventory. 
 * **RecallNotificationsForRecord**(RecId : RecordID;HandleDelayedInsert : Boolean) 
 
-*   * Recalls all notifications that were sent by a given record ID. The HandleDelayedInsert flag should be TRUE if it is possible that the record ID provided is from a record that was not yet in the database (TRUE unless we recall notifications after deletion of a record). 
+  * Recalls all notifications that were sent by a given record ID. The HandleDelayedInsert flag should be TRUE if it is possible that the record ID provided is from a record that was not yet in the database (TRUE unless we recall notifications after deletion of a record). 
 * **RecallNotificationsForRecordWithAdditionalContext**(RecId : RecordID;AdditionalContextId : GUID;HandleDelayedInsert : Boolean) 
   * Recalls the notification that was sent by a given Record ID in a particular context. The HandleDelayedInsert flag should be TRUE if it is possible that the Record ID provided is from a record that was not yet in the database (TRUE unless we recall notifications after deleting a record). 
 * **SetRecordID**(RecId : RecordID) 
@@ -135,8 +142,6 @@ _Figure 4: without additional context_
 [![ ][image5]][anchor5] 
 
 _Figure 5: with additional context_
-
-__
 
 However, delayed insert means that the simple case seen above doesn't happen very often. The issue is that when we call **SendNotification**, we provide the cause object's record ID. If this object has not been inserted yet, which is often the case when the user creates a new invoice, a new line, and so on, the record ID is incomplete. When the object is inserted the record ID is completed, but if we call **RecallNotificationsForRecord** at a later point, the record ID will be different from the incomplete record ID we used when sending the notification. The solution is to detect that the object is not yet inserted when we send the notification, and at a later point, set the record ID when the cause object is inserted.  
 
@@ -166,10 +171,9 @@ COD1508 (Notification Lifecycle Handler)
 
 **Related Patterns:**
 
-[In-context notifications][anchor7] (https://community.dynamics.com/nav/w/designpatterns/284.using-in-context-notifications) 
+[In-context notifications][anchor7]
 
-[Singleton codeunit][anchor8] (https://community.dynamics.com/nav/w/designpatterns/283.singleton-codeunit) 
-
+[Singleton codeunit][anchor8]
 
 
 [anchor0]: 6138.logo.png
@@ -179,8 +183,8 @@ COD1508 (Notification Lifecycle Handler)
 [anchor4]: sequence1.png
 [anchor5]: sequence2.png
 [anchor6]: sequence3.png
-[anchor7]: /nav/w/designpatterns/284.using-in-context-notifications
-[anchor8]: /nav/w/designpatterns/283.singleton-codeunit
+[anchor7]: /navpatterns/1-patterns/notifications/in-context-notifications/
+[anchor8]: /navpatterns/1-patterns/singleton/singleton-codeunit/
 
 
 [image0]: 6138.logo.png

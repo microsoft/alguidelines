@@ -29,14 +29,14 @@ We are working on creating a set of rules, which would help keeping the content 
 
 
 
-[anchor0]: /nav/w/designpatterns/74.no-series.aspx "No. Series"
-[anchor1]: /nav/w/designpatterns/76.single-record-setup-table.aspx "Setup Table"
-[anchor2]: /nav/w/designpatterns/117.hooks-pattern.aspx "Hooks"
-[anchor3]: /nav/w/designpatterns/122.implementation-of-surrogate-keys-using-autoincrement-pattern.aspx
-[anchor4]: /nav/w/designpatterns/104.easy-update-of-setup-or-supplementary-information.aspx
-[anchor5]: /nav/w/designpatterns/155.totals-and-discounts-on-subpages-sales-and-purchases.aspx
-[anchor6]: /nav/w/designpatterns/123.using-cal-query-objects-instead-of-nested-loops.aspx
+[anchor0]: /navpatterns/1-patterns/no-series/ "No. Series"
+[anchor1]: /navpatterns/1-patterns/singleton/singleton-table/setup-table/ "Setup Table"
+[anchor2]: /navpatterns/1-patterns/hooks/ "Hooks"
+[anchor3]: /navpatterns/1-patterns/implementation-of-surrogate-keys-using-autoincrement-pattern/
+[anchor4]: /navpatterns/1-patterns/easy-update-of-setup-or-supplementary-information/
+[anchor5]: /navpatterns/1-patterns/totals-and-discounts-on-subpages-sales-and-purchases/
+[anchor6]: /navpatterns/1-patterns/queries/use-queries-to-replace-nested-loops/
 [anchor7]: /members/bogdana-botez/default.aspx
-[anchor8]: /nav/w/designpatterns/107.template-for-writing-nav-design-patterns.aspx
+[anchor8]: /navpatterns/4-get-involved/template-for-writing-nav-design-patterns/
 [anchor9]: /members/bogdana-botez/default.aspx "Bogdana Botez"
-[anchor10]: /nav/w/designpatterns/239.rules-of-conduct.aspx "Find the rules here"
+[anchor10]: /navpatterns/4-get-involved/code-of-conduct/ "Find the rules here"

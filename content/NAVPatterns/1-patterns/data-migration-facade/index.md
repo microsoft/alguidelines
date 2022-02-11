@@ -12,7 +12,7 @@ This pattern is describing how you can migrate data using the Data Migration Fa�
 
 ## Problem:
 
-Writing migration code from an external source, such as a product from a competitor, can be time consuming, as you need to tackle the problems of what to migrate, in which order, exception handling... and can result in code that is fragile due to deep dependencies on the NAV data model (high coupling). Any change to the NAV data model can easily break this code. ****
+Writing migration code from an external source, such as a product from a competitor, can be time consuming, as you need to tackle the problems of what to migrate, in which order, exception handling... and can result in code that is fragile due to deep dependencies on the NAV data model (high coupling). Any change to the NAV data model can easily break this code.
 
 ## Solution:
 
@@ -35,7 +35,7 @@ The façade framework has the following components:
 
 * A page where you can view the status and progress of the migration. It shows one line for each master data entity (item, customer, vendor, general ledger account) that was chosen for migration. You can also stop a migration by choosing the **Stop Migration** action. 
 
-*   * **Data Migration Overview** (page 1799) 
+  * **Data Migration Overview** (page 1799) 
 
 ## Usage:
 
@@ -47,10 +47,10 @@ There are the following use cases:
 
 To initialize and start the data migration, you must call the following procedures: 
 
-* **"Data Migration Status Façade".InitStatusLine('My Migration Type',Database::Item,42000,0,Codeunit::"My extension Item migration codeunit") **  
+* **"Data Migration Status Façade".InitStatusLine('My Migration Type',Database::Item,42000,0,Codeunit::"My extension Item migration codeunit")**  
 This deletes existing status lines for migrating Items for 'My Migration Type', and initializes a new status line with 0 records migrated out of 42000\. 
 
-**"Data Migration Façade".StartMigration('My Migration Type',false) **  
+**"Data Migration Façade".StartMigration('My Migration Type',false)**  
 This starts the migration. False means this is not a retry. A re-try is when you migrate one or more records from the **Show Errors** page, which is described later in this document. Retry = true is only used by the **Show Errors** page and should not be used from extensions. 
 
 ### Usage without staging tables:
@@ -70,56 +70,61 @@ The overall workflow is:
 
 [![ ][image1]][anchor1]
 
-_Figure 1: sequence diagram of the data migration without staging tables _
+_Figure 1: sequence diagram of the data migration without staging tables_
 
 The following example shows how to migrate items without staging tables: 
 ```al
-    trigger OnRun(); 
-    var 
-      ItemDataMigrationFacade: Codeunit "Item Data Migration Facade"; 
-      ItemNumber: Integer; 
-      ItemJson: Text; 
-    begin 
-      // loop on items retrieved through a web service for example 
-      for ItemNumber := 1 to ExternalWebService.GetItemCount do begin 
-      ExternalWebService.GetItem(ItemNumber,ItemJson); 
-      // create item using the facade 
-      if not ItemDataMigrationFacade.CreateItemIfNeeded(ItemJson.ItemNumber,ItemJson.ItemName1,
-      ItemJson.ItemName2,ConvertItemType(ItemJson.ItemType)) then 
-      exit; // item already exists 
-      // set some fields using the facade 
-      ItemDataMigrationFacade.SetVendorItemNo(ItemJson.VendItemNumber); 
-      ItemDataMigrationFacade.SetUnitVolume(ItemJson.Volume); 
-      ItemDataMigrationFacade.SetAlternativeItemNo(ItemJson.AltItemNumber); 
-      if ItemJson.PrimaryVendor <\> '' then 
-      ItemDataMigrationFacade.SetVendorNo(ItemJson.PrimaryVendor); 
-      // migrate dependencies 
-      MigrateItemUnitOfMeasure(ItemDataMigrationFacade,ItemJson); 
-      // modify the item (+run trigger) to save the changes made by setters 
-      ItemDataMigrationFacade.ModifyItem(true); 
-      // update the status in the migration dashboard 
-      DataMigrationStatusFacade.IncrementMigratedRecordCount('My Migration Type',
-      Database::Item,1); 
-      end; 
-      end;
-      procedure MigrateItemUnitOfMeasure(ItemDataMigrationFacade : Codeunit "Item Data Migration Facade";
-      ItemJson : Text); 
-      var 
-      MyUnitCodeStagingTable: Record "My Unit Code Staging Table"; 
-      DataMigrationStatusFacade: Codeunit "Data Migration Status Facade"; 
-      DescriptionToSet: Text\[10\]; 
-      UnitCodeJson: Text; 
-      begin 
-      if ItemJson.UnitCode = '' then 
-      // log an error using the Data migration façade 
-      DataMigrationStatusFacade.RegisterErrorNoStagingTablesCase(
-      'My Migration Type',Database::Item,'Unit of measure is empty.'); 
-      if ExternalWebService.GetUnitCode(ItemJson.UnitCode,UnitCodeJson) then 
-      DescriptionToSet := UnitCodeJson.Description; 
-      ItemDataMigrationFacade.CreateUnitOfMeasureIfNeeded(ItemJson.UnitCode, DescriptionToSet); 
-      // set the unit of measure on the item 
-      ItemDataMigrationFacade.SetBaseUnitOfMeasure(ItemJson.UnitCode); 
-    end;
+trigger OnRun(); 
+var 
+    ItemDataMigrationFacade: Codeunit "Item Data Migration Facade"; 
+    ItemNumber: Integer; 
+    ItemJson: Text; 
+begin 
+    // loop on items retrieved through a web service for example 
+    for ItemNumber := 1 to ExternalWebService.GetItemCount do begin 
+        ExternalWebService.GetItem(ItemNumber,ItemJson);
+
+        // create item using the facade 
+        if not ItemDataMigrationFacade.CreateItemIfNeeded(ItemJson.ItemNumber,ItemJson.ItemName1,
+            ItemJson.ItemName2,ConvertItemType(ItemJson.ItemType)) then 
+                exit; // item already exists 
+
+        // set some fields using the facade 
+        ItemDataMigrationFacade.SetVendorItemNo(ItemJson.VendItemNumber); 
+        ItemDataMigrationFacade.SetUnitVolume(ItemJson.Volume); 
+        ItemDataMigrationFacade.SetAlternativeItemNo(ItemJson.AltItemNumber); 
+        if ItemJson.PrimaryVendor <> '' then 
+            ItemDataMigrationFacade.SetVendorNo(ItemJson.PrimaryVendor); 
+
+        // migrate dependencies 
+        MigrateItemUnitOfMeasure(ItemDataMigrationFacade,ItemJson); 
+
+        // modify the item (+run trigger) to save the changes made by setters 
+        ItemDataMigrationFacade.ModifyItem(true); 
+        // update the status in the migration dashboard 
+        DataMigrationStatusFacade.IncrementMigratedRecordCount('My Migration Type',Database::Item,1); 
+    end; 
+end;
+
+procedure MigrateItemUnitOfMeasure(ItemDataMigrationFacade : Codeunit "Item Data Migration Facade"; ItemJson : Text); 
+var 
+    MyUnitCodeStagingTable: Record "My Unit Code Staging Table"; 
+    DataMigrationStatusFacade: Codeunit "Data Migration Status Facade"; 
+    DescriptionToSet: Text[10]; 
+    UnitCodeJson: Text; 
+begin 
+    if ItemJson.UnitCode = '' then 
+        // log an error using the Data migration façade 
+        DataMigrationStatusFacade.RegisterErrorNoStagingTablesCase(
+            'My Migration Type',Database::Item,'Unit of measure is empty.');
+
+    if ExternalWebService.GetUnitCode(ItemJson.UnitCode,UnitCodeJson) then 
+        DescriptionToSet := UnitCodeJson.Description; 
+    ItemDataMigrationFacade.CreateUnitOfMeasureIfNeeded(ItemJson.UnitCode, DescriptionToSet); 
+    
+    // set the unit of measure on the item 
+    ItemDataMigrationFacade.SetBaseUnitOfMeasure(ItemJson.UnitCode); 
+end;
 ```  
 
 _Figure 2: Example of Item and Item Unit of Measure migration without staging tables_
@@ -136,7 +141,7 @@ The overall workflow is:
 * Subscribe to the events to migrate entities and their dependencies. 
 * From the event subscribers, call the façade procedures to create entities and set their field values: 
 
-*   * **"Item Data Migration Façade".CreateItemIfNeeded('ITEM042','My Item Description';'My Item Description 2';ItemTypeToSet::Inventory)**
+  * **"Item Data Migration Façade".CreateItemIfNeeded('ITEM042','My Item Description';'My Item Description 2';ItemTypeToSet::Inventory)**
   * **"Item Data Migration Façade".SetBaseUnitOfMeasure('BOX')**
   * **"Item Data Migration Façade".ModifyItem(true)**
 
@@ -146,66 +151,72 @@ _Figure 3: Simplified sequence diagram of the data migration with staging tables
 
 Below is a simplified example showing how to create an item: 
 ```al
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Data Migration Facade", 'OnMigrateItem', '', true, true)] 
-    procedure OnMigrateItem(VAR Sender : Codeunit "Item Data Migration Facade";RecordIdToMigrate : RecordId); 
-    var 
-      MyItemStagingTable : Record "My Item Staging Table"; 
-    begin 
-      // handle the event if it targets this extension's staging table 
-      if RecordIdToMigrate.TableNo <\> Database::"My Item Staging Table" then 
-      exit; 
-      MyItemStagingTable.Get(RecordIdToMigrate); 
-      // create item using the facade 
-      if not Sender.CreateItemIfNeeded(MyItemStagingTable.ItemNumber,MyItemStagingTable.ItemName1,
-      MyItemStagingTable.ItemName2,ConvertItemType(MyItemStagingTable.ItemType)) then 
-      exit; // item already exists 
-      // set some fields using the facade 
-      Sender.SetVendorItemNo(MyItemStagingTable.VendItemNumber); 
-      Sender.SetUnitVolume(MyItemStagingTable.Volume); 
-      Sender.SetAlternativeItemNo(MyItemStagingTable.AltItemNumber); 
-      if MyItemStagingTable.PrimaryVendor <\> '' then 
-      Sender.SetVendorNo(MyItemStagingTable.PrimaryVendor); 
-      // modify the item (+run trigger) to save the changes made by setters 
-      Sender.ModifyItem(true); 
-    end;
+[EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Data Migration Facade", 'OnMigrateItem', '', true, true)] 
+procedure OnMigrateItem(VAR Sender : Codeunit "Item Data Migration Facade";RecordIdToMigrate : RecordId); 
+var 
+    MyItemStagingTable : Record "My Item Staging Table"; 
+begin 
+    // handle the event if it targets this extension's staging table 
+    if RecordIdToMigrate.TableNo <> Database::"My Item Staging Table" then 
+        exit;
+    MyItemStagingTable.Get(RecordIdToMigrate); 
+
+    // create item using the facade 
+    if not Sender.CreateItemIfNeeded(MyItemStagingTable.ItemNumber,MyItemStagingTable.ItemName1,
+        MyItemStagingTable.ItemName2,ConvertItemType(MyItemStagingTable.ItemType)) then 
+            exit; // item already exists
+
+    // set some fields using the facade 
+    Sender.SetVendorItemNo(MyItemStagingTable.VendItemNumber); 
+    Sender.SetUnitVolume(MyItemStagingTable.Volume); 
+    Sender.SetAlternativeItemNo(MyItemStagingTable.AltItemNumber); 
+    if MyItemStagingTable.PrimaryVendor <> '' then 
+        Sender.SetVendorNo(MyItemStagingTable.PrimaryVendor);
+
+    // modify the item (+run trigger) to save the changes made by setters 
+    Sender.ModifyItem(true); 
+end;
 ```  
 
 _Figure 4: Example of event subscriber for Item migration_
 
-
 Below is another example showing how to use additional events to set fields that reference other tables, here the unit of measure: 
 
 ```al
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Data Migration Facade", 'OnMigrateItemUnitOfMeasure', '', true, true)] 
-    procedure OnMigrateItemUnitOfMeasure(VAR Sender : Codeunit "Item Data Migration Facade";RecordIdToMigrate : RecordId); 
-    var 
-      MyItemStagingTable : Record "My Item Staging Table"; 
-      MyUnitCodeStagingTable : Record "My Unit Code Staging Table"; 
-      DescriptionToSet: Text[10]; 
-    begin 
-      // handle the event if it targets this extension's staging table 
-      if RecordIdToMigrate.TableNo <\> Database::"My Item Staging Table" then 
-      exit; 
-      MyItemStagingTable.Get(RecordIdToMigrate); 
-      if MyItemStagingTable.UnitCode = '' then 
-      error('Unit of measure is empty.'); 
-      MyUnitCodeStagingTable.SetRange(UnitCode,MyItemStagingTable.UnitCode); 
-      if MyUnitCodeStagingTable.FindFirst then 
-      DescriptionToSet := MyUnitCodeStagingTable.Description; 
-      // create the unit of measure through the facade 
-      Sender.CreateUnitOfMeasureIfNeeded(MyItemStagingTable.UnitCode, DescriptionToSet); 
-      // set the unit of measure on the item 
-      Sender.SetBaseUnitOfMeasure(MyItemStagingTable.UnitCode); 
-      // modify the item to save the changes made by setter 
-      Sender.ModifyItem(false); 
-    end; 
+[EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Data Migration Facade", 'OnMigrateItemUnitOfMeasure', '', true, true)] 
+procedure OnMigrateItemUnitOfMeasure(VAR Sender : Codeunit "Item Data Migration Facade";RecordIdToMigrate : RecordId); 
+var 
+    MyItemStagingTable : Record "My Item Staging Table"; 
+    MyUnitCodeStagingTable : Record "My Unit Code Staging Table"; 
+    DescriptionToSet: Text[10]; 
+begin 
+    // handle the event if it targets this extension's staging table 
+    if RecordIdToMigrate.TableNo <> Database::"My Item Staging Table" then 
+        exit;
+
+    MyItemStagingTable.Get(RecordIdToMigrate); 
+    if MyItemStagingTable.UnitCode = '' then 
+        error('Unit of measure is empty.');
+    MyUnitCodeStagingTable.SetRange(UnitCode,MyItemStagingTable.UnitCode); 
+    if MyUnitCodeStagingTable.FindFirst then 
+        DescriptionToSet := MyUnitCodeStagingTable.Description;
+
+    // create the unit of measure through the facade 
+    Sender.CreateUnitOfMeasureIfNeeded(MyItemStagingTable.UnitCode, DescriptionToSet);
+
+    // set the unit of measure on the item 
+    Sender.SetBaseUnitOfMeasure(MyItemStagingTable.UnitCode);
+
+    // modify the item to save the changes made by setter 
+    Sender.ModifyItem(false); 
+end;
 ```
 
 _Figure 5: Example of event subscriber for Item Unit of Measure migration_
 
 ### Combining both approaches:
 
-If you want to migrate additional entities, the **Data Migration **framework lets you initialize the migration with entities other than master data. In this case, the **Data Migration Overview** page will show additional lines. Item, vendor, customer, an general ledger accounts are migrated with an event driven approach, and the additional entities are migrated by calling an extension codeunit **OnRun** method. 
+If you want to migrate additional entities, the **Data Migration** framework lets you initialize the migration with entities other than master data. In this case, the **Data Migration Overview** page will show additional lines. Item, vendor, customer, an general ledger accounts are migrated with an event driven approach, and the additional entities are migrated by calling an extension codeunit **OnRun** method. 
 
 ## Error handling with staging tables:
 
@@ -215,17 +226,13 @@ The migration starts by calling **RUN** on the façade codeunit. Errors thrown d
 
 _Figure 6: List of errors shown when clicking **Show Errors** on the **Data Migration Overview** page_
 
-__
-
 The **Edit Record** action opens a view of the staging table, where you can edit fields to fix errors. Figure 4 shows an example of a page for the vendor staging table in a migration from C5\. 
 
 [![ ][image4]][anchor4]
 
 _Figure 7: Edit a staging table record_
 
-__
-
-The **Staging Table ID** determines the page to open, so it is important that the page ID is equal to the **Staging Table ID**, at least for the master data staging tables, for example, for**G/L Accounts, Items, Customers** and **Vendor**. You should ensure that pages to edit related entities are linked on this page by means of new actions. For example, Figure 4 uses the **C5 Purchaser** action. 
+The **Staging Table ID** determines the page to open, so it is important that the page ID is equal to the **Staging Table ID**, at least for the master data staging tables, for example, for **G/L Accounts, Items, Customers** and **Vendor**. You should ensure that pages to edit related entities are linked on this page by means of new actions. For example, Figure 4 uses the **C5 Purchaser** action. 
 
 After you fix the staging table record, you can choose the **Migrate** action to mark the selected records as records to retry, and then run **StartMigration** with the **Retry** flag set to true. This is the only place where the retry flag should be set to true in the **StartMigration** procedure. 
 

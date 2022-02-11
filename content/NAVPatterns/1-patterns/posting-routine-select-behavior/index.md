@@ -36,11 +36,13 @@ Or in case of the Post&Print, the selection codeunit is different:
 
 Next, the user is able to select the options with an STRMENU, which results in filling in the fields above, like:
 
+```al
 Selection := STRMENU(Text000,3);  
 IF Selection = 0 THEN  
-EXIT;  
-Ship := Selection IN \[1,3\];  
-Invoice := Selection IN \[2,3\];
+    EXIT;  
+Ship := Selection IN [1,3];  
+Invoice := Selection IN [2,3];
+```
 
 The processing codeunit is being called after these options were set.
 

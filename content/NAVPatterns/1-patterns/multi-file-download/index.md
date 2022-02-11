@@ -26,40 +26,43 @@ The second step is the actually download of file(s). For the Web client this con
 
 Code 1: File loop shows an example implementation of this pattern. ServerFileName is generated at the beginning of the report/codeunit, and is the base for GetSeriesFilename. The file that is actually written to during data processing is stored in another variable which holds the output from GetSeriesFilename on the current file number. Note; the example code will only create a ZIP file if there in fact are multiple files to be downloaded. 
 
-    IF FileName = '' THEN
+```al
+IF FileName = '' THEN
     ERROR(SupplyFileNameErr);
-    IF ZipMultipleFiles AND (GetTotalNumberOfFiles \> 1) AND FileManagement.IsWebClient
-    THEN BEGIN
+
+IF ZipMultipleFiles AND (GetTotalNumberOfFiles \> 1) AND FileManagement.IsWebClient
+THEN BEGIN
     Basename := FileManagement.GetFileName(FileName);
     ZipFileName := FileManagement.CreateZipArchiveObject;
     FOR FileNo := 1 TO GetTotalNumberOfFiles DO
-    FileManagement.AddFileToZipArchive(
-    GetSeriesFilename(ServerFileName,FileNo),GetSeriesFilename(Basename,FileNo));
+        FileManagement.AddFileToZipArchive(
+            GetSeriesFilename(ServerFileName,FileNo),GetSeriesFilename(Basename,FileNo));
     FileManagement.DownloadHandler(ZipFileName,'','','',
-    STRSUBSTNO('%1.zip',FileManagement.GetFileNameWithoutExtension(FileName)))
-    END ELSE BEGIN
+        STRSUBSTNO('%1.zip',FileManagement.GetFileNameWithoutExtension(FileName)))
+END ELSE BEGIN
     IF FileManagement.IsWebClient THEN BEGIN
-    IF GetTotalNumberOfFile \> 1 THEN
-    ERROR(MultipleFilesWebClientErr);
-    FileManagementDownloadHandler(GetSeriesFilename(ServerFileName,1),'','','',
-    FileManagement.GetFileName(FileName));
+        IF GetTotalNumberOfFile > 1 THEN
+            ERROR(MultipleFilesWebClientErr);
+        FileManagementDownloadHandler(GetSeriesFilename(ServerFileName,1),'','','',
+            FileManagement.GetFileName(FileName));
     END ELSE
-    FOR FileNo := 1 TO GetTotalNumberOfFiles DO
-    FileManagement.DownloadToFile(GetSeriesFilieName(ServerFileName,FileNo),
-    GetSeriesFilename(FileName,FileNo));
-    END; 
+        FOR FileNo := 1 TO GetTotalNumberOfFiles DO
+            FileManagement.DownloadToFile(GetSeriesFilieName(ServerFileName,FileNo),
+                GetSeriesFilename(FileName,FileNo));
+END; 
+```
 
 _Code 1: File loop_
 
-__
-
 The following code is an example implementation of the GetSeriesFilename function. It needs to support the case where no directory is given, only a filename, in order to add files to the root of the ZIP archive. The example will add a file number right before the extension, e.g. C:\\directory\\file.txt will become C:\\directory\\file1.txt etc. 
 
-    LOCAL GetSeriesFilename(FileName : Text;FileNo : Integer) : Text
-    IF STRPOS(FileName,'\\') <\> 0 THEN
+```al
+LOCAL GetSeriesFilename(FileName : Text;FileNo : Integer) : Text
+IF STRPOS(FileName,'\\') <> 0 THEN
     Directory := FileMgt.GetDirectoryName(FileName) + '\\';
-    EXIT(Directory + FileMgt.GetFileNameWithoutExtension(FileName) + FORMAT(FileNo) + '.' +   
+EXIT(Directory + FileMgt.GetFileNameWithoutExtension(FileName) + FORMAT(FileNo) + '.' +   
     FileMgt.GetExtension(FileName));
+```
 
 #### _Code 2: GetSeriesFilename_
 

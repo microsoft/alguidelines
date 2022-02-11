@@ -33,22 +33,22 @@ The pattern has four components:
 An example of this would be when we have multiple users looking at the same set of data and we want their screens to update in "real time" whenever one of them makes a change, without doing a full refresh. We will use the [Observer pattern][anchor2] to capture the change (act as the Publisher) and then create a Table to hold Subscribers and Filters (Change Observer), a Table to be the Message Queue (Change Notification), and a Codeunit to be the Message Broker and help with the polling (ObserverMgt).
 
 Below are the table definitions:
-```al
-    //Change Observer:   
-    //"Table ID" Integer "Observable Table"  
-    "Server ID" Integer  
-    "Session ID" Integer   
-      
-    //Change Notification:  
-    //"Table ID" Integer "Observable Table"  
-    "Server ID" Integer  
-    "Session ID" Integer   
-    "Entry No." Integer AutoIncrement  
-    "Type of Change" Option Insert,Modify,Delete,Rename  
-    "Record ID" RecordID  
-    ... (other fields to indicate what has changed)  
-```
+
+**Change Observer:** | |
+-----|------|-----
+"Table ID" | Integer | "Observable Table"  
+"Server ID" | Integer
+"Session ID" | Integer
     
+**Change Notification:** | |
+-----|------|-----
+"Table ID" | Integer | "Observable Table"  
+"Server ID" | Integer  
+"Session ID" | Integer   
+"Entry No." | Integer | AutoIncrement  
+"Type of Change" | Option | Insert,Modify,Delete,Rename  
+"Record ID" | RecordID  
+... (other fields to indicate what has changed)  
 
 The Change Observer table identifies the Subscriber using Server ID and Session ID, and then in this example there is only one filter, which is the Table ID we want to listen to any changes. In this case all three fields are in the Primary Key.
 
@@ -58,85 +58,89 @@ _**Note:**_ Other examples of the pattern could have very different fields to id
 
 Our Message Broker Codeunit will also serve as a central place to create Subscribers (Listen and StopListening functions) and a place to Poll for Messages. Note that the Poll function deletes the Messages as it reads them.
 ```al
-    //Listen(TableID : Integer)**
-    WITH Observer DO BEGIN
-        "Table ID" := TableID;
-        "Server ID" := SERVICEINSTANCEID;
-        "Session ID" := SESSIONID;
-        INSERT(TRUE);
-        COMMIT;
-    END;
+Listen(TableID : Integer)
+WITH Observer DO BEGIN
+    "Table ID" := TableID;
+    "Server ID" := SERVICEINSTANCEID;
+    "Session ID" := SESSIONID;
+    INSERT(TRUE);
+    COMMIT;
+END;
 
-    //StopListening(TableID : Integer)
-    WITH Observer DO BEGIN
-        RESET;
-        SETRANGE("Server ID",SERVICEINSTANCEID);
-        SETRANGE("Session ID",SESSIONID);
-        SETRANGE("Table ID",TableID);
-        DELETEALL(TRUE);
-        COMMIT;
-    END;
+StopListening(TableID : Integer)
+WITH Observer DO BEGIN
+    RESET;
+    SETRANGE("Server ID",SERVICEINSTANCEID);
+    SETRANGE("Session ID",SESSIONID);
+    SETRANGE("Table ID",TableID);
+    DELETEALL(TRUE);
+    COMMIT;
+END;
 
-    //NotifyAll(ChangeNotification : Record "Change Notification")**
-    WITH Observer DO BEGIN
-        RESET;
-        SETRANGE("Table ID",ChangeNotification."Table ID");
-        IF FINDSET THEN REPEAT
-        Notify(Observer,ChangeNotification);
-        UNTIL NEXT = 0; 
-    END;
+NotifyAll(ChangeNotification : Record "Change Notification")
+WITH Observer DO BEGIN
+    RESET;
+    SETRANGE("Table ID",ChangeNotification."Table ID");
+    IF FINDSET THEN REPEAT
+    Notify(Observer,ChangeNotification);
+    UNTIL NEXT = 0; 
+END;
 
-    //Notify(Observer : Record "Change Observer";ChangeNotification : Record "Change Notification")**
-    WITH ChangeNotification DO BEGIN
-        "Server ID" := Observer."Server ID";
-        "Session ID" := Observer."Session ID";
-        "Entry No." := 0;
-        INSERT;
-    END;
+Notify(Observer : Record "Change Observer";ChangeNotification : Record "Change Notification")
+WITH ChangeNotification DO BEGIN
+    "Server ID" := Observer."Server ID";
+    "Session ID" := Observer."Session ID";
+    "Entry No." := 0;
+    INSERT;
+END;
 
-    //Poll(TableID : Integer;VAR TempChangeNotification : TEMPORARY Record "Change Notification")**
-    WITH ChangeNotification DO BEGIN
-        TempChangeNotification.RESET;
-        TempChangeNotification.DELETEALL;
-        RESET;
-        SETRANGE("Table ID",TableID);
-        SETRANGE("Server ID",SERVICEINSTANCEID);
-        SETRANGE("Session ID",SESSIONID);
-        IF FINDSET THEN REPEAT
-            TempChangeNotification := ChangeNotification;
-            TempChangeNotification.INSERT;
-            MARK(TRUE);
-            UNTIL NEXT = 0;
-        MARKEDONLY(TRUE);
-        DELETEALL;
-    END;
+Poll(TableID : Integer;VAR TempChangeNotification : TEMPORARY Record "Change Notification")
+WITH ChangeNotification DO BEGIN
+    TempChangeNotification.RESET;
+    TempChangeNotification.DELETEALL;
+
+    RESET;
+    SETRANGE("Table ID",TableID);
+    SETRANGE("Server ID",SERVICEINSTANCEID);
+    SETRANGE("Session ID",SESSIONID);
+
+    IF FINDSET THEN REPEAT
+        TempChangeNotification := ChangeNotification;
+        TempChangeNotification.INSERT;
+        MARK(TRUE);
+        UNTIL NEXT = 0;
+
+    MARKEDONLY(TRUE);
+    DELETEALL;
+END;
 ```
 
-**__** The final part of this example is an object that calls the functions above. In this example we will use a Page with a PingPong Timer Control to do the polling in (almost) real time. These are the functions on the page:
+The final part of this example is an object that calls the functions above. In this example we will use a Page with a PingPong Timer Control to do the polling in (almost) real time. These are the functions on the page:
 
 ```al
-    //OnQueryClosePage(CloseAction : Action None) : Boolean**
-    ObserverMgt.StopListening(DATABASE::"NAV Whiteboard Booking");
-    
-    //Timer::AddInReady()**
-    IF ObserverMgt.Listen(DATABASE::"NAV Whiteboard Booking") THEN
-    CurrPage.Timer.Ping(1000);
-    
-    //Timer::Pong()**
-    CallUpdate;
-    CurrPage.Timer.Ping(1000);
-    
-    //LOCAL CallUpdate()**
-    ObserverMgt.Poll(DATABASE::"NAV Whiteboard Booking",TempChangeNotification);
-    WITH TempChangeNotification DO BEGIN
-        IF FINDSET THEN REPEAT
+OnQueryClosePage(CloseAction : Action None) : Boolean
+ObserverMgt.StopListening(DATABASE::"NAV Whiteboard Booking");
+
+Timer::AddInReady()
+IF ObserverMgt.Listen(DATABASE::"NAV Whiteboard Booking") THEN
+CurrPage.Timer.Ping(1000);
+
+Timer::Pong()
+CallUpdate;
+CurrPage.Timer.Ping(1000);
+
+LOCAL CallUpdate()
+ObserverMgt.Poll(DATABASE::"NAV Whiteboard Booking",TempChangeNotification);
+
+WITH TempChangeNotification DO BEGIN
+    IF FINDSET THEN REPEAT
         IF "Type of Change" = "Type of Change"::Delete THEN BEGIN
-        ...
+            ...
         END ELSE IF RecRef.GET("Record ID") THEN BEGIN
-        ...
+            ...
         END;
-        UNTIL NEXT = 0;
-    END;
+    UNTIL NEXT = 0;
+END;
 ```
 
 ## Consequences
@@ -151,13 +155,13 @@ This pattern was originally described in the following blog:
 
 Below is the Wikipedia link to the PubSub pattern
 
-[https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe\_pattern][anchor1]
+[https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern][anchor1]
 
 
 
 [anchor0]: PubSub.png
 [anchor1]: https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern
-[anchor2]: /nav/w/designpatterns/248.observer
+[anchor2]: /navpatterns/1-patterns/observer/
 [anchor3]: https://geeknikolai.wordpress.com/2015/10/30/pubsub-pattern-in-dynamics-nav-2016/
 
 

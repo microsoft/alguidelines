@@ -6,14 +6,9 @@ weight = 1110
 
 _By Elly Nkya at Microsoft Development Center Copenhagen_
 
-## [![ ][image0]][anchor0]
-
-_  
-_
+[![ ][image0]][anchor0]
 
 **Problem**: The developer needs to define a single record that can contain a set of rules and behavior (optional, mandatory, or defaulting mechanisms), that apply to a functionality, and can be configured by a user.
-
-****
 
 **Forces**
 
@@ -36,8 +31,6 @@ In a functionality that is large enough (such as sales, inventory, fixed) you ma
 
 **4\. Use:** Access the rule in code and use it
 
-****
-
 **NAV Usages**
 
 Rounding rules for Unit-Amounts and Amounts are implemented using the Singleton pattern.
@@ -46,35 +39,43 @@ Rounding rules for Unit-Amounts and Amounts are implemented using the Singleton 
 
 **2\. Instantiate:** In codeunit 2, the following code is invoked
 
-    WITH GLSetup DO
+```al
+WITH GLSetup DO
     IF NOT FINDFIRST THEN BEGIN
-    INIT;
-    INSERT;
+        INIT;
+        INSERT;
     END;
+```
 
 **3\. Enforce:** On the General Ledger Setup. The following properties are setup:
 
+```al
     DeleteAllowed=false,
     InsertAllowed=false
+```
 
 **4\. Use:** Access the rounding rules are used
 
-    ...
-    GLSetup.GET;
-    UnitCostCurrency := ROUND(...,GLSetup."Unit-Amount Rounding Precision"); 
-    ... 
+```al
+...
+GLSetup.GET;
+UnitCostCurrency := ROUND(...,GLSetup."Unit-Amount Rounding Precision"); 
+... 
+```
 
 Or if accessing the rule multiple times and performance is a consideration, use lazy instantiation:
 
-    ...
-    GetGLSetup;
-    UnitCostCurrency := ROUND(...,GLSetup."Unit-Amount Rounding Precision");
-    ...
+```al
+...
+GetGLSetup;
+UnitCostCurrency := ROUND(...,GLSetup."Unit-Amount Rounding Precision");
+...
 
-    LOCAL GetGLSetup()
-    IF NOT GLSetupRead THEN
+LOCAL GetGLSetup()
+IF NOT GLSetupRead THEN
     GLSetup.GET;
-    GLSetupRead := TRUE;
+GLSetupRead := TRUE;
+```
 
 **Related topics**
 
@@ -93,7 +94,7 @@ YouTube Video of NAV Singleton:
 
 [anchor0]: 5554.Singleton-Table.png
 [anchor1]: https://en.wikipedia.org/wiki/Singleton_pattern
-[anchor2]: /nav/w/designpatterns/76.setup-table
+[anchor2]: /navpatterns/1-patterns/singleton/singleton-table/setup-table/
 [anchor3]: https://www.youtube.com/watch?v=aQPu-s9FkYI&list=PLhZ3P-LY7CqmVszuvtJLujFyHpsVN0U_w&index=13
 
 

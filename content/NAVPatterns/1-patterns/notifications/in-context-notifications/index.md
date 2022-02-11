@@ -72,7 +72,7 @@ The ID is an optional parameter for the notification object that tracks the obje
 
 **GetItemAvailabilityNotificationId**
 
-EXIT('2712AD06-C48B-4C20-820E-347A60C9AD00');****
+EXIT('2712AD06-C48B-4C20-820E-347A60C9AD00');
 
 Figure 5\. Uniquely identifying a notification
 
@@ -206,7 +206,7 @@ You may check that the call to this function is made almost as the first step in
 
 The ability to turn notifications on or off is not required. If skipped, the notification is always shown when the condition that triggers it is met, and a user cannot turn it off.
 
-# NAV specific usages
+## NAV specific usages
 
 For examples of how these objects are used in Dynamics NAV, look at the code for the following objects:
 
@@ -216,7 +216,7 @@ For examples of how these objects are used in Dynamics NAV, look at the code for
 4. Codeunit 1854 Item Sales Forecast Notifier (in SalesAndInventoryForecast extension)
 5. Codeunit 1852 Item Sales Forecast Scheduler (in SalesAndInventoryForecast extension)
 
-# Best practices
+## Best practices
 
 The following list summarizes best practices for creating notifications:
 

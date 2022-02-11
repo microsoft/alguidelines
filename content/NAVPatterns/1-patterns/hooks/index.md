@@ -31,7 +31,7 @@ I recommend to use this concept on:
 **Step 1** - if it doesn't exist yet - you create your Hook Codeunit. As the name assumes .. this is always a codeunit. We apply the following rules to it:
 
 * One Hook always hooks into one object. Which basically means that I will only declare this new codeunit in one other object (which is its parent object)
-* The naming convention is: "The\_Original\_Object\_Name Hook". Naming conventions are important, just to find your mapped object, and also to be able to group the Hooks.
+* The naming convention is: "The_Original_Object_Name Hook". Naming conventions are important, just to find your mapped object, and also to be able to group the Hooks.
 
 **Step 2**, you create the hook, which is basically a method (function) in your codeunit. The naming is important:
 
@@ -72,13 +72,13 @@ Suppose, we want to add business logic just before posting a sales document. In 
 This pattern can be used in all cases to put business logic. But I see three possible approaches
 
 1. You only declare the most important and most used hooks
-  * This way, you limit the amount of objects and hooks to only a few in the default product
-  * For example, only the OnBeforePostSalesHeader, OnBeforeReleaseSalesDocument, .. And no field validation or such...
+    * This way, you limit the amount of objects and hooks to only a few in the default product
+    * For example, only the OnBeforePostSalesHeader, OnBeforeReleaseSalesDocument, .. And no field validation or such...
 2. Only at objects of the default application which you are customizing. 
-  * This way, you don't want to create hooks for your own objects, only default existing objects.
+    * This way, you don't want to create hooks for your own objects, only default existing objects.
 3. (recommended) You create hooks on all places you don't want to write business logic, and on all existing objects which you would like to customize.
-  * This is a very consistent way of working, as in any case, your business logic ends up in either a hook, or in its corresponding objects from a specific design pattern. But you know that the entry point is always a hook.
-  * You know what to expect in any case, both changed business logic in existing code and business logic in newly created code is entered from a hook.
+    * This is a very consistent way of working, as in any case, your business logic ends up in either a hook, or in its corresponding objects from a specific design pattern. But you know that the entry point is always a hook.
+    * You know what to expect in any case, both changed business logic in existing code and business logic in newly created code is entered from a hook.
 
 ## Related Topics
 

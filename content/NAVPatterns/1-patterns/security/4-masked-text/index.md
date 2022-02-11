@@ -4,18 +4,13 @@ weight = 180
 +++
 _By Bogdana Botez at Microsoft Development Center Copenhagen_
 
-_[![ ][image0]][anchor0]  
-_
-
-__
+[![ ][image0]][anchor0]  
 
 **Aliases:** Masking out
 
 **Context**: In the user interface (UI) of a software system, the user enters protected information such as a password, an access key, a credit card number etc.
 
 **Problem**: The entered information is visible during data entry and whenever any user (the one who entered the data, or a foreign user) opens the UI.
-
-****
 
 **Forces:**
 
@@ -31,11 +26,11 @@ _Figure 1 - The field "Password" is masked._
 
 To apply this pattern in Dynamics NAV, the developer has two choices:
 
-**1\.** **Mask everywhere**
+1. **Mask everywhere**
 
 Mask the field in all pages which expose it or will expose it in the future. In this case, masking needs to be set at the table level, by opening the table in design mode and setting the field's property ExtendedDatatype=Masked.
 
-**2\.** **Mask only in selected pages**
+2. **Mask only in selected pages**
 
 Mask the field in only a subset of pages. Open the pages where the field should be masked in design mode, open the property page for the field in question, and set ExtendedDatatype=Masked. This option can be used for example when a field should be hidden from most users (in most usual pages), but still visible to administrators in specific pages.
 
@@ -49,53 +44,29 @@ Mask the field in only a subset of pages. Open the pages where the field should 
 
 **References**
 
-\[1\]
+[1] "Wikipedia," [Online]. Available: https://en.wikipedia.org/wiki/Separation_of_concerns.
 
-"Wikipedia," \[Online\]. Available: https://en.wikipedia.org/wiki/Separation\_of\_concerns.
+[2] "GUID Structure," [Online]. Available: https://msdn.microsoft.com/en-us/library/aa373931(VS.85).aspx.
 
-\[2\]
+[3] "Wikipedia," [Online]. Available: https://en.wikipedia.org/wiki/Binary_large_object.
 
-"GUID Structure," \[Online\]. Available: https://msdn.microsoft.com/en-us/library/aa373931(VS.85).aspx.
+[4] waldo, "How Do I: Manage Companies in Microsoft Dynamics NAV 2013 R2".
 
-\[3\]
+[5] Microsoft, "Multitenant Deployment Architecture," Microsoft, [Online]. Available: https://msdn.microsoft.com/en-us/library/dn271675(v=nav.90).aspx.
 
-"Wikipedia," \[Online\]. Available: https://en.wikipedia.org/wiki/Binary\_large\_object.
+[6] B. Botez, "Setup Table design pattern," Microsoft, 2013\. [Online]. Available: https://community.dynamics.com/nav/w/designpatterns/76.setup-table. [Accessed 31 07 2016].
 
-\[4\]
+[7] "Shotgun Surgery," [Online]. Available: https://en.wikipedia.org/wiki/Shotgun_surgery. [Accessed 31 07 2016].
 
-waldo, "How Do I: Manage Companies in Microsoft Dynamics NAV 2013 R2".
+[8] M. Fowler, Refactoring: Improving the design of existing code, Addison Wesley, 1999\.
 
-\[5\]
+[9] "Masking out," [Online]. Available: https://en.wikipedia.org/wiki/Data_masking\#Masking_out. [Accessed 29 7 2016].
 
-Microsoft, "Multitenant Deployment Architecture," Microsoft, \[Online\]. Available: https://msdn.microsoft.com/en-us/library/dn271675(v=nav.90).aspx.
+[10] "Key Vault," Microsoft, [Online]. Available: https://azure.microsoft.com/en-us/services/key-vault/.
 
-\[6\]
+[11] "How to: Configure SSL to Secure the Connection to Microsoft Dynamics NAV Web Client," Microsoft, [Online]. Available: https://msdn.microsoft.com/en-us/library/hh167264(v=nav.90).aspx. [Accessed 2 8 2016].
 
-B. Botez, "Setup Table design pattern," Microsoft, 2013\. \[Online\]. Available: https://community.dynamics.com/nav/w/designpatterns/76.setup-table. \[Accessed 31 07 2016\].
-
-\[7\]
-
-"Shotgun Surgery," \[Online\]. Available: https://en.wikipedia.org/wiki/Shotgun\_surgery. \[Accessed 31 07 2016\].
-
-\[8\]
-
-M. Fowler, Refactoring: Improving the design of existing code, Addison Wesley, 1999\.
-
-\[9\]
-
-"Masking out," \[Online\]. Available: https://en.wikipedia.org/wiki/Data\_masking\#Masking\_out. \[Accessed 29 7 2016\].
-
-\[10\]
-
-"Key Vault," Microsoft, \[Online\]. Available: https://azure.microsoft.com/en-us/services/key-vault/.
-
-\[11\]
-
-"How to: Configure SSL to Secure the Connection to Microsoft Dynamics NAV Web Client," Microsoft, \[Online\]. Available: https://msdn.microsoft.com/en-us/library/hh167264(v=nav.90).aspx. \[Accessed 2 8 2016\].
-
-\[12\]
-
-"sniffer," \[Online\]. Available: http://compnetworking.about.com/od/networksecurityprivacy/g/bldef\_sniffer.htm. \[Accessed 02 08 2016\].
+[12] "sniffer," [Online]. Available: http://compnetworking.about.com/od/networksecurityprivacy/g/bldef_sniffer.htm. [Accessed 02 08 2016].
 
 
 

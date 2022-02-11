@@ -41,9 +41,9 @@ The Dynamics NAV application developer can take into account using the Copy Docu
 The Copy Document pattern involves the following entities:
 
 1. Source document tables for document header and line. For example,Sales Header/Line.
-2. Destination document tables for document header and line.
+2. Destination document tables for document header and line.  
+**Note:** The source document header/line and destination document header/line tables do not need to be the same. For example, you can copy a Sales Shipment Header/Lines into a Sales Header/Lines.
 
-**Note:**The source document header/line and destination document header/line tables do not need to be the same. For example, you can copy a Sales Shipment Header/Lines into a Sales Header/Lines.
 3. Copy Document engine: COD6620, Copy Document Mgt.
 4. Copy Document report for a specific document type. The report requires the following parameters:
   * Source Document Type
@@ -77,7 +77,7 @@ Example: Copy Sales Document for Credit Memos.
 
 In the standard version of Microsoft Dynamics NAV, the Copy Document functionality is implemented in the Sales Credit Memo window as shown in the following section.
 
-\*\*\*
+****
 
 **Precondition**: The user enters data in PAGE44, Sales Credit Memo.
 

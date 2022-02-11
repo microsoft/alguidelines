@@ -4,8 +4,6 @@ weight = 920
 +++
 The number of parameters passed to a string must match the placeholders.
 
-****
-
 Bad code
 
     CannotDeleteLineErr@1005 : TextConst 'ENU=You cannot delete this line because one or more rating values exists.';
@@ -18,7 +16,7 @@ Good code
     ...
     ERROR(CannotDeleteLineErr);
 
-### 
+
 
 Bad code
 

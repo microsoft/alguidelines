@@ -30,7 +30,7 @@ GETURL automatically handles:
 
 The format is:
 
-\[String :=\] GETURL(ClientType\[, Company\]\[, Object Type\]\[, Object Id\]\[, Record\])
+[String :=] GETURL(ClientType[, Company][, Object Type][, Object Id][, Record])
 
 Where:
 
@@ -60,228 +60,65 @@ The GETURL function can generally be used every time a URL must be created. The 
 
 The following are examples of calls to GETURL and their corresponding return value:
 
-**Command**
-
-**URL**
-```al
-GETURL(CLIENTTYPE::Win)
-
-dynamicsnav://MyServer:7046/DynamicsNAV71//
-
-GETURL(CLIENTTYPE::Web)
-
-https://navwebsrvr:443/DynamicsNAV71\_Instance1/Webclient
-
-GETURL(CLIENTTYPE::OData)
-
-http://MyServer:7048/DynamicsNAV71/OData
-
-GETURL(CLIENTTYPE::SOAP)
-
-http://MyServer:7047/DynamicsNAV71/WS/Services
-
-GETURL(CLIENTTYPE::Current) ie. When running this code on a Win client session
-
-dynamicsnav://MyServer:7046/DynamicsNAV71//
-
-GETURL(CLIENTTYPE::Default) ie. When the Server config key DefaultClient is set to Windows
-
-dynamicsnav://MyServer:7046/DynamicsNAV71//
-
-GETURL(CLIENTTYPE::Windows,COMPANYNAME)
-
-dynamicsnav://MyServer:7046/DynamicsNAV71/CRONUS/
-
-GETURL(CLIENTTYPE::Windows,'')
-
-dynamicsnav://MyServer:7046/DynamicsNAV71//
-
-GETURL(CLIENTTYPE::Windows,'NONEXISTING Corp')
-
-dynamicsnav://MyServer:7046/DynamicsNAV71/NONEXISTING Corp/
-
-GETURL(CLIENTTYPE::Web,COMPANYNAME)
-
-https://navwebsrvr:443/DynamicsNAV71\_Instance1/Webclient?company=CRONUS
-
-GETURL(CLIENTTYPE::Web,'')
-
-https://navwebsrvr:443/DynamicsNAV71\_Instance1/Webclient
-
-GETURL(CLIENTTYPE::Web,'NONEXISTING Corp')
-
-https://navwebsrvr:443/DynamicsNAV71\_Instance1/Webclient?company=NONEXISTING Corp
-
-GETURL(CLIENTTYPE::OData,COMPANYNAME)
-
-http://MyServer:7048/DynamicsNAV71/OData/Company('CRONUS')
-
-GETURL(CLIENTTYPE::OData,'')
-
-http://MyServer:7048/DynamicsNAV71/OData
-
-GETURL(CLIENTTYPE::OData,'NONEXISTING Corp')
-
-http://MyServer:7048/DynamicsNAV71/OData/Company('NONEXISTING Corp')
-
-GETURL(CLIENTTYPE::SOAP,COMPANYNAME)
-
-http://MyServer:7047/DynamicsNAV71/WS/CRONUS/Services
-
-GETURL(CLIENTTYPE::SOAP,'')
-
-http://MyServer:7047/DynamicsNAV71/WS/Services
-
-GETURL(CLIENTTYPE::SOAP,'NONEXISTING Corp')
-
-http://MyServer:7047/DynamicsNAV71/WS/NONEXISTING Corp/Services
-
-GETURL(CLIENTTYPE::Windows,COMPANYNAME,OBJECTTYPE::Table,27)
-
-dynamicsnav://MyServer:7046/DynamicsNAV71/CRONUS/runtable?table=27
-
-GETURL(CLIENTTYPE::Windows,COMPANYNAME,OBJECTTYPE::Page,27)
-
-dynamicsnav://MyServer:7046/DynamicsNAV71/CRONUS/runpage?page=27
-
-GETURL(CLIENTTYPE::Windows,COMPANYNAME,OBJECTTYPE::Report,6)
-
-dynamicsnav://MyServer:7046/DynamicsNAV71/CRONUS/runreport?report=6
-
-GETURL(CLIENTTYPE::Windows,COMPANYNAME,OBJECTTYPE::Codeunit,5065)
-
-dynamicsnav://MyServer:7046/DynamicsNAV71/CRONUS/runcodeunit?codeunit=5065
-
-GETURL(CLIENTTYPE::Windows,COMPANYNAME,OBJECTTYPE::Query,9150)
-
-dynamicsnav://MyServer:7046/DynamicsNAV71/CRONUS/runquery?query=9150
-
-GETURL(CLIENTTYPE::Windows,COMPANYNAME,OBJECTTYPE::XmlPort,5150)
-
-dynamicsnav://MyServer:7046/DynamicsNAV71/CRONUS/runxmlport?xmlport=5150
-
-GETURL(CLIENTTYPE::OData,COMPANYNAME,OBJECTTYPE::Page,27) ie. When the Web Service is published
-
-http://MyServer:7048/DynamicsNAV71/OData/Company('CRONUS')/PAG27Vendors
-
-GETURL(CLIENTTYPE::OData,COMPANYNAME,OBJECTTYPE::Query,9150) ie. When the Web Service is published
-
-http://MyServer:7048/DynamicsNAV71/OData/Company('CRONUS')/QUE9150MyCustomers
-
-GETURL(CLIENTTYPE::SOAP,COMPANYNAME,OBJECTTYPE::Page,27)Â ie. When the Web Service is published
-
-http://MyServer:7047/DynamicsNAV71/WS/CRONUS/Page/PAG27Vendors
-
-GETURL(CLIENTTYPE::SOAP,COMPANYNAME,OBJECTTYPE::Codeunit,5065) ie. When the Web Service is published
-
-http://MyServer:7047/DynamicsNAV71/WS/CRONUS/Codeunit/COD5065EmailLogging
-
-GETURL(CLIENTTYPE::Windows,COMPANYNAME,OBJECTTYPE::Page,27,record) List Page
-
-dynamicsnav://MyServer:7046/DynamicsNAV71/CRONUS/runpage?page=27&bookmark=23;FwAAAAJ7/0kAQwAxADAAMwAw
-
-GETURL(CLIENTTYPE::Windows,COMPANYNAME,OBJECTTYPE::Page,26,record) Card Page
-
-dynamicsnav://MyServer:7046/DynamicsNAV71/CRONUS/runpage?page=26&bookmark=23;FwAAAAJ7/0kAQwAxADAAMwAw
-
-GETURL(CLIENTTYPE::Web,COMPANYNAME,OBJECTTYPE::Page,27,record) List Page
-
-https://navwebsrvr:443/DynamicsNAV71\_Instance1/Webclient?company=CRONUS&page=27&bookmark=23;FwAAAAJ7/0kAQwAxADAAMwAw
-
-GETURL(CLIENTTYPE::Web,COMPANYNAME,OBJECTTYPE::Page,26,record) Card Page
-
-https://navwebsrvr:443/DynamicsNAV71\_Instance1/Webclient?company=CRONUS&page=26&bookmark=23;FwAAAAJ7/0kAQwAxADAAMwAw
-
-GETURL(CLIENTTYPE::OData,COMPANYNAME,OBJECTTYPE::Page,27,record)
-
-http://MyServer:7048/DynamicsNAV71/OData/Company('CRONUS')/PAG27Vendors('IC1030')
-
-GETURL(CLIENTTYPE::Web,COMPANYNAME,OBJECTTYPE::Page,27)
-
-https://navwebsrvr:443/DynamicsNAV71\_Instance1/Webclient?company=CRONUS&page=27
-
-GETURL(CLIENTTYPE::Web,COMPANYNAME,OBJECTTYPE::Report,6)
-
-https://navwebsrvr:443/DynamicsNAV71\_Instance1/Webclient?company=CRONUS&report=6
-
-```
+Command    | URL
+--------|------
+GETURL(CLIENTTYPE::Win)   | dynamicsnav://MyServer:7046/DynamicsNAV71//
+GETURL(CLIENTTYPE::Web)   | https://navwebsrvr:443/DynamicsNAV71_Instance1/Webclient
+GETURL(CLIENTTYPE::OData) | http://MyServer:7048/DynamicsNAV71/OData
+GETURL(CLIENTTYPE::SOAP)  | http://MyServer:7047/DynamicsNAV71/WS/Services
+GETURL(CLIENTTYPE::Current) ie. When running this code on a Win client session | dynamicsnav://MyServer:7046/DynamicsNAV71//
+GETURL(CLIENTTYPE::Default) ie. When the Server config key DefaultClient is set to Windows | dynamicsnav://MyServer:7046/DynamicsNAV71//
+GETURL(CLIENTTYPE::Windows,COMPANYNAME) | dynamicsnav://MyServer:7046/DynamicsNAV71/CRONUS/
+GETURL(CLIENTTYPE::Windows,'') | dynamicsnav://MyServer:7046/DynamicsNAV71//
+GETURL(CLIENTTYPE::Windows,'NONEXISTING Corp') | dynamicsnav://MyServer:7046/DynamicsNAV71/NONEXISTING Corp/
+GETURL(CLIENTTYPE::Web,COMPANYNAME) | https://navwebsrvr:443/DynamicsNAV71_Instance1/Webclient?company=CRONUS
+GETURL(CLIENTTYPE::Web,'') | https://navwebsrvr:443/DynamicsNAV71_Instance1/Webclient
+GETURL(CLIENTTYPE::Web,'NONEXISTING Corp') | https://navwebsrvr:443/DynamicsNAV71_Instance1/Webclient?company=NONEXISTING Corp
+GETURL(CLIENTTYPE::OData,COMPANYNAME) | http://MyServer:7048/DynamicsNAV71/OData/Company('CRONUS')
+GETURL(CLIENTTYPE::OData,'') | http://MyServer:7048/DynamicsNAV71/OData
+GETURL(CLIENTTYPE::OData,'NONEXISTING Corp') | http://MyServer:7048/DynamicsNAV71/OData/Company('NONEXISTING Corp')
+GETURL(CLIENTTYPE::SOAP,COMPANYNAME) | http://MyServer:7047/DynamicsNAV71/WS/CRONUS/Services
+GETURL(CLIENTTYPE::SOAP,'') | http://MyServer:7047/DynamicsNAV71/WS/Services
+GETURL(CLIENTTYPE::SOAP,'NONEXISTING Corp') | http://MyServer:7047/DynamicsNAV71/WS/NONEXISTING Corp/Services
+GETURL(CLIENTTYPE::Windows,COMPANYNAME,OBJECTTYPE::Table,27) | dynamicsnav://MyServer:7046/DynamicsNAV71/CRONUS/runtable?table=27
+GETURL(CLIENTTYPE::Windows,COMPANYNAME,OBJECTTYPE::Page,27) | dynamicsnav://MyServer:7046/DynamicsNAV71/CRONUS/runpage?page=27
+GETURL(CLIENTTYPE::Windows,COMPANYNAME,OBJECTTYPE::Report,6) | dynamicsnav://MyServer:7046/DynamicsNAV71/CRONUS/runreport?report=6
+GETURL(CLIENTTYPE::Windows,COMPANYNAME,OBJECTTYPE::Codeunit,5065) | dynamicsnav://MyServer:7046/DynamicsNAV71/CRONUS/runcodeunit?codeunit=5065
+GETURL(CLIENTTYPE::Windows,COMPANYNAME,OBJECTTYPE::Query,9150) | dynamicsnav://MyServer:7046/DynamicsNAV71/CRONUS/runquery?query=9150
+GETURL(CLIENTTYPE::Windows,COMPANYNAME,OBJECTTYPE::XmlPort,5150) | dynamicsnav://MyServer:7046/DynamicsNAV71/CRONUS/runxmlport?xmlport=5150
+GETURL(CLIENTTYPE::OData,COMPANYNAME,OBJECTTYPE::Page,27) ie. When the Web Service is published | http://MyServer:7048/DynamicsNAV71/OData/Company('CRONUS')/PAG27Vendors
+GETURL(CLIENTTYPE::OData,COMPANYNAME,OBJECTTYPE::Query,9150) ie. When the Web Service is published | http://MyServer:7048/DynamicsNAV71/OData/Company('CRONUS')/QUE9150MyCustomers
+GETURL(CLIENTTYPE::SOAP,COMPANYNAME,OBJECTTYPE::Page,27)Â ie. When the Web Service is published | http://MyServer:7047/DynamicsNAV71/WS/CRONUS/Page/PAG27Vendors
+GETURL(CLIENTTYPE::SOAP,COMPANYNAME,OBJECTTYPE::Codeunit,5065) ie. When the Web Service is published | http://MyServer:7047/DynamicsNAV71/WS/CRONUS/Codeunit/COD5065EmailLogging
+GETURL(CLIENTTYPE::Windows,COMPANYNAME,OBJECTTYPE::Page,27,record) List Page | dynamicsnav://MyServer:7046/DynamicsNAV71/CRONUS/runpage?page=27&bookmark=23;FwAAAAJ7/0kAQwAxADAAMwAw
+GETURL(CLIENTTYPE::Windows,COMPANYNAME,OBJECTTYPE::Page,26,record) Card Page | dynamicsnav://MyServer:7046/DynamicsNAV71/CRONUS/runpage?page=26&bookmark=23;FwAAAAJ7/0kAQwAxADAAMwAw
+GETURL(CLIENTTYPE::Web,COMPANYNAME,OBJECTTYPE::Page,27,record) List Page | https://navwebsrvr:443/DynamicsNAV71_Instance1/Webclient?company=CRONUS&page=27&bookmark=23;FwAAAAJ7/0kAQwAxADAAMwAw
+GETURL(CLIENTTYPE::Web,COMPANYNAME,OBJECTTYPE::Page,26,record) Card Page | https://navwebsrvr:443/DynamicsNAV71_Instance1/Webclient?company=CRONUS&page=26&bookmark=23;FwAAAAJ7/0kAQwAxADAAMwAw
+GETURL(CLIENTTYPE::OData,COMPANYNAME,OBJECTTYPE::Page,27,record) | http://MyServer:7048/DynamicsNAV71/OData/Company('CRONUS')/PAG27Vendors('IC1030')
+GETURL(CLIENTTYPE::Web,COMPANYNAME,OBJECTTYPE::Page,27) | https://navwebsrvr:443/DynamicsNAV71_Instance1/Webclient?company=CRONUS&page=27
+GETURL(CLIENTTYPE::Web,COMPANYNAME,OBJECTTYPE::Report,6) | https://navwebsrvr:443/DynamicsNAV71_Instance1/Webclient?company=CRONUS&report=6
 
 If the GETURL function is called with invalid parameters, it will return an empty string. In that case, you can find the related error text by calling the GETLASTERRORTEXT function.
 
-**Function Call**
-
-**Error Message**
-
-```al
-GETURL(CLIENTTYPE::Web,COMPANYNAME,OBJECTTYPE::Table,27)
-
-The specified object type parameter for the GetUrl function is not valid.
-
-GETURL(CLIENTTYPE::Web,COMPANYNAME,OBJECTTYPE::Codeunit,5065)
-
-The specified object type parameter for the GetUrl function is not valid.
-
-GETURL(CLIENTTYPE::Web,COMPANYNAME,OBJECTTYPE::Query,9150)
-
-The specified object type parameter for the GetUrl function is not valid.
-
-GETURL(CLIENTTYPE::Web,COMPANYNAME,OBJECTTYPE::XmlPort,5150)
-
-The specified object type parameter for the GetUrl function is not valid.
-
-GETURL(CLIENTTYPE::OData,COMPANYNAME,OBJECTTYPE::Table,27)
-
-The specified object type parameter for the GetUrl function is not valid.
-
-GETURL(CLIENTTYPE::OData,COMPANYNAME,OBJECTTYPE::Page,27)
-
-The Page object, 27, that is specified for the GetUrl function has not been published in the Web Services table.
-
-GETURL(CLIENTTYPE::OData,COMPANYNAME,OBJECTTYPE::Report,6)
-
-The specified object type parameter for the GetUrl function is not valid.
-
-GETURL(CLIENTTYPE::OData,COMPANYNAME,OBJECTTYPE::Codeunit,5065)
-
-The specified object type parameter for the GetUrl function is not valid.
-
-GETURL(CLIENTTYPE::OData,COMPANYNAME,OBJECTTYPE::Query,9150)
-
-The Query object, 9150, that is specified for the GetUrl function has not been published in the Web Services table.
-
-GETURL(CLIENTTYPE::OData,COMPANYNAME,OBJECTTYPE::XmlPort,5150)
-
-The specified object type parameter for the GetUrl function is not valid.
-
-GETURL(CLIENTTYPE::SOAP,COMPANYNAME,OBJECTTYPE::Table,27)
-
-The specified object type parameter for the GetUrl function is not valid.
-
-GETURL(CLIENTTYPE::SOAP,COMPANYNAME,OBJECTTYPE::Page,27)
-
-The Page object, 27, that is specified for the GetUrl function has not been published in the Web Services table.
-
-GETURL(CLIENTTYPE::SOAP,COMPANYNAME,OBJECTTYPE::Report,6)
-
-The specified object type parameter for the GetUrl function is not valid.
-
-GETURL(CLIENTTYPE::SOAP,COMPANYNAME,OBJECTTYPE::Codeunit,5065)
-
-The Codeunit object, 5065, that is specified for the GetUrl function has not been published in the Web Services table.
-
-GETURL(CLIENTTYPE::SOAP,COMPANYNAME,OBJECTTYPE::Query,9150)
-
-The specified object type parameter for the GetUrl function is not valid.
-
-GETURL(CLIENTTYPE::SOAP,COMPANYNAME,OBJECTTYPE::XmlPort,5150)
-
-The specified object type parameter for the GetUrl function is not valid.
-
-GETURL(CLIENTTYPE::SOAP,COMPANYNAME,OBJECTTYPE::Page,27,record)
-
-```
-
-You cannot specify a record parameter for the GetUrl function when the object type is SOAP
+Function Call | Error Message
+--------|------
+GETURL(CLIENTTYPE::Web,COMPANYNAME,OBJECTTYPE::Table,27) | The specified object type parameter for the GetUrl function is not valid.
+GETURL(CLIENTTYPE::Web,COMPANYNAME,OBJECTTYPE::Codeunit,5065) | The specified object type parameter for the GetUrl function is not valid.
+GETURL(CLIENTTYPE::Web,COMPANYNAME,OBJECTTYPE::Query,9150) | The specified object type parameter for the GetUrl function is not valid.
+GETURL(CLIENTTYPE::Web,COMPANYNAME,OBJECTTYPE::XmlPort,5150) | The specified object type parameter for the GetUrl function is not valid.
+GETURL(CLIENTTYPE::OData,COMPANYNAME,OBJECTTYPE::Table,27) | The specified object type parameter for the GetUrl function is not valid.
+GETURL(CLIENTTYPE::OData,COMPANYNAME,OBJECTTYPE::Page,27) | The Page object, 27, that is specified for the GetUrl function has not been published in the Web Services table.
+GETURL(CLIENTTYPE::OData,COMPANYNAME,OBJECTTYPE::Report,6) | The specified object type parameter for the GetUrl function is not valid.
+GETURL(CLIENTTYPE::OData,COMPANYNAME,OBJECTTYPE::Codeunit,5065) | The specified object type parameter for the GetUrl function is not valid.
+GETURL(CLIENTTYPE::OData,COMPANYNAME,OBJECTTYPE::Query,9150) | The Query object, 9150, that is specified for the GetUrl function has not been published in the Web Services table.
+GETURL(CLIENTTYPE::OData,COMPANYNAME,OBJECTTYPE::XmlPort,5150) | The specified object type parameter for the GetUrl function is not valid.
+GETURL(CLIENTTYPE::SOAP,COMPANYNAME,OBJECTTYPE::Table,27) | The specified object type parameter for the GetUrl function is not valid.
+GETURL(CLIENTTYPE::SOAP,COMPANYNAME,OBJECTTYPE::Page,27) | The Page object, 27, that is specified for the GetUrl function has not been published in the Web Services table.
+GETURL(CLIENTTYPE::SOAP,COMPANYNAME,OBJECTTYPE::Report,6) | The specified object type parameter for the GetUrl function is not valid.
+GETURL(CLIENTTYPE::SOAP,COMPANYNAME,OBJECTTYPE::Codeunit,5065) | The Codeunit object, 5065, that is specified for the GetUrl function has not been published in the Web Services table.
+GETURL(CLIENTTYPE::SOAP,COMPANYNAME,OBJECTTYPE::Query,9150) | The specified object type parameter for the GetUrl function is not valid.
+GETURL(CLIENTTYPE::SOAP,COMPANYNAME,OBJECTTYPE::XmlPort,5150) | The specified object type parameter for the GetUrl function is not valid.
+GETURL(CLIENTTYPE::SOAP,COMPANYNAME,OBJECTTYPE::Page,27,record) | You cannot specify a record parameter for the GetUrl function when the object type is SOAP
 
 ## NAV Specific Example
 

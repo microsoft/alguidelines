@@ -10,7 +10,7 @@ This pattern is about silently handing file transfers between NAV Service Tier a
 
 ## Description
 
-As a terminology clarification \[1\], note that both "upload" and "download" are named as seen from the client's point of view:
+As a terminology clarification [1], note that both "upload" and "download" are named as seen from the client's point of view:
 
 * Download" defines transferring a file from the server to the client.
 * "Upload" transfers the file from the client to the server.
@@ -21,25 +21,29 @@ Sometimes, files must be transferred to or from known locations without triggeri
 
 In the following, both the historical and the recommended ways of silently transferring files are described. Since we keep both implementations possible for the sake of backward compatibility, we strongly recommend that you use the file-transfer API provided that is provided with the File Management codeunit (419).
 
-The legacy API for file transfers \[2\]:
+The legacy API for file transfers [2]:
 
-\[Ok :=\] UPLOAD(DialogTitle, FromFolder, FromFilter, FromFile, ToFile) 
+```al
+[Ok :=] UPLOAD(DialogTitle, FromFolder, FromFilter, FromFile, ToFile) 
 
-\[Ok :=\] DOWNLOAD(FromFile, DialogTitle, ToFolder, ToFilter, ToFile)
+[Ok :=] DOWNLOAD(FromFile, DialogTitle, ToFolder, ToFilter, ToFile)
+```
 
 As you can see, this historical API leaves no place for turning off the functionality for showing a dialog. Historically, NAV offered a remedy to this, namely by using the "Magicpath" string, which is the constant '<TEMP\>'. Under this condition, the way to invoke silent file upload or download becomes:
 
-\[Ok :=\] UPLOAD(DialogTitle, Magicpath, FromFilter, FromFile, ToFile) 
+```al
+[Ok :=] UPLOAD(DialogTitle, Magicpath, FromFilter, FromFile, ToFile) 
 
-\[Ok :=\] DOWNLOAD(FromFile, DialogTitle, Magicpath, ToFilter, ToFile)
+[Ok :=] DOWNLOAD(FromFile, DialogTitle, Magicpath, ToFilter, ToFile)
+```
 
 This remedy introduced an issue: If we use "Magicpath" instead of **FromFolder** and **ToFolder** specifications, then where do we upload from and where do we download to? The answer is that they are uploaded to and downloaded from the NAV server's temporary folder. The path to the temporary file can be obtained when this file is created, by using the following function in **File Management: <tempFileName\> := ServerTempFileName(<fileExtension\>)**.
 
-The new API for file transfers in the **File Management **codeunit:
+The new API for file transfers in the **File Management** codeunit:
 
-\[Text :=\] UploadFileSilent(ClientFilePath)
+[Text :=] UploadFileSilent(ClientFilePath)
 
-\[Text :=\] DownloadTempFile(ServerFileName)
+[Text :=] DownloadTempFile(ServerFileName)
 
 Using the API in the **File Management** codeunit instead of the historical API is recommended for all file transferring and file management in NAV implementations.
 
@@ -59,21 +63,26 @@ The production manager wants to have the file in a predefined location on his ha
 
 The NAV developer has written a module to query the CRONUS database and to export the product list in the pre-described XML format required by the web shop. He saves the data in a temporary server file created with this code:
 
+```al
 ServerFileName := FileManagement.ServerTempFileName('xml');
+```
 
 When the file has been populated with the latest product data, the NAV developer uses the following call to download the file from the temporary location on the server to the predefined location on the client:
 
+```al
 FileManagement.DownloadToFile(ServerFileName,ClientFileName);
+```
 
-The call to **DownloadToFile** is part of the **File Management **codeunit, and it embeds the silent download offered by **DownloadTempFile**:
+The call to **DownloadToFile** is part of the **File Management** codeunit, and it embeds the silent download offered by **DownloadTempFile**:
 
+```al
 PROCEDURE DownloadToFile@13(ServerFileName@1002 : Text;ClientFileName@1000 : Text);
-
-VAR TempClientFileName@1001 : Text;
-
-BEGIN ValidateFileNames(ServerFileName,ClientFileName); TempClientFileName := DownloadTempFile(ServerFileName); MoveFile(TempClientFileName,ClientFileName);
-
+VAR
+    TempClientFileName@1001 : Text;
+BEGIN
+    ValidateFileNames(ServerFileName,ClientFileName); TempClientFileName := DownloadTempFile(ServerFileName); MoveFile(TempClientFileName,ClientFileName);
 END
+```
 
 ## Consequences
 

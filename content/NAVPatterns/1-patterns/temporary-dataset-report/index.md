@@ -8,7 +8,7 @@ _Originally by Abhishek Ghosh, at Microsoft Development Center Copenhagen_
 
 This pattern generates the data to be displayed dynamically by combing/processing several data sources. It then displays the resulting dataset without writing to the database.
 
-[![ ][image0]][anchor0][][anchor1]
+[![ ][image6]][anchor9]
 
 ## Description
 
@@ -24,39 +24,29 @@ This pattern takes a two-step approach to displaying the data:
 
 * Iterate through a dataitem of the Integer table and display one record from the temporary recordset in each iteration.
 
-Step 1: Combining data sources to create a dataset
+#### Step 1: Combining data sources to create a dataset
 
 In this step, we would process the existing data to create a temporary recordset. The three most common techniques to do this are discussed in the following paragraphs.
 
 The first technique is mostly used when we want to build the report based on one or more source tables. A lot of processing is required, and we therefore want to store and display information from a temporary recordset. With this technique, we create a dataitem of the source record and then iterate through this dataitem to create the temporary recordset. An advantage of this technique is that it allows the user to perform additional filtering on the data source tables since they are added as additional dataitems and therefore will have their tabs on the request page by default.
 
-[![ ][image1]][anchor2][][anchor3]
+[![ ][image7]][anchor10]
 
 The second technique was made available with NAV 2013 when queries were introduced as a tool to help us combine data from different sources. Instead of writing data into a temporary record variable, we can create a query to combine the data from different sources. This offers better performance than the first technique in almost every situation. However, with a query, we sacrifice the luxury of getting a flexible filtering on the request page for the source dataitem.
 
 The third technique is to write a function (or a codeunit, if the complexity demands so) that will crunch the data and create the temporary record variable. This function must be invoked from the OnPreReport trigger (or the OnPreDataItem trigger of the Integer dataitem).
 
-[![ ][image2]][anchor4]
+[![ ][image8]][anchor11]
 
 The following table summarizes when to use each of the three techniques:
 
-Technique
+Technique | When to Use
+----------|------------
+Source Record DataItem | When it is important to offer flexible filtering possibilities on the source data.
+Query | When performance is critical.
+Populating temporary table in a function | Only when the source dataset is too complex to use either of the other techniques.
 
-When to Use
-
-Source Record DataItem
-
-When it is important to offer flexible filtering possibilities on the source data.
-
-Query
-
-When performance is critical.
-
-Populating temporary table in a function
-
-Only when the source dataset is too complex to use either of the other techniques.
-
-Step 2: Iterating through the Integer dataitem 
+#### Step 2: Iterating through the Integer dataitem 
 
 When you have created the dataset as a temporary record variable or a query, the next step is to iterate through them to display the information. However, the report controller in NAV cannot iterate through temporary records or through the results of a query. This is where the Integer table comes into use.
 
@@ -74,11 +64,11 @@ With the second approach, you must limit the number of times the report iterates
 
 ## Example 
 
-Goal: To print a report that lists all contacts that have open documents (both sales and purchase) and displays those documents in chronological order
+**Goal:** To print a report that lists all contacts that have open documents (both sales and purchase) and displays those documents in chronological order
 
 A contact can be connected to a vendor or a customer using the Create As Customer/Vendor function on the Contact Card. When a sales/purchase document is created for this customer/vendor, the Contact No. is stored in the Sell-to Contact No. or Buy-from Contact No. fields of the sales and purchase documents. The obvious choice would be to display the data directly from the Sales Header and Purchase Header records. However, the requirement is to display all of them together chronologically, which means they will need to be stored in, and be read from, one common dataset.
 
-Step 1: Design a new table that will hold the temporary dataset.
+**Step 1: Design a new table that will hold the temporary dataset.**
 
 The UI must display the Document Type, Document No., Document Date, Amount Incl. VAT and the name of the salesperson or purchaser. The table is designed as follows.
 
@@ -94,11 +84,11 @@ Some additional properties to note:
 
 * Purchase Header dataitem should be linked to the Contact dataitem through the DataItemLink property -- "Buy-from Contact No.=FIELD(No.)"
 
-Step 2: In the Sales Header -- OnAfterGetRecord, write the following code to populate the data buffer:
+**Step 2: In the Sales Header** -- OnAfterGetRecord, write the following code to populate the data buffer:
 
 [![ ][image5]][anchor7]
 
-Where:
+**Where:**
 
 * ContactDocumentBuffer is a temporary global variable of the buffer table created.
 
@@ -107,25 +97,26 @@ Where:
 
 Similar code must be written in Purchase Header -- OnAfterGetRecord to store data from the purchase documents into the buffer.
 
-Step 3: Iterate through the temporary records in the Integer dataitem.
+**Step 3:** Iterate through the temporary records in the Integer dataitem.
 
 Since the requirement is to sort the data by Document Date, we must sort the ContactDocumentBuffer table by this key. Also, by the time the execution of Integer -- OnPreDataItem begins, the number of records in the temporary buffer should be known already. Therefore, we can limit the number of times to repeat the Integer dataitem to the number of records in the buffer.
 
 We meet both requirements with the following lines of code in Integer - OnPreDataItem:
 
+```al
 ContactDocumentBuffer.SETCURRENTKEY("Document Date"); 
 
 SETRANGE(Number,1,ContactDocumentBuffer.COUNT);
+```
 
 Lastly, we must move the record pointer by 1 record every time we loop through the Integer dataitem. So, in Integer -- OnAfterGetRecord, we add the following lines of code:
 
+```al
 IF Number = 1 THEN
-
-ContactDocumentBuffer.FINDFIRST
-
+    ContactDocumentBuffer.FINDFIRST
 ELSE
-
-ContactDocumentBuffer.NEXT;
+    ContactDocumentBuffer.NEXT;
+```
 
 Now, the only task that remains is to design the RDLC layout. (Not part of this application pattern description.)
 
@@ -151,7 +142,9 @@ This is a commonly used pattern in several reports, such as:
 [anchor6]: 4118.Temporary-Dataset-Report-5.jpg
 [anchor7]: 4010.Temporary-Dataset-Report-6.jpg
 [anchor8]: https://www.youtube.com/watch?v=QHn5oEOJv0Q&list=PLhZ3P-LY7CqmVszuvtJLujFyHpsVN0U_w&index=10
-
+[anchor9]: 0250.Temporary-Dataset-Report-1.png
+[anchor10]: 2376.Temporary-Dataset-Report-2.png
+[anchor11]: 7607.Temporary-Dataset-Report-3.png
 
 [image0]: /resized-image.ashx/__size/550x0/__key/communityserver-wikis-components-files/00-00-00-00-42/0250.Temporary-Dataset-Report-1.gif
 [image1]: /resized-image.ashx/__size/550x0/__key/communityserver-wikis-components-files/00-00-00-00-42/2376.Temporary-Dataset-Report-2.gif
@@ -159,3 +152,6 @@ This is a commonly used pattern in several reports, such as:
 [image3]: 6523.Temporary-Dataset-Report-4.jpg
 [image4]: 4118.Temporary-Dataset-Report-5.jpg
 [image5]: 4010.Temporary-Dataset-Report-6.jpg
+[image6]: 0250.Temporary-Dataset-Report-1.png
+[image7]: 2376.Temporary-Dataset-Report-2.png
+[image8]: 7607.Temporary-Dataset-Report-3.png

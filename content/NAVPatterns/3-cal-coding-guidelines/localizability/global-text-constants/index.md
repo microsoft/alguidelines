@@ -6,15 +6,19 @@ Declare Text Constant as global variables.
 
 Bad code
 
-    PROCEDURE GetRequirementText@6(...) : Text\[50\];
-    VAR
+```al
+PROCEDURE GetRequirementText@6(...) : Text[50];
+VAR
     RequirementOptionsTxt@1002 : TextConst 'ENU=Shipment,Receive,Pick,Put-Away';
-    BEGIN
+BEGIN
+```
 
 Good code
 
-    VAR
+```al
+VAR
     RequirementOptionsTxt@1002 : TextConst 'ENU=Shipment,Receive,Pick,Put-Away';
-    ...
-    PROCEDURE GetRequirementText@6(...) : Text\[50\];
-    BEGIN
+...
+PROCEDURE GetRequirementText@6(...) : Text[50];
+BEGIN
+```

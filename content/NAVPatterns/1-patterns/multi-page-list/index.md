@@ -4,13 +4,11 @@ weight = 810
 +++
 _By Bogdana Botez at Microsoft Development Center Copenhagen_
 
-__
-
-### **Abstract**
+### Abstract
 
 This pattern describes how to open a related document (or card) page from a list page, for the case when there can be more than one pages associated to the rows of the list page.
 
-### **Description**
+### Description
 
 The example below illustrates the connection of a List Page with multiple Document Pages, while the second example links the List Page with Card Pages.
 
@@ -23,34 +21,28 @@ The records contained in a list page have an associated page, which is specified
 
 However, there are situations when rows of the list page can correspond to different pages each (either cards or documents). For example, consider a list page containing 3 rows, requiring the following behaviour:
 
-Row1
-
-Opens page ID 1
-
-Row2
-
-Opens page ID 2
-
-Row3
-
-Opens page ID 3
+|
+-----|----------------
+Row1 | Opens page ID 1
+Row2 | Opens page ID 2
+Row3 | Opens page ID 3
 
 This situation is not handled automatically by NAV. There is no possibility to specify more than one CardPageID in the list page properties. Furthermore, there is no possibility to specify one or more document page IDs on the list page. Therefore, those cases need to be handled explicitly by the C/AL developer.
 
-### **Usage**
+### Usage
 
 The solution used in NAV implementations is at the list page level, as following:
 
 1. The property CardPageID of the list page remains undefined.
 2. An action named "Show Document" or "Card" is created on the Navigate tab, with the properties:
 
-* Image = EditLines
-* Promoted = Yes
-* ShortCutKey = Shift+F7
+    * Image = EditLines
+    * Promoted = Yes
+    * ShortCutKey = Shift+F7
 
-1. The OnAction trigger for the Card action, contains explicit logic to run the targeted card page. It can, for example, be a CASE statement, which invokes PAGE.RUN(...) based on an enumeration field of the current row.
+3. The OnAction trigger for the Card action, contains explicit logic to run the targeted card page. It can, for example, be a CASE statement, which invokes PAGE.RUN(...) based on an enumeration field of the current row.
 
-### **NAV Specific Example**
+### NAV Specific Example
 
 For example, the NAV page Sales List (page ID 45), which displays the Sales Header Table (table ID 36), chooses which card to open, based on the Document Type field. This is an option field, which can have the following values: Quote, Order, Invoice, Credit Memo, Blanket Order, Return Order. For each document type, the related card page must be opened.
 
@@ -58,36 +50,24 @@ For example, the NAV page Sales List (page ID 45), which displays the Sales Head
 
 For this purpose, a new action ("Card") is added to the Sales List page. The OnAction trigger of this new action contains the page selection logic:
 
-    CASE "Document Type" OF
-
+```al
+CASE "Document Type" OF
     "Document Type"::Quote:
-
-    PAGE.RUN(PAGE::"Sales Quote",Rec);
-
+        PAGE.RUN(PAGE::"Sales Quote",Rec);
     "Document Type"::Order:
-
-    PAGE.RUN(PAGE::"Sales Order",Rec);
-
+        PAGE.RUN(PAGE::"Sales Order",Rec);
     "Document Type"::Invoice:
-
-    PAGE.RUN(PAGE::"Sales Invoice",Rec);
-
+        PAGE.RUN(PAGE::"Sales Invoice",Rec);
     "Document Type"::"Return Order":
-
-    PAGE.RUN(PAGE::"Sales Return Order",Rec);
-
+        PAGE.RUN(PAGE::"Sales Return Order",Rec);
     "Document Type"::"Credit Memo":
+        PAGE.RUN(PAGE::"Sales Credit Memo",Rec);
+    "Document Type"::"Blanket Order":
+        PAGE.RUN(PAGE::"Blanket Sales Order",Rec);
+END;
+```
 
-    PAGE.RUN(PAGE::"Sales Credit Memo",Rec);
-
-    "Document Type"::"Blanket Order":[  
-    ][anchor2]
-
-    PAGE.RUN(PAGE::"Blanket Sales Order",Rec);
-
-    END;
-
-### **NAV Usages**[  ][anchor3]
+### NAV Usages
 
 Some of the NAV implementations of this pattern can be found in the following pages:
 

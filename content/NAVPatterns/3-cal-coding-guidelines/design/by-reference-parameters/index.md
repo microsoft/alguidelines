@@ -8,18 +8,18 @@ Unintentional value changes might propagate. Also, it might lead people to belie
 
 Bad code
 
-    LOCAL PROCEDURE ShowMessage@15(VAR Text@1000 : Text\[250\]);
+    LOCAL PROCEDURE ShowMessage@15(VAR Text@1000 : Text[250]);
     BEGIN
-    Text := GetMessageText;
-    IF (Text <\> '') AND GenJnlLineInserted THEN
-    MESSAGE(Text);
+        Text := GetMessageText;
+        IF (Text <> '') AND GenJnlLineInserted THEN
+            MESSAGE(Text);
     END;
 
 Good code
 
-    LOCAL PROCEDURE ShowMessage@15(Text@1000 : Text\[250\]);
+    LOCAL PROCEDURE ShowMessage@15(Text@1000 : Text[250]);
     BEGIN
-    Text := GetMessageText;
-    IF (Text <\> '') AND GenJnlLineInserted THEN
-    MESSAGE(Text);
+        Text := GetMessageText;
+        IF (Text <> '') AND GenJnlLineInserted THEN
+            MESSAGE(Text);
     END;

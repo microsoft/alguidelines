@@ -3,7 +3,6 @@ title = "Observer"
 weight = 900
 +++
 _By Nikolai L'Estrange, from TVision Technology Ltd. in the UK_
-_
 
 ### Abstract
 
@@ -21,39 +20,46 @@ Codeunit 1 Application Management contains the triggers OnDatabaseInsert, OnData
 
 In order to define which tables we are interested in we can create a new table with the following fields:
 
-    **Observable Table:**
-    "Table ID" Integer Object.ID WHERE (Type=CONST(Table))
-    TrackInsert Boolean \[optional\]
-    TrackModify Boolean \[optional\]
-    TrackDelete Boolean \[optional\]
-    TrackRename Boolean \[optional\]
+**Observable Table:**
+
+"Table ID" | Integer | Object.ID WHERE (Type=CONST(Table))
+----|----|----
+TrackInsert | Boolean | [optional]
+TrackModify | Boolean | [optional]
+TrackDelete | Boolean | [optional]
+TrackRename | Boolean | [optional]
 
 Then we can create a Codeunit that will set the Table Trigger Setup parameters and also subscribe to the OnDatabase triggers.
 
-    **LOCAL \[EventSubscriber\] GetTableTriggerSetup(TableId : Integer;VAR OnDatabaseInsert : Boolean;VAR OnDatabaseModify : Boolean;VAR OnDatabaseDelete : Boolean;VAR OnDatabaseRename : Boolean)**  
-    IF Observable.GET(TableId) THEN BEGIN  
+```al
+LOCAL [EventSubscriber] GetTableTriggerSetup(TableId : Integer;VAR OnDatabaseInsert : Boolean;VAR OnDatabaseModify : Boolean;VAR OnDatabaseDelete : Boolean;VAR OnDatabaseRename : Boolean)
+IF Observable.GET(TableId) THEN BEGIN  
     IF Observable.TrackInsert THEN  
-    OnDatabaseInsert := TRUE;  
+        OnDatabaseInsert := TRUE;  
     IF Observable.TrackModify THEN  
-    OnDatabaseModify := TRUE;  
+        OnDatabaseModify := TRUE;  
     IF Observable.TrackDelete THEN  
-    OnDatabaseDelete := TRUE;  
+        OnDatabaseDelete := TRUE;  
     IF Observable.TrackRename THEN  
-    OnDatabaseRename := TRUE;  
-    END;  
-    **LOCAL \[EventSubscriber\] OnDatabaseInsert(RecRef : RecordRef)**
-    IF Observable.Get(RecRef.NUMBER) AND Observable.TrackInsert THEN
+        OnDatabaseRename := TRUE;  
+END;  
+
+LOCAL [EventSubscriber] OnDatabaseInsert(RecRef : RecordRef)
+IF Observable.Get(RecRef.NUMBER) AND Observable.TrackInsert THEN
     //do something
-    **LOCAL \[EventSubscriber\] OnDatabaseModify(RecRef : RecordRef)**
-    IF Observable.Get(RecRef.NUMBER) AND Observable.TrackModify THEN
+
+LOCAL [EventSubscriber] OnDatabaseModify(RecRef : RecordRef)
+IF Observable.Get(RecRef.NUMBER) AND Observable.TrackModify THEN
     //do something
-    **LOCAL \[EventSubscriber\] OnDatabaseDelete(RecRef : RecordRef)**
-    IF Observable.Get(RecRef.NUMBER) AND Observable.TrackDelete THEN
+
+LOCAL [EventSubscriber] OnDatabaseDelete(RecRef : RecordRef)
+IF Observable.Get(RecRef.NUMBER) AND Observable.TrackDelete THEN
     //do something
-    **LOCAL \[EventSubscriber\] OnDatabaseRename(RecRef : RecordRef;xRecRef : RecordRef)**
-    IF Observable.Get(RecRef.NUMBER) AND Observable.TrackRename THEN
+
+LOCAL [EventSubscriber] OnDatabaseRename(RecRef : RecordRef;xRecRef : RecordRef)
+IF Observable.Get(RecRef.NUMBER) AND Observable.TrackRename THEN
     //do something
-    
+```
 
 _**Note:**_ In NAV2016 all these functions can be EventSubscribers that subscribe to the functions in Codeunit 1 as per above, in earlier versions of NAV these functions will need to be Global and called explicitly from within the Codeunit 1 functions.
 

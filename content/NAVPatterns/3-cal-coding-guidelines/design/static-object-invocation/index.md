@@ -8,14 +8,14 @@ Bad code
 
     LOCAL PROCEDURE Code@1();
     VAR
-    CAJnlPostBatch@1001 : Codeunit 1103;
+        CAJnlPostBatch@1001 : Codeunit 1103;
     BEGIN
-    CAJnlPostBatch.Run(CostJnlLine);
+        CAJnlPostBatch.Run(CostJnlLine);
     END;
 
 Good code
 
     LOCAL PROCEDURE Code@1();
     BEGIN
-    CODEUNIT.RUN(CODEUNIT::"CA Jnl.-Post Batch",CostJnlLine);
+        CODEUNIT.RUN(CODEUNIT::"CA Jnl.-Post Batch",CostJnlLine);
     END;

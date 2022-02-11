@@ -11,8 +11,12 @@ Reason:
 
 Bad code
 
-    IF NOT CONFIRM(UpdateLocationQst,TRUE,FIELDNAME("Location Code"),...)
+```al
+IF NOT CONFIRM(UpdateLocationQst,TRUE,FIELDNAME("Location Code"),...)
+```
 
 Good code
 
-    IF NOT CONFIRM(UpdateLocationQst,TRUE,FIELDCAPTION("Location Code"),...)
+```al
+IF NOT CONFIRM(UpdateLocationQst,TRUE,FIELDCAPTION("Location Code"),...)
+```

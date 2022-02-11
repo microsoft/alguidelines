@@ -6,7 +6,7 @@ Do not write functions that have high class coupling. This makes the code hard t
 
 Bad code
 
-    Any procedure / trigger that has class coupling of \> 30  
+    Any procedure / trigger that has class coupling of > 30  
       
     
 

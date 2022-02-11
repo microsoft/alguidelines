@@ -20,7 +20,7 @@ There is no way in NAV to get a set of records from the database, which all have
 
 * The NAV Service Tier receives and throws away data.
 
-### Ending Date Problem
+## Ending Date Problem
 
 Ending Date may introduce some problems of its own.
 
@@ -46,15 +46,15 @@ In the following example, we have a fictive table containing: Code, Starting Dat
 You will need to create the view before you define the Table Object.  
 You will need to create a view for every company in the database. 
 ```sql
-    CREATE VIEW [dbo].[CRONUS$PriceView]  
-    AS  
-    SELECT [Code], [Starting Date], [Price]  
-    FROM dbo.[CRONUS$Price] AS A  
-    WHERE [Starting Date] =  
-    (SELECT MAX([Starting Date])  
-    FROM dbo.[CRONUS$Price] AS B  
-    WHERE B.[Code] = A.[Code] AND  
-    B.[Starting Date] <= GETDATE())
+CREATE VIEW [dbo].[CRONUS$PriceView]  
+AS  
+SELECT [Code], [Starting Date], [Price]  
+FROM dbo.[CRONUS$Price] AS A  
+WHERE [Starting Date] =  
+(SELECT MAX([Starting Date])  
+FROM dbo.[CRONUS$Price] AS B  
+WHERE B.[Code] = A.[Code] AND  
+B.[Starting Date] <= GETDATE())
 ```
 
 Test the view to ensure that you get the correct result. It is much easier to test now than later.
@@ -66,7 +66,7 @@ Remember to set the link table property before you save it.
 ### 3. Implement the code
 
 ```al
-    IF PriceView.FINDSET THEN // You have them
+IF PriceView.FINDSET THEN // You have them
 ```
 
 ### 4. Create a deployment codeunit
@@ -134,7 +134,6 @@ The pattern does not exist in NAV (yet J). We have used it several times in our 
 
 ## Ideas for improvement
 
-  
 Query Object should be able to handle sub-selects and Unions. A simple solution could be to allow the NAV developer to specify the actual Select statement inside the query Object in clear text. Opening up for writing your own queries and map the projection to the Query-defined fields will make the query Object very versatile and remove the pressure from Microsoft trying to create all the different permutations that a select statement can have. Microsoft and others have all tried to create wizards that can create SQL select statement. They all end up having a clear text option.
 
 An alternative would be better support for linked table objects, specifically views. The current implementation is very fragile. 

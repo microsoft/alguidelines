@@ -20,8 +20,8 @@ Use the following patterns to enhance security on your NAV system.
 
 
 
-[anchor0]: /nav/w/designpatterns/275.sensitive-data-encapsulation
-[anchor1]: /nav/w/designpatterns/276.encryption
-[anchor2]: /nav/w/designpatterns/277.single-point-of-access
-[anchor3]: /nav/w/designpatterns/278.masked-text
-[anchor4]: /nav/w/designpatterns/279.ssl-in-nav
+[anchor0]: /navpatterns/1-patterns/security/1-sensitive-data-encapsulation/
+[anchor1]: /navpatterns/1-patterns/security/2-data-encryption/
+[anchor2]: /navpatterns/1-patterns/security/3-single-point-of-access/
+[anchor3]: /navpatterns/1-patterns/security/4-masked-text/
+[anchor4]: /navpatterns/1-patterns/security/5-ssl-in-nav/

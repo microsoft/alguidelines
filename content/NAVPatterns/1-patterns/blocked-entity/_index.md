@@ -93,10 +93,10 @@ The [Released Entity][anchor4].
 {{< youtube O2R-fTSup1o >}}
 
 [anchor0]: 2260.BlockedEntityPattern.png
-[anchor1]: /nav/w/designpatterns/247.data-driven-blocked-entity/edit
+[anchor1]: /navpatterns/1-patterns/blocked-entity/data-driven-blocked-entity/
 [anchor2]: 8637.BlockedEntityPattern_5F00_5F00_5F00_Boolean.png
 [anchor3]: 3056.BlockedEntityPattern_5F00_5F00_5F00_Option.png
-[anchor4]: /nav/w/designpatterns/115.released-entity.aspx
+[anchor4]: /navpatterns/1-patterns/released-entity/
 
 
 [image0]: 2260.BlockedEntityPattern.png
