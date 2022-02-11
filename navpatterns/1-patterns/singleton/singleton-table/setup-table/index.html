@@ -5,16 +5,16 @@
 <meta name=generator content="Hugo 0.92.1">
 <meta name=description content>
 <title>Setup Table :: AL Guidelines</title>
-<link href=/css/nucleus.css?1644506469 rel=stylesheet>
-<link href=/css/fontawesome-all.min.css?1644506469 rel=stylesheet>
-<link href=/css/featherlight.min.css?1644506469 rel=stylesheet>
-<link href=/css/perfect-scrollbar.min.css?1644506469 rel=stylesheet>
-<link href=/css/auto-complete.css?1644506469 rel=stylesheet>
-<link href=/css/theme.css?1644506469 rel=stylesheet>
-<link href=/css/theme-blue.css?1644506469 rel=stylesheet>
-<link href=/css/variant.css?1644506469 rel=stylesheet>
-<link href=/css/print.css?1644506469 rel=stylesheet media=print>
-<script src=/js/jquery.min.js?1644506469></script>
+<link href=/css/nucleus.css?1644600600 rel=stylesheet>
+<link href=/css/fontawesome-all.min.css?1644600600 rel=stylesheet>
+<link href=/css/featherlight.min.css?1644600600 rel=stylesheet>
+<link href=/css/perfect-scrollbar.min.css?1644600600 rel=stylesheet>
+<link href=/css/auto-complete.css?1644600600 rel=stylesheet>
+<link href=/css/theme.css?1644600600 rel=stylesheet>
+<link href=/css/theme-blue.css?1644600600 rel=stylesheet>
+<link href=/css/variant.css?1644600600 rel=stylesheet>
+<link href=/css/print.css?1644600600 rel=stylesheet media=print>
+<script src=/js/jquery.min.js?1644600600></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
 <body data-url=/navpatterns/1-patterns/singleton/singleton-table/setup-table/>
@@ -32,9 +32,9 @@ ALGuidelines.Dev
 <input data-search-input id=search-by type=search placeholder=Search...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script src=/js/lunr.min.js?1644506469></script>
-<script src=/js/auto-complete.js?1644506469></script>
-<script src=/js/search.js?1644506469></script>
+<script src=/js/lunr.min.js?1644600600></script>
+<script src=/js/auto-complete.js?1644600600></script>
+<script src=/js/search.js?1644600600></script>
 </div>
 <div class=highlightable>
 <ul class=topics>
@@ -274,14 +274,13 @@ ALGuidelines.Dev
 <p><strong>Creating a Page</strong></p>
 <p>The <strong>CardPage</strong> type is most suitable for representing this kind of tables. In addition, the <strong>InsertAllowed</strong> and <strong>DeleteAllowed</strong> properties in the page should be set to false to prevent the user from adding or deleting records in the table.</p>
 <p>In the <strong>OnOpenPage</strong> trigger, the following code should be added to insert a record when the user opens the page for the first time, if a record does not exist already.</p>
-<pre><code>OnOpenPage()
-RESET;
-IF NOT GET THEN BEGIN
-INIT;
-INSERT;
-END;
-</code></pre>
-<p>The following diagram describes the flow of the program, once the user tries to access the setup information. The user opens the page. If the record containing setup information already exists, then the page opens on the existing record. Else, a new empty record is created and the page opens on it.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>OnOpenPage<span style=color:#f92672>()
+</span><span style=color:#f92672>    </span>RESET;
+    <span style=color:#66d9ef>IF</span> <span style=color:#f92672>NOT</span> GET <span style=color:#66d9ef>THEN</span> <span style=color:#66d9ef>BEGIN</span>
+        INIT;
+        INSERT;
+    <span style=color:#66d9ef>END</span>;
+</code></pre></div><p>The following diagram describes the flow of the program, once the user tries to access the setup information. The user opens the page. If the record containing setup information already exists, then the page opens on the existing record. Else, a new empty record is created and the page opens on it.</p>
 <p><a href=6675.NAVSetupTablePattern2.png><img src=6675.NAVSetupTablePattern2.png alt=" "></a></p>
 <p><strong>Company-Initialize Codeunit</strong></p>
 <p>The Company-Initialize codeunit (codeunit 2) is executed when a new company is created. We recommended that you add records to the single-record tables in this codeunit. If some of the fields are expected to have default values, they can also be populated here.</p>
@@ -308,12 +307,12 @@ END;
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/js/clipboard.min.js?1644506469></script>
-<script src=/js/perfect-scrollbar.min.js?1644506469></script>
-<script src=/js/perfect-scrollbar.jquery.min.js?1644506469></script>
-<script src=/js/jquery.svg.pan.zoom.js?1644506469></script>
-<script src=/js/featherlight.min.js?1644506469></script>
-<script src=/js/modernizr.custom-3.6.0.js?1644506469></script>
-<script src=/js/relearn.js?1644506469></script>
+<script src=/js/clipboard.min.js?1644600600></script>
+<script src=/js/perfect-scrollbar.min.js?1644600600></script>
+<script src=/js/perfect-scrollbar.jquery.min.js?1644600600></script>
+<script src=/js/jquery.svg.pan.zoom.js?1644600600></script>
+<script src=/js/featherlight.min.js?1644600600></script>
+<script src=/js/modernizr.custom-3.6.0.js?1644600600></script>
+<script src=/js/relearn.js?1644600600></script>
 </body>
 </html>

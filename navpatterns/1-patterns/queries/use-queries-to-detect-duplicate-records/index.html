@@ -5,16 +5,16 @@
 <meta name=generator content="Hugo 0.92.1">
 <meta name=description content>
 <title>Use Queries to Detect Duplicate Records :: AL Guidelines</title>
-<link href=/css/nucleus.css?1644506469 rel=stylesheet>
-<link href=/css/fontawesome-all.min.css?1644506469 rel=stylesheet>
-<link href=/css/featherlight.min.css?1644506469 rel=stylesheet>
-<link href=/css/perfect-scrollbar.min.css?1644506469 rel=stylesheet>
-<link href=/css/auto-complete.css?1644506469 rel=stylesheet>
-<link href=/css/theme.css?1644506469 rel=stylesheet>
-<link href=/css/theme-blue.css?1644506469 rel=stylesheet>
-<link href=/css/variant.css?1644506469 rel=stylesheet>
-<link href=/css/print.css?1644506469 rel=stylesheet media=print>
-<script src=/js/jquery.min.js?1644506469></script>
+<link href=/css/nucleus.css?1644600599 rel=stylesheet>
+<link href=/css/fontawesome-all.min.css?1644600599 rel=stylesheet>
+<link href=/css/featherlight.min.css?1644600599 rel=stylesheet>
+<link href=/css/perfect-scrollbar.min.css?1644600599 rel=stylesheet>
+<link href=/css/auto-complete.css?1644600599 rel=stylesheet>
+<link href=/css/theme.css?1644600599 rel=stylesheet>
+<link href=/css/theme-blue.css?1644600599 rel=stylesheet>
+<link href=/css/variant.css?1644600599 rel=stylesheet>
+<link href=/css/print.css?1644600599 rel=stylesheet media=print>
+<script src=/js/jquery.min.js?1644600599></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
 <body data-url=/navpatterns/1-patterns/queries/use-queries-to-detect-duplicate-records/>
@@ -32,9 +32,9 @@ ALGuidelines.Dev
 <input data-search-input id=search-by type=search placeholder=Search...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script src=/js/lunr.min.js?1644506469></script>
-<script src=/js/auto-complete.js?1644506469></script>
-<script src=/js/search.js?1644506469></script>
+<script src=/js/lunr.min.js?1644600599></script>
+<script src=/js/auto-complete.js?1644600599></script>
+<script src=/js/search.js?1644600599></script>
 </div>
 <div class=highlightable>
 <ul class=topics>
@@ -249,13 +249,9 @@ ALGuidelines.Dev
 <div class=wrapper>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#abstract><strong>Abstract</strong></a></li>
-<li><a href=#description><strong>Description</strong></a>
-<ul>
-<li></li>
-</ul>
-</li>
-<li><a href=#usage><strong>Usage</strong></a>
+<li><a href=#abstract>Abstract</a></li>
+<li><a href=#description>Description</a></li>
+<li><a href=#usage>Usage</a>
 <ul>
 <li></li>
 </ul>
@@ -271,29 +267,27 @@ ALGuidelines.Dev
 <main id=body-inner>
 <h1>Use Queries to Detect Duplicate Records</h1>
 <p><em>Originally by Abshishek Ghosh and Bogdan Sturzoiu at Microsoft Development Center Copenhagen</em></p>
-<h2 id=abstract><strong>Abstract</strong></h2>
+<h2 id=abstract>Abstract</h2>
 <p>This pattern uses queries to create an efficient way to detect duplicate entries in a table. This is, for example, useful when trying to find out which customers or contacts have the same names, so we can merge them later.</p>
-<h2 id=description><strong>Description</strong></h2>
+<h2 id=description>Description</h2>
 <p>Duplicate detection has several requirements in Microsoft Dynamics NAV. One method to eliminate duplication is by defining the relevant field as the primary key. However, this method is not always practical either due to the size of the field or due to business requirements that dictate how duplicates are detected but not necessarily how they are eliminated. An example of this method is to detect contacts with the same name and take action to merge them if they are.</p>
 <p>Before Dynamics NAV 2013, the only possibility was to iterate through the table in a loop and then create a sub-loop where another instance of the same table is filtered to check for duplicates. For example, to check for duplicate names in the Customer table, the code would look like this:</p>
-<pre><code>PROCEDURE HasDuplicateCustomers@26() : Boolean;
-VAR
-Customer@1000 : Record 18;
-Customer2@1001 : Record 18;
-BEGIN
-IF Customer.FINDSET THEN
-REPEAT
-Customer2.SETRANGE(Name,Customer.Name);
-IF Customer2.COUNT \&gt; 1 THEN
-EXIT(TRUE);
-UNTIL Customer.NEXT = 0;
-EXIT(FALSE);
-END;
-</code></pre>
-<h4 id=heading></h4>
-<p>This code would involve setting filters on the <strong>Customer</strong> table as many times as there are records in the table. This is an expensive operation.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=color:#66d9ef>PROCEDURE</span> HasDuplicateCustomers@<span style=color:#ae81ff>26</span><span style=color:#f92672>() </span>: <span style=color:#66d9ef>Boolean</span>;
+<span style=color:#66d9ef>VAR</span>
+    Customer@<span style=color:#ae81ff>1000</span> : <span style=color:#66d9ef>Record</span> <span style=color:#ae81ff>18</span>;
+    Customer2@<span style=color:#ae81ff>1001</span> : <span style=color:#66d9ef>Record</span> <span style=color:#ae81ff>18</span>;
+<span style=color:#66d9ef>BEGIN</span>
+    <span style=color:#66d9ef>IF</span> Customer<span style=color:#f92672>.</span>FINDSET <span style=color:#66d9ef>THEN</span>
+    <span style=color:#66d9ef>REPEAT</span>
+        Customer2<span style=color:#f92672>.</span>SETRANGE<span style=color:#f92672>(</span>Name,Customer<span style=color:#f92672>.</span>Name<span style=color:#f92672>)</span>;
+            <span style=color:#66d9ef>IF</span> Customer2<span style=color:#f92672>.</span><span style=color:#66d9ef>COUNT</span> \&gt; <span style=color:#ae81ff>1</span> <span style=color:#66d9ef>THEN</span>
+                <span style=color:#66d9ef>EXIT</span><span style=color:#f92672>(</span>TRUE<span style=color:#f92672>)</span>;
+        <span style=color:#66d9ef>UNTIL</span> Customer<span style=color:#f92672>.</span>NEXT = <span style=color:#ae81ff>0</span>;
+    <span style=color:#66d9ef>EXIT</span><span style=color:#f92672>(</span>FALSE<span style=color:#f92672>)</span>;
+<span style=color:#66d9ef>END</span>;
+</code></pre></div><p>This code would involve setting filters on the <strong>Customer</strong> table as many times as there are records in the table. This is an expensive operation.</p>
 <p>Starting with Dynamics NAV 2013, we can use queries to create a more efficient implementation of the same logic.</p>
-<h2 id=usage><strong>Usage</strong></h2>
+<h2 id=usage>Usage</h2>
 <p>The solution involves that you create a query to return duplicates, and then invoke it from a method that would test the value of the query to identify if duplicates were found.</p>
 <p><strong>Step 1</strong> &ndash; <strong>Creating the Query</strong></p>
 <ul>
@@ -303,7 +297,7 @@ END;
 </ul>
 <p>Continuing with our Customer Name example, here is how the query would look:</p>
 <p><a href=clip_5F00_image002.jpg><img src=clip_5F00_image002.jpg alt=" "></a></p>
-<h4 id=heading-1></h4>
+<h4 id=heading></h4>
 <pre><code>ELEMENTS
 {
 { 1 ; ;DataItem; ;
@@ -311,26 +305,22 @@ DataItemTable=Table18 }
 { 2 ;1 ;Column ; ;
 DataSource=Name }
 { 3 ;1 ;Column ; ;
-ColumnFilter=Count\_=FILTER(\&gt;1);
+ColumnFilter=Count_=FILTER(\&gt;1);
 MethodType=Totals;
 Method=Count }
 }
 </code></pre>
-<p>**<br>
-**</p>
 <p><strong>Step 2 &ndash; Invoking the Query to Check for Duplicates</strong></p>
 <p>Now that the query is created, all we need to do is to invoke the query and check if any records are returned, which would mean that there are duplicates.</p>
 <p>Here is an alternate implementation of the <strong>HasDuplicateCustomers</strong> method using the query that we created:</p>
-<pre><code>PROCEDURE HasDuplicateCustomersWithQuery@27() : Boolean;
-VAR
-CustomerDuplicate@1000 : Query 70000;
-BEGIN
-CustomerDuplicate.OPEN;
-EXIT(CustomerDuplicate.READ);
-END;
-</code></pre>
-<h4 id=heading-2></h4>
-<p><strong>Examples</strong></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=color:#66d9ef>PROCEDURE</span> HasDuplicateCustomersWithQuery@<span style=color:#ae81ff>27</span><span style=color:#f92672>() </span>: <span style=color:#66d9ef>Boolean</span>;
+<span style=color:#66d9ef>VAR</span>
+    CustomerDuplicate@<span style=color:#ae81ff>1000</span> : <span style=color:#66d9ef>Query</span> <span style=color:#ae81ff>70000</span>;
+<span style=color:#66d9ef>BEGIN</span>
+    CustomerDuplicate<span style=color:#f92672>.</span>OPEN;
+    <span style=color:#66d9ef>EXIT</span><span style=color:#f92672>(</span>CustomerDuplicate<span style=color:#f92672>.</span>READ<span style=color:#f92672>)</span>;
+<span style=color:#66d9ef>END</span>;
+</code></pre></div><p><strong>Examples</strong></p>
 <ul>
 <li><strong>Acc. Sched. Chart Management</strong> codeunit (762),<br>
 methods CheckDuplicateAccScheduleLineDescription and CheckDuplicateColumnLayoutColumnHeader</li>
@@ -351,12 +341,12 @@ methods CheckDuplicateAnalysisLineDescription and CheckDuplicateAnalysisColumnHe
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/js/clipboard.min.js?1644506469></script>
-<script src=/js/perfect-scrollbar.min.js?1644506469></script>
-<script src=/js/perfect-scrollbar.jquery.min.js?1644506469></script>
-<script src=/js/jquery.svg.pan.zoom.js?1644506469></script>
-<script src=/js/featherlight.min.js?1644506469></script>
-<script src=/js/modernizr.custom-3.6.0.js?1644506469></script>
-<script src=/js/relearn.js?1644506469></script>
+<script src=/js/clipboard.min.js?1644600599></script>
+<script src=/js/perfect-scrollbar.min.js?1644600599></script>
+<script src=/js/perfect-scrollbar.jquery.min.js?1644600599></script>
+<script src=/js/jquery.svg.pan.zoom.js?1644600599></script>
+<script src=/js/featherlight.min.js?1644600599></script>
+<script src=/js/modernizr.custom-3.6.0.js?1644600599></script>
+<script src=/js/relearn.js?1644600599></script>
 </body>
 </html>

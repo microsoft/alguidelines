@@ -5,16 +5,16 @@
 <meta name=generator content="Hugo 0.92.1">
 <meta name=description content>
 <title>Variant Facade :: AL Guidelines</title>
-<link href=/css/nucleus.css?1644506469 rel=stylesheet>
-<link href=/css/fontawesome-all.min.css?1644506469 rel=stylesheet>
-<link href=/css/featherlight.min.css?1644506469 rel=stylesheet>
-<link href=/css/perfect-scrollbar.min.css?1644506469 rel=stylesheet>
-<link href=/css/auto-complete.css?1644506469 rel=stylesheet>
-<link href=/css/theme.css?1644506469 rel=stylesheet>
-<link href=/css/theme-blue.css?1644506469 rel=stylesheet>
-<link href=/css/variant.css?1644506469 rel=stylesheet>
-<link href=/css/print.css?1644506469 rel=stylesheet media=print>
-<script src=/js/jquery.min.js?1644506469></script>
+<link href=/css/nucleus.css?1644600599 rel=stylesheet>
+<link href=/css/fontawesome-all.min.css?1644600599 rel=stylesheet>
+<link href=/css/featherlight.min.css?1644600599 rel=stylesheet>
+<link href=/css/perfect-scrollbar.min.css?1644600599 rel=stylesheet>
+<link href=/css/auto-complete.css?1644600599 rel=stylesheet>
+<link href=/css/theme.css?1644600599 rel=stylesheet>
+<link href=/css/theme-blue.css?1644600599 rel=stylesheet>
+<link href=/css/variant.css?1644600599 rel=stylesheet>
+<link href=/css/print.css?1644600599 rel=stylesheet media=print>
+<script src=/js/jquery.min.js?1644600599></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
 <body data-url=/navpatterns/1-patterns/variant-facade/>
@@ -32,9 +32,9 @@ ALGuidelines.Dev
 <input data-search-input id=search-by type=search placeholder=Search...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script src=/js/lunr.min.js?1644506469></script>
-<script src=/js/auto-complete.js?1644506469></script>
-<script src=/js/search.js?1644506469></script>
+<script src=/js/lunr.min.js?1644600599></script>
+<script src=/js/auto-complete.js?1644600599></script>
+<script src=/js/search.js?1644600599></script>
 </div>
 <div class=highlightable>
 <ul class=topics>
@@ -248,10 +248,20 @@ ALGuidelines.Dev
 <div class=wrapper>
 <nav id=TableOfContents>
 <ul>
+<li><a href=#abstract>Abstract</a></li>
+<li><a href=#problem>Problem</a></li>
+<li><a href=#solution>Solution</a>
+<ul>
 <li><a href=#signature>Signature</a></li>
 <li><a href=#casting-to-a-record-ref>Casting to a record ref</a></li>
 <li><a href=#using-the-variant>Using the variant</a></li>
 <li><a href=#table-specific-code>Table specific code</a></li>
+</ul>
+</li>
+<li><a href=#example>Example</a></li>
+<li><a href=#consequences>Consequences</a></li>
+<li><a href=#nav-usages>NAV usages</a></li>
+<li><a href=#related-topics>Related Topics</a></li>
 </ul>
 </nav>
 </div>
@@ -262,11 +272,10 @@ ALGuidelines.Dev
 <main id=body-inner>
 <h1>Variant Facade</h1>
 <p><em>By Nikola Kukrika, waldo and Gary Winter</em></p>
-<h1 id=abstract>Abstract</h1>
+<h2 id=abstract>Abstract</h2>
 <p>The Variant façade provides a single interface that can take any Record, RecordRef or RecordID as an argument. With this pattern the code is encapsulated within the single object, with clear separation between common and table specific code.</p>
 <p><a href=picture1.png><img src=picture1.png alt=" "></a></p>
-<hr>
-<h1 id=problem>Problem</h1>
+<h2 id=problem>Problem</h2>
 <p>Since NAV is strongly typed, developers often need to duplicate functionality in order to add support for a new table. The developer would typically start by duplicating the function, changing the record type and implement slight modifications to the code if needed.</p>
 <p>The problem with this approach is that code duplication is one of the worst things in software development &ndash; it makes code harder to understand, maintain, extend and test.</p>
 <p>One of the good examples of this approach and the resulting duplication is codeunit 229, Document-Print:</p>
@@ -285,15 +294,15 @@ ALGuidelines.Dev
 <p><strong>Testing the code</strong> is hard since the tests need to be replicated.</p>
 <p><strong>Constant cost of adding support for new tables</strong> &ndash; when the new record type needs to be supported, it has a constant cost. Adding a support for a new record will increase the Maintenance tax and it will make the code harder to understand and extend.</p>
 <p><strong>Conclusion</strong> - <strong>If the functionality needs to be used for many records the approach of duplicating the functions should be avoided.</strong></p>
-<h1 id=solution>Solution</h1>
+<h2 id=solution>Solution</h2>
 <p>The Variant façade pattern provides a single interface that would not need to be changed in the future. It will be able to take any record as a parameter. Common code should be kept separately from record specific code and both must be very visible so the developers can easily see what the differences are.</p>
 <p>The Key components of the pattern are:</p>
-<h2 id=signature>Signature</h2>
+<h3 id=signature>Signature</h3>
 <p>Instead of hardcoding a record type a variant is used as an argument. A Variant Façade function can receive three types of data: Record, RecordID, or RecordRef. This way, it can be reused anywhere in the product and the code will still work.</p>
 <p>A good practice is to combine this pattern with the Argument Table pattern to make sure that the signature does not change (Additional parameters can be added to the argument table without impacting existing code.). If the Argument Table is not needed, it should not be placed in the signature - it is always possible to add it at a latter point and have two public functions (one with and one without arguments).</p>
 <p>Example - For codeunit 229, Document-Print all of the public methods can be simply replaced with a single public method like this:</p>
 <p>With this approach the façade function can serve all of the record types and will not need to change in the future.</p>
-<h2 id=casting-to-a-record-ref>Casting to a record ref</h2>
+<h3 id=casting-to-a-record-ref>Casting to a record ref</h3>
 <p>After the signature it is necessary to decide if the function will support passing of the Record ID and the RecordRef. Code tends to be easier to understand and maintain if only the records are passed as the arguments, however in some cases it is needed to support the other two types.</p>
 <ul>
 <li><strong>Support for Record, Record ID and RecordRef:</strong></li>
@@ -303,93 +312,98 @@ ALGuidelines.Dev
 <ul>
 <li><strong>Support Records only</strong> - If the function supports only passing in the record, it is a good practice to check if the variant is a record:</li>
 </ul>
-<p>IF NOT RecordVariant.ISRECORD THEN</p>
-<p>ERROR(NotARecordErr);</p>
-<h2 id=using-the-variant>Using the variant</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=color:#66d9ef>IF</span> <span style=color:#f92672>NOT</span> RecordVariant<span style=color:#f92672>.</span>ISRECORD <span style=color:#66d9ef>THEN</span>
+    ERROR<span style=color:#f92672>(</span>NotARecordErr<span style=color:#f92672>)</span>;
+</code></pre></div><h3 id=using-the-variant>Using the variant</h3>
 <p>The variant can be passed instead of record when calling the Page.RUN, Codeunit.RUN or Report.RUN statically:</p>
 <p>For example:</p>
-<p>Page.RUN(PageID,Variant);</p>
-<p>Codeunit.RUN(CodeunitID,Variant);</p>
-<p>Report.RUN(ReportID,Variant);</p>
-<p>These calls are identical to using an actual instance of the record, since the variant will be casted to the record automatically, with all filters, markings and values preserved.</p>
-<hr>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=color:#66d9ef>Page</span><span style=color:#f92672>.</span>RUN<span style=color:#f92672>(</span>PageID,<span style=color:#66d9ef>Variant</span><span style=color:#f92672>)</span>;
+
+<span style=color:#66d9ef>Codeunit</span><span style=color:#f92672>.</span>RUN<span style=color:#f92672>(</span>CodeunitID,<span style=color:#66d9ef>Variant</span><span style=color:#f92672>)</span>;
+
+<span style=color:#66d9ef>Report</span><span style=color:#f92672>.</span>RUN<span style=color:#f92672>(</span>ReportID,<span style=color:#66d9ef>Variant</span><span style=color:#f92672>)</span>;
+</code></pre></div><p>These calls are identical to using an actual instance of the record, since the variant will be casted to the record automatically, with all filters, markings and values preserved.</p>
 <p>In case the variant was casted to the RecordRef (by using DataTypeManagement.GetRecordRef(RecRelatedVariant,RecordRef)), it is still possible to invoke the functions statically.</p>
 <p>The RecordRef simply needs to be casted into a variant and passed as a parameter, for example:</p>
-<p>VariantArgument := RecordRef;</p>
-<p>Page.RUN(PageID,VariantArgument);</p>
-<p>Variant can always casted back to the original record in the table specific code, exact process is described below.</p>
-<h2 id=table-specific-code>Table specific code</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>VariantArgument <span style=color:#f92672>:=</span> <span style=color:#66d9ef>RecordRef</span>;
+
+<span style=color:#66d9ef>Page</span><span style=color:#f92672>.</span>RUN<span style=color:#f92672>(</span>PageID,VariantArgument<span style=color:#f92672>)</span>;
+</code></pre></div><p>Variant can always casted back to the original record in the table specific code, exact process is described below.</p>
+<h3 id=table-specific-code>Table specific code</h3>
 <p>To do table-specific processing, it is necessary to get the RecordRef first, since NUMBER parameter will tell us which table it is. In the table-specific code, it is possible to cast the variant back to the original record type, so data is accessible and it is possible to invoke functions.</p>
 <p>To do this, the best practice is to use the COPY function to preserve filters:</p>
-<p>SalesHeader.COPY(RecordVariant);</p>
-<p>Assigning directly such as SalesHeader := RecordVariant, is possible, however all filters will be lost.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>SalesHeader<span style=color:#f92672>.</span>COPY<span style=color:#f92672>(</span>RecordVariant<span style=color:#f92672>)</span>;
+</code></pre></div><p>Assigning directly such as SalesHeader := RecordVariant, is possible, however all filters will be lost.</p>
 <p>Example of table specific code:</p>
-<p>CASE RecordRef.NUMBER OF</p>
-<p>DATABASE::&ldquo;Sales Header&rdquo;:</p>
-<p>BEGIN</p>
-<p>SalesHeader.COPY(RecordVariant);</p>
-<p>SalesHeader.PrintDocument;</p>
-<p>END;</p>
-<p>DATABASE::&ldquo;Purchase Header&rdquo;:</p>
-<p>BEGIN</p>
-<p>PurchaseHeader.COPY(RecordVariant)</p>
-<p>&mldr;</p>
-<p>END;</p>
-<p>&mldr;.</p>
-<p>It is a good practice to try to avoid the table specific code if possible.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=color:#66d9ef>CASE</span> <span style=color:#66d9ef>RecordRef</span><span style=color:#f92672>.</span>NUMBER <span style=color:#66d9ef>OF</span>
+    <span style=color:#66d9ef>DATABASE</span>::&#34;Sales Header&#34;:
+        <span style=color:#66d9ef>BEGIN</span>
+            SalesHeader<span style=color:#f92672>.</span>COPY<span style=color:#f92672>(</span>RecordVariant<span style=color:#f92672>)</span>;
+            SalesHeader<span style=color:#f92672>.</span>PrintDocument;
+        <span style=color:#66d9ef>END</span>;
+    <span style=color:#66d9ef>DATABASE</span>::&#34;Purchase Header&#34;:
+        <span style=color:#66d9ef>BEGIN</span>
+            PurchaseHeader<span style=color:#f92672>.</span>COPY<span style=color:#f92672>(</span>RecordVariant<span style=color:#f92672>)
+</span><span style=color:#f92672>        ...
+</span><span style=color:#f92672>        </span><span style=color:#66d9ef>END</span>;
+    <span style=color:#f92672>....
+</span></code></pre></div><p>It is a good practice to try to avoid the table specific code if possible.</p>
 <p>One of the issues with table specific code is that the CASE statement can easily explode when large number of records are supported.</p>
 <p>There are two possible solutions:</p>
 <ol>
 <li>Move the calculations outside of the façade code unit and pass it in as part of the argument table.</li>
 </ol>
 <p>For example, instead of having a case like this within DocumentPrint codeunit:</p>
-<p>CASE RecordRef.NUMBER OF</p>
-<p>DATABASE::&ldquo;Sales Header&rdquo;:</p>
-<p>BEGIN</p>
-<p>SalesHeader.COPY(RecordVariant);</p>
-<p>CASE SalesHeader.&ldquo;Document Type&rdquo; OF</p>
-<p>SalesHeader.&ldquo;Document Type&rdquo;::Quote:</p>
-<p>ReportSelections.SETRANGE(Usage,ReportSelections.Usage::&ldquo;S.Quote&rdquo;);</p>
-<p>SalesHeader.&ldquo;Document Type&rdquo;::&ldquo;Blanket Order&rdquo;:</p>
-<p>ReportSelections.SETRANGE(Usage,ReportSelections.Usage::&ldquo;S.Blanket&rdquo;);</p>
-<p>SalesHeader.&ldquo;Document Type&rdquo;::Order:</p>
-<p>ReportSelections.SETRANGE(Usage,ReportSelections.Usage::&ldquo;S.Order&rdquo;);</p>
-<p>SalesHeader.&ldquo;Document Type&rdquo;::&ldquo;Return Order&rdquo;:</p>
-<p>ReportSelections.SETRANGE(Usage,ReportSelections.Usage::&ldquo;S.Return&rdquo;);</p>
-<p>SalesHeader.&ldquo;Document Type&rdquo;::Invoice:</p>
-<p>ReportSelections.SETRANGE(Usage,ReportSelections.Usage::&ldquo;S.Invoice&rdquo;);</p>
-<p>SalesHeader.&ldquo;Document Type&rdquo;::&ldquo;Credit Memo&rdquo;:</p>
-<p>ReportSelections.SETRANGE(Usage,ReportSelections.Usage::&ldquo;S.Cr.Memo&rdquo;);</p>
-<p>END;</p>
-<p>If the ReportSelections.Usage is simply passed into the function from outside, then the case statement is not needed at all. For example:</p>
-<p>PrintDocumentArguments.&ldquo;Report Selection Usage&rdquo; := SalesHeader.GetReportSelectionUsage;</p>
-<p>DocumentPrint.PrintDocument(SalesHeader,PrintDocumentArguments);</p>
-<p>Where GetReportSelection usage is coded like this:</p>
-<p>CASE SalesHeader.&ldquo;Document Type&rdquo; OF</p>
-<p>SalesHeader.&ldquo;Document Type&rdquo;::Quote:</p>
-<p>EXIT (ReportSelections.Usage::&ldquo;S.Quote&rdquo;);</p>
-<p>SalesHeader.&ldquo;Document Type&rdquo;::&ldquo;Blanket Order&rdquo;:</p>
-<p>EXIT(ReportSelections.Usage::&ldquo;S.Blanket&rdquo;);</p>
-<p>SalesHeader.&ldquo;Document Type&rdquo;::Order:</p>
-<p>EXIT(ReportSelections.Usage::&ldquo;S.Order&rdquo;);</p>
-<p>SalesHeader.&ldquo;Document Type&rdquo;::&ldquo;Return Order&rdquo;:</p>
-<p>EXIT(ReportSelections.Usage::&ldquo;S.Return&rdquo;);</p>
-<p>SalesHeader.&ldquo;Document Type&rdquo;::Invoice:</p>
-<p>EXIT(ReportSelections.Usage::&ldquo;S.Invoice&rdquo;);</p>
-<p>SalesHeader.&ldquo;Document Type&rdquo;::&ldquo;Credit Memo&rdquo;:</p>
-<p>EXIT(ReportSelections.Usage::&ldquo;S.Cr.Memo&rdquo;);</p>
-<p>This way the code is much more reusable and simpler to read.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=color:#66d9ef>CASE</span> <span style=color:#66d9ef>RecordRef</span><span style=color:#f92672>.</span>NUMBER <span style=color:#66d9ef>OF</span>
+    <span style=color:#66d9ef>DATABASE</span>::&#34;Sales Header&#34;:
+        <span style=color:#66d9ef>BEGIN</span>
+            SalesHeader<span style=color:#f92672>.</span>COPY<span style=color:#f92672>(</span>RecordVariant<span style=color:#f92672>)</span>;
+            <span style=color:#66d9ef>CASE</span> SalesHeader<span style=color:#f92672>.</span>&#34;Document Type&#34; <span style=color:#66d9ef>OF</span>
+                SalesHeader<span style=color:#f92672>.</span>&#34;Document Type&#34;::Quote:
+                    ReportSelections<span style=color:#f92672>.</span>SETRANGE<span style=color:#f92672>(</span>Usage,ReportSelections<span style=color:#f92672>.</span>Usage::&#34;S.Quote&#34;<span style=color:#f92672>)</span>;
+                SalesHeader<span style=color:#f92672>.</span>&#34;Document Type&#34;::&#34;Blanket Order&#34;:
+                    ReportSelections<span style=color:#f92672>.</span>SETRANGE<span style=color:#f92672>(</span>Usage,ReportSelections<span style=color:#f92672>.</span>Usage::&#34;S.Blanket&#34;<span style=color:#f92672>)</span>;
+                SalesHeader<span style=color:#f92672>.</span>&#34;Document Type&#34;::<span style=color:#66d9ef>Order</span>:
+                    ReportSelections<span style=color:#f92672>.</span>SETRANGE<span style=color:#f92672>(</span>Usage,ReportSelections<span style=color:#f92672>.</span>Usage::&#34;S.Order&#34;<span style=color:#f92672>)</span>;
+                SalesHeader<span style=color:#f92672>.</span>&#34;Document Type&#34;::&#34;Return Order&#34;:
+                    ReportSelections<span style=color:#f92672>.</span>SETRANGE<span style=color:#f92672>(</span>Usage,ReportSelections<span style=color:#f92672>.</span>Usage::&#34;S.Return&#34;<span style=color:#f92672>)</span>;
+                SalesHeader<span style=color:#f92672>.</span>&#34;Document Type&#34;::Invoice:
+                    ReportSelections<span style=color:#f92672>.</span>SETRANGE<span style=color:#f92672>(</span>Usage,ReportSelections<span style=color:#f92672>.</span>Usage::&#34;S.Invoice&#34;<span style=color:#f92672>)</span>;
+                SalesHeader<span style=color:#f92672>.</span>&#34;Document Type&#34;::&#34;Credit Memo&#34;:
+                    ReportSelections<span style=color:#f92672>.</span>SETRANGE<span style=color:#f92672>(</span>Usage,ReportSelections<span style=color:#f92672>.</span>Usage::&#34;S.Cr.Memo&#34;<span style=color:#f92672>)</span>;
+        <span style=color:#66d9ef>END</span>;
+</code></pre></div><p>If the ReportSelections.Usage is simply passed into the function from outside, then the case statement is not needed at all. For example:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>PrintDocumentArguments<span style=color:#f92672>.</span>&#34;Report Selection Usage&#34; <span style=color:#f92672>:=</span> SalesHeader<span style=color:#f92672>.</span>GetReportSelectionUsage;
+
+DocumentPrint<span style=color:#f92672>.</span>PrintDocument<span style=color:#f92672>(</span>SalesHeader,PrintDocumentArguments<span style=color:#f92672>)</span>;
+</code></pre></div><p>Where GetReportSelection usage is coded like this:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=color:#66d9ef>CASE</span> SalesHeader<span style=color:#f92672>.</span>&#34;Document Type&#34; <span style=color:#66d9ef>OF</span>
+    SalesHeader<span style=color:#f92672>.</span>&#34;Document Type&#34;::Quote:
+        <span style=color:#66d9ef>EXIT</span> <span style=color:#f92672>(</span>ReportSelections<span style=color:#f92672>.</span>Usage::&#34;S.Quote&#34;<span style=color:#f92672>)</span>;
+    SalesHeader<span style=color:#f92672>.</span>&#34;Document Type&#34;::&#34;Blanket Order&#34;:
+        <span style=color:#66d9ef>EXIT</span><span style=color:#f92672>(</span>ReportSelections<span style=color:#f92672>.</span>Usage::&#34;S.Blanket&#34;<span style=color:#f92672>)</span>;
+    SalesHeader<span style=color:#f92672>.</span>&#34;Document Type&#34;::<span style=color:#66d9ef>Order</span>:
+        <span style=color:#66d9ef>EXIT</span><span style=color:#f92672>(</span>ReportSelections<span style=color:#f92672>.</span>Usage::&#34;S.Order&#34;<span style=color:#f92672>)</span>;
+    SalesHeader<span style=color:#f92672>.</span>&#34;Document Type&#34;::&#34;Return Order&#34;:
+        <span style=color:#66d9ef>EXIT</span><span style=color:#f92672>(</span>ReportSelections<span style=color:#f92672>.</span>Usage::&#34;S.Return&#34;<span style=color:#f92672>)</span>;
+    SalesHeader<span style=color:#f92672>.</span>&#34;Document Type&#34;::Invoice:
+        <span style=color:#66d9ef>EXIT</span><span style=color:#f92672>(</span>ReportSelections<span style=color:#f92672>.</span>Usage::&#34;S.Invoice&#34;<span style=color:#f92672>)</span>;
+    SalesHeader<span style=color:#f92672>.</span>&#34;Document Type&#34;::&#34;Credit Memo&#34;:
+        <span style=color:#66d9ef>EXIT</span><span style=color:#f92672>(</span>ReportSelections<span style=color:#f92672>.</span>Usage::&#34;S.Cr.Memo&#34;<span style=color:#f92672>)</span>;
+</code></pre></div><p>This way the code is much more reusable and simpler to read.</p>
 <ol>
 <li>Use Rules Table to replace the code with data-driven approach.</li>
 </ol>
 <p>Setup table would contain the list of the reports and their usages. Based on Table ID and usage it is possible to set filters on the setup table and run the object ID from the result.</p>
 <p>For example:</p>
-<p>ReportSelectionSetup.SETRANGE(&ldquo;Table ID&rdquo;, RecordRef.NUMBER);</p>
-<p>ReportSelectionSetup.SETRANGE(&ldquo;Usage Type&rdquo;, RecordRef.FieldValue(ArgumentTable.&ldquo;Usage Type&rdquo;);</p>
-<p>ReportSelectionSetup.FINDFIRST;</p>
-<p>REPORT.RUN(ReportSelectionSetup.&ldquo;Report ID&rdquo;,VariantRecord);</p>
-<hr>
-<h1 id=example>Example</h1>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>ReportSelectionSetup<span style=color:#f92672>.</span>SETRANGE<span style=color:#f92672>(</span>&#34;Table ID&#34;, <span style=color:#66d9ef>RecordRef</span><span style=color:#f92672>.</span>NUMBER<span style=color:#f92672>)</span>;
+
+ReportSelectionSetup<span style=color:#f92672>.</span>SETRANGE<span style=color:#f92672>(</span>&#34;Usage Type&#34;, <span style=color:#66d9ef>RecordRef</span><span style=color:#f92672>.</span>FieldValue<span style=color:#f92672>(</span>ArgumentTable<span style=color:#f92672>.</span>&#34;Usage Type&#34;<span style=color:#f92672>)</span>;
+
+ReportSelectionSetup<span style=color:#f92672>.</span>FINDFIRST;
+
+<span style=color:#66d9ef>REPORT</span><span style=color:#f92672>.</span>RUN<span style=color:#f92672>(</span>ReportSelectionSetup<span style=color:#f92672>.</span>&#34;Report ID&#34;,VariantRecord<span style=color:#f92672>)</span>;
+</code></pre></div><h2 id=example>Example</h2>
 <p>The following code illustrates how the Variant Façade pattern can be used to implement the Document-Print Codeunit.</p>
 <p><a href=Picture7.png><img src=Picture7.png alt=" "></a></p>
 <p><a href=Picture8.png><img src=Picture8.png alt=" "></a></p>
@@ -397,7 +411,7 @@ ALGuidelines.Dev
 <p>Code duplication is avoided, specific code is isolated in the PrepareRecord function, there is clear extension point to add support for new records in the future. Since code is not duplicated and there is a single flow through the method, inserting hooks and events in the future will be straightforward.</p>
 <p>When adding the support for new records in most cases it is not need to change any code within the method, thus the cost of extending the usage is minimal.</p>
 <p>Note - PrepareRecord function is placed for the illustrational purposes. An improvement would be to move all of the code from the PrepareRecord function before calling the function. So for the SalesHeader and PurchaseHeaders discounts should be calculated before invoking the function. For passing of the argument it should be one of the fields in the Argument Table, thus the entire specific code would be eliminated.</p>
-<h1 id=consequences>Consequences</h1>
+<h2 id=consequences>Consequences</h2>
 <ul>
 <li>Not needed if the functionality needs to support few tables. Don&rsquo;t use it as a hammer</li>
 <li>Strongly typing the records has it benefits since it is easier to find usages, errors will be visible at the compilation time.</li>
@@ -405,7 +419,7 @@ ALGuidelines.Dev
 <li>Be careful with filters and marks, if the function needs to support multiple records. Test these cases thoughtfully because with bad placement of code the filters can easily be lost.</li>
 <li>Case statements can explode if there are too many tables that require specific processing. Then it is a must to find a way to keep the number of options in the CASE statement low. The Rules Table pattern and adding specifics to the Argument Table before invoking the code could help with keep the list shorter.</li>
 </ul>
-<h1 id=nav-usages>NAV usages</h1>
+<h2 id=nav-usages>NAV usages</h2>
 <ul>
 <li>Codeunit 452 - Report Distribution Management</li>
 <li>Codeunit 700 - Page Management</li>
@@ -417,12 +431,10 @@ ALGuidelines.Dev
 <li>Codeunit 1531 - Workflow Change Rec Mgt.</li>
 <li>Codeunit 1535 - Approvals Mgmt.</li>
 </ul>
-<h1 id=related-topics>Related Topics</h1>
+<h2 id=related-topics>Related Topics</h2>
 <p>OO Facade <a href=https://en.wikipedia.org/wiki/Facade_pattern>https://en.wikipedia.org/wiki/Facade_pattern</a></p>
 <p>Argument Table pattern - <a href=/nav/w/designpatterns/245.argument-table-pattern>https://community.dynamics.com/nav/w/designpatterns/245.argument-table-pattern</a></p>
 <p>Rules Table pattern</p>
-<p>&lt; &ndash;[if supportAnnotations]&ndash;>
-&lt; &ndash;[endif]&ndash;></p>
 <footer class=footline>
 </footer>
 </main>
@@ -435,12 +447,12 @@ ALGuidelines.Dev
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/js/clipboard.min.js?1644506469></script>
-<script src=/js/perfect-scrollbar.min.js?1644506469></script>
-<script src=/js/perfect-scrollbar.jquery.min.js?1644506469></script>
-<script src=/js/jquery.svg.pan.zoom.js?1644506469></script>
-<script src=/js/featherlight.min.js?1644506469></script>
-<script src=/js/modernizr.custom-3.6.0.js?1644506469></script>
-<script src=/js/relearn.js?1644506469></script>
+<script src=/js/clipboard.min.js?1644600599></script>
+<script src=/js/perfect-scrollbar.min.js?1644600599></script>
+<script src=/js/perfect-scrollbar.jquery.min.js?1644600599></script>
+<script src=/js/jquery.svg.pan.zoom.js?1644600599></script>
+<script src=/js/featherlight.min.js?1644600599></script>
+<script src=/js/modernizr.custom-3.6.0.js?1644600599></script>
+<script src=/js/relearn.js?1644600599></script>
 </body>
 </html>

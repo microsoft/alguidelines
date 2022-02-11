@@ -5,16 +5,16 @@
 <meta name=generator content="Hugo 0.92.1">
 <meta name=description content>
 <title>Sensitive Data Encapsulation :: AL Guidelines</title>
-<link href=/css/nucleus.css?1644506469 rel=stylesheet>
-<link href=/css/fontawesome-all.min.css?1644506469 rel=stylesheet>
-<link href=/css/featherlight.min.css?1644506469 rel=stylesheet>
-<link href=/css/perfect-scrollbar.min.css?1644506469 rel=stylesheet>
-<link href=/css/auto-complete.css?1644506469 rel=stylesheet>
-<link href=/css/theme.css?1644506469 rel=stylesheet>
-<link href=/css/theme-blue.css?1644506469 rel=stylesheet>
-<link href=/css/variant.css?1644506469 rel=stylesheet>
-<link href=/css/print.css?1644506469 rel=stylesheet media=print>
-<script src=/js/jquery.min.js?1644506469></script>
+<link href=/css/nucleus.css?1644600599 rel=stylesheet>
+<link href=/css/fontawesome-all.min.css?1644600599 rel=stylesheet>
+<link href=/css/featherlight.min.css?1644600599 rel=stylesheet>
+<link href=/css/perfect-scrollbar.min.css?1644600599 rel=stylesheet>
+<link href=/css/auto-complete.css?1644600599 rel=stylesheet>
+<link href=/css/theme.css?1644600599 rel=stylesheet>
+<link href=/css/theme-blue.css?1644600599 rel=stylesheet>
+<link href=/css/variant.css?1644600599 rel=stylesheet>
+<link href=/css/print.css?1644600599 rel=stylesheet media=print>
+<script src=/js/jquery.min.js?1644600599></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
 <body data-url=/navpatterns/1-patterns/security/1-sensitive-data-encapsulation/>
@@ -32,9 +32,9 @@ ALGuidelines.Dev
 <input data-search-input id=search-by type=search placeholder=Search...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script src=/js/lunr.min.js?1644506469></script>
-<script src=/js/auto-complete.js?1644506469></script>
-<script src=/js/search.js?1644506469></script>
+<script src=/js/lunr.min.js?1644600599></script>
+<script src=/js/auto-complete.js?1644600599></script>
+<script src=/js/search.js?1644600599></script>
 </div>
 <div class=highlightable>
 <ul class=topics>
@@ -256,17 +256,10 @@ ALGuidelines.Dev
 <main id=body-inner>
 <h1>Sensitive Data Encapsulation</h1>
 <p><em>By Bogdana Botez at Microsoft Development Center Copenhagen</em></p>
-<p>_<br>
-_</p>
 <p><a href=Logo-_2D00_-Protected-Data-Encapsulation.png><img src=Logo-_2D00_-Protected-Data-Encapsulation.png alt=" "></a></p>
-<p>**<br>
-**</p>
 <p><strong>Aliases:</strong> Encapsulation, Separation of Concerns [1]</p>
-<p>**<br>
-**</p>
 <p><strong>Context</strong>: You want to store and protect sensitive data which already exists in a system, but it is not clear which data needs protection and how to store it.</p>
 <p><strong>Problem</strong>: Sensitive data is scattered and mixed with other data in various parts of the system (passwords residing in the same table with non-sensitive data, part of the private information might be stored in files, hardcoded text constants, hardcoded info as part of the code etc.).</p>
-<hr>
 <p><strong>Forces:</strong></p>
 <ul>
 <li><strong>Obscurity:</strong> sensitive data mixed with other data and code makes it hard to have an overview of what needs to be protected.</li>
@@ -276,16 +269,14 @@ _</p>
 <li><strong>Low</strong> <strong>Performance</strong>: protecting all data can slow down the system.</li>
 </ul>
 <p><strong>Solution:</strong> Extract and separate sensitive data into a single known repository.</p>
-<p>To apply this pattern in Dynamics NAV, a table structure similar to Table 1261 Service Password can be used. The Service Password table also contains additional functionality which will help to further apply related patterns like <a href=/nav/w/designpatterns/277.3-single-point-of-acces><strong>Access Control</strong></a> and <a href=/nav/w/designpatterns/276.2-data-encryption><strong>Encryption</strong></a>.</p>
+<p>To apply this pattern in Dynamics NAV, a table structure similar to Table 1261 Service Password can be used. The Service Password table also contains additional functionality which will help to further apply related patterns like <a href=/navpatterns/1-patterns/security/3-single-point-of-access/><strong>Access Control</strong></a> and <a href=/navpatterns/1-patterns/security/2-data-encryption/><strong>Encryption</strong></a>.</p>
 <p>Figure 1 describes the definition of a table which is already available in Dynamics NAV. This table can be used for storing sensitive data. As a minimum, the table only needs two fields:</p>
 <ol>
 <li>The key is of type GUID (Globally Unique Identifier), which is a 128-bit value consisting of multiple groups of hexadecimal digits [2]. Each key needs to be unique and will be used for storing and retrieving the protected information.</li>
-<li>The value (the actual data to be encapsulated) is of type BLOB (Binary Large OBject) [3], which contains the encrypted or un-encrypted data (for encryption, see the related <a href=/nav/w/designpatterns/276.2-data-encryption><strong>Encryption</strong></a> pattern).</li>
+<li>The value (the actual data to be encapsulated) is of type BLOB (Binary Large OBject) [3], which contains the encrypted or un-encrypted data (for encryption, see the related <a href=/navpatterns/1-patterns/security/2-data-encryption/><strong>Encryption</strong></a> pattern).</li>
 </ol>
 <p><a href=Data-Encapsulation-_2D00_-figure-1.png><img src=Data-Encapsulation-_2D00_-figure-1.png alt="Figure 1- Example definition, table used for Data Encapsulation"></a></p>
 <p><em>Figure 1- Example definition, table used for <strong>Sensitive</strong> <strong>Data</strong> <strong>Encapsulation</strong></em></p>
-<p>**<br>
-**</p>
 <p>Let&rsquo;s use a software system (which can be a Dynamics NAV extension or customization). Chances are that the system will look similar to the one described in part 1 of Figure 2: there is data handled in various places of the system, on various storage solutions. Intertwined with normal data, there is sensitive data. For example: Dynamics CRM (Customer Relationship Management) connection information could be all stored in one table, and consists of the connection URI (normal data), enabled/disabled status (normal data), and connection password (sensitive data).</p>
 <p>Figure 2 illustrates the system before and after applying the <strong>Sensitive Data Encapsulation</strong> pattern.</p>
 <ul>
@@ -303,46 +294,33 @@ _</p>
 </ul>
 <p><a href=Multi-_2D00_-1-2.JPG><img src=Multi-_2D00_-1-2.JPG alt=" "></a></p>
 <p><em>Figure 2 - Data access before and after <strong>Sensitive</strong> <strong>Data</strong> <strong>Encapsulation.</strong></em></p>
-<p>.</p>
 <p><strong>Benefits:</strong></p>
 <ul>
 <li><strong>Clarity:</strong> when all sensitive data is encapsulated in one place, it is clear which is the information that needs to be protected.</li>
 <li><strong>Simplicity:</strong> easier to protect just a limited number of known resources when they are grouped.</li>
-<li>**Homogeneity: **the same protection can be applied to all data, since it is stored in the same place.</li>
+<li><strong>Homogeneity:</strong> the same protection can be applied to all data, since it is stored in the same place.</li>
 <li><strong>Separation of concerns:</strong> treat each section of the computer program differently, by separating it and clearly addressing its own requirements and limitations. [1]</li>
 <li><strong>Performance</strong>: data protection techniques like <strong>Access Control</strong> and <strong>Encryption</strong> can now be applied only to the sensitive data (not to everything), which improves the performance of the system.</li>
 </ul>
 <p><strong>Drawbacks:</strong></p>
 <ul>
-<li><strong>Single point of failure:</strong> a maliciously intended actor has no longer a need to reverse engineer the places where important data is stored. In the unwanted situation when this actor would have already obtained access to the system, they can more easily locate the sensitive information. This is a step towards information disclosure, but mechanisms like <a href=/nav/w/designpatterns/276.2-data-encryption><strong>Encryption</strong></a> and logging can provide further protection.</li>
+<li><strong>Single point of failure:</strong> a maliciously intended actor has no longer a need to reverse engineer the places where important data is stored. In the unwanted situation when this actor would have already obtained access to the system, they can more easily locate the sensitive information. This is a step towards information disclosure, but mechanisms like <a href=/navpatterns/1-patterns/security/2-data-encryption/><strong>Encryption</strong></a> and logging can provide further protection.</li>
 <li><strong>Limited Text Length</strong>: there is a limit on how long the encrypted text can be. This limit is imposed by the OS encryption service and it depends on the composition of the text as well as on the system specifics. In NAV, we had implemented the Encrypted Text for text values of max 250 chars, which is enough to cover passwords, person ID numbers, credit card info, but it might turn insufficient in other future scenarios.</li>
 <li><strong>Nomenclature</strong>: the name of the table <strong>Service Password</strong> is too specific, since it started by being used for passwords, but it has the capability and it now contains other sensitive data like API Keys, credit card numbers etc.</li>
 </ul>
 <p><strong>References</strong></p>
-<p>[1]</p>
-<p>&ldquo;Wikipedia,&rdquo; [Online]. Available: <a href=https://en.wikipedia.org/wiki/Separation>https://en.wikipedia.org/wiki/Separation</a>_of_concerns.</p>
-<p>[2]</p>
-<p>&ldquo;GUID Structure,&rdquo; [Online]. Available: <a href=https://msdn.microsoft.com/en-us/library/aa373931(VS.85).aspx>https://msdn.microsoft.com/en-us/library/aa373931(VS.85).aspx</a>.</p>
-<p>[3]</p>
-<p>&ldquo;Wikipedia,&rdquo; [Online]. Available: <a href=https://en.wikipedia.org/wiki/Binary>https://en.wikipedia.org/wiki/Binary</a>_large_object.</p>
-<p>[4]</p>
-<p>waldo, &ldquo;How Do I: Manage Companies in Microsoft Dynamics NAV 2013 R2&rdquo;.</p>
-<p>[5]</p>
-<p>Microsoft, &ldquo;Multitenant Deployment Architecture,&rdquo; Microsoft, [Online]. Available: <a href="https://msdn.microsoft.com/en-us/library/dn271675(v=nav.90).aspx">https://msdn.microsoft.com/en-us/library/dn271675(v=nav.90).aspx</a>.</p>
-<p>[6]</p>
-<p>B. Botez, &ldquo;Setup Table design pattern,&rdquo; Microsoft, 2013. [Online]. Available: <a href=https://community.dynamics.com/nav/w/designpatterns/76.setup-table>https://community.dynamics.com/nav/w/designpatterns/76.setup-table</a>. [Accessed 31 07 2016].</p>
-<p>[7]</p>
-<p>&ldquo;Shotgun Surgery,&rdquo; [Online]. Available: <a href=https://en.wikipedia.org/wiki/Shotgun>https://en.wikipedia.org/wiki/Shotgun</a>_surgery. [Accessed 31 07 2016].</p>
-<p>[8]</p>
-<p>M. Fowler, Refactoring: Improving the design of existing code, Addison Wesley, 1999.</p>
-<p>[9]</p>
-<p>&ldquo;Masking out,&rdquo; [Online]. Available: <a href=https://en.wikipedia.org/wiki/Data>https://en.wikipedia.org/wiki/Data</a>_masking#Masking_out. [Accessed 29 7 2016].</p>
-<p>[10]</p>
-<p>&ldquo;Key Vault,&rdquo; Microsoft, [Online]. Available: <a href=https://azure.microsoft.com/en-us/services/key-vault/>https://azure.microsoft.com/en-us/services/key-vault/</a>.</p>
-<p>[11]</p>
-<p>&ldquo;How to: Configure SSL to Secure the Connection to Microsoft Dynamics NAV Web Client,&rdquo; Microsoft, [Online]. Available: <a href="https://msdn.microsoft.com/en-us/library/hh167264(v=nav.90).aspx">https://msdn.microsoft.com/en-us/library/hh167264(v=nav.90).aspx</a>. [Accessed 2 8 2016].</p>
-<p>[12]</p>
-<p>&ldquo;sniffer,&rdquo; [Online]. Available: <a href=http://compnetworking.about.com/od/networksecurityprivacy/g/bldef>http://compnetworking.about.com/od/networksecurityprivacy/g/bldef</a>_sniffer.htm. [Accessed 02 08 2016].</p>
+<p>[1] &ldquo;Wikipedia,&rdquo; [Online]. Available: <a href=https://en.wikipedia.org/wiki/Separation_of_concerns>https://en.wikipedia.org/wiki/Separation_of_concerns</a>.</p>
+<p>[2] &ldquo;GUID Structure,&rdquo; [Online]. Available: <a href=https://msdn.microsoft.com/en-us/library/aa373931(VS.85).aspx>https://msdn.microsoft.com/en-us/library/aa373931(VS.85).aspx</a>.</p>
+<p>[3] &ldquo;Wikipedia,&rdquo; [Online]. Available: <a href=https://en.wikipedia.org/wiki/Binary_large_object>https://en.wikipedia.org/wiki/Binary_large_object</a>.</p>
+<p>[4] waldo, &ldquo;How Do I: Manage Companies in Microsoft Dynamics NAV 2013 R2&rdquo;.</p>
+<p>[5] Microsoft, &ldquo;Multitenant Deployment Architecture,&rdquo; Microsoft, [Online]. Available: <a href="https://msdn.microsoft.com/en-us/library/dn271675(v=nav.90).aspx">https://msdn.microsoft.com/en-us/library/dn271675(v=nav.90).aspx</a>.</p>
+<p>[6] B. Botez, &ldquo;Setup Table design pattern,&rdquo; Microsoft, 2013. [Online]. Available: <a href=https://community.dynamics.com/nav/w/designpatterns/76.setup-table>https://community.dynamics.com/nav/w/designpatterns/76.setup-table</a>. [Accessed 31 07 2016].</p>
+<p>[7] &ldquo;Shotgun Surgery,&rdquo; [Online]. Available: <a href=https://en.wikipedia.org/wiki/Shotgun_surgery>https://en.wikipedia.org/wiki/Shotgun_surgery</a>. [Accessed 31 07 2016].</p>
+<p>[8] M. Fowler, Refactoring: Improving the design of existing code, Addison Wesley, 1999.</p>
+<p>[9] &ldquo;Masking out,&rdquo; [Online]. Available: <a href=https://en.wikipedia.org/wiki/Data_masking#Masking_out>https://en.wikipedia.org/wiki/Data_masking#Masking_out</a>. [Accessed 29 7 2016].</p>
+<p>[10] &ldquo;Key Vault,&rdquo; Microsoft, [Online]. Available: <a href=https://azure.microsoft.com/en-us/services/key-vault/>https://azure.microsoft.com/en-us/services/key-vault/</a>.</p>
+<p>[11] &ldquo;How to: Configure SSL to Secure the Connection to Microsoft Dynamics NAV Web Client,&rdquo; Microsoft, [Online]. Available: <a href="https://msdn.microsoft.com/en-us/library/hh167264(v=nav.90).aspx">https://msdn.microsoft.com/en-us/library/hh167264(v=nav.90).aspx</a>. [Accessed 2 8 2016].</p>
+<p>[12] &ldquo;sniffer,&rdquo; [Online]. Available: <a href=http://compnetworking.about.com/od/networksecurityprivacy/g/bldef_sniffer.htm>http://compnetworking.about.com/od/networksecurityprivacy/g/bldef_sniffer.htm</a>. [Accessed 02 08 2016].</p>
 <footer class=footline>
 </footer>
 </main>
@@ -355,12 +333,12 @@ _</p>
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/js/clipboard.min.js?1644506469></script>
-<script src=/js/perfect-scrollbar.min.js?1644506469></script>
-<script src=/js/perfect-scrollbar.jquery.min.js?1644506469></script>
-<script src=/js/jquery.svg.pan.zoom.js?1644506469></script>
-<script src=/js/featherlight.min.js?1644506469></script>
-<script src=/js/modernizr.custom-3.6.0.js?1644506469></script>
-<script src=/js/relearn.js?1644506469></script>
+<script src=/js/clipboard.min.js?1644600599></script>
+<script src=/js/perfect-scrollbar.min.js?1644600599></script>
+<script src=/js/perfect-scrollbar.jquery.min.js?1644600599></script>
+<script src=/js/jquery.svg.pan.zoom.js?1644600599></script>
+<script src=/js/featherlight.min.js?1644600599></script>
+<script src=/js/modernizr.custom-3.6.0.js?1644600599></script>
+<script src=/js/relearn.js?1644600599></script>
 </body>
 </html>

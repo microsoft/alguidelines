@@ -5,16 +5,16 @@
 <meta name=generator content="Hugo 0.92.1">
 <meta name=description content>
 <title>Currently Active Record :: AL Guidelines</title>
-<link href=/css/nucleus.css?1644506468 rel=stylesheet>
-<link href=/css/fontawesome-all.min.css?1644506468 rel=stylesheet>
-<link href=/css/featherlight.min.css?1644506468 rel=stylesheet>
-<link href=/css/perfect-scrollbar.min.css?1644506468 rel=stylesheet>
-<link href=/css/auto-complete.css?1644506468 rel=stylesheet>
-<link href=/css/theme.css?1644506468 rel=stylesheet>
-<link href=/css/theme-blue.css?1644506468 rel=stylesheet>
-<link href=/css/variant.css?1644506468 rel=stylesheet>
-<link href=/css/print.css?1644506468 rel=stylesheet media=print>
-<script src=/js/jquery.min.js?1644506468></script>
+<link href=/css/nucleus.css?1644600599 rel=stylesheet>
+<link href=/css/fontawesome-all.min.css?1644600599 rel=stylesheet>
+<link href=/css/featherlight.min.css?1644600599 rel=stylesheet>
+<link href=/css/perfect-scrollbar.min.css?1644600599 rel=stylesheet>
+<link href=/css/auto-complete.css?1644600599 rel=stylesheet>
+<link href=/css/theme.css?1644600599 rel=stylesheet>
+<link href=/css/theme-blue.css?1644600599 rel=stylesheet>
+<link href=/css/variant.css?1644600599 rel=stylesheet>
+<link href=/css/print.css?1644600599 rel=stylesheet media=print>
+<script src=/js/jquery.min.js?1644600599></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
 <body data-url=/navpatterns/1-patterns/currently-active-record/>
@@ -32,9 +32,9 @@ ALGuidelines.Dev
 <input data-search-input id=search-by type=search placeholder=Search...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script src=/js/lunr.min.js?1644506468></script>
-<script src=/js/auto-complete.js?1644506468></script>
-<script src=/js/search.js?1644506468></script>
+<script src=/js/lunr.min.js?1644600599></script>
+<script src=/js/auto-complete.js?1644600599></script>
+<script src=/js/search.js?1644600599></script>
 </div>
 <div class=highlightable>
 <ul class=topics>
@@ -249,11 +249,8 @@ ALGuidelines.Dev
 <nav id=TableOfContents>
 <ul>
 <li><a href=#abstract>Abstract</a></li>
-<li><a href=#description>Description</a>
-<ul>
+<li><a href=#description>Description</a></li>
 <li><a href=#ending-date-problem>Ending Date Problem</a></li>
-</ul>
-</li>
 <li><a href=#usage>Usage</a>
 <ul>
 <li><a href=#1-create-the-view>1. Create the view</a></li>
@@ -296,7 +293,7 @@ A side effect is reduced and simplified code, increased performance and a more s
 <p>The NAV Service Tier receives and throws away data.</p>
 </li>
 </ul>
-<h3 id=ending-date-problem>Ending Date Problem</h3>
+<h2 id=ending-date-problem>Ending Date Problem</h2>
 <p>Ending Date may introduce some problems of its own.</p>
 <p>If your design requires to have one and only one active record per key in a dataset, then Ending Date introduces the possibility for overlapping or holes in the timeline.<br>
 Ending Date creates a dependency between two records. Changing a Starting Date, requires you to update the previous record. Changing the Ending Date requires you to update the next record.<br>
@@ -310,20 +307,20 @@ If you add a record in between you will have to update both the before and the a
 <h3 id=1-create-the-view>1. Create the view</h3>
 <p>You will need to create the view before you define the Table Object.<br>
 You will need to create a view for every company in the database.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql>    <span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>VIEW</span> [dbo].[CRONUS$PriceView]  
-    <span style=color:#66d9ef>AS</span>  
-    <span style=color:#66d9ef>SELECT</span> [Code], [Starting Date], [Price]  
-    <span style=color:#66d9ef>FROM</span> dbo.[CRONUS$Price] <span style=color:#66d9ef>AS</span> A  
-    <span style=color:#66d9ef>WHERE</span> [Starting Date] <span style=color:#f92672>=</span>  
-    (<span style=color:#66d9ef>SELECT</span> <span style=color:#66d9ef>MAX</span>([Starting Date])  
-    <span style=color:#66d9ef>FROM</span> dbo.[CRONUS$Price] <span style=color:#66d9ef>AS</span> B  
-    <span style=color:#66d9ef>WHERE</span> B.[Code] <span style=color:#f92672>=</span> A.[Code] <span style=color:#66d9ef>AND</span>  
-    B.[Starting Date] <span style=color:#f92672>&lt;=</span> GETDATE())
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>VIEW</span> [dbo].[CRONUS$PriceView]  
+<span style=color:#66d9ef>AS</span>  
+<span style=color:#66d9ef>SELECT</span> [Code], [Starting Date], [Price]  
+<span style=color:#66d9ef>FROM</span> dbo.[CRONUS$Price] <span style=color:#66d9ef>AS</span> A  
+<span style=color:#66d9ef>WHERE</span> [Starting Date] <span style=color:#f92672>=</span>  
+(<span style=color:#66d9ef>SELECT</span> <span style=color:#66d9ef>MAX</span>([Starting Date])  
+<span style=color:#66d9ef>FROM</span> dbo.[CRONUS$Price] <span style=color:#66d9ef>AS</span> B  
+<span style=color:#66d9ef>WHERE</span> B.[Code] <span style=color:#f92672>=</span> A.[Code] <span style=color:#66d9ef>AND</span>  
+B.[Starting Date] <span style=color:#f92672>&lt;=</span> GETDATE())
 </code></pre></div><p>Test the view to ensure that you get the correct result. It is much easier to test now than later.</p>
 <h3 id=2-create-the-table-object>2. Create the Table object</h3>
 <p>Remember to set the link table property before you save it.</p>
 <h3 id=3-implement-the-code>3. Implement the code</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>    <span style=color:#66d9ef>IF</span> PriceView<span style=color:#f92672>.</span>FINDSET <span style=color:#66d9ef>THEN</span> <span style=color:#75715e>// You have them
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=color:#66d9ef>IF</span> PriceView<span style=color:#f92672>.</span>FINDSET <span style=color:#66d9ef>THEN</span> <span style=color:#75715e>// You have them
 </span></code></pre></div><h3 id=4-create-a-deployment-codeunit>4. Create a deployment codeunit</h3>
 <p>Create a SQL Deployment codeunit to manage your views.<br>
 The codeunit needs to Create or Alter the views for all companies.<br>
@@ -392,12 +389,12 @@ The Pattern makes a scalable solution with a predictable performance. The perfor
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/js/clipboard.min.js?1644506468></script>
-<script src=/js/perfect-scrollbar.min.js?1644506468></script>
-<script src=/js/perfect-scrollbar.jquery.min.js?1644506468></script>
-<script src=/js/jquery.svg.pan.zoom.js?1644506468></script>
-<script src=/js/featherlight.min.js?1644506468></script>
-<script src=/js/modernizr.custom-3.6.0.js?1644506468></script>
-<script src=/js/relearn.js?1644506468></script>
+<script src=/js/clipboard.min.js?1644600599></script>
+<script src=/js/perfect-scrollbar.min.js?1644600599></script>
+<script src=/js/perfect-scrollbar.jquery.min.js?1644600599></script>
+<script src=/js/jquery.svg.pan.zoom.js?1644600599></script>
+<script src=/js/featherlight.min.js?1644600599></script>
+<script src=/js/modernizr.custom-3.6.0.js?1644600599></script>
+<script src=/js/relearn.js?1644600599></script>
 </body>
 </html>

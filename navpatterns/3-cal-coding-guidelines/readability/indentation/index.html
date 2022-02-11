@@ -5,16 +5,16 @@
 <meta name=generator content="Hugo 0.92.1">
 <meta name=description content>
 <title>Indentation :: AL Guidelines</title>
-<link href=/css/nucleus.css?1644506470 rel=stylesheet>
-<link href=/css/fontawesome-all.min.css?1644506470 rel=stylesheet>
-<link href=/css/featherlight.min.css?1644506470 rel=stylesheet>
-<link href=/css/perfect-scrollbar.min.css?1644506470 rel=stylesheet>
-<link href=/css/auto-complete.css?1644506470 rel=stylesheet>
-<link href=/css/theme.css?1644506470 rel=stylesheet>
-<link href=/css/theme-blue.css?1644506470 rel=stylesheet>
-<link href=/css/variant.css?1644506470 rel=stylesheet>
-<link href=/css/print.css?1644506470 rel=stylesheet media=print>
-<script src=/js/jquery.min.js?1644506470></script>
+<link href=/css/nucleus.css?1644600600 rel=stylesheet>
+<link href=/css/fontawesome-all.min.css?1644600600 rel=stylesheet>
+<link href=/css/featherlight.min.css?1644600600 rel=stylesheet>
+<link href=/css/perfect-scrollbar.min.css?1644600600 rel=stylesheet>
+<link href=/css/auto-complete.css?1644600600 rel=stylesheet>
+<link href=/css/theme.css?1644600600 rel=stylesheet>
+<link href=/css/theme-blue.css?1644600600 rel=stylesheet>
+<link href=/css/variant.css?1644600600 rel=stylesheet>
+<link href=/css/print.css?1644600600 rel=stylesheet media=print>
+<script src=/js/jquery.min.js?1644600600></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
 <body data-url=/navpatterns/3-cal-coding-guidelines/readability/indentation/>
@@ -32,9 +32,9 @@ ALGuidelines.Dev
 <input data-search-input id=search-by type=search placeholder=Search...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script src=/js/lunr.min.js?1644506470></script>
-<script src=/js/auto-complete.js?1644506470></script>
-<script src=/js/search.js?1644506470></script>
+<script src=/js/lunr.min.js?1644600600></script>
+<script src=/js/auto-complete.js?1644600600></script>
+<script src=/js/search.js?1644600600></script>
 </div>
 <div class=highlightable>
 <ul class=topics>
@@ -255,72 +255,59 @@ ALGuidelines.Dev
 </div>
 <main id=body-inner>
 <h1>Indentation</h1>
-<p>In general, use an indentation of two space characters. Logical expressions in the IF, WHILE, and UNTIL parts are indented at least 3, 6, and 6 spaces respectively.
-Bad code</p>
-<pre><code>IF GLSetup.&quot;Unrealized VAT&quot; OR
-(GLSetup.&quot;Prepayment Unrealized VAT&quot; AND NewCVLedgEntryBuf.Prepayment)
-</code></pre>
-<p>Good code</p>
-<pre><code>IF GLSetup.&quot;Unrealized VAT&quot; OR
-(GLSetup.&quot;Prepayment Unrealized VAT&quot; AND NewCVLedgEntryBuf.Prepayment)
-</code></pre>
+<p>In general, use an indentation of two space characters. Logical expressions in the IF, WHILE, and UNTIL parts are indented at least 3, 6, and 6 spaces respectively.</p>
 <p>Bad code</p>
-<pre><code>IF GenJnlLine.&quot;Account No.&quot; &lt;\&gt; ICPartner.Code THEN
-ICPartner.GET(&quot;Account No.&quot;);
-IF GenJnlLine.Amount \&gt; 0 THEN BEGIN
-...
-</code></pre>
-<p>Good code</p>
-<pre><code>IF GenJnlLine.&quot;Account No.&quot; &lt;\&gt; ICPartner.Code THEN
-ICPartner.GET(&quot;Account No.&quot;);
-IF GenJnlLine.Amount \&gt; 0 THEN BEGIN
-...
-</code></pre>
-<p>Bad code</p>
-<pre><code>Dialog.OPEN(WindowTxt +
-'@1@@@@@@@@@@@@@@@@@@@@@@@');
-</code></pre>
-<p>Good code</p>
-<pre><code>Dialog.OPEN(
-WindowTxt +
-'@1@@@@@@@@@@@@@@@@@@@@@@@');
-</code></pre>
-<p>Bad code</p>
-<pre><code>TempOldCustLedgEntry.DELETE;
-// Find the next old entry for application of the new entry
-</code></pre>
-<p>Good code</p>
-<pre><code>TempOldCustLedgEntry.DELETE;
-// Find the next old entry for application of the new entry
-</code></pre>
-<p>Bad code</p>
-<pre><code>IF NOT (&quot;Applies-to Doc. Type&quot; IN
-\[&quot;Applies-to Doc. Type&quot;::Receipt,
-&quot;Applies-to Doc. Type&quot;::&quot;Return Shipment&quot;\])
-</code></pre>
-<p>Good code</p>
-<pre><code>IF NOT (&quot;Applies-to Doc. Type&quot; IN
-\[&quot;Applies-to Doc. Type&quot;::Receipt,
-&quot;Applies-to Doc. Type&quot;::&quot;Return Shipment&quot;\])
-</code></pre>
-<p>Bad code</p>
-<pre><code>WHILE (RemAmt \&gt; 0) OR
-(RemAmtLCY \&gt; 0)
-DO
-</code></pre>
-<p>Good code</p>
-<pre><code>WHILE (RemAmt \&gt; 0) OR
-(RemAmtLCY \&gt; 0)
-DO
-</code></pre>
-<p>Bad code</p>
-<pre><code>UNTIL (RemAmt \&gt; 0) AND
-(RemAmtLCY \&gt; 0);
-</code></pre>
-<p>Good code</p>
-<pre><code>UNTIL (RemAmt \&gt; 0) AND
-(RemAmtLCY \&gt; 0)
-</code></pre>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=color:#66d9ef>IF</span> GLSetup<span style=color:#f92672>.</span>&#34;Unrealized VAT&#34; <span style=color:#f92672>OR</span>
+  <span style=color:#f92672>(</span>GLSetup<span style=color:#f92672>.</span>&#34;Prepayment Unrealized VAT&#34; <span style=color:#f92672>AND</span> NewCVLedgEntryBuf<span style=color:#f92672>.</span>Prepayment<span style=color:#f92672>)
+</span></code></pre></div><p>Good code</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=color:#66d9ef>IF</span> GLSetup<span style=color:#f92672>.</span>&#34;Unrealized VAT&#34; <span style=color:#f92672>OR</span>
+    <span style=color:#f92672>(</span>GLSetup<span style=color:#f92672>.</span>&#34;Prepayment Unrealized VAT&#34; <span style=color:#f92672>AND</span> NewCVLedgEntryBuf<span style=color:#f92672>.</span>Prepayment<span style=color:#f92672>)
+</span></code></pre></div><p>Bad code</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=color:#66d9ef>IF</span> GenJnlLine<span style=color:#f92672>.</span>&#34;Account No.&#34; &lt;&gt; ICPartner<span style=color:#f92672>.</span><span style=color:#66d9ef>Code</span> <span style=color:#66d9ef>THEN</span>
+  ICPartner<span style=color:#f92672>.</span>GET<span style=color:#f92672>(</span>&#34;Account No.&#34;<span style=color:#f92672>)</span>;
+  <span style=color:#66d9ef>IF</span> GenJnlLine<span style=color:#f92672>.</span>Amount \&gt; <span style=color:#ae81ff>0</span> <span style=color:#66d9ef>THEN</span> <span style=color:#66d9ef>BEGIN</span>
+    <span style=color:#f92672>...
+</span></code></pre></div><p>Good code</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=color:#66d9ef>IF</span> GenJnlLine<span style=color:#f92672>.</span>&#34;Account No.&#34; &lt;&gt; ICPartner<span style=color:#f92672>.</span><span style=color:#66d9ef>Code</span> <span style=color:#66d9ef>THEN</span>
+  ICPartner<span style=color:#f92672>.</span>GET<span style=color:#f92672>(</span>&#34;Account No.&#34;<span style=color:#f92672>)</span>;
+<span style=color:#66d9ef>IF</span> GenJnlLine<span style=color:#f92672>.</span>Amount &gt; <span style=color:#ae81ff>0</span> <span style=color:#66d9ef>THEN</span> <span style=color:#66d9ef>BEGIN</span>
+  <span style=color:#f92672>...
+</span></code></pre></div><p>Bad code</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=color:#66d9ef>Dialog</span><span style=color:#f92672>.</span>OPEN<span style=color:#f92672>(</span>WindowTxt +
+            <span style=color:#e6db74>&#39;@1@@@@@@@@@@@@@@@@@@@@@@@&#39;</span><span style=color:#f92672>)</span>;
+</code></pre></div><p>Good code</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=color:#66d9ef>Dialog</span><span style=color:#f92672>.</span>OPEN<span style=color:#f92672>(
+</span><span style=color:#f92672>    </span>WindowTxt +
+    <span style=color:#e6db74>&#39;@1@@@@@@@@@@@@@@@@@@@@@@@&#39;</span><span style=color:#f92672>)</span>;
+</code></pre></div><p>Bad code</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>TempOldCustLedgEntry<span style=color:#f92672>.</span>DELETE;
+  <span style=color:#75715e>// Find the next old entry for application of the new entry
+</span></code></pre></div><p>Good code</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>TempOldCustLedgEntry<span style=color:#f92672>.</span>DELETE;
+<span style=color:#75715e>// Find the next old entry for application of the new entry
+</span></code></pre></div><p>Bad code</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=color:#66d9ef>IF</span> <span style=color:#f92672>NOT</span> <span style=color:#f92672>(</span>&#34;Applies-to Doc. Type&#34; <span style=color:#66d9ef>IN</span>
+   [&#34;Applies-to Doc. Type&#34;::Receipt,
+    &#34;Applies-to Doc. Type&#34;::&#34;Return Shipment&#34;]<span style=color:#f92672>)
+</span></code></pre></div><p>Good code</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=color:#66d9ef>IF</span> <span style=color:#f92672>NOT</span> <span style=color:#f92672>(</span>&#34;Applies-to Doc. Type&#34; <span style=color:#66d9ef>IN</span>
+        [&#34;Applies-to Doc. Type&#34;::Receipt,
+         &#34;Applies-to Doc. Type&#34;::&#34;Return Shipment&#34;]<span style=color:#f92672>)
+</span></code></pre></div><p>Bad code</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=color:#66d9ef>WHILE</span> <span style=color:#f92672>(</span>RemAmt &gt; <span style=color:#ae81ff>0</span><span style=color:#f92672>) </span><span style=color:#f92672>OR</span>
+  <span style=color:#f92672>(</span>RemAmtLCY &gt; <span style=color:#ae81ff>0</span><span style=color:#f92672>)
+</span><span style=color:#f92672></span><span style=color:#66d9ef>DO</span>
+</code></pre></div><p>Good code</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=color:#66d9ef>WHILE</span> <span style=color:#f92672>(</span>RemAmt &gt; <span style=color:#ae81ff>0</span><span style=color:#f92672>) </span><span style=color:#f92672>OR</span>
+      <span style=color:#f92672>(</span>RemAmtLCY &gt; <span style=color:#ae81ff>0</span><span style=color:#f92672>)
+</span><span style=color:#f92672></span><span style=color:#66d9ef>DO</span>
+</code></pre></div><p>Bad code</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=color:#66d9ef>UNTIL</span> <span style=color:#f92672>(</span>RemAmt &gt; <span style=color:#ae81ff>0</span><span style=color:#f92672>) </span><span style=color:#f92672>AND</span>
+  <span style=color:#f92672>(</span>RemAmtLCY &gt; <span style=color:#ae81ff>0</span><span style=color:#f92672>)</span>;
+</code></pre></div><p>Good code</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=color:#66d9ef>UNTIL</span> <span style=color:#f92672>(</span>RemAmt &gt; <span style=color:#ae81ff>0</span><span style=color:#f92672>) </span><span style=color:#f92672>AND</span>
+      <span style=color:#f92672>(</span>RemAmtLCY &gt; <span style=color:#ae81ff>0</span><span style=color:#f92672>)
+</span></code></pre></div>
 <footer class=footline>
 </footer>
 </main>
@@ -333,12 +320,12 @@ DO
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/js/clipboard.min.js?1644506470></script>
-<script src=/js/perfect-scrollbar.min.js?1644506470></script>
-<script src=/js/perfect-scrollbar.jquery.min.js?1644506470></script>
-<script src=/js/jquery.svg.pan.zoom.js?1644506470></script>
-<script src=/js/featherlight.min.js?1644506470></script>
-<script src=/js/modernizr.custom-3.6.0.js?1644506470></script>
-<script src=/js/relearn.js?1644506470></script>
+<script src=/js/clipboard.min.js?1644600600></script>
+<script src=/js/perfect-scrollbar.min.js?1644600600></script>
+<script src=/js/perfect-scrollbar.jquery.min.js?1644600600></script>
+<script src=/js/jquery.svg.pan.zoom.js?1644600600></script>
+<script src=/js/featherlight.min.js?1644600600></script>
+<script src=/js/modernizr.custom-3.6.0.js?1644600600></script>
+<script src=/js/relearn.js?1644600600></script>
 </body>
 </html>

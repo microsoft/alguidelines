@@ -5,16 +5,16 @@
 <meta name=generator content="Hugo 0.92.1">
 <meta name=description content>
 <title>Released Entity :: AL Guidelines</title>
-<link href=/css/nucleus.css?1644506468 rel=stylesheet>
-<link href=/css/fontawesome-all.min.css?1644506468 rel=stylesheet>
-<link href=/css/featherlight.min.css?1644506468 rel=stylesheet>
-<link href=/css/perfect-scrollbar.min.css?1644506468 rel=stylesheet>
-<link href=/css/auto-complete.css?1644506468 rel=stylesheet>
-<link href=/css/theme.css?1644506468 rel=stylesheet>
-<link href=/css/theme-blue.css?1644506468 rel=stylesheet>
-<link href=/css/variant.css?1644506468 rel=stylesheet>
-<link href=/css/print.css?1644506468 rel=stylesheet media=print>
-<script src=/js/jquery.min.js?1644506468></script>
+<link href=/css/nucleus.css?1644600599 rel=stylesheet>
+<link href=/css/fontawesome-all.min.css?1644600599 rel=stylesheet>
+<link href=/css/featherlight.min.css?1644600599 rel=stylesheet>
+<link href=/css/perfect-scrollbar.min.css?1644600599 rel=stylesheet>
+<link href=/css/auto-complete.css?1644600599 rel=stylesheet>
+<link href=/css/theme.css?1644600599 rel=stylesheet>
+<link href=/css/theme-blue.css?1644600599 rel=stylesheet>
+<link href=/css/variant.css?1644600599 rel=stylesheet>
+<link href=/css/print.css?1644600599 rel=stylesheet media=print>
+<script src=/js/jquery.min.js?1644600599></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
 <body data-url=/navpatterns/1-patterns/released-entity/>
@@ -32,9 +32,9 @@ ALGuidelines.Dev
 <input data-search-input id=search-by type=search placeholder=Search...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script src=/js/lunr.min.js?1644506468></script>
-<script src=/js/auto-complete.js?1644506468></script>
-<script src=/js/search.js?1644506468></script>
+<script src=/js/lunr.min.js?1644600599></script>
+<script src=/js/auto-complete.js?1644600599></script>
+<script src=/js/search.js?1644600599></script>
 </div>
 <div class=highlightable>
 <ul class=topics>
@@ -248,8 +248,8 @@ ALGuidelines.Dev
 <div class=wrapper>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#abstract><strong>Abstract</strong></a></li>
-<li><a href=#description><strong>Description</strong></a></li>
+<li><a href=#abstract>Abstract</a></li>
+<li><a href=#description>Description</a></li>
 <li><a href=#usage><strong>Usage</strong></a>
 <ul>
 <li><a href=#automatic-pending-or-release>Automatic pending or release</a></li>
@@ -271,10 +271,10 @@ ALGuidelines.Dev
 <main id=body-inner>
 <h1>Released Entity</h1>
 <p><em>Authors: Henrik Langbak and Kim Ginnerup, Bording Data</em></p>
-<h2 id=abstract><strong>Abstract</strong></h2>
+<h2 id=abstract>Abstract</h2>
 <p>This pattern prevent data from being used elsewhere before it is in a system consistent state.<br>
 NAV inserts a record as soon as the primary key has been set. But the record may not be in a valid state at this point in time. How do you know if a newly inserted record is ready for use?</p>
-<h2 id=description><strong>Description</strong></h2>
+<h2 id=description>Description</h2>
 <p>Whenever you need to stall the release of data, you can use this pattern.</p>
 <p>Because NAV decides when a record is written to the database, it may not be in a system consistent state. Nobody should use the record before everything is in place and the record is valid. An inserted record may even have data in other tables that needs to be inserted and in a valid state before other parts of the system can use the data without running into a problem.</p>
 <p>Data entered into the system may have to be approved by a second person before it can be used.</p>
@@ -282,15 +282,28 @@ NAV inserts a record as soon as the primary key has been set. But the record may
 <p>The solution is an Option Field with two or three values:<br>
 (Open, Released) or (Open, Pending, Released)</p>
 <p>The states should be interpreted as:</p>
-<p>State</p>
-<p>Description</p>
-<p>Open</p>
-<p>Not all data is in place. The record is system inconsistent. The record or record hierarchy is invisible for all other parts of the system.</p>
-<p>Pending</p>
-<p>The record is system consistent. But is awaiting someone to manually raise the state to Released.<br>
-The record is still invisible.</p>
-<p>Released</p>
-<p>All data is in place and the record is system consistent, and ready for use. It is now visible for the rest of the system. The state can never be reversed.</p>
+<table>
+<thead>
+<tr>
+<th>State</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Open</td>
+<td>Not all data is in place. The record is system inconsistent. The record or record hierarchy is invisible for all other parts of the system.</td>
+</tr>
+<tr>
+<td>Pending</td>
+<td>The record is system consistent. But is awaiting someone to manually raise the state to Released. The record is still invisible.</td>
+</tr>
+<tr>
+<td>Released</td>
+<td>All data is in place and the record is system consistent, and ready for use. It is now visible for the rest of the system. The state can never be reversed.</td>
+</tr>
+</tbody>
+</table>
 <p>The option field name: Release State.</p>
 <p>This pattern is very similar to the Blocked Entity pattern, but it has one significant difference.<br>
 The record is not visible to any part of the system, before it is in the Released state.<br>
@@ -334,12 +347,12 @@ When talking about hierarchical data structures and the Release State is held on
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/js/clipboard.min.js?1644506468></script>
-<script src=/js/perfect-scrollbar.min.js?1644506468></script>
-<script src=/js/perfect-scrollbar.jquery.min.js?1644506468></script>
-<script src=/js/jquery.svg.pan.zoom.js?1644506468></script>
-<script src=/js/featherlight.min.js?1644506468></script>
-<script src=/js/modernizr.custom-3.6.0.js?1644506468></script>
-<script src=/js/relearn.js?1644506468></script>
+<script src=/js/clipboard.min.js?1644600599></script>
+<script src=/js/perfect-scrollbar.min.js?1644600599></script>
+<script src=/js/perfect-scrollbar.jquery.min.js?1644600599></script>
+<script src=/js/jquery.svg.pan.zoom.js?1644600599></script>
+<script src=/js/featherlight.min.js?1644600599></script>
+<script src=/js/modernizr.custom-3.6.0.js?1644600599></script>
+<script src=/js/relearn.js?1644600599></script>
 </body>
 </html>

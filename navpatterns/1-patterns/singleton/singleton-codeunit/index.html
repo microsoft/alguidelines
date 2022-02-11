@@ -5,16 +5,16 @@
 <meta name=generator content="Hugo 0.92.1">
 <meta name=description content>
 <title>Singleton Codeunit :: AL Guidelines</title>
-<link href=/css/nucleus.css?1644506469 rel=stylesheet>
-<link href=/css/fontawesome-all.min.css?1644506469 rel=stylesheet>
-<link href=/css/featherlight.min.css?1644506469 rel=stylesheet>
-<link href=/css/perfect-scrollbar.min.css?1644506469 rel=stylesheet>
-<link href=/css/auto-complete.css?1644506469 rel=stylesheet>
-<link href=/css/theme.css?1644506469 rel=stylesheet>
-<link href=/css/theme-blue.css?1644506469 rel=stylesheet>
-<link href=/css/variant.css?1644506469 rel=stylesheet>
-<link href=/css/print.css?1644506469 rel=stylesheet media=print>
-<script src=/js/jquery.min.js?1644506469></script>
+<link href=/css/nucleus.css?1644600600 rel=stylesheet>
+<link href=/css/fontawesome-all.min.css?1644600600 rel=stylesheet>
+<link href=/css/featherlight.min.css?1644600600 rel=stylesheet>
+<link href=/css/perfect-scrollbar.min.css?1644600600 rel=stylesheet>
+<link href=/css/auto-complete.css?1644600600 rel=stylesheet>
+<link href=/css/theme.css?1644600600 rel=stylesheet>
+<link href=/css/theme-blue.css?1644600600 rel=stylesheet>
+<link href=/css/variant.css?1644600600 rel=stylesheet>
+<link href=/css/print.css?1644600600 rel=stylesheet media=print>
+<script src=/js/jquery.min.js?1644600600></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
 <body data-url=/navpatterns/1-patterns/singleton/singleton-codeunit/>
@@ -32,9 +32,9 @@ ALGuidelines.Dev
 <input data-search-input id=search-by type=search placeholder=Search...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script src=/js/lunr.min.js?1644506469></script>
-<script src=/js/auto-complete.js?1644506469></script>
-<script src=/js/search.js?1644506469></script>
+<script src=/js/lunr.min.js?1644600600></script>
+<script src=/js/auto-complete.js?1644600600></script>
+<script src=/js/search.js?1644600600></script>
 </div>
 <div class=highlightable>
 <ul class=topics>
@@ -267,25 +267,26 @@ ALGuidelines.Dev
 <p>Take for example the following test of Azure ML (Azure Machine Learning) integration with NAV.</p>
 <p>Context: Azure Machine Learning services are paid. However, Dynamics NAV includes a monthly pre-paid quota of Azure ML, which can be used for free by the users. There is an upper limit to this quota, and when it is reached, Azure ML services are turned off until the next month starts and a new quota becomes available for consumption.</p>
 <p>The test below checks that, when the monthly quota is exceeded, then the function IsAzureMLLimitReached returns TRUE.</p>
-<pre><code>\[Test\]
-PROCEDURE AzureMLProcessingTimeExceedsLimit@11();
-VAR  
-AzureMachineLearningUsage@1004 : Record 2002;
-ProcessingTime@1000 : Decimal;  
-BEGIN
-// \[SCENARIO\] Azure Machine Learning Processing time exceeds AzureML limit  
-// \[GIVEN\] AzureMachineLearningUsage \&gt; 0
-Initialize; // calls PermissionManager.SetTestabilitySoftwareAsAService(TRUE);
-ProcessingTime := LibraryRandom.RandDec(1000,2);
-AzureMachineLearningUsage.IncrementTotalProcessingTime(ProcessingTime);  
-// \[WHEN\] When IsAzureMLLimitReached is invoked with Limit more than Processing time
-// \[THEN\] HasAzureLimitReached returns TRUE
-Assert.IsTrue(AzureMachineLearningUsage.IsAzureMLLimitReached(ProcessingTime - 1),
-'HasAzureLimitReached returns wrong value when Processing time exceeds Limit.');
-PermissionManager.SetTestabilitySoftwareAsAService(FALSE);  
-END;
-</code></pre>
-<p>The figure below explains what happens when the Permission Manager is not a singleton. When it is invoked from different places (first from the test, second from the production code), then different instances of the Permission Manager will fire up and answer. In detail:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>[Test]
+<span style=color:#66d9ef>PROCEDURE</span> AzureMLProcessingTimeExceedsLimit@<span style=color:#ae81ff>11</span><span style=color:#f92672>()</span>;
+<span style=color:#66d9ef>VAR</span>  
+    AzureMachineLearningUsage@<span style=color:#ae81ff>1004</span> : <span style=color:#66d9ef>Record</span> <span style=color:#ae81ff>2002</span>;
+    ProcessingTime@<span style=color:#ae81ff>1000</span> : <span style=color:#66d9ef>Decimal</span>;  
+<span style=color:#66d9ef>BEGIN</span>
+    <span style=color:#75715e>// [SCENARIO] Azure Machine Learning Processing time exceeds AzureML limit  
+</span><span style=color:#75715e></span>
+    <span style=color:#75715e>// [GIVEN] AzureMachineLearningUsage &gt; 0
+</span><span style=color:#75715e></span>    Initialize; <span style=color:#75715e>// calls PermissionManager.SetTestabilitySoftwareAsAService(TRUE);
+</span><span style=color:#75715e></span>    ProcessingTime <span style=color:#f92672>:=</span> LibraryRandom<span style=color:#f92672>.</span>RandDec<span style=color:#f92672>(</span><span style=color:#ae81ff>1000</span>,<span style=color:#ae81ff>2</span><span style=color:#f92672>)</span>;
+    AzureMachineLearningUsage<span style=color:#f92672>.</span>IncrementTotalProcessingTime<span style=color:#f92672>(</span>ProcessingTime<span style=color:#f92672>)</span>;
+
+    <span style=color:#75715e>// [WHEN] When IsAzureMLLimitReached is invoked with Limit more than Processing time
+</span><span style=color:#75715e></span>    <span style=color:#75715e>// [THEN] HasAzureLimitReached returns TRUE
+</span><span style=color:#75715e></span>    Assert<span style=color:#f92672>.</span>IsTrue<span style=color:#f92672>(</span>AzureMachineLearningUsage<span style=color:#f92672>.</span>IsAzureMLLimitReached<span style=color:#f92672>(</span>ProcessingTime - <span style=color:#ae81ff>1</span><span style=color:#f92672>)</span>,
+        <span style=color:#e6db74>&#39;HasAzureLimitReached returns wrong value when Processing time exceeds Limit.&#39;</span><span style=color:#f92672>)</span>;
+    PermissionManager<span style=color:#f92672>.</span>SetTestabilitySoftwareAsAService<span style=color:#f92672>(</span>FALSE<span style=color:#f92672>)</span>;  
+<span style=color:#66d9ef>END</span>;
+</code></pre></div><p>The figure below explains what happens when the Permission Manager is not a singleton. When it is invoked from different places (first from the test, second from the production code), then different instances of the Permission Manager will fire up and answer. In detail:</p>
 <ol>
 <li>The test calls Initialize which sets SaaS=TRUE in codeunit Permission Manager</li>
 <li>The test calls into production code to validate it works as expected. It calls AzureMachineLearningUsage codeunit to find out if the monthly quota has been reached. The function IsAzureMLLimitReached in AzureMachineLearningUsage codeunit is designed only for SaaS. If the code doesn&rsquo;t run in SaaS, then it always returns FALSE.</li>
@@ -294,13 +295,11 @@ END;
 <li>The production code will assess (wrongly) that it&rsquo;s not running SaaS, and say that the Azure ML limit has not been reached (incorrect &ndash; and the test fails).</li>
 </ol>
 <p><a href=Singleton-Codeunit-_2D00_-example-_2D00_-bad.PNG><img src=Singleton-Codeunit-_2D00_-example-_2D00_-bad.PNG alt=" "></a></p>
-<hr>
 <p><strong>Solution:</strong> restrict the number of instantiations of a codeunit to only one, by setting the codeunit property <strong>SingleInstance</strong> to <strong>Yes</strong>.</p>
 <p>Returning to the previous example, let&rsquo;s analyze the case when the codeunit Permission Manager is a singleton codeunit:</p>
 <p><a href=2313.Singleton-Codeunit-_2D00_-CSIDE-SingleInstance-property.PNG><img src=2313.Singleton-Codeunit-_2D00_-CSIDE-SingleInstance-property.PNG alt=" "></a></p>
 <p>When the codeunit Permission Manager is a singleton, then no matter from where it is invoked, the same instance will be reached. Therefore, the status set by the test (SaaS = TRUE) will be reachable from the production code, and the test will pass, as seen in the figure below.</p>
-<p>**<a href=Singleton-Codeunit-_2D00_-example-_2D00_-good.PNG><img src=Singleton-Codeunit-_2D00_-example-_2D00_-good.PNG alt=" "></a><br>
-**</p>
+<p><a href=Singleton-Codeunit-_2D00_-example-_2D00_-good.PNG><img src=Singleton-Codeunit-_2D00_-example-_2D00_-good.PNG alt=" "></a></p>
 <p><strong>Consequences</strong></p>
 <p>1. Use Singleton Codeunit with care and only when there is no other solution. Preserving a global state could often enough be more harmful than useful. One risk is that tests might fail apparently non-deterministically.</p>
 <p>For example, a problem we have met in the development team for Madeira release, was that the singleton codeunit function PermissionManager.SetSoftwareAsAService(TRUE) is often used to emulate and test SaaS conditions. However, if a test &lsquo;forgets&rsquo; to reset the state to default (FALSE), then another codeunit which is not supposed to emulate SaaS, will suddenly run as SaaS and will fail. Even if the test has code that resets the state to FALSE, this code might never be reached because of an earlier failure or other error in the test which would stop execution.</p>
@@ -318,7 +317,6 @@ END;
 <li>Etc.</li>
 </ul>
 <p><strong>Note:</strong> while the object-oriented <strong>Singleton</strong> pattern can restrict the number of instantiations of the singleton to an integer n > 0, in Dynamics NAV the <strong>Singleton Codeunit</strong> can only have n=1.</p>
-<p>__</p>
 <footer class=footline>
 </footer>
 </main>
@@ -331,12 +329,12 @@ END;
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/js/clipboard.min.js?1644506469></script>
-<script src=/js/perfect-scrollbar.min.js?1644506469></script>
-<script src=/js/perfect-scrollbar.jquery.min.js?1644506469></script>
-<script src=/js/jquery.svg.pan.zoom.js?1644506469></script>
-<script src=/js/featherlight.min.js?1644506469></script>
-<script src=/js/modernizr.custom-3.6.0.js?1644506469></script>
-<script src=/js/relearn.js?1644506469></script>
+<script src=/js/clipboard.min.js?1644600600></script>
+<script src=/js/perfect-scrollbar.min.js?1644600600></script>
+<script src=/js/perfect-scrollbar.jquery.min.js?1644600600></script>
+<script src=/js/jquery.svg.pan.zoom.js?1644600600></script>
+<script src=/js/featherlight.min.js?1644600600></script>
+<script src=/js/modernizr.custom-3.6.0.js?1644600600></script>
+<script src=/js/relearn.js?1644600600></script>
 </body>
 </html>

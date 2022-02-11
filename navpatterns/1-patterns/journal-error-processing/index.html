@@ -5,16 +5,16 @@
 <meta name=generator content="Hugo 0.92.1">
 <meta name=description content>
 <title>Journal Error Processing :: AL Guidelines</title>
-<link href=/css/nucleus.css?1644506468 rel=stylesheet>
-<link href=/css/fontawesome-all.min.css?1644506468 rel=stylesheet>
-<link href=/css/featherlight.min.css?1644506468 rel=stylesheet>
-<link href=/css/perfect-scrollbar.min.css?1644506468 rel=stylesheet>
-<link href=/css/auto-complete.css?1644506468 rel=stylesheet>
-<link href=/css/theme.css?1644506468 rel=stylesheet>
-<link href=/css/theme-blue.css?1644506468 rel=stylesheet>
-<link href=/css/variant.css?1644506468 rel=stylesheet>
-<link href=/css/print.css?1644506468 rel=stylesheet media=print>
-<script src=/js/jquery.min.js?1644506468></script>
+<link href=/css/nucleus.css?1644600599 rel=stylesheet>
+<link href=/css/fontawesome-all.min.css?1644600599 rel=stylesheet>
+<link href=/css/featherlight.min.css?1644600599 rel=stylesheet>
+<link href=/css/perfect-scrollbar.min.css?1644600599 rel=stylesheet>
+<link href=/css/auto-complete.css?1644600599 rel=stylesheet>
+<link href=/css/theme.css?1644600599 rel=stylesheet>
+<link href=/css/theme-blue.css?1644600599 rel=stylesheet>
+<link href=/css/variant.css?1644600599 rel=stylesheet>
+<link href=/css/print.css?1644600599 rel=stylesheet media=print>
+<script src=/js/jquery.min.js?1644600599></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
 <body data-url=/navpatterns/1-patterns/journal-error-processing/>
@@ -32,9 +32,9 @@ ALGuidelines.Dev
 <input data-search-input id=search-by type=search placeholder=Search...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script src=/js/lunr.min.js?1644506468></script>
-<script src=/js/auto-complete.js?1644506468></script>
-<script src=/js/search.js?1644506468></script>
+<script src=/js/lunr.min.js?1644600599></script>
+<script src=/js/auto-complete.js?1644600599></script>
+<script src=/js/search.js?1644600599></script>
 </div>
 <div class=highlightable>
 <ul class=topics>
@@ -287,47 +287,60 @@ ALGuidelines.Dev
 <p><a href=8640.Journal-Error-Processing-3.jpg><img src=8640.Journal-Error-Processing-3.jpg alt=" "></a></p>
 <h2 id=application-objects>Application Objects</h2>
 <p>In the following table, the Generic Object column contains the objects that you can use as a base for your implementation.</p>
-<p>Generic Object</p>
-<p>Description</p>
-<p>Sample W1 implementation of SEPA Credit Transfer*</p>
-<p>Journal Page</p>
-<p>This is the journal list page where the user invokes the processing action.</p>
-<p>Payment Journal</p>
-<p>Action on Page</p>
-<p>The processing action invoked by the user on the journal list page.</p>
-<p>Export Payments to File</p>
-<p>Errors Page List Part</p>
-<p>A FactBox that displays any journal line validation errors.</p>
-<p>To improve user experience, the developer can highlight the lines with errors in red and conveniently sort the lines with errors at the top.</p>
-<p>Payment Journal Errors Part</p>
-<p>Validation codeunit</p>
-<p>Contains code that checks that the journal line contains correct, complete, and coherent data and that the line is ready for whatever process must be done next.</p>
-<p>SEPA CT-Check Line</p>
-<p>Processing codeunit</p>
-<p>Executes the processing of the journal lines.</p>
-<p>SEPA CT-Export File</p>
-<p>Journal Error Text Table</p>
-<p>Contains</p>
+<table>
+<thead>
+<tr>
+<th>Generic Object</th>
+<th>Description</th>
+<th>Sample W1 implementation of SEPA Credit Transfer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Journal Page</td>
+<td>This is the journal list page where the user invokes the processing action.</td>
+<td>Payment Journal</td>
+</tr>
+<tr>
+<td>Action on Page</td>
+<td>The processing action invoked by the user on the journal list page.</td>
+<td>Export Payments to File</td>
+</tr>
+<tr>
+<td>Errors Page List Part</td>
+<td>A FactBox that displays any journal line validation errors.</td>
+<td></td>
+</tr>
+<tr>
+<td>To improve user experience, the developer can highlight the lines with errors in red and conveniently sort the lines with errors at the top.</td>
+<td>Payment Journal Errors Part</td>
+<td></td>
+</tr>
+<tr>
+<td>Validation codeunit</td>
+<td>Contains code that checks that the journal line contains correct, complete, and coherent data and that the line is ready for whatever process must be done next.</td>
+<td>SEPA CT-Check Line</td>
+</tr>
+<tr>
+<td>Processing codeunit</td>
+<td>Executes the processing of the journal lines.</td>
+<td>SEPA CT-Export File</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Generic Object:</strong> Journal Error Text Table</p>
+<p><strong>Description:</strong></p>
+<p>Contains:</p>
 <ul>
-<li>
-<p>The error messages</p>
-</li>
-<li>
-<p>Link information about where the error messages belong. For example, in table 1228, Payment Jnl. Export Error Text, the error is linked uniquely to a journal line by the following fields:</p>
-</li>
-<li>
-<p>Journal Template Name, with TableRelation=&ldquo;Gen. Journal Template&rdquo;</p>
-</li>
-<li>
-<p>Journal Batch Name, with TableRelation=&ldquo;Gen. Journal Batch&rdquo;.Name WHERE (Journal Template Name=FIELD(Journal Template Name))</p>
-</li>
-<li>
-<p>Journal Line No.</p>
-</li>
+<li>The error messages</li>
+<li>Link information about where the error messages belong. For example, in table 1228, Payment Jnl. Export Error Text, the error is linked uniquely to a journal line by the following fields:</li>
+<li>Journal Template Name, with TableRelation=&ldquo;Gen. Journal Template&rdquo;</li>
+<li>Journal Batch Name, with TableRelation=&ldquo;Gen. Journal Batch&rdquo;.Name WHERE (Journal Template Name=FIELD(Journal Template Name))</li>
+<li>Journal Line No.</li>
 </ul>
 <p>Other related information can be added, such as document number of the original source document, if the current journal line originates from a document.</p>
 <p>An extra improvement would be to add a drilldown or a link to the page where the user can fix the error. This would significantly simplify the scenario by excluding manual navigation and investigation by the user to find the page where the error can be fixed.</p>
-<p>Payment Jnl. Export Error Text</p>
+<p><strong>Sample W1 implementation of SEPA Credit Transfer:</strong> Payment Jnl. Export Error Text</p>
 <p>* The W1 implementation of file export for SEPA Credit Transfer contains the generic SEPA functionality. However, due to differences in data models and user scenarios in various country implementations, the selected local versions contain adaptations of the generic functionality.</p>
 <h2 id=flow>Flow</h2>
 <p>Find below a diagram describing the flow between the objects involved in the journal error processing.</p>
@@ -412,12 +425,12 @@ DELETEALL;
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/js/clipboard.min.js?1644506468></script>
-<script src=/js/perfect-scrollbar.min.js?1644506468></script>
-<script src=/js/perfect-scrollbar.jquery.min.js?1644506468></script>
-<script src=/js/jquery.svg.pan.zoom.js?1644506468></script>
-<script src=/js/featherlight.min.js?1644506468></script>
-<script src=/js/modernizr.custom-3.6.0.js?1644506468></script>
-<script src=/js/relearn.js?1644506468></script>
+<script src=/js/clipboard.min.js?1644600599></script>
+<script src=/js/perfect-scrollbar.min.js?1644600599></script>
+<script src=/js/perfect-scrollbar.jquery.min.js?1644600599></script>
+<script src=/js/jquery.svg.pan.zoom.js?1644600599></script>
+<script src=/js/featherlight.min.js?1644600599></script>
+<script src=/js/modernizr.custom-3.6.0.js?1644600599></script>
+<script src=/js/relearn.js?1644600599></script>
 </body>
 </html>

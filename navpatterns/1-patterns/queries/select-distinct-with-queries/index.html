@@ -5,16 +5,16 @@
 <meta name=generator content="Hugo 0.92.1">
 <meta name=description content>
 <title>SELECT DISTINCT with Queries :: AL Guidelines</title>
-<link href=/css/nucleus.css?1644506469 rel=stylesheet>
-<link href=/css/fontawesome-all.min.css?1644506469 rel=stylesheet>
-<link href=/css/featherlight.min.css?1644506469 rel=stylesheet>
-<link href=/css/perfect-scrollbar.min.css?1644506469 rel=stylesheet>
-<link href=/css/auto-complete.css?1644506469 rel=stylesheet>
-<link href=/css/theme.css?1644506469 rel=stylesheet>
-<link href=/css/theme-blue.css?1644506469 rel=stylesheet>
-<link href=/css/variant.css?1644506469 rel=stylesheet>
-<link href=/css/print.css?1644506469 rel=stylesheet media=print>
-<script src=/js/jquery.min.js?1644506469></script>
+<link href=/css/nucleus.css?1644600599 rel=stylesheet>
+<link href=/css/fontawesome-all.min.css?1644600599 rel=stylesheet>
+<link href=/css/featherlight.min.css?1644600599 rel=stylesheet>
+<link href=/css/perfect-scrollbar.min.css?1644600599 rel=stylesheet>
+<link href=/css/auto-complete.css?1644600599 rel=stylesheet>
+<link href=/css/theme.css?1644600599 rel=stylesheet>
+<link href=/css/theme-blue.css?1644600599 rel=stylesheet>
+<link href=/css/variant.css?1644600599 rel=stylesheet>
+<link href=/css/print.css?1644600599 rel=stylesheet media=print>
+<script src=/js/jquery.min.js?1644600599></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
 <body data-url=/navpatterns/1-patterns/queries/select-distinct-with-queries/>
@@ -32,9 +32,9 @@ ALGuidelines.Dev
 <input data-search-input id=search-by type=search placeholder=Search...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script src=/js/lunr.min.js?1644506469></script>
-<script src=/js/auto-complete.js?1644506469></script>
-<script src=/js/search.js?1644506469></script>
+<script src=/js/lunr.min.js?1644600599></script>
+<script src=/js/auto-complete.js?1644600599></script>
+<script src=/js/search.js?1644600599></script>
 </div>
 <div class=highlightable>
 <ul class=topics>
@@ -251,8 +251,8 @@ ALGuidelines.Dev
 <ul>
 <li>
 <ul>
-<li><a href=#abstract><strong>Abstract</strong></a></li>
-<li><a href=#example><strong>Example</strong></a></li>
+<li><a href=#abstract>Abstract</a></li>
+<li><a href=#example>Example</a></li>
 <li><a href=#nav-usages><strong>NAV Usages</strong></a></li>
 <li><a href=#related-topics><strong>Related Topics</strong></a></li>
 </ul>
@@ -267,18 +267,15 @@ ALGuidelines.Dev
 <main id=body-inner>
 <h1>SELECT DISTINCT with Queries</h1>
 <p><em>By Bogdana Botez, at Microsoft Development Center Copenhagen</em></p>
-<h3 id=abstract><strong>Abstract</strong></h3>
+<h3 id=abstract>Abstract</h3>
 <p>This pattern explains how to perform SELECT DISTINCT by using queries in Dynamics NAV.</p>
-<hr>
 <p><strong>Description</strong></p>
 <p>When working with tables, sometimes a developer needs to perform a SELECT DISTINCT (also known as SELECT UNIQUE) from a table. As NAV does not provide this out of the box, we present below a way to select unique records by using queries.</p>
-<hr>
 <p><strong>Problem statement</strong></p>
-<p>Let&rsquo;s consider the <strong>VAT Entry</strong> table as below: <a href=https://microsoft.sharepoint.com/teams/DynamicsNAV/Wiki/Nav%20Wiki%20Documents/NAV%20App%20Patterns/NAV%20App%20Patterns%20for%20Review/Table%20Select%20Distinct.docx#_msocom_1><br>
-</a></p>
+<p>Let&rsquo;s consider the <strong>VAT Entry</strong> table as below: <a href=https://microsoft.sharepoint.com/teams/DynamicsNAV/Wiki/Nav%20Wiki%20Documents/NAV%20App%20Patterns/NAV%20App%20Patterns%20for%20Review/Table%20Select%20Distinct.docx#_msocom_1> </a></p>
 <p><a href=6521.clip_5F00_image001.png><img src=6521.clip_5F00_image001.png alt=" "></a></p>
 <p>The goal is to select one line for each separate document that produced VAT Entries. In other words, we want records grouped by <strong>Type, Document Type</strong> and <strong>Document No.</strong>. However, if there are multiple lines with the same value of the triad <strong>Type, Document Type</strong> and <strong>Document No.</strong> in the <strong>VAT Entry</strong> table, we only want to see one of them.</p>
-<h4 id=solution><strong>Solution</strong></h4>
+<h4 id=solution>Solution</h4>
 <p>Create a new query object <strong>VAT Entry Distinct Document No.</strong>, with a single DataItem sourced from <strong>VAT Entry</strong> table. Add the three desired group-by fields <strong>Type, Document Type</strong> and <strong>Document No.</strong> as columns.</p>
 <p><a href=clip_5F00_image002.png><img src=clip_5F00_image002.png alt=" "></a></p>
 <p>To enable grouping, add one more column, with <strong>Method Type</strong> = <strong>Totals</strong>. This will automatically set the <strong>Group By</strong> checkbox to TRUE on the three precedent fields.</p>
@@ -286,7 +283,7 @@ ALGuidelines.Dev
 <p><a href=clip_5F00_image003.png><img src=clip_5F00_image003.png alt=" "></a></p>
 <p>Running the query yields a single record per document. You can notice in the second line below for example, how the sales invoice number 103001 had 2 VAT Entries, but it shows up only once in the query:</p>
 <p><a href=clip_5F00_image004.png><img src=clip_5F00_image004.png alt=" "></a></p>
-<h3 id=example><strong>Example</strong></h3>
+<h3 id=example>Example</h3>
 <p>One thing is to be noted: there is a limitation to how much information you can take out from the records. For example, if we need to extract more information than just the one we already have in the columns, then the following apply: adding one more column of <strong>Method Type</strong> = <strong>None</strong> will indeed show more information, but it <em>might</em> affect the grouping. More details below.</p>
 <p><strong>The grouping is affected</strong> for example when the additional column is the <strong>VAT Entry No</strong>. In this case, this column brings up additional grouping criteria and one group for each entry number will end up being created.</p>
 <p><a href=clip_5F00_image005.png><img src=clip_5F00_image005.png alt=" "></a></p>
@@ -315,12 +312,12 @@ ALGuidelines.Dev
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/js/clipboard.min.js?1644506469></script>
-<script src=/js/perfect-scrollbar.min.js?1644506469></script>
-<script src=/js/perfect-scrollbar.jquery.min.js?1644506469></script>
-<script src=/js/jquery.svg.pan.zoom.js?1644506469></script>
-<script src=/js/featherlight.min.js?1644506469></script>
-<script src=/js/modernizr.custom-3.6.0.js?1644506469></script>
-<script src=/js/relearn.js?1644506469></script>
+<script src=/js/clipboard.min.js?1644600599></script>
+<script src=/js/perfect-scrollbar.min.js?1644600599></script>
+<script src=/js/perfect-scrollbar.jquery.min.js?1644600599></script>
+<script src=/js/jquery.svg.pan.zoom.js?1644600599></script>
+<script src=/js/featherlight.min.js?1644600599></script>
+<script src=/js/modernizr.custom-3.6.0.js?1644600599></script>
+<script src=/js/relearn.js?1644600599></script>
 </body>
 </html>

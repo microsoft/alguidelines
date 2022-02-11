@@ -5,16 +5,16 @@
 <meta name=generator content="Hugo 0.92.1">
 <meta name=description content>
 <title>Setup Specificity Fallback :: AL Guidelines</title>
-<link href=/css/nucleus.css?1644506469 rel=stylesheet>
-<link href=/css/fontawesome-all.min.css?1644506469 rel=stylesheet>
-<link href=/css/featherlight.min.css?1644506469 rel=stylesheet>
-<link href=/css/perfect-scrollbar.min.css?1644506469 rel=stylesheet>
-<link href=/css/auto-complete.css?1644506469 rel=stylesheet>
-<link href=/css/theme.css?1644506469 rel=stylesheet>
-<link href=/css/theme-blue.css?1644506469 rel=stylesheet>
-<link href=/css/variant.css?1644506469 rel=stylesheet>
-<link href=/css/print.css?1644506469 rel=stylesheet media=print>
-<script src=/js/jquery.min.js?1644506469></script>
+<link href=/css/nucleus.css?1644600599 rel=stylesheet>
+<link href=/css/fontawesome-all.min.css?1644600599 rel=stylesheet>
+<link href=/css/featherlight.min.css?1644600599 rel=stylesheet>
+<link href=/css/perfect-scrollbar.min.css?1644600599 rel=stylesheet>
+<link href=/css/auto-complete.css?1644600599 rel=stylesheet>
+<link href=/css/theme.css?1644600599 rel=stylesheet>
+<link href=/css/theme-blue.css?1644600599 rel=stylesheet>
+<link href=/css/variant.css?1644600599 rel=stylesheet>
+<link href=/css/print.css?1644600599 rel=stylesheet media=print>
+<script src=/js/jquery.min.js?1644600599></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
 <body data-url=/navpatterns/1-patterns/setup-specificity-fallback/>
@@ -32,9 +32,9 @@ ALGuidelines.Dev
 <input data-search-input id=search-by type=search placeholder=Search...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script src=/js/lunr.min.js?1644506469></script>
-<script src=/js/auto-complete.js?1644506469></script>
-<script src=/js/search.js?1644506469></script>
+<script src=/js/lunr.min.js?1644600599></script>
+<script src=/js/auto-complete.js?1644600599></script>
+<script src=/js/search.js?1644600599></script>
 </div>
 <div class=highlightable>
 <ul class=topics>
@@ -248,10 +248,10 @@ ALGuidelines.Dev
 <div class=wrapper>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#abstract><strong>Abstract</strong></a></li>
-<li><a href=#description><strong>Description</strong></a></li>
-<li><a href=#usage><strong>Usage</strong></a></li>
-<li><a href=#nav-usages><strong>NAV Usages</strong></a></li>
+<li><a href=#abstract>Abstract</a></li>
+<li><a href=#description>Description</a></li>
+<li><a href=#usage>Usage</a></li>
+<li><a href=#nav-usages>NAV Usages</a></li>
 </ul>
 </nav>
 </div>
@@ -262,40 +262,51 @@ ALGuidelines.Dev
 <main id=body-inner>
 <h1>Setup Specificity Fallback</h1>
 <p><em>By Jan Hoek at IDYN</em></p>
-<h2 id=abstract><strong>Abstract</strong></h2>
+<h2 id=abstract>Abstract</h2>
 <p>The Setup Specificity Fallback pattern allows users to efficiently define a potentially complex setup in terms of rules and exceptions to these rules, exceptions to the exceptions, etc.</p>
-<h2 id=description><strong>Description</strong></h2>
+<h2 id=description>Description</h2>
 <p>The pattern involves a setup table with a compound (i.e. consisting of more than one field) primary key, where each record in the table maps a combination of primary key values to a particular setup value. However, setting up and maintaining each and every combination could prove to be rather labour-intensive.</p>
 <p>With the Setup Specificity Pattern in place, primary key fields in the setup table can have a special value (typically: zero or an empty string) that acts as a wildcard, meaning that the setup record in question applies to a combination of primary key fields with any value in the field containing that wildcard. According to the pattern, when querying the setup table, the application attempts to find the appropriate setup record by searching less and less specific, starting with only specified primary key values, and possibly ending with only wildcard values, replacing specific values with wildcards in a predefined order until a setup record is found, e.g.:</p>
-<p>Step 1.</p>
-<p>Try to find record with:<br>
-Field A = value &ldquo;a&rdquo;<br>
-Field B = value &ldquo;b&rdquo;
-If found, return record; if not, go to step 2.
-Step 2.</p>
-<p>Try to find record with:<br>
-Field A = value &ldquo;a&rdquo;<br>
-Field B = wildcard value
-If found, return record; if not, go to step 3.
-Step 3.
-Try to find record with:<br>
-Field A = wildcard value<br>
-Field B = value &ldquo;b&rdquo;
-If found, return record; if not, go to step 4.
-Step 4.
-Try to find record with:<br>
-Field A = wildcard value<br>
-Field B = wildcard value<br>
-If found, return record; if not, optionally return hard-coded value</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Step 1.</td>
+<td>Try to find record with: Field A = value &ldquo;a&rdquo; and Field B = value &ldquo;b&rdquo;</td>
+<td>If found, return record; if not, go to step 2.</td>
+</tr>
+<tr>
+<td>Step 2.</td>
+<td>Try to find record with: Field A = value &ldquo;a&rdquo; and Field B = wildcard value</td>
+<td>If found, return record; if not, go to step 3.</td>
+</tr>
+<tr>
+<td>Step 3.</td>
+<td>Try to find record with: Field A = wildcard value and Field B = value &ldquo;b&rdquo;</td>
+<td>If found, return record; if not, go to step 4.</td>
+</tr>
+<tr>
+<td>Step 4.</td>
+<td>Try to find record with: Field A = wildcard value and Field B = wildcard value</td>
+<td>If found, return record; if not, optionally return hard-coded value</td>
+</tr>
+</tbody>
+</table>
 <p>The least specific record can be thought of as the general rule, and each of the subsequent records is an exception to that rule. By defining only exceptions to the rule, instead of each and every combination, the burden of setting up and maintaining the setup records is strongly reduced, and the overall setup is much easier to read and understand.</p>
-<h2 id=usage><strong>Usage</strong></h2>
+<h2 id=usage>Usage</h2>
 <ol>
 <li>Create your setup table. Remember that this pattern applies only to setup tables with a compound primary key;</li>
 <li>Create a function that will return the required value from the setup;</li>
 <li>For each level of specificity, the function should test if the corresponding record exists. If it does, the setup value should be returned. If it doesn&rsquo;t, the logic should fall-back to a lower level of specificity.</li>
 <li>(Optional) If even the least specific setup record can not be found, the function may return a blank value or hard-coded default value.</li>
 </ol>
-<h2 id=nav-usages><strong>NAV Usages</strong></h2>
+<h2 id=nav-usages>NAV Usages</h2>
 <p>The Printer Selection table in NAV is an example of the Setup Specificity Fallback pattern. Its primary key consists of two fields. A blank value in either field means that the record applies to any user or report respectively.</p>
 <p><a href=0724.Printer-Selection.png><img src=0724.Printer-Selection.png alt=" "></a></p>
 <p>The FindPrinter function in codeunit 1 searches for the printer to use, with a decreasing level of specificity.</p>
@@ -312,12 +323,12 @@ If found, return record; if not, optionally return hard-coded value</p>
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/js/clipboard.min.js?1644506469></script>
-<script src=/js/perfect-scrollbar.min.js?1644506469></script>
-<script src=/js/perfect-scrollbar.jquery.min.js?1644506469></script>
-<script src=/js/jquery.svg.pan.zoom.js?1644506469></script>
-<script src=/js/featherlight.min.js?1644506469></script>
-<script src=/js/modernizr.custom-3.6.0.js?1644506469></script>
-<script src=/js/relearn.js?1644506469></script>
+<script src=/js/clipboard.min.js?1644600599></script>
+<script src=/js/perfect-scrollbar.min.js?1644600599></script>
+<script src=/js/perfect-scrollbar.jquery.min.js?1644600599></script>
+<script src=/js/jquery.svg.pan.zoom.js?1644600599></script>
+<script src=/js/featherlight.min.js?1644600599></script>
+<script src=/js/modernizr.custom-3.6.0.js?1644600599></script>
+<script src=/js/relearn.js?1644600599></script>
 </body>
 </html>

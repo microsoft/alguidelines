@@ -5,16 +5,16 @@
 <meta name=generator content="Hugo 0.92.1">
 <meta name=description content>
 <title>Data Migration Façade :: AL Guidelines</title>
-<link href=/css/nucleus.css?1644506468 rel=stylesheet>
-<link href=/css/fontawesome-all.min.css?1644506468 rel=stylesheet>
-<link href=/css/featherlight.min.css?1644506468 rel=stylesheet>
-<link href=/css/perfect-scrollbar.min.css?1644506468 rel=stylesheet>
-<link href=/css/auto-complete.css?1644506468 rel=stylesheet>
-<link href=/css/theme.css?1644506468 rel=stylesheet>
-<link href=/css/theme-blue.css?1644506468 rel=stylesheet>
-<link href=/css/variant.css?1644506468 rel=stylesheet>
-<link href=/css/print.css?1644506468 rel=stylesheet media=print>
-<script src=/js/jquery.min.js?1644506468></script>
+<link href=/css/nucleus.css?1644600599 rel=stylesheet>
+<link href=/css/fontawesome-all.min.css?1644600599 rel=stylesheet>
+<link href=/css/featherlight.min.css?1644600599 rel=stylesheet>
+<link href=/css/perfect-scrollbar.min.css?1644600599 rel=stylesheet>
+<link href=/css/auto-complete.css?1644600599 rel=stylesheet>
+<link href=/css/theme.css?1644600599 rel=stylesheet>
+<link href=/css/theme-blue.css?1644600599 rel=stylesheet>
+<link href=/css/variant.css?1644600599 rel=stylesheet>
+<link href=/css/print.css?1644600599 rel=stylesheet media=print>
+<script src=/js/jquery.min.js?1644600599></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
 <body data-url=/navpatterns/1-patterns/data-migration-facade/>
@@ -32,9 +32,9 @@ ALGuidelines.Dev
 <input data-search-input id=search-by type=search placeholder=Search...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script src=/js/lunr.min.js?1644506468></script>
-<script src=/js/auto-complete.js?1644506468></script>
-<script src=/js/search.js?1644506468></script>
+<script src=/js/lunr.min.js?1644600599></script>
+<script src=/js/auto-complete.js?1644600599></script>
+<script src=/js/search.js?1644600599></script>
 </div>
 <div class=highlightable>
 <ul class=topics>
@@ -276,7 +276,7 @@ ALGuidelines.Dev
 <h2 id=context>Context:</h2>
 <p>This pattern is describing how you can migrate data using the Data Migration Façade.</p>
 <h2 id=problem>Problem:</h2>
-<p>Writing migration code from an external source, such as a product from a competitor, can be time consuming, as you need to tackle the problems of what to migrate, in which order, exception handling&mldr; and can result in code that is fragile due to deep dependencies on the NAV data model (high coupling). Any change to the NAV data model can easily break this code. ****</p>
+<p>Writing migration code from an external source, such as a product from a competitor, can be time consuming, as you need to tackle the problems of what to migrate, in which order, exception handling&mldr; and can result in code that is fragile due to deep dependencies on the NAV data model (high coupling). Any change to the NAV data model can easily break this code.</p>
 <h2 id=solution>Solution:</h2>
 <p>The idea of the Data Migration Façade is to provide an API that creates and updates master data and related entities (including transactions) without referencing NAV tables.</p>
 <p>Additionally, the framework around the Data Migration Façade provides tools for error handling, and a way to integrate the migration in the Data Migration Overview page (page 1799).</p>
@@ -301,8 +301,6 @@ ALGuidelines.Dev
 </li>
 <li>
 <p>A page where you can view the status and progress of the migration. It shows one line for each master data entity (item, customer, vendor, general ledger account) that was chosen for migration. You can also stop a migration by choosing the <strong>Stop Migration</strong> action.</p>
-</li>
-<li>
 <ul>
 <li><strong>Data Migration Overview</strong> (page 1799)</li>
 </ul>
@@ -320,10 +318,10 @@ ALGuidelines.Dev
 </ul>
 <p>To initialize and start the data migration, you must call the following procedures:</p>
 <ul>
-<li>**&ldquo;Data Migration Status Façade&rdquo;.InitStatusLine(&lsquo;My Migration Type&rsquo;,Database::Item,42000,0,Codeunit::&ldquo;My extension Item migration codeunit&rdquo;) **<br>
+<li><strong>&ldquo;Data Migration Status Façade&rdquo;.InitStatusLine(&lsquo;My Migration Type&rsquo;,Database::Item,42000,0,Codeunit::&ldquo;My extension Item migration codeunit&rdquo;)</strong><br>
 This deletes existing status lines for migrating Items for &lsquo;My Migration Type&rsquo;, and initializes a new status line with 0 records migrated out of 42000.</li>
 </ul>
-<p>**&ldquo;Data Migration Façade&rdquo;.StartMigration(&lsquo;My Migration Type&rsquo;,false) **<br>
+<p><strong>&ldquo;Data Migration Façade&rdquo;.StartMigration(&lsquo;My Migration Type&rsquo;,false)</strong><br>
 This starts the migration. False means this is not a retry. A re-try is when you migrate one or more records from the <strong>Show Errors</strong> page, which is described later in this document. Retry = true is only used by the <strong>Show Errors</strong> page and should not be used from extensions.</p>
 <h3 id=usage-without-staging-tables>Usage without staging tables:</h3>
 <p>The overall workflow is:</p>
@@ -340,54 +338,59 @@ This starts the migration. False means this is not a retry. A re-try is when you
 <li>Loop on all of the records to migrate. You can update the increment of the amount of records migrated: <strong>&ldquo;Data Migration Status Facade&rdquo;.IncrementStatusLine(&lsquo;My Migration Type&rsquo;,Database::Item,42).</strong></li>
 </ol>
 <p><a href=NoStagingTableNew2.png><img src=NoStagingTableNew2.png alt=" "></a></p>
-<p>_Figure 1: sequence diagram of the data migration without staging tables _</p>
+<p><em>Figure 1: sequence diagram of the data migration without staging tables</em></p>
 <p>The following example shows how to migrate items without staging tables:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>    <span style=color:#66d9ef>trigger</span> OnRun<span style=color:#f92672>()</span>; 
-    <span style=color:#66d9ef>var</span> 
-      ItemDataMigrationFacade: <span style=color:#66d9ef>Codeunit</span> &#34;Item Data Migration Facade&#34;; 
-      ItemNumber: <span style=color:#66d9ef>Integer</span>; 
-      ItemJson: <span style=color:#66d9ef>Text</span>; 
-    <span style=color:#66d9ef>begin</span> 
-      <span style=color:#75715e>// loop on items retrieved through a web service for example 
-</span><span style=color:#75715e></span>      <span style=color:#66d9ef>for</span> ItemNumber <span style=color:#f92672>:=</span> <span style=color:#ae81ff>1</span> <span style=color:#66d9ef>to</span> ExternalWebService<span style=color:#f92672>.</span>GetItemCount <span style=color:#66d9ef>do</span> <span style=color:#66d9ef>begin</span> 
-      ExternalWebService<span style=color:#f92672>.</span>GetItem<span style=color:#f92672>(</span>ItemNumber,ItemJson<span style=color:#f92672>)</span>; 
-      <span style=color:#75715e>// create item using the facade 
-</span><span style=color:#75715e></span>      <span style=color:#66d9ef>if</span> <span style=color:#f92672>not</span> ItemDataMigrationFacade<span style=color:#f92672>.</span>CreateItemIfNeeded<span style=color:#f92672>(</span>ItemJson<span style=color:#f92672>.</span>ItemNumber,ItemJson<span style=color:#f92672>.</span>ItemName1,
-      ItemJson<span style=color:#f92672>.</span>ItemName2,ConvertItemType<span style=color:#f92672>(</span>ItemJson<span style=color:#f92672>.</span>ItemType<span style=color:#f92672>)) </span><span style=color:#66d9ef>then</span> 
-      <span style=color:#66d9ef>exit</span>; <span style=color:#75715e>// item already exists 
-</span><span style=color:#75715e></span>      <span style=color:#75715e>// set some fields using the facade 
-</span><span style=color:#75715e></span>      ItemDataMigrationFacade<span style=color:#f92672>.</span>SetVendorItemNo<span style=color:#f92672>(</span>ItemJson<span style=color:#f92672>.</span>VendItemNumber<span style=color:#f92672>)</span>; 
-      ItemDataMigrationFacade<span style=color:#f92672>.</span>SetUnitVolume<span style=color:#f92672>(</span>ItemJson<span style=color:#f92672>.</span>Volume<span style=color:#f92672>)</span>; 
-      ItemDataMigrationFacade<span style=color:#f92672>.</span>SetAlternativeItemNo<span style=color:#f92672>(</span>ItemJson<span style=color:#f92672>.</span>AltItemNumber<span style=color:#f92672>)</span>; 
-      <span style=color:#66d9ef>if</span> ItemJson<span style=color:#f92672>.</span>PrimaryVendor &lt;\&gt; <span style=color:#e6db74>&#39;&#39;</span> <span style=color:#66d9ef>then</span> 
-      ItemDataMigrationFacade<span style=color:#f92672>.</span>SetVendorNo<span style=color:#f92672>(</span>ItemJson<span style=color:#f92672>.</span>PrimaryVendor<span style=color:#f92672>)</span>; 
-      <span style=color:#75715e>// migrate dependencies 
-</span><span style=color:#75715e></span>      MigrateItemUnitOfMeasure<span style=color:#f92672>(</span>ItemDataMigrationFacade,ItemJson<span style=color:#f92672>)</span>; 
-      <span style=color:#75715e>// modify the item (+run trigger) to save the changes made by setters 
-</span><span style=color:#75715e></span>      ItemDataMigrationFacade<span style=color:#f92672>.</span>ModifyItem<span style=color:#f92672>(</span>true<span style=color:#f92672>)</span>; 
-      <span style=color:#75715e>// update the status in the migration dashboard 
-</span><span style=color:#75715e></span>      DataMigrationStatusFacade<span style=color:#f92672>.</span>IncrementMigratedRecordCount<span style=color:#f92672>(</span><span style=color:#e6db74>&#39;My Migration Type&#39;</span>,
-      <span style=color:#66d9ef>Database</span>::Item,<span style=color:#ae81ff>1</span><span style=color:#f92672>)</span>; 
-      <span style=color:#66d9ef>end</span>; 
-      <span style=color:#66d9ef>end</span>;
-      <span style=color:#66d9ef>procedure</span> MigrateItemUnitOfMeasure<span style=color:#f92672>(</span>ItemDataMigrationFacade : <span style=color:#66d9ef>Codeunit</span> &#34;Item Data Migration Facade&#34;;
-      ItemJson : <span style=color:#66d9ef>Text</span><span style=color:#f92672>)</span>; 
-      <span style=color:#66d9ef>var</span> 
-      MyUnitCodeStagingTable: <span style=color:#66d9ef>Record</span> &#34;My Unit Code Staging Table&#34;; 
-      DataMigrationStatusFacade: <span style=color:#66d9ef>Codeunit</span> &#34;Data Migration Status Facade&#34;; 
-      DescriptionToSet: <span style=color:#66d9ef>Text</span>\[<span style=color:#ae81ff>10</span>\]; 
-      UnitCodeJson: <span style=color:#66d9ef>Text</span>; 
-      <span style=color:#66d9ef>begin</span> 
-      <span style=color:#66d9ef>if</span> ItemJson<span style=color:#f92672>.</span>UnitCode = <span style=color:#e6db74>&#39;&#39;</span> <span style=color:#66d9ef>then</span> 
-      <span style=color:#75715e>// log an error using the Data migration façade 
-</span><span style=color:#75715e></span>      DataMigrationStatusFacade<span style=color:#f92672>.</span>RegisterErrorNoStagingTablesCase<span style=color:#f92672>(
-</span><span style=color:#f92672>      </span><span style=color:#e6db74>&#39;My Migration Type&#39;</span>,<span style=color:#66d9ef>Database</span>::Item,<span style=color:#e6db74>&#39;Unit of measure is empty.&#39;</span><span style=color:#f92672>)</span>; 
-      <span style=color:#66d9ef>if</span> ExternalWebService<span style=color:#f92672>.</span>GetUnitCode<span style=color:#f92672>(</span>ItemJson<span style=color:#f92672>.</span>UnitCode,UnitCodeJson<span style=color:#f92672>) </span><span style=color:#66d9ef>then</span> 
-      DescriptionToSet <span style=color:#f92672>:=</span> UnitCodeJson<span style=color:#f92672>.</span>Description; 
-      ItemDataMigrationFacade<span style=color:#f92672>.</span>CreateUnitOfMeasureIfNeeded<span style=color:#f92672>(</span>ItemJson<span style=color:#f92672>.</span>UnitCode, DescriptionToSet<span style=color:#f92672>)</span>; 
-      <span style=color:#75715e>// set the unit of measure on the item 
-</span><span style=color:#75715e></span>      ItemDataMigrationFacade<span style=color:#f92672>.</span>SetBaseUnitOfMeasure<span style=color:#f92672>(</span>ItemJson<span style=color:#f92672>.</span>UnitCode<span style=color:#f92672>)</span>; 
-    <span style=color:#66d9ef>end</span>;
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=color:#66d9ef>trigger</span> OnRun<span style=color:#f92672>()</span>; 
+<span style=color:#66d9ef>var</span> 
+    ItemDataMigrationFacade: <span style=color:#66d9ef>Codeunit</span> &#34;Item Data Migration Facade&#34;; 
+    ItemNumber: <span style=color:#66d9ef>Integer</span>; 
+    ItemJson: <span style=color:#66d9ef>Text</span>; 
+<span style=color:#66d9ef>begin</span> 
+    <span style=color:#75715e>// loop on items retrieved through a web service for example 
+</span><span style=color:#75715e></span>    <span style=color:#66d9ef>for</span> ItemNumber <span style=color:#f92672>:=</span> <span style=color:#ae81ff>1</span> <span style=color:#66d9ef>to</span> ExternalWebService<span style=color:#f92672>.</span>GetItemCount <span style=color:#66d9ef>do</span> <span style=color:#66d9ef>begin</span> 
+        ExternalWebService<span style=color:#f92672>.</span>GetItem<span style=color:#f92672>(</span>ItemNumber,ItemJson<span style=color:#f92672>)</span>;
+
+        <span style=color:#75715e>// create item using the facade 
+</span><span style=color:#75715e></span>        <span style=color:#66d9ef>if</span> <span style=color:#f92672>not</span> ItemDataMigrationFacade<span style=color:#f92672>.</span>CreateItemIfNeeded<span style=color:#f92672>(</span>ItemJson<span style=color:#f92672>.</span>ItemNumber,ItemJson<span style=color:#f92672>.</span>ItemName1,
+            ItemJson<span style=color:#f92672>.</span>ItemName2,ConvertItemType<span style=color:#f92672>(</span>ItemJson<span style=color:#f92672>.</span>ItemType<span style=color:#f92672>)) </span><span style=color:#66d9ef>then</span> 
+                <span style=color:#66d9ef>exit</span>; <span style=color:#75715e>// item already exists 
+</span><span style=color:#75715e></span>
+        <span style=color:#75715e>// set some fields using the facade 
+</span><span style=color:#75715e></span>        ItemDataMigrationFacade<span style=color:#f92672>.</span>SetVendorItemNo<span style=color:#f92672>(</span>ItemJson<span style=color:#f92672>.</span>VendItemNumber<span style=color:#f92672>)</span>; 
+        ItemDataMigrationFacade<span style=color:#f92672>.</span>SetUnitVolume<span style=color:#f92672>(</span>ItemJson<span style=color:#f92672>.</span>Volume<span style=color:#f92672>)</span>; 
+        ItemDataMigrationFacade<span style=color:#f92672>.</span>SetAlternativeItemNo<span style=color:#f92672>(</span>ItemJson<span style=color:#f92672>.</span>AltItemNumber<span style=color:#f92672>)</span>; 
+        <span style=color:#66d9ef>if</span> ItemJson<span style=color:#f92672>.</span>PrimaryVendor &lt;&gt; <span style=color:#e6db74>&#39;&#39;</span> <span style=color:#66d9ef>then</span> 
+            ItemDataMigrationFacade<span style=color:#f92672>.</span>SetVendorNo<span style=color:#f92672>(</span>ItemJson<span style=color:#f92672>.</span>PrimaryVendor<span style=color:#f92672>)</span>; 
+
+        <span style=color:#75715e>// migrate dependencies 
+</span><span style=color:#75715e></span>        MigrateItemUnitOfMeasure<span style=color:#f92672>(</span>ItemDataMigrationFacade,ItemJson<span style=color:#f92672>)</span>; 
+
+        <span style=color:#75715e>// modify the item (+run trigger) to save the changes made by setters 
+</span><span style=color:#75715e></span>        ItemDataMigrationFacade<span style=color:#f92672>.</span>ModifyItem<span style=color:#f92672>(</span>true<span style=color:#f92672>)</span>; 
+        <span style=color:#75715e>// update the status in the migration dashboard 
+</span><span style=color:#75715e></span>        DataMigrationStatusFacade<span style=color:#f92672>.</span>IncrementMigratedRecordCount<span style=color:#f92672>(</span><span style=color:#e6db74>&#39;My Migration Type&#39;</span>,<span style=color:#66d9ef>Database</span>::Item,<span style=color:#ae81ff>1</span><span style=color:#f92672>)</span>; 
+    <span style=color:#66d9ef>end</span>; 
+<span style=color:#66d9ef>end</span>;
+
+<span style=color:#66d9ef>procedure</span> MigrateItemUnitOfMeasure<span style=color:#f92672>(</span>ItemDataMigrationFacade : <span style=color:#66d9ef>Codeunit</span> &#34;Item Data Migration Facade&#34;; ItemJson : <span style=color:#66d9ef>Text</span><span style=color:#f92672>)</span>; 
+<span style=color:#66d9ef>var</span> 
+    MyUnitCodeStagingTable: <span style=color:#66d9ef>Record</span> &#34;My Unit Code Staging Table&#34;; 
+    DataMigrationStatusFacade: <span style=color:#66d9ef>Codeunit</span> &#34;Data Migration Status Facade&#34;; 
+    DescriptionToSet: <span style=color:#66d9ef>Text</span>[<span style=color:#ae81ff>10</span>]; 
+    UnitCodeJson: <span style=color:#66d9ef>Text</span>; 
+<span style=color:#66d9ef>begin</span> 
+    <span style=color:#66d9ef>if</span> ItemJson<span style=color:#f92672>.</span>UnitCode = <span style=color:#e6db74>&#39;&#39;</span> <span style=color:#66d9ef>then</span> 
+        <span style=color:#75715e>// log an error using the Data migration façade 
+</span><span style=color:#75715e></span>        DataMigrationStatusFacade<span style=color:#f92672>.</span>RegisterErrorNoStagingTablesCase<span style=color:#f92672>(
+</span><span style=color:#f92672>            </span><span style=color:#e6db74>&#39;My Migration Type&#39;</span>,<span style=color:#66d9ef>Database</span>::Item,<span style=color:#e6db74>&#39;Unit of measure is empty.&#39;</span><span style=color:#f92672>)</span>;
+
+    <span style=color:#66d9ef>if</span> ExternalWebService<span style=color:#f92672>.</span>GetUnitCode<span style=color:#f92672>(</span>ItemJson<span style=color:#f92672>.</span>UnitCode,UnitCodeJson<span style=color:#f92672>) </span><span style=color:#66d9ef>then</span> 
+        DescriptionToSet <span style=color:#f92672>:=</span> UnitCodeJson<span style=color:#f92672>.</span>Description; 
+    ItemDataMigrationFacade<span style=color:#f92672>.</span>CreateUnitOfMeasureIfNeeded<span style=color:#f92672>(</span>ItemJson<span style=color:#f92672>.</span>UnitCode, DescriptionToSet<span style=color:#f92672>)</span>; 
+    
+    <span style=color:#75715e>// set the unit of measure on the item 
+</span><span style=color:#75715e></span>    ItemDataMigrationFacade<span style=color:#f92672>.</span>SetBaseUnitOfMeasure<span style=color:#f92672>(</span>ItemJson<span style=color:#f92672>.</span>UnitCode<span style=color:#f92672>)</span>; 
+<span style=color:#66d9ef>end</span>;
 </code></pre></div><p><em>Figure 2: Example of Item and Item Unit of Measure migration without staging tables</em></p>
 <h3 id=usage-with-staging-tables>Usage with staging tables:</h3>
 <p>The overall workflow is:</p>
@@ -409,82 +412,81 @@ This starts the migration. False means this is not a retry. A re-try is when you
 </li>
 <li>
 <p>From the event subscribers, call the façade procedures to create entities and set their field values:</p>
-</li>
-<li>
 <ul>
 <li><strong>&ldquo;Item Data Migration Façade&rdquo;.CreateItemIfNeeded(&lsquo;ITEM042&rsquo;,&lsquo;My Item Description&rsquo;;&lsquo;My Item Description 2&rsquo;;ItemTypeToSet::Inventory)</strong></li>
+<li><strong>&ldquo;Item Data Migration Façade&rdquo;.SetBaseUnitOfMeasure(&lsquo;BOX&rsquo;)</strong></li>
+<li><strong>&ldquo;Item Data Migration Façade&rdquo;.ModifyItem(true)</strong></li>
 </ul>
-</li>
-<li>
-<p><strong>&ldquo;Item Data Migration Façade&rdquo;.SetBaseUnitOfMeasure(&lsquo;BOX&rsquo;)</strong></p>
-</li>
-<li>
-<p><strong>&ldquo;Item Data Migration Façade&rdquo;.ModifyItem(true)</strong></p>
 </li>
 </ul>
 <p><a href=StagingTableNew2.png><img src=StagingTableNew2.png alt=" "></a></p>
 <p><em>Figure 3: Simplified sequence diagram of the data migration with staging tables</em></p>
 <p>Below is a simplified example showing how to create an item:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>    [EventSubscriber<span style=color:#f92672>(</span><span style=color:#66d9ef>ObjectType</span>::<span style=color:#66d9ef>Codeunit</span>, <span style=color:#66d9ef>Codeunit</span>::&#34;Item Data Migration Facade&#34;, <span style=color:#e6db74>&#39;OnMigrateItem&#39;</span>, <span style=color:#e6db74>&#39;&#39;</span>, true, true<span style=color:#f92672>)</span>] 
-    <span style=color:#66d9ef>procedure</span> OnMigrateItem<span style=color:#f92672>(</span><span style=color:#66d9ef>VAR</span> Sender : <span style=color:#66d9ef>Codeunit</span> &#34;Item Data Migration Facade&#34;;RecordIdToMigrate : <span style=color:#66d9ef>RecordId</span><span style=color:#f92672>)</span>; 
-    <span style=color:#66d9ef>var</span> 
-      MyItemStagingTable : <span style=color:#66d9ef>Record</span> &#34;My Item Staging Table&#34;; 
-    <span style=color:#66d9ef>begin</span> 
-      <span style=color:#75715e>// handle the event if it targets this extension&#39;s staging table 
-</span><span style=color:#75715e></span>      <span style=color:#66d9ef>if</span> RecordIdToMigrate<span style=color:#f92672>.</span>TableNo &lt;\&gt; <span style=color:#66d9ef>Database</span>::&#34;My Item Staging Table&#34; <span style=color:#66d9ef>then</span> 
-      <span style=color:#66d9ef>exit</span>; 
-      MyItemStagingTable<span style=color:#f92672>.</span>Get<span style=color:#f92672>(</span>RecordIdToMigrate<span style=color:#f92672>)</span>; 
-      <span style=color:#75715e>// create item using the facade 
-</span><span style=color:#75715e></span>      <span style=color:#66d9ef>if</span> <span style=color:#f92672>not</span> Sender<span style=color:#f92672>.</span>CreateItemIfNeeded<span style=color:#f92672>(</span>MyItemStagingTable<span style=color:#f92672>.</span>ItemNumber,MyItemStagingTable<span style=color:#f92672>.</span>ItemName1,
-      MyItemStagingTable<span style=color:#f92672>.</span>ItemName2,ConvertItemType<span style=color:#f92672>(</span>MyItemStagingTable<span style=color:#f92672>.</span>ItemType<span style=color:#f92672>)) </span><span style=color:#66d9ef>then</span> 
-      <span style=color:#66d9ef>exit</span>; <span style=color:#75715e>// item already exists 
-</span><span style=color:#75715e></span>      <span style=color:#75715e>// set some fields using the facade 
-</span><span style=color:#75715e></span>      Sender<span style=color:#f92672>.</span>SetVendorItemNo<span style=color:#f92672>(</span>MyItemStagingTable<span style=color:#f92672>.</span>VendItemNumber<span style=color:#f92672>)</span>; 
-      Sender<span style=color:#f92672>.</span>SetUnitVolume<span style=color:#f92672>(</span>MyItemStagingTable<span style=color:#f92672>.</span>Volume<span style=color:#f92672>)</span>; 
-      Sender<span style=color:#f92672>.</span>SetAlternativeItemNo<span style=color:#f92672>(</span>MyItemStagingTable<span style=color:#f92672>.</span>AltItemNumber<span style=color:#f92672>)</span>; 
-      <span style=color:#66d9ef>if</span> MyItemStagingTable<span style=color:#f92672>.</span>PrimaryVendor &lt;\&gt; <span style=color:#e6db74>&#39;&#39;</span> <span style=color:#66d9ef>then</span> 
-      Sender<span style=color:#f92672>.</span>SetVendorNo<span style=color:#f92672>(</span>MyItemStagingTable<span style=color:#f92672>.</span>PrimaryVendor<span style=color:#f92672>)</span>; 
-      <span style=color:#75715e>// modify the item (+run trigger) to save the changes made by setters 
-</span><span style=color:#75715e></span>      Sender<span style=color:#f92672>.</span>ModifyItem<span style=color:#f92672>(</span>true<span style=color:#f92672>)</span>; 
-    <span style=color:#66d9ef>end</span>;
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>[EventSubscriber<span style=color:#f92672>(</span><span style=color:#66d9ef>ObjectType</span>::<span style=color:#66d9ef>Codeunit</span>, <span style=color:#66d9ef>Codeunit</span>::&#34;Item Data Migration Facade&#34;, <span style=color:#e6db74>&#39;OnMigrateItem&#39;</span>, <span style=color:#e6db74>&#39;&#39;</span>, true, true<span style=color:#f92672>)</span>] 
+<span style=color:#66d9ef>procedure</span> OnMigrateItem<span style=color:#f92672>(</span><span style=color:#66d9ef>VAR</span> Sender : <span style=color:#66d9ef>Codeunit</span> &#34;Item Data Migration Facade&#34;;RecordIdToMigrate : <span style=color:#66d9ef>RecordId</span><span style=color:#f92672>)</span>; 
+<span style=color:#66d9ef>var</span> 
+    MyItemStagingTable : <span style=color:#66d9ef>Record</span> &#34;My Item Staging Table&#34;; 
+<span style=color:#66d9ef>begin</span> 
+    <span style=color:#75715e>// handle the event if it targets this extension&#39;s staging table 
+</span><span style=color:#75715e></span>    <span style=color:#66d9ef>if</span> RecordIdToMigrate<span style=color:#f92672>.</span>TableNo &lt;&gt; <span style=color:#66d9ef>Database</span>::&#34;My Item Staging Table&#34; <span style=color:#66d9ef>then</span> 
+        <span style=color:#66d9ef>exit</span>;
+    MyItemStagingTable<span style=color:#f92672>.</span>Get<span style=color:#f92672>(</span>RecordIdToMigrate<span style=color:#f92672>)</span>; 
+
+    <span style=color:#75715e>// create item using the facade 
+</span><span style=color:#75715e></span>    <span style=color:#66d9ef>if</span> <span style=color:#f92672>not</span> Sender<span style=color:#f92672>.</span>CreateItemIfNeeded<span style=color:#f92672>(</span>MyItemStagingTable<span style=color:#f92672>.</span>ItemNumber,MyItemStagingTable<span style=color:#f92672>.</span>ItemName1,
+        MyItemStagingTable<span style=color:#f92672>.</span>ItemName2,ConvertItemType<span style=color:#f92672>(</span>MyItemStagingTable<span style=color:#f92672>.</span>ItemType<span style=color:#f92672>)) </span><span style=color:#66d9ef>then</span> 
+            <span style=color:#66d9ef>exit</span>; <span style=color:#75715e>// item already exists
+</span><span style=color:#75715e></span>
+    <span style=color:#75715e>// set some fields using the facade 
+</span><span style=color:#75715e></span>    Sender<span style=color:#f92672>.</span>SetVendorItemNo<span style=color:#f92672>(</span>MyItemStagingTable<span style=color:#f92672>.</span>VendItemNumber<span style=color:#f92672>)</span>; 
+    Sender<span style=color:#f92672>.</span>SetUnitVolume<span style=color:#f92672>(</span>MyItemStagingTable<span style=color:#f92672>.</span>Volume<span style=color:#f92672>)</span>; 
+    Sender<span style=color:#f92672>.</span>SetAlternativeItemNo<span style=color:#f92672>(</span>MyItemStagingTable<span style=color:#f92672>.</span>AltItemNumber<span style=color:#f92672>)</span>; 
+    <span style=color:#66d9ef>if</span> MyItemStagingTable<span style=color:#f92672>.</span>PrimaryVendor &lt;&gt; <span style=color:#e6db74>&#39;&#39;</span> <span style=color:#66d9ef>then</span> 
+        Sender<span style=color:#f92672>.</span>SetVendorNo<span style=color:#f92672>(</span>MyItemStagingTable<span style=color:#f92672>.</span>PrimaryVendor<span style=color:#f92672>)</span>;
+
+    <span style=color:#75715e>// modify the item (+run trigger) to save the changes made by setters 
+</span><span style=color:#75715e></span>    Sender<span style=color:#f92672>.</span>ModifyItem<span style=color:#f92672>(</span>true<span style=color:#f92672>)</span>; 
+<span style=color:#66d9ef>end</span>;
 </code></pre></div><p><em>Figure 4: Example of event subscriber for Item migration</em></p>
 <p>Below is another example showing how to use additional events to set fields that reference other tables, here the unit of measure:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>    [EventSubscriber<span style=color:#f92672>(</span><span style=color:#66d9ef>ObjectType</span>::<span style=color:#66d9ef>Codeunit</span>, <span style=color:#66d9ef>Codeunit</span>::&#34;Item Data Migration Facade&#34;, <span style=color:#e6db74>&#39;OnMigrateItemUnitOfMeasure&#39;</span>, <span style=color:#e6db74>&#39;&#39;</span>, true, true<span style=color:#f92672>)</span>] 
-    <span style=color:#66d9ef>procedure</span> OnMigrateItemUnitOfMeasure<span style=color:#f92672>(</span><span style=color:#66d9ef>VAR</span> Sender : <span style=color:#66d9ef>Codeunit</span> &#34;Item Data Migration Facade&#34;;RecordIdToMigrate : <span style=color:#66d9ef>RecordId</span><span style=color:#f92672>)</span>; 
-    <span style=color:#66d9ef>var</span> 
-      MyItemStagingTable : <span style=color:#66d9ef>Record</span> &#34;My Item Staging Table&#34;; 
-      MyUnitCodeStagingTable : <span style=color:#66d9ef>Record</span> &#34;My Unit Code Staging Table&#34;; 
-      DescriptionToSet: <span style=color:#66d9ef>Text</span>[<span style=color:#ae81ff>10</span>]; 
-    <span style=color:#66d9ef>begin</span> 
-      <span style=color:#75715e>// handle the event if it targets this extension&#39;s staging table 
-</span><span style=color:#75715e></span>      <span style=color:#66d9ef>if</span> RecordIdToMigrate<span style=color:#f92672>.</span>TableNo &lt;\&gt; <span style=color:#66d9ef>Database</span>::&#34;My Item Staging Table&#34; <span style=color:#66d9ef>then</span> 
-      <span style=color:#66d9ef>exit</span>; 
-      MyItemStagingTable<span style=color:#f92672>.</span>Get<span style=color:#f92672>(</span>RecordIdToMigrate<span style=color:#f92672>)</span>; 
-      <span style=color:#66d9ef>if</span> MyItemStagingTable<span style=color:#f92672>.</span>UnitCode = <span style=color:#e6db74>&#39;&#39;</span> <span style=color:#66d9ef>then</span> 
-      error<span style=color:#f92672>(</span><span style=color:#e6db74>&#39;Unit of measure is empty.&#39;</span><span style=color:#f92672>)</span>; 
-      MyUnitCodeStagingTable<span style=color:#f92672>.</span>SetRange<span style=color:#f92672>(</span>UnitCode,MyItemStagingTable<span style=color:#f92672>.</span>UnitCode<span style=color:#f92672>)</span>; 
-      <span style=color:#66d9ef>if</span> MyUnitCodeStagingTable<span style=color:#f92672>.</span>FindFirst <span style=color:#66d9ef>then</span> 
-      DescriptionToSet <span style=color:#f92672>:=</span> MyUnitCodeStagingTable<span style=color:#f92672>.</span>Description; 
-      <span style=color:#75715e>// create the unit of measure through the facade 
-</span><span style=color:#75715e></span>      Sender<span style=color:#f92672>.</span>CreateUnitOfMeasureIfNeeded<span style=color:#f92672>(</span>MyItemStagingTable<span style=color:#f92672>.</span>UnitCode, DescriptionToSet<span style=color:#f92672>)</span>; 
-      <span style=color:#75715e>// set the unit of measure on the item 
-</span><span style=color:#75715e></span>      Sender<span style=color:#f92672>.</span>SetBaseUnitOfMeasure<span style=color:#f92672>(</span>MyItemStagingTable<span style=color:#f92672>.</span>UnitCode<span style=color:#f92672>)</span>; 
-      <span style=color:#75715e>// modify the item to save the changes made by setter 
-</span><span style=color:#75715e></span>      Sender<span style=color:#f92672>.</span>ModifyItem<span style=color:#f92672>(</span>false<span style=color:#f92672>)</span>; 
-    <span style=color:#66d9ef>end</span>; 
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>[EventSubscriber<span style=color:#f92672>(</span><span style=color:#66d9ef>ObjectType</span>::<span style=color:#66d9ef>Codeunit</span>, <span style=color:#66d9ef>Codeunit</span>::&#34;Item Data Migration Facade&#34;, <span style=color:#e6db74>&#39;OnMigrateItemUnitOfMeasure&#39;</span>, <span style=color:#e6db74>&#39;&#39;</span>, true, true<span style=color:#f92672>)</span>] 
+<span style=color:#66d9ef>procedure</span> OnMigrateItemUnitOfMeasure<span style=color:#f92672>(</span><span style=color:#66d9ef>VAR</span> Sender : <span style=color:#66d9ef>Codeunit</span> &#34;Item Data Migration Facade&#34;;RecordIdToMigrate : <span style=color:#66d9ef>RecordId</span><span style=color:#f92672>)</span>; 
+<span style=color:#66d9ef>var</span> 
+    MyItemStagingTable : <span style=color:#66d9ef>Record</span> &#34;My Item Staging Table&#34;; 
+    MyUnitCodeStagingTable : <span style=color:#66d9ef>Record</span> &#34;My Unit Code Staging Table&#34;; 
+    DescriptionToSet: <span style=color:#66d9ef>Text</span>[<span style=color:#ae81ff>10</span>]; 
+<span style=color:#66d9ef>begin</span> 
+    <span style=color:#75715e>// handle the event if it targets this extension&#39;s staging table 
+</span><span style=color:#75715e></span>    <span style=color:#66d9ef>if</span> RecordIdToMigrate<span style=color:#f92672>.</span>TableNo &lt;&gt; <span style=color:#66d9ef>Database</span>::&#34;My Item Staging Table&#34; <span style=color:#66d9ef>then</span> 
+        <span style=color:#66d9ef>exit</span>;
+
+    MyItemStagingTable<span style=color:#f92672>.</span>Get<span style=color:#f92672>(</span>RecordIdToMigrate<span style=color:#f92672>)</span>; 
+    <span style=color:#66d9ef>if</span> MyItemStagingTable<span style=color:#f92672>.</span>UnitCode = <span style=color:#e6db74>&#39;&#39;</span> <span style=color:#66d9ef>then</span> 
+        error<span style=color:#f92672>(</span><span style=color:#e6db74>&#39;Unit of measure is empty.&#39;</span><span style=color:#f92672>)</span>;
+    MyUnitCodeStagingTable<span style=color:#f92672>.</span>SetRange<span style=color:#f92672>(</span>UnitCode,MyItemStagingTable<span style=color:#f92672>.</span>UnitCode<span style=color:#f92672>)</span>; 
+    <span style=color:#66d9ef>if</span> MyUnitCodeStagingTable<span style=color:#f92672>.</span>FindFirst <span style=color:#66d9ef>then</span> 
+        DescriptionToSet <span style=color:#f92672>:=</span> MyUnitCodeStagingTable<span style=color:#f92672>.</span>Description;
+
+    <span style=color:#75715e>// create the unit of measure through the facade 
+</span><span style=color:#75715e></span>    Sender<span style=color:#f92672>.</span>CreateUnitOfMeasureIfNeeded<span style=color:#f92672>(</span>MyItemStagingTable<span style=color:#f92672>.</span>UnitCode, DescriptionToSet<span style=color:#f92672>)</span>;
+
+    <span style=color:#75715e>// set the unit of measure on the item 
+</span><span style=color:#75715e></span>    Sender<span style=color:#f92672>.</span>SetBaseUnitOfMeasure<span style=color:#f92672>(</span>MyItemStagingTable<span style=color:#f92672>.</span>UnitCode<span style=color:#f92672>)</span>;
+
+    <span style=color:#75715e>// modify the item to save the changes made by setter 
+</span><span style=color:#75715e></span>    Sender<span style=color:#f92672>.</span>ModifyItem<span style=color:#f92672>(</span>false<span style=color:#f92672>)</span>; 
+<span style=color:#66d9ef>end</span>;
 </code></pre></div><p><em>Figure 5: Example of event subscriber for Item Unit of Measure migration</em></p>
 <h3 id=combining-both-approaches>Combining both approaches:</h3>
-<p>If you want to migrate additional entities, the **Data Migration **framework lets you initialize the migration with entities other than master data. In this case, the <strong>Data Migration Overview</strong> page will show additional lines. Item, vendor, customer, an general ledger accounts are migrated with an event driven approach, and the additional entities are migrated by calling an extension codeunit <strong>OnRun</strong> method.</p>
+<p>If you want to migrate additional entities, the <strong>Data Migration</strong> framework lets you initialize the migration with entities other than master data. In this case, the <strong>Data Migration Overview</strong> page will show additional lines. Item, vendor, customer, an general ledger accounts are migrated with an event driven approach, and the additional entities are migrated by calling an extension codeunit <strong>OnRun</strong> method.</p>
 <h2 id=error-handling-with-staging-tables>Error handling with staging tables:</h2>
 <p>The migration starts by calling <strong>RUN</strong> on the façade codeunit. Errors thrown during the call are captured by <strong>GETLASTERRORTEXT</strong> and displayed when you choose the <strong>Show Errors</strong> action on the <strong>Data Migration Overview</strong> page.</p>
 <p><a href=errorhandling1.png><img src=errorhandling1.png alt=" "></a></p>
 <p><em>Figure 6: List of errors shown when clicking <strong>Show Errors</strong> on the <strong>Data Migration Overview</strong> page</em></p>
-<p>__</p>
 <p>The <strong>Edit Record</strong> action opens a view of the staging table, where you can edit fields to fix errors. Figure 4 shows an example of a page for the vendor staging table in a migration from C5.</p>
 <p><a href=errorhandling2.png><img src=errorhandling2.png alt=" "></a></p>
 <p><em>Figure 7: Edit a staging table record</em></p>
-<p>__</p>
-<p>The <strong>Staging Table ID</strong> determines the page to open, so it is important that the page ID is equal to the <strong>Staging Table ID</strong>, at least for the master data staging tables, for example, for<strong>G/L Accounts, Items, Customers</strong> and <strong>Vendor</strong>. You should ensure that pages to edit related entities are linked on this page by means of new actions. For example, Figure 4 uses the <strong>C5 Purchaser</strong> action.</p>
+<p>The <strong>Staging Table ID</strong> determines the page to open, so it is important that the page ID is equal to the <strong>Staging Table ID</strong>, at least for the master data staging tables, for example, for <strong>G/L Accounts, Items, Customers</strong> and <strong>Vendor</strong>. You should ensure that pages to edit related entities are linked on this page by means of new actions. For example, Figure 4 uses the <strong>C5 Purchaser</strong> action.</p>
 <p>After you fix the staging table record, you can choose the <strong>Migrate</strong> action to mark the selected records as records to retry, and then run <strong>StartMigration</strong> with the <strong>Retry</strong> flag set to true. This is the only place where the retry flag should be set to true in the <strong>StartMigration</strong> procedure.</p>
 <p>Error handling without staging tables</p>
 <p>When migrating data without staging tables, errors can be registered manually by the extension using <strong>DataMigrationStatusFacade.RegisterErrorNoStagingTablesCase</strong>. Otherwise they can be registered automatically if the codeunits fail when called on their <strong>OnRun</strong> procedure.</p>
@@ -544,12 +546,12 @@ This starts the migration. False means this is not a retry. A re-try is when you
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/js/clipboard.min.js?1644506468></script>
-<script src=/js/perfect-scrollbar.min.js?1644506468></script>
-<script src=/js/perfect-scrollbar.jquery.min.js?1644506468></script>
-<script src=/js/jquery.svg.pan.zoom.js?1644506468></script>
-<script src=/js/featherlight.min.js?1644506468></script>
-<script src=/js/modernizr.custom-3.6.0.js?1644506468></script>
-<script src=/js/relearn.js?1644506468></script>
+<script src=/js/clipboard.min.js?1644600599></script>
+<script src=/js/perfect-scrollbar.min.js?1644600599></script>
+<script src=/js/perfect-scrollbar.jquery.min.js?1644600599></script>
+<script src=/js/jquery.svg.pan.zoom.js?1644600599></script>
+<script src=/js/featherlight.min.js?1644600599></script>
+<script src=/js/modernizr.custom-3.6.0.js?1644600599></script>
+<script src=/js/relearn.js?1644600599></script>
 </body>
 </html>

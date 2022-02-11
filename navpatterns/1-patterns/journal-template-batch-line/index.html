@@ -5,16 +5,16 @@
 <meta name=generator content="Hugo 0.92.1">
 <meta name=description content>
 <title>Journal Template Batch Line :: AL Guidelines</title>
-<link href=/css/nucleus.css?1644506468 rel=stylesheet>
-<link href=/css/fontawesome-all.min.css?1644506468 rel=stylesheet>
-<link href=/css/featherlight.min.css?1644506468 rel=stylesheet>
-<link href=/css/perfect-scrollbar.min.css?1644506468 rel=stylesheet>
-<link href=/css/auto-complete.css?1644506468 rel=stylesheet>
-<link href=/css/theme.css?1644506468 rel=stylesheet>
-<link href=/css/theme-blue.css?1644506468 rel=stylesheet>
-<link href=/css/variant.css?1644506468 rel=stylesheet>
-<link href=/css/print.css?1644506468 rel=stylesheet media=print>
-<script src=/js/jquery.min.js?1644506468></script>
+<link href=/css/nucleus.css?1644600599 rel=stylesheet>
+<link href=/css/fontawesome-all.min.css?1644600599 rel=stylesheet>
+<link href=/css/featherlight.min.css?1644600599 rel=stylesheet>
+<link href=/css/perfect-scrollbar.min.css?1644600599 rel=stylesheet>
+<link href=/css/auto-complete.css?1644600599 rel=stylesheet>
+<link href=/css/theme.css?1644600599 rel=stylesheet>
+<link href=/css/theme-blue.css?1644600599 rel=stylesheet>
+<link href=/css/variant.css?1644600599 rel=stylesheet>
+<link href=/css/print.css?1644600599 rel=stylesheet media=print>
+<script src=/js/jquery.min.js?1644600599></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
 <body data-url=/navpatterns/1-patterns/journal-template-batch-line/>
@@ -32,9 +32,9 @@ ALGuidelines.Dev
 <input data-search-input id=search-by type=search placeholder=Search...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script src=/js/lunr.min.js?1644506468></script>
-<script src=/js/auto-complete.js?1644506468></script>
-<script src=/js/search.js?1644506468></script>
+<script src=/js/lunr.min.js?1644600599></script>
+<script src=/js/auto-complete.js?1644600599></script>
+<script src=/js/search.js?1644600599></script>
 </div>
 <div class=highlightable>
 <ul class=topics>
@@ -282,7 +282,7 @@ ALGuidelines.Dev
 <h2 id=abstract>Abstract</h2>
 <p>The role of a journal line is to temporarily hold transaction data until the transaction is posted. Before posting, the entries are in a draft state, which means that they are available for corrections and/or deletion. As soon as the entries are posted, they are converted to ledger entries.</p>
 <p>Journal templates are used to specify the underlying journal structure and to provide the default information for the journal batches. Journal batches usually serve to group journal lines, such as lines created by two different users.</p>
-<p>_<a href=2438.Journal-Template-Batch-Line-1.jpg><img src=2438.Journal-Template-Batch-Line-1.jpg alt=" "></a>_</p>
+<p><a href=2438.Journal-Template-Batch-Line-1.jpg><img src=2438.Journal-Template-Batch-Line-1.jpg alt=" "></a></p>
 <h2 id=description>Description</h2>
 <p>Journal templates and journal batches are used if there is a need to create and post one or more entries. They are implemented in multiple areas of the application, like Sales, Purchases, Cash Receipts, Payments, Fixed Assets1.</p>
 <h3 id=journal-templates>Journal Templates</h3>
@@ -295,19 +295,36 @@ ALGuidelines.Dev
 <li>No. Series</li>
 </ul>
 <p>The Journal Template table stores the relevant attributes that define the nature and behavior of the journal templates, for example:</p>
-<p>Journal Template Table Field</p>
-<p>Description</p>
-<p>Test Report ID</p>
-<p>The journals offer the possibility of running test reports3. The role of a test report is to simulate the posting process. The verification criteria for the journal lines is ran, and the report can be displayed, all without doing the actual posting. This helps finding and correcting any errors that might exist in the data.</p>
-<p>The name of the test report is the same with the name of the corresponding journal, plus the suffix " - Test". For example, the General Journal has the associated test report named General Journal - Test.</p>
-<p>Posting Report ID</p>
-<p>This report is printed when a user selects Post and Print4.</p>
-<p>Page ID</p>
-<p>For some journals, more UI objects are required. For example, the General Journals have a special page for bank and cash.</p>
-<p>Source Code</p>
-<p>Here you can enter a Trail Code for all the postings done through this Journal4.</p>
-<p>Recurring</p>
-<p>Whenever you post lines from a recurring journal, new lines are automatically created with a posting date defined in the recurring date formula.</p>
+<table>
+<thead>
+<tr>
+<th>Journal Template Table Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Test Report ID</td>
+<td>The journals offer the possibility of running test reports3. The role of a test report is to simulate the posting process. The verification criteria for the journal lines is ran, and the report can be displayed, all without doing the actual posting. This helps finding and correcting any errors that might exist in the data. The name of the test report is the same with the name of the corresponding journal, plus the suffix " - Test". For example, the General Journal has the associated test report named General Journal - Test.</td>
+</tr>
+<tr>
+<td>Posting Report ID</td>
+<td>This report is printed when a user selects Post and Print4.</td>
+</tr>
+<tr>
+<td>Page ID</td>
+<td>For some journals, more UI objects are required. For example, the General Journals have a special page for bank and cash.</td>
+</tr>
+<tr>
+<td>Source Code</td>
+<td>Here you can enter a Trail Code for all the postings done through this Journal4.</td>
+</tr>
+<tr>
+<td>Recurring</td>
+<td>Whenever you post lines from a recurring journal, new lines are automatically created with a posting date defined in the recurring date formula.</td>
+</tr>
+</tbody>
+</table>
 <p>Each journal template defines a default value of those attributes. The values that are defined in a template will be inherited by the journal batches, which will be created from a journal template.</p>
 <p>Microsoft Dynamics NAV is released with a number of standard journal templates predefined in the Journal Templates page. More templates can be defined by the users.</p>
 <h3 id=journal-batches>Journal Batches</h3>
@@ -317,7 +334,7 @@ ALGuidelines.Dev
 <p>Journal lines contain the actual business data (posting dates, account numbers, amounts) that will be posted as ledger entries.</p>
 <p>During posting, only the information from the journal lines is needed. However, the information has been created with the help of the journal templates and grouped together using the journal batches.</p>
 <p>Posting creates ledger entries from the temporary content that is stored in the journal lines. Ledger entries are not created directly. Instead, they are posted from journal lines.</p>
-<p>_<a href=8103.Journal-Template-Batch-Line-2.jpg><img src=8103.Journal-Template-Batch-Line-2.jpg alt=" "></a>_</p>
+<p><a href=8103.Journal-Template-Batch-Line-2.jpg><img src=8103.Journal-Template-Batch-Line-2.jpg alt=" "></a></p>
 <h3 id=aggregation>Aggregation</h3>
 <p>There is a 1:n aggregation relationship between journal templates and journal batches, as well as between journal batches and journal lines. Deleting a template will cascade deletion of the related batches and lines. Deleting a batch will cascade into deletion of related lines.</p>
 <h3 id=recurring-journals>Recurring Journals</h3>
@@ -359,28 +376,25 @@ ALGuidelines.Dev
 </ul>
 <p>The General Journals Batches page (251) is linked to the Gen. Journal Batch source table (232), which has a multiple-to-1 relationship with Gen. Journal Template table, based on the Journal Template Name field.</p>
 <p>Some of the fields in the Gen. Journal Batch table are not editable. Instead, their value is automatically calculated from the parent Gen. Journal Template table. For example, the Recurring field (22) is a FlowField with the following calculation formula:</p>
-<pre><code>Lookup(&quot;Gen. Journal Template&quot;.Recurring WHERE (Name=FIELD(Journal Template Name)))
-</code></pre>
-<p>Similarly, the Template Type field is a FlowField that gets its value from the parent table:</p>
-<pre><code>Lookup(&quot;Gen. Journal Template&quot;.Type WHERE (Name=FIELD(Journal Template Name)))
-</code></pre>
-<h3 id=setting-up-a-new-batch>Setting up a New Batch</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=color:#66d9ef>Lookup</span><span style=color:#f92672>(</span>&#34;Gen. Journal Template&#34;<span style=color:#f92672>.</span>Recurring <span style=color:#66d9ef>WHERE</span> <span style=color:#f92672>(</span>Name=<span style=color:#66d9ef>FIELD</span><span style=color:#f92672>(</span>Journal Template Name<span style=color:#f92672>)))
+</span></code></pre></div><p>Similarly, the Template Type field is a FlowField that gets its value from the parent table:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=color:#66d9ef>Lookup</span><span style=color:#f92672>(</span>&#34;Gen. Journal Template&#34;<span style=color:#f92672>.</span><span style=color:#66d9ef>Type</span> <span style=color:#66d9ef>WHERE</span> <span style=color:#f92672>(</span>Name=<span style=color:#66d9ef>FIELD</span><span style=color:#f92672>(</span>Journal Template Name<span style=color:#f92672>)))
+</span></code></pre></div><h3 id=setting-up-a-new-batch>Setting up a New Batch</h3>
 <p>When the user creates a new batch, the following field values are transferred from the Gen. Journal Template table to the Gen. Journal Batch table:</p>
-<pre><code>&quot;Bal. Account Type&quot; := GenJnlTemplate.&quot;Bal. Account Type&quot;;
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>&#34;Bal. Account Type&#34; <span style=color:#f92672>:=</span> GenJnlTemplate<span style=color:#f92672>.</span>&#34;Bal. Account Type&#34;;
 
-&quot;Bal. Account No.&quot; := GenJnlTemplate.&quot;Bal. Account No.&quot;;
+&#34;Bal. Account No.&#34; <span style=color:#f92672>:=</span> GenJnlTemplate<span style=color:#f92672>.</span>&#34;Bal. Account No.&#34;;
 
-&quot;No. Series&quot; := GenJnlTemplate.&quot;No. Series&quot;;
+&#34;No. Series&#34; <span style=color:#f92672>:=</span> GenJnlTemplate<span style=color:#f92672>.</span>&#34;No. Series&#34;;
 
-&quot;Posting No. Series&quot; := GenJnlTemplate.&quot;Posting No. Series&quot;;
+&#34;Posting No. Series&#34; <span style=color:#f92672>:=</span> GenJnlTemplate<span style=color:#f92672>.</span>&#34;Posting No. Series&#34;;
 
-&quot;Reason Code&quot; := GenJnlTemplate.&quot;Reason Code&quot;;
+&#34;Reason Code&#34; <span style=color:#f92672>:=</span> GenJnlTemplate<span style=color:#f92672>.</span>&#34;Reason Code&#34;;
 
-&quot;Copy VAT Setup to Jnl. Lines&quot; := GenJnlTemplate.&quot;Copy VAT Setup to Jnl. Lines&quot;;
+&#34;Copy VAT Setup to Jnl. Lines&#34; <span style=color:#f92672>:=</span> GenJnlTemplate<span style=color:#f92672>.</span>&#34;Copy VAT Setup to Jnl. Lines&#34;;
 
-&quot;Allow VAT Difference&quot; := GenJnlTemplate.&quot;Allow VAT Difference&quot;;
-</code></pre>
-<h3 id=cascade-record-deletion>Cascade record deletion</h3>
+&#34;Allow VAT Difference&#34; <span style=color:#f92672>:=</span> GenJnlTemplate<span style=color:#f92672>.</span>&#34;Allow VAT Difference&#34;;
+</code></pre></div><h3 id=cascade-record-deletion>Cascade record deletion</h3>
 <p>When a record from the Gen. Journal Template table is deleted, the corresponding Gen. Journal Batch and Gen. Journal Line records are also deleted.</p>
 <h3 id=cascade-updates>Cascade updates</h3>
 <p>When the reason code or the posting number series change in the current batch, all linked Gen. Journal Line records are updated (see ModifyLines function on the Gen. Journal Batch table).</p>
@@ -418,12 +432,12 @@ ALGuidelines.Dev
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/js/clipboard.min.js?1644506468></script>
-<script src=/js/perfect-scrollbar.min.js?1644506468></script>
-<script src=/js/perfect-scrollbar.jquery.min.js?1644506468></script>
-<script src=/js/jquery.svg.pan.zoom.js?1644506468></script>
-<script src=/js/featherlight.min.js?1644506468></script>
-<script src=/js/modernizr.custom-3.6.0.js?1644506468></script>
-<script src=/js/relearn.js?1644506468></script>
+<script src=/js/clipboard.min.js?1644600599></script>
+<script src=/js/perfect-scrollbar.min.js?1644600599></script>
+<script src=/js/perfect-scrollbar.jquery.min.js?1644600599></script>
+<script src=/js/jquery.svg.pan.zoom.js?1644600599></script>
+<script src=/js/featherlight.min.js?1644600599></script>
+<script src=/js/modernizr.custom-3.6.0.js?1644600599></script>
+<script src=/js/relearn.js?1644600599></script>
 </body>
 </html>

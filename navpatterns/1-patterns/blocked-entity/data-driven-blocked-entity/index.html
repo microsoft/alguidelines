@@ -5,16 +5,16 @@
 <meta name=generator content="Hugo 0.92.1">
 <meta name=description content>
 <title>Data Driven Blocked Entity :: AL Guidelines</title>
-<link href=/css/nucleus.css?1644506469 rel=stylesheet>
-<link href=/css/fontawesome-all.min.css?1644506469 rel=stylesheet>
-<link href=/css/featherlight.min.css?1644506469 rel=stylesheet>
-<link href=/css/perfect-scrollbar.min.css?1644506469 rel=stylesheet>
-<link href=/css/auto-complete.css?1644506469 rel=stylesheet>
-<link href=/css/theme.css?1644506469 rel=stylesheet>
-<link href=/css/theme-blue.css?1644506469 rel=stylesheet>
-<link href=/css/variant.css?1644506469 rel=stylesheet>
-<link href=/css/print.css?1644506469 rel=stylesheet media=print>
-<script src=/js/jquery.min.js?1644506469></script>
+<link href=/css/nucleus.css?1644600599 rel=stylesheet>
+<link href=/css/fontawesome-all.min.css?1644600599 rel=stylesheet>
+<link href=/css/featherlight.min.css?1644600599 rel=stylesheet>
+<link href=/css/perfect-scrollbar.min.css?1644600599 rel=stylesheet>
+<link href=/css/auto-complete.css?1644600599 rel=stylesheet>
+<link href=/css/theme.css?1644600599 rel=stylesheet>
+<link href=/css/theme-blue.css?1644600599 rel=stylesheet>
+<link href=/css/variant.css?1644600599 rel=stylesheet>
+<link href=/css/print.css?1644600599 rel=stylesheet media=print>
+<script src=/js/jquery.min.js?1644600599></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
 <body data-url=/navpatterns/1-patterns/blocked-entity/data-driven-blocked-entity/>
@@ -32,9 +32,9 @@ ALGuidelines.Dev
 <input data-search-input id=search-by type=search placeholder=Search...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script src=/js/lunr.min.js?1644506469></script>
-<script src=/js/auto-complete.js?1644506469></script>
-<script src=/js/search.js?1644506469></script>
+<script src=/js/lunr.min.js?1644600599></script>
+<script src=/js/auto-complete.js?1644600599></script>
+<script src=/js/search.js?1644600599></script>
 </div>
 <div class=highlightable>
 <ul class=topics>
@@ -271,7 +271,7 @@ ALGuidelines.Dev
 <h2 id=problem>Problem</h2>
 <p>A NAV record can be used in a number of functionalities across the app. There are situations, however, when the administrator wants to restrict the consumption of such a record, as well as lift the restriction when it is no longer relevant.</p>
 <p>For example, a new customer record should not be used for posting documents until it is approved by the relevant approver.</p>
-<p>We could solve this by using the <a href=/nav/w/designpatterns/79.blocked-entity>Blocked Entity pattern</a>, but it requires database schema changes, which have an upgrade impact.</p>
+<p>We could solve this by using the <a href=/navpatterns/1-patterns/blocked-entity/>Blocked Entity pattern</a>, but it requires database schema changes, which have an upgrade impact.</p>
 <p>The blocked entity pattern involves:</p>
 <ol>
 <li>Adding a &ldquo;blocked&rdquo; status field on the record (either a Boolean or in the more advanced cases, an option field refining the usage).</li>
@@ -304,11 +304,10 @@ ALGuidelines.Dev
 <p>All the approval workflows include a response that restricts usage of a record, and then, at the end of an approval loop, a response that allows the usage again by lifting the restriction. See responses &ldquo;Add record restriction&rdquo; and &ldquo;Remove record restriction&rdquo; implemented in COD1521.<a href=https://microsoft.sharepoint.com/teams/DynamicsNAV/Wiki/Nav%20Wiki%20Documents/NAV%20App%20Patterns/NAV%20App%20Patterns%20for%20Review/Data-Driven%20Blocked%20Entity.docx#_msocom_2><br>
 </a></p>
 <p>The code behind the &ldquo;Add record restriction&rdquo; workflow response:</p>
-<pre><code>RecRef.GETTABLE(Variant);
-Workflow.GET(WorkflowStepInstance.&quot;Workflow Code&quot;);
-RecordRestrictionMgt.RestrictRecordUsage(RecRef.RECORDID,STRSUBSTNO(RestrictUsageDetailsTxt,Workflow.Code,Workflow.Description));
-</code></pre>
-<p>The code behind the &ldquo;Remove record restriction&rdquo; response:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-AL data-lang=AL>RecRef<span style=color:#f92672>.</span>GETTABLE<span style=color:#f92672>(</span><span style=color:#66d9ef>Variant</span><span style=color:#f92672>)</span>;
+Workflow<span style=color:#f92672>.</span>GET<span style=color:#f92672>(</span>WorkflowStepInstance<span style=color:#f92672>.</span>&#34;Workflow Code&#34;<span style=color:#f92672>)</span>;
+RecordRestrictionMgt<span style=color:#f92672>.</span>RestrictRecordUsage<span style=color:#f92672>(</span>RecRef<span style=color:#f92672>.</span><span style=color:#66d9ef>RECORDID</span>,STRSUBSTNO<span style=color:#f92672>(</span>RestrictUsageDetailsTxt,Workflow<span style=color:#f92672>.</span><span style=color:#66d9ef>Code</span>,Workflow<span style=color:#f92672>.</span>Description<span style=color:#f92672>))</span>;
+</code></pre></div><p>The code behind the &ldquo;Remove record restriction&rdquo; response:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-AL data-lang=AL>RecRef<span style=color:#f92672>.</span>GETTABLE<span style=color:#f92672>(</span><span style=color:#66d9ef>Variant</span><span style=color:#f92672>)</span>;
 <span style=color:#66d9ef>CASE</span> RecRef<span style=color:#f92672>.</span>NUMBER <span style=color:#66d9ef>OF</span>
     <span style=color:#66d9ef>DATABASE</span>::&#34;Approval Entry&#34;:
@@ -344,12 +343,12 @@ RecordRestrictionMgt.RestrictRecordUsage(RecRef.RECORDID,STRSUBSTNO(RestrictUsag
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/js/clipboard.min.js?1644506469></script>
-<script src=/js/perfect-scrollbar.min.js?1644506469></script>
-<script src=/js/perfect-scrollbar.jquery.min.js?1644506469></script>
-<script src=/js/jquery.svg.pan.zoom.js?1644506469></script>
-<script src=/js/featherlight.min.js?1644506469></script>
-<script src=/js/modernizr.custom-3.6.0.js?1644506469></script>
-<script src=/js/relearn.js?1644506469></script>
+<script src=/js/clipboard.min.js?1644600599></script>
+<script src=/js/perfect-scrollbar.min.js?1644600599></script>
+<script src=/js/perfect-scrollbar.jquery.min.js?1644600599></script>
+<script src=/js/jquery.svg.pan.zoom.js?1644600599></script>
+<script src=/js/featherlight.min.js?1644600599></script>
+<script src=/js/modernizr.custom-3.6.0.js?1644600599></script>
+<script src=/js/relearn.js?1644600599></script>
 </body>
 </html>

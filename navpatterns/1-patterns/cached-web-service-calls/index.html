@@ -5,16 +5,16 @@
 <meta name=generator content="Hugo 0.92.1">
 <meta name=description content>
 <title>Cached Web Server Calls :: AL Guidelines</title>
-<link href=/css/nucleus.css?1644506468 rel=stylesheet>
-<link href=/css/fontawesome-all.min.css?1644506468 rel=stylesheet>
-<link href=/css/featherlight.min.css?1644506468 rel=stylesheet>
-<link href=/css/perfect-scrollbar.min.css?1644506468 rel=stylesheet>
-<link href=/css/auto-complete.css?1644506468 rel=stylesheet>
-<link href=/css/theme.css?1644506468 rel=stylesheet>
-<link href=/css/theme-blue.css?1644506468 rel=stylesheet>
-<link href=/css/variant.css?1644506468 rel=stylesheet>
-<link href=/css/print.css?1644506468 rel=stylesheet media=print>
-<script src=/js/jquery.min.js?1644506468></script>
+<link href=/css/nucleus.css?1644600598 rel=stylesheet>
+<link href=/css/fontawesome-all.min.css?1644600598 rel=stylesheet>
+<link href=/css/featherlight.min.css?1644600598 rel=stylesheet>
+<link href=/css/perfect-scrollbar.min.css?1644600598 rel=stylesheet>
+<link href=/css/auto-complete.css?1644600598 rel=stylesheet>
+<link href=/css/theme.css?1644600598 rel=stylesheet>
+<link href=/css/theme-blue.css?1644600598 rel=stylesheet>
+<link href=/css/variant.css?1644600598 rel=stylesheet>
+<link href=/css/print.css?1644600598 rel=stylesheet media=print>
+<script src=/js/jquery.min.js?1644600598></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
 <body data-url=/navpatterns/1-patterns/cached-web-service-calls/>
@@ -32,9 +32,9 @@ ALGuidelines.Dev
 <input data-search-input id=search-by type=search placeholder=Search...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script src=/js/lunr.min.js?1644506468></script>
-<script src=/js/auto-complete.js?1644506468></script>
-<script src=/js/search.js?1644506468></script>
+<script src=/js/lunr.min.js?1644600598></script>
+<script src=/js/auto-complete.js?1644600598></script>
+<script src=/js/search.js?1644600598></script>
 </div>
 <div class=highlightable>
 <ul class=topics>
@@ -338,26 +338,28 @@ OnAction=<span style=color:#66d9ef>VAR</span>
 <span style=color:#66d9ef>END</span>;
 
 <span style=color:#66d9ef>LOCAL</span> <span style=color:#66d9ef>PROCEDURE</span> IdentifyCountryRegionCode@<span style=color:#ae81ff>1</span><span style=color:#f92672>(</span><span style=color:#66d9ef>VAR</span> BankDataConvBank@<span style=color:#ae81ff>1002</span> : <span style=color:#66d9ef>Record</span> <span style=color:#ae81ff>1259</span>;<span style=color:#66d9ef>Filter</span>@<span style=color:#ae81ff>1000</span> : <span style=color:#66d9ef>Text</span><span style=color:#f92672>) </span>: <span style=color:#66d9ef>Text</span>;
-    <span style=color:#66d9ef>VAR</span>
-        CompanyInformation@<span style=color:#ae81ff>1001</span> : <span style=color:#66d9ef>Record</span> <span style=color:#ae81ff>79</span>;
-        BlankFilter@<span style=color:#ae81ff>1003</span> : <span style=color:#66d9ef>Text</span>;
-    <span style=color:#66d9ef>BEGIN</span>
-        BlankFilter <span style=color:#f92672>:=</span> <span style=color:#e6db74>&#39;&#39;&#39;&#39;&#39;&#39;</span>;
-        <span style=color:#66d9ef>IF</span> <span style=color:#66d9ef>Filter</span> = BlankFilter <span style=color:#66d9ef>THEN</span> <span style=color:#66d9ef>BEGIN</span>
-            CompanyInformation<span style=color:#f92672>.</span>GET;
-            BankDataConvBank<span style=color:#f92672>.</span>SETFILTER<span style=color:#f92672>(</span>&#34;Country/Region Code&#34;,CompanyInformation<span style=color:#f92672>.</span>&#34;Country/Region Code&#34;<span style=color:#f92672>)</span>;
-            <span style=color:#66d9ef>EXIT</span><span style=color:#f92672>(</span>BankDataConvBank<span style=color:#f92672>.</span>GETFILTER<span style=color:#f92672>(</span>&#34;Country/Region Code&#34;<span style=color:#f92672>))</span>;
-        <span style=color:#66d9ef>END</span>;
-        <span style=color:#66d9ef>EXIT</span><span style=color:#f92672>(</span><span style=color:#66d9ef>Filter</span><span style=color:#f92672>)</span>;
+<span style=color:#66d9ef>VAR</span>
+    CompanyInformation@<span style=color:#ae81ff>1001</span> : <span style=color:#66d9ef>Record</span> <span style=color:#ae81ff>79</span>;
+    BlankFilter@<span style=color:#ae81ff>1003</span> : <span style=color:#66d9ef>Text</span>;
+<span style=color:#66d9ef>BEGIN</span>
+    BlankFilter <span style=color:#f92672>:=</span> <span style=color:#e6db74>&#39;&#39;&#39;&#39;&#39;&#39;</span>;
+
+    <span style=color:#66d9ef>IF</span> <span style=color:#66d9ef>Filter</span> = BlankFilter <span style=color:#66d9ef>THEN</span> <span style=color:#66d9ef>BEGIN</span>
+        CompanyInformation<span style=color:#f92672>.</span>GET;
+        BankDataConvBank<span style=color:#f92672>.</span>SETFILTER<span style=color:#f92672>(</span>&#34;Country/Region Code&#34;,CompanyInformation<span style=color:#f92672>.</span>&#34;Country/Region Code&#34;<span style=color:#f92672>)</span>;
+        <span style=color:#66d9ef>EXIT</span><span style=color:#f92672>(</span>BankDataConvBank<span style=color:#f92672>.</span>GETFILTER<span style=color:#f92672>(</span>&#34;Country/Region Code&#34;<span style=color:#f92672>))</span>;
     <span style=color:#66d9ef>END</span>;
 
+    <span style=color:#66d9ef>EXIT</span><span style=color:#f92672>(</span><span style=color:#66d9ef>Filter</span><span style=color:#f92672>)</span>;
+<span style=color:#66d9ef>END</span>;
+
 <span style=color:#66d9ef>LOCAL</span> <span style=color:#66d9ef>PROCEDURE</span> RefreshBankNamesOlderThanToday@<span style=color:#ae81ff>5</span><span style=color:#f92672>(</span>CountryRegionCode@<span style=color:#ae81ff>1000</span> : <span style=color:#66d9ef>Text</span>;ShowErrors@<span style=color:#ae81ff>1002</span> : <span style=color:#66d9ef>Boolean</span>;Timeout@<span style=color:#ae81ff>1004</span> : <span style=color:#66d9ef>Integer</span><span style=color:#f92672>)</span>;
-    <span style=color:#66d9ef>VAR</span>
-        BankDataConvBank@<span style=color:#ae81ff>1001</span> : <span style=color:#66d9ef>Record</span> <span style=color:#ae81ff>1259</span>;
-        ImpBankListExtDataHndl@<span style=color:#ae81ff>1003</span> : <span style=color:#66d9ef>Codeunit</span> <span style=color:#ae81ff>1289</span>;
-    <span style=color:#66d9ef>BEGIN</span>
-        <span style=color:#66d9ef>IF</span> CountryRegionCode &lt;\&gt; <span style=color:#e6db74>&#39;&#39;</span> <span style=color:#66d9ef>THEN</span>
-            BankDataConvBank<span style=color:#f92672>.</span>SETFILTER<span style=color:#f92672>(</span>&#34;Country/Region Code&#34;,CountryRegionCode<span style=color:#f92672>)</span>;
+<span style=color:#66d9ef>VAR</span>
+    BankDataConvBank@<span style=color:#ae81ff>1001</span> : <span style=color:#66d9ef>Record</span> <span style=color:#ae81ff>1259</span>;
+    ImpBankListExtDataHndl@<span style=color:#ae81ff>1003</span> : <span style=color:#66d9ef>Codeunit</span> <span style=color:#ae81ff>1289</span>;
+<span style=color:#66d9ef>BEGIN</span>
+    <span style=color:#66d9ef>IF</span> CountryRegionCode &lt;&gt; <span style=color:#e6db74>&#39;&#39;</span> <span style=color:#66d9ef>THEN</span>
+        BankDataConvBank<span style=color:#f92672>.</span>SETFILTER<span style=color:#f92672>(</span>&#34;Country/Region Code&#34;,CountryRegionCode<span style=color:#f92672>)</span>;
     BankDataConvBank<span style=color:#f92672>.</span>SETFILTER<span style=color:#f92672>(</span>&#34;Last Update Date&#34;,<span style=color:#e6db74>&#39;&lt;%1&#39;</span>,TODAY<span style=color:#f92672>)</span>;
     <span style=color:#66d9ef>IF</span> BankDataConvBank<span style=color:#f92672>.</span>FINDFIRST <span style=color:#66d9ef>THEN</span>
         ImpBankListExtDataHndl<span style=color:#f92672>.</span>GetBankListFromConversionService<span style=color:#f92672>(</span>ShowErrors,CountryRegionCode,Timeout<span style=color:#f92672>)</span>;
@@ -378,12 +380,12 @@ OnAction=<span style=color:#66d9ef>VAR</span>
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/js/clipboard.min.js?1644506468></script>
-<script src=/js/perfect-scrollbar.min.js?1644506468></script>
-<script src=/js/perfect-scrollbar.jquery.min.js?1644506468></script>
-<script src=/js/jquery.svg.pan.zoom.js?1644506468></script>
-<script src=/js/featherlight.min.js?1644506468></script>
-<script src=/js/modernizr.custom-3.6.0.js?1644506468></script>
-<script src=/js/relearn.js?1644506468></script>
+<script src=/js/clipboard.min.js?1644600598></script>
+<script src=/js/perfect-scrollbar.min.js?1644600598></script>
+<script src=/js/perfect-scrollbar.jquery.min.js?1644600598></script>
+<script src=/js/jquery.svg.pan.zoom.js?1644600598></script>
+<script src=/js/featherlight.min.js?1644600598></script>
+<script src=/js/modernizr.custom-3.6.0.js?1644600598></script>
+<script src=/js/relearn.js?1644600598></script>
 </body>
 </html>

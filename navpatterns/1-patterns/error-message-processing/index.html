@@ -5,16 +5,16 @@
 <meta name=generator content="Hugo 0.92.1">
 <meta name=description content>
 <title>Error Message Processing :: AL Guidelines</title>
-<link href=/css/nucleus.css?1644506468 rel=stylesheet>
-<link href=/css/fontawesome-all.min.css?1644506468 rel=stylesheet>
-<link href=/css/featherlight.min.css?1644506468 rel=stylesheet>
-<link href=/css/perfect-scrollbar.min.css?1644506468 rel=stylesheet>
-<link href=/css/auto-complete.css?1644506468 rel=stylesheet>
-<link href=/css/theme.css?1644506468 rel=stylesheet>
-<link href=/css/theme-blue.css?1644506468 rel=stylesheet>
-<link href=/css/variant.css?1644506468 rel=stylesheet>
-<link href=/css/print.css?1644506468 rel=stylesheet media=print>
-<script src=/js/jquery.min.js?1644506468></script>
+<link href=/css/nucleus.css?1644600599 rel=stylesheet>
+<link href=/css/fontawesome-all.min.css?1644600599 rel=stylesheet>
+<link href=/css/featherlight.min.css?1644600599 rel=stylesheet>
+<link href=/css/perfect-scrollbar.min.css?1644600599 rel=stylesheet>
+<link href=/css/auto-complete.css?1644600599 rel=stylesheet>
+<link href=/css/theme.css?1644600599 rel=stylesheet>
+<link href=/css/theme-blue.css?1644600599 rel=stylesheet>
+<link href=/css/variant.css?1644600599 rel=stylesheet>
+<link href=/css/print.css?1644600599 rel=stylesheet media=print>
+<script src=/js/jquery.min.js?1644600599></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
 <body data-url=/navpatterns/1-patterns/error-message-processing/>
@@ -32,9 +32,9 @@ ALGuidelines.Dev
 <input data-search-input id=search-by type=search placeholder=Search...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script src=/js/lunr.min.js?1644506468></script>
-<script src=/js/auto-complete.js?1644506468></script>
-<script src=/js/search.js?1644506468></script>
+<script src=/js/lunr.min.js?1644600599></script>
+<script src=/js/auto-complete.js?1644600599></script>
+<script src=/js/search.js?1644600599></script>
 </div>
 <div class=highlightable>
 <ul class=topics>
@@ -263,7 +263,7 @@ ALGuidelines.Dev
 <main id=body-inner>
 <h1>Error Message Processing</h1>
 <p><em>By Jesper Schulz at Microsoft Development Center Copenhagen</em></p>
-<p>Note: This pattern describes new functionality which makes it possible to generalize the <a href=/nav/w/designpatterns/124.journal-error-processing.aspx>Journal Error Processing</a> pattern.</p>
+<p>Note: This pattern describes new functionality which makes it possible to generalize the <a href=/navpatterns/1-patterns/journal-error-processing/>Journal Error Processing</a> pattern.</p>
 <h2 id=abstract>Abstract</h2>
 <p>Missing, invalid or incomplete data is a common issue during data processing in NAV. This article describes how to collect all error messages during processing using the error message component and present them to the user in a unified way, which enables the user to correct the errors efficiently. By leveraging the integrated error message logging functions, you can log a message with a single line of code and present it to the user with another one-liner.</p>
 <h2 id=description>Description</h2>
@@ -275,7 +275,7 @@ ALGuidelines.Dev
 <p>Validating data is a common task during data processing in NAV. Unfortunately, validation is often done using NAV&rsquo;s integrated ERROR and TESTFIELD functions, which halt execution of the process. The user will then have to locate the invalid / missing data, correct it and reinitiate the process, possibly running into the next error, making the cycle repeat itself. This can be a very tedious, time-consuming and frustrating process. The error message component aims at improving this experience by providing a lightweight framework for error message logging and this article will explain how to leverage this functionality in your code. By doing so, all error messages are gathered during (pre-)processing and are finally presented to the user. The user then has the possibility to click on the error message, which will open the record where the invalid / missing data is located, thereby enabling the user to correct all mistakes efficiently, from one central place and in one go.</p>
 <p>The example below comes from a Mexican localization, where the user has to export financial balances and transactions into an XML file for government audit purposes. In order to generate valid files, some mandatory data needs to be entered in the system. By leveraging the error message component, the user will be presented with the following page, if missing or invalid data was discovered:</p>
 <p><a href=image001.png><img src=image001.png alt=" "></a></p>
-<p>By clicking on the error message, the user will be presented with the entity, where the invalid / missing data should be corrected / added. This is done by applying the related pattern <a href=/nav/w/designpatterns/104.easy-update-of-setup-or-supplementary-information.aspx>Easy Update of Setup or Supplementary Information</a>.</p>
+<p>By clicking on the error message, the user will be presented with the entity, where the invalid / missing data should be corrected / added. This is done by applying the related pattern <a href=/navpatterns/1-patterns/easy-update-of-setup-or-supplementary-information/>Easy Update of Setup or Supplementary Information</a>.</p>
 <p><a href=image003.png><img src=image003.png alt=" "></a></p>
 <h2 id=usage>Usage</h2>
 <p>In the processing function, define a temporary record of type &ldquo;Error Message&rdquo;. Use the functions on that record to populate the record with error message, a few of them being:</p>
@@ -298,13 +298,14 @@ ALGuidelines.Dev
 <p>When the processing is complete, you can check if any error messages of type &ldquo;Error&rdquo; were logged by calling the <strong>HasErrors</strong> function and you can show the list or error messages by calling the <strong>ShowErrorMessages</strong> function. You can also integrate the error messages list as a FactBox, but that is not part of this example.</p>
 <h2 id=nav-specific-example>NAV Specific Example</h2>
 <p>The code below is an example of how the error message component was used in one part of the before mentioned Mexican feature. This code iterates over all G/L Accounts and pipes information out into an XML file. While doing so, it is validated that all mandatory fields have values and meet certain conditions. And only if that is the case, is the XML document actually exported. Also notice, that an error message is logged, in case no G/L Accounts are found given the provided filters. That way, the user can be guided to setup the system correctly.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-AL data-lang=AL>    <span style=color:#66d9ef>PROCEDURE</span> ExportChartOfAccounts@<span style=color:#ae81ff>1</span><span style=color:#f92672>(</span>Year@<span style=color:#ae81ff>1000</span> : <span style=color:#66d9ef>Integer</span>;Month@<span style=color:#ae81ff>1001</span> : <span style=color:#66d9ef>Integer</span><span style=color:#f92672>)</span>;
-    <span style=color:#66d9ef>VAR</span>
-        TempErrorMessage@<span style=color:#ae81ff>1003</span> : <span style=color:#66d9ef>TEMPORARY</span> <span style=color:#66d9ef>Record</span> <span style=color:#ae81ff>700</span>;
-    <span style=color:#66d9ef>BEGIN</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-AL data-lang=AL><span style=color:#66d9ef>PROCEDURE</span> ExportChartOfAccounts@<span style=color:#ae81ff>1</span><span style=color:#f92672>(</span>Year@<span style=color:#ae81ff>1000</span> : <span style=color:#66d9ef>Integer</span>;Month@<span style=color:#ae81ff>1001</span> : <span style=color:#66d9ef>Integer</span><span style=color:#f92672>)</span>;
+<span style=color:#66d9ef>VAR</span>
+    TempErrorMessage@<span style=color:#ae81ff>1003</span> : <span style=color:#66d9ef>TEMPORARY</span> <span style=color:#66d9ef>Record</span> <span style=color:#ae81ff>700</span>;
+<span style=color:#66d9ef>BEGIN</span>
     TempErrorMessage<span style=color:#f92672>.</span>ClearLog; <span style=color:#75715e>// only necessary if variable is global
 </span><span style=color:#75715e></span>    <span style=color:#f92672>...
 </span><span style=color:#f92672>    </span>CreateXMLHeader<span style=color:#f92672>(</span>Document,RootNode,CatalogoNodeTxt,Namespace,Year,Month,<span style=color:#e6db74>&#39;1.1&#39;</span><span style=color:#f92672>)</span>;
+
     <span style=color:#66d9ef>IF</span> GLAccount<span style=color:#f92672>.</span>FINDSET <span style=color:#66d9ef>THEN</span> <span style=color:#66d9ef>BEGIN</span>
         <span style=color:#66d9ef>REPEAT</span>
             TempErrorMessage<span style=color:#f92672>.</span>LogIfEmpty <span style=color:#f92672>(</span>GLAccount,GLAccount<span style=color:#f92672>.</span>FIELDNO<span style=color:#f92672>(</span>Name<span style=color:#f92672>)</span>,TempErrorMessage<span style=color:#f92672>.</span>&#34;Message Type&#34;::Error<span style=color:#f92672>)</span>;
@@ -318,18 +319,18 @@ ALGuidelines.Dev
                 GLAccount<span style=color:#f92672>.</span>&#34;Debit/Credit&#34;::Credit:
                     XMLDOMManagement<span style=color:#f92672>.</span>AddAttribute<span style=color:#f92672>(</span>Node,<span style=color:#e6db74>&#39;Natur&#39;</span>,<span style=color:#e6db74>&#39;A&#39;</span><span style=color:#f92672>)</span>;
             <span style=color:#66d9ef>ELSE</span>
-            TempErrorMessage<span style=color:#f92672>.</span>LogMessage<span style=color:#f92672>(
-</span><span style=color:#f92672>                </span>GLAccount,GLAccount<span style=color:#f92672>.</span>FIELDNO<span style=color:#f92672>(</span>&#34;Debit/Credit&#34;<span style=color:#f92672>)</span>,TempErrorMessage<span style=color:#f92672>.</span>&#34;Message Type&#34;::Error,
-                STRSUBSTNO<span style=color:#f92672>(</span>GLAccountTypeErr,GLAccount<span style=color:#f92672>.</span>&#34;Debit/Credit&#34;,GLAccount<span style=color:#f92672>.</span><span style=color:#66d9ef>RECORDID</span><span style=color:#f92672>))</span>;
+                TempErrorMessage<span style=color:#f92672>.</span>LogMessage<span style=color:#f92672>(
+</span><span style=color:#f92672>                    </span>GLAccount,GLAccount<span style=color:#f92672>.</span>FIELDNO<span style=color:#f92672>(</span>&#34;Debit/Credit&#34;<span style=color:#f92672>)</span>,TempErrorMessage<span style=color:#f92672>.</span>&#34;Message Type&#34;::Error,
+                    STRSUBSTNO<span style=color:#f92672>(</span>GLAccountTypeErr,GLAccount<span style=color:#f92672>.</span>&#34;Debit/Credit&#34;,GLAccount<span style=color:#f92672>.</span><span style=color:#66d9ef>RECORDID</span><span style=color:#f92672>))</span>;
             <span style=color:#66d9ef>END</span>;
         <span style=color:#66d9ef>UNTIL</span> GLAccount<span style=color:#f92672>.</span>NEXT = <span style=color:#ae81ff>0</span>;
     <span style=color:#66d9ef>END</span> <span style=color:#66d9ef>ELSE</span>
         TempErrorMessage<span style=color:#f92672>.</span>LogSimpleMessage<span style=color:#f92672>(</span>TempErrorMessage<span style=color:#f92672>.</span>&#34;Message Type&#34;::Error,NoSATAccountDefinedErr<span style=color:#f92672>)</span>;
-    
+
         <span style=color:#66d9ef>IF</span> <span style=color:#f92672>NOT</span> TempErrorMessage<span style=color:#f92672>.</span>HasErrors<span style=color:#f92672>(</span>TRUE<span style=color:#f92672>) </span><span style=color:#66d9ef>THEN</span>
             SaveXMLToClient<span style=color:#f92672>(</span>Document,Year,Month,<span style=color:#e6db74>&#39;CT&#39;</span><span style=color:#f92672>)</span>;
-            TempErrorMessage<span style=color:#f92672>.</span>ShowErrorMessages<span style=color:#f92672>(</span>FALSE<span style=color:#f92672>)</span>;
-    <span style=color:#66d9ef>END</span>;
+        TempErrorMessage<span style=color:#f92672>.</span>ShowErrorMessages<span style=color:#f92672>(</span>FALSE<span style=color:#f92672>)</span>;
+<span style=color:#66d9ef>END</span>;
 </code></pre></div><p>One could also do pre-processing in a function of its own, and only if the pre-processing results in no error messages of type &ldquo;Error&rdquo; would the processing continue.</p>
 <h2 id=ideas-for-improvement>Ideas for improvement</h2>
 <p>By using this easy to use component, we have the possibility to extend this functionality going forward. A nice addition to the error message component would be the possibility to log the error messages persistently in a grouped manner, thereby allowing 3rd parties to see the issues the users bump into the most, or allowing 3rd parties to get an detailed insight into what happened, thereby enabling them to provide better support.</p>
@@ -345,12 +346,12 @@ ALGuidelines.Dev
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/js/clipboard.min.js?1644506468></script>
-<script src=/js/perfect-scrollbar.min.js?1644506468></script>
-<script src=/js/perfect-scrollbar.jquery.min.js?1644506468></script>
-<script src=/js/jquery.svg.pan.zoom.js?1644506468></script>
-<script src=/js/featherlight.min.js?1644506468></script>
-<script src=/js/modernizr.custom-3.6.0.js?1644506468></script>
-<script src=/js/relearn.js?1644506468></script>
+<script src=/js/clipboard.min.js?1644600599></script>
+<script src=/js/perfect-scrollbar.min.js?1644600599></script>
+<script src=/js/perfect-scrollbar.jquery.min.js?1644600599></script>
+<script src=/js/jquery.svg.pan.zoom.js?1644600599></script>
+<script src=/js/featherlight.min.js?1644600599></script>
+<script src=/js/modernizr.custom-3.6.0.js?1644600599></script>
+<script src=/js/relearn.js?1644600599></script>
 </body>
 </html>

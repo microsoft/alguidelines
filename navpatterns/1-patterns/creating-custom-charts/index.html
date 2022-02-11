@@ -5,16 +5,16 @@
 <meta name=generator content="Hugo 0.92.1">
 <meta name=description content>
 <title>Creating Custom Charts :: AL Guidelines</title>
-<link href=/css/nucleus.css?1644506468 rel=stylesheet>
-<link href=/css/fontawesome-all.min.css?1644506468 rel=stylesheet>
-<link href=/css/featherlight.min.css?1644506468 rel=stylesheet>
-<link href=/css/perfect-scrollbar.min.css?1644506468 rel=stylesheet>
-<link href=/css/auto-complete.css?1644506468 rel=stylesheet>
-<link href=/css/theme.css?1644506468 rel=stylesheet>
-<link href=/css/theme-blue.css?1644506468 rel=stylesheet>
-<link href=/css/variant.css?1644506468 rel=stylesheet>
-<link href=/css/print.css?1644506468 rel=stylesheet media=print>
-<script src=/js/jquery.min.js?1644506468></script>
+<link href=/css/nucleus.css?1644600599 rel=stylesheet>
+<link href=/css/fontawesome-all.min.css?1644600599 rel=stylesheet>
+<link href=/css/featherlight.min.css?1644600599 rel=stylesheet>
+<link href=/css/perfect-scrollbar.min.css?1644600599 rel=stylesheet>
+<link href=/css/auto-complete.css?1644600599 rel=stylesheet>
+<link href=/css/theme.css?1644600599 rel=stylesheet>
+<link href=/css/theme-blue.css?1644600599 rel=stylesheet>
+<link href=/css/variant.css?1644600599 rel=stylesheet>
+<link href=/css/print.css?1644600599 rel=stylesheet media=print>
+<script src=/js/jquery.min.js?1644600599></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
 <body data-url=/navpatterns/1-patterns/creating-custom-charts/>
@@ -32,9 +32,9 @@ ALGuidelines.Dev
 <input data-search-input id=search-by type=search placeholder=Search...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script src=/js/lunr.min.js?1644506468></script>
-<script src=/js/auto-complete.js?1644506468></script>
-<script src=/js/search.js?1644506468></script>
+<script src=/js/lunr.min.js?1644600599></script>
+<script src=/js/auto-complete.js?1644600599></script>
+<script src=/js/search.js?1644600599></script>
 </div>
 <div class=highlightable>
 <ul class=topics>
@@ -299,7 +299,7 @@ ALGuidelines.Dev
 <li>DrillDown logic</li>
 <li>Other helper data related functions, for displaying date, periods, etc.[Bogdana1] [NK2] [NK3]</li>
 </ul>
-<p><strong>Note:</strong> It is recommended that you reuse the <strong>Business Chart Buffer <strong>table</strong></strong>(485) as a buffer table or extend. It is a generic table which should cover most of the use cases. Implement a new buffer table only if this table does not meet your needs.</p>
+<p><strong>Note:</strong> It is recommended that you reuse the <strong>Business Chart Buffer table</strong> (485) as a buffer table or extend. It is a generic table which should cover most of the use cases. Implement a new buffer table only if this table does not meet your needs.</p>
 <h3 id=cardpart-page>CardPart page</h3>
 <p>The CardPart page hosts the Business Chart add-in and must use the add-in buffer table as a source table.</p>
 <p>On the page, you must implement the following triggers:</p>
@@ -322,10 +322,10 @@ ALGuidelines.Dev
 <p>To do this, you need the following:</p>
 <ul>
 <li>A setup record to store the data. You can use the <strong>Business Chart User Setup</strong> table (487) or create a new setup table if you need to store more information.</li>
-<li>A management codeunit to write/apply the settings to the chart and to encapsulate other logic. Since we should not write code on pages, the code for the actions and other logic that does not apply to the setup record****should go in this codeunit.</li>
+<li>A management codeunit to write/apply the settings to the chart and to encapsulate other logic. Since we should not write code on pages, the code for the actions and other logic that does not apply to the setup record should go in this codeunit.</li>
 <li>Setup pages where users can customize how the chart is shown and set different settings.</li>
 </ul>
-<p>The relation between the components is visualized in the following diagram[</p>
+<p>The relation between the components is visualized in the following diagram:</p>
 <p><a href=0246.Picture6.png><img src=0246.Picture6.png alt=" "></a></p>
 <h3 id=optional-show-multiple-charts-within-a-single-cardpart>Optional: Show Multiple Charts within a Single CardPart</h3>
 <p>This option is useful on a Role Center where you want to show multiple charts using different datasets within a single part. In that case, you need a record to store the last chart selection, the setup records, and code units for separate charts.</p>
@@ -339,24 +339,29 @@ ALGuidelines.Dev
 <h3 id=nav-specific-example-1>NAV Specific Example 1</h3>
 <p>Implementation of the <strong>Finance Performance Chart</strong> page (762)</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>BusinessChart::AddInReady<span style=color:#f92672>()
-</span><span style=color:#f92672>    </span>UpdateChart<span style=color:#f92672>(</span>Period::&#34; &#34;<span style=color:#f92672>)</span>;
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>UpdateChart<span style=color:#f92672>(</span>Period::&#34; &#34;<span style=color:#f92672>)</span>;
 
 <span style=color:#66d9ef>LOCAL</span> UpdateChart<span style=color:#f92672>(</span>Period : <span style=color:#e6db74>&#39;,Next,Previous&#39;</span><span style=color:#f92672>)
-</span><span style=color:#f92672>    </span>MoveAndUpdateChart<span style=color:#f92672>(</span>Period,<span style=color:#ae81ff>0</span><span style=color:#f92672>)</span>;
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>MoveAndUpdateChart<span style=color:#f92672>(</span>Period,<span style=color:#ae81ff>0</span><span style=color:#f92672>)</span>;
 
 <span style=color:#66d9ef>LOCAL</span> MoveAndUpdateChart<span style=color:#f92672>(</span>Period : <span style=color:#e6db74>&#39;,Next,Previous&#39;</span>;Move : <span style=color:#66d9ef>Integer</span><span style=color:#f92672>)
-</span><span style=color:#f92672>    </span>AccSchedChartManagement<span style=color:#f92672>.</span>GetSetupRecordset<span style=color:#f92672>(</span>AccountSchedulesChartSetup,AccountSchedulesChartSetup<span style=color:#f92672>.</span>Name,Move<span style=color:#f92672>)</span>;
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>AccSchedChartManagement<span style=color:#f92672>.</span>GetSetupRecordset<span style=color:#f92672>(</span>AccountSchedulesChartSetup,AccountSchedulesChartSetup<span style=color:#f92672>.</span>Name,Move<span style=color:#f92672>)</span>;
 
-    AccSchedChartManagement<span style=color:#f92672>.</span>UpdateData<span style=color:#f92672>(</span>Rec,Period,AccountSchedulesChartSetup<span style=color:#f92672>)</span>;
+AccSchedChartManagement<span style=color:#f92672>.</span>UpdateData<span style=color:#f92672>(</span>Rec,Period,AccountSchedulesChartSetup<span style=color:#f92672>)</span>;
 
-    Update<span style=color:#f92672>(</span>CurrPage<span style=color:#f92672>.</span>BusinessChart<span style=color:#f92672>)</span>;
+Update<span style=color:#f92672>(</span>CurrPage<span style=color:#f92672>.</span>BusinessChart<span style=color:#f92672>)</span>;
 
-    StatusText <span style=color:#f92672>:=</span> GetCurrentSelectionText<span style=color:#f92672>(</span>&#34;Period Filter Start Date&#34;,&#34;Period Filter End Date&#34;<span style=color:#f92672>)</span>;
+StatusText <span style=color:#f92672>:=</span> GetCurrentSelectionText<span style=color:#f92672>(</span>&#34;Period Filter Start Date&#34;,&#34;Period Filter End Date&#34;<span style=color:#f92672>)</span>;
 </code></pre></div><p>In the MoveAndUpdateChart method, the AccSchedChartManagement codeunit gets a setup record and updates it if necessary. Then, it initializes the chart with setup data and sets the StatusText to show the period for which data is displayed. The same method is used by the actions to move and update the chart so that there is no code duplication.</p>
 <p>The following code is used to implement <strong>DataPointClicked</strong></p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>BusinessChart::DataPointClicked<span style=color:#f92672>(</span>point : <span style=color:#66d9ef>DotNet</span> &#34;Microsoft.Dynamics.Nav.Client.BusinessChart.BusinessChartDataPoint&#34;<span style=color:#f92672>)
-</span><span style=color:#f92672>    </span>SetDrillDownIndexes<span style=color:#f92672>(</span>point<span style=color:#f92672>)</span>;
-    AccSchedChartManagement<span style=color:#f92672>.</span>DrillDown<span style=color:#f92672>(</span>Rec,AccountSchedulesChartSetup<span style=color:#f92672>)</span>;
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>SetDrillDownIndexes<span style=color:#f92672>(</span>point<span style=color:#f92672>)</span>;
+
+AccSchedChartManagement<span style=color:#f92672>.</span>DrillDown<span style=color:#f92672>(</span>Rec,AccountSchedulesChartSetup<span style=color:#f92672>)</span>;
 </code></pre></div><p>SetDrillDownindexes is a method from the <strong>Business Chart Buffer</strong> table that maps the DotNet point variable to C/AL data, so it must be used. The next method that you must implement is the action to be performed on Drilldown.</p>
 <p>The <strong>DataPointDoubleClicked</strong> trigger has the same implementation logic as the DataPointClicked trigger.</p>
 <h3 id=nav-specific-example-2>NAV Specific Example 2</h3>
@@ -408,12 +413,12 @@ ALGuidelines.Dev
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/js/clipboard.min.js?1644506468></script>
-<script src=/js/perfect-scrollbar.min.js?1644506468></script>
-<script src=/js/perfect-scrollbar.jquery.min.js?1644506468></script>
-<script src=/js/jquery.svg.pan.zoom.js?1644506468></script>
-<script src=/js/featherlight.min.js?1644506468></script>
-<script src=/js/modernizr.custom-3.6.0.js?1644506468></script>
-<script src=/js/relearn.js?1644506468></script>
+<script src=/js/clipboard.min.js?1644600599></script>
+<script src=/js/perfect-scrollbar.min.js?1644600599></script>
+<script src=/js/perfect-scrollbar.jquery.min.js?1644600599></script>
+<script src=/js/jquery.svg.pan.zoom.js?1644600599></script>
+<script src=/js/featherlight.min.js?1644600599></script>
+<script src=/js/modernizr.custom-3.6.0.js?1644600599></script>
+<script src=/js/relearn.js?1644600599></script>
 </body>
 </html>

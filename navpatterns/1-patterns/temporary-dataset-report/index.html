@@ -5,16 +5,16 @@
 <meta name=generator content="Hugo 0.92.1">
 <meta name=description content>
 <title>Temporary Dataset Report :: AL Guidelines</title>
-<link href=/css/nucleus.css?1644506469 rel=stylesheet>
-<link href=/css/fontawesome-all.min.css?1644506469 rel=stylesheet>
-<link href=/css/featherlight.min.css?1644506469 rel=stylesheet>
-<link href=/css/perfect-scrollbar.min.css?1644506469 rel=stylesheet>
-<link href=/css/auto-complete.css?1644506469 rel=stylesheet>
-<link href=/css/theme.css?1644506469 rel=stylesheet>
-<link href=/css/theme-blue.css?1644506469 rel=stylesheet>
-<link href=/css/variant.css?1644506469 rel=stylesheet>
-<link href=/css/print.css?1644506469 rel=stylesheet media=print>
-<script src=/js/jquery.min.js?1644506469></script>
+<link href=/css/nucleus.css?1644600599 rel=stylesheet>
+<link href=/css/fontawesome-all.min.css?1644600599 rel=stylesheet>
+<link href=/css/featherlight.min.css?1644600599 rel=stylesheet>
+<link href=/css/perfect-scrollbar.min.css?1644600599 rel=stylesheet>
+<link href=/css/auto-complete.css?1644600599 rel=stylesheet>
+<link href=/css/theme.css?1644600599 rel=stylesheet>
+<link href=/css/theme-blue.css?1644600599 rel=stylesheet>
+<link href=/css/variant.css?1644600599 rel=stylesheet>
+<link href=/css/print.css?1644600599 rel=stylesheet media=print>
+<script src=/js/jquery.min.js?1644600599></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
 <body data-url=/navpatterns/1-patterns/temporary-dataset-report/>
@@ -32,9 +32,9 @@ ALGuidelines.Dev
 <input data-search-input id=search-by type=search placeholder=Search...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script src=/js/lunr.min.js?1644506469></script>
-<script src=/js/auto-complete.js?1644506469></script>
-<script src=/js/search.js?1644506469></script>
+<script src=/js/lunr.min.js?1644600599></script>
+<script src=/js/auto-complete.js?1644600599></script>
+<script src=/js/search.js?1644600599></script>
 </div>
 <div class=highlightable>
 <ul class=topics>
@@ -250,7 +250,11 @@ ALGuidelines.Dev
 <ul>
 <li><a href=#abstract>Abstract</a></li>
 <li><a href=#description>Description</a></li>
-<li><a href=#usage>Usage</a></li>
+<li><a href=#usage>Usage</a>
+<ul>
+<li></li>
+</ul>
+</li>
 <li><a href=#example>Example</a></li>
 </ul>
 </nav>
@@ -264,7 +268,7 @@ ALGuidelines.Dev
 <p><em>Originally by Abhishek Ghosh, at Microsoft Development Center Copenhagen</em></p>
 <h2 id=abstract>Abstract</h2>
 <p>This pattern generates the data to be displayed dynamically by combing/processing several data sources. It then displays the resulting dataset without writing to the database.</p>
-<p><a href=/cfs-file.ashx/__key/communityserver-wikis-components-files/00-00-00-00-42/0250.Temporary-Dataset-Report-1.gif><img src=/resized-image.ashx/__size/550x0/__key/communityserver-wikis-components-files/00-00-00-00-42/0250.Temporary-Dataset-Report-1.gif alt=" "></a><a href=/cfs-file.ashx/__key/communityserver-wikis-components-files/00-00-00-00-42/8424.Temporary-Dataset-Report-1.gif></a></p>
+<p><a href=0250.Temporary-Dataset-Report-1.png><img src=0250.Temporary-Dataset-Report-1.png alt=" "></a></p>
 <h2 id=description>Description</h2>
 <p>While writing reports in NAV, we have the luxury of using a built-in iterator. So, once we define the dataitem and the ordering, the runtime takes care of the iteration.</p>
 <p>The iterator has one shortcoming: It can only run through records written into the database. There are situations, however, where we want to display temporary datasets created at runtime by processing data from different sources. That is where the Temporary Dataset Report pattern can be used.</p>
@@ -278,23 +282,37 @@ ALGuidelines.Dev
 <p>Iterate through a dataitem of the Integer table and display one record from the temporary recordset in each iteration.</p>
 </li>
 </ul>
-<p>Step 1: Combining data sources to create a dataset</p>
+<h4 id=step-1-combining-data-sources-to-create-a-dataset>Step 1: Combining data sources to create a dataset</h4>
 <p>In this step, we would process the existing data to create a temporary recordset. The three most common techniques to do this are discussed in the following paragraphs.</p>
 <p>The first technique is mostly used when we want to build the report based on one or more source tables. A lot of processing is required, and we therefore want to store and display information from a temporary recordset. With this technique, we create a dataitem of the source record and then iterate through this dataitem to create the temporary recordset. An advantage of this technique is that it allows the user to perform additional filtering on the data source tables since they are added as additional dataitems and therefore will have their tabs on the request page by default.</p>
-<p><a href=/cfs-file.ashx/__key/communityserver-wikis-components-files/00-00-00-00-42/2376.Temporary-Dataset-Report-2.gif><img src=/resized-image.ashx/__size/550x0/__key/communityserver-wikis-components-files/00-00-00-00-42/2376.Temporary-Dataset-Report-2.gif alt=" "></a><a href=/cfs-file.ashx/__key/communityserver-wikis-components-files/00-00-00-00-42/8461.Temporary-Dataset-Report-2.gif></a></p>
+<p><a href=2376.Temporary-Dataset-Report-2.png><img src=2376.Temporary-Dataset-Report-2.png alt=" "></a></p>
 <p>The second technique was made available with NAV 2013 when queries were introduced as a tool to help us combine data from different sources. Instead of writing data into a temporary record variable, we can create a query to combine the data from different sources. This offers better performance than the first technique in almost every situation. However, with a query, we sacrifice the luxury of getting a flexible filtering on the request page for the source dataitem.</p>
 <p>The third technique is to write a function (or a codeunit, if the complexity demands so) that will crunch the data and create the temporary record variable. This function must be invoked from the OnPreReport trigger (or the OnPreDataItem trigger of the Integer dataitem).</p>
-<p><a href=/cfs-file.ashx/__key/communityserver-wikis-components-files/00-00-00-00-42/7607.Temporary-Dataset-Report-3.gif><img src=/resized-image.ashx/__size/550x0/__key/communityserver-wikis-components-files/00-00-00-00-42/7607.Temporary-Dataset-Report-3.gif alt=" "></a></p>
+<p><a href=7607.Temporary-Dataset-Report-3.png><img src=7607.Temporary-Dataset-Report-3.png alt=" "></a></p>
 <p>The following table summarizes when to use each of the three techniques:</p>
-<p>Technique</p>
-<p>When to Use</p>
-<p>Source Record DataItem</p>
-<p>When it is important to offer flexible filtering possibilities on the source data.</p>
-<p>Query</p>
-<p>When performance is critical.</p>
-<p>Populating temporary table in a function</p>
-<p>Only when the source dataset is too complex to use either of the other techniques.</p>
-<p>Step 2: Iterating through the Integer dataitem</p>
+<table>
+<thead>
+<tr>
+<th>Technique</th>
+<th>When to Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Source Record DataItem</td>
+<td>When it is important to offer flexible filtering possibilities on the source data.</td>
+</tr>
+<tr>
+<td>Query</td>
+<td>When performance is critical.</td>
+</tr>
+<tr>
+<td>Populating temporary table in a function</td>
+<td>Only when the source dataset is too complex to use either of the other techniques.</td>
+</tr>
+</tbody>
+</table>
+<h4 id=step-2-iterating-through-the-integer-dataitem>Step 2: Iterating through the Integer dataitem</h4>
 <p>When you have created the dataset as a temporary record variable or a query, the next step is to iterate through them to display the information. However, the report controller in NAV cannot iterate through temporary records or through the results of a query. This is where the Integer table comes into use.</p>
 <p>The Integer table is a virtual table with only one field, Number, which is an integer field. For all practical purposes, we can assume that this table has pre-inserted records with value of Number, starting from 1 and ending with the highest integer value. So, if we keep iterating through this dataitem, the value of the Number field will be 1 for the first iteration and will keep increasing by 1 for every iteration.</p>
 <p>There are two ways to use the Integer dataitem to iterate through the temporary recordset:</p>
@@ -309,9 +327,9 @@ ALGuidelines.Dev
 <p>With the first approach, in the Integer-OnAfterGetRecord trigger, you must make the temporary record variable move to the next record, follow that up with a check if you have reached the end of the recordset, and then use CurrReport.BREAK if you have reached the end.</p>
 <p>With the second approach, you must limit the number of times the report iterates through the Integer dataitem. The Number field in the Integer table will have a value of 1 in the first iteration and will increment automatically by 1 on every subsequent iteration. To ensure that the report iterates through the Integer dataitem &ldquo;n&rdquo; times, you must, therefore, filter the Integer dataitem on Number = 1..n. You must also move the temporary record variable to the next record in every iteration of the Integer-OnAfterGetRecord trigger. NOTE: This technique cannot be used if you use queries as the temporary data source, since queries do not (in NAV 2013) return the number of records.</p>
 <h2 id=example>Example</h2>
-<p>Goal: To print a report that lists all contacts that have open documents (both sales and purchase) and displays those documents in chronological order</p>
+<p><strong>Goal:</strong> To print a report that lists all contacts that have open documents (both sales and purchase) and displays those documents in chronological order</p>
 <p>A contact can be connected to a vendor or a customer using the Create As Customer/Vendor function on the Contact Card. When a sales/purchase document is created for this customer/vendor, the Contact No. is stored in the Sell-to Contact No. or Buy-from Contact No. fields of the sales and purchase documents. The obvious choice would be to display the data directly from the Sales Header and Purchase Header records. However, the requirement is to display all of them together chronologically, which means they will need to be stored in, and be read from, one common dataset.</p>
-<p>Step 1: Design a new table that will hold the temporary dataset.</p>
+<p><strong>Step 1: Design a new table that will hold the temporary dataset.</strong></p>
 <p>The UI must display the Document Type, Document No., Document Date, Amount Incl. VAT and the name of the salesperson or purchaser. The table is designed as follows.</p>
 <p><a href=6523.Temporary-Dataset-Report-4.jpg><img src=6523.Temporary-Dataset-Report-4.jpg alt=" "></a></p>
 <p>Since this table is used to sort the data by Document Date, a &ldquo;Document Date&rdquo; key is added to the table.</p>
@@ -325,9 +343,9 @@ ALGuidelines.Dev
 <p>Purchase Header dataitem should be linked to the Contact dataitem through the DataItemLink property &ndash; &ldquo;Buy-from Contact No.=FIELD(No.)&rdquo;</p>
 </li>
 </ul>
-<p>Step 2: In the Sales Header &ndash; OnAfterGetRecord, write the following code to populate the data buffer:</p>
+<p><strong>Step 2: In the Sales Header</strong> &ndash; OnAfterGetRecord, write the following code to populate the data buffer:</p>
 <p><a href=4010.Temporary-Dataset-Report-6.jpg><img src=4010.Temporary-Dataset-Report-6.jpg alt=" "></a></p>
-<p>Where:</p>
+<p><strong>Where:</strong></p>
 <ul>
 <li>
 <p>ContactDocumentBuffer is a temporary global variable of the buffer table created.</p>
@@ -340,17 +358,18 @@ ALGuidelines.Dev
 </li>
 </ul>
 <p>Similar code must be written in Purchase Header &ndash; OnAfterGetRecord to store data from the purchase documents into the buffer.</p>
-<p>Step 3: Iterate through the temporary records in the Integer dataitem.</p>
+<p><strong>Step 3:</strong> Iterate through the temporary records in the Integer dataitem.</p>
 <p>Since the requirement is to sort the data by Document Date, we must sort the ContactDocumentBuffer table by this key. Also, by the time the execution of Integer &ndash; OnPreDataItem begins, the number of records in the temporary buffer should be known already. Therefore, we can limit the number of times to repeat the Integer dataitem to the number of records in the buffer.</p>
 <p>We meet both requirements with the following lines of code in Integer - OnPreDataItem:</p>
-<p>ContactDocumentBuffer.SETCURRENTKEY(&ldquo;Document Date&rdquo;);</p>
-<p>SETRANGE(Number,1,ContactDocumentBuffer.COUNT);</p>
-<p>Lastly, we must move the record pointer by 1 record every time we loop through the Integer dataitem. So, in Integer &ndash; OnAfterGetRecord, we add the following lines of code:</p>
-<p>IF Number = 1 THEN</p>
-<p>ContactDocumentBuffer.FINDFIRST</p>
-<p>ELSE</p>
-<p>ContactDocumentBuffer.NEXT;</p>
-<p>Now, the only task that remains is to design the RDLC layout. (Not part of this application pattern description.)</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>ContactDocumentBuffer<span style=color:#f92672>.</span>SETCURRENTKEY<span style=color:#f92672>(</span>&#34;Document Date&#34;<span style=color:#f92672>)</span>; 
+
+SETRANGE<span style=color:#f92672>(</span>Number,<span style=color:#ae81ff>1</span>,ContactDocumentBuffer<span style=color:#f92672>.</span><span style=color:#66d9ef>COUNT</span><span style=color:#f92672>)</span>;
+</code></pre></div><p>Lastly, we must move the record pointer by 1 record every time we loop through the Integer dataitem. So, in Integer &ndash; OnAfterGetRecord, we add the following lines of code:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=color:#66d9ef>IF</span> Number = <span style=color:#ae81ff>1</span> <span style=color:#66d9ef>THEN</span>
+    ContactDocumentBuffer<span style=color:#f92672>.</span>FINDFIRST
+<span style=color:#66d9ef>ELSE</span>
+    ContactDocumentBuffer<span style=color:#f92672>.</span>NEXT;
+</code></pre></div><p>Now, the only task that remains is to design the RDLC layout. (Not part of this application pattern description.)</p>
 <p>NAV Usages</p>
 <p>This is a commonly used pattern in several reports, such as:</p>
 <ul>
@@ -379,12 +398,12 @@ ALGuidelines.Dev
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/js/clipboard.min.js?1644506469></script>
-<script src=/js/perfect-scrollbar.min.js?1644506469></script>
-<script src=/js/perfect-scrollbar.jquery.min.js?1644506469></script>
-<script src=/js/jquery.svg.pan.zoom.js?1644506469></script>
-<script src=/js/featherlight.min.js?1644506469></script>
-<script src=/js/modernizr.custom-3.6.0.js?1644506469></script>
-<script src=/js/relearn.js?1644506469></script>
+<script src=/js/clipboard.min.js?1644600599></script>
+<script src=/js/perfect-scrollbar.min.js?1644600599></script>
+<script src=/js/perfect-scrollbar.jquery.min.js?1644600599></script>
+<script src=/js/jquery.svg.pan.zoom.js?1644600599></script>
+<script src=/js/featherlight.min.js?1644600599></script>
+<script src=/js/modernizr.custom-3.6.0.js?1644600599></script>
+<script src=/js/relearn.js?1644600599></script>
 </body>
 </html>

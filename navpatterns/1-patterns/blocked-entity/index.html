@@ -6,16 +6,16 @@
 <link rel=alternate type=application/rss+xml href=/navpatterns/1-patterns/blocked-entity/index.xml title="AL Guidelines">
 <meta name=description content>
 <title>Blocked Entity :: AL Guidelines</title>
-<link href=/css/nucleus.css?1644506471 rel=stylesheet>
-<link href=/css/fontawesome-all.min.css?1644506471 rel=stylesheet>
-<link href=/css/featherlight.min.css?1644506471 rel=stylesheet>
-<link href=/css/perfect-scrollbar.min.css?1644506471 rel=stylesheet>
-<link href=/css/auto-complete.css?1644506471 rel=stylesheet>
-<link href=/css/theme.css?1644506471 rel=stylesheet>
-<link href=/css/theme-blue.css?1644506471 rel=stylesheet>
-<link href=/css/variant.css?1644506471 rel=stylesheet>
-<link href=/css/print.css?1644506471 rel=stylesheet media=print>
-<script src=/js/jquery.min.js?1644506471></script>
+<link href=/css/nucleus.css?1644600601 rel=stylesheet>
+<link href=/css/fontawesome-all.min.css?1644600601 rel=stylesheet>
+<link href=/css/featherlight.min.css?1644600601 rel=stylesheet>
+<link href=/css/perfect-scrollbar.min.css?1644600601 rel=stylesheet>
+<link href=/css/auto-complete.css?1644600601 rel=stylesheet>
+<link href=/css/theme.css?1644600601 rel=stylesheet>
+<link href=/css/theme-blue.css?1644600601 rel=stylesheet>
+<link href=/css/variant.css?1644600601 rel=stylesheet>
+<link href=/css/print.css?1644600601 rel=stylesheet media=print>
+<script src=/js/jquery.min.js?1644600601></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
 <body data-url=/navpatterns/1-patterns/blocked-entity/>
@@ -33,9 +33,9 @@ ALGuidelines.Dev
 <input data-search-input id=search-by type=search placeholder=Search...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script src=/js/lunr.min.js?1644506471></script>
-<script src=/js/auto-complete.js?1644506471></script>
-<script src=/js/search.js?1644506471></script>
+<script src=/js/lunr.min.js?1644600601></script>
+<script src=/js/auto-complete.js?1644600601></script>
+<script src=/js/search.js?1644600601></script>
 </div>
 <div class=highlightable>
 <ul class=topics>
@@ -279,7 +279,7 @@ ALGuidelines.Dev
 <p>The Blocked Entity is used when it is required to stop transactions for an entity (mostly master data), temporarily or permanently.</p>
 <p><a href=2260.BlockedEntityPattern.png><img src=2260.BlockedEntityPattern.png alt=" "></a></p>
 <h2 id=description>Description</h2>
-<p>To block entities through metadata, read this pattern. To do the same thing through data, read <a href=/nav/w/designpatterns/247.data-driven-blocked-entity/edit>Data Driven Blocked Entity pattern</a>.</p>
+<p>To block entities through metadata, read this pattern. To do the same thing through data, read <a href=/navpatterns/1-patterns/blocked-entity/data-driven-blocked-entity/>Data Driven Blocked Entity pattern</a>.</p>
 <p>The business entity holds a state that controls if a given transaction is allowed. The state is used by the logic controlling transactions. The change of state could either be temporary or permanent.</p>
 <p>An example of a temporary halt is when a retail chain selling items has received lot of complaints about an item, and the company wants to stop all transactions, both purchase and sale, with that item until the dealer has clarified the issue with his supplier and possibly received a replacement for the defective stock. Another common example is during counting the physical inventory using cycle counting where the counting is done in one section of a warehouse at a time, so that the regular operations can continue in the other parts of the warehouse. In these situations, it is necessary to block all transactions, such as picks and put-aways, for a bin while warehouse counting is in progress for that bin.</p>
 <p>In contrast, a permanent halt to transactions could be required when an item has become obsolete (or is about to become obsolete), and the company wants to stop further purchase or sale of the item. However, the company wants to maintain the transaction history of the item and, therefore, does not want to delete the item record.</p>
@@ -320,7 +320,7 @@ ALGuidelines.Dev
 <li>Bin</li>
 </ul>
 <h2 id=related-topics>Related Topics</h2>
-<p>The <a href=/nav/w/designpatterns/115.released-entity.aspx>Released Entity</a>.</p>
+<p>The <a href=/navpatterns/1-patterns/released-entity/>Released Entity</a>.</p>
 <div style=position:relative;padding-bottom:56.25%;height:0;overflow:hidden>
 <iframe src=https://www.youtube.com/embed/O2R-fTSup1o style=position:absolute;top:0;left:0;width:100%;height:100%;border:0 allowfullscreen title="YouTube Video"></iframe>
 </div>
@@ -336,12 +336,12 @@ ALGuidelines.Dev
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/js/clipboard.min.js?1644506471></script>
-<script src=/js/perfect-scrollbar.min.js?1644506471></script>
-<script src=/js/perfect-scrollbar.jquery.min.js?1644506471></script>
-<script src=/js/jquery.svg.pan.zoom.js?1644506471></script>
-<script src=/js/featherlight.min.js?1644506471></script>
-<script src=/js/modernizr.custom-3.6.0.js?1644506471></script>
-<script src=/js/relearn.js?1644506471></script>
+<script src=/js/clipboard.min.js?1644600601></script>
+<script src=/js/perfect-scrollbar.min.js?1644600601></script>
+<script src=/js/perfect-scrollbar.jquery.min.js?1644600601></script>
+<script src=/js/jquery.svg.pan.zoom.js?1644600601></script>
+<script src=/js/featherlight.min.js?1644600601></script>
+<script src=/js/modernizr.custom-3.6.0.js?1644600601></script>
+<script src=/js/relearn.js?1644600601></script>
 </body>
 </html>

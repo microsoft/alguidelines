@@ -5,16 +5,16 @@
 <meta name=generator content="Hugo 0.92.1">
 <meta name=description content>
 <title>Multi-file Download :: AL Guidelines</title>
-<link href=/css/nucleus.css?1644506468 rel=stylesheet>
-<link href=/css/fontawesome-all.min.css?1644506468 rel=stylesheet>
-<link href=/css/featherlight.min.css?1644506468 rel=stylesheet>
-<link href=/css/perfect-scrollbar.min.css?1644506468 rel=stylesheet>
-<link href=/css/auto-complete.css?1644506468 rel=stylesheet>
-<link href=/css/theme.css?1644506468 rel=stylesheet>
-<link href=/css/theme-blue.css?1644506468 rel=stylesheet>
-<link href=/css/variant.css?1644506468 rel=stylesheet>
-<link href=/css/print.css?1644506468 rel=stylesheet media=print>
-<script src=/js/jquery.min.js?1644506468></script>
+<link href=/css/nucleus.css?1644600599 rel=stylesheet>
+<link href=/css/fontawesome-all.min.css?1644600599 rel=stylesheet>
+<link href=/css/featherlight.min.css?1644600599 rel=stylesheet>
+<link href=/css/perfect-scrollbar.min.css?1644600599 rel=stylesheet>
+<link href=/css/auto-complete.css?1644600599 rel=stylesheet>
+<link href=/css/theme.css?1644600599 rel=stylesheet>
+<link href=/css/theme-blue.css?1644600599 rel=stylesheet>
+<link href=/css/variant.css?1644600599 rel=stylesheet>
+<link href=/css/print.css?1644600599 rel=stylesheet media=print>
+<script src=/js/jquery.min.js?1644600599></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
 <body data-url=/navpatterns/1-patterns/multi-file-download/>
@@ -32,9 +32,9 @@ ALGuidelines.Dev
 <input data-search-input id=search-by type=search placeholder=Search...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script src=/js/lunr.min.js?1644506468></script>
-<script src=/js/auto-complete.js?1644506468></script>
-<script src=/js/search.js?1644506468></script>
+<script src=/js/lunr.min.js?1644600599></script>
+<script src=/js/auto-complete.js?1644600599></script>
+<script src=/js/search.js?1644600599></script>
 </div>
 <div class=highlightable>
 <ul class=topics>
@@ -280,39 +280,37 @@ ALGuidelines.Dev
 <p>For first step consists of a loop that goes through the files that needs to be downloaded. If it is on the Web client, the files are added to a ZIP archive server-side using a naming convention defined by the integration function GetSeriesFileName. This function takes a filename and number, and transforms it to unique names following a meaningful deterministic pattern e.g. prepend an integer before the file extension. The same function is used when the temporary files are created server side, so the files can be found deterministically later. This removes the need for storing filenames and consequently allows an arbitrary number of files. The second integration function: GetTotalNumberOfFiles, returns the total number of files generated during the data processing and makes the pattern able to handle an arbitrary number of files.</p>
 <p>The second step is the actually download of file(s). For the Web client this consists of closing the ZIP achieve and downloading via the standard download handler that works in the Web client. For the Win client, the files are saved directly to the client during the first step.</p>
 <p>Code 1: File loop shows an example implementation of this pattern. ServerFileName is generated at the beginning of the report/codeunit, and is the base for GetSeriesFilename. The file that is actually written to during data processing is stored in another variable which holds the output from GetSeriesFilename on the current file number. Note; the example code will only create a ZIP file if there in fact are multiple files to be downloaded.</p>
-<pre><code>IF FileName = '' THEN
-ERROR(SupplyFileNameErr);
-IF ZipMultipleFiles AND (GetTotalNumberOfFiles \&gt; 1) AND FileManagement.IsWebClient
-THEN BEGIN
-Basename := FileManagement.GetFileName(FileName);
-ZipFileName := FileManagement.CreateZipArchiveObject;
-FOR FileNo := 1 TO GetTotalNumberOfFiles DO
-FileManagement.AddFileToZipArchive(
-GetSeriesFilename(ServerFileName,FileNo),GetSeriesFilename(Basename,FileNo));
-FileManagement.DownloadHandler(ZipFileName,'','','',
-STRSUBSTNO('%1.zip',FileManagement.GetFileNameWithoutExtension(FileName)))
-END ELSE BEGIN
-IF FileManagement.IsWebClient THEN BEGIN
-IF GetTotalNumberOfFile \&gt; 1 THEN
-ERROR(MultipleFilesWebClientErr);
-FileManagementDownloadHandler(GetSeriesFilename(ServerFileName,1),'','','',
-FileManagement.GetFileName(FileName));
-END ELSE
-FOR FileNo := 1 TO GetTotalNumberOfFiles DO
-FileManagement.DownloadToFile(GetSeriesFilieName(ServerFileName,FileNo),
-GetSeriesFilename(FileName,FileNo));
-END; 
-</code></pre>
-<p><em>Code 1: File loop</em></p>
-<p>__</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=color:#66d9ef>IF</span> FileName = <span style=color:#e6db74>&#39;&#39;</span> <span style=color:#66d9ef>THEN</span>
+    ERROR<span style=color:#f92672>(</span>SupplyFileNameErr<span style=color:#f92672>)</span>;
+
+<span style=color:#66d9ef>IF</span> ZipMultipleFiles <span style=color:#f92672>AND</span> <span style=color:#f92672>(</span>GetTotalNumberOfFiles \&gt; <span style=color:#ae81ff>1</span><span style=color:#f92672>) </span><span style=color:#f92672>AND</span> FileManagement<span style=color:#f92672>.</span>IsWebClient
+<span style=color:#66d9ef>THEN</span> <span style=color:#66d9ef>BEGIN</span>
+    Basename <span style=color:#f92672>:=</span> FileManagement<span style=color:#f92672>.</span>GetFileName<span style=color:#f92672>(</span>FileName<span style=color:#f92672>)</span>;
+    ZipFileName <span style=color:#f92672>:=</span> FileManagement<span style=color:#f92672>.</span>CreateZipArchiveObject;
+    <span style=color:#66d9ef>FOR</span> FileNo <span style=color:#f92672>:=</span> <span style=color:#ae81ff>1</span> <span style=color:#66d9ef>TO</span> GetTotalNumberOfFiles <span style=color:#66d9ef>DO</span>
+        FileManagement<span style=color:#f92672>.</span>AddFileToZipArchive<span style=color:#f92672>(
+</span><span style=color:#f92672>            </span>GetSeriesFilename<span style=color:#f92672>(</span>ServerFileName,FileNo<span style=color:#f92672>)</span>,GetSeriesFilename<span style=color:#f92672>(</span>Basename,FileNo<span style=color:#f92672>))</span>;
+    FileManagement<span style=color:#f92672>.</span>DownloadHandler<span style=color:#f92672>(</span>ZipFileName,<span style=color:#e6db74>&#39;&#39;</span>,<span style=color:#e6db74>&#39;&#39;</span>,<span style=color:#e6db74>&#39;&#39;</span>,
+        STRSUBSTNO<span style=color:#f92672>(</span><span style=color:#e6db74>&#39;%1.zip&#39;</span>,FileManagement<span style=color:#f92672>.</span>GetFileNameWithoutExtension<span style=color:#f92672>(</span>FileName<span style=color:#f92672>)))
+</span><span style=color:#f92672></span><span style=color:#66d9ef>END</span> <span style=color:#66d9ef>ELSE</span> <span style=color:#66d9ef>BEGIN</span>
+    <span style=color:#66d9ef>IF</span> FileManagement<span style=color:#f92672>.</span>IsWebClient <span style=color:#66d9ef>THEN</span> <span style=color:#66d9ef>BEGIN</span>
+        <span style=color:#66d9ef>IF</span> GetTotalNumberOfFile &gt; <span style=color:#ae81ff>1</span> <span style=color:#66d9ef>THEN</span>
+            ERROR<span style=color:#f92672>(</span>MultipleFilesWebClientErr<span style=color:#f92672>)</span>;
+        FileManagementDownloadHandler<span style=color:#f92672>(</span>GetSeriesFilename<span style=color:#f92672>(</span>ServerFileName,<span style=color:#ae81ff>1</span><span style=color:#f92672>)</span>,<span style=color:#e6db74>&#39;&#39;</span>,<span style=color:#e6db74>&#39;&#39;</span>,<span style=color:#e6db74>&#39;&#39;</span>,
+            FileManagement<span style=color:#f92672>.</span>GetFileName<span style=color:#f92672>(</span>FileName<span style=color:#f92672>))</span>;
+    <span style=color:#66d9ef>END</span> <span style=color:#66d9ef>ELSE</span>
+        <span style=color:#66d9ef>FOR</span> FileNo <span style=color:#f92672>:=</span> <span style=color:#ae81ff>1</span> <span style=color:#66d9ef>TO</span> GetTotalNumberOfFiles <span style=color:#66d9ef>DO</span>
+            FileManagement<span style=color:#f92672>.</span>DownloadToFile<span style=color:#f92672>(</span>GetSeriesFilieName<span style=color:#f92672>(</span>ServerFileName,FileNo<span style=color:#f92672>)</span>,
+                GetSeriesFilename<span style=color:#f92672>(</span>FileName,FileNo<span style=color:#f92672>))</span>;
+<span style=color:#66d9ef>END</span>; 
+</code></pre></div><p><em>Code 1: File loop</em></p>
 <p>The following code is an example implementation of the GetSeriesFilename function. It needs to support the case where no directory is given, only a filename, in order to add files to the root of the ZIP archive. The example will add a file number right before the extension, e.g. C:\directory\file.txt will become C:\directory\file1.txt etc.</p>
-<pre><code>LOCAL GetSeriesFilename(FileName : Text;FileNo : Integer) : Text
-IF STRPOS(FileName,'\\') &lt;\&gt; 0 THEN
-Directory := FileMgt.GetDirectoryName(FileName) + '\\';
-EXIT(Directory + FileMgt.GetFileNameWithoutExtension(FileName) + FORMAT(FileNo) + '.' +   
-FileMgt.GetExtension(FileName));
-</code></pre>
-<h4 id=_code-2-getseriesfilename_><em>Code 2: GetSeriesFilename</em></h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=color:#66d9ef>LOCAL</span> GetSeriesFilename<span style=color:#f92672>(</span>FileName : <span style=color:#66d9ef>Text</span>;FileNo : <span style=color:#66d9ef>Integer</span><span style=color:#f92672>) </span>: <span style=color:#66d9ef>Text</span>
+<span style=color:#66d9ef>IF</span> STRPOS<span style=color:#f92672>(</span>FileName,<span style=color:#e6db74>&#39;\\&#39;</span><span style=color:#f92672>) </span>&lt;&gt; <span style=color:#ae81ff>0</span> <span style=color:#66d9ef>THEN</span>
+    Directory <span style=color:#f92672>:=</span> FileMgt<span style=color:#f92672>.</span>GetDirectoryName<span style=color:#f92672>(</span>FileName<span style=color:#f92672>) </span>+ <span style=color:#e6db74>&#39;\\&#39;</span>;
+<span style=color:#66d9ef>EXIT</span><span style=color:#f92672>(</span>Directory + FileMgt<span style=color:#f92672>.</span>GetFileNameWithoutExtension<span style=color:#f92672>(</span>FileName<span style=color:#f92672>) </span>+ FORMAT<span style=color:#f92672>(</span>FileNo<span style=color:#f92672>) </span>+ <span style=color:#e6db74>&#39;.&#39;</span> +   
+    FileMgt<span style=color:#f92672>.</span>GetExtension<span style=color:#f92672>(</span>FileName<span style=color:#f92672>))</span>;
+</code></pre></div><h4 id=_code-2-getseriesfilename_><em>Code 2: GetSeriesFilename</em></h4>
 <p>The pattern depends on .NET library System.IO.Compression.ZipFile, which from NAV 2015 is implemented in Codeunit 419 (File management). It consists of three functions:</p>
 <ul>
 <li>CreateZipArchiveObject: Which creates a System.IO.Compression.ZipArchive on a server side file</li>
@@ -340,12 +338,12 @@ FileMgt.GetExtension(FileName));
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/js/clipboard.min.js?1644506468></script>
-<script src=/js/perfect-scrollbar.min.js?1644506468></script>
-<script src=/js/perfect-scrollbar.jquery.min.js?1644506468></script>
-<script src=/js/jquery.svg.pan.zoom.js?1644506468></script>
-<script src=/js/featherlight.min.js?1644506468></script>
-<script src=/js/modernizr.custom-3.6.0.js?1644506468></script>
-<script src=/js/relearn.js?1644506468></script>
+<script src=/js/clipboard.min.js?1644600599></script>
+<script src=/js/perfect-scrollbar.min.js?1644600599></script>
+<script src=/js/perfect-scrollbar.jquery.min.js?1644600599></script>
+<script src=/js/jquery.svg.pan.zoom.js?1644600599></script>
+<script src=/js/featherlight.min.js?1644600599></script>
+<script src=/js/modernizr.custom-3.6.0.js?1644600599></script>
+<script src=/js/relearn.js?1644600599></script>
 </body>
 </html>

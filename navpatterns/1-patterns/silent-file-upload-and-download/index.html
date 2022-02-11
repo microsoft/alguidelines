@@ -5,16 +5,16 @@
 <meta name=generator content="Hugo 0.92.1">
 <meta name=description content>
 <title>Silent File Upload and Download :: AL Guidelines</title>
-<link href=/css/nucleus.css?1644506469 rel=stylesheet>
-<link href=/css/fontawesome-all.min.css?1644506469 rel=stylesheet>
-<link href=/css/featherlight.min.css?1644506469 rel=stylesheet>
-<link href=/css/perfect-scrollbar.min.css?1644506469 rel=stylesheet>
-<link href=/css/auto-complete.css?1644506469 rel=stylesheet>
-<link href=/css/theme.css?1644506469 rel=stylesheet>
-<link href=/css/theme-blue.css?1644506469 rel=stylesheet>
-<link href=/css/variant.css?1644506469 rel=stylesheet>
-<link href=/css/print.css?1644506469 rel=stylesheet media=print>
-<script src=/js/jquery.min.js?1644506469></script>
+<link href=/css/nucleus.css?1644600599 rel=stylesheet>
+<link href=/css/fontawesome-all.min.css?1644600599 rel=stylesheet>
+<link href=/css/featherlight.min.css?1644600599 rel=stylesheet>
+<link href=/css/perfect-scrollbar.min.css?1644600599 rel=stylesheet>
+<link href=/css/auto-complete.css?1644600599 rel=stylesheet>
+<link href=/css/theme.css?1644600599 rel=stylesheet>
+<link href=/css/theme-blue.css?1644600599 rel=stylesheet>
+<link href=/css/variant.css?1644600599 rel=stylesheet>
+<link href=/css/print.css?1644600599 rel=stylesheet media=print>
+<script src=/js/jquery.min.js?1644600599></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
 <body data-url=/navpatterns/1-patterns/silent-file-upload-and-download/>
@@ -32,9 +32,9 @@ ALGuidelines.Dev
 <input data-search-input id=search-by type=search placeholder=Search...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script src=/js/lunr.min.js?1644506469></script>
-<script src=/js/auto-complete.js?1644506469></script>
-<script src=/js/search.js?1644506469></script>
+<script src=/js/lunr.min.js?1644600599></script>
+<script src=/js/auto-complete.js?1644600599></script>
+<script src=/js/search.js?1644600599></script>
 </div>
 <div class=highlightable>
 <ul class=topics>
@@ -279,13 +279,15 @@ ALGuidelines.Dev
 <p>Sometimes, files must be transferred to or from known locations without triggering file-save or file-load dialogs.</p>
 <p>In the following, both the historical and the recommended ways of silently transferring files are described. Since we keep both implementations possible for the sake of backward compatibility, we strongly recommend that you use the file-transfer API provided that is provided with the File Management codeunit (419).</p>
 <p>The legacy API for file transfers [2]:</p>
-<p>[Ok :=] UPLOAD(DialogTitle, FromFolder, FromFilter, FromFile, ToFile)</p>
-<p>[Ok :=] DOWNLOAD(FromFile, DialogTitle, ToFolder, ToFilter, ToFile)</p>
-<p>As you can see, this historical API leaves no place for turning off the functionality for showing a dialog. Historically, NAV offered a remedy to this, namely by using the &ldquo;Magicpath&rdquo; string, which is the constant &lsquo;&lt;TEMP>&rsquo;. Under this condition, the way to invoke silent file upload or download becomes:</p>
-<p>[Ok :=] UPLOAD(DialogTitle, Magicpath, FromFilter, FromFile, ToFile)</p>
-<p>[Ok :=] DOWNLOAD(FromFile, DialogTitle, Magicpath, ToFilter, ToFile)</p>
-<p>This remedy introduced an issue: If we use &ldquo;Magicpath&rdquo; instead of <strong>FromFolder</strong> and <strong>ToFolder</strong> specifications, then where do we upload from and where do we download to? The answer is that they are uploaded to and downloaded from the NAV server&rsquo;s temporary folder. The path to the temporary file can be obtained when this file is created, by using the following function in <strong>File Management: &lt;tempFileName> := ServerTempFileName(&lt;fileExtension>)</strong>.</p>
-<p>The new API for file transfers in the **File Management **codeunit:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>[Ok <span style=color:#f92672>:=</span>] UPLOAD<span style=color:#f92672>(</span>DialogTitle, FromFolder, FromFilter, FromFile, ToFile<span style=color:#f92672>) 
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>[Ok <span style=color:#f92672>:=</span>] DOWNLOAD<span style=color:#f92672>(</span>FromFile, DialogTitle, ToFolder, ToFilter, ToFile<span style=color:#f92672>)
+</span></code></pre></div><p>As you can see, this historical API leaves no place for turning off the functionality for showing a dialog. Historically, NAV offered a remedy to this, namely by using the &ldquo;Magicpath&rdquo; string, which is the constant &lsquo;&lt;TEMP>&rsquo;. Under this condition, the way to invoke silent file upload or download becomes:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>[Ok <span style=color:#f92672>:=</span>] UPLOAD<span style=color:#f92672>(</span>DialogTitle, Magicpath, FromFilter, FromFile, ToFile<span style=color:#f92672>) 
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span>[Ok <span style=color:#f92672>:=</span>] DOWNLOAD<span style=color:#f92672>(</span>FromFile, DialogTitle, Magicpath, ToFilter, ToFile<span style=color:#f92672>)
+</span></code></pre></div><p>This remedy introduced an issue: If we use &ldquo;Magicpath&rdquo; instead of <strong>FromFolder</strong> and <strong>ToFolder</strong> specifications, then where do we upload from and where do we download to? The answer is that they are uploaded to and downloaded from the NAV server&rsquo;s temporary folder. The path to the temporary file can be obtained when this file is created, by using the following function in <strong>File Management: &lt;tempFileName> := ServerTempFileName(&lt;fileExtension>)</strong>.</p>
+<p>The new API for file transfers in the <strong>File Management</strong> codeunit:</p>
 <p>[Text :=] UploadFileSilent(ClientFilePath)</p>
 <p>[Text :=] DownloadTempFile(ServerFileName)</p>
 <p>Using the API in the <strong>File Management</strong> codeunit instead of the historical API is recommended for all file transferring and file management in NAV implementations.</p>
@@ -297,15 +299,17 @@ ALGuidelines.Dev
 <p>The production manager wants to have the file in a predefined location on his hard drive. The location has been defined in a NAV setup table.</p>
 <h3 id=the-nav-developer>The NAV Developer</h3>
 <p>The NAV developer has written a module to query the CRONUS database and to export the product list in the pre-described XML format required by the web shop. He saves the data in a temporary server file created with this code:</p>
-<p>ServerFileName := FileManagement.ServerTempFileName(&lsquo;xml&rsquo;);</p>
-<p>When the file has been populated with the latest product data, the NAV developer uses the following call to download the file from the temporary location on the server to the predefined location on the client:</p>
-<p>FileManagement.DownloadToFile(ServerFileName,ClientFileName);</p>
-<p>The call to <strong>DownloadToFile</strong> is part of the **File Management **codeunit, and it embeds the silent download offered by <strong>DownloadTempFile</strong>:</p>
-<p>PROCEDURE DownloadToFile@13(ServerFileName@1002 : Text;ClientFileName@1000 : Text);</p>
-<p>VAR TempClientFileName@1001 : Text;</p>
-<p>BEGIN ValidateFileNames(ServerFileName,ClientFileName); TempClientFileName := DownloadTempFile(ServerFileName); MoveFile(TempClientFileName,ClientFileName);</p>
-<p>END</p>
-<h2 id=consequences>Consequences</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>ServerFileName <span style=color:#f92672>:=</span> FileManagement<span style=color:#f92672>.</span>ServerTempFileName<span style=color:#f92672>(</span><span style=color:#e6db74>&#39;xml&#39;</span><span style=color:#f92672>)</span>;
+</code></pre></div><p>When the file has been populated with the latest product data, the NAV developer uses the following call to download the file from the temporary location on the server to the predefined location on the client:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>FileManagement<span style=color:#f92672>.</span>DownloadToFile<span style=color:#f92672>(</span>ServerFileName,ClientFileName<span style=color:#f92672>)</span>;
+</code></pre></div><p>The call to <strong>DownloadToFile</strong> is part of the <strong>File Management</strong> codeunit, and it embeds the silent download offered by <strong>DownloadTempFile</strong>:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=color:#66d9ef>PROCEDURE</span> DownloadToFile@<span style=color:#ae81ff>13</span><span style=color:#f92672>(</span>ServerFileName@<span style=color:#ae81ff>1002</span> : <span style=color:#66d9ef>Text</span>;ClientFileName@<span style=color:#ae81ff>1000</span> : <span style=color:#66d9ef>Text</span><span style=color:#f92672>)</span>;
+<span style=color:#66d9ef>VAR</span>
+    TempClientFileName@<span style=color:#ae81ff>1001</span> : <span style=color:#66d9ef>Text</span>;
+<span style=color:#66d9ef>BEGIN</span>
+    ValidateFileNames<span style=color:#f92672>(</span>ServerFileName,ClientFileName<span style=color:#f92672>)</span>; TempClientFileName <span style=color:#f92672>:=</span> DownloadTempFile<span style=color:#f92672>(</span>ServerFileName<span style=color:#f92672>)</span>; MoveFile<span style=color:#f92672>(</span>TempClientFileName,ClientFileName<span style=color:#f92672>)</span>;
+<span style=color:#66d9ef>END</span>
+</code></pre></div><h2 id=consequences>Consequences</h2>
 <ol>
 <li>Even today, there is no fully silent up or download. The user will get a warning stating the system is trying to run a client side .NET component. However when dismissing this warning, the user can show to not see it again.</li>
 <li>Due to client side .NET interop and of security concerns, silently downloading/uploading files on the web is disabled. Therefore, this pattern is recommended for implementation with Windows clients only.</li>
@@ -322,12 +326,12 @@ ALGuidelines.Dev
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/js/clipboard.min.js?1644506469></script>
-<script src=/js/perfect-scrollbar.min.js?1644506469></script>
-<script src=/js/perfect-scrollbar.jquery.min.js?1644506469></script>
-<script src=/js/jquery.svg.pan.zoom.js?1644506469></script>
-<script src=/js/featherlight.min.js?1644506469></script>
-<script src=/js/modernizr.custom-3.6.0.js?1644506469></script>
-<script src=/js/relearn.js?1644506469></script>
+<script src=/js/clipboard.min.js?1644600599></script>
+<script src=/js/perfect-scrollbar.min.js?1644600599></script>
+<script src=/js/perfect-scrollbar.jquery.min.js?1644600599></script>
+<script src=/js/jquery.svg.pan.zoom.js?1644600599></script>
+<script src=/js/featherlight.min.js?1644600599></script>
+<script src=/js/modernizr.custom-3.6.0.js?1644600599></script>
+<script src=/js/relearn.js?1644600599></script>
 </body>
 </html>

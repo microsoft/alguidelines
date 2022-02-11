@@ -5,16 +5,16 @@
 <meta name=generator content="Hugo 0.92.1">
 <meta name=description content>
 <title>Observer :: AL Guidelines</title>
-<link href=/css/nucleus.css?1644506468 rel=stylesheet>
-<link href=/css/fontawesome-all.min.css?1644506468 rel=stylesheet>
-<link href=/css/featherlight.min.css?1644506468 rel=stylesheet>
-<link href=/css/perfect-scrollbar.min.css?1644506468 rel=stylesheet>
-<link href=/css/auto-complete.css?1644506468 rel=stylesheet>
-<link href=/css/theme.css?1644506468 rel=stylesheet>
-<link href=/css/theme-blue.css?1644506468 rel=stylesheet>
-<link href=/css/variant.css?1644506468 rel=stylesheet>
-<link href=/css/print.css?1644506468 rel=stylesheet media=print>
-<script src=/js/jquery.min.js?1644506468></script>
+<link href=/css/nucleus.css?1644600599 rel=stylesheet>
+<link href=/css/fontawesome-all.min.css?1644600599 rel=stylesheet>
+<link href=/css/featherlight.min.css?1644600599 rel=stylesheet>
+<link href=/css/perfect-scrollbar.min.css?1644600599 rel=stylesheet>
+<link href=/css/auto-complete.css?1644600599 rel=stylesheet>
+<link href=/css/theme.css?1644600599 rel=stylesheet>
+<link href=/css/theme-blue.css?1644600599 rel=stylesheet>
+<link href=/css/variant.css?1644600599 rel=stylesheet>
+<link href=/css/print.css?1644600599 rel=stylesheet media=print>
+<script src=/js/jquery.min.js?1644600599></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
 <body data-url=/navpatterns/1-patterns/observer/>
@@ -32,9 +32,9 @@ ALGuidelines.Dev
 <input data-search-input id=search-by type=search placeholder=Search...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script src=/js/lunr.min.js?1644506468></script>
-<script src=/js/auto-complete.js?1644506468></script>
-<script src=/js/search.js?1644506468></script>
+<script src=/js/lunr.min.js?1644600599></script>
+<script src=/js/auto-complete.js?1644600599></script>
+<script src=/js/search.js?1644600599></script>
 </div>
 <div class=highlightable>
 <ul class=topics>
@@ -268,8 +268,7 @@ ALGuidelines.Dev
 </div>
 <main id=body-inner>
 <h1>Observer</h1>
-<p><em>By Nikolai L&rsquo;Estrange, from TVision Technology Ltd. in the UK</em>
-_</p>
+<p><em>By Nikolai L&rsquo;Estrange, from TVision Technology Ltd. in the UK</em></p>
 <h3 id=abstract>Abstract</h3>
 <p>Track all record changes against a defined table or set of tables.</p>
 <h3 id=problem>Problem</h3>
@@ -278,39 +277,67 @@ _</p>
 <p>Create a setup table to define which other tables you want to track changes for, and optionally what triggers you want to fire, then link this up to the standard triggers in Codeunit 1.</p>
 <p>Codeunit 1 Application Management contains the triggers OnDatabaseInsert, OnDatabaseModify, OnDatabaseDelete and OnDatabaseRename which are what we need to subscribe to in order to track record changes. However these triggers are only fired sometimes. This is determined by the parameters set in the function GetTableTriggerSetup, which is called once per table per session.</p>
 <p>In order to define which tables we are interested in we can create a new table with the following fields:</p>
-<pre><code>**Observable Table:**
-&quot;Table ID&quot; Integer Object.ID WHERE (Type=CONST(Table))
-TrackInsert Boolean \[optional\]
-TrackModify Boolean \[optional\]
-TrackDelete Boolean \[optional\]
-TrackRename Boolean \[optional\]
-</code></pre>
+<p><strong>Observable Table:</strong></p>
+<table>
+<thead>
+<tr>
+<th>&ldquo;Table ID&rdquo;</th>
+<th>Integer</th>
+<th>Object.ID WHERE (Type=CONST(Table))</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TrackInsert</td>
+<td>Boolean</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td>TrackModify</td>
+<td>Boolean</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td>TrackDelete</td>
+<td>Boolean</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td>TrackRename</td>
+<td>Boolean</td>
+<td>[optional]</td>
+</tr>
+</tbody>
+</table>
 <p>Then we can create a Codeunit that will set the Table Trigger Setup parameters and also subscribe to the OnDatabase triggers.</p>
-<pre><code>**LOCAL \[EventSubscriber\] GetTableTriggerSetup(TableId : Integer;VAR OnDatabaseInsert : Boolean;VAR OnDatabaseModify : Boolean;VAR OnDatabaseDelete : Boolean;VAR OnDatabaseRename : Boolean)**  
-IF Observable.GET(TableId) THEN BEGIN  
-IF Observable.TrackInsert THEN  
-OnDatabaseInsert := TRUE;  
-IF Observable.TrackModify THEN  
-OnDatabaseModify := TRUE;  
-IF Observable.TrackDelete THEN  
-OnDatabaseDelete := TRUE;  
-IF Observable.TrackRename THEN  
-OnDatabaseRename := TRUE;  
-END;  
-**LOCAL \[EventSubscriber\] OnDatabaseInsert(RecRef : RecordRef)**
-IF Observable.Get(RecRef.NUMBER) AND Observable.TrackInsert THEN
-//do something
-**LOCAL \[EventSubscriber\] OnDatabaseModify(RecRef : RecordRef)**
-IF Observable.Get(RecRef.NUMBER) AND Observable.TrackModify THEN
-//do something
-**LOCAL \[EventSubscriber\] OnDatabaseDelete(RecRef : RecordRef)**
-IF Observable.Get(RecRef.NUMBER) AND Observable.TrackDelete THEN
-//do something
-**LOCAL \[EventSubscriber\] OnDatabaseRename(RecRef : RecordRef;xRecRef : RecordRef)**
-IF Observable.Get(RecRef.NUMBER) AND Observable.TrackRename THEN
-//do something
-</code></pre>
-<p><em><strong>Note:</strong></em> In NAV2016 all these functions can be EventSubscribers that subscribe to the functions in Codeunit 1 as per above, in earlier versions of NAV these functions will need to be Global and called explicitly from within the Codeunit 1 functions.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=color:#66d9ef>LOCAL</span> [EventSubscriber] GetTableTriggerSetup<span style=color:#f92672>(</span>TableId : <span style=color:#66d9ef>Integer</span>;<span style=color:#66d9ef>VAR</span> OnDatabaseInsert : <span style=color:#66d9ef>Boolean</span>;<span style=color:#66d9ef>VAR</span> OnDatabaseModify : <span style=color:#66d9ef>Boolean</span>;<span style=color:#66d9ef>VAR</span> OnDatabaseDelete : <span style=color:#66d9ef>Boolean</span>;<span style=color:#66d9ef>VAR</span> OnDatabaseRename : <span style=color:#66d9ef>Boolean</span><span style=color:#f92672>)
+</span><span style=color:#f92672></span><span style=color:#66d9ef>IF</span> Observable<span style=color:#f92672>.</span>GET<span style=color:#f92672>(</span>TableId<span style=color:#f92672>) </span><span style=color:#66d9ef>THEN</span> <span style=color:#66d9ef>BEGIN</span>  
+    <span style=color:#66d9ef>IF</span> Observable<span style=color:#f92672>.</span>TrackInsert <span style=color:#66d9ef>THEN</span>  
+        OnDatabaseInsert <span style=color:#f92672>:=</span> TRUE;  
+    <span style=color:#66d9ef>IF</span> Observable<span style=color:#f92672>.</span>TrackModify <span style=color:#66d9ef>THEN</span>  
+        OnDatabaseModify <span style=color:#f92672>:=</span> TRUE;  
+    <span style=color:#66d9ef>IF</span> Observable<span style=color:#f92672>.</span>TrackDelete <span style=color:#66d9ef>THEN</span>  
+        OnDatabaseDelete <span style=color:#f92672>:=</span> TRUE;  
+    <span style=color:#66d9ef>IF</span> Observable<span style=color:#f92672>.</span>TrackRename <span style=color:#66d9ef>THEN</span>  
+        OnDatabaseRename <span style=color:#f92672>:=</span> TRUE;  
+<span style=color:#66d9ef>END</span>;  
+
+<span style=color:#66d9ef>LOCAL</span> [EventSubscriber] OnDatabaseInsert<span style=color:#f92672>(</span>RecRef : <span style=color:#66d9ef>RecordRef</span><span style=color:#f92672>)
+</span><span style=color:#f92672></span><span style=color:#66d9ef>IF</span> Observable<span style=color:#f92672>.</span>Get<span style=color:#f92672>(</span>RecRef<span style=color:#f92672>.</span>NUMBER<span style=color:#f92672>) </span><span style=color:#f92672>AND</span> Observable<span style=color:#f92672>.</span>TrackInsert <span style=color:#66d9ef>THEN</span>
+    <span style=color:#75715e>//do something
+</span><span style=color:#75715e></span>
+<span style=color:#66d9ef>LOCAL</span> [EventSubscriber] OnDatabaseModify<span style=color:#f92672>(</span>RecRef : <span style=color:#66d9ef>RecordRef</span><span style=color:#f92672>)
+</span><span style=color:#f92672></span><span style=color:#66d9ef>IF</span> Observable<span style=color:#f92672>.</span>Get<span style=color:#f92672>(</span>RecRef<span style=color:#f92672>.</span>NUMBER<span style=color:#f92672>) </span><span style=color:#f92672>AND</span> Observable<span style=color:#f92672>.</span>TrackModify <span style=color:#66d9ef>THEN</span>
+    <span style=color:#75715e>//do something
+</span><span style=color:#75715e></span>
+<span style=color:#66d9ef>LOCAL</span> [EventSubscriber] OnDatabaseDelete<span style=color:#f92672>(</span>RecRef : <span style=color:#66d9ef>RecordRef</span><span style=color:#f92672>)
+</span><span style=color:#f92672></span><span style=color:#66d9ef>IF</span> Observable<span style=color:#f92672>.</span>Get<span style=color:#f92672>(</span>RecRef<span style=color:#f92672>.</span>NUMBER<span style=color:#f92672>) </span><span style=color:#f92672>AND</span> Observable<span style=color:#f92672>.</span>TrackDelete <span style=color:#66d9ef>THEN</span>
+    <span style=color:#75715e>//do something
+</span><span style=color:#75715e></span>
+<span style=color:#66d9ef>LOCAL</span> [EventSubscriber] OnDatabaseRename<span style=color:#f92672>(</span>RecRef : <span style=color:#66d9ef>RecordRef</span>;xRecRef : <span style=color:#66d9ef>RecordRef</span><span style=color:#f92672>)
+</span><span style=color:#f92672></span><span style=color:#66d9ef>IF</span> Observable<span style=color:#f92672>.</span>Get<span style=color:#f92672>(</span>RecRef<span style=color:#f92672>.</span>NUMBER<span style=color:#f92672>) </span><span style=color:#f92672>AND</span> Observable<span style=color:#f92672>.</span>TrackRename <span style=color:#66d9ef>THEN</span>
+    <span style=color:#75715e>//do something
+</span></code></pre></div><p><em><strong>Note:</strong></em> In NAV2016 all these functions can be EventSubscribers that subscribe to the functions in Codeunit 1 as per above, in earlier versions of NAV these functions will need to be Global and called explicitly from within the Codeunit 1 functions.</p>
 <h3 id=nav-usages>NAV Usages</h3>
 <p>Variations of this pattern exists in the standard product in:</p>
 <ul>
@@ -339,12 +366,12 @@ IF Observable.Get(RecRef.NUMBER) AND Observable.TrackRename THEN
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/js/clipboard.min.js?1644506468></script>
-<script src=/js/perfect-scrollbar.min.js?1644506468></script>
-<script src=/js/perfect-scrollbar.jquery.min.js?1644506468></script>
-<script src=/js/jquery.svg.pan.zoom.js?1644506468></script>
-<script src=/js/featherlight.min.js?1644506468></script>
-<script src=/js/modernizr.custom-3.6.0.js?1644506468></script>
-<script src=/js/relearn.js?1644506468></script>
+<script src=/js/clipboard.min.js?1644600599></script>
+<script src=/js/perfect-scrollbar.min.js?1644600599></script>
+<script src=/js/perfect-scrollbar.jquery.min.js?1644600599></script>
+<script src=/js/jquery.svg.pan.zoom.js?1644600599></script>
+<script src=/js/featherlight.min.js?1644600599></script>
+<script src=/js/modernizr.custom-3.6.0.js?1644600599></script>
+<script src=/js/relearn.js?1644600599></script>
 </body>
 </html>

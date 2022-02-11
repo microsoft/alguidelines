@@ -5,16 +5,16 @@
 <meta name=generator content="Hugo 0.92.1">
 <meta name=description content>
 <title>Cross Session Events :: AL Guidelines</title>
-<link href=/css/nucleus.css?1644506468 rel=stylesheet>
-<link href=/css/fontawesome-all.min.css?1644506468 rel=stylesheet>
-<link href=/css/featherlight.min.css?1644506468 rel=stylesheet>
-<link href=/css/perfect-scrollbar.min.css?1644506468 rel=stylesheet>
-<link href=/css/auto-complete.css?1644506468 rel=stylesheet>
-<link href=/css/theme.css?1644506468 rel=stylesheet>
-<link href=/css/theme-blue.css?1644506468 rel=stylesheet>
-<link href=/css/variant.css?1644506468 rel=stylesheet>
-<link href=/css/print.css?1644506468 rel=stylesheet media=print>
-<script src=/js/jquery.min.js?1644506468></script>
+<link href=/css/nucleus.css?1644600599 rel=stylesheet>
+<link href=/css/fontawesome-all.min.css?1644600599 rel=stylesheet>
+<link href=/css/featherlight.min.css?1644600599 rel=stylesheet>
+<link href=/css/perfect-scrollbar.min.css?1644600599 rel=stylesheet>
+<link href=/css/auto-complete.css?1644600599 rel=stylesheet>
+<link href=/css/theme.css?1644600599 rel=stylesheet>
+<link href=/css/theme-blue.css?1644600599 rel=stylesheet>
+<link href=/css/variant.css?1644600599 rel=stylesheet>
+<link href=/css/print.css?1644600599 rel=stylesheet media=print>
+<script src=/js/jquery.min.js?1644600599></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
 <body data-url=/navpatterns/1-patterns/cross-session-events/>
@@ -32,9 +32,9 @@ ALGuidelines.Dev
 <input data-search-input id=search-by type=search placeholder=Search...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script src=/js/lunr.min.js?1644506468></script>
-<script src=/js/auto-complete.js?1644506468></script>
-<script src=/js/search.js?1644506468></script>
+<script src=/js/lunr.min.js?1644600599></script>
+<script src=/js/auto-complete.js?1644600599></script>
+<script src=/js/search.js?1644600599></script>
 </div>
 <div class=highlightable>
 <ul class=topics>
@@ -280,100 +280,163 @@ ALGuidelines.Dev
 <li><strong>Message Queue</strong>: To hold the messages for each Subscriber. Generally once these messages are read, they are deleted.</li>
 </ul>
 <h2 id=example>Example</h2>
-<p>An example of this would be when we have multiple users looking at the same set of data and we want their screens to update in &ldquo;real time&rdquo; whenever one of them makes a change, without doing a full refresh. We will use the <a href=/nav/w/designpatterns/248.observer>Observer pattern</a> to capture the change (act as the Publisher) and then create a Table to hold Subscribers and Filters (Change Observer), a Table to be the Message Queue (Change Notification), and a Codeunit to be the Message Broker and help with the polling (ObserverMgt).</p>
+<p>An example of this would be when we have multiple users looking at the same set of data and we want their screens to update in &ldquo;real time&rdquo; whenever one of them makes a change, without doing a full refresh. We will use the <a href=/navpatterns/1-patterns/observer/>Observer pattern</a> to capture the change (act as the Publisher) and then create a Table to hold Subscribers and Filters (Change Observer), a Table to be the Message Queue (Change Notification), and a Codeunit to be the Message Broker and help with the polling (ObserverMgt).</p>
 <p>Below are the table definitions:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>    <span style=color:#75715e>//Change Observer:   
-</span><span style=color:#75715e></span>    <span style=color:#75715e>//&#34;Table ID&#34; Integer &#34;Observable Table&#34;  
-</span><span style=color:#75715e></span>    &#34;Server ID&#34; <span style=color:#66d9ef>Integer</span>  
-    &#34;Session ID&#34; <span style=color:#66d9ef>Integer</span>   
-      
-    <span style=color:#75715e>//Change Notification:  
-</span><span style=color:#75715e></span>    <span style=color:#75715e>//&#34;Table ID&#34; Integer &#34;Observable Table&#34;  
-</span><span style=color:#75715e></span>    &#34;Server ID&#34; <span style=color:#66d9ef>Integer</span>  
-    &#34;Session ID&#34; <span style=color:#66d9ef>Integer</span>   
-    &#34;Entry No.&#34; <span style=color:#66d9ef>Integer</span> AutoIncrement  
-    &#34;Type of Change&#34; <span style=color:#66d9ef>Option</span> Insert,<span style=color:#66d9ef>Modify</span>,Delete,Rename  
-    &#34;Record ID&#34; <span style=color:#66d9ef>RecordID</span>  
-    <span style=color:#f92672>... (</span>other <span style=color:#66d9ef>fields</span> <span style=color:#66d9ef>to</span> indicate what has changed<span style=color:#f92672>)  
-</span></code></pre></div><p>The Change Observer table identifies the Subscriber using Server ID and Session ID, and then in this example there is only one filter, which is the Table ID we want to listen to any changes. In this case all three fields are in the Primary Key.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Change Observer:</strong></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&ldquo;Table ID&rdquo;</td>
+<td>Integer</td>
+<td>&ldquo;Observable Table&rdquo;</td>
+</tr>
+<tr>
+<td>&ldquo;Server ID&rdquo;</td>
+<td>Integer</td>
+<td></td>
+</tr>
+<tr>
+<td>&ldquo;Session ID&rdquo;</td>
+<td>Integer</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><strong>Change Notification:</strong></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&ldquo;Table ID&rdquo;</td>
+<td>Integer</td>
+<td>&ldquo;Observable Table&rdquo;</td>
+</tr>
+<tr>
+<td>&ldquo;Server ID&rdquo;</td>
+<td>Integer</td>
+<td></td>
+</tr>
+<tr>
+<td>&ldquo;Session ID&rdquo;</td>
+<td>Integer</td>
+<td></td>
+</tr>
+<tr>
+<td>&ldquo;Entry No.&rdquo;</td>
+<td>Integer</td>
+<td>AutoIncrement</td>
+</tr>
+<tr>
+<td>&ldquo;Type of Change&rdquo;</td>
+<td>Option</td>
+<td>Insert,Modify,Delete,Rename</td>
+</tr>
+<tr>
+<td>&ldquo;Record ID&rdquo;</td>
+<td>RecordID</td>
+<td></td>
+</tr>
+<tr>
+<td>&mldr; (other fields to indicate what has changed)</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>The Change Observer table identifies the Subscriber using Server ID and Session ID, and then in this example there is only one filter, which is the Table ID we want to listen to any changes. In this case all three fields are in the Primary Key.</p>
 <p>The Change Notification table then has the same three fields plus an Entry No. as its Primary Key, and in this example borrows heavily from the Change Log code to fill in the rest of the message.</p>
 <p><em><strong>Note:</strong></em> Other examples of the pattern could have very different fields to identify the Subscriber, Filters and then whatever fields needed for content of the Message.</p>
 <p>Our Message Broker Codeunit will also serve as a central place to create Subscribers (Listen and StopListening functions) and a place to Poll for Messages. Note that the Poll function deletes the Messages as it reads them.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>    <span style=color:#75715e>//Listen(TableID : Integer)**
-</span><span style=color:#75715e></span>    <span style=color:#66d9ef>WITH</span> Observer <span style=color:#66d9ef>DO</span> <span style=color:#66d9ef>BEGIN</span>
-        &#34;Table ID&#34; <span style=color:#f92672>:=</span> TableID;
-        &#34;Server ID&#34; <span style=color:#f92672>:=</span> SERVICEINSTANCEID;
-        &#34;Session ID&#34; <span style=color:#f92672>:=</span> SESSIONID;
-        INSERT<span style=color:#f92672>(</span>TRUE<span style=color:#f92672>)</span>;
-        COMMIT;
-    <span style=color:#66d9ef>END</span>;
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>Listen<span style=color:#f92672>(</span>TableID : <span style=color:#66d9ef>Integer</span><span style=color:#f92672>)
+</span><span style=color:#f92672></span><span style=color:#66d9ef>WITH</span> Observer <span style=color:#66d9ef>DO</span> <span style=color:#66d9ef>BEGIN</span>
+    &#34;Table ID&#34; <span style=color:#f92672>:=</span> TableID;
+    &#34;Server ID&#34; <span style=color:#f92672>:=</span> SERVICEINSTANCEID;
+    &#34;Session ID&#34; <span style=color:#f92672>:=</span> SESSIONID;
+    INSERT<span style=color:#f92672>(</span>TRUE<span style=color:#f92672>)</span>;
+    COMMIT;
+<span style=color:#66d9ef>END</span>;
 
-    <span style=color:#75715e>//StopListening(TableID : Integer)
-</span><span style=color:#75715e></span>    <span style=color:#66d9ef>WITH</span> Observer <span style=color:#66d9ef>DO</span> <span style=color:#66d9ef>BEGIN</span>
-        RESET;
-        SETRANGE<span style=color:#f92672>(</span>&#34;Server ID&#34;,SERVICEINSTANCEID<span style=color:#f92672>)</span>;
-        SETRANGE<span style=color:#f92672>(</span>&#34;Session ID&#34;,SESSIONID<span style=color:#f92672>)</span>;
-        SETRANGE<span style=color:#f92672>(</span>&#34;Table ID&#34;,TableID<span style=color:#f92672>)</span>;
-        DELETEALL<span style=color:#f92672>(</span>TRUE<span style=color:#f92672>)</span>;
-        COMMIT;
-    <span style=color:#66d9ef>END</span>;
+StopListening<span style=color:#f92672>(</span>TableID : <span style=color:#66d9ef>Integer</span><span style=color:#f92672>)
+</span><span style=color:#f92672></span><span style=color:#66d9ef>WITH</span> Observer <span style=color:#66d9ef>DO</span> <span style=color:#66d9ef>BEGIN</span>
+    RESET;
+    SETRANGE<span style=color:#f92672>(</span>&#34;Server ID&#34;,SERVICEINSTANCEID<span style=color:#f92672>)</span>;
+    SETRANGE<span style=color:#f92672>(</span>&#34;Session ID&#34;,SESSIONID<span style=color:#f92672>)</span>;
+    SETRANGE<span style=color:#f92672>(</span>&#34;Table ID&#34;,TableID<span style=color:#f92672>)</span>;
+    DELETEALL<span style=color:#f92672>(</span>TRUE<span style=color:#f92672>)</span>;
+    COMMIT;
+<span style=color:#66d9ef>END</span>;
 
-    <span style=color:#75715e>//NotifyAll(ChangeNotification : Record &#34;Change Notification&#34;)**
-</span><span style=color:#75715e></span>    <span style=color:#66d9ef>WITH</span> Observer <span style=color:#66d9ef>DO</span> <span style=color:#66d9ef>BEGIN</span>
-        RESET;
-        SETRANGE<span style=color:#f92672>(</span>&#34;Table ID&#34;,ChangeNotification<span style=color:#f92672>.</span>&#34;Table ID&#34;<span style=color:#f92672>)</span>;
-        <span style=color:#66d9ef>IF</span> FINDSET <span style=color:#66d9ef>THEN</span> <span style=color:#66d9ef>REPEAT</span>
-        Notify<span style=color:#f92672>(</span>Observer,ChangeNotification<span style=color:#f92672>)</span>;
-        <span style=color:#66d9ef>UNTIL</span> NEXT = <span style=color:#ae81ff>0</span>; 
-    <span style=color:#66d9ef>END</span>;
+NotifyAll<span style=color:#f92672>(</span>ChangeNotification : <span style=color:#66d9ef>Record</span> &#34;Change Notification&#34;<span style=color:#f92672>)
+</span><span style=color:#f92672></span><span style=color:#66d9ef>WITH</span> Observer <span style=color:#66d9ef>DO</span> <span style=color:#66d9ef>BEGIN</span>
+    RESET;
+    SETRANGE<span style=color:#f92672>(</span>&#34;Table ID&#34;,ChangeNotification<span style=color:#f92672>.</span>&#34;Table ID&#34;<span style=color:#f92672>)</span>;
+    <span style=color:#66d9ef>IF</span> FINDSET <span style=color:#66d9ef>THEN</span> <span style=color:#66d9ef>REPEAT</span>
+    Notify<span style=color:#f92672>(</span>Observer,ChangeNotification<span style=color:#f92672>)</span>;
+    <span style=color:#66d9ef>UNTIL</span> NEXT = <span style=color:#ae81ff>0</span>; 
+<span style=color:#66d9ef>END</span>;
 
-    <span style=color:#75715e>//Notify(Observer : Record &#34;Change Observer&#34;;ChangeNotification : Record &#34;Change Notification&#34;)**
-</span><span style=color:#75715e></span>    <span style=color:#66d9ef>WITH</span> ChangeNotification <span style=color:#66d9ef>DO</span> <span style=color:#66d9ef>BEGIN</span>
-        &#34;Server ID&#34; <span style=color:#f92672>:=</span> Observer<span style=color:#f92672>.</span>&#34;Server ID&#34;;
-        &#34;Session ID&#34; <span style=color:#f92672>:=</span> Observer<span style=color:#f92672>.</span>&#34;Session ID&#34;;
-        &#34;Entry No.&#34; <span style=color:#f92672>:=</span> <span style=color:#ae81ff>0</span>;
-        INSERT;
-    <span style=color:#66d9ef>END</span>;
+Notify<span style=color:#f92672>(</span>Observer : <span style=color:#66d9ef>Record</span> &#34;Change Observer&#34;;ChangeNotification : <span style=color:#66d9ef>Record</span> &#34;Change Notification&#34;<span style=color:#f92672>)
+</span><span style=color:#f92672></span><span style=color:#66d9ef>WITH</span> ChangeNotification <span style=color:#66d9ef>DO</span> <span style=color:#66d9ef>BEGIN</span>
+    &#34;Server ID&#34; <span style=color:#f92672>:=</span> Observer<span style=color:#f92672>.</span>&#34;Server ID&#34;;
+    &#34;Session ID&#34; <span style=color:#f92672>:=</span> Observer<span style=color:#f92672>.</span>&#34;Session ID&#34;;
+    &#34;Entry No.&#34; <span style=color:#f92672>:=</span> <span style=color:#ae81ff>0</span>;
+    INSERT;
+<span style=color:#66d9ef>END</span>;
 
-    <span style=color:#75715e>//Poll(TableID : Integer;VAR TempChangeNotification : TEMPORARY Record &#34;Change Notification&#34;)**
-</span><span style=color:#75715e></span>    <span style=color:#66d9ef>WITH</span> ChangeNotification <span style=color:#66d9ef>DO</span> <span style=color:#66d9ef>BEGIN</span>
-        TempChangeNotification<span style=color:#f92672>.</span>RESET;
-        TempChangeNotification<span style=color:#f92672>.</span>DELETEALL;
-        RESET;
-        SETRANGE<span style=color:#f92672>(</span>&#34;Table ID&#34;,TableID<span style=color:#f92672>)</span>;
-        SETRANGE<span style=color:#f92672>(</span>&#34;Server ID&#34;,SERVICEINSTANCEID<span style=color:#f92672>)</span>;
-        SETRANGE<span style=color:#f92672>(</span>&#34;Session ID&#34;,SESSIONID<span style=color:#f92672>)</span>;
-        <span style=color:#66d9ef>IF</span> FINDSET <span style=color:#66d9ef>THEN</span> <span style=color:#66d9ef>REPEAT</span>
-            TempChangeNotification <span style=color:#f92672>:=</span> ChangeNotification;
-            TempChangeNotification<span style=color:#f92672>.</span>INSERT;
-            MARK<span style=color:#f92672>(</span>TRUE<span style=color:#f92672>)</span>;
-            <span style=color:#66d9ef>UNTIL</span> NEXT = <span style=color:#ae81ff>0</span>;
-        MARKEDONLY<span style=color:#f92672>(</span>TRUE<span style=color:#f92672>)</span>;
-        DELETEALL;
-    <span style=color:#66d9ef>END</span>;
-</code></pre></div><p><strong>__</strong> The final part of this example is an object that calls the functions above. In this example we will use a Page with a PingPong Timer Control to do the polling in (almost) real time. These are the functions on the page:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>    <span style=color:#75715e>//OnQueryClosePage(CloseAction : Action None) : Boolean**
-</span><span style=color:#75715e></span>    ObserverMgt<span style=color:#f92672>.</span>StopListening<span style=color:#f92672>(</span><span style=color:#66d9ef>DATABASE</span>::&#34;NAV Whiteboard Booking&#34;<span style=color:#f92672>)</span>;
-    
-    <span style=color:#75715e>//Timer::AddInReady()**
-</span><span style=color:#75715e></span>    <span style=color:#66d9ef>IF</span> ObserverMgt<span style=color:#f92672>.</span>Listen<span style=color:#f92672>(</span><span style=color:#66d9ef>DATABASE</span>::&#34;NAV Whiteboard Booking&#34;<span style=color:#f92672>) </span><span style=color:#66d9ef>THEN</span>
-    CurrPage<span style=color:#f92672>.</span>Timer<span style=color:#f92672>.</span>Ping<span style=color:#f92672>(</span><span style=color:#ae81ff>1000</span><span style=color:#f92672>)</span>;
-    
-    <span style=color:#75715e>//Timer::Pong()**
-</span><span style=color:#75715e></span>    CallUpdate;
-    CurrPage<span style=color:#f92672>.</span>Timer<span style=color:#f92672>.</span>Ping<span style=color:#f92672>(</span><span style=color:#ae81ff>1000</span><span style=color:#f92672>)</span>;
-    
-    <span style=color:#75715e>//LOCAL CallUpdate()**
-</span><span style=color:#75715e></span>    ObserverMgt<span style=color:#f92672>.</span>Poll<span style=color:#f92672>(</span><span style=color:#66d9ef>DATABASE</span>::&#34;NAV Whiteboard Booking&#34;,TempChangeNotification<span style=color:#f92672>)</span>;
-    <span style=color:#66d9ef>WITH</span> TempChangeNotification <span style=color:#66d9ef>DO</span> <span style=color:#66d9ef>BEGIN</span>
-        <span style=color:#66d9ef>IF</span> FINDSET <span style=color:#66d9ef>THEN</span> <span style=color:#66d9ef>REPEAT</span>
-        <span style=color:#66d9ef>IF</span> &#34;Type of Change&#34; = &#34;Type of Change&#34;::Delete <span style=color:#66d9ef>THEN</span> <span style=color:#66d9ef>BEGIN</span>
-        <span style=color:#f92672>...
-</span><span style=color:#f92672>        </span><span style=color:#66d9ef>END</span> <span style=color:#66d9ef>ELSE</span> <span style=color:#66d9ef>IF</span> RecRef<span style=color:#f92672>.</span>GET<span style=color:#f92672>(</span>&#34;Record ID&#34;<span style=color:#f92672>) </span><span style=color:#66d9ef>THEN</span> <span style=color:#66d9ef>BEGIN</span>
-        <span style=color:#f92672>...
-</span><span style=color:#f92672>        </span><span style=color:#66d9ef>END</span>;
+Poll<span style=color:#f92672>(</span>TableID : <span style=color:#66d9ef>Integer</span>;<span style=color:#66d9ef>VAR</span> TempChangeNotification : <span style=color:#66d9ef>TEMPORARY</span> <span style=color:#66d9ef>Record</span> &#34;Change Notification&#34;<span style=color:#f92672>)
+</span><span style=color:#f92672></span><span style=color:#66d9ef>WITH</span> ChangeNotification <span style=color:#66d9ef>DO</span> <span style=color:#66d9ef>BEGIN</span>
+    TempChangeNotification<span style=color:#f92672>.</span>RESET;
+    TempChangeNotification<span style=color:#f92672>.</span>DELETEALL;
+
+    RESET;
+    SETRANGE<span style=color:#f92672>(</span>&#34;Table ID&#34;,TableID<span style=color:#f92672>)</span>;
+    SETRANGE<span style=color:#f92672>(</span>&#34;Server ID&#34;,SERVICEINSTANCEID<span style=color:#f92672>)</span>;
+    SETRANGE<span style=color:#f92672>(</span>&#34;Session ID&#34;,SESSIONID<span style=color:#f92672>)</span>;
+
+    <span style=color:#66d9ef>IF</span> FINDSET <span style=color:#66d9ef>THEN</span> <span style=color:#66d9ef>REPEAT</span>
+        TempChangeNotification <span style=color:#f92672>:=</span> ChangeNotification;
+        TempChangeNotification<span style=color:#f92672>.</span>INSERT;
+        MARK<span style=color:#f92672>(</span>TRUE<span style=color:#f92672>)</span>;
         <span style=color:#66d9ef>UNTIL</span> NEXT = <span style=color:#ae81ff>0</span>;
-    <span style=color:#66d9ef>END</span>;
+
+    MARKEDONLY<span style=color:#f92672>(</span>TRUE<span style=color:#f92672>)</span>;
+    DELETEALL;
+<span style=color:#66d9ef>END</span>;
+</code></pre></div><p>The final part of this example is an object that calls the functions above. In this example we will use a Page with a PingPong Timer Control to do the polling in (almost) real time. These are the functions on the page:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>OnQueryClosePage<span style=color:#f92672>(</span>CloseAction : <span style=color:#66d9ef>Action</span> <span style=color:#66d9ef>None</span><span style=color:#f92672>) </span>: <span style=color:#66d9ef>Boolean</span>
+ObserverMgt<span style=color:#f92672>.</span>StopListening<span style=color:#f92672>(</span><span style=color:#66d9ef>DATABASE</span>::&#34;NAV Whiteboard Booking&#34;<span style=color:#f92672>)</span>;
+
+Timer::AddInReady<span style=color:#f92672>()
+</span><span style=color:#f92672></span><span style=color:#66d9ef>IF</span> ObserverMgt<span style=color:#f92672>.</span>Listen<span style=color:#f92672>(</span><span style=color:#66d9ef>DATABASE</span>::&#34;NAV Whiteboard Booking&#34;<span style=color:#f92672>) </span><span style=color:#66d9ef>THEN</span>
+CurrPage<span style=color:#f92672>.</span>Timer<span style=color:#f92672>.</span>Ping<span style=color:#f92672>(</span><span style=color:#ae81ff>1000</span><span style=color:#f92672>)</span>;
+
+Timer::Pong<span style=color:#f92672>()
+</span><span style=color:#f92672></span>CallUpdate;
+CurrPage<span style=color:#f92672>.</span>Timer<span style=color:#f92672>.</span>Ping<span style=color:#f92672>(</span><span style=color:#ae81ff>1000</span><span style=color:#f92672>)</span>;
+
+<span style=color:#66d9ef>LOCAL</span> CallUpdate<span style=color:#f92672>()
+</span><span style=color:#f92672></span>ObserverMgt<span style=color:#f92672>.</span>Poll<span style=color:#f92672>(</span><span style=color:#66d9ef>DATABASE</span>::&#34;NAV Whiteboard Booking&#34;,TempChangeNotification<span style=color:#f92672>)</span>;
+
+<span style=color:#66d9ef>WITH</span> TempChangeNotification <span style=color:#66d9ef>DO</span> <span style=color:#66d9ef>BEGIN</span>
+    <span style=color:#66d9ef>IF</span> FINDSET <span style=color:#66d9ef>THEN</span> <span style=color:#66d9ef>REPEAT</span>
+        <span style=color:#66d9ef>IF</span> &#34;Type of Change&#34; = &#34;Type of Change&#34;::Delete <span style=color:#66d9ef>THEN</span> <span style=color:#66d9ef>BEGIN</span>
+            <span style=color:#f92672>...
+</span><span style=color:#f92672>        </span><span style=color:#66d9ef>END</span> <span style=color:#66d9ef>ELSE</span> <span style=color:#66d9ef>IF</span> RecRef<span style=color:#f92672>.</span>GET<span style=color:#f92672>(</span>&#34;Record ID&#34;<span style=color:#f92672>) </span><span style=color:#66d9ef>THEN</span> <span style=color:#66d9ef>BEGIN</span>
+            <span style=color:#f92672>...
+</span><span style=color:#f92672>        </span><span style=color:#66d9ef>END</span>;
+    <span style=color:#66d9ef>UNTIL</span> NEXT = <span style=color:#ae81ff>0</span>;
+<span style=color:#66d9ef>END</span>;
 </code></pre></div><h2 id=consequences>Consequences</h2>
 <p>The PingPong control is only available on the Windows Client, so if you want to use another client you will need to use another solution to Poll for Messages. Therefore this pattern is not always going to be &ldquo;real time&rdquo;.</p>
 <h2 id=related-topics>Related Topics</h2>
@@ -393,12 +456,12 @@ ALGuidelines.Dev
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/js/clipboard.min.js?1644506468></script>
-<script src=/js/perfect-scrollbar.min.js?1644506468></script>
-<script src=/js/perfect-scrollbar.jquery.min.js?1644506468></script>
-<script src=/js/jquery.svg.pan.zoom.js?1644506468></script>
-<script src=/js/featherlight.min.js?1644506468></script>
-<script src=/js/modernizr.custom-3.6.0.js?1644506468></script>
-<script src=/js/relearn.js?1644506468></script>
+<script src=/js/clipboard.min.js?1644600599></script>
+<script src=/js/perfect-scrollbar.min.js?1644600599></script>
+<script src=/js/perfect-scrollbar.jquery.min.js?1644600599></script>
+<script src=/js/jquery.svg.pan.zoom.js?1644600599></script>
+<script src=/js/featherlight.min.js?1644600599></script>
+<script src=/js/modernizr.custom-3.6.0.js?1644600599></script>
+<script src=/js/relearn.js?1644600599></script>
 </body>
 </html>

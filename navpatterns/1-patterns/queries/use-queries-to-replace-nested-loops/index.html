@@ -5,16 +5,16 @@
 <meta name=generator content="Hugo 0.92.1">
 <meta name=description content>
 <title>Use Queries to Replace Nested Loops :: AL Guidelines</title>
-<link href=/css/nucleus.css?1644506469 rel=stylesheet>
-<link href=/css/fontawesome-all.min.css?1644506469 rel=stylesheet>
-<link href=/css/featherlight.min.css?1644506469 rel=stylesheet>
-<link href=/css/perfect-scrollbar.min.css?1644506469 rel=stylesheet>
-<link href=/css/auto-complete.css?1644506469 rel=stylesheet>
-<link href=/css/theme.css?1644506469 rel=stylesheet>
-<link href=/css/theme-blue.css?1644506469 rel=stylesheet>
-<link href=/css/variant.css?1644506469 rel=stylesheet>
-<link href=/css/print.css?1644506469 rel=stylesheet media=print>
-<script src=/js/jquery.min.js?1644506469></script>
+<link href=/css/nucleus.css?1644600599 rel=stylesheet>
+<link href=/css/fontawesome-all.min.css?1644600599 rel=stylesheet>
+<link href=/css/featherlight.min.css?1644600599 rel=stylesheet>
+<link href=/css/perfect-scrollbar.min.css?1644600599 rel=stylesheet>
+<link href=/css/auto-complete.css?1644600599 rel=stylesheet>
+<link href=/css/theme.css?1644600599 rel=stylesheet>
+<link href=/css/theme-blue.css?1644600599 rel=stylesheet>
+<link href=/css/variant.css?1644600599 rel=stylesheet>
+<link href=/css/print.css?1644600599 rel=stylesheet media=print>
+<script src=/js/jquery.min.js?1644600599></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
 <body data-url=/navpatterns/1-patterns/queries/use-queries-to-replace-nested-loops/>
@@ -32,9 +32,9 @@ ALGuidelines.Dev
 <input data-search-input id=search-by type=search placeholder=Search...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script src=/js/lunr.min.js?1644506469></script>
-<script src=/js/auto-complete.js?1644506469></script>
-<script src=/js/search.js?1644506469></script>
+<script src=/js/lunr.min.js?1644600599></script>
+<script src=/js/auto-complete.js?1644600599></script>
+<script src=/js/search.js?1644600599></script>
 </div>
 <div class=highlightable>
 <ul class=topics>
@@ -249,12 +249,12 @@ ALGuidelines.Dev
 <div class=wrapper>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#abstract><strong>Abstract</strong></a>
+<li><a href=#abstract>Abstract</a>
 <ul>
-<li><a href=#description><strong>Description</strong></a></li>
-<li><a href=#usage><strong>Usage</strong></a></li>
-<li><a href=#nav-specific-examples><strong>NAV Specific Examples</strong></a></li>
-<li><a href=#ideas-for-improvement><strong>Ideas for Improvement</strong></a></li>
+<li><a href=#description>Description</a></li>
+<li><a href=#usage>Usage</a></li>
+<li><a href=#nav-specific-examples>NAV Specific Examples</a></li>
+<li><a href=#ideas-for-improvement>Ideas for Improvement</a></li>
 </ul>
 </li>
 </ul>
@@ -267,18 +267,18 @@ ALGuidelines.Dev
 <main id=body-inner>
 <h1>Use Queries to Replace Nested Loops</h1>
 <p><em>Originally by Bogdan Sturzoiu, Microsoft Development Center Copenhagen</em></p>
-<h2 id=abstract><strong>Abstract</strong></h2>
+<h2 id=abstract>Abstract</h2>
 <p>This pattern shows how the new query object type introduced in NAV 2013 allows you to replace costly loops when inspecting data from two or more tables.</p>
-<h3 id=description><strong>Description</strong></h3>
+<h3 id=description>Description</h3>
 <p>One of the core operations in a relational database is joining two or more tables. For example, you might need to extract all sales lines in the database together with information regarding the related sales header. This requires joining the Sales Header and Sales Line tables using Sales Header No. as the connecting field.;</p>
 <p>The join operation has traditionally been done in C/AL by record looping. When NAV 2013 introduced the query object, it allowed us to produce a data set that is the result of a join operation between two or more tables. This simplifies the problem of finding related records in two tables linked through a foreign key.</p>
-<h4 id=pattern-elements><strong>Pattern Elements</strong></h4>
+<h4 id=pattern-elements>Pattern Elements</h4>
 <ol>
 <li>Two or more tables that contain records linked through a foreign key: Table 1, Table 2, Table n.</li>
 <li>A query object Query X, that joins Table 1, Table 2, etc. based on the connecting key.</li>
 <li>A processing codeunit that loops through the query records (or any other code-bearing object).</li>
 </ol>
-<h4 id=pattern-steps><strong>Pattern Steps</strong></h4>
+<h4 id=pattern-steps>Pattern Steps</h4>
 <ol>
 <li>Run the query on the connected tables.</li>
 <li>Loop through the records returned by the query.</li>
@@ -286,141 +286,128 @@ ALGuidelines.Dev
 </ol>
 <p><a href=5040.clip_5F00_image002.png><img src=5040.clip_5F00_image002.png alt=" "></a></p>
 <p><em>Figure 1. The pattern elements</em></p>
-<h3 id=usage><strong>Usage</strong></h3>
-<h4 id=sample-problem><strong>Sample Problem</strong></h4>
+<h3 id=usage>Usage</h3>
+<h4 id=sample-problem>Sample Problem</h4>
 <p>The Bank Acc. Reconciliation Line table (274) and the Bank Account Ledger Entry table (271) are connected through the Bank Account No. field. Identify the matching pairs of records based on having the same remaining amount and transaction date.</p>
-<h4 id=solution-using-nested-loops><strong>Solution Using Nested Loops</strong></h4>
+<h4 id=solution-using-nested-loops>Solution Using Nested Loops</h4>
 <p>The classic C/AL approach is to:</p>
 <ol>
-<li>
-<p>Set the necessary filters on the left table, i.e. table 274.</p>
-</li>
-<li>
-<p>Loop through the filtered records.</p>
-</li>
-<li>
-<p>For each record in the filter, find the related records in the right table (table 271) and set the required filters on it.</p>
-</li>
-<li>
-<p>For each pair of records from the left and right table, decide if they are a solution and if so, apply them to each other.</p>
-<p>PROCEDURE MatchSingle@5(BankAccReconciliation@1003 : Record 273);
-VAR
-BankAccRecLine@1005 : Record 274;
-BankAccLedgerEntry@1006 : Record 271;
-BankAccEntrySetReconNo@1007 : Codeunit 375;
-BEGIN
-BankAccRecLine.SETRANGE(&ldquo;Bank Account No.",BankAccReconciliation.&ldquo;Bank Account No.");
-BankAccRecLine.SETRANGE(&ldquo;Statement No.",BankAccReconciliation.&ldquo;Statement No.");
-BankAccRecLine.SETFILTER(Difference,'&lt;>%1',0);
-BankAccRecLine.SETRANGE(Type,BankAccRecLine.Type::&ldquo;Bank Account Ledger Entry&rdquo;);
-IF BankAccRecLine.FINDSET THEN
-REPEAT
-BankAccLedgerEntry.SETRANGE(&ldquo;Bank Account No.",BankAccRecLine.&ldquo;Bank Account No.");
-BankAccLedgerEntry.SETRANGE(Open,TRUE);
-BankAccLedgerEntry.SETRANGE(&ldquo;Statement Status&rdquo;,BankAccLedgerEntry.&ldquo;Statement Status&rdquo;::Open);
-BankAccLedgerEntry.SETFILTER(&ldquo;Remaining Amount&rdquo;,'&lt;>%1',0);
-IF BankAccLedgerEntry.FINDSET THEN
-REPEAT
-IF (BankAccRecLine.Difference = BankAccLedgerEntry.&ldquo;Remaining Amount&rdquo;) AND
-(BankAccRecLine.&ldquo;Transaction Date&rdquo; = BankAccLedgerEntry.&ldquo;Posting Date&rdquo;) THEN
-BankAccEntrySetReconNo.ApplyEntries(
-BankAccRecLine,BankAccLedgerEntry, Relation::&ldquo;One-to-One&rdquo;);
-UNTIL BankAccLedgerEntry.NEXT = 0;
-UNTIL BankAccRecLine.NEXT = 0;
-END;</p>
-</li>
+<li>Set the necessary filters on the left table, i.e. table 274.</li>
+<li>Loop through the filtered records.</li>
+<li>For each record in the filter, find the related records in the right table (table 271) and set the required filters on it.</li>
+<li>For each pair of records from the left and right table, decide if they are a solution and if so, apply them to each other.</li>
 </ol>
-<p><strong>Solution Using Query</strong></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=color:#66d9ef>PROCEDURE</span> MatchSingle@<span style=color:#ae81ff>5</span><span style=color:#f92672>(</span>BankAccReconciliation@<span style=color:#ae81ff>1003</span> : <span style=color:#66d9ef>Record</span> <span style=color:#ae81ff>273</span><span style=color:#f92672>)</span>;
+<span style=color:#66d9ef>VAR</span>
+    BankAccRecLine@<span style=color:#ae81ff>1005</span> : <span style=color:#66d9ef>Record</span> <span style=color:#ae81ff>274</span>;
+    BankAccLedgerEntry@<span style=color:#ae81ff>1006</span> : <span style=color:#66d9ef>Record</span> <span style=color:#ae81ff>271</span>;
+    BankAccEntrySetReconNo@<span style=color:#ae81ff>1007</span> : <span style=color:#66d9ef>Codeunit</span> <span style=color:#ae81ff>375</span>; 
+<span style=color:#66d9ef>BEGIN</span>
+    BankAccRecLine<span style=color:#f92672>.</span>SETRANGE<span style=color:#f92672>(</span>&#34;Bank Account No.&#34;,BankAccReconciliation<span style=color:#f92672>.</span>&#34;Bank Account No.&#34;<span style=color:#f92672>)</span>;
+    BankAccRecLine<span style=color:#f92672>.</span>SETRANGE<span style=color:#f92672>(</span>&#34;Statement No.&#34;,BankAccReconciliation<span style=color:#f92672>.</span>&#34;Statement No.&#34;<span style=color:#f92672>)</span>;
+    BankAccRecLine<span style=color:#f92672>.</span>SETFILTER<span style=color:#f92672>(</span>Difference,<span style=color:#e6db74>&#39;&lt;&gt;%1&#39;</span>,<span style=color:#ae81ff>0</span><span style=color:#f92672>)</span>;
+    BankAccRecLine<span style=color:#f92672>.</span>SETRANGE<span style=color:#f92672>(</span><span style=color:#66d9ef>Type</span>,BankAccRecLine<span style=color:#f92672>.</span><span style=color:#66d9ef>Type</span>::&#34;Bank Account Ledger Entry&#34;<span style=color:#f92672>)</span>;
+
+    <span style=color:#66d9ef>IF</span> BankAccRecLine<span style=color:#f92672>.</span>FINDSET <span style=color:#66d9ef>THEN</span>
+        <span style=color:#66d9ef>REPEAT</span>
+            BankAccLedgerEntry<span style=color:#f92672>.</span>SETRANGE<span style=color:#f92672>(</span>&#34;Bank Account No.&#34;,BankAccRecLine<span style=color:#f92672>.</span>&#34;Bank Account No.&#34;<span style=color:#f92672>)</span>;
+            BankAccLedgerEntry<span style=color:#f92672>.</span>SETRANGE<span style=color:#f92672>(</span>Open,TRUE<span style=color:#f92672>)</span>;
+            BankAccLedgerEntry<span style=color:#f92672>.</span>SETRANGE<span style=color:#f92672>(</span>&#34;Statement Status&#34;,BankAccLedgerEntry<span style=color:#f92672>.</span>&#34;Statement Status&#34;::Open<span style=color:#f92672>)</span>;
+            BankAccLedgerEntry<span style=color:#f92672>.</span>SETFILTER<span style=color:#f92672>(</span>&#34;Remaining Amount&#34;,<span style=color:#e6db74>&#39;&lt;&gt;%1&#39;</span>,<span style=color:#ae81ff>0</span><span style=color:#f92672>)</span>;
+            <span style=color:#66d9ef>IF</span> BankAccLedgerEntry<span style=color:#f92672>.</span>FINDSET <span style=color:#66d9ef>THEN</span>
+                <span style=color:#66d9ef>REPEAT</span>
+                    <span style=color:#66d9ef>IF</span> <span style=color:#f92672>(</span>BankAccRecLine<span style=color:#f92672>.</span>Difference = BankAccLedgerEntry<span style=color:#f92672>.</span>&#34;Remaining Amount&#34;<span style=color:#f92672>) </span><span style=color:#f92672>AND</span> 
+                        <span style=color:#f92672>(</span>BankAccRecLine<span style=color:#f92672>.</span>&#34;Transaction Date&#34; = BankAccLedgerEntry<span style=color:#f92672>.</span>&#34;Posting Date&#34;<span style=color:#f92672>) </span><span style=color:#66d9ef>THEN</span> 
+                        BankAccEntrySetReconNo<span style=color:#f92672>.</span>ApplyEntries<span style=color:#f92672>(
+</span><span style=color:#f92672>                            </span>BankAccRecLine,BankAccLedgerEntry, Relation::&#34;One-to-One&#34;<span style=color:#f92672>)</span>;
+                <span style=color:#66d9ef>UNTIL</span> BankAccLedgerEntry<span style=color:#f92672>.</span>NEXT = <span style=color:#ae81ff>0</span>;
+        <span style=color:#66d9ef>UNTIL</span> BankAccRecLine<span style=color:#f92672>.</span>NEXT = <span style=color:#ae81ff>0</span>;
+<span style=color:#66d9ef>END</span>;
+</code></pre></div><p><strong>Solution Using Query</strong></p>
 <p>The new query-based approach involves:</p>
 <ol>
-<li>
-<p>Define a query that returns the full filtered join of tables 271 and 274.</p>
-</li>
-<li>
-<p>Loop through the records returned by the query.</p>
-</li>
-<li>
-<p>For each query record, decide if it represents a solution and then connect the two table records that formed it through an application.</p>
-<p>PROCEDURE MatchSingle@5(BankAccReconciliation@1003 : Record 273);
-VAR
-BankRecMatchCandidates@1001 : Query 1252;
-BankAccEntrySetReconNo@1007 : Codeunit 375;
-BEGIN
-BankRecMatchCandidates.SETRANGE(Rec_Line_Bank_Account_No,
-BankAccReconciliation.&ldquo;Bank Account No.");
-BankRecMatchCandidates.SETRANGE(Rec_Line_Statement_No,
-BankAccReconciliation.&ldquo;Statement No.");
-IF NOT BankRecMatchCandidates.OPEN THEN
-EXIT;
-WHILE BankRecMatchCandidates.READ DO BEGIN
-BankAccLedgerEntry.GET(BankRecMatchCandidates.Entry_No);
-BankAccRecLine.GET(BankAccRecLine.&ldquo;Statement Type&rdquo;::&ldquo;Bank Reconciliation&rdquo;,
-BankRecMatchCandidates.Rec_Line_Bank_Account_No,
-BankRecMatchCandidates.Rec_Line_Statement_No,
-BankRecMatchCandidates.Rec_Line_Statement_Line_No);
-BankAccEntrySetReconNo.ApplyEntries(BankAccRecLine,BankAccLedgerEntry,
-Relation::&ldquo;One-to-One&rdquo;);
-END;
-END;</p>
-</li>
+<li>Define a query that returns the full filtered join of tables 271 and 274.</li>
+<li>Loop through the records returned by the query.</li>
+<li>For each query record, decide if it represents a solution and then connect the two table records that formed it through an application.</li>
 </ol>
-<p>where the query 1252 is defined as:</p>
-<pre><code>OBJECT Query 1252 Bank Rec. Match Candidates
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=color:#66d9ef>PROCEDURE</span> MatchSingle@<span style=color:#ae81ff>5</span><span style=color:#f92672>(</span>BankAccReconciliation@<span style=color:#ae81ff>1003</span> : <span style=color:#66d9ef>Record</span> <span style=color:#ae81ff>273</span><span style=color:#f92672>)</span>;
+<span style=color:#66d9ef>VAR</span>
+    BankRecMatchCandidates@<span style=color:#ae81ff>1001</span> : <span style=color:#66d9ef>Query</span> <span style=color:#ae81ff>1252</span>;
+    BankAccEntrySetReconNo@<span style=color:#ae81ff>1007</span> : <span style=color:#66d9ef>Codeunit</span> <span style=color:#ae81ff>375</span>;
+<span style=color:#66d9ef>BEGIN</span>
+    BankRecMatchCandidates<span style=color:#f92672>.</span>SETRANGE<span style=color:#f92672>(</span>Rec_Line_Bank_Account_No,
+        BankAccReconciliation<span style=color:#f92672>.</span>&#34;Bank Account No.&#34;<span style=color:#f92672>)</span>;
+    BankRecMatchCandidates<span style=color:#f92672>.</span>SETRANGE<span style=color:#f92672>(</span>Rec_Line_Statement_No,
+        BankAccReconciliation<span style=color:#f92672>.</span>&#34;Statement No.&#34;<span style=color:#f92672>)</span>;
+    
+    <span style=color:#66d9ef>IF</span> <span style=color:#f92672>NOT</span> BankRecMatchCandidates<span style=color:#f92672>.</span>OPEN <span style=color:#66d9ef>THEN</span>
+        <span style=color:#66d9ef>EXIT</span>;
+
+    <span style=color:#66d9ef>WHILE</span> BankRecMatchCandidates<span style=color:#f92672>.</span>READ <span style=color:#66d9ef>DO</span> <span style=color:#66d9ef>BEGIN</span> 
+        BankAccLedgerEntry<span style=color:#f92672>.</span>GET<span style=color:#f92672>(</span>BankRecMatchCandidates<span style=color:#f92672>.</span>Entry_No<span style=color:#f92672>)</span>; 
+        BankAccRecLine<span style=color:#f92672>.</span>GET<span style=color:#f92672>(</span>BankAccRecLine<span style=color:#f92672>.</span>&#34;Statement Type&#34;::&#34;Bank Reconciliation&#34;,
+        BankRecMatchCandidates<span style=color:#f92672>.</span>Rec_Line_Bank_Account_No,
+        BankRecMatchCandidates<span style=color:#f92672>.</span>Rec_Line_Statement_No,
+        BankRecMatchCandidates<span style=color:#f92672>.</span>Rec_Line_Statement_Line_No<span style=color:#f92672>)</span>;
+        BankAccEntrySetReconNo<span style=color:#f92672>.</span>ApplyEntries<span style=color:#f92672>(</span>BankAccRecLine,BankAccLedgerEntry, 
+            Relation::&#34;One-to-One&#34;<span style=color:#f92672>)</span>; 
+    <span style=color:#66d9ef>END</span>;
+<span style=color:#66d9ef>END</span>;
+</code></pre></div><p>where the query 1252 is defined as:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>OBJECT <span style=color:#66d9ef>Query</span> <span style=color:#ae81ff>1252</span> Bank Rec<span style=color:#f92672>. </span>Match Candidates
 {
-OBJECT-PROPERTIES
-{
-Date=;
-Time=;
-Version List=;
-}
-PROPERTIES
-{
-}
-ELEMENTS
-{
-{ 1 ; ;DataItem; ;
-DataItemTable=Table274;
-DataItemTableFilter=Difference=FILTER(&lt;\&gt;0),
-Type=FILTER(=Bank Account Ledger Entry) }
-{ 2 ;1 ;Column ;Rec\_Line\_Bank\_Account\_No;
-DataSource=Bank Account No. }
-{ 3 ;1 ;Column ;Rec\_Line\_Statement\_No;
-DataSource=Statement No. }
-{ 4 ;1 ;Column ;Rec\_Line\_Statement\_Line\_No;
-DataSource=Statement Line No. }
-{ 5 ;1 ;Column ;Rec\_Line\_Transaction\_Date;
-DataSource=Transaction Date } 
-{ 6 ;1 ;Column ;Rec\_Line\_Difference ;
-DataSource=Difference } 
-{ 7 ;1 ;DataItem; ;
-DataItemTable=Table271;
-DataItemTableFilter=Remaining Amount=FILTER(&lt;\&gt;0),
-Open=CONST(Yes),
-Statement Status=FILTER(Open);
-DataItemLink=Bank Account No.=Bank\_Acc\_Reconciliation\_Line.&quot;Bank Account o.&quot;,
-Remaining Amount=Bank\_Acc\_Reconciliation\_Line.Difference,
-Posting Date=Bank\_Acc\_Reconciliation\_Line.&quot;Transaction Date&quot; }
-{ 8 ;2 ;Column ; ;
-DataSource=Entry No. }
-{ 9 ;2 ;Column ;Bank\_Account\_No ;
-DataSource=Bank Account No. }
-{ 10 ;2 ;Column ; ;
-DataSource=Posting Date } 
-{ 11 ;2 ;Column ; ;
-DataSource=Remaining Amount }
-{ 12 ;2 ;Column ;Bank\_Ledger\_Entry\_Open;
-DataSource=Open }
-{ 13 ;2 ;Column ; ;
-DataSource=Statement Status } 
-}
-CODE
-{
-BEGIN
-END.
-}
-</code></pre>
-<h4 id=heading></h4>
-<p>When comparing the two implementations, we notice the following advantages of using a query instead of two loops:Comparison</p>
+    OBJECT<span style=color:#f92672>-</span>PROPERTIES
+    {
+        <span style=color:#66d9ef>Date</span>=;
+        <span style=color:#66d9ef>Time</span>=;
+        <span style=color:#66d9ef>Version</span> <span style=color:#66d9ef>List</span>=;
+    }
+    PROPERTIES
+    {
+    }
+    <span style=color:#66d9ef>ELEMENTS</span>
+    {
+        { <span style=color:#ae81ff>1</span> ; ;<span style=color:#66d9ef>DataItem</span>; ;
+            DataItemTable=Table274;
+            DataItemTableFilter=Difference=<span style=color:#66d9ef>FILTER</span><span style=color:#f92672>(</span>&lt;&gt;<span style=color:#ae81ff>0</span><span style=color:#f92672>)</span>,
+                <span style=color:#66d9ef>Type</span>=<span style=color:#66d9ef>FILTER</span><span style=color:#f92672>(</span>=Bank Account Ledger Entry<span style=color:#f92672>) </span>}
+        { <span style=color:#ae81ff>2</span> ;<span style=color:#ae81ff>1</span> ;<span style=color:#66d9ef>Column</span> ;Rec_Line_Bank_Account_No;
+            DataSource=Bank Account No<span style=color:#f92672>. </span>}
+        { <span style=color:#ae81ff>3</span> ;<span style=color:#ae81ff>1</span> ;<span style=color:#66d9ef>Column</span> ;Rec_Line_Statement_No;
+            DataSource=Statement No<span style=color:#f92672>. </span>}
+        { <span style=color:#ae81ff>4</span> ;<span style=color:#ae81ff>1</span> ;<span style=color:#66d9ef>Column</span> ;Rec_Line_Statement_Line_No;
+            DataSource=Statement Line No<span style=color:#f92672>. </span>}
+        { <span style=color:#ae81ff>5</span> ;<span style=color:#ae81ff>1</span> ;<span style=color:#66d9ef>Column</span> ;Rec_Line_Transaction_Date;
+            DataSource=Transaction <span style=color:#66d9ef>Date</span> } 
+        { <span style=color:#ae81ff>6</span> ;<span style=color:#ae81ff>1</span> ;<span style=color:#66d9ef>Column</span> ;Rec_Line_Difference ;
+            DataSource=Difference } 
+        { <span style=color:#ae81ff>7</span> ;<span style=color:#ae81ff>1</span> ;<span style=color:#66d9ef>DataItem</span>; ;
+            DataItemTable=Table271;
+            DataItemTableFilter=Remaining Amount=<span style=color:#66d9ef>FILTER</span><span style=color:#f92672>(</span>&lt;&gt;<span style=color:#ae81ff>0</span><span style=color:#f92672>)</span>,
+            Open=<span style=color:#66d9ef>CONST</span><span style=color:#f92672>(</span>Yes<span style=color:#f92672>)</span>,
+            Statement Status=<span style=color:#66d9ef>FILTER</span><span style=color:#f92672>(</span>Open<span style=color:#f92672>)</span>;
+            DataItemLink=Bank Account No<span style=color:#f92672>.</span>=Bank_Acc_Reconciliation_Line<span style=color:#f92672>.</span>&#34;Bank Account o.&#34;,
+            Remaining Amount=Bank_Acc_Reconciliation_Line<span style=color:#f92672>.</span>Difference,
+            Posting <span style=color:#66d9ef>Date</span>=Bank_Acc_Reconciliation_Line<span style=color:#f92672>.</span>&#34;Transaction Date&#34; }
+        { <span style=color:#ae81ff>8</span> ;<span style=color:#ae81ff>2</span> ;<span style=color:#66d9ef>Column</span> ; ;
+            DataSource=Entry No<span style=color:#f92672>. </span>}
+        { <span style=color:#ae81ff>9</span> ;<span style=color:#ae81ff>2</span> ;<span style=color:#66d9ef>Column</span> ;Bank_Account_No ;
+            DataSource=Bank Account No<span style=color:#f92672>. </span>}
+        { <span style=color:#ae81ff>10</span> ;<span style=color:#ae81ff>2</span> ;<span style=color:#66d9ef>Column</span> ; ;
+            DataSource=Posting <span style=color:#66d9ef>Date</span> } 
+        { <span style=color:#ae81ff>11</span> ;<span style=color:#ae81ff>2</span> ;<span style=color:#66d9ef>Column</span> ; ;
+            DataSource=Remaining Amount }
+        { <span style=color:#ae81ff>12</span> ;<span style=color:#ae81ff>2</span> ;<span style=color:#66d9ef>Column</span> ;Bank_Ledger_Entry_Open;
+            DataSource=Open }
+        { <span style=color:#ae81ff>13</span> ;<span style=color:#ae81ff>2</span> ;<span style=color:#66d9ef>Column</span> ; ;
+            DataSource=Statement Status } 
+    }
+    <span style=color:#66d9ef>CODE</span>
+    {
+        <span style=color:#66d9ef>BEGIN</span>
+        <span style=color:#66d9ef>END</span><span style=color:#f92672>.
+</span><span style=color:#f92672>    </span>}
+</code></pre></div><p>When comparing the two implementations, we notice the following advantages of using a query instead of two loops:Comparison</p>
 <ol>
 <li>A query produces the Cartesian product of tables 1 and 2 faster than by looping through both of them. The advantage grows as there are more tables linked.</li>
 </ol>
@@ -430,9 +417,9 @@ END.
 <li>Using a query only requires one loop, whereas joining two or more tables requires multiple code loops that quickly become difficult to read and follow.</li>
 <li>Queries are easy to create and maintain and generally provide a cleaner design.</li>
 </ol>
-<h3 id=nav-specific-examples><strong>NAV Specific Examples</strong></h3>
+<h3 id=nav-specific-examples>NAV Specific Examples</h3>
 <p>In Microsoft Dynamics NAV 2013 R2, we can see the query object used in the bank account reconciliation matching algorithm. The object is query Bank Rec. Match Candidates query (1252), and it is called by the matching engine in the Match Bank Rec. Lines codeunit (1252).</p>
-<h3 id=ideas-for-improvement><strong>Ideas for Improvement</strong></h3>
+<h3 id=ideas-for-improvement>Ideas for Improvement</h3>
 <p>The query object type could be improved to allow the passing of parameters at runtime, or, in general, being built dynamically at runtime. This will remove the need for multiple static definitions of the same base query used in slightly different contexts.</p>
 <footer class=footline>
 </footer>
@@ -446,12 +433,12 @@ END.
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/js/clipboard.min.js?1644506469></script>
-<script src=/js/perfect-scrollbar.min.js?1644506469></script>
-<script src=/js/perfect-scrollbar.jquery.min.js?1644506469></script>
-<script src=/js/jquery.svg.pan.zoom.js?1644506469></script>
-<script src=/js/featherlight.min.js?1644506469></script>
-<script src=/js/modernizr.custom-3.6.0.js?1644506469></script>
-<script src=/js/relearn.js?1644506469></script>
+<script src=/js/clipboard.min.js?1644600599></script>
+<script src=/js/perfect-scrollbar.min.js?1644600599></script>
+<script src=/js/perfect-scrollbar.jquery.min.js?1644600599></script>
+<script src=/js/jquery.svg.pan.zoom.js?1644600599></script>
+<script src=/js/featherlight.min.js?1644600599></script>
+<script src=/js/modernizr.custom-3.6.0.js?1644600599></script>
+<script src=/js/relearn.js?1644600599></script>
 </body>
 </html>

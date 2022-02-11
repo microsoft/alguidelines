@@ -5,16 +5,16 @@
 <meta name=generator content="Hugo 0.92.1">
 <meta name=description content>
 <title>Easy Update Of Setup Or Supplementary Information :: AL Guidelines</title>
-<link href=/css/nucleus.css?1644506468 rel=stylesheet>
-<link href=/css/fontawesome-all.min.css?1644506468 rel=stylesheet>
-<link href=/css/featherlight.min.css?1644506468 rel=stylesheet>
-<link href=/css/perfect-scrollbar.min.css?1644506468 rel=stylesheet>
-<link href=/css/auto-complete.css?1644506468 rel=stylesheet>
-<link href=/css/theme.css?1644506468 rel=stylesheet>
-<link href=/css/theme-blue.css?1644506468 rel=stylesheet>
-<link href=/css/variant.css?1644506468 rel=stylesheet>
-<link href=/css/print.css?1644506468 rel=stylesheet media=print>
-<script src=/js/jquery.min.js?1644506468></script>
+<link href=/css/nucleus.css?1644600599 rel=stylesheet>
+<link href=/css/fontawesome-all.min.css?1644600599 rel=stylesheet>
+<link href=/css/featherlight.min.css?1644600599 rel=stylesheet>
+<link href=/css/perfect-scrollbar.min.css?1644600599 rel=stylesheet>
+<link href=/css/auto-complete.css?1644600599 rel=stylesheet>
+<link href=/css/theme.css?1644600599 rel=stylesheet>
+<link href=/css/theme-blue.css?1644600599 rel=stylesheet>
+<link href=/css/variant.css?1644600599 rel=stylesheet>
+<link href=/css/print.css?1644600599 rel=stylesheet media=print>
+<script src=/js/jquery.min.js?1644600599></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
 <body data-url=/navpatterns/1-patterns/easy-update-of-setup-or-supplementary-information/>
@@ -32,9 +32,9 @@ ALGuidelines.Dev
 <input data-search-input id=search-by type=search placeholder=Search...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script src=/js/lunr.min.js?1644506468></script>
-<script src=/js/auto-complete.js?1644506468></script>
-<script src=/js/search.js?1644506468></script>
+<script src=/js/lunr.min.js?1644600599></script>
+<script src=/js/auto-complete.js?1644600599></script>
+<script src=/js/search.js?1644600599></script>
 </div>
 <div class=highlightable>
 <ul class=topics>
@@ -271,37 +271,34 @@ ALGuidelines.Dev
 <h2 id=usage>Usage</h2>
 <p>Define two functions in the setup or supplementary table: One for verifying if the needed information is available, and another for exposing the page that contains the fields that the user must update.</p>
 <p>Call the code. For example:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-AL data-lang=AL><span style=color:#66d9ef>Local</span> IsXAvailable : <span style=color:#66d9ef>Boolean</span>   
-<span style=color:#66d9ef>If</span> <span style=color:#66d9ef>field</span> X &lt;\&gt; <span style=color:#e6db74>&#39;&#39;</span> <span style=color:#66d9ef>then</span>   
-<span style=color:#66d9ef>Exit</span><span style=color:#f92672>(</span>True<span style=color:#f92672>)  
-</span><span style=color:#f92672></span><span style=color:#66d9ef>Exit</span><span style=color:#f92672>(</span>false<span style=color:#f92672>)  
-</span><span style=color:#f92672>  
-</span><span style=color:#f92672></span>VerifyAndSetX  
-<span style=color:#66d9ef>If</span> IsXAvailable <span style=color:#66d9ef>then</span>  
-<span style=color:#66d9ef>Exit</span>;  
-<span style=color:#66d9ef>If</span> Confirm<span style=color:#f92672>(</span><span style=color:#e6db74>&#39;Field X is missing a value. Do you want to update it now?&#39;</span><span style=color:#f92672>) </span><span style=color:#66d9ef>then</span>  
-Open the card <span style=color:#66d9ef>page</span> <span style=color:#66d9ef>in</span> edit mode  
+<pre tabindex=0><code>Local IsXAvailable : Boolean   
+If field X &lt;&gt; '' then   
+Exit(True)  
+Exit(false)  
   
-<span style=color:#66d9ef>If</span> <span style=color:#f92672>not</span> IsXAvailable <span style=color:#66d9ef>then</span>  
-Error<span style=color:#f92672>(</span><span style=color:#66d9ef>Field</span> X is missing a <span style=color:#66d9ef>value</span><span style=color:#f92672>. </span>Please correct it<span style=color:#f92672>.)
-</span><span style=color:#f92672>
-</span><span style=color:#f92672></span>The calling <span style=color:#66d9ef>code</span>
+VerifyAndSetX  
+If IsXAvailable then  
+Exit;  
+If Confirm('Field X is missing a value. Do you want to update it now?') then  
+Open the card page in edit mode  
+  
+If not IsXAvailable then  
+Error(Field X is missing a value. Please correct it.)
+</code></pre><p>The calling code</p>
+<pre tabindex=0><code>..
 
-<span style=color:#f92672>..
-</span><span style=color:#f92672>
-</span><span style=color:#f92672></span>SetupTable<span style=color:#f92672>.</span>VerifyAndSetX
+SetupTable.VerifyAndSetX
 
-<span style=color:#f92672>..
-</span></code></pre></div><h2 id=nav-specific-example>NAV Specific Example</h2>
-<hr>
+..
+</code></pre><h2 id=nav-specific-example>NAV Specific Example</h2>
 <p>In the <strong>Sales & Receivables Setup</strong> table (311) for the DK version, the following procedures have been added:</p>
-<p>Local Procedure IsOIOUBLPathAvailable(&mldr;)</p>
-<p>Procedure VerifyAndSetOIOUBLPath(&mldr;)</p>
-<p>The code in the <strong>Sales & Receivables Setup</strong> table can now be called directly from the related processing codeunit, such as the <strong>Sales-Post + Print</strong> codeunit (82).</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=color:#66d9ef>Local</span> <span style=color:#66d9ef>Procedure</span> IsOIOUBLPathAvailable<span style=color:#f92672>(...)
+</span><span style=color:#f92672>
+</span><span style=color:#f92672></span><span style=color:#66d9ef>Procedure</span> VerifyAndSetOIOUBLPath<span style=color:#f92672>(...)
+</span></code></pre></div><p>The code in the <strong>Sales & Receivables Setup</strong> table can now be called directly from the related processing codeunit, such as the <strong>Sales-Post + Print</strong> codeunit (82).</p>
 <p>Were the code is called:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-AL data-lang=AL><span style=color:#66d9ef>IF</span> <span style=color:#f92672>(</span>&#34;EAN No.&#34; &lt;\&gt; <span style=color:#e6db74>&#39;&#39;</span><span style=color:#f92672>) </span><span style=color:#66d9ef>THEN</span>
-
-SalesSetup<span style=color:#f92672>.</span>VerifyAndSetOIOUBLPathSetup<span style=color:#f92672>(</span>SalesHeader<span style=color:#f92672>.</span>&#34;Document Type&#34;<span style=color:#f92672>)</span>;
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=color:#66d9ef>IF</span> <span style=color:#f92672>(</span>&#34;EAN No.&#34; &lt;&gt; <span style=color:#e6db74>&#39;&#39;</span><span style=color:#f92672>) </span><span style=color:#66d9ef>THEN</span>
+    SalesSetup<span style=color:#f92672>.</span>VerifyAndSetOIOUBLPathSetup<span style=color:#f92672>(</span>SalesHeader<span style=color:#f92672>.</span>&#34;Document Type&#34;<span style=color:#f92672>)</span>;
 </code></pre></div><p>If the setup is not updated properly, the user is prompted to update it as follows.</p>
 <p><a href=0654.easy-update-1.png><img src=0654.easy-update-1.png alt=" "></a></p>
 <p>Choosing <strong>Yes</strong> opens the related setup page.</p>
@@ -332,12 +329,12 @@ SalesSetup<span style=color:#f92672>.</span>VerifyAndSetOIOUBLPathSetup<span sty
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/js/clipboard.min.js?1644506468></script>
-<script src=/js/perfect-scrollbar.min.js?1644506468></script>
-<script src=/js/perfect-scrollbar.jquery.min.js?1644506468></script>
-<script src=/js/jquery.svg.pan.zoom.js?1644506468></script>
-<script src=/js/featherlight.min.js?1644506468></script>
-<script src=/js/modernizr.custom-3.6.0.js?1644506468></script>
-<script src=/js/relearn.js?1644506468></script>
+<script src=/js/clipboard.min.js?1644600599></script>
+<script src=/js/perfect-scrollbar.min.js?1644600599></script>
+<script src=/js/perfect-scrollbar.jquery.min.js?1644600599></script>
+<script src=/js/jquery.svg.pan.zoom.js?1644600599></script>
+<script src=/js/featherlight.min.js?1644600599></script>
+<script src=/js/modernizr.custom-3.6.0.js?1644600599></script>
+<script src=/js/relearn.js?1644600599></script>
 </body>
 </html>
