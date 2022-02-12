@@ -149,7 +149,8 @@ If possible, only execute the subscriber when really necessary by using Manual B
     [EventSubscriber(ObjectType::Table, Database::"Just Some Table WLD", 'OnAfterValidateEvent', 'Message 2', false, false)]
     local procedure JustDoSomthing(var Rec: Record "Just Some Table WLD"; var xRec: Record "Just Some Table WLD")
     begin
-        if Rec.color <> 'RED' then exit; //only execute when necessary
+        if Rec.color <> 'RED' then
+            exit; //only execute when necessary
 
         ...
     end;
