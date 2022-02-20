@@ -1,0 +1,1215 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>alguidelines.dev - Business Central Design Patterns – Readability</title><link>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/</link><description>Recent content in Readability on alguidelines.dev - Business Central Design Patterns</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Begin as an 'After Word'</title><link>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/begin-as-an-afterword/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/begin-as-an-afterword/</guid><description>
+&lt;p>When BEGIN follows THEN, ELSE, DO, it should be on the same line, preceded by one space character.&lt;/p>
+&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>ICPartnerRefType&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>=&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>ICPartnerRefType&lt;span style="color:#000;font-weight:bold">::&lt;/span>&amp;#34;Common Item No.&amp;#34;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">BEGIN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">END&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;pre tabindex="0">&lt;code>IF ICPartnerRefType = ICPartnerRefType::&amp;quot;Common Item No.&amp;quot; THEN BEGIN
+...
+END;
+&lt;/code>&lt;/pre></description></item><item><title>Docs: Begin-End - Compound Only</title><link>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/begin-end/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/begin-end/</guid><description>
+&lt;p>Only use BEGIN..END to enclose compound statements.&lt;/p>
+&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>FINDSET&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">BEGIN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">REPEAT&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">UNTIL&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>NEXT&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>=&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">END&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>FINDSET&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">REPEAT&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">UNTIL&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>NEXT&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>=&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>IsAssemblyOutputLine&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">BEGIN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">TESTFIELD&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>&amp;#34;Order Line No.&amp;#34;&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">END&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>IsAssemblyOutputLine&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">TESTFIELD&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>&amp;#34;Order Line No.&amp;#34;&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>FINDSET&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">REPEAT&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">BEGIN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">END&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">UNTIL&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>NEXT&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>=&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>FINDSET&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">REPEAT&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">UNTIL&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>NEXT&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>=&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Exception&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#8f5902;font-style:italic">// Except for this case
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>X&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">BEGIN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Y&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">DO&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>SOMETHING&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">END&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">ELSE&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">not&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>X&lt;span style="color:#ce5c00;font-weight:bold">)
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Binary Operator to Start Line</title><link>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/binary-operator-line-start/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/binary-operator-line-start/</guid><description>
+&lt;p>Do not start a line with a binary operator.&lt;/p>
+&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&amp;#34;Quantity to Ship&amp;#34;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Quantity&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&amp;#34;Quantity Shipped&amp;#34;&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&amp;#34;Quantity to Ship&amp;#34;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Quantity&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&amp;#34;Quantity Shipped&amp;#34;&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Blank Lines</title><link>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/blank-lines/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/blank-lines/</guid><description>
+&lt;p>Do not use blank lines at the beginning or end of any functions, after BEGIN, before END, or inside multiline expressions.&lt;/p>
+&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">PROCEDURE&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>MATRIX_OnDrillDown@&lt;span style="color:#0000cf;font-weight:bold">1133&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>MATRIX_ColumnOrdinal&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Integer&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">BEGIN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>SetupDrillDownCol&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>MATRIX_ColumnOrdinal&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>DrillDown&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>FALSE&lt;span style="color:#000;font-weight:bold">,&lt;/span>ValueType&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">END&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">PROCEDURE&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>MATRIX_OnDrillDown@&lt;span style="color:#0000cf;font-weight:bold">1133&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>MATRIX_ColumnOrdinal&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Integer&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">BEGIN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>SetupDrillDownCol&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>MATRIX_ColumnOrdinal&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>DrillDown&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>FALSE&lt;span style="color:#000;font-weight:bold">,&lt;/span>ValueType&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">END&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>NameIsValid&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">AND&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Name2IsValid&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>NameIsValid&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">AND&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Name2IsValid&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: CASE Action</title><link>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/case-actions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/case-actions/</guid><description>
+&lt;p>A CASE action should start on a line after the possibility.&lt;/p>
+&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">CASE&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Letter&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">OF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;A&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Letter2&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;10&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;B&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Letter2&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;11&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">CASE&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Letter&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">OF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;A&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Letter2&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;10&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;B&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Letter2&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;11&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Colon usage in CASE</title><link>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/colon-usage-in-case/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/colon-usage-in-case/</guid><description>
+&lt;p>The last possibility on a CASE statement must be immediately followed by a colon.&lt;/p>
+&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">CASE&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>DimOption&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">OF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>DimOption&lt;span style="color:#000;font-weight:bold">::&lt;/span>&amp;#34;Global Dimension 1&amp;#34;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>DimValue&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&amp;#34;Dimension Code&amp;#34;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>GLSetup&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&amp;#34;Global Dimension 1 Code&amp;#34;&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">CASE&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>DimOption&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">OF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>DimOption&lt;span style="color:#000;font-weight:bold">::&lt;/span>&amp;#34;Global Dimension 1&amp;#34;&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>DimValue&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&amp;#34;Dimension Code&amp;#34;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>GLSetup&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&amp;#34;Global Dimension 1 Code&amp;#34;&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Comments inside Curly Brackets</title><link>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/comments-curly-brackets/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/comments-curly-brackets/</guid><description>
+&lt;p>Never use curly bracket comments. During development, the &amp;ldquo;Block comment&amp;rdquo; functionality can be used instead. However, in production code, block comments are not recommended.&lt;/p>
+&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">PeriodTxt&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>{Period}&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">PeriodTxt&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">// Period
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">PROCEDURE&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>MATRIX_OnAfterGetRecord@&lt;span style="color:#0000cf;font-weight:bold">10&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>MATRIX_ColumnOrdinal&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Integer&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">BEGIN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>{&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>ShowColumnName&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>MatrixHeader&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>MatrixRecords[MATRIX_ColumnOrdinal]&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>Name&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">ELSE&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>MatrixHeader&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>MatrixRecords[MATRIX_ColumnOrdinal]&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">Code&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>}&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>MatrixRecord&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>MatrixRecords[MATRIX_ColumnOrdinal]&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>AnalysisValue&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>CalcAmt&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>ValueType&lt;span style="color:#000;font-weight:bold">,&lt;/span>TRUE&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>MATRIX_CellData[MATRIX_ColumnOrdinal]&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>AnalysisValue&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">END&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">PROCEDURE&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>MATRIX_OnAfterGetRecord@&lt;span style="color:#0000cf;font-weight:bold">10&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>MATRIX_ColumnOrdinal&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Integer&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">BEGIN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>MatrixRecord&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>MatrixRecords[MATRIX_ColumnOrdinal]&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>AnalysisValue&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>CalcAmt&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>ValueType&lt;span style="color:#000;font-weight:bold">,&lt;/span>TRUE&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>MATRIX_CellData[MATRIX_ColumnOrdinal]&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>AnalysisValue&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">END&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Comment Spacing</title><link>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/comments-spacing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/comments-spacing/</guid><description>
+&lt;p>Always start comments with // followed by one space character.&lt;/p>
+&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">RowNo&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">+=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1000&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">//Move way below the budget
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">RowNo&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">+=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1000&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">// Move way below the budget
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: END ELSE Pair</title><link>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/end-else-pair/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/end-else-pair/</guid><description>
+&lt;p>The END ELSE pair should always appear on the same line.&lt;/p>
+&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>OppEntry&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>FIND&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;-&amp;#39;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">) &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>SalesCycleStage&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>FIND&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;-&amp;#39;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">) &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">BEGIN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">END&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">ELSE&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>OppEntry&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>FIND&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;-&amp;#39;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">) &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>SalesCycleStage&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>FIND&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;-&amp;#39;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">) &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">BEGIN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">END&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">ELSE&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Indentation</title><link>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/indentation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/indentation/</guid><description>
+&lt;p>In general, use an indentation of two space characters. Logical expressions in the IF, WHILE, and UNTIL parts are indented at least 3, 6, and 6 spaces respectively.&lt;/p>
+&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>GLSetup&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&amp;#34;Unrealized VAT&amp;#34;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">OR&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>GLSetup&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&amp;#34;Prepayment Unrealized VAT&amp;#34;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">AND&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>NewCVLedgEntryBuf&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>Prepayment&lt;span style="color:#ce5c00;font-weight:bold">)
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>GLSetup&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&amp;#34;Unrealized VAT&amp;#34;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">OR&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>GLSetup&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&amp;#34;Prepayment Unrealized VAT&amp;#34;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">AND&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>NewCVLedgEntryBuf&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>Prepayment&lt;span style="color:#ce5c00;font-weight:bold">)
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>GenJnlLine&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&amp;#34;Account No.&amp;#34;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&amp;lt;&amp;gt;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>ICPartner&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">Code&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>ICPartner&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>GET&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>&amp;#34;Account No.&amp;#34;&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>GenJnlLine&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>Amount&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>\&amp;gt;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">BEGIN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>GenJnlLine&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&amp;#34;Account No.&amp;#34;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&amp;lt;&amp;gt;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>ICPartner&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">Code&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>ICPartner&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>GET&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>&amp;#34;Account No.&amp;#34;&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>GenJnlLine&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>Amount&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&amp;gt;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">BEGIN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">Dialog&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>OPEN&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>WindowTxt&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>+&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;@1@@@@@@@@@@@@@@@@@@@@@@@&amp;#39;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">Dialog&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>OPEN&lt;span style="color:#ce5c00;font-weight:bold">(
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold"> &lt;/span>WindowTxt&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>+&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;@1@@@@@@@@@@@@@@@@@@@@@@@&amp;#39;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">TempOldCustLedgEntry&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>DELETE&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">// Find the next old entry for application of the new entry
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">TempOldCustLedgEntry&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>DELETE&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#8f5902;font-style:italic">// Find the next old entry for application of the new entry
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">NOT&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>&amp;#34;Applies-to Doc. Type&amp;#34;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">IN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>[&amp;#34;Applies-to Doc. Type&amp;#34;&lt;span style="color:#000;font-weight:bold">::&lt;/span>Receipt&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&amp;#34;Applies-to Doc. Type&amp;#34;&lt;span style="color:#000;font-weight:bold">::&lt;/span>&amp;#34;Return Shipment&amp;#34;]&lt;span style="color:#ce5c00;font-weight:bold">)
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">NOT&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>&amp;#34;Applies-to Doc. Type&amp;#34;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">IN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>[&amp;#34;Applies-to Doc. Type&amp;#34;&lt;span style="color:#000;font-weight:bold">::&lt;/span>Receipt&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&amp;#34;Applies-to Doc. Type&amp;#34;&lt;span style="color:#000;font-weight:bold">::&lt;/span>&amp;#34;Return Shipment&amp;#34;]&lt;span style="color:#ce5c00;font-weight:bold">)
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">WHILE&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>RemAmt&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&amp;gt;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">) &lt;/span>&lt;span style="color:#204a87;font-weight:bold">OR&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>RemAmtLCY&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&amp;gt;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">)
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">DO&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">WHILE&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>RemAmt&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&amp;gt;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">) &lt;/span>&lt;span style="color:#204a87;font-weight:bold">OR&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>RemAmtLCY&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&amp;gt;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">)
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">DO&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">UNTIL&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>RemAmt&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&amp;gt;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">) &lt;/span>&lt;span style="color:#204a87;font-weight:bold">AND&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>RemAmtLCY&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&amp;gt;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">UNTIL&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>RemAmt&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&amp;gt;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">) &lt;/span>&lt;span style="color:#204a87;font-weight:bold">AND&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>RemAmtLCY&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&amp;gt;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">)
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Keyword Pairs - Indentation</title><link>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/keyword-pairs-indentation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/keyword-pairs-indentation/</guid><description>
+&lt;p>The IF..THEN pair, WHILE..DO pair, and FOR..DO pair must appear on the same line or the same level of indentation.&lt;/p>
+&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>x&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>=&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>y&lt;span style="color:#ce5c00;font-weight:bold">) &lt;/span>&lt;span style="color:#204a87;font-weight:bold">AND&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>a&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>=&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>b&lt;span style="color:#ce5c00;font-weight:bold">) &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>x&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>=&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>y&lt;span style="color:#ce5c00;font-weight:bold">) &lt;/span>&lt;span style="color:#204a87;font-weight:bold">AND&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>a&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>=&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>b&lt;span style="color:#ce5c00;font-weight:bold">)
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Line Start Keywords</title><link>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/line-start-keywords/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/line-start-keywords/</guid><description>
+&lt;p>The END, IF, REPEAT, FOR, WHILE, ELSE and CASE statement should always start a line.&lt;/p>
+&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>IsContactName&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>ValidateContactName&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">ELSE&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>IsSalespersonCode&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>ValidateSalespersonCode&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">ELSE&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>IsSalesCycleCode&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>ValidatSalesCycleCode&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>IsContactName&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>ValidateContactName&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">ELSE&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>IsSalespersonCode&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>ValidateSalespersonCode&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">ELSE&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>IsSalesCycleCode&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>ValidatSalesCycleCode&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Lonely Repeat</title><link>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/lonely-repeat/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/lonely-repeat/</guid><description>
+&lt;p>The REPEAT statement should always be alone on a line.&lt;/p>
+&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>ReservEntry&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>FINDSET&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">REPEAT&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>ReservEntry&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>FINDSET&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">REPEAT&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Named Invocations</title><link>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/named-invocations/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/named-invocations/</guid><description>
+&lt;p>When calling an object statically use the name, not the number&lt;/p>
+&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">PAGE&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>RUNMODAL&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">525&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>SalesShptLine&lt;span style="color:#ce5c00;font-weight:bold">)
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">PAGE&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>RUNMODAL&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">PAGE&lt;/span>&lt;span style="color:#000;font-weight:bold">::&lt;/span>&amp;#34;Posted Sales Shipment Lines&amp;#34;&lt;span style="color:#000;font-weight:bold">,&lt;/span>SalesShptLine&lt;span style="color:#ce5c00;font-weight:bold">)
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Nested WITHs</title><link>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/nested-withs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/nested-withs/</guid><description>
+&lt;p>Do not nest WITHs that reference different types of objects.&lt;/p>
+&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">WITH&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>PostedWhseShptLine&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">DO&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">BEGIN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">WITH&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>ItemLedgEntry&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">DO&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>InsertBufferRec&lt;span style="color:#ce5c00;font-weight:bold">(...&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&amp;#34;Serial No.&amp;#34;&lt;span style="color:#000;font-weight:bold">,&lt;/span>&amp;#34;Lot No.&amp;#34;&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">END&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">WITH&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>PostedWhseShptLine&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">DO&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">BEGIN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold"> &lt;/span>InsertBufferRec&lt;span style="color:#ce5c00;font-weight:bold">(...&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>ItemLedgEntry&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&amp;#34;Serial No.&amp;#34;&lt;span style="color:#000;font-weight:bold">,&lt;/span>ItemLedgEntry&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&amp;#34;Lot No.&amp;#34;&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">END&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: One Statement Per Line</title><link>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/one-statement-per-line/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/one-statement-per-line/</guid><description>
+&lt;p>A line of code should not have more than one statement.&lt;/p>
+&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>OppEntry&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>FIND&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;-&amp;#39;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">) &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">EXIT&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>OppEntry&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>FIND&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;-&amp;#39;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">) &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">EXIT&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">TotalCost&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">+=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Cost&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>TotalAmt&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">+=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Amt&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">TotalCost&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">+=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Cost&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>TotalAmt&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">+=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Amt&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Separate IF and ELSE</title><link>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/separate-if-and-else/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/separate-if-and-else/</guid><description>
+&lt;p>IF and ELSE statements should be on separate lines.&lt;/p>
+&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Atom[i&lt;span style="color:#ce5c00;font-weight:bold">+&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>]&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>=&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;&amp;gt;&amp;#39;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>HasLogicalOperator&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>TRUE&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">ELSE&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">BEGIN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">END&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Atom[i&lt;span style="color:#ce5c00;font-weight:bold">+&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>]&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>=&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;&amp;gt;&amp;#39;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>HasLogicalOperator&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>TRUE&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">ELSE&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">BEGIN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">END&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Spacing Binary Operators</title><link>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/spacing-binary-operators/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/spacing-binary-operators/</guid><description>
+&lt;p>There must be exactly one space character on each side of a binary operator such as = + - AND OR =. The parameter comma operator however, should have no spaces.&lt;/p>
+&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&amp;#34;Line Discount %&amp;#34;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&amp;#34;Line Discount Amount&amp;#34;/&amp;#34;Line Value&amp;#34;*&lt;span style="color:#0000cf;font-weight:bold">100&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&amp;#34;Line Discount %&amp;#34;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&amp;#34;Line Discount Amount&amp;#34;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>/&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&amp;#34;Line Value&amp;#34;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>*&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">100&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">StartDate&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>CALCDATE&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;&amp;lt;+&amp;#39;&lt;/span>+FORMAT&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>Days&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>+&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>i&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>+&lt;span style="color:#4e9a06">&amp;#39;D&amp;gt;&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>StartDate&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">StartDate&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>CALCDATE&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;&amp;lt;+&amp;#39;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>+&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>FORMAT&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>Days&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>+&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>i&lt;span style="color:#ce5c00;font-weight:bold">) &lt;/span>+&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;D&amp;gt;&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>StartDate&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">StartDate&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>0D&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">// Initialize
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">StartDate&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>0D&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">// Initialize
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Spacing Brackets and ::</title><link>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/spacing-brackets-and/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/spacing-brackets-and/</guid><description>
+&lt;p>There must be no spaces characters before and after [] dimension brackets symbols or :: option symbols.&lt;/p>
+&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">A[i]&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>[j]&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Amt&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">A[i][j]&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Amt&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&amp;#34;Currency Exchange Rate&amp;#34;&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&amp;#34;Fix Exchange Rate Amount&amp;#34;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">::&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Currency&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&amp;#34;Currency Exchange Rate&amp;#34;&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&amp;#34;Fix Exchange Rate Amount&amp;#34;&lt;span style="color:#000;font-weight:bold">::&lt;/span>Currency&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>FIND&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>Which&lt;span style="color:#ce5c00;font-weight:bold">) &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>FIND&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>Which&lt;span style="color:#ce5c00;font-weight:bold">) &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Spacing Unary Operators</title><link>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/spacing-unary-operators/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/spacing-unary-operators/</guid><description>
+&lt;p>There must be no space between a unary operator and its argument (except for the NOT keyword).&lt;/p>
+&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">NOT&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">Type&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>=&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Type&lt;/span>&lt;span style="color:#000;font-weight:bold">::&lt;/span>Item&lt;span style="color:#ce5c00;font-weight:bold">) &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">NOT&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">Type&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>=&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Type&lt;/span>&lt;span style="color:#000;font-weight:bold">::&lt;/span>Item&lt;span style="color:#ce5c00;font-weight:bold">) &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">DiscAmt&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&amp;#34;Discount Amount&amp;#34;&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">DiscAmt&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-&amp;#34;Discount Amount&amp;#34;&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Suggested Abbreviations</title><link>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/suggested-abbreviations/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/suggested-abbreviations/</guid><description>
+&lt;h3 id="suggested-abbreviations">Suggested Abbreviations&lt;/h3>
+&lt;p>Whenever possible, do not use abbreviations in variables, functions and objects names.&lt;/p>
+&lt;p>If there is no other choice, then use the suggestions below.&lt;/p>
+&lt;p>&lt;strong>Abbreviation&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Text&lt;/strong>&lt;/p>
+&lt;p>Abs&lt;/p>
+&lt;p>absence&lt;/p>
+&lt;p>Acc&lt;/p>
+&lt;p>account&lt;/p>
+&lt;p>Acc&lt;/p>
+&lt;p>accounting&lt;/p>
+&lt;p>Accum&lt;/p>
+&lt;p>accumulated&lt;/p>
+&lt;p>Act&lt;/p>
+&lt;p>action&lt;/p>
+&lt;p>Activ&lt;/p>
+&lt;p>activity&lt;/p>
+&lt;p>Add&lt;/p>
+&lt;p>additional&lt;/p>
+&lt;p>Addr&lt;/p>
+&lt;p>address&lt;/p>
+&lt;p>Adj&lt;/p>
+&lt;p>adjust&lt;/p>
+&lt;p>Adjd&lt;/p>
+&lt;p>adjusted&lt;/p>
+&lt;p>Adjmt&lt;/p>
+&lt;p>adjustment&lt;/p>
+&lt;p>Agrmt&lt;/p>
+&lt;p>agreement&lt;/p>
+&lt;p>Alloc&lt;/p>
+&lt;p>allocation&lt;/p>
+&lt;p>Allow&lt;/p>
+&lt;p>allowance&lt;/p>
+&lt;p>Alt&lt;/p>
+&lt;p>alternative&lt;/p>
+&lt;p>Amt&lt;/p>
+&lt;p>amount&lt;/p>
+&lt;p>Amts&lt;/p>
+&lt;p>amounts&lt;/p>
+&lt;p>Ans&lt;/p>
+&lt;p>answer&lt;/p>
+&lt;p>Appl&lt;/p>
+&lt;p>applies&lt;/p>
+&lt;p>Appln&lt;/p>
+&lt;p>application&lt;/p>
+&lt;p>Arriv&lt;/p>
+&lt;p>arrival&lt;/p>
+&lt;p>Asm&lt;/p>
+&lt;p>assembly&lt;/p>
+&lt;p>ATO&lt;/p>
+&lt;p>assemble to order&lt;/p>
+&lt;p>Assgnt&lt;/p>
+&lt;p>assignment&lt;/p>
+&lt;p>Assoc&lt;/p>
+&lt;p>associated&lt;/p>
+&lt;p>Attmt&lt;/p>
+&lt;p>attachment&lt;/p>
+&lt;p>Auth&lt;/p>
+&lt;p>authorities&lt;/p>
+&lt;p>Auto&lt;/p>
+&lt;p>automatic&lt;/p>
+&lt;p>Avail&lt;/p>
+&lt;p>availability&lt;/p>
+&lt;p>Avg&lt;/p>
+&lt;p>average&lt;/p>
+&lt;p>BA&lt;/p>
+&lt;p>ba db.&lt;/p>
+&lt;p>Bal&lt;/p>
+&lt;p>balance&lt;/p>
+&lt;p>BOM&lt;/p>
+&lt;p>bill of materials&lt;/p>
+&lt;p>Blnkt&lt;/p>
+&lt;p>blanket&lt;/p>
+&lt;p>Budg&lt;/p>
+&lt;p>budget&lt;/p>
+&lt;p>Buf&lt;/p>
+&lt;p>buffer&lt;/p>
+&lt;p>Bus&lt;/p>
+&lt;p>business&lt;/p>
+&lt;p>BIM&lt;/p>
+&lt;p>business interaction management&lt;/p>
+&lt;p>Buy&lt;/p>
+&lt;p>buying&lt;/p>
+&lt;p>Calc&lt;/p>
+&lt;p>calculate&lt;/p>
+&lt;p>Calcd&lt;/p>
+&lt;p>calculated&lt;/p>
+&lt;p>Calcu&lt;/p>
+&lt;p>calculation&lt;/p>
+&lt;p>Cal&lt;/p>
+&lt;p>calendar&lt;/p>
+&lt;p>Cap&lt;/p>
+&lt;p>capacity&lt;/p>
+&lt;p>CRP&lt;/p>
+&lt;p>capacity requirements planning&lt;/p>
+&lt;p>CF&lt;/p>
+&lt;p>cash flow&lt;/p>
+&lt;p>CF&lt;/p>
+&lt;p>cashflow&lt;/p>
+&lt;p>ctlg&lt;/p>
+&lt;p>catalog&lt;/p>
+&lt;p>Cat&lt;/p>
+&lt;p>category&lt;/p>
+&lt;p>CPU&lt;/p>
+&lt;p>Central Processing Unit&lt;/p>
+&lt;p>Ctr&lt;/p>
+&lt;p>center&lt;/p>
+&lt;p>Chg&lt;/p>
+&lt;p>change&lt;/p>
+&lt;p>Chgs&lt;/p>
+&lt;p>changes&lt;/p>
+&lt;p>Char&lt;/p>
+&lt;p>character&lt;/p>
+&lt;p>Chars&lt;/p>
+&lt;p>characters&lt;/p>
+&lt;p>Chrg&lt;/p>
+&lt;p>charge&lt;/p>
+&lt;p>Chrgs&lt;/p>
+&lt;p>charges&lt;/p>
+&lt;p>Chk&lt;/p>
+&lt;p>check&lt;/p>
+&lt;p>Class&lt;/p>
+&lt;p>classification&lt;/p>
+&lt;p>coll&lt;/p>
+&lt;p>collection&lt;/p>
+&lt;p>col&lt;/p>
+&lt;p>column&lt;/p>
+&lt;p>Cmt&lt;/p>
+&lt;p>comment&lt;/p>
+&lt;p>Co&lt;/p>
+&lt;p>company&lt;/p>
+&lt;p>Comp&lt;/p>
+&lt;p>component&lt;/p>
+&lt;p>Cmpltn&lt;/p>
+&lt;p>completion&lt;/p>
+&lt;p>Comps&lt;/p>
+&lt;p>components&lt;/p>
+&lt;p>Compn&lt;/p>
+&lt;p>composition&lt;/p>
+&lt;p>Compr&lt;/p>
+&lt;p>compression&lt;/p>
+&lt;p>Concrnt&lt;/p>
+&lt;p>concurrent&lt;/p>
+&lt;p>Conf&lt;/p>
+&lt;p>confidential&lt;/p>
+&lt;p>Cnfrmn&lt;/p>
+&lt;p>confirmation&lt;/p>
+&lt;p>Confl&lt;/p>
+&lt;p>conflict&lt;/p>
+&lt;p>Consol&lt;/p>
+&lt;p>consolidate&lt;/p>
+&lt;p>Consolid&lt;/p>
+&lt;p>consolidation&lt;/p>
+&lt;p>Consump&lt;/p>
+&lt;p>consumption&lt;/p>
+&lt;p>Cont&lt;/p>
+&lt;p>contact&lt;/p>
+&lt;p>Cntr&lt;/p>
+&lt;p>container&lt;/p>
+&lt;p>Contr&lt;/p>
+&lt;p>contract&lt;/p>
+&lt;p>Contrd&lt;/p>
+&lt;p>contracted&lt;/p>
+&lt;p>Ctrl&lt;/p>
+&lt;p>control&lt;/p>
+&lt;p>Ctrls&lt;/p>
+&lt;p>controls&lt;/p>
+&lt;p>Conv&lt;/p>
+&lt;p>conversion&lt;/p>
+&lt;p>Cor&lt;/p>
+&lt;p>correction&lt;/p>
+&lt;p>Corres&lt;/p>
+&lt;p>correspondence&lt;/p>
+&lt;p>Corresp&lt;/p>
+&lt;p>corresponding&lt;/p>
+&lt;p>Cst&lt;/p>
+&lt;p>cost&lt;/p>
+&lt;p>COGS&lt;/p>
+&lt;p>sold&lt;/p>
+&lt;p>Cr&lt;/p>
+&lt;p>credit&lt;/p>
+&lt;p>Cumul&lt;/p>
+&lt;p>cumulate&lt;/p>
+&lt;p>Curr&lt;/p>
+&lt;p>currency&lt;/p>
+&lt;p>Crnt&lt;/p>
+&lt;p>current&lt;/p>
+&lt;p>Cust&lt;/p>
+&lt;p>customer&lt;/p>
+&lt;p>CV&lt;/p>
+&lt;p>customer/vendor&lt;/p>
+&lt;p>Dly&lt;/p>
+&lt;p>daily&lt;/p>
+&lt;p>Damp&lt;/p>
+&lt;p>dampener&lt;/p>
+&lt;p>DBMS&lt;/p>
+&lt;p>database management system&lt;/p>
+&lt;p>D&lt;/p>
+&lt;p>date&lt;/p>
+&lt;p>Def&lt;/p>
+&lt;p>definition&lt;/p>
+&lt;p>Demo&lt;/p>
+&lt;p>demonstration&lt;/p>
+&lt;p>Dept&lt;/p>
+&lt;p>department&lt;/p>
+&lt;p>DP&lt;/p>
+&lt;p>department/project&lt;/p>
+&lt;p>Depr&lt;/p>
+&lt;p>depreciation&lt;/p>
+&lt;p>Desc&lt;/p>
+&lt;p>description&lt;/p>
+&lt;p>Dtl&lt;/p>
+&lt;p>detail&lt;/p>
+&lt;p>Dtld&lt;/p>
+&lt;p>detailed&lt;/p>
+&lt;p>Dtls&lt;/p>
+&lt;p>details&lt;/p>
+&lt;p>Dev&lt;/p>
+&lt;p>deviation&lt;/p>
+&lt;p>Diff&lt;/p>
+&lt;p>difference&lt;/p>
+&lt;p>Dim&lt;/p>
+&lt;p>dimension&lt;/p>
+&lt;p>Dir&lt;/p>
+&lt;p>direct&lt;/p>
+&lt;p>Disc&lt;/p>
+&lt;p>discount&lt;/p>
+&lt;p>Discr&lt;/p>
+&lt;p>discrete&lt;/p>
+&lt;p>Distr&lt;/p>
+&lt;p>distribute&lt;/p>
+&lt;p>Distrd&lt;/p>
+&lt;p>distributed&lt;/p>
+&lt;p>Distbtr&lt;/p>
+&lt;p>distributor&lt;/p>
+&lt;p>Distrn&lt;/p>
+&lt;p>distribution&lt;/p>
+&lt;p>Doc&lt;/p>
+&lt;p>document&lt;/p>
+&lt;p>Dupl&lt;/p>
+&lt;p>duplicate&lt;/p>
+&lt;p>Entrd&lt;/p>
+&lt;p>entered&lt;/p>
+&lt;p>Engin&lt;/p>
+&lt;p>engineering&lt;/p>
+&lt;p>Exch&lt;/p>
+&lt;p>exchange&lt;/p>
+&lt;p>Excl&lt;/p>
+&lt;p>excluding&lt;/p>
+&lt;p>Exec&lt;/p>
+&lt;p>execute&lt;/p>
+&lt;p>Expd&lt;/p>
+&lt;p>expected&lt;/p>
+&lt;p>Exped&lt;/p>
+&lt;p>expedited&lt;/p>
+&lt;p>Exp&lt;/p>
+&lt;p>expense&lt;/p>
+&lt;p>Expr&lt;/p>
+&lt;p>expression&lt;/p>
+&lt;p>Expir&lt;/p>
+&lt;p>expiration&lt;/p>
+&lt;p>Ext&lt;/p>
+&lt;p>extended&lt;/p>
+&lt;p>Expl&lt;/p>
+&lt;p>explode&lt;/p>
+&lt;p>Expt&lt;/p>
+&lt;p>export&lt;/p>
+&lt;p>Fnl&lt;/p>
+&lt;p>final&lt;/p>
+&lt;p>Fin&lt;/p>
+&lt;p>finance&lt;/p>
+&lt;p>Fisc&lt;/p>
+&lt;p>fiscal&lt;/p>
+&lt;p>Fnshd&lt;/p>
+&lt;p>finished&lt;/p>
+&lt;p>FA&lt;/p>
+&lt;p>fixed asset&lt;/p>
+&lt;p>Fwd&lt;/p>
+&lt;p>forward&lt;/p>
+&lt;p>Frt&lt;/p>
+&lt;p>freight&lt;/p>
+&lt;p>Gen&lt;/p>
+&lt;p>general&lt;/p>
+&lt;p>GL&lt;/p>
+&lt;p>general ledger&lt;/p>
+&lt;p>Gr&lt;/p>
+&lt;p>group&lt;/p>
+&lt;p>Hdr&lt;/p>
+&lt;p>header&lt;/p>
+&lt;p>Hist&lt;/p>
+&lt;p>history&lt;/p>
+&lt;p>Hol&lt;/p>
+&lt;p>holiday&lt;/p>
+&lt;p>HR&lt;/p>
+&lt;p>human resource&lt;/p>
+&lt;p>ID&lt;/p>
+&lt;p>identification&lt;/p>
+&lt;p>Imp&lt;/p>
+&lt;p>import&lt;/p>
+&lt;p>Inbnd&lt;/p>
+&lt;p>inbound&lt;/p>
+&lt;p>Incl&lt;/p>
+&lt;p>including&lt;/p>
+&lt;p>Incld&lt;/p>
+&lt;p>included&lt;/p>
+&lt;p>Incmg&lt;/p>
+&lt;p>incoming&lt;/p>
+&lt;p>ISV&lt;/p>
+&lt;p>independent software vendor&lt;/p>
+&lt;p>Indust&lt;/p>
+&lt;p>industry&lt;/p>
+&lt;p>Info&lt;/p>
+&lt;p>information&lt;/p>
+&lt;p>Init&lt;/p>
+&lt;p>initial&lt;/p>
+&lt;p>Intra&lt;/p>
+&lt;p>Intrastat&lt;/p>
+&lt;p>Interact&lt;/p>
+&lt;p>interaction&lt;/p>
+&lt;p>Integr&lt;/p>
+&lt;p>integration&lt;/p>
+&lt;p>Int&lt;/p>
+&lt;p>interest&lt;/p>
+&lt;p>Intm&lt;/p>
+&lt;p>Interim&lt;/p>
+&lt;p>IP&lt;/p>
+&lt;p>internal protocol&lt;/p>
+&lt;p>Invt&lt;/p>
+&lt;p>inventory&lt;/p>
+&lt;p>Invtbl&lt;/p>
+&lt;p>inventoriable&lt;/p>
+&lt;p>Inv&lt;/p>
+&lt;p>invoice&lt;/p>
+&lt;p>Invd&lt;/p>
+&lt;p>invoiced&lt;/p>
+&lt;p>IT&lt;/p>
+&lt;p>item tracking&lt;/p>
+&lt;p>Jnl&lt;/p>
+&lt;p>journal&lt;/p>
+&lt;p>Lang&lt;/p>
+&lt;p>language&lt;/p>
+&lt;p>Ledg&lt;/p>
+&lt;p>ledger&lt;/p>
+&lt;p>Lvl&lt;/p>
+&lt;p>level&lt;/p>
+&lt;p>Ln&lt;/p>
+&lt;p>line&lt;/p>
+&lt;p>Lt&lt;/p>
+&lt;p>list&lt;/p>
+&lt;p>LCY&lt;/p>
+&lt;p>local currency&lt;/p>
+&lt;p>Loc&lt;/p>
+&lt;p>location&lt;/p>
+&lt;p>Mail&lt;/p>
+&lt;p>mailing&lt;/p>
+&lt;p>Maint&lt;/p>
+&lt;p>maintenance&lt;/p>
+&lt;p>Mgt&lt;/p>
+&lt;p>management&lt;/p>
+&lt;p>Man&lt;/p>
+&lt;p>manual&lt;/p>
+&lt;p>Mfg&lt;/p>
+&lt;p>manufacturing&lt;/p>
+&lt;p>Mfr&lt;/p>
+&lt;p>manufacturer&lt;/p>
+&lt;p>Mat&lt;/p>
+&lt;p>material&lt;/p>
+&lt;p>Mktg&lt;/p>
+&lt;p>marketing&lt;/p>
+&lt;p>Max&lt;/p>
+&lt;p>maximum&lt;/p>
+&lt;p>Meas&lt;/p>
+&lt;p>measure&lt;/p>
+&lt;p>Msg&lt;/p>
+&lt;p>message&lt;/p>
+&lt;p>Min&lt;/p>
+&lt;p>minimum&lt;/p>
+&lt;p>Misc&lt;/p>
+&lt;p>miscellaneous&lt;/p>
+&lt;p>Mod&lt;/p>
+&lt;p>modify&lt;/p>
+&lt;p>Mth&lt;/p>
+&lt;p>month&lt;/p>
+&lt;p>Neg&lt;/p>
+&lt;p>negative&lt;/p>
+&lt;p>NonInvtbl&lt;/p>
+&lt;p>non-inventoriable&lt;/p>
+&lt;p>Notif&lt;/p>
+&lt;p>notification&lt;/p>
+&lt;p>No&lt;/p>
+&lt;p>number&lt;/p>
+&lt;p>Nos&lt;/p>
+&lt;p>numbers&lt;/p>
+&lt;p>Obj&lt;/p>
+&lt;p>object&lt;/p>
+&lt;p>Oper&lt;/p>
+&lt;p>operating&lt;/p>
+&lt;p>Opp&lt;/p>
+&lt;p>opportunity&lt;/p>
+&lt;p>Ord&lt;/p>
+&lt;p>order&lt;/p>
+&lt;p>Ords&lt;/p>
+&lt;p>orders&lt;/p>
+&lt;p>Orig&lt;/p>
+&lt;p>original&lt;/p>
+&lt;p>Org&lt;/p>
+&lt;p>organization&lt;/p>
+&lt;p>Outbnd&lt;/p>
+&lt;p>outbound&lt;/p>
+&lt;p>Outg&lt;/p>
+&lt;p>Outgoing&lt;/p>
+&lt;p>Out&lt;/p>
+&lt;p>output&lt;/p>
+&lt;p>Outstd&lt;/p>
+&lt;p>outstanding&lt;/p>
+&lt;p>Ovhd&lt;/p>
+&lt;p>overhead&lt;/p>
+&lt;p>Pmt&lt;/p>
+&lt;p>payment&lt;/p>
+&lt;p>Pct&lt;/p>
+&lt;p>percent&lt;/p>
+&lt;p>Persnl&lt;/p>
+&lt;p>personnel&lt;/p>
+&lt;p>Phys&lt;/p>
+&lt;p>physical&lt;/p>
+&lt;p>Pic&lt;/p>
+&lt;p>picture&lt;/p>
+&lt;p>Plng&lt;/p>
+&lt;p>planning&lt;/p>
+&lt;p>Pstd&lt;/p>
+&lt;p>posted&lt;/p>
+&lt;p>Post&lt;/p>
+&lt;p>posting&lt;/p>
+&lt;p>Pos&lt;/p>
+&lt;p>positive&lt;/p>
+&lt;p>Prec&lt;/p>
+&lt;p>precision&lt;/p>
+&lt;p>Prepmt&lt;/p>
+&lt;p>prepayment&lt;/p>
+&lt;p>Prod&lt;/p>
+&lt;p>product&lt;/p>
+&lt;p>Prod&lt;/p>
+&lt;p>production&lt;/p>
+&lt;p>ProdOrd&lt;/p>
+&lt;p>production order&lt;/p>
+&lt;p>Proj&lt;/p>
+&lt;p>project&lt;/p>
+&lt;p>Prop&lt;/p>
+&lt;p>property&lt;/p>
+&lt;p>Prspct&lt;/p>
+&lt;p>prospect&lt;/p>
+&lt;p>Purch&lt;/p>
+&lt;p>purchase&lt;/p>
+&lt;p>Purch&lt;/p>
+&lt;p>purchases&lt;/p>
+&lt;p>Purchr&lt;/p>
+&lt;p>purchaser&lt;/p>
+&lt;p>PurchOrd&lt;/p>
+&lt;p>purchase order&lt;/p>
+&lt;p>Qlty&lt;/p>
+&lt;p>quality&lt;/p>
+&lt;p>Qty&lt;/p>
+&lt;p>quantity&lt;/p>
+&lt;p>Questn&lt;/p>
+&lt;p>questionnaire&lt;/p>
+&lt;p>Qte&lt;/p>
+&lt;p>quote&lt;/p>
+&lt;p>RF&lt;/p>
+&lt;p>radio frequency&lt;/p>
+&lt;p>Rng&lt;/p>
+&lt;p>range&lt;/p>
+&lt;p>Rcpt&lt;/p>
+&lt;p>receipt&lt;/p>
+&lt;p>Rcd&lt;/p>
+&lt;p>received&lt;/p>
+&lt;p>Rec&lt;/p>
+&lt;p>record&lt;/p>
+&lt;p>Recs&lt;/p>
+&lt;p>records&lt;/p>
+&lt;p>Recncl&lt;/p>
+&lt;p>reconcile&lt;/p>
+&lt;p>Recon&lt;/p>
+&lt;p>reconciliation&lt;/p>
+&lt;p>Recur&lt;/p>
+&lt;p>recurring&lt;/p>
+&lt;p>Ref&lt;/p>
+&lt;p>reference&lt;/p>
+&lt;p>Reg&lt;/p>
+&lt;p>register&lt;/p>
+&lt;p>Regn&lt;/p>
+&lt;p>registration&lt;/p>
+&lt;p>Regd&lt;/p>
+&lt;p>registered&lt;/p>
+&lt;p>Rel&lt;/p>
+&lt;p>relation&lt;/p>
+&lt;p>Rels&lt;/p>
+&lt;p>relations&lt;/p>
+&lt;p>Rlshp&lt;/p>
+&lt;p>relationship&lt;/p>
+&lt;p>Rlse&lt;/p>
+&lt;p>release&lt;/p>
+&lt;p>Rlsd&lt;/p>
+&lt;p>released&lt;/p>
+&lt;p>Rem&lt;/p>
+&lt;p>remaining&lt;/p>
+&lt;p>Rmdr&lt;/p>
+&lt;p>reminder&lt;/p>
+&lt;p>Repl&lt;/p>
+&lt;p>replacement&lt;/p>
+&lt;p>Rplnsh&lt;/p>
+&lt;p>replenish&lt;/p>
+&lt;p>Rplnsht&lt;/p>
+&lt;p>replenishment&lt;/p>
+&lt;p>Rpt&lt;/p>
+&lt;p>report&lt;/p>
+&lt;p>Rep&lt;/p>
+&lt;p>represent&lt;/p>
+&lt;p>Repd&lt;/p>
+&lt;p>represented&lt;/p>
+&lt;p>Rqst&lt;/p>
+&lt;p>request&lt;/p>
+&lt;p>Reqd&lt;/p>
+&lt;p>required&lt;/p>
+&lt;p>Reqt&lt;/p>
+&lt;p>requirement&lt;/p>
+&lt;p>Reqts&lt;/p>
+&lt;p>requirements&lt;/p>
+&lt;p>Req&lt;/p>
+&lt;p>requisition&lt;/p>
+&lt;p>Rsv&lt;/p>
+&lt;p>reserve&lt;/p>
+&lt;p>Rsvd&lt;/p>
+&lt;p>reserved&lt;/p>
+&lt;p>Reserv&lt;/p>
+&lt;p>reservation&lt;/p>
+&lt;p>Resol&lt;/p>
+&lt;p>resolution&lt;/p>
+&lt;p>Res&lt;/p>
+&lt;p>resource&lt;/p>
+&lt;p>Rsp&lt;/p>
+&lt;p>response&lt;/p>
+&lt;p>Resp&lt;/p>
+&lt;p>responsibility&lt;/p>
+&lt;p>Rtn&lt;/p>
+&lt;p>retain&lt;/p>
+&lt;p>Rtnd&lt;/p>
+&lt;p>retained&lt;/p>
+&lt;p>Ret&lt;/p>
+&lt;p>return&lt;/p>
+&lt;p>Rets&lt;/p>
+&lt;p>returns&lt;/p>
+&lt;p>Revaln&lt;/p>
+&lt;p>revaluation&lt;/p>
+&lt;p>Rev&lt;/p>
+&lt;p>reverse&lt;/p>
+&lt;p>Rvw&lt;/p>
+&lt;p>review&lt;/p>
+&lt;p>Rnd&lt;/p>
+&lt;p>round&lt;/p>
+&lt;p>Rndd&lt;/p>
+&lt;p>rounded&lt;/p>
+&lt;p>Rndg&lt;/p>
+&lt;p>rounding&lt;/p>
+&lt;p>Rte&lt;/p>
+&lt;p>route&lt;/p>
+&lt;p>Rtng&lt;/p>
+&lt;p>routing&lt;/p>
+&lt;p>Rout&lt;/p>
+&lt;p>routine&lt;/p>
+&lt;p>Sales&lt;/p>
+&lt;p>sales &amp;amp; receivables&lt;/p>
+&lt;p>Saf&lt;/p>
+&lt;p>safety&lt;/p>
+&lt;p>Sched&lt;/p>
+&lt;p>schedule&lt;/p>
+&lt;p>Sec&lt;/p>
+&lt;p>second&lt;/p>
+&lt;p>Seg&lt;/p>
+&lt;p>segment&lt;/p>
+&lt;p>Sel&lt;/p>
+&lt;p>select&lt;/p>
+&lt;p>Selctn&lt;/p>
+&lt;p>selection&lt;/p>
+&lt;p>Seq&lt;/p>
+&lt;p>sequence&lt;/p>
+&lt;p>Ser&lt;/p>
+&lt;p>serial&lt;/p>
+&lt;p>SN&lt;/p>
+&lt;p>serial number&lt;/p>
+&lt;p>Serv&lt;/p>
+&lt;p>service&lt;/p>
+&lt;p>Sh&lt;/p>
+&lt;p>sheet&lt;/p>
+&lt;p>Shpt&lt;/p>
+&lt;p>shipment&lt;/p>
+&lt;p>Src&lt;/p>
+&lt;p>source&lt;/p>
+&lt;p>Spcl&lt;/p>
+&lt;p>special&lt;/p>
+&lt;p>Spec&lt;/p>
+&lt;p>specification&lt;/p>
+&lt;p>Specs&lt;/p>
+&lt;p>specifications&lt;/p>
+&lt;p>Std&lt;/p>
+&lt;p>standard&lt;/p>
+&lt;p>SF&lt;/p>
+&lt;p>frequency&lt;/p>
+&lt;p>Stmt&lt;/p>
+&lt;p>statement&lt;/p>
+&lt;p>Stat&lt;/p>
+&lt;p>statistical&lt;/p>
+&lt;p>Stats&lt;/p>
+&lt;p>statistics&lt;/p>
+&lt;p>Stk&lt;/p>
+&lt;p>stock&lt;/p>
+&lt;p>SKU&lt;/p>
+&lt;p>stockkeeping unit&lt;/p>
+&lt;p>Stm&lt;/p>
+&lt;p>stream&lt;/p>
+&lt;p>SQL&lt;/p>
+&lt;p>structured query language&lt;/p>
+&lt;p>Subcontr&lt;/p>
+&lt;p>subcontract&lt;/p>
+&lt;p>Subcontrd&lt;/p>
+&lt;p>subcontracted&lt;/p>
+&lt;p>Subcontrg&lt;/p>
+&lt;p>subcontracting&lt;/p>
+&lt;p>Sub&lt;/p>
+&lt;p>substitute&lt;/p>
+&lt;p>Subst&lt;/p>
+&lt;p>substitution&lt;/p>
+&lt;p>Sug&lt;/p>
+&lt;p>suggest&lt;/p>
+&lt;p>Sugd&lt;/p>
+&lt;p>suggested&lt;/p>
+&lt;p>Sugn&lt;/p>
+&lt;p>suggestion&lt;/p>
+&lt;p>Sum&lt;/p>
+&lt;p>summary&lt;/p>
+&lt;p>Suspd&lt;/p>
+&lt;p>suspended&lt;/p>
+&lt;p>Sympt&lt;/p>
+&lt;p>symptom&lt;/p>
+&lt;p>Synch&lt;/p>
+&lt;p>synchronize&lt;/p>
+&lt;p>Temp&lt;/p>
+&lt;p>temporary&lt;/p>
+&lt;p>Tot&lt;/p>
+&lt;p>total&lt;/p>
+&lt;p>Transac&lt;/p>
+&lt;p>transaction&lt;/p>
+&lt;p>Trans&lt;/p>
+&lt;p>transfer&lt;/p>
+&lt;p>Transln&lt;/p>
+&lt;p>translation&lt;/p>
+&lt;p>Trkg&lt;/p>
+&lt;p>tracking&lt;/p>
+&lt;p>Tblsht&lt;/p>
+&lt;p>troubleshoot&lt;/p>
+&lt;p>Tblshtg&lt;/p>
+&lt;p>troubleshooting&lt;/p>
+&lt;p>UOM&lt;/p>
+&lt;p>unit of measure&lt;/p>
+&lt;p>UT&lt;/p>
+&lt;p>unit test&lt;/p>
+&lt;p>Unreal&lt;/p>
+&lt;p>unrealized&lt;/p>
+&lt;p>Unrsvd&lt;/p>
+&lt;p>unreserved&lt;/p>
+&lt;p>Upd&lt;/p>
+&lt;p>update&lt;/p>
+&lt;p>Valn&lt;/p>
+&lt;p>valuation&lt;/p>
+&lt;p>Val&lt;/p>
+&lt;p>value&lt;/p>
+&lt;p>VAT&lt;/p>
+&lt;p>value added tax&lt;/p>
+&lt;p>Var&lt;/p>
+&lt;p>variance&lt;/p>
+&lt;p>Vend&lt;/p>
+&lt;p>vendor&lt;/p>
+&lt;p>Whse&lt;/p>
+&lt;p>warehouse&lt;/p>
+&lt;p>WS&lt;/p>
+&lt;p>web shop&lt;/p>
+&lt;p>Wksh&lt;/p>
+&lt;p>worksheet&lt;/p>
+&lt;p>GL&lt;/p>
+&lt;p>g/l&lt;/p>
+&lt;p>Pct&lt;/p>
+&lt;p>%&lt;/p>
+&lt;p>Three-Tier&lt;/p>
+&lt;p>3-tier&lt;/p>
+&lt;p>Osynch&lt;/p>
+&lt;p>Outlook Synch&lt;/p>
+&lt;h2 id="heading">&lt;/h2></description></item><item><title>Docs: Temporary Variable Naming</title><link>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/temporary-variable-naming/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/temporary-variable-naming/</guid><description>
+&lt;p>The name of a temporary variable must be prefixed with the word Temp and not otherwise.&lt;/p>
+&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">JobWIPBuffer@&lt;span style="color:#0000cf;font-weight:bold">1002&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">TEMPORARY&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Record&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1018&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">TempJobWIPBuffer@&lt;span style="color:#0000cf;font-weight:bold">1002&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">TEMPORARY&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Record&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1018&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">TempJobWIPBuffer@&lt;span style="color:#0000cf;font-weight:bold">1002&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Record&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1018&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">CopyOfJobWIPBuffer@&lt;span style="color:#0000cf;font-weight:bold">1002&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Record&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1018&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: TextConst Suffixes</title><link>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/textconst-suffixes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/textconst-suffixes/</guid><description>
+&lt;p>TextConst variable names should have a suffix (an approved three-letter suffix: Msg, Tok, Err, Qst, Lbl, Txt) describing usage.&lt;/p>
+&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">CannotDeleteLine@&lt;span style="color:#0000cf;font-weight:bold">1005&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">TextConst&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;ENU=You cannot delete this line because one or more rating values exists.&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&lt;/span>ERROR&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>CannotDeleteLine&lt;span style="color:#000;font-weight:bold">,&lt;/span>TABLECAPTION&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">CannotDeleteLineErr@&lt;span style="color:#0000cf;font-weight:bold">1005&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">TextConst&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;ENU=You cannot delete this line because one or more rating values exists.&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&lt;/span>ERROR&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>CannotDeleteLineErr&lt;span style="color:#000;font-weight:bold">,&lt;/span>TABLECAPTION&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">Text000@&lt;span style="color:#0000cf;font-weight:bold">1011&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">TextConst&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;ENU=&amp;#34;has been changed (initial a %1: %2= %3, %4= %5)&amp;#34;&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&lt;/span>SalesLine&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>FIELDERROR&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">Type&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>STRSUBSTNO&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>Text000&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">TypeHasBeenChangedErr@&lt;span style="color:#0000cf;font-weight:bold">1011&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">TextConst&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;ENU=&amp;#34;has been changed (initial a %1: %2= %3, %4= %5)&amp;#34;&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&lt;/span>SalesLine&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>FIELDERROR&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">Type&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>STRSUBSTNO&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>TypeHasBeenChangedErr&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">Text004@&lt;span style="color:#0000cf;font-weight:bold">1004&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">TextConst&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;ENU=Indenting the Job Tasks \#1\#\#\#\#\#\#\#\#\#\#.&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&lt;/span>Window@&lt;span style="color:#0000cf;font-weight:bold">1007&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Dialog&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold"> &lt;/span>Window&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>OPEN&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>Text004&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">IndentingMsg@&lt;span style="color:#0000cf;font-weight:bold">1004&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">TextConst&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;ENU=Indenting the Job Tasks \#1\#\#\#\#\#\#\#\#\#\#.&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&lt;/span>Window@&lt;span style="color:#0000cf;font-weight:bold">1007&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Dialog&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold"> &lt;/span>Window&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>OPEN&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>IndentingMsg&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">Text002@&lt;span style="color:#0000cf;font-weight:bold">1005&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">TextConst&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;ENU=You cannot delete a %1 that is used in one or more setup windows.\\ Do you want to open the G/L Account No. Where-Used List Window?&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>CONFIRM&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>Text002&lt;span style="color:#000;font-weight:bold">,&lt;/span>TRUE&lt;span style="color:#000;font-weight:bold">,&lt;/span>GLAcc&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>TABLECAPTION&lt;span style="color:#ce5c00;font-weight:bold">) &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">OpenWhereUsedWindowQst@&lt;span style="color:#0000cf;font-weight:bold">1005&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">TextConst&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;ENU=You cannot delete a %1 that is used in one or more setup windows.\\ Do you want to open the G/L Account No. Where-Used List Window?&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>CONFIRM&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>OpenWhereUsedWindowQst&lt;span style="color:#000;font-weight:bold">,&lt;/span>TRUE&lt;span style="color:#000;font-weight:bold">,&lt;/span>GLAcc&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>TABLECAPTION&lt;span style="color:#ce5c00;font-weight:bold">) &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">Selection&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>STRMENU&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>Text003&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&lt;/span>Text003@&lt;span style="color:#0000cf;font-weight:bold">1002&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">TextConst&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;ENU=&amp;amp;Copy dimensions from BOM,&amp;amp;Retrieve dimensions from components&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Selection&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>STRMENU&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>CopyFromQst&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold"> &lt;/span>CopyFromQst@&lt;span style="color:#0000cf;font-weight:bold">1002&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">TextConst&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;ENU=&amp;amp;Copy dimensions from BOM,&amp;amp;Retrieve dimensions from components&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">DATASET&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>{&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold"> &lt;/span>{&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">Column&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>Chart_of_AccountsCaption&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>SourceExpr=Chart_of_AccountsCaption&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>}&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&lt;/span>Chart_of_AccountsCaption@&lt;span style="color:#0000cf;font-weight:bold">9647&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">TextConst&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;ENU=Chart of Accounts&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">DATASET&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>{&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold"> &lt;/span>{&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">Column&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>Chart_of_AccountsCaption&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>SourceExpr=ChartOfAccountsLbl&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>}&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&lt;/span>ChartOfAccountsLbl@&lt;span style="color:#0000cf;font-weight:bold">9647&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">TextConst&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;ENU=Chart of Accounts&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Unary Operator Line End</title><link>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/unary-operator-line-end/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/unary-operator-line-end/</guid><description>
+&lt;p>Do not end a line with unary operator.&lt;/p>
+&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&amp;#34;Quantity Handled (Base)&amp;#34;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&amp;#34;Quantity Handled (Base)&amp;#34;&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&amp;#34;Quantity Handled (Base)&amp;#34;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&amp;#34;Quantity Handled (Base)&amp;#34;&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Unnecessary Compound Parenthesis</title><link>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/unnecessary-compound-parenthesis/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/unnecessary-compound-parenthesis/</guid><description>
+&lt;p>Use parenthesis only to enclose compound expressions inside compound expressions.&lt;/p>
+&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>&amp;#34;Costing Method&amp;#34;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>=&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&amp;#34;Costing Method&amp;#34;&lt;span style="color:#000;font-weight:bold">::&lt;/span>Standard&lt;span style="color:#ce5c00;font-weight:bold">) &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&amp;#34;Costing Method&amp;#34;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>=&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&amp;#34;Costing Method&amp;#34;&lt;span style="color:#000;font-weight:bold">::&lt;/span>Standard&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">ProfitPct&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>=&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>Profit&lt;span style="color:#ce5c00;font-weight:bold">) &lt;/span>/&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>CostAmt&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>*&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">100&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">ProfitPct&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>=&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-Profit&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>/&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>CostAmt&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>*&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">100&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Unnecessary ELSE</title><link>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/unnecessary-else/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/unnecessary-else/</guid><description>
+&lt;p>ELSE should not be used when the last action in the THEN part is an EXIT, BREAK, SKIP, QUIT, ERROR.&lt;/p>
+&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>IsAdjmtBinCodeChanged&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>ERROR&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>AdjmtBinCodeChangeNotAllowedErr&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...)
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">ELSE&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>ERROR&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>BinCodeChangeNotAllowedErr&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>IsAdjmtBinCodeChanged&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>ERROR&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>AdjmtBinCodeChangeNotAllowedErr&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...)
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&lt;/span>ERROR&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>BinCodeChangeNotAllowedErr&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Unnecessary Function Parenthesis</title><link>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/unnecessary-function-parenthesis/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/unnecessary-function-parenthesis/</guid><description>
+&lt;p>Do not use parenthesis in a function call if the function does not have any parameters.&lt;/p>
+&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>ReservMgt&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>IsPositive&lt;span style="color:#ce5c00;font-weight:bold">() &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>ReservMgt&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>IsPositive&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>ChangeStatusForm&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>RUNMODAL&lt;span style="color:#ce5c00;font-weight:bold">() &lt;/span>&amp;lt;&amp;gt;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">ACTION&lt;/span>&lt;span style="color:#000;font-weight:bold">::&lt;/span>Yes&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>ChangeStatusForm&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>RUNMODAL&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&amp;lt;&amp;gt;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">ACTION&lt;/span>&lt;span style="color:#000;font-weight:bold">::&lt;/span>Yes&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Unnecessary Separators</title><link>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/unnecessary-separators/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/unnecessary-separators/</guid><description>
+&lt;p>There should be no unnecessary separators.&lt;/p>
+&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Customer&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>FINDFIRST&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#000;font-weight:bold">;;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Customer&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>FINDFIRST&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Unnecessary TRUE/FALSE</title><link>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/unnecessary-truefalse/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/unnecessary-truefalse/</guid><description>
+&lt;p>Do not use TRUE or FALSE keywords unnecessarily if the expression is already an logical expression.&lt;/p>
+&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>IsPositive&lt;span style="color:#ce5c00;font-weight:bold">() &lt;/span>=&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>TRUE&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>IsPositive&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Bad code&lt;/p>
+&lt;pre tabindex="0">&lt;code>IF Complete &amp;lt;&amp;gt; TRUE THEN
+&lt;/code>&lt;/pre>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">NOT&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Complete&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Variable Already Scoped</title><link>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/variable-already-scoped/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/variable-already-scoped/</guid><description>
+&lt;p>Do not use scope &amp;lsquo;&amp;rsquo;.'' qualifier unnecessarily when a variable is already implicitly or explicitly scoped. It keeps the code simpler.&lt;/p>
+&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">ReturnRcptHeader&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>SETRANGE&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>ReturnRcptHeader&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&amp;#34;Return Order No.&amp;#34;&lt;span style="color:#000;font-weight:bold">,&lt;/span>&amp;#34;Document No.&amp;#34;&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">ReturnRcptHeader&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>SETRANGE&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>&amp;#34;Return Order No.&amp;#34;&lt;span style="color:#000;font-weight:bold">,&lt;/span>&amp;#34;Document No.&amp;#34;&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">WITH&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>ChangeLogSetupTable&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">DO&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">BEGIN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>ChangeLogSetupTable&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>DELETE&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">END&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">WITH&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>ChangeLogSetupTable&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">DO&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">BEGIN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>DELETE&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">END&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Variable Naming</title><link>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/variable-naming/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/variable-naming/</guid><description>
+&lt;p>Variables that refer to a C/AL object must contain the objects name, abbreviated where necessary.&lt;/p>
+&lt;p>A variable must begin with a capital letter.&lt;/p>
+&lt;p>Blanks, periods, and other characters (such as parentheses) that would make quotation marks around a variable necessary must be omitted.&lt;/p>
+&lt;p>If a variable is a compound of two or more words or abbreviations, each word or abbreviation should begin with a capital letter.&lt;/p>
+&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold"> &lt;/span>WIPBuffer@&lt;span style="color:#0000cf;font-weight:bold">1002&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Record&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1018&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&lt;/span>OBJECT&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Table&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Job&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>WIP&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Buffer&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold"> &lt;/span>JobWIPBuffer@&lt;span style="color:#0000cf;font-weight:bold">1002&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Record&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1018&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&lt;/span>OBJECT&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Table&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Job&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>WIP&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Buffer&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold"> &lt;/span>Postline@&lt;span style="color:#0000cf;font-weight:bold">1004&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Codeunit&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">12&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&lt;/span>OBJECT&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Codeunit&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Gen&lt;span style="color:#ce5c00;font-weight:bold">. &lt;/span>Jnl&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>-Post&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Line&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold"> &lt;/span>GenJnlPostLine@&lt;span style="color:#0000cf;font-weight:bold">1004&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Codeunit&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">12&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&lt;/span>OBJECT&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Codeunit&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Gen&lt;span style="color:#ce5c00;font-weight:bold">. &lt;/span>Jnl&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>-Post&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Line&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">LOCAL&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">PROCEDURE&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>HandleCustDebitCredit@&lt;span style="color:#0000cf;font-weight:bold">17&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">(...&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&amp;#34;Amount (LCY)&amp;#34;@&lt;span style="color:#0000cf;font-weight:bold">1001&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Decimal&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">BEGIN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">((... (&lt;/span>&amp;#34;Amount (LCY)&amp;#34;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>\&amp;gt;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">)) ...) &lt;/span>&lt;span style="color:#204a87;font-weight:bold">OR&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">((... (&lt;/span>&amp;#34;Amount (LCY)&amp;#34;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&amp;lt;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">)) ...)
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">BEGIN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">LOCAL&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">PROCEDURE&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>HandleCustDebitCredit@&lt;span style="color:#0000cf;font-weight:bold">17&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">(...&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>AmountLCY@&lt;span style="color:#0000cf;font-weight:bold">1001&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Decimal&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">BEGIN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">((... (&lt;/span>AmountLCY&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>\&amp;gt;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">)) ...) &lt;/span>&lt;span style="color:#204a87;font-weight:bold">OR&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">((... (&lt;/span>AmountLCY&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&amp;lt;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">)) ...)
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">BEGIN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Variables Declarations Order</title><link>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/variables-declarations-order/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/variables-declarations-order/</guid><description>
+&lt;p>Variables declarations should be ordered by type. In general, object and complex variable types are listed first followed by simple variables. The order should be the same as the object list in the object designer for C/AL objects. Afterwards come the complex variables like RecordRef, .NET, FieldRef etc. At the end come all the simple data types in no particular order.&lt;/p>
+&lt;p>Bad code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">StartingDateFilter@&lt;span style="color:#0000cf;font-weight:bold">1002&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Text&lt;/span>[&lt;span style="color:#0000cf;font-weight:bold">30&lt;/span>]&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>Vend@&lt;span style="color:#0000cf;font-weight:bold">1003&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Record&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">23&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Good code&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">Vend@&lt;span style="color:#0000cf;font-weight:bold">1003&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Record&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">23&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>StartingDateFilter@&lt;span style="color:#0000cf;font-weight:bold">1002&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Text&lt;/span>[&lt;span style="color:#0000cf;font-weight:bold">30&lt;/span>]&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>

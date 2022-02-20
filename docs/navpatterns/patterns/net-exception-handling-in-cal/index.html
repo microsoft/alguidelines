@@ -1,0 +1,767 @@
+<!doctype html><html lang=en class=no-js>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=generator content="Hugo 0.92.2">
+<link rel=alternate type=application/rss+xml href=https://alguidelines.dev/docs/navpatterns/patterns/net-exception-handling-in-cal/index.xml>
+<meta name=robots content="index, follow">
+<link rel="shortcut icon" href=/favicons/favicon.ico>
+<link rel=apple-touch-icon href=/favicons/apple-touch-icon-180x180.png sizes=180x180>
+<link rel=icon type=image/png href=/favicons/favicon-16x16.png sizes=16x16>
+<link rel=icon type=image/png href=/favicons/favicon-32x32.png sizes=32x32>
+<link rel=icon type=image/png href=/favicons/android-36x36.png sizes=36x36>
+<link rel=icon type=image/png href=/favicons/android-48x48.png sizes=48x48>
+<link rel=icon type=image/png href=/favicons/android-72x72.png sizes=72x72>
+<link rel=icon type=image/png href=/favicons/android-96x96.png sizes=96x96>
+<link rel=icon type=image/png href=/favicons/android-144x144.png sizes=144x144>
+<link rel=icon type=image/png href=/favicons/android-192x192.png sizes=192x192>
+<title>NET Exception Handling in CAL | alguidelines.dev - Business Central Design Patterns</title>
+<meta name=description content="Originally by Mostafa Balat, Microsoft Development Center Copenhagen
+Abstract
+When there is a need to use .NET classes within C/AL, one of the main …">
+<meta property="og:title" content="NET Exception Handling in CAL">
+<meta property="og:description" content="Guidelines for when Developing AL for Microsoft Dynamics 365 Business Central">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alguidelines.dev/docs/navpatterns/patterns/net-exception-handling-in-cal/"><meta property="og:image" content="https://alguidelines.dev/images/og-image-fission.png"><meta property="og:site_name" content="alguidelines.dev - Business Central Design Patterns">
+<meta itemprop=name content="NET Exception Handling in CAL">
+<meta itemprop=description content="Guidelines for when Developing AL for Microsoft Dynamics 365 Business Central"><meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://alguidelines.dev/images/og-image-fission.png">
+<meta name=twitter:title content="NET Exception Handling in CAL">
+<meta name=twitter:description content="Guidelines for when Developing AL for Microsoft Dynamics 365 Business Central">
+<link rel=preload href=/scss/main.min.465d5fa0bd58415aee47bc5a1c5d8deee19fe158cff814bc698ee863ea6b68eb.css as=style>
+<link href=/scss/main.min.465d5fa0bd58415aee47bc5a1c5d8deee19fe158cff814bc698ee863ea6b68eb.css rel=stylesheet integrity>
+<script src=https://code.jquery.com/jquery-3.6.0.min.js integrity=sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK crossorigin=anonymous></script>
+</head>
+<body class=td-section>
+<header>
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+<a class=navbar-brand href=/>
+<img src=/images/alguidelines-bclogo-pattern-white.png height=32px>
+<span class=font-weight-bold>alguidelines.dev - Business Central Design Patterns</span>
+</a>
+<div class="td-navbar-nav-scroll ml-md-auto" id=main_navbar>
+<ul class="navbar-nav mt-2 mt-lg-0">
+<li class="nav-item mr-4 mb-2 mb-lg-0">
+<a class=nav-link href=/docs/><i class="fas fa-book"></i><span>Docs</span></a>
+</li>
+<li class="nav-item mr-4 mb-2 mb-lg-0">
+<a class=nav-link href=https://github.com/microsoft/alguidelines/discussions/ target=_blank><i class="fas fa-comments"></i><span>Discussions</span></a>
+</li>
+<li class="nav-item mr-4 mb-2 mb-lg-0">
+<a class=nav-link href=https://github.com/microsoft/alguidelines target=_blank><i class="fab fa-github"></i><span>GitHub</span></a>
+</li>
+<li class="nav-item mr-4 mb-2 mb-lg-0">
+<a class=nav-link href=https://discord.gg/4wbfNv3 target=_blank><i class="fab fa-discord"></i><span>Discord</span></a>
+</li>
+</ul>
+</div>
+<div class="navbar-nav d-none d-lg-block"></div>
+</nav>
+</header>
+<div class="container-fluid td-outer">
+<div class=td-main>
+<div class="row flex-xl-nowrap">
+<aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+<div id=td-sidebar-menu class=td-sidebar__inner>
+<div id=content-mobile>
+<form class="td-sidebar__search d-flex align-items-center">
+<button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation">
+</button>
+</form>
+</div>
+<div id=content-desktop></div>
+<nav class="collapse td-sidebar-nav" id=td-section-nav>
+<ul class="td-sidebar-nav__section pr-md-3 ul-0">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-docs-li>
+<a href=/docs/ title="AL Guidelines" class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id=m-docs><span>Docs</span></a>
+<ul class=ul-1>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docspatterns-li>
+<a href=/docs/patterns/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docspatterns><span>Patterns</span></a>
+<ul class="ul-2 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docspatternsevent-bridge-pattern-li>
+<a href=/docs/patterns/event-bridge-pattern/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docspatternsevent-bridge-pattern><span>Event Bridge</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docspatternsfacade-pattern-li>
+<a href=/docs/patterns/facade-pattern/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docspatternsfacade-pattern><span>Façade</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docspatternsgeneric-method-pattern-li>
+<a href=/docs/patterns/generic-method-pattern/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docspatternsgeneric-method-pattern><span>Generic Method</span></a>
+</li>
+</ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsbestpractices-li>
+<a href=/docs/bestpractices/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsbestpractices><span>Best Practices</span></a>
+<ul class="ul-2 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticesbegin-as-an-afterword-li>
+<a href=/docs/bestpractices/begin-as-an-afterword/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticesbegin-as-an-afterword><span>begin as an afterword</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticesbegin-end-li>
+<a href=/docs/bestpractices/begin-end/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticesbegin-end><span>Begin-End - Compound Only</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticesbinary-operator-line-start-li>
+<a href=/docs/bestpractices/binary-operator-line-start/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticesbinary-operator-line-start><span>Binary Operator to Start Line</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticescase-actions-li>
+<a href=/docs/bestpractices/case-actions/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticescase-actions><span>CASE Action on next line</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticescomments-spacing-li>
+<a href=/docs/bestpractices/comments-spacing/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticescomments-spacing><span>Comment Spacing</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticesdeleteall-li>
+<a href=/docs/bestpractices/deleteall/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticesdeleteall><span>DeleteAll</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticesend-else-pair-li>
+<a href=/docs/bestpractices/end-else-pair/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticesend-else-pair><span>end else pair</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticeskeyword-pairs-indentation-li>
+<a href=/docs/bestpractices/keyword-pairs-indentation/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticeskeyword-pairs-indentation><span>Keyword Pairs - Indentation</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticesline-start-keywords-li>
+<a href=/docs/bestpractices/line-start-keywords/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticesline-start-keywords><span>Line Start Keywords</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticeslonely-repeat-li>
+<a href=/docs/bestpractices/lonely-repeat/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticeslonely-repeat><span>Lonely Repeat</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticesnamed-invocations-li>
+<a href=/docs/bestpractices/named-invocations/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticesnamed-invocations><span>Named Invocations</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticesone-statement-per-line-li>
+<a href=/docs/bestpractices/one-statement-per-line/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticesone-statement-per-line><span>One Statement per Line</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticesseparate-if-and-else-li>
+<a href=/docs/bestpractices/separate-if-and-else/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticesseparate-if-and-else><span>Seperate if and else</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticesspacing-binary-operators-li>
+<a href=/docs/bestpractices/spacing-binary-operators/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticesspacing-binary-operators><span>Spacing Binary Operators</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticessubscribercodeunits-li>
+<a href=/docs/bestpractices/subscribercodeunits/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticessubscribercodeunits><span>Subscriber Codeunits</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticessuggested-abbreviations-li>
+<a href=/docs/bestpractices/suggested-abbreviations/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticessuggested-abbreviations><span>Suggested Abbreviations</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticesunnecessary-else-li>
+<a href=/docs/bestpractices/unnecessary-else/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticesunnecessary-else><span>Unnecessary else</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticesunnecessary-truefalse-li>
+<a href=/docs/bestpractices/unnecessary-truefalse/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticesunnecessary-truefalse><span>Unnecessary true/false</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticesvariable-naming-li>
+<a href=/docs/bestpractices/variable-naming/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticesvariable-naming><span>Variable Naming</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticesvariables-declarations-order-li>
+<a href=/docs/bestpractices/variables-declarations-order/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticesvariables-declarations-order><span>Variables Declarations Order</span></a>
+</li>
+</ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-docsnavpatterns-li>
+<a href=/docs/navpatterns/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatterns><span>NAV Patterns Archive</span></a>
+<ul class="ul-2 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-docsnavpatternspatterns-li>
+<a href=/docs/navpatterns/patterns/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatternspatterns><span>Patterns</span></a>
+<ul class="ul-3 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsactivity-log-li>
+<a href=/docs/navpatterns/patterns/activity-log/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsactivity-log><span>Activity Logs</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsargument-table-li>
+<a href=/docs/navpatterns/patterns/argument-table/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsargument-table><span>Argument Table</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatternspatternsblocked-entity-li>
+<a href=/docs/navpatterns/patterns/blocked-entity/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatternspatternsblocked-entity><span>Blocked Entity</span></a>
+<ul class="ul-4 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsblocked-entitydata-driven-blocked-entity-li>
+<a href=/docs/navpatterns/patterns/blocked-entity/data-driven-blocked-entity/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsblocked-entitydata-driven-blocked-entity><span>Data Driven Blocked Entity</span></a>
+</li>
+</ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternscached-web-service-calls-li>
+<a href=/docs/navpatterns/patterns/cached-web-service-calls/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternscached-web-service-calls><span>Cached Web Server Calls</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsconditional-cascading-update-li>
+<a href=/docs/navpatterns/patterns/conditional-cascading-update/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsconditional-cascading-update><span>Conditional Cascading Update</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternscopy-document-li>
+<a href=/docs/navpatterns/patterns/copy-document/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternscopy-document><span>Copy Document</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternscreate-data-from-templates-li>
+<a href=/docs/navpatterns/patterns/create-data-from-templates/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternscreate-data-from-templates><span>Create Data from Templates</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternscreate-urls-to-nav-clients-li>
+<a href=/docs/navpatterns/patterns/create-urls-to-nav-clients/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternscreate-urls-to-nav-clients><span>Create URLs to NAV Clients</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternscreating-custom-charts-li>
+<a href=/docs/navpatterns/patterns/creating-custom-charts/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternscreating-custom-charts><span>Creating Custom Charts</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternscross-session-events-li>
+<a href=/docs/navpatterns/patterns/cross-session-events/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternscross-session-events><span>Cross Session Events</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternscurrently-active-record-li>
+<a href=/docs/navpatterns/patterns/currently-active-record/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternscurrently-active-record><span>Currently Active Record</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsdata-migration-facade-li>
+<a href=/docs/navpatterns/patterns/data-migration-facade/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsdata-migration-facade><span>Data Migration Façade</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsdiscovery-event-li>
+<a href=/docs/navpatterns/patterns/discovery-event/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsdiscovery-event><span>Discovery Event</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsdocument-li>
+<a href=/docs/navpatterns/patterns/document/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsdocument><span>Document</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternseasy-update-of-setup-or-supplementary-information-li>
+<a href=/docs/navpatterns/patterns/easy-update-of-setup-or-supplementary-information/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternseasy-update-of-setup-or-supplementary-information><span>Easy Update Of Setup Or Supplementary Information</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternserror-message-processing-li>
+<a href=/docs/navpatterns/patterns/error-message-processing/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternserror-message-processing><span>Error Message Processing</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsextending-the-role-center-headlines-li>
+<a href=/docs/navpatterns/patterns/extending-the-role-center-headlines/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsextending-the-role-center-headlines><span>Extending the Role Center Headlines</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsfeature-localization-for-data-structures-li>
+<a href=/docs/navpatterns/patterns/feature-localization-for-data-structures/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsfeature-localization-for-data-structures><span>Feature Localization For Data Structures</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternshooks-li>
+<a href=/docs/navpatterns/patterns/hooks/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternshooks><span>Hooks</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsimplementation-of-surrogate-keys-using-autoincrement-pattern-li>
+<a href=/docs/navpatterns/patterns/implementation-of-surrogate-keys-using-autoincrement-pattern/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsimplementation-of-surrogate-keys-using-autoincrement-pattern><span>Surrogate keys using Autoincrement Pattern</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsinstructions-in-the-ui-li>
+<a href=/docs/navpatterns/patterns/instructions-in-the-ui/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsinstructions-in-the-ui><span>Instructions in the UI</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsintegration-of-addresses-li>
+<a href=/docs/navpatterns/patterns/integration-of-addresses/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsintegration-of-addresses><span>Integration of Addresses</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsjournal-error-processing-li>
+<a href=/docs/navpatterns/patterns/journal-error-processing/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsjournal-error-processing><span>Journal Error Processing</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsjournal-template-batch-line-li>
+<a href=/docs/navpatterns/patterns/journal-template-batch-line/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsjournal-template-batch-line><span>Journal Template Batch Line</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsmaster-data-li>
+<a href=/docs/navpatterns/patterns/master-data/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsmaster-data><span>Master Data</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsmulti-file-download-li>
+<a href=/docs/navpatterns/patterns/multi-file-download/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsmulti-file-download><span>Multi-file Download</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsmulti-page-list-li>
+<a href=/docs/navpatterns/patterns/multi-page-list/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsmulti-page-list><span>Multi-Page List</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsmultilanguage-application-data-li>
+<a href=/docs/navpatterns/patterns/multilanguage-application-data/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsmultilanguage-application-data><span>Multilanguage Application Data</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-docsnavpatternspatternsnet-exception-handling-in-cal-li>
+<a href=/docs/navpatterns/patterns/net-exception-handling-in-cal/ class="align-left pl-0 active td-sidebar-link td-sidebar-link__section" id=m-docsnavpatternspatternsnet-exception-handling-in-cal><span class=td-sidebar-nav-active-item>NET Exception Handling in CAL</span></a>
+<ul class="ul-4 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsnet-exception-handling-in-caltryfunction-net-exception-handling-in-cal-li>
+<a href=/docs/navpatterns/patterns/net-exception-handling-in-cal/tryfunction-net-exception-handling-in-cal/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsnet-exception-handling-in-caltryfunction-net-exception-handling-in-cal><span>TryFunction NET Exception Handling in CAL</span></a>
+</li>
+</ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsno-series-li>
+<a href=/docs/navpatterns/patterns/no-series/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsno-series><span>No Series</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatternspatternsnotifications-li>
+<a href=/docs/navpatterns/patterns/notifications/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatternspatternsnotifications><span>Notifications</span></a>
+<ul class="ul-4 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsnotificationsin-context-notifications-li>
+<a href=/docs/navpatterns/patterns/notifications/in-context-notifications/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsnotificationsin-context-notifications><span>In-context Notifications</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsnotificationsnotification-lifecycle-management-pattern-li>
+<a href=/docs/navpatterns/patterns/notifications/notification-lifecycle-management-pattern/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsnotificationsnotification-lifecycle-management-pattern><span>Notification Lifecycle Management Pattern</span></a>
+</li>
+</ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsobserver-li>
+<a href=/docs/navpatterns/patterns/observer/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsobserver><span>Observer</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsposting-routine-select-behavior-li>
+<a href=/docs/navpatterns/patterns/posting-routine-select-behavior/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsposting-routine-select-behavior><span>Posting Routine - Select Behavior</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsproduct-name-li>
+<a href=/docs/navpatterns/patterns/product-name/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsproduct-name><span>Product Name</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatternspatternsqueries-li>
+<a href=/docs/navpatterns/patterns/queries/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatternspatternsqueries><span>Queries</span></a>
+<ul class="ul-4 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsqueriesselect-distinct-with-queries-li>
+<a href=/docs/navpatterns/patterns/queries/select-distinct-with-queries/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsqueriesselect-distinct-with-queries><span>SELECT DISTINCT with Queries</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsqueriesuse-queries-to-detect-duplicate-records-li>
+<a href=/docs/navpatterns/patterns/queries/use-queries-to-detect-duplicate-records/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsqueriesuse-queries-to-detect-duplicate-records><span>Use Queries to Detect Duplicate Records</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsqueriesuse-queries-to-replace-nested-loops-li>
+<a href=/docs/navpatterns/patterns/queries/use-queries-to-replace-nested-loops/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsqueriesuse-queries-to-replace-nested-loops><span>Use Queries to Replace Nested Loops</span></a>
+</li>
+</ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsread-once-initialization-and-validation-li>
+<a href=/docs/navpatterns/patterns/read-once-initialization-and-validation/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsread-once-initialization-and-validation><span>Read-once Initialization and Validation</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsreleased-entity-li>
+<a href=/docs/navpatterns/patterns/released-entity/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsreleased-entity><span>Released Entity</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsreport-selection-li>
+<a href=/docs/navpatterns/patterns/report-selection/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsreport-selection><span>Report Selection</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatternspatternssecurity-li>
+<a href=/docs/navpatterns/patterns/security/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatternspatternssecurity><span>Security</span></a>
+<ul class="ul-4 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternssecurity1-sensitive-data-encapsulation-li>
+<a href=/docs/navpatterns/patterns/security/1-sensitive-data-encapsulation/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternssecurity1-sensitive-data-encapsulation><span>Sensitive Data Encapsulation</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternssecurity2-data-encryption-li>
+<a href=/docs/navpatterns/patterns/security/2-data-encryption/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternssecurity2-data-encryption><span>Data Encryption</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternssecurity3-single-point-of-access-li>
+<a href=/docs/navpatterns/patterns/security/3-single-point-of-access/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternssecurity3-single-point-of-access><span>Single Point of Access</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternssecurity4-masked-text-li>
+<a href=/docs/navpatterns/patterns/security/4-masked-text/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternssecurity4-masked-text><span>Masked Text</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternssecurity5-ssl-in-nav-li>
+<a href=/docs/navpatterns/patterns/security/5-ssl-in-nav/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternssecurity5-ssl-in-nav><span>SSL in NAV</span></a>
+</li>
+</ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternssetup-specificity-fallback-li>
+<a href=/docs/navpatterns/patterns/setup-specificity-fallback/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternssetup-specificity-fallback><span>Setup Specificity Fallback</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternssilent-file-upload-and-download-li>
+<a href=/docs/navpatterns/patterns/silent-file-upload-and-download/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternssilent-file-upload-and-download><span>Silent File Upload and Download</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatternspatternssingleton-li>
+<a href=/docs/navpatterns/patterns/singleton/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatternspatternssingleton><span>Singleton</span></a>
+<ul class="ul-4 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternssingletonsingleton-codeunit-li>
+<a href=/docs/navpatterns/patterns/singleton/singleton-codeunit/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternssingletonsingleton-codeunit><span>Singleton Codeunit</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docsnavpatternspatternssingletonsingleton-table-li>
+<a href=/docs/navpatterns/patterns/singleton/singleton-table/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatternspatternssingletonsingleton-table><span>Singleton Table</span></a>
+<ul class="ul-5 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternssingletonsingleton-tablecue-table-li>
+<a href=/docs/navpatterns/patterns/singleton/singleton-table/cue-table/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternssingletonsingleton-tablecue-table><span>Cue Table</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternssingletonsingleton-tablesetup-table-li>
+<a href=/docs/navpatterns/patterns/singleton/singleton-table/setup-table/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternssingletonsingleton-tablesetup-table><span>Setup Table</span></a>
+</li>
+</ul>
+</li>
+</ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsstandard-journal-li>
+<a href=/docs/navpatterns/patterns/standard-journal/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsstandard-journal><span>Standard Journal</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternstemporary-dataset-report-li>
+<a href=/docs/navpatterns/patterns/temporary-dataset-report/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternstemporary-dataset-report><span>Temporary Dataset Report</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternstotals-and-discounts-on-subpages-sales-and-purchases-li>
+<a href=/docs/navpatterns/patterns/totals-and-discounts-on-subpages-sales-and-purchases/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternstotals-and-discounts-on-subpages-sales-and-purchases><span>Totals and Discounts on Subpages Sales and Purchases</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternstransfer-custom-fields-li>
+<a href=/docs/navpatterns/patterns/transfer-custom-fields/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternstransfer-custom-fields><span>Transfer Custom Fields</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsvariant-facade-li>
+<a href=/docs/navpatterns/patterns/variant-facade/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsvariant-facade><span>Variant Facade</span></a>
+</li>
+</ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatterns2-anti-patterns-li>
+<a href=/docs/navpatterns/2-anti-patterns/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatterns2-anti-patterns><span>2. Anti-Patterns</span></a>
+<ul class="ul-3 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns2-anti-patternsnav-upgrade-li>
+<a href=/docs/navpatterns/2-anti-patterns/nav-upgrade/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns2-anti-patternsnav-upgrade><span>Nav Upgrade</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns2-anti-patternsreusable-bugs-li>
+<a href=/docs/navpatterns/2-anti-patterns/reusable-bugs/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns2-anti-patternsreusable-bugs><span>Reusable Bugs</span></a>
+</li>
+</ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatterns3-cal-coding-guidelines-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatterns3-cal-coding-guidelines><span>3. CAL Coding Guidelines</span></a>
+<ul class="ul-3 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesdesign-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/design/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatterns3-cal-coding-guidelinesdesign><span>Design</span></a>
+<ul class="ul-4 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesdesignby-reference-parameters-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/design/by-reference-parameters/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesdesignby-reference-parameters><span>By Reference Parameters</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesdesignclass-coupling-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/design/class-coupling/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesdesignclass-coupling><span>Class Coupling</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesdesigncyclomatic-complexity-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/design/cyclomatic-complexity/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesdesigncyclomatic-complexity><span>Cyclomatic Complexity</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesdesignencapsulate-local-functionality-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/design/encapsulate-local-functionality/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesdesignencapsulate-local-functionality><span>Encapsulate Local Functionality</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesdesignfindset-findfirst-findlast-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/design/findset-findfirst-findlast/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesdesignfindset-findfirst-findlast><span>FINDSET FINDFIRST FINDLAST</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesdesigninitialized-variables-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/design/initialized-variables/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesdesigninitialized-variables><span>Initialized Variables</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesdesignmaintainability-index-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/design/maintainability-index/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesdesignmaintainability-index><span>Maintainability Index</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesdesignparameter-placeholders-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/design/parameter-placeholders/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesdesignparameter-placeholders><span>Parameter Placeholders</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesdesignstatic-object-invocation-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/design/static-object-invocation/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesdesignstatic-object-invocation><span>Static Object Invocation</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesdesignunreachable-code-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/design/unreachable-code/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesdesignunreachable-code><span>Unreachable Code</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesdesignunused-initialized-variables-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/design/unused-initialized-variables/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesdesignunused-initialized-variables><span>Unused Initialized Variables</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesdesignunused-variables-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/design/unused-variables/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesdesignunused-variables><span>Unused Variables</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesdesignvariable-capacity-mismatch-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/design/variable-capacity-mismatch/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesdesignvariable-capacity-mismatch><span>Variable Capacity Mismatch</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesdesignwith-scope-name-collision-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/design/with-scope-name-collision/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesdesignwith-scope-name-collision><span>WITH Scope Name Collision</span></a>
+</li>
+</ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesinternally-used-dot-net-types-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/internally-used-dot-net-types/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesinternally-used-dot-net-types><span>Internally used DotNet Types</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesinternationalization-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/internationalization/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatterns3-cal-coding-guidelinesinternationalization><span>Internationalization</span></a>
+<ul class="ul-4 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesinternationalizationusing-calcdate-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/internationalization/using-calcdate/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesinternationalizationusing-calcdate><span>Using Calcdate</span></a>
+</li>
+</ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docsnavpatterns3-cal-coding-guidelineslocalizability-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/localizability/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatterns3-cal-coding-guidelineslocalizability><span>Localizability</span></a>
+<ul class="ul-4 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelineslocalizabilitycaptionml-for-system-tables-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/localizability/captionml-for-system-tables/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelineslocalizabilitycaptionml-for-system-tables><span>CaptionML on System Pages</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelineslocalizabilityfieldcaption-and-tablecaption-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/localizability/fieldcaption-and-tablecaption/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelineslocalizabilityfieldcaption-and-tablecaption><span>FIELDCAPTION and TABLECAPTION</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelineslocalizabilityglobal-text-constants-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/localizability/global-text-constants/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelineslocalizabilityglobal-text-constants><span>Global Text Constants</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelineslocalizabilityuse-text-constants-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/localizability/use-text-constants/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelineslocalizabilityuse-text-constants><span>Use Text Constants</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelineslocalizabilityusing-optioncaptionml-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/localizability/using-optioncaptionml/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelineslocalizabilityusing-optioncaptionml><span>Using OptionCaptionML</span></a>
+</li>
+</ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesreadability-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/readability/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatterns3-cal-coding-guidelinesreadability><span>Readability</span></a>
+<ul class="ul-4 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilitybegin-as-an-afterword-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/readability/begin-as-an-afterword/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilitybegin-as-an-afterword><span>Begin as an 'After Word'</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilitybegin-end-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/readability/begin-end/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilitybegin-end><span>Begin-End - Compound Only</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilitybinary-operator-line-start-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/readability/binary-operator-line-start/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilitybinary-operator-line-start><span>Binary Operator to Start Line</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilityblank-lines-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/readability/blank-lines/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilityblank-lines><span>Blank Lines</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilitycase-actions-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/readability/case-actions/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilitycase-actions><span>CASE Action</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilitycolon-usage-in-case-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/readability/colon-usage-in-case/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilitycolon-usage-in-case><span>Colon usage in CASE</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilitycomments-curly-brackets-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/readability/comments-curly-brackets/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilitycomments-curly-brackets><span>Comments inside Curly Brackets</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilitycomments-spacing-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/readability/comments-spacing/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilitycomments-spacing><span>Comment Spacing</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilityend-else-pair-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/readability/end-else-pair/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilityend-else-pair><span>END ELSE Pair</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilityindentation-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/readability/indentation/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilityindentation><span>Indentation</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilitykeyword-pairs-indentation-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/readability/keyword-pairs-indentation/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilitykeyword-pairs-indentation><span>Keyword Pairs - Indentation</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilityline-start-keywords-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/readability/line-start-keywords/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilityline-start-keywords><span>Line Start Keywords</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilitylonely-repeat-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/readability/lonely-repeat/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilitylonely-repeat><span>Lonely Repeat</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilitynamed-invocations-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/readability/named-invocations/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilitynamed-invocations><span>Named Invocations</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilitynested-withs-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/readability/nested-withs/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilitynested-withs><span>Nested WITHs</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilityone-statement-per-line-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/readability/one-statement-per-line/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilityone-statement-per-line><span>One Statement Per Line</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilityseparate-if-and-else-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/readability/separate-if-and-else/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilityseparate-if-and-else><span>Separate IF and ELSE</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilityspacing-binary-operators-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/readability/spacing-binary-operators/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilityspacing-binary-operators><span>Spacing Binary Operators</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilityspacing-brackets-and-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/readability/spacing-brackets-and/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilityspacing-brackets-and><span>Spacing Brackets and ::</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilityspacing-unary-operators-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/readability/spacing-unary-operators/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilityspacing-unary-operators><span>Spacing Unary Operators</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilitysuggested-abbreviations-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/readability/suggested-abbreviations/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilitysuggested-abbreviations><span>Suggested Abbreviations</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilitytemporary-variable-naming-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/readability/temporary-variable-naming/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilitytemporary-variable-naming><span>Temporary Variable Naming</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilitytextconst-suffixes-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/readability/textconst-suffixes/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilitytextconst-suffixes><span>TextConst Suffixes</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilityunary-operator-line-end-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/readability/unary-operator-line-end/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilityunary-operator-line-end><span>Unary Operator Line End</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilityunnecessary-compound-parenthesis-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/readability/unnecessary-compound-parenthesis/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilityunnecessary-compound-parenthesis><span>Unnecessary Compound Parenthesis</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilityunnecessary-else-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/readability/unnecessary-else/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilityunnecessary-else><span>Unnecessary ELSE</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilityunnecessary-function-parenthesis-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/readability/unnecessary-function-parenthesis/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilityunnecessary-function-parenthesis><span>Unnecessary Function Parenthesis</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilityunnecessary-separators-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/readability/unnecessary-separators/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilityunnecessary-separators><span>Unnecessary Separators</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilityunnecessary-truefalse-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/readability/unnecessary-truefalse/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilityunnecessary-truefalse><span>Unnecessary TRUE/FALSE</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilityvariable-already-scoped-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/readability/variable-already-scoped/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilityvariable-already-scoped><span>Variable Already Scoped</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilityvariable-naming-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/readability/variable-naming/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilityvariable-naming><span>Variable Naming</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilityvariables-declarations-order-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/readability/variables-declarations-order/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilityvariables-declarations-order><span>Variables Declarations Order</span></a>
+</li>
+</ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesux-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/ux/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatterns3-cal-coding-guidelinesux><span>UX</span></a>
+<ul class="ul-4 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesuxactions-images-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/ux/actions-images/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesuxactions-images><span>Actions - Images</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesuxconfirm-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/ux/confirm/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesuxconfirm><span>CONFIRM</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesuxfielderror-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/ux/fielderror/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesuxfielderror><span>FIELDERROR</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesuxmessage-and-error-li>
+<a href=/docs/navpatterns/3-cal-coding-guidelines/ux/message-and-error/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesuxmessage-and-error><span>MESSAGE and ERROR</span></a>
+</li>
+</ul>
+</li>
+</ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatterns4-get-involved-li>
+<a href=/docs/navpatterns/4-get-involved/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatterns4-get-involved><span>(OLD) Get Involved</span></a>
+<ul class="ul-3 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns4-get-involvedcode-of-conduct-li>
+<a href=/docs/navpatterns/4-get-involved/code-of-conduct/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns4-get-involvedcode-of-conduct><span>Code of Conduct</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns4-get-involvedpatterns-authors-li>
+<a href=/docs/navpatterns/4-get-involved/patterns-authors/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns4-get-involvedpatterns-authors><span>Patterns Authors</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns4-get-involvedtemplate-for-writing-nav-design-patterns-li>
+<a href=/docs/navpatterns/4-get-involved/template-for-writing-nav-design-patterns/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns4-get-involvedtemplate-for-writing-nav-design-patterns><span>Template for writing Nav Design Patterns</span></a>
+</li>
+</ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternsrelated-links-li>
+<a href=/docs/navpatterns/related-links/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternsrelated-links><span>Related Links</span></a>
+</li>
+</ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docscontributing-li>
+<a href=/docs/contributing/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docscontributing><span>Contributing</span></a>
+<ul class="ul-2 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docscontributingformattingtips-li>
+<a href=/docs/contributing/formattingtips/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docscontributingformattingtips><span>Formatting tips</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docscontributingforkandpr-li>
+<a href=/docs/contributing/forkandpr/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docscontributingforkandpr><span>Guide to Fork & PR</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docscontributingtemplates-li>
+<a href=/docs/contributing/templates/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docscontributingtemplates><span>Templates</span></a>
+<ul class="ul-3 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docscontributingtemplatesguidelines-li>
+<a href=/docs/contributing/templates/guidelines/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docscontributingtemplatesguidelines><span>Title of the Guideline</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docscontributingtemplatespatterns-li>
+<a href=/docs/contributing/templates/patterns/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docscontributingtemplatespatterns><span>Title of the pattern</span></a>
+</li>
+</ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docscontributingtheapprovalprocess-li>
+<a href=/docs/contributing/theapprovalprocess/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docscontributingtheapprovalprocess><span>Understanding the Approval Process</span></a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</aside>
+<aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+<a href=https://github.com/microsoft/alguidelines/tree/master/content/en/docs/NAVPatterns/patterns/net-exception-handling-in-cal/_index.md class=td-page-meta--view target=_blank rel=noopener><i class="fa fa-file-alt fa-fw"></i> View page source</a>
+<a href=https://github.com/microsoft/alguidelines/edit/master/content/en/docs/NAVPatterns/patterns/net-exception-handling-in-cal/_index.md class=td-page-meta--edit target=_blank rel=noopener><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+<a href="https://github.com/microsoft/alguidelines/new/master/content/en/docs/NAVPatterns/patterns/net-exception-handling-in-cal/_index.md?filename=change-me.md&value=---%0Atitle%3A+%22Long+Page+Title%22%0AlinkTitle%3A+%22Short+Nav+Title%22%0Aweight%3A+100%0Adescription%3A+%3E-%0A+++++Page+description+for+heading+and+indexes.%0A---%0A%0A%23%23+Heading%0A%0AEdit+this+template+to+create+your+new+page.%0A%0A%2A+Give+it+a+good+name%2C+ending+in+%60.md%60+-+e.g.+%60getting-started.md%60%0A%2A+Edit+the+%22front+matter%22+section+at+the+top+of+the+page+%28weight+controls+how+its+ordered+amongst+other+pages+in+the+same+directory%3B+lowest+number+first%29.%0A%2A+Add+a+good+commit+message+at+the+bottom+of+the+page+%28%3C80+characters%3B+use+the+extended+description+field+for+more+detail%29.%0A%2A+Create+a+new+branch+so+you+can+preview+your+new+file+and+request+a+review+via+Pull+Request.%0A" class=td-page-meta--child target=_blank rel=noopener><i class="fa fa-edit fa-fw"></i> Create child page</a>
+<a href="https://github.com/microsoft/alguidelines/issues/new?title=NET%20Exception%20Handling%20in%20CAL" class=td-page-meta--issue target=_blank rel=noopener><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+<a href=https://github.com/microsoft/alguidelines/issues/new class=td-page-meta--project-issue target=_blank rel=noopener><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
+</div>
+<div class=td-toc><nav id=TableOfContents>
+<ul>
+<li><a href=#abstract>Abstract</a></li>
+<li><a href=#description>Description</a>
+<ul>
+<li><a href=#when-to-use-it>When to Use It</a></li>
+<li><a href=#diagram>Diagram</a></li>
+</ul>
+</li>
+<li><a href=#usage>Usage</a></li>
+<li><a href=#nav-specific-example>NAV Specific Example</a>
+<ul>
+<li><a href=#overview>Overview</a></li>
+<li><a href=#code-sample>Code Sample</a></li>
+</ul>
+</li>
+<li><a href=#nav-usages>NAV Usages</a></li>
+<li><a href=#ideas-for-improvement>Ideas for Improvement</a></li>
+<li><a href=#consequences>Consequences</a></li>
+</ul>
+</nav></div>
+<div class="taxonomy taxonomy-terms-cloud taxo-tags">
+<h5 class=taxonomy-title>Tag Cloud</h5>
+<ul class=taxonomy-terms>
+<li><a class=taxonomy-term href=https://alguidelines.dev/tags/c/al/ data-taxonomy-term=c/al><span class=taxonomy-label>C/AL</span><span class=taxonomy-count>1</span></a></li>
+<li><a class=taxonomy-term href=https://alguidelines.dev/tags/interface/ data-taxonomy-term=interface><span class=taxonomy-label>Interface</span><span class=taxonomy-count>1</span></a></li>
+<li><a class=taxonomy-term href=https://alguidelines.dev/tags/nav/ data-taxonomy-term=nav><span class=taxonomy-label>NAV</span><span class=taxonomy-count>1</span></a></li>
+<li><a class=taxonomy-term href=https://alguidelines.dev/tags/performance/ data-taxonomy-term=performance><span class=taxonomy-label>Performance</span><span class=taxonomy-count>2</span></a></li>
+<li><a class=taxonomy-term href=https://alguidelines.dev/tags/readability/ data-taxonomy-term=readability><span class=taxonomy-label>Readability</span><span class=taxonomy-count>18</span></a></li>
+</ul>
+</div>
+<div class="taxonomy taxonomy-terms-cloud taxo-categories">
+<h5 class=taxonomy-title>Categories</h5>
+<ul class=taxonomy-terms>
+<li><a class=taxonomy-term href=https://alguidelines.dev/categories/archived-pattern/ data-taxonomy-term=archived-pattern><span class=taxonomy-label>Archived Pattern</span><span class=taxonomy-count>1</span></a></li>
+<li><a class=taxonomy-term href=https://alguidelines.dev/categories/best-practice/ data-taxonomy-term=best-practice><span class=taxonomy-label>Best Practice</span><span class=taxonomy-count>20</span></a></li>
+<li><a class=taxonomy-term href=https://alguidelines.dev/categories/pattern/ data-taxonomy-term=pattern><span class=taxonomy-label>Pattern</span><span class=taxonomy-count>3</span></a></li>
+</ul>
+</div>
+</aside>
+<main class="col-12 col-md-9 col-xl-8 pl-md-5" role=main>
+<nav aria-label=breadcrumb class=td-breadcrumbs>
+<ol class=breadcrumb>
+<li class=breadcrumb-item>
+<a href=https://alguidelines.dev/docs/>Docs</a>
+</li>
+<li class=breadcrumb-item>
+<a href=https://alguidelines.dev/docs/navpatterns/>NAV Patterns Archive</a>
+</li>
+<li class=breadcrumb-item>
+<a href=https://alguidelines.dev/docs/navpatterns/patterns/>Patterns</a>
+</li>
+<li class="breadcrumb-item active" aria-current=page>
+<a href=https://alguidelines.dev/docs/navpatterns/patterns/net-exception-handling-in-cal/>NET Exception Handling in CAL</a>
+</li>
+</ol>
+</nav>
+<div class=td-content>
+<h1>NET Exception Handling in CAL</h1>
+<header class=article-meta>
+</header>
+<p><em>Originally by Mostafa Balat, Microsoft Development Center Copenhagen</em></p>
+<h2 id=abstract>Abstract</h2>
+<p>When there is a need to use .NET classes within C/AL, one of the main challenges is to handle the exceptions the methods of these .NET classes may throw. Eventually, if not handled, they will basically bubble up as runtime errors, halting the current operation a user is doing without having a chance to properly display errors in a user-friendly format.</p>
+<h2 id=description>Description</h2>
+<p>Using the .NET classes in order to extend NAV&rsquo;s functionality usually triggers the need to create an add-on assembly. This is a pretty powerful approach and opens the door for empowering NAV with new and extra functionality while harnessing the full power of .NET.</p>
+<p>For example, integration with a Web service into NAV can be done to extend NAV&rsquo;s functionality or benefit from a service model offered through a 3rd party. To do so, it is possible to write a .NET add-in to handle the required bi-directional communication between NAV and the Web service. Alternatively, the implementation itself can be done in C/AL, with no add-in dependency. The latter option simplifies customization, deployment and upgradeability. Additionally, it builds up on the knowledge NAV developers have with C/AL programming.</p>
+<p>On the other hand, not using an add-in exposes NAV to runtime errors due to unhandled exceptions that get thrown at different levels. The first is the communication layer, in which HTTP requests and responses are exchanged. The second is the business logic layer, at which the content of the requests and response is being prepared and groomed using XML Elements and being retrieved or edited based on the respective XPaths.</p>
+<h3 id=when-to-use-it>When to Use It</h3>
+<p>When .NET classes are used, they may throw exceptions upon failure. Some of these exceptions cannot pre-checked (e.g. like existence of a file on disk) and will only be figured out at runtime. Eventually, to present the error reason to a user and explain what needs to be done to address it, the exception needs to be handled gracefully. This also protects the client for unexpected crashes that may deteriorate the user experience.</p>
+<h3 id=diagram>Diagram</h3>
+<p><a href=1856.DotNet_5F00_Exception_5F00_Handling_5F00_in_5F00_CAL_5F00_Diagram.png><img src=1856.DotNet_5F00_Exception_5F00_Handling_5F00_in_5F00_CAL_5F00_Diagram.png alt=" "></a></p>
+<h2 id=usage>Usage</h2>
+<p>A Try-Catch-Finally statement does not exist in C/AL. The alternative is to run the code consuming .NET objects within a codeunit, and handle the runtime errors, as follows:</p>
+<ol>
+<li>Write the code that uses the .NET classes in a codeunit.</li>
+<li>Run the codeunit using <strong>CODEUNIT.RUN</strong> or the Run function on a codeunit variable.</li>
+<li>Handle the return value of the <strong>OnRun</strong> trigger for the codeunit within an <strong>IF</strong> statement.</li>
+<li>Write the exception handling code in a function, and call it when the return value for <strong>OnRun</strong> is <strong>FALSE</strong>.</li>
+<li>The exception handling function should determine which exception to handle, and pass this over to <strong>COD1291 DotNet Exception Handler</strong> codeunit.</li>
+</ol>
+<p>When an exception is thrown, it is already wrapped up within an NAV exception. This means the real exception to look for is retrievable through the <strong>InnerException</strong> property of the NAV exception. Then, next step would be to properly determine the type of that exception, and act accordingly. The <strong>COD1291 DotNet Exception Handler</strong> codeunit takes care of looping through the nested levels of inner exceptions, digging for an exception with the expected type. If found, it is retrieved; otherwise, the main (outer) exception&rsquo;s message is retrieved.</p>
+<h2 id=nav-specific-example>NAV Specific Example</h2>
+<h3 id=overview>Overview</h3>
+<p>The exception handling pattern is implemented in the integration with a web service for bank file format conversion. Within the respective &ldquo;External Data Handling Codeunit&rdquo; for that web service, communication through SOAP requests is required. Eventually, the HTTP web request and response .NET classes are used for that purpose.</p>
+<p>For instance, if a failure to establish a connection to the web service due to lack of Internet access, a <strong>WebException</strong> is thrown with the relevant error details. <strong>COD1290 Web Service Mgt.</strong> codeunit wraps up the required functionality to interact with a web service in C/AL, handling all the required plumping work to send web requests, receive web responses, and extract valid and error details from the web response.</p>
+<h3 id=code-sample>Code Sample</h3>
+<p>The &ldquo;External Data Handling Codeunit&rdquo; is a consumer of <strong>COD1290 Web Service Mgt.</strong> codeunit. If a runtime exception occurs, it gets handled as follows:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=color:#204a87;font-weight:700>LOCAL</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>PROCEDURE</span><span style=color:#f8f8f8;text-decoration:underline> </span>SendDataToConversionService@<span style=color:#0000cf;font-weight:700>1</span><span style=color:#ce5c00;font-weight:700>(</span><span style=color:#204a87;font-weight:700>VAR</span><span style=color:#f8f8f8;text-decoration:underline> </span>PaymentFileTempBlob@<span style=color:#0000cf;font-weight:700>1003</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Record</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#0000cf;font-weight:700>99008535</span><span style=color:#000;font-weight:700>;</span>BodyTempBlob@<span style=color:#0000cf;font-weight:700>1004</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Record</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#0000cf;font-weight:700>99008535</span><span style=color:#000;font-weight:700>;</span>PostingExch@<span style=color:#0000cf;font-weight:700>1007</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Record</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#0000cf;font-weight:700>1220</span><span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>VAR</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span>BankDataConvServiceSetup@<span style=color:#0000cf;font-weight:700>1000</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Record</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#0000cf;font-weight:700>1260</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span>WebServiceRequestMgt@<span style=color:#0000cf;font-weight:700>1001</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Codeunit</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#0000cf;font-weight:700>1290</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span>BodyInStream@<span style=color:#0000cf;font-weight:700>1005</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>InStream</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span>ResponseInStream@<span style=color:#0000cf;font-weight:700>1002</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>InStream</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>BEGIN</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>IF</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>NOT</span><span style=color:#f8f8f8;text-decoration:underline> </span>BodyTempBlob<span style=color:#ce5c00;font-weight:700>.</span><span style=color:#204a87;font-weight:700>Blob</span><span style=color:#ce5c00;font-weight:700>.</span>HASVALUE<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>THEN</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>        </span>ERROR<span style=color:#ce5c00;font-weight:700>(</span>NoRequestBodyErr<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span>PrepareSOAPRequestBody<span style=color:#ce5c00;font-weight:700>(</span>BodyTempBlob<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span>COMMIT<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span>BankDataConvServiceSetup<span style=color:#ce5c00;font-weight:700>.</span>GET<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span>BodyTempBlob<span style=color:#ce5c00;font-weight:700>.</span><span style=color:#204a87;font-weight:700>Blob</span><span style=color:#ce5c00;font-weight:700>.</span>CREATEINSTREAM<span style=color:#ce5c00;font-weight:700>(</span>BodyInStream<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span>WebServiceRequestMgt<span style=color:#ce5c00;font-weight:700>.</span>SetGlobals<span style=color:#ce5c00;font-weight:700>(</span>BodyInStream<span style=color:#000;font-weight:700>,</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>        </span>BankDataConvServiceSetup<span style=color:#ce5c00;font-weight:700>.</span>&#34;Service URL&#34;<span style=color:#000;font-weight:700>,</span>BankDataConvServiceSetup<span style=color:#ce5c00;font-weight:700>.</span>&#34;User Name&#34;<span style=color:#000;font-weight:700>,</span>BankDataConvServiceSetup<span style=color:#ce5c00;font-weight:700>.</span>GetPassword<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>IF</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>NOT</span><span style=color:#f8f8f8;text-decoration:underline> </span>WebServiceRequestMgt<span style=color:#ce5c00;font-weight:700>.</span>RUN<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>THEN</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>        </span>WebServiceRequestMgt<span style=color:#ce5c00;font-weight:700>.</span>ProcessFaultResponse<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span>WebServiceRequestMgt<span style=color:#ce5c00;font-weight:700>.</span>GetResponseContent<span style=color:#ce5c00;font-weight:700>(</span>ResponseInStream<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span>CheckIfErrorsOccurred<span style=color:#ce5c00;font-weight:700>(</span>ResponseInStream<span style=color:#000;font-weight:700>,</span>PostingExch<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span>ReadContentFromResponse<span style=color:#ce5c00;font-weight:700>(</span>PaymentFileTempBlob<span style=color:#000;font-weight:700>,</span>ResponseInStream<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>END</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></code></pre></div><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=color:#204a87;font-weight:700>PROCEDURE</span><span style=color:#f8f8f8;text-decoration:underline> </span>ProcessFaultResponse@<span style=color:#0000cf;font-weight:700>15</span><span style=color:#ce5c00;font-weight:700>()</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>VAR</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span>XMLDOMMgt@<span style=color:#0000cf;font-weight:700>1006</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Codeunit</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#0000cf;font-weight:700>6224</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span>DotNetExceptionHandler@<span style=color:#0000cf;font-weight:700>1000</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Codeunit</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#0000cf;font-weight:700>1291</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span>WebException@<span style=color:#0000cf;font-weight:700>1005</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>DotNet</span><span style=color:#f8f8f8;text-decoration:underline> </span>&#34;&#39;System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089&#39;.System.Net.WebException&#34;<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span>WebExceptionStatus@<span style=color:#0000cf;font-weight:700>1004</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>DotNet</span><span style=color:#f8f8f8;text-decoration:underline> </span>&#34;&#39;System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089&#39;.System.Net.WebExceptionStatus&#34;<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span>XmlDoc@<span style=color:#0000cf;font-weight:700>1003</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>DotNet</span><span style=color:#f8f8f8;text-decoration:underline> </span>&#34;&#39;System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089&#39;.System.Xml.XmlDocument&#34;<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span>HttpWebResponseError@<span style=color:#0000cf;font-weight:700>1007</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>DotNet</span><span style=color:#f8f8f8;text-decoration:underline> </span>&#34;&#39;System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089&#39;.System.Net.HttpWebResponse&#34;<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span>HttpStatusCode@<span style=color:#0000cf;font-weight:700>1008</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>DotNet</span><span style=color:#f8f8f8;text-decoration:underline> </span>&#34;&#39;System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089&#39;.System.Net.HttpStatusCode&#34;<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span>ResponseInputStream@<span style=color:#0000cf;font-weight:700>1002</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>InStream</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>BEGIN</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span>DotNetExceptionHandler<span style=color:#ce5c00;font-weight:700>.</span>Collect<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>IF</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>NOT</span><span style=color:#f8f8f8;text-decoration:underline> </span>DotNetExceptionHandler<span style=color:#ce5c00;font-weight:700>.</span>CastToType<span style=color:#ce5c00;font-weight:700>(</span>WebException<span style=color:#000;font-weight:700>,</span>GETDOTNETTYPE<span style=color:#ce5c00;font-weight:700>(</span>WebException<span style=color:#ce5c00;font-weight:700>)) </span><span style=color:#204a87;font-weight:700>THEN</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>        </span>DotNetExceptionHandler<span style=color:#ce5c00;font-weight:700>.</span>Rethrow<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>IF</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>NOT</span><span style=color:#f8f8f8;text-decoration:underline> </span>WebException<span style=color:#ce5c00;font-weight:700>.</span>Status<span style=color:#ce5c00;font-weight:700>.</span>Equals<span style=color:#ce5c00;font-weight:700>(</span>WebExceptionStatus<span style=color:#ce5c00;font-weight:700>.</span>ProtocolError<span style=color:#ce5c00;font-weight:700>) </span><span style=color:#204a87;font-weight:700>THEN</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>        </span>ERROR<span style=color:#ce5c00;font-weight:700>(</span>WebException<span style=color:#ce5c00;font-weight:700>.</span>Message<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span>ResponseInputStream<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#ce5c00;font-weight:700>:=</span><span style=color:#f8f8f8;text-decoration:underline> </span>WebException<span style=color:#ce5c00;font-weight:700>.</span>Response<span style=color:#ce5c00;font-weight:700>.</span>GetResponseStream<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span>DebugLogStreamToTempFile<span style=color:#ce5c00;font-weight:700>(</span>ResponseInputStream<span style=color:#000;font-weight:700>,</span><span style=color:#4e9a06>&#39;WebExceptionResponse&#39;</span><span style=color:#000;font-weight:700>,</span>TempDebugLogTempBlob<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span>HttpWebResponseError<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#ce5c00;font-weight:700>:=</span><span style=color:#f8f8f8;text-decoration:underline> </span>WebException<span style=color:#ce5c00;font-weight:700>.</span>Response<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>IF</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>NOT</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#ce5c00;font-weight:700>(</span>HttpWebResponseError<span style=color:#ce5c00;font-weight:700>.</span>StatusCode<span style=color:#ce5c00;font-weight:700>.</span>Equals<span style=color:#ce5c00;font-weight:700>(</span>HttpStatusCode<span style=color:#ce5c00;font-weight:700>.</span>Found<span style=color:#ce5c00;font-weight:700>) </span><span style=color:#204a87;font-weight:700>OR</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>        </span>HttpWebResponseError<span style=color:#ce5c00;font-weight:700>.</span>StatusCode<span style=color:#ce5c00;font-weight:700>.</span>Equals<span style=color:#ce5c00;font-weight:700>(</span>HttpStatusCode<span style=color:#ce5c00;font-weight:700>.</span>InternalServerError<span style=color:#ce5c00;font-weight:700>))
+</span><span style=color:#ce5c00;font-weight:700>    </span><span style=color:#204a87;font-weight:700>THEN</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>        </span>ERROR<span style=color:#ce5c00;font-weight:700>(</span>WebException<span style=color:#ce5c00;font-weight:700>.</span>Message<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span>XmlDoc<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#ce5c00;font-weight:700>:=</span><span style=color:#f8f8f8;text-decoration:underline> </span>XmlDoc<span style=color:#ce5c00;font-weight:700>.</span><span style=color:#204a87;font-weight:700>XmlDocument</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span>XmlDoc<span style=color:#ce5c00;font-weight:700>.</span>Load<span style=color:#ce5c00;font-weight:700>(</span>ResponseInputStream<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span>ERROR<span style=color:#ce5c00;font-weight:700>(</span>XMLDOMMgt<span style=color:#ce5c00;font-weight:700>.</span>FindNodeTextWithNamespace<span style=color:#ce5c00;font-weight:700>(</span>XmlDoc<span style=color:#ce5c00;font-weight:700>.</span>DocumentElement<span style=color:#000;font-weight:700>,</span>FaultStringXmlPathTxt<span style=color:#000;font-weight:700>,</span><span style=color:#4e9a06>&#39;soap&#39;</span><span style=color:#000;font-weight:700>,</span>SoapNamespaceTxt<span style=color:#ce5c00;font-weight:700>))</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>END</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></code></pre></div><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>OBJECT<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Codeunit</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#0000cf;font-weight:700>1291</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>DotNet</span><span style=color:#f8f8f8;text-decoration:underline> </span>Exception<span style=color:#f8f8f8;text-decoration:underline> </span>Handler<span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span>{<span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span>OBJECT<span style=color:#ce5c00;font-weight:700>-</span>PROPERTIES<span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span>{<span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>Date</span>=<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>Time</span>=<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>Version</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>List</span>=<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span>}<span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span>PROPERTIES<span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span>{<span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>        </span>OnRun=<span style=color:#204a87;font-weight:700>BEGIN</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>              </span><span style=color:#204a87;font-weight:700>END</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span>}<span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>CODE</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span>{<span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>VAR</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>            </span>OuterException@<span style=color:#0000cf;font-weight:700>1000</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>DotNet</span><span style=color:#f8f8f8;text-decoration:underline> </span>&#34;&#39;mscorlib&#39;.System.Exception&#34;<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    
+</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>PROCEDURE</span><span style=color:#f8f8f8;text-decoration:underline> </span>Catch@<span style=color:#0000cf;font-weight:700>3</span><span style=color:#ce5c00;font-weight:700>(</span><span style=color:#204a87;font-weight:700>VAR</span><span style=color:#f8f8f8;text-decoration:underline> </span>Exception@<span style=color:#0000cf;font-weight:700>1002</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>DotNet</span><span style=color:#f8f8f8;text-decoration:underline> </span>&#34;&#39;mscorlib&#39;.System.FormatException&#34;<span style=color:#000;font-weight:700>;</span><span style=color:#204a87;font-weight:700>Type</span>@<span style=color:#0000cf;font-weight:700>1007</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>DotNet</span><span style=color:#f8f8f8;text-decoration:underline> </span>&#34;&#39;mscorlib&#39;.System.Type&#34;<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>            </span><span style=color:#204a87;font-weight:700>BEGIN</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>                </span>Collect<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>                </span><span style=color:#204a87;font-weight:700>IF</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>NOT</span><span style=color:#f8f8f8;text-decoration:underline> </span>CastToType<span style=color:#ce5c00;font-weight:700>(</span>Exception<span style=color:#000;font-weight:700>,</span><span style=color:#204a87;font-weight:700>Type</span><span style=color:#ce5c00;font-weight:700>) </span><span style=color:#204a87;font-weight:700>THEN</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>                    </span>Rethrow<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>            </span><span style=color:#204a87;font-weight:700>END</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>PROCEDURE</span><span style=color:#f8f8f8;text-decoration:underline> </span>Collect@<span style=color:#0000cf;font-weight:700>1</span><span style=color:#ce5c00;font-weight:700>()</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>BEGIN</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>            </span>OuterException<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#ce5c00;font-weight:700>:=</span><span style=color:#f8f8f8;text-decoration:underline> </span>GETLASTERROROBJECT<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>END</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>PROCEDURE</span><span style=color:#f8f8f8;text-decoration:underline> </span>TryCastToType@<span style=color:#0000cf;font-weight:700>5</span><span style=color:#ce5c00;font-weight:700>(</span><span style=color:#204a87;font-weight:700>Type</span>@<span style=color:#0000cf;font-weight:700>1000</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>DotNet</span><span style=color:#f8f8f8;text-decoration:underline> </span>&#34;&#39;mscorlib&#39;.System.Type&#34;<span style=color:#ce5c00;font-weight:700>) </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Boolean</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>VAR</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>            </span>Exception@<span style=color:#0000cf;font-weight:700>1001</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>DotNet</span><span style=color:#f8f8f8;text-decoration:underline> </span>&#34;&#39;mscorlib&#39;.System.FormatException&#34;<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>BEGIN</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>            </span><span style=color:#204a87;font-weight:700>EXIT</span><span style=color:#ce5c00;font-weight:700>(</span>CastToType<span style=color:#ce5c00;font-weight:700>(</span>Exception<span style=color:#000;font-weight:700>,</span><span style=color:#204a87;font-weight:700>Type</span><span style=color:#ce5c00;font-weight:700>))</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>END</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>PROCEDURE</span><span style=color:#f8f8f8;text-decoration:underline> </span>CastToType@<span style=color:#0000cf;font-weight:700>2</span><span style=color:#ce5c00;font-weight:700>(</span><span style=color:#204a87;font-weight:700>VAR</span><span style=color:#f8f8f8;text-decoration:underline> </span>Exception@<span style=color:#0000cf;font-weight:700>1002</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>DotNet</span><span style=color:#f8f8f8;text-decoration:underline> </span>&#34;&#39;mscorlib&#39;.System.FormatException&#34;<span style=color:#000;font-weight:700>;</span><span style=color:#204a87;font-weight:700>Type</span>@<span style=color:#0000cf;font-weight:700>1007</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>DotNet</span><span style=color:#f8f8f8;text-decoration:underline> </span>&#34;&#39;mscorlib&#39;.System.Type&#34;<span style=color:#ce5c00;font-weight:700>) </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Boolean</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>BEGIN</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>            </span>Exception<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#ce5c00;font-weight:700>:=</span><span style=color:#f8f8f8;text-decoration:underline> </span>OuterException<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>            </span><span style=color:#204a87;font-weight:700>REPEAT</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>                </span><span style=color:#204a87;font-weight:700>IF</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Type</span><span style=color:#ce5c00;font-weight:700>.</span>Equals<span style=color:#ce5c00;font-weight:700>(</span>Exception<span style=color:#ce5c00;font-weight:700>.</span>GetType<span style=color:#ce5c00;font-weight:700>()) </span><span style=color:#204a87;font-weight:700>THEN</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>                    </span><span style=color:#204a87;font-weight:700>EXIT</span><span style=color:#ce5c00;font-weight:700>(</span>TRUE<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>                </span>Exception<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#ce5c00;font-weight:700>:=</span><span style=color:#f8f8f8;text-decoration:underline> </span>Exception<span style=color:#ce5c00;font-weight:700>.</span>InnerException<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>            </span><span style=color:#204a87;font-weight:700>UNTIL</span><span style=color:#f8f8f8;text-decoration:underline> </span>ISNULL<span style=color:#ce5c00;font-weight:700>(</span>Exception<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>            </span><span style=color:#204a87;font-weight:700>EXIT</span><span style=color:#ce5c00;font-weight:700>(</span>FALSE<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>END</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>PROCEDURE</span><span style=color:#f8f8f8;text-decoration:underline> </span>Rethrow@<span style=color:#0000cf;font-weight:700>4</span><span style=color:#ce5c00;font-weight:700>()</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>BEGIN</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>            </span><span style=color:#204a87;font-weight:700>IF</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>NOT</span><span style=color:#f8f8f8;text-decoration:underline> </span>ISNULL<span style=color:#ce5c00;font-weight:700>(</span>OuterException<span style=color:#ce5c00;font-weight:700>.</span>InnerException<span style=color:#ce5c00;font-weight:700>) </span><span style=color:#204a87;font-weight:700>THEN</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>                </span>ERROR<span style=color:#ce5c00;font-weight:700>(</span>OuterException<span style=color:#ce5c00;font-weight:700>.</span>InnerException<span style=color:#ce5c00;font-weight:700>.</span>Message<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>            </span>ERROR<span style=color:#ce5c00;font-weight:700>(</span>OuterException<span style=color:#ce5c00;font-weight:700>.</span>Message<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>END</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>        
+</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>BEGIN</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>END</span><span style=color:#ce5c00;font-weight:700>.
+</span><span style=color:#ce5c00;font-weight:700>    </span>}<span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span>}<span style=color:#f8f8f8;text-decoration:underline>
+</span></code></pre></div><h2 id=nav-usages>NAV Usages</h2>
+<p>The DotNet Exception Handler codeunit has been used for the Web service integration required for:</p>
+<ol>
+<li>Payment Export from the Payment Journal for creating bank-specific payment files.</li>
+<li>Bank Statement Import on the Bank Acc. Reconciliation card for importing the content of bank-specific statements.</li>
+<li>Bank name lookup on the Bank Account card for dynamically identifying the format to use to generate a bank-specific payment file.</li>
+</ol>
+<h2 id=ideas-for-improvement>Ideas for Improvement</h2>
+<p>Extend the language support in C/AL to provide a built-in Try-Catch-Finally statement, similar to .NET languages.</p>
+<h2 id=consequences>Consequences</h2>
+<p>When this pattern should not be used: avoid nesting of codeunits. To properly handle the exceptions, you need to use the codeunit as an atomic piece of functionality that may pass or fail without using Codeunit.Run internally.</p>
+<div class=section-index>
+<hr class=panel-line>
+<div class=entry>
+<h5>
+<a href=/docs/navpatterns/patterns/net-exception-handling-in-cal/tryfunction-net-exception-handling-in-cal/>TryFunction NET Exception Handling in CAL</a>
+</h5>
+<p></p>
+</div>
+</div>
+<div class="text-muted mt-5 pt-3 border-top">
+Last modified February 20, 2022: <a href=https://github.com/microsoft/alguidelines/commit/cceb0c945e0383599f497350ca254d5755edda65>Restructure for Docsy theme (cceb0c94)</a>
+</div>
+</div>
+</main>
+</div>
+</div>
+<footer class="bg-dark py-5 row d-print-none">
+<div class="container-fluid mx-sm-5">
+<div class=row>
+<div class="col-6 col-sm-4 text-xs-center order-sm-2">
+<ul class="list-inline mb-0">
+<li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title=GitHub aria-label=GitHub>
+<a class=text-white target=_blank rel=noopener href=https://github.com/microsoft/alguidelines aria-label=GitHub>
+<i class="fab fa-github"></i>
+</a>
+</li>
+<li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title=Twitter aria-label=Twitter>
+<a class=text-white target=_blank rel=noopener href="https://twitter.com/search?q=%23bcalhelp" aria-label=Twitter>
+<i class="fab fa-twitter"></i>
+</a>
+</li>
+<li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title=Discord aria-label=Discord>
+<a class=text-white target=_blank rel=noopener href=https://discord.gg/4wbfNv3 aria-label=Discord>
+<i class="fab fa-discord"></i>
+</a>
+</li>
+</ul>
+</div>
+<div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+</div>
+<div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+<small class=text-white>&copy; 2022 alguidelines.dev Project All Rights Reserved</small>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js integrity=sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA==" crossorigin=anonymous></script>
+<script src=/js/tabpane-persist.js></script>
+<script src=/js/main.min.46b25eb30e292e80e9e18facc285e194199cf26288c5a1735cda89fb827eba54.js integrity="sha256-RrJesw4pLoDp4Y+swoXhlBmc8mKIxaFzXNqJ+4J+ulQ=" crossorigin=anonymous></script>
+</body>
+</html>

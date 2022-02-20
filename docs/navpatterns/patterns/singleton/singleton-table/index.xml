@@ -1,0 +1,148 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>alguidelines.dev - Business Central Design Patterns – Singleton Table</title><link>https://alguidelines.dev/docs/navpatterns/patterns/singleton/singleton-table/</link><description>Recent content in Singleton Table on alguidelines.dev - Business Central Design Patterns</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="https://alguidelines.dev/docs/navpatterns/patterns/singleton/singleton-table/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Cue Table</title><link>https://alguidelines.dev/docs/navpatterns/patterns/singleton/singleton-table/cue-table/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/navpatterns/patterns/singleton/singleton-table/cue-table/</guid><description>
+&lt;p>&lt;em>By Bogdana Botez at Microsoft Development Center Copenhagen&lt;/em>&lt;/p>
+&lt;p>&lt;a href="Cue-Table.png">&lt;img src="Cue-Table.png" alt=" ">&lt;/a>&lt;/p>
+&lt;p>Cues are the second usual application of the &lt;a href="https://alguidelines.dev/navpatterns/1-patterns/singleton/singleton-table/">&lt;strong>Singleton Table&lt;/strong>&lt;/a> pattern in Dynamics NAV, after &lt;a href="https://alguidelines.dev/navpatterns/1-patterns/singleton/singleton-table/setup-table/">&lt;strong>Setup Tables&lt;/strong>&lt;/a>.&lt;/p>
+&lt;p>&lt;strong>Context&lt;/strong>: The user gets overview information about the business on the Dynamics NAV Role Center page.&lt;/p>
+&lt;p>Figure 1 - Cue information in Dynamics NAV shows cue information seen by the user on the &lt;strong>Sales Order Processor&lt;/strong> role center.&lt;/p>
+&lt;p>&lt;a href="Cue-Table-Figure-1.JPG">&lt;img src="Cue-Table-Figure-1.JPG" alt=" ">&lt;/a>&lt;/p>
+&lt;p>The overview information consists of summed-up numbers, calculated from business data, like for example how many sales orders are still open, how many shipments are ready to go, or partially shipped, how many documents are waiting for approval etc.&lt;/p>
+&lt;p>&lt;strong>Problem&lt;/strong>: NAV stores data in tables. By definition, a table is a repetitive structure containing multiple lines, each line having a different piece of the information. But sometimes this repetitive information needs to be summed-up or otherwise synthetized, and presented as an overview.&lt;/p>
+&lt;p>&lt;strong>Solution:&lt;/strong> Store overview information in a singleton table.&lt;/p>
+&lt;p>There are two ways of calculating overview information in NAV.&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>By using a FlowField. This applies for simpler calculations, like filtered or unfiltered counts, sums etc.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>By writing C/AL code to perform custom calculations. Use this when:&lt;/p>
+&lt;ul>
+&lt;li>The way to calculate the overview is too complex for flow fields, or&lt;/li>
+&lt;li>The data needs to be pulled from an external system (like Dynamics CRM, QuickBooks or any external integration).&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;p>The implementation of Cues is already described in detail on MSDN, in &lt;a href="https://msdn.microsoft.com/en-us/library/dn789553(v=nav.90).aspx">Creating and Customizing Cues&lt;/a> and in &lt;a href="https://msdn.microsoft.com/en-us/library/ff477101(v=nav.90).aspx">Walkthrough: Creating a Cue Based on a FlowField&lt;/a>.&lt;/p>
+&lt;p>&lt;strong>NAV Usages&lt;/strong>&lt;/p>
+&lt;p>&lt;em>Table 1 - Cue tables in Dynamics NAV&lt;/em> shows some examples of singleton tables used for creating Cues.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Table ID&lt;/th>
+&lt;th>Table Name&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>1313&lt;/td>
+&lt;td>Activities Cue&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>5370&lt;/td>
+&lt;td>CRM Synch. Job Status Cue&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>9042&lt;/td>
+&lt;td>Team Member Cue&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>9050&lt;/td>
+&lt;td>Warehouse Basic Cue&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>9051&lt;/td>
+&lt;td>Warehouse WMS Cue&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>9052&lt;/td>
+&lt;td>Service Cue&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>9053&lt;/td>
+&lt;td>Sales Cue&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>9054&lt;/td>
+&lt;td>Finance Cue&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>9055&lt;/td>
+&lt;td>Purchase Cue&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>9056&lt;/td>
+&lt;td>Manufacturing Cue&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>9057&lt;/td>
+&lt;td>Job Cue&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>9058&lt;/td>
+&lt;td>Warehouse Worker WMS Cue&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>9059&lt;/td>
+&lt;td>Administration Cue&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>9060&lt;/td>
+&lt;td>SB Owner Cue&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>9061&lt;/td>
+&lt;td>RapidStart Services Cue&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>9063&lt;/td>
+&lt;td>Relationship Mgmt. Cue&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>9069&lt;/td>
+&lt;td>O365 Sales Cue&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>9070&lt;/td>
+&lt;td>Accounting Services Cue&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>Table 1 - Cue tables in Dynamics NAV&lt;/p></description></item><item><title>Docs: Setup Table</title><link>https://alguidelines.dev/docs/navpatterns/patterns/singleton/singleton-table/setup-table/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/navpatterns/patterns/singleton/singleton-table/setup-table/</guid><description>
+&lt;p>&lt;em>By Abhishek Ghosh, at Microsoft Development Center Copenhagen&lt;/em>&lt;/p>
+&lt;p>&lt;a href="Setup-Table.png">&lt;img src="Setup-Table.png" alt=" ">&lt;/a>&lt;/p>
+&lt;p>This is the first and most well-known of the two usual applications of the &lt;strong>Singleton Table&lt;/strong> pattern in Dynamics NAV.&lt;/p>
+&lt;p>&lt;strong>Problem:&lt;/strong> the developer needs to store information about the operating setup or environment in the database, in a way that can be persisted across sessions.&lt;/p>
+&lt;p>&lt;strong>Solution:&lt;/strong> The information is stored in a table with one record only. The user is subsequently able to modify, but not add or delete records in the table.&lt;/p>
+&lt;p>The implementation of the pattern involves several considerations:&lt;/p>
+&lt;ul>
+&lt;li>Suffixing the table name with Setup (ex: General Ledger Setup).&lt;/li>
+&lt;li>Defining a suitable primary key&lt;/li>
+&lt;li>Creating a page where the user can view and edit a record, but not add new records or delete an existing one&lt;/li>
+&lt;li>Optionally, updating the Company - Initialize codeunit.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Defining a Primary Key&lt;/strong>&lt;/p>
+&lt;p>Since this kind of tables is a collection of several environment or setup parameters, the primary key does not refer to any business attributes for this kind of tables. However, for maintaining the integrity of the database, it is necessary to define a primary key.&lt;/p>
+&lt;p>So, the most common implementation is to have a field &amp;ldquo;Primary Key&amp;rdquo; of Code[10]. This is populated with a blank value when the record is inserted. This field is not added to the page, so that the user cannot be modify it later.&lt;/p>
+&lt;p>&lt;strong>Creating a Page&lt;/strong>&lt;/p>
+&lt;p>The &lt;strong>CardPage&lt;/strong> type is most suitable for representing this kind of tables. In addition, the &lt;strong>InsertAllowed&lt;/strong> and &lt;strong>DeleteAllowed&lt;/strong> properties in the page should be set to false to prevent the user from adding or deleting records in the table.&lt;/p>
+&lt;p>In the &lt;strong>OnOpenPage&lt;/strong> trigger, the following code should be added to insert a record when the user opens the page for the first time, if a record does not exist already.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">OnOpenPage&lt;span style="color:#ce5c00;font-weight:bold">()
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold"> &lt;/span>RESET&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">NOT&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>GET&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">THEN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">BEGIN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>INIT&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>INSERT&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">END&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The following diagram describes the flow of the program, once the user tries to access the setup information. The user opens the page. If the record containing setup information already exists, then the page opens on the existing record. Else, a new empty record is created and the page opens on it.&lt;/p>
+&lt;p>&lt;a href="6675.NAVSetupTablePattern2.png">&lt;img src="6675.NAVSetupTablePattern2.png" alt=" ">&lt;/a>&lt;/p>
+&lt;p>&lt;strong>Company-Initialize Codeunit&lt;/strong>&lt;/p>
+&lt;p>The Company-Initialize codeunit (codeunit 2) is executed when a new company is created. We recommended that you add records to the single-record tables in this codeunit. If some of the fields are expected to have default values, they can also be populated here.&lt;/p>
+&lt;p>&lt;strong>NAV Usages&lt;/strong>&lt;/p>
+&lt;p>Several Setup tables in NAV implement this pattern. Some of those are:&lt;/p>
+&lt;ul>
+&lt;li>Table 98 General Ledger Setup&lt;/li>
+&lt;li>Table 311 Sales &amp;amp; Receivables Setup&lt;/li>
+&lt;li>Table 312 Purchases &amp;amp; Payables Setup&lt;/li>
+&lt;li>Table 313 Inventory Setup&lt;/li>
+&lt;li>Table 242 Source Code Setup&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Variation:&lt;/strong> While most tables just insert a record with empty primary key in codeunit 2, table 242 (&amp;ldquo;Source Code Setup&amp;rdquo;) offers an example of inserting default values into all fields of the table (method &amp;ldquo;InitSourceCodeSetup&amp;rdquo;). This practice, wherever feasible, is likely to reduce the effort during implementation.&lt;/p>
+&lt;p>&lt;strong>Related resources:&lt;/strong> &lt;a href="http://www.klemmensen.ca/Blog/Post/35/Initialize-Setup-Tables">Considerations on optimizing the Singleton Table, by Søren Klemmensen&lt;/a>.&lt;/p></description></item></channel></rss>

@@ -1,0 +1,98 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>alguidelines.dev - Business Central Design Patterns – Contributing</title><link>https://alguidelines.dev/docs/contributing/</link><description>Recent content in Contributing on alguidelines.dev - Business Central Design Patterns</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="https://alguidelines.dev/docs/contributing/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Formatting tips</title><link>https://alguidelines.dev/docs/contributing/formattingtips/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/contributing/formattingtips/</guid><description>
+&lt;h1 id="tips-and-tricks-in-terms-of-working-with-markdown-and-hugo">Tips and tricks in terms of working with MarkDown and Hugo&lt;/h1>
+&lt;h2 id="markdown-cheat-sheet">Markdown Cheat Sheet&lt;/h2>
+&lt;p>Here you can find a rather interesting Cheat Sheet regarding markdown: &lt;a href="https://www.markdownguide.org/cheat-sheet">https://www.markdownguide.org/cheat-sheet&lt;/a>&lt;/p>
+&lt;h2 id="code-fences--syntax-highlighting">Code Fences / Syntax highlighting&lt;/h2>
+&lt;p>The syntax to use codefences is with backticks. If you provide the language after the first block of backticks, github will automatically put that in decent syntax highlighting. So, A simple code fence with AL code, can simply be done by:&lt;/p>
+&lt;pre tabindex="0">&lt;code>```AL
+procedure ALGuidelinesRock()
+var
+Customer: Record Customer;
+begin
+Customer.Get('10000');
+Customer.Name := 'waldo';
+Customer.Modify(true);
+end;
+```
+&lt;/code>&lt;/pre>&lt;p>Results in:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-AL" data-lang="AL">&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">procedure&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>ALGuidelinesRock&lt;span style="color:#ce5c00;font-weight:bold">()
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">var&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Customer&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Record&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Customer&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">begin&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Customer&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>Get&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;10000&amp;#39;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Customer&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>Name&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;waldo&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Customer&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">Modify&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>true&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">end&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="hugo-shortcodes">Hugo Shortcodes&lt;/h2>
+&lt;p>Since we&amp;rsquo;re using &amp;ldquo;Hugo&amp;rdquo;, we can use it&amp;rsquo;s shortcode. Here is a reference: &lt;a href="https://gohugo.io/content-management/shortcodes/">https://gohugo.io/content-management/shortcodes/&lt;/a>&lt;/p>
+&lt;p>It basically means we are able to use easy notations to do cool things. Let&amp;rsquo;s point out some useful shortcodes:&lt;/p>
+&lt;h3 id="twitter">Twitter&lt;/h3>
+&lt;pre tabindex="0">&lt;code>{{&amp;lt; tweet user=&amp;quot;waldo1001&amp;quot; id=&amp;quot;1458787011024805892&amp;quot; &amp;gt;}}
+&lt;/code>&lt;/pre>&lt;p>makes:
+&lt;blockquote class="twitter-tweet">&lt;p lang="en" dir="ltr">&amp;quot;Code is Poetry!&amp;quot;&lt;a href="https://twitter.com/hashtag/msdyn365bc?src=hash&amp;amp;ref_src=twsrc%5Etfw">#msdyn365bc&lt;/a>&lt;/p>&amp;mdash; waldo (@waldo1001) &lt;a href="https://twitter.com/waldo1001/status/1458787011024805892?ref_src=twsrc%5Etfw">November 11, 2021&lt;/a>&lt;/blockquote>
+&lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8">&lt;/script>
+&lt;/p>
+&lt;h3 id="youtube">YouTube&lt;/h3>
+&lt;pre tabindex="0">&lt;code>{{&amp;lt; youtube QVOMCYitLEc &amp;gt;}}
+&lt;/code>&lt;/pre>&lt;p>makes:
+&lt;div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+&lt;iframe src="https://www.youtube.com/embed/QVOMCYitLEc" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video">&lt;/iframe>
+&lt;/div>
+&lt;/p>
+&lt;h3 id="figure">Figure&lt;/h3>
+&lt;pre tabindex="0">&lt;code>{{&amp;lt; figure src=&amp;quot;http://www.waldo.be/wp-content/uploads/2021/11/business-central-logo.png&amp;quot; title=&amp;quot;Business Central&amp;quot; &amp;gt;}}
+&lt;/code>&lt;/pre>&lt;p>makes:
+&lt;figure>
+&lt;img src="http://www.waldo.be/wp-content/uploads/2021/11/business-central-logo.png"/> &lt;figcaption>
+&lt;h4>Business Central&lt;/h4>
+&lt;/figcaption>
+&lt;/figure>
+&lt;/p></description></item><item><title>Docs: Guide to Fork &amp; PR</title><link>https://alguidelines.dev/docs/contributing/forkandpr/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/contributing/forkandpr/</guid><description>
+&lt;h2 id="abstract">Abstract&lt;/h2>
+&lt;p>AL Guidelines is a community project, and as such YOU are encouraged to submit corrections and new ideas. In order to get your content included, you must submit a pull request to the GitHub Repository (Located here: &lt;a href="https://github.com/microsoft/alguidelines">https://github.com/microsoft/alguidelines&lt;/a>). All Pull Requests are subject to approval by a minimum of three admins.&lt;/p>
+&lt;p>If You are toying with an idea, but You aren&amp;rsquo;t ready to create a document just yet, you are encouraged to create a project discussion thread here: &lt;a href="https://github.com/microsoft/alguidelines/discussions">https://github.com/microsoft/alguidelines/discussions&lt;/a>&lt;/p>
+&lt;div class="alert alert-warning" role="alert">
+&lt;h4 class="alert-heading">Warning&lt;/h4>
+&lt;p>This is a warning.
+If You haven&amp;rsquo;t worked in collaboration with &amp;ldquo;external&amp;rdquo; GitHub repositories before, please familiarize yourself with that process by visiting:&lt;/p>
+&lt;p>&lt;a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests">https://docs.github.com/en/pull-requests/collaborating-with-pull-requests&lt;/a>&lt;/p>
+&lt;/div>
+&lt;h2 id="steps">Steps&lt;/h2>
+&lt;p>Now that You have decided that You are ready to contribute, these are the steps to take.
+&lt;div class="alert alert-info" role="alert">
+&lt;h4 class="alert-heading">Note&lt;/h4>
+&lt;p>You can read more about this process here:&lt;/p>
+&lt;p>&lt;a href="https://docs.github.com/en/get-started/quickstart/contributing-to-projects">https://docs.github.com/en/get-started/quickstart/contributing-to-projects&lt;/a>&lt;/p>
+&lt;/div>
+&lt;/p>
+&lt;h3 id="step-1-fork">Step 1: Fork&lt;/h3>
+&lt;p>In order to work on the repository, You must &lt;a href="https://docs.github.com/en/get-started/quickstart/fork-a-repo">Fork&lt;/a> the repository.&lt;/p>
+&lt;p>By forking the repository, You essentially create a copy into Your own account.&lt;/p>
+&lt;p>Start by going to the GitHub Repository (&lt;a href="https://github.com/microsoft/alguidelines">https://github.com/microsoft/alguidelines&lt;/a>), and press the Fork &lt;img src="./fork_button.jpg" alt="Fork Button" title="Fork">&lt;/p>
+&lt;p>Once You have successfully forked the repository, go to your own GitHub repository : &lt;img src="./ForkedRepro.png" alt="Forked Repository Representation" title="Forked repository">&lt;/p>
+&lt;p>You are now able to clone your own repository to your local pc and start editing using your favorite editor. &lt;a href="https://code.visualstudio.com/">Visual Studio Code&lt;/a> is perfectly fine for this task.&lt;/p>
+&lt;div class="alert alert-info" role="alert">
+&lt;h4 class="alert-heading">Note&lt;/h4>
+&lt;p>You can read more about forking here:&lt;/p>
+&lt;p>&lt;a href="https://docs.github.com/en/get-started/quickstart/fork-a-repo">https://docs.github.com/en/get-started/quickstart/fork-a-repo&lt;/a>&lt;/p>
+&lt;/div>
+&lt;h3 id="step-2-branch">Step 2: Branch&lt;/h3>
+&lt;p>While not necessarily a must, it is always good practice to create a branch off of your forked repository. That will allow you to work on multiple contributions at the same time and won&amp;rsquo;t have to wait for pull requests to be approved before you can continue on your next contribution.&lt;/p>
+&lt;div class="alert alert-info" role="alert">
+&lt;h4 class="alert-heading">Note&lt;/h4>
+&lt;p>You can read more about Branches here:&lt;/p>
+&lt;p>&lt;a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches">https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches&lt;/a>&lt;/p>
+&lt;/div>
+&lt;h3 id="step-3-pull-request">Step 3: Pull Request&lt;/h3>
+&lt;p>Once you are happy with your contribution, it&amp;rsquo;s time to create a pull request to propose changes into the main project! This is the final step in producing a fork of someone else&amp;rsquo;s project, and arguably the most important. If you&amp;rsquo;ve made a change that you feel would benefit the community as a whole, you should definitely consider contributing back.&lt;/p>
+&lt;p>To do so, head on over to the repository on GitHub where your project lives. For this example, it would be at &lt;code>https://www.github.com/&amp;lt;your_username&amp;gt;/alguidelines&lt;/code>. You&amp;rsquo;ll see a banner indicating that your branch is one commit ahead of microsoft:main. Click &lt;strong>Contribute&lt;/strong> and then &lt;strong>Open a pull request.&lt;/strong>&lt;/p>
+&lt;p>GitHub will bring you to a page that shows the differences between your fork and the microsoft/alguidelines repository. Click &lt;strong>Create pull request.&lt;/strong>&lt;/p>
+&lt;p>GitHub will bring you to a page where you can enter a title and a description of your changes. &lt;em>It&amp;rsquo;s important to provide as much useful information and a rationale for why you&amp;rsquo;re making this pull request in the first place.&lt;/em> The project owners needs to be able to determine whether your change is as useful to everyone as you think it is. Finally, click &lt;strong>Create pull request.&lt;/strong>&lt;/p></description></item><item><title>Docs: Templates</title><link>https://alguidelines.dev/docs/contributing/templates/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/contributing/templates/</guid><description>
+&lt;h1 id="templates">Templates&lt;/h1>
+&lt;p>We have foreseen some template-files that you can simply copy and use. Look at them as &amp;ldquo;Patterns for describing patterns&amp;rdquo; 😉.&lt;/p>
+&lt;p>We have foreseen a Template:&lt;/p>
+&lt;ul>
+&lt;li>for &lt;a href="https://alguidelines.dev/contributing/templates/patterns/">patterns&lt;/a>&lt;/li>
+&lt;li>for &lt;a href="https://alguidelines.dev/contributing/templates/guidelines/">guidelines&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Docs: Understanding the Approval Process</title><link>https://alguidelines.dev/docs/contributing/theapprovalprocess/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/contributing/theapprovalprocess/</guid><description>
+&lt;p>(coming soon)&lt;/p></description></item></channel></rss>

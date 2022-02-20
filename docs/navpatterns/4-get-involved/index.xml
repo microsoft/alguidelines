@@ -1,0 +1,337 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>alguidelines.dev - Business Central Design Patterns – (OLD) Get Involved</title><link>https://alguidelines.dev/docs/navpatterns/4-get-involved/</link><description>Recent content in (OLD) Get Involved on alguidelines.dev - Business Central Design Patterns</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="https://alguidelines.dev/docs/navpatterns/4-get-involved/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Code of Conduct</title><link>https://alguidelines.dev/docs/navpatterns/4-get-involved/code-of-conduct/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/navpatterns/4-get-involved/code-of-conduct/</guid><description>
+&lt;p>Find below the rules to be used when disseminating or relating to the NAV Design Patterns.&lt;/p>
+&lt;ol>
+&lt;li>Only use materials published in text on the NAV Design Patterns Wiki site. If you received from us, any unpublished materials, please observe that they are subject to change and have not been approved for external use.&lt;/li>
+&lt;li>When referencing a NAV Design Pattern, you must remember to also reference its author and company where the author is employed. You will find the author and his/her company at the beginning of each pattern, under the title.&lt;/li>
+&lt;li>When referencing a NAV Design Patterns project, you must make it clear that this is a community project, driven by Microsoft, with multiple developers involved from both Microsoft and the community.&lt;/li>
+&lt;li>When using published text content of NAV Design Patterns, do not alter the text in any way that was published on the Wiki site, unless is has been reviewed by the patterns team and signed off by someone at Microsoft in writing.&lt;/li>
+&lt;li>If you have other materials which have not received explicit signoff in writing from me, where I have specifically stated that they are valid design patterns ready for publishing, please do not name them &amp;ldquo;NAV Design Patterns&amp;rdquo; (or anything similar). You are free to use your own content, but do not associate it in any way with NAV Design Patterns unless it is signed off in writing.&lt;/li>
+&lt;li>If you do choose to use your own content, you must make it clear that it is not a NAV Design Pattern.&lt;/li>
+&lt;/ol></description></item><item><title>Docs: Patterns Authors</title><link>https://alguidelines.dev/docs/navpatterns/4-get-involved/patterns-authors/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/navpatterns/4-get-involved/patterns-authors/</guid><description>
+&lt;p>This is the list of people that have been part of the NAV Design Patterns team. If you would like to join the project follow the instructions provided on &lt;a href="https://alguidelines.dev/navpatterns/4-get-involved/">Be a NAV Pattern Author&lt;/a> page.&lt;/p>
+&lt;p>Project administrator: &lt;a href="https://alguidelines.dev/members/bogdana-botez/default.aspx" title="NAV Design Patterns project administrator">Bogdana Botez&lt;/a>.&lt;/p>
+&lt;p>Authors (in alphabetical order):&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Abshishek Ghosh, Microsoft (4 patterns)&lt;/p>
+&lt;ul>
+&lt;li>Using Query Objects to Detect Duplicates&lt;/li>
+&lt;li>Blocked Entity&lt;/li>
+&lt;li>Single-Record (Setup) Table&lt;/li>
+&lt;li>Temporary Dataset Report&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Anders Larsen, Microsoft (1 pattern)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Easy Update of Setup or Supplementary Information&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Andreas Moth, Microsoft (1 pattern)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Anti-pattern: Reusable bugs&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Bogdan Sturzoiu, Microsoft (4 patterns)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Feature Localization for Data Structures&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Copy Document&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Using C/AL Query Objects Instead of Nested Loops&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Data-Driven Blocked Entity&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Bogdana Botez, Microsoft (18 patterns)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Silent File Upload and Download&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Standard Journal&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>No. Series&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Data Model Proxy&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Journal Error Processing&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Journal Template-Batch-Line&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Multilanguage Application Data&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>SELECT DISTINCT using Queries&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Anti-patterns: reusable bugs&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Sensitive Data Encapsulation&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Data Encryption&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Single Point of Access&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Masked Text&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>SSL in NAV&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Singleton&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Singleton Codeunit&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Anti-Patterns in NAV Upgrade&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Cue table&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Carlos Raul Garcia, Microsoft (1 pattern)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Anti-Patterns in NAV Upgrade&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Ciprian Iordache, Microsoft (2 patterns)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Activity Log&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Totals and Discounts on Subpages (Sales and Purchases)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>David Bastide, Microsoft (3 patterns)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Notification Lifecycle Management pattern&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Data Migration Façade&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Extending the Role Center Headlines&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Elly Nkya, Microsoft (2 patterns)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Singleton Table&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Anti-patterns: reusable bugs&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Eric Wauters (waldo), iFacto, PRS (6 patterns)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Hooks&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Posting Routine - Select Behaviour&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Variant Facade&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Argument Table&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Discovery Event&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Anti-patterns: reusable bugs&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Gary Winter, agiles (1 pattern)&lt;/p>
+&lt;ul>
+&lt;li>Variant Façade&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Henrik Langbak, Kim Ginnerup, Bording Data A/S (2 patterns)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Currently Active Record&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Released Entity&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Jan Hoek, IDYN (2 patterns)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Conditional Cascading Update&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Setup Specificity Fallback&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Jesper Schulz, Microsoft (1 pattern)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Error Message Processing, part I&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Martin Dam, Microsoft (1 pattern)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Multi-File Download&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Mike Borg Cardona, Microsoft (1 pattern)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Creating URLs to NAV Clients&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Mostafa Balat, Microsoft (3 patterns)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>.NET Exception Handling&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Cached Web Service Calls&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Try Method&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Nikola Kukrika, Microsoft (7 patterns)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Totals and Discounts on Subpages (Sales and Purchases)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Create Data from Templates&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Argument Table&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Instructions in UI&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Creating Custom Charts&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Variant Façade&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Anti-patterns: reusable bugs&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Nikolai L&amp;rsquo;Estrange, from TVision Technology Ltd. in the UK_&lt;br>
+_ (2 patterns)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Observer&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Cross Session Events&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Raed Selim, Microsoft (1 pattern)&lt;/p>
+&lt;ul>
+&lt;li>Product Name&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Soumya Dutta (2 patterns)&lt;/p>
+&lt;ul>
+&lt;li>In-context notifications&lt;/li>
+&lt;li>Data Migration Façade&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Søren Klemmensen, 360 Visibility, PRS (2 patterns)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Master Data&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Surrogate Key&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Tim Grant, Trendmicro (1 pattern)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Read Once Setup Record&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Report Selector (this pattern was started by 2 workgroups by multiple authors, but finalized and corrected by Tim).&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Xavier Garonnat, knk Ingénierie (1 pattern)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Document&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>They have also invested their time and energy in this project:&lt;/p>
+&lt;ul>
+&lt;li>Eva Dupont, Microsoft - our publisher on MSDN NAV Team Blog.&lt;/li>
+&lt;li>Kurt Juvyns, Microsoft - coordinator of pattern videos&lt;/li>
+&lt;/ul>
+&lt;p>Pattern evangelists:&lt;/p>
+&lt;ul>
+&lt;li>Eric Wauters (waldo), iFacto, PRS&lt;/li>
+&lt;li>Gary Winter, agiles, PRS&lt;/li>
+&lt;li>Mark Brummel, Brummel Dynamics Services, PRS&lt;/li>
+&lt;li>Mike Doster, Mergetool&lt;/li>
+&lt;li>Søren Klemmensen, 360 Visibility, PRS&lt;/li>
+&lt;/ul>
+&lt;p>And last but not least, we have collaborated with Plataan who hired Eric Wauters from ifacto and Mark Brummel from Brummel Dynamics Services and PRS, to publish on video some of our patterns.&lt;/p></description></item><item><title>Docs: Template for writing Nav Design Patterns</title><link>https://alguidelines.dev/docs/navpatterns/4-get-involved/template-for-writing-nav-design-patterns/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/navpatterns/4-get-involved/template-for-writing-nav-design-patterns/</guid><description>
+&lt;p>This is a guideline, some parts are optional (if there&amp;rsquo;s no content, remove the whole paragraph).&lt;/p>
+&lt;p>&amp;lt;&lt;em>Your name here in italics, plus your company name&lt;/em>&amp;gt;&lt;/p>
+&lt;h2 id="pattern-title">&lt;strong>&amp;laquo;Pattern Title&amp;gt;&amp;gt;&lt;/strong>&lt;/h2>
+&lt;p>Short, descriptive and easy to remember.&lt;/p>
+&lt;h2 id="pattern-logo">&lt;strong>Pattern Logo&lt;/strong>&lt;/h2>
+&lt;p>Black &amp;amp; white, no text on it.&lt;/p>
+&lt;p>&lt;a href="PatternLogo.png">&lt;img src="PatternLogo.png" alt=" ">&lt;/a>&lt;/p>
+&lt;p>&lt;strong>Context&lt;/strong>: Sets the stage where the pattern takes place. 1-2 sentences.&lt;/p>
+&lt;p>&lt;strong>Problem&lt;/strong>: What happens before this pattern is used? How can it go wrong? 1-5 lines.&lt;/p>
+&lt;p>&lt;strong>Forces:&lt;/strong> (explain why the problem is difficult to solve; state the considerations that must be taken into account when choosing a solution to a problem)&lt;/p>
+&lt;ul>
+&lt;li>&amp;laquo;**Force 1: **short description (What is the impact of not using this pattern? Or using only partially?) &amp;gt;&amp;gt;&lt;/li>
+&lt;li>&amp;laquo;**Force 2: **short description &amp;gt;&amp;gt;&lt;/li>
+&lt;li>&amp;hellip;&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Solution:&lt;/strong> 1-2 sentences. The full description will come below.&lt;/p>
+&lt;p>&amp;laquo;Solution descriptions&amp;gt;&amp;gt;&lt;/p>
+&lt;p>&amp;laquo;Diagrams. Please add numbers and captions to both figures and tables&amp;gt;&amp;gt;&lt;/p>
+&lt;p>&lt;strong>Usage&lt;/strong>: &amp;laquo;short usage description&amp;gt;&amp;gt;&lt;/p>
+&lt;p>&amp;laquo;Examples&amp;gt;&amp;gt;&lt;/p>
+&lt;p>&amp;laquo;Where it&amp;rsquo;s used in Dynamics NAV&amp;gt;&amp;gt;&lt;/p>
+&lt;p>&lt;strong>Benefits:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>**&amp;laquo; Benefit 1: **solves Force 1, short description&amp;gt;&amp;gt;&lt;/li>
+&lt;li>**&amp;laquo; Benefit 2: **solves Force 2, short description&amp;gt;&amp;gt;&lt;/li>
+&lt;li>&amp;hellip;&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Consequences:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>**&amp;laquo;Consequence 1: **are there any drawbacks? Is there anything the developer needs to be aware of when implementing this pattern? Any known limitations? &lt;strong>&amp;gt;&amp;gt;&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>&amp;hellip;&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>List of references&lt;/strong>&lt;/p></description></item></channel></rss>

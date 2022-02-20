@@ -1,0 +1,279 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>alguidelines.dev - Business Central Design Patterns – Notifications</title><link>https://alguidelines.dev/docs/navpatterns/patterns/notifications/</link><description>Recent content in Notifications on alguidelines.dev - Business Central Design Patterns</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="https://alguidelines.dev/docs/navpatterns/patterns/notifications/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: In-context Notifications</title><link>https://alguidelines.dev/docs/navpatterns/patterns/notifications/in-context-notifications/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/navpatterns/patterns/notifications/in-context-notifications/</guid><description>
+&lt;p>&lt;em>By Soumya Dutta at Microsoft Development Center Copenhagen&lt;/em>&lt;/p>
+&lt;h2 id="context">Context&lt;/h2>
+&lt;p>Application developers need to raise a notification on events that are not blocking but do require attention from users. Notifications alert users to issues or information, and let them decide whether to react immediately or finish what they&amp;rsquo;re doing first.&lt;/p>
+&lt;h2 id="problem">Problem&lt;/h2>
+&lt;p>Application developers have started to use system calls like CONFIRM or MESSAGE to alert or inform users about a condition. These calls interrupt users by displaying a window in the middle of the screen and forcing an immediate response.&lt;/p>
+&lt;h2 id="solution">Solution&lt;/h2>
+&lt;p>Notifications display a message in a blue bar at the top of the workspace, as shown in Figure 1.&lt;/p>
+&lt;p>&lt;a href="7701.Fig1.png">&lt;img src="7701.Fig1.png" alt=" ">&lt;/a>&lt;/p>
+&lt;p>Figure 1 - Example of a notification&lt;/p>
+&lt;p>Notifications alert users to something they probably should act on, but can choose to ignore. For example, a notification might alert someone who is about to invoice a customer for inventory that isn&amp;rsquo;t available, as shown in Figure 1, but allow them to post the invoice anyway. This is different from an error that prevents someone from posting an invoice without specifying a required field.&lt;/p>
+&lt;p>In this example, if you choose &lt;strong>Details&lt;/strong> a page opens to show the status of the inventory, as shown in Figure 2.&lt;/p>
+&lt;p>&lt;a href="6724.Fig2.png">&lt;img src="6724.Fig2.png" alt=" ">&lt;/a>&lt;/p>
+&lt;p>Figure 2 - Clicking an action in a notification&lt;/p>
+&lt;h2 id="raising-a-notification">Raising a notification&lt;/h2>
+&lt;p>The code in Figure 3 raises the notification in Figure 1.&lt;/p>
+&lt;p>&lt;strong>COD 311: Item-Check Avail.&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>CreateAndSendNotification&lt;/strong>&lt;/p>
+&lt;p>AvailabilityCheckNotification.ID(GetItemAvailabilityNotificationId);&lt;/p>
+&lt;p>AvailabilityCheckNotification.MESSAGE(STRSUBSTNO(NotificationMsg,ItemNo));&lt;/p>
+&lt;p>AvailabilityCheckNotification.SCOPE(NOTIFICATIONSCOPE::LocalScope);&lt;/p>
+&lt;p>AvailabilityCheckNotification.ADDACTION(DetailsTxt,CODEUNIT::&amp;ldquo;Item-Check Avail.&amp;rdquo;,&amp;lsquo;ShowNotificationDetails&amp;rsquo;);&lt;/p>
+&lt;p>ItemAvailabilityCheck.PopulateDataOnNotification(AvailabilityCheckNotification,ItemNo,UnitOfMeasureCode&lt;/p>
+&lt;p>,InventoryQty,GrossReq,ReservedReq,SchedRcpt,ReservedRcpt,CurrentQuantity,CurrentReservedQty,&lt;/p>
+&lt;p>TotalQuantity,EarliestAvailDate);&lt;/p>
+&lt;p>AvailabilityCheckNotification.SEND;&lt;/p>
+&lt;p>&amp;hellip;&lt;/p>
+&lt;p>Figure 3 - Raising a notification&lt;/p>
+&lt;p>The first thing to note is that a new Notification DataType object has been introduced to C/SIDE.&lt;/p>
+&lt;p>&lt;a href="2514.Fig4.png">&lt;img src="2514.Fig4.png" alt=" ">&lt;/a>&lt;/p>
+&lt;p>Figure 4. Notification is a new data type&lt;/p>
+&lt;p>In the code sample in Figure 3, the first line defines the scope. Currently , only the LocalScope is supported.&lt;/p>
+&lt;h3 id="identifying-a-notification">Identifying a notification&lt;/h3>
+&lt;p>The ID is an optional parameter for the notification object that tracks the object in communications between the client and the server. Notifications have unique IDs that can be hard coded as GUIDs, as shown in Figure 5. A GUID can be generated using &lt;a href="https://msdn.microsoft.com/en-us/library/dd339033.aspx">the CREATEGUID system function&lt;/a>.&lt;/p>
+&lt;p>&lt;strong>COD 311: Item-Check Avail.&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>GetItemAvailabilityNotificationId&lt;/strong>&lt;/p>
+&lt;p>EXIT(&amp;lsquo;2712AD06-C48B-4C20-820E-347A60C9AD00&amp;rsquo;);&lt;/p>
+&lt;p>Figure 5. Uniquely identifying a notification&lt;/p>
+&lt;p>If the call to set ID is skipped, sending the notification creates a new notification with an ID that is generated at run-time instead of updating a notification that is already displayed (if present) with the ID.&lt;/p>
+&lt;h3 id="including-messages-notifications">Including messages notifications&lt;/h3>
+&lt;p>Notifications should display a message. This message is set by an assignment call to the &lt;strong>MESSAGE&lt;/strong> parameter of the notification object.&lt;/p>
+&lt;h3 id="invoking-actions-on-notifications">Invoking actions on notifications&lt;/h3>
+&lt;p>Notifications can display action buttons, as shown in Figure 2 where a button named &lt;strong>Details&lt;/strong> opens the inventory status for the item. To do that, when the button is clicked the &lt;strong>ADDACTION&lt;/strong> method is invoked on the notification object using the following parameters:&lt;/p>
+&lt;ul>
+&lt;li>The text for the button.&lt;/li>
+&lt;li>The code unit number that hosts the method to call.&lt;/li>
+&lt;li>The name of the invoked method in the above code unit to call.&lt;/li>
+&lt;/ul>
+&lt;p>Figure shows the method that is called when the action is invoked- ShowNotificationDetails.&lt;/p>
+&lt;p>&lt;strong>COD 311: Item-Check Avail.&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>ShowNotificationDetails&lt;/strong>&lt;/p>
+&lt;p>ItemAvailabilityCheck.InitializeFromNotification(AvailabilityCheckNotification);&lt;/p>
+&lt;p>ItemAvailabilityCheck.SetHeading(AvailabilityCheckNotification.MESSAGE);&lt;/p>
+&lt;p>ItemAvailabilityCheck.RUNMODAL;****&lt;/p>
+&lt;p>Figure 6 - Invoking an action&lt;/p>
+&lt;p>To show the inventory status using the Availability check page, certain parameters must be initialized. For example, the item number, the unit of measure code, and so on. This is done in the call to InitializeFromNotification method on the page. Figure 7 shows the code for this call.&lt;/p>
+&lt;p>&lt;strong>Page 1872: Item Availability Check&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>InitializeFromNotification&lt;/strong>&lt;/p>
+&lt;p>GET(AvailabilityCheckNotification.GETDATA(&amp;lsquo;ItemNo&amp;rsquo;));&lt;/p>
+&lt;p>SETRANGE(&amp;ldquo;No.&amp;quot;,AvailabilityCheckNotification.GETDATA(&amp;lsquo;ItemNo&amp;rsquo;));&lt;/p>
+&lt;p>EVALUATE(TotalQuantity,AvailabilityCheckNotification.GETDATA(&amp;lsquo;TotalQuantity&amp;rsquo;));&lt;/p>
+&lt;p>EVALUATE(InventoryQty,AvailabilityCheckNotification.GETDATA(&amp;lsquo;InventoryQty&amp;rsquo;));&lt;/p>
+&lt;p>CurrPage.AvailabilityCheckDetails.PAGE.SetUnitOfMeasureCode(&lt;/p>
+&lt;p>AvailabilityCheckNotification.GETDATA(&amp;lsquo;UnitOfMeasureCode&amp;rsquo;));&lt;/p>
+&lt;p>Figure 7 - Fetching parameters from a notification object&lt;/p>
+&lt;p>Note how &lt;strong>GETDATA&lt;/strong> uses a key to fetch values from the notification object, and how those values are used to initialize the page.&lt;/p>
+&lt;p>Notifications can include zero, one, or more than one action buttons. More than one action buttons result in multiple &lt;strong>ADDACTION&lt;/strong> calls to the notification object.&lt;/p>
+&lt;h3 id="populating-parameters-on-notifications">Populating parameters on notifications&lt;/h3>
+&lt;p>Actions use the values set on the notification objects. As shown in Figure 3 and Figure 7, the line that calls the method PopulateDataOnNotification does that. The result is shown in Figure 8.&lt;/p>
+&lt;p>&lt;strong>Page 1872: Item Availability Check&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>PopulateDataOnNotification&lt;/strong>&lt;/p>
+&lt;p>AvailabilityCheckNotification.SETDATA(&amp;lsquo;ItemNo&amp;rsquo;,ItemNo);&lt;/p>
+&lt;p>AvailabilityCheckNotification.SETDATA(&amp;lsquo;UnitOfMeasureCode&amp;rsquo;,UnitOfMeasureCode);&lt;/p>
+&lt;p>AvailabilityCheckNotification.SETDATA(&amp;lsquo;GrossReq&amp;rsquo;,FORMAT(GrossReq));&lt;/p>
+&lt;p>&amp;hellip;&lt;/p>
+&lt;p>Figure 8 - Populating parameters on notifications&lt;/p>
+&lt;p>The invoked method must be stateless. Therefore, the context for creating the notification should be reproducible by using data that could be a part of the notification object. In this example, the SETDATA method on the notification object passes values for the item number, unit of measure code, and so on, as key value pairs.&lt;/p>
+&lt;h3 id="displaying-the-notification-to-the-user">Displaying the notification to the user&lt;/h3>
+&lt;p>The last line in Figure 3 calls &lt;strong>SEND&lt;/strong> to display the notification. If you know the ID of the notification, you can also call &lt;strong>RECALL&lt;/strong> to hide it. However, avoid updating a displayed notification, for example by changing the message, by calling both &lt;strong>RECALL&lt;/strong> and &lt;strong>SEND&lt;/strong>. This makes two server&amp;ndash;client calls. Instead, call only &lt;strong>SEND&lt;/strong>. Calling &lt;strong>SEND&lt;/strong> for a notification that is already displayed updates the notification.&lt;/p>
+&lt;h2 id="turning-notifications-on-or-off-and-controlling-when-they-are-sent">Turning notifications on or off, and controlling when they are sent&lt;/h2>
+&lt;p>By default, all notifications are turned on. However, you can specify the notifications you want to receive, and turn on or turn off some or all of them. For example, if you don&amp;rsquo;t want to be disturbed or are willing to accept the consequences of ignoring the message. This is unique to notifications.&lt;/p>
+&lt;p>&lt;a href="6646.Fig9.png">&lt;img src="6646.Fig9.png" alt=" ">&lt;/a>&lt;/p>
+&lt;p>Figure 9 - The My Notifications page&lt;/p>
+&lt;p>Additionally, some notifications let you specify the conditions under which they are sent. For example, if you want to be notified when inventory is running low, but only for items you buy from a certain vendor.&lt;/p>
+&lt;ol>
+&lt;li>In the top right corner, choose the Search for Page or Report icon, enter my notifications, and then choose the related link.&lt;/li>
+&lt;li>To turn on or turn off a notification, select or clear the Enabled check box.&lt;/li>
+&lt;li>To specify conditions that trigger a notification, choose View filter details, and then fill in the fields.&lt;/li>
+&lt;/ol>
+&lt;p>The &lt;strong>MyNotifications&lt;/strong> object determines whether notifications are turned on or off. Notifications are isolated from each other by the hard-coded GUID, as discussed in the section titled Identifying a notification. A fixed ID is essential to turning off a notification. The following are ways to achieve this.&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>OnInitializingNotificationWithDefaultState&lt;/strong> is a published method on the &lt;strong>MyNotifications&lt;/strong> page that is called when the enabled state of all the notifications is initialized.&lt;/li>
+&lt;/ol>
+&lt;p>&lt;strong>Codeunit 311: Item-Check Avail.&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>OnInitializingNotificationWithDefaultState&lt;/strong>&lt;/p>
+&lt;p>MyNotifications.InsertDefaultWithTableNum(GetItemAvailabilityNotificationId,&lt;/p>
+&lt;p>ItemAvailabilityNotificationTxt,&lt;/p>
+&lt;p>ItemAvailabilityNotificationDescriptionTxt,&lt;/p>
+&lt;p>DATABASE::Item);&lt;/p>
+&lt;p>Figure 10 - Adding a notification to the My Notifications page&lt;/p>
+&lt;p>You must subscribe to this method and call either &lt;strong>InsertDefault&lt;/strong> or &lt;strong>InsertDefaultWithTableNum&lt;/strong> on the &lt;strong>MyNotifications&lt;/strong> table. Both of these take the ID of the notification, a short description of the notification, and text that provides details about the conditions for the notification. The difference is that the &lt;strong>InsertDefaultWithTableNum&lt;/strong> method takes an additional argument representing the table number if there is specific criteria for when to turn on a notification for a certain table. In this case, the notification can be enabled only for items that the criteria specified in the FilterPage. The FIlterPage is opened from the &lt;strong>MyNotifications&lt;/strong> page.&lt;/p>
+&lt;p>&lt;a href="2526.Fig11.png">&lt;img src="2526.Fig11.png" alt=" ">&lt;/a>&lt;/p>
+&lt;p>Figure 11 - Defining filter criteria to turn on a notification&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>IsEnabled&lt;/strong> or &lt;strong>IsEnabledForRecord&lt;/strong> are used to query if the notification is turned on. It may make sense to call this as early as possible in the condition checks, so you don&amp;rsquo;t make calculations that will not yield much if the notification is turned off. The second method takes the additional parameter that represents the record for which the enabled state is to be determined. In Figure 12, the check is for an item.&lt;/li>
+&lt;/ol>
+&lt;p>&lt;strong>Codeunit 311: Item-Check Avail.&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>IsItemAvailabilityNotificationEnabled&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>EXIT&lt;/strong>(MyNotifications.IsEnabledForRecord(GetItemAvailabilityNotificationId,Item));&lt;/p>
+&lt;p>Figure 12 - Checking whether notifications are turned on&lt;/p>
+&lt;p>You may check that the call to this function is made almost as the first step in checking for availability.&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>OnStateChanged&lt;/strong> event should be subscribed to if the developer needs to do something additional when changing the state of a notification, such as turn on another notification.&lt;/li>
+&lt;/ol>
+&lt;p>The ability to turn notifications on or off is not required. If skipped, the notification is always shown when the condition that triggers it is met, and a user cannot turn it off.&lt;/p>
+&lt;h2 id="nav-specific-usages">NAV specific usages&lt;/h2>
+&lt;p>For examples of how these objects are used in Dynamics NAV, look at the code for the following objects:&lt;/p>
+&lt;ol>
+&lt;li>Codeunit 1802 Data Migration Notifier&lt;/li>
+&lt;li>Codeunit 311 Item-Check Avail.&lt;/li>
+&lt;li>Codeunit 312 Cust-Check Cr. Limit&lt;/li>
+&lt;li>Codeunit 1854 Item Sales Forecast Notifier (in SalesAndInventoryForecast extension)&lt;/li>
+&lt;li>Codeunit 1852 Item Sales Forecast Scheduler (in SalesAndInventoryForecast extension)&lt;/li>
+&lt;/ol>
+&lt;h2 id="best-practices">Best practices&lt;/h2>
+&lt;p>The following list summarizes best practices for creating notifications:&lt;/p>
+&lt;ol>
+&lt;li>Do not set data on the notification that you will not use in the method invoked from the action button.&lt;/li>
+&lt;li>Ensure that the &lt;strong>MyNotifications&lt;/strong> table is accessed only as described above, and that the correct pairs of calls are made. For example, &lt;strong>InsertDefault&lt;/strong>&amp;hellip;&lt;strong>IsEnabled&lt;/strong> and &lt;strong>InsertDefaultWithTableNum&lt;/strong> &amp;hellip;&lt;strong>IsEnabledForRecord&lt;/strong>.&lt;/li>
+&lt;li>Do not call &lt;strong>RECALL&lt;/strong> before &lt;strong>SEND&lt;/strong> in a server call-back if you need to update a notification that is already displayed. Instead, call only &lt;strong>SEND&lt;/strong> to update the notification. This reduces traffic on the network.&lt;/li>
+&lt;li>Ensure that the method specified on the &lt;strong>ADDACTION&lt;/strong> method for the notification is (a) exists, (b) is global and (c) follows the signature described above.&lt;/li>
+&lt;/ol></description></item><item><title>Docs: Notification Lifecycle Management Pattern</title><link>https://alguidelines.dev/docs/navpatterns/patterns/notifications/notification-lifecycle-management-pattern/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/navpatterns/patterns/notifications/notification-lifecycle-management-pattern/</guid><description>
+&lt;p>&lt;em>By David Bastide at Microsoft Development Center Copenhagen&lt;/em>&lt;/p>
+&lt;p>&lt;a href="6138.logo.png">&lt;img src="6138.logo.png" alt=" ">&lt;/a>&lt;/p>
+&lt;p> &lt;/p>
+&lt;p>&lt;strong>Context&lt;/strong>&lt;/p>
+&lt;p>This pattern is about sending notifications in Dynamics NAV, starting with version 2018, tracking them in the Notification Lifecycle Management framework, and recalling them when needed.&lt;/p>
+&lt;p> &lt;/p>
+&lt;p>&lt;strong>Description&lt;/strong>&lt;/p>
+&lt;p>Notifications are easy to use in a wide range of cases. Instead of using notifications in a fire-and-forget way, we need to track them so that we can recall them if we need to.&lt;/p>
+&lt;p>If we can have only one notification on a given page, an easy and efficient solution is to use a predefined Notification ID, as suggested in the &lt;a href="https://alguidelines.dev/navpatterns/1-patterns/notifications/in-context-notifications/">&amp;ldquo;Using In-context Notifications&amp;rdquo;&lt;/a> pattern.&lt;/p>
+&lt;p>However, some cases can be more complicated. For example, when you are adding lines to a table, what if several lines raise individual notifications? Using the same notification ID for each notification will no longer work because the latest notification overwrites the previous ones. Only one notification for a given notification ID can exist, and only the notification message would be updated. This is illustrated in Figure 1.&lt;/p>
+&lt;p>&lt;a href="4807.1st-notification.PNG">&lt;img src="4807.1st-notification.PNG" alt=" ">&lt;/a>&lt;/p>
+&lt;p>&lt;em>Figure 1: Notification that an item that is not in stock. The notification ID is a predefined GUID, 2712AD06-C48B-4C20-820E-347A60C9AD00, for example.&lt;/em>&lt;/p>
+&lt;p>&lt;a href="8512.2nd-notification.PNG">&lt;img src="8512.2nd-notification.PNG" alt=" ">&lt;/a>&lt;/p>
+&lt;p>&lt;em>Figure 2: You add a second item that is not in stock. the notification is fired with the same GUID, 2712AD06-C48B-4C20-820E-347A60C9AD00, for example. The previous notification is overwritten.&lt;/em>&lt;/p>
+&lt;p>Here is the code for this behavior:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">LOCAL&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">PROCEDURE&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>CreateAndSendNotification@&lt;span style="color:#0000cf;font-weight:bold">23&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>UnitOfMeasureCode@&lt;span style="color:#0000cf;font-weight:bold">1010&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Code&lt;/span>[&lt;span style="color:#0000cf;font-weight:bold">20&lt;/span>]&lt;span style="color:#000;font-weight:bold">;&lt;/span>InventoryQty@&lt;span style="color:#0000cf;font-weight:bold">1009&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Decimal&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>GrossReq@&lt;span style="color:#0000cf;font-weight:bold">1008&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Decimal&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>ReservedReq@&lt;span style="color:#0000cf;font-weight:bold">1007&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Decimal&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>SchedRcpt@&lt;span style="color:#0000cf;font-weight:bold">1006&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Decimal&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>ReservedRcpt@&lt;span style="color:#0000cf;font-weight:bold">1005&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Decimal&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>CurrentQuantity@&lt;span style="color:#0000cf;font-weight:bold">1004&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Decimal&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>CurrentReservedQty@&lt;span style="color:#0000cf;font-weight:bold">1003&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Decimal&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>TotalQuantity@&lt;span style="color:#0000cf;font-weight:bold">1002&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Decimal&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>EarliestAvailDate@&lt;span style="color:#0000cf;font-weight:bold">1001&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Date&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">) &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Boolean&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">VAR&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>ItemAvailabilityCheck@&lt;span style="color:#0000cf;font-weight:bold">1011&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Page&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1872&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>AvailabilityCheckNotification@&lt;span style="color:#0000cf;font-weight:bold">1000&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Notification&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">BEGIN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>AvailabilityCheckNotification&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>ID&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>GetItemAvailabilityNotificationId&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>AvailabilityCheckNotification&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>MESSAGE&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>STRSUBSTNO&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>NotificationMsg&lt;span style="color:#000;font-weight:bold">,&lt;/span>ItemNo&lt;span style="color:#ce5c00;font-weight:bold">))&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>AvailabilityCheckNotification&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>SCOPE&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">NOTIFICATIONSCOPE&lt;/span>&lt;span style="color:#000;font-weight:bold">::&lt;/span>LocalScope&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>AvailabilityCheckNotification&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>ADDACTION&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>DetailsTxt&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#204a87;font-weight:bold">CODEUNIT&lt;/span>&lt;span style="color:#000;font-weight:bold">::&lt;/span>&amp;#34;Item-Check Avail.&amp;#34;&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;ShowNotificationDetails&amp;#39;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>ItemAvailabilityCheck&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>PopulateDataOnNotification&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>AvailabilityCheckNotification&lt;span style="color:#000;font-weight:bold">,&lt;/span>ItemNo&lt;span style="color:#000;font-weight:bold">,&lt;/span>UnitOfMeasureCode&lt;span style="color:#000;font-weight:bold">,&lt;/span>InventoryQty&lt;span style="color:#000;font-weight:bold">,&lt;/span>GrossReq&lt;span style="color:#000;font-weight:bold">,&lt;/span>ReservedReq&lt;span style="color:#000;font-weight:bold">,&lt;/span>SchedRcpt&lt;span style="color:#000;font-weight:bold">,&lt;/span>ReservedRcpt&lt;span style="color:#000;font-weight:bold">,&lt;/span>CurrentQuantity&lt;span style="color:#000;font-weight:bold">,&lt;/span>CurrentReservedQty&lt;span style="color:#000;font-weight:bold">,&lt;/span>TotalQuantity&lt;span style="color:#000;font-weight:bold">,&lt;/span>EarliestAvailDate&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>AvailabilityCheckNotification&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>SEND&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">EXIT&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>FALSE&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">END&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">LOCAL&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">PROCEDURE&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>**GetItemAvailabilityNotificationId**@&lt;span style="color:#0000cf;font-weight:bold">27&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">() &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">GUID&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">BEGIN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">EXIT&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;2712AD06-C48B-4C20-820E-347A60C9AD00&amp;#39;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">END&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>An easy fix would be to dynamically generate the notification ID. However, what if you fix the issue that triggered the notification?&lt;/p>
+&lt;p>Here is the code for this possible fix:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">LOCAL&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">PROCEDURE&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>CreateAndSendNotification@&lt;span style="color:#0000cf;font-weight:bold">23&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>UnitOfMeasureCode@&lt;span style="color:#0000cf;font-weight:bold">1010&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Code&lt;/span>[&lt;span style="color:#0000cf;font-weight:bold">20&lt;/span>]&lt;span style="color:#000;font-weight:bold">;&lt;/span>InventoryQty@&lt;span style="color:#0000cf;font-weight:bold">1009&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Decimal&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>GrossReq@&lt;span style="color:#0000cf;font-weight:bold">1008&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Decimal&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>ReservedReq@&lt;span style="color:#0000cf;font-weight:bold">1007&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Decimal&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>SchedRcpt@&lt;span style="color:#0000cf;font-weight:bold">1006&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Decimal&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>ReservedRcpt@&lt;span style="color:#0000cf;font-weight:bold">1005&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Decimal&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>CurrentQuantity@&lt;span style="color:#0000cf;font-weight:bold">1004&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Decimal&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>CurrentReservedQty@&lt;span style="color:#0000cf;font-weight:bold">1003&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Decimal&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>TotalQuantity@&lt;span style="color:#0000cf;font-weight:bold">1002&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Decimal&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>EarliestAvailDate@&lt;span style="color:#0000cf;font-weight:bold">1001&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Date&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">) &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Boolean&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">VAR&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>ItemAvailabilityCheck@&lt;span style="color:#0000cf;font-weight:bold">1011&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Page&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1872&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>AvailabilityCheckNotification@&lt;span style="color:#0000cf;font-weight:bold">1000&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Notification&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">BEGIN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>AvailabilityCheckNotification&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>ID&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>CREATEGUID&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>AvailabilityCheckNotification&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>MESSAGE&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>STRSUBSTNO&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>NotificationMsg&lt;span style="color:#000;font-weight:bold">,&lt;/span>ItemNo&lt;span style="color:#ce5c00;font-weight:bold">))&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>AvailabilityCheckNotification&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>SCOPE&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">NOTIFICATIONSCOPE&lt;/span>&lt;span style="color:#000;font-weight:bold">::&lt;/span>LocalScope&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>AvailabilityCheckNotification&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>ADDACTION&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>DetailsTxt&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#204a87;font-weight:bold">CODEUNIT&lt;/span>&lt;span style="color:#000;font-weight:bold">::&lt;/span>&amp;#34;Item-Check Avail.&amp;#34;&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;ShowNotificationDetails&amp;#39;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>ItemAvailabilityCheck&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>PopulateDataOnNotification&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>AvailabilityCheckNotification&lt;span style="color:#000;font-weight:bold">,&lt;/span>ItemNo&lt;span style="color:#000;font-weight:bold">,&lt;/span>UnitOfMeasureCode&lt;span style="color:#000;font-weight:bold">,&lt;/span>InventoryQty&lt;span style="color:#000;font-weight:bold">,&lt;/span>GrossReq&lt;span style="color:#000;font-weight:bold">,&lt;/span>ReservedReq&lt;span style="color:#000;font-weight:bold">,&lt;/span>SchedRcpt&lt;span style="color:#000;font-weight:bold">,&lt;/span>ReservedRcpt&lt;span style="color:#000;font-weight:bold">,&lt;/span>CurrentQuantity&lt;span style="color:#000;font-weight:bold">,&lt;/span>CurrentReservedQty&lt;span style="color:#000;font-weight:bold">,&lt;/span>TotalQuantity&lt;span style="color:#000;font-weight:bold">,&lt;/span>EarliestAvailDate&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>AvailabilityCheckNotification&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>SEND&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">EXIT&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>FALSE&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">END&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Now, notifications do not replace each other, but we cannot recall them because we do not track each notification ID.&lt;/p>
+&lt;p>&lt;a href="0677.3-notifications-smaller.PNG">&lt;img src="0677.3-notifications-smaller.PNG" alt=" ">&lt;/a>&lt;/p>
+&lt;p>&lt;em>Figure 3: Three sales lines with a notification for each one&lt;/em>&lt;/p>
+&lt;p>Imagine that you&amp;rsquo;re adding several items to a sales order, and inventory is low for some of the items. Each sales line will send a notification for its item if the quantity to sell is higher than the available inventory. By using dynamically generated notification IDs (&lt;strong>CREATEGUID&lt;/strong>), each notification will not be overwritten, which is what we want. This is shown in Figure 3. But after you see the notification, you may decide to decrease the quantity in the sales line. At that point, the notification should be recalled. To do that, we need a way to track the notifications and their IDs.&lt;/p>
+&lt;p> &lt;/p>
+&lt;p>&lt;strong>Solution&lt;/strong>&lt;/p>
+&lt;p>The solution is to use the Notification Lifecycle Management framework.&lt;/p>
+&lt;p>The framework allows you to keep track of notifications by saving notification IDs and with other useful information (record ID and optional additional context) that will allow you to easily find the notification IDs to recall. This can be seen as an internal dictionary to put and get notification IDs.&lt;/p>
+&lt;p> &lt;/p>
+&lt;p>This framework has three main components:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>A temporary, in-memory table: &lt;strong>Notification Context&lt;/strong> (1519). This table stores each notification GUID, the record ID of the record that caused each notification (on what object), and optionally, an additional GUID that represents an additional context: the cause of the notification (why). This lets you track and recall each notification. You can fire-and-forget the notification, but if you need to recall it you can find it by using the record ID of the cause and the optional additional context ID.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>A singleton codeunit: &lt;strong>Notification Lifecycle Mgt.&lt;/strong> (1511), that provides functions to create new notification context lines and recall them. This codeunit contains one instance of the temporary table &lt;strong>Notification Context&lt;/strong>.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>A helper codeunit:&lt;strong>Notification Lifecycle Helper&lt;/strong> (1508), that subscribes to various events and makes the calls to the &lt;strong>Notification Lifecycle Mgt.&lt;/strong> codeunit.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p> &lt;/p>
+&lt;p>The unit tests for this framework are in codeunit &lt;strong>Notification Lifecycle Tests&lt;/strong> (139480).&lt;/p>
+&lt;p> &lt;/p>
+&lt;p>The main functions provided by codeunit 1511 are:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>SendNotification&lt;/strong>(NotificationToSend : Notification;RecId : RecordID)&lt;/p>
+&lt;ul>
+&lt;li>Sends a notification and keeps track of it in the simplest way. We have a notification to send and the record ID of the object that triggered the notification.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>SendNotificationWithAdditionalContext&lt;/strong>(NotificationToSend : Notification;RecId : RecordID;AdditionalContextId : GUID)&lt;/p>
+&lt;ul>
+&lt;li>Sends a notification and keeps track of it with additional information. For example, a GUID that represents the context in which the notification was sent, and an item with insufficient inventory.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>RecallNotificationsForRecord&lt;/strong>(RecId : RecordID;HandleDelayedInsert : Boolean)&lt;/p>
+&lt;ul>
+&lt;li>Recalls all notifications that were sent by a given record ID. The HandleDelayedInsert flag should be TRUE if it is possible that the record ID provided is from a record that was not yet in the database (TRUE unless we recall notifications after deletion of a record).&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>RecallNotificationsForRecordWithAdditionalContext&lt;/strong>(RecId : RecordID;AdditionalContextId : GUID;HandleDelayedInsert : Boolean)&lt;/p>
+&lt;ul>
+&lt;li>Recalls the notification that was sent by a given Record ID in a particular context. The HandleDelayedInsert flag should be TRUE if it is possible that the Record ID provided is from a record that was not yet in the database (TRUE unless we recall notifications after deleting a record).&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>SetRecordID&lt;/strong>(RecId : RecordID)&lt;/p>
+&lt;ul>
+&lt;li>Sets the record ID after delayed insertion of a record. This will update the initially incomplete Record ID in the &lt;strong>Notification Context&lt;/strong> table to a full Record ID.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>UpdateRecordID&lt;/strong>(CurrentRecId : RecordID;NewRecId : RecordID)&lt;/p>
+&lt;ul>
+&lt;li>Replace CurrentRecId with NewRecId in the &lt;strong>Notification Context&lt;/strong> table. This is called by &lt;strong>SetRecordId&lt;/strong>.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p> &lt;/p>
+&lt;p>&lt;strong>Usage&lt;/strong>&lt;/p>
+&lt;p> &lt;/p>
+&lt;p>The simple case is:&lt;/p>
+&lt;ol>
+&lt;li>We create a notification object.&lt;/li>
+&lt;li>We call &lt;strong>SendNotification&lt;/strong> or &lt;strong>SendNotificationWithAdditionalContext&lt;/strong>.&lt;/li>
+&lt;li>When we want to recall the notification, we call &lt;strong>RecallNotificationsForRecord&lt;/strong> or &lt;strong>RecallNotificationsForRecordWithAdditionalContext&lt;/strong>.&lt;/li>
+&lt;/ol>
+&lt;p>&lt;a href="sequence1.png">&lt;img src="sequence1.png" alt=" ">&lt;/a>&lt;/p>
+&lt;p>&lt;em>Figure 4: without additional context&lt;/em>&lt;/p>
+&lt;p>&lt;a href="sequence2.png">&lt;img src="sequence2.png" alt=" ">&lt;/a>&lt;/p>
+&lt;p>&lt;em>Figure 5: with additional context&lt;/em>&lt;/p>
+&lt;p>However, delayed insert means that the simple case seen above doesn&amp;rsquo;t happen very often. The issue is that when we call &lt;strong>SendNotification&lt;/strong>, we provide the cause object&amp;rsquo;s record ID. If this object has not been inserted yet, which is often the case when the user creates a new invoice, a new line, and so on, the record ID is incomplete. When the object is inserted the record ID is completed, but if we call &lt;strong>RecallNotificationsForRecord&lt;/strong> at a later point, the record ID will be different from the incomplete record ID we used when sending the notification. The solution is to detect that the object is not yet inserted when we send the notification, and at a later point, set the record ID when the cause object is inserted. &lt;/p>
+&lt;p> &lt;/p>
+&lt;p>The realistic case is:&lt;/p>
+&lt;ol>
+&lt;li>We have a temporary object with a partially complete ID. Something like: Sales Line, 1000, &amp;ldquo;&amp;rdquo;.&lt;/li>
+&lt;li>We send a notification caused by this object (item out of stock).&lt;/li>
+&lt;li>The temporary table receives NotificationId, empty record Id (Quote, &amp;ldquo;&amp;quot;), additional context (item out of stock).&lt;/li>
+&lt;li>When the user leaves the field, the line is inserted. We replace the empty record ID (Quote, &amp;ldquo;&amp;quot;) by the full record ID (Sales Line, 1000, 10000).&lt;/li>
+&lt;li>We recall the notification (the user put a lower quantity for example).&lt;/li>
+&lt;li>We search for records with the full record ID and the additional context (item out of stock).&lt;/li>
+&lt;li>If found, they are recalled.  &lt;/li>
+&lt;/ol>
+&lt;p>&lt;a href="sequence3.png">&lt;img src="sequence3.png" alt=" ">&lt;/a>&lt;/p>
+&lt;p>&lt;em>Figure 6: delayed insert, with additional context&lt;/em>&lt;/p>
+&lt;p>&lt;strong>Usages in NAV:&lt;/strong>&lt;/p>
+&lt;p>COD311 (Item-Check Avail.)&lt;/p>
+&lt;p>COD312 (Cust-Check Cr. Limit)&lt;/p>
+&lt;p>COD1508 (Notification Lifecycle Handler)&lt;/p>
+&lt;p>&lt;strong>Related Patterns:&lt;/strong>&lt;/p>
+&lt;p>&lt;a href="https://alguidelines.dev/navpatterns/1-patterns/notifications/in-context-notifications/">In-context notifications&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://alguidelines.dev/navpatterns/1-patterns/singleton/singleton-codeunit/">Singleton codeunit&lt;/a>&lt;/p></description></item></channel></rss>

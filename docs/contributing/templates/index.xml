@@ -1,0 +1,45 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>alguidelines.dev - Business Central Design Patterns – Templates</title><link>https://alguidelines.dev/docs/contributing/templates/</link><description>Recent content in Templates on alguidelines.dev - Business Central Design Patterns</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="https://alguidelines.dev/docs/contributing/templates/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Title of the Guideline</title><link>https://alguidelines.dev/docs/contributing/templates/guidelines/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/contributing/templates/guidelines/</guid><description>
+&lt;p>This is a guideline, some parts are optional (if there&amp;rsquo;s no content, remove the whole paragraph).&lt;/p>
+&lt;p>&amp;lt;&lt;em>Created by (company), Described by (company)&lt;/em>&amp;gt;&lt;/p>
+&lt;h2 id="description">Description&lt;/h2>
+&lt;p>In depth description on what this Pattern is all about&lt;/p>
+&lt;ul>
+&lt;li>basic components&lt;/li>
+&lt;li>how the interact&lt;/li>
+&lt;li>steps to implement&lt;/li>
+&lt;li>considerations to take&lt;/li>
+&lt;/ul>
+&lt;h2 id="bad-code">Bad code&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">PutCodeblocksHere&lt;span style="color:#ce5c00;font-weight:bold">()
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="good-code">Good code&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">PutCodeblocksHere&lt;span style="color:#ce5c00;font-weight:bold">()
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="discussionshttpsgithubcommicrosoftalguidelinesdiscussionscategoriesbc-best-practicesdiscussions_qtitleofyourguidelinegoesherecategory3a22bcbestpractices22">&lt;a href="https://github.com/microsoft/alguidelines/discussions/categories/bc-best-practices?discussions_q=TITLEOFYOURGUIDELINEGOESHERE+category%3A%22BC+Best+Practices%22">Discussions&lt;/a>&lt;/h2>
+&lt;p>&amp;lt;Please replace the &amp;ldquo;TITLEOFYOURGUIDELINEGOESHERE&amp;rdquo; in the link above, with the Title+of+the+Guideline (indeed, with &amp;ldquo;space&amp;rdquo; replaced by a &amp;ldquo;+&amp;quot;) - and remove this line. &amp;gt;&lt;/p>
+&lt;p>You can find discussions on all &amp;ldquo;Best Practices&amp;rdquo; &lt;a href="https://github.com/microsoft/alguidelines/discussions/categories/bc-best-practices">here&lt;/a>.&lt;/p>
+&lt;p>If you don&amp;rsquo;t find the discussion of this guideline, please feel free to create a new one with the same title as this article.&lt;/p></description></item><item><title>Docs: Title of the pattern</title><link>https://alguidelines.dev/docs/contributing/templates/patterns/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/contributing/templates/patterns/</guid><description>
+&lt;p>This is a guideline, some parts are optional (if there&amp;rsquo;s no content, remove the whole paragraph).&lt;/p>
+&lt;p>&amp;lt;&lt;em>Created by (company), Described by (company)&lt;/em>&amp;gt;&lt;/p>
+&lt;h2 id="abstract">Abstract&lt;/h2>
+&lt;p>Short, descriptive and easy to remember description of this pattern.&lt;/p>
+&lt;h2 id="context">Context&lt;/h2>
+&lt;p>Sets the stage where the pattern takes place. 1-2 sentences.&lt;/p>
+&lt;h2 id="problem">Problem&lt;/h2>
+&lt;p>What happens before this pattern is used? How can it go wrong? 1-5 lines.&lt;/p>
+&lt;h2 id="description">Description&lt;/h2>
+&lt;p>In depth description on what this Pattern is all about&lt;/p>
+&lt;ul>
+&lt;li>basic components&lt;/li>
+&lt;li>how the interact&lt;/li>
+&lt;li>steps to implement&lt;/li>
+&lt;li>considerations to take&lt;/li>
+&lt;/ul>
+&lt;h2 id="usage">Usage&lt;/h2>
+&lt;p>If applicable: where is it used in an app. You can refer to any app, BaseApp, or a (public) ISV app.&lt;/p>
+&lt;h2 id="benefits">Benefits&lt;/h2>
+&lt;p>1-2 sentences: what did you just solve&lt;/p>
+&lt;h2 id="when-not-to-use">When not to use&lt;/h2>
+&lt;p>Usually, there are occasions where NOT to implement the pattern. List the disadvantages of this pattern here.&lt;/p>
+&lt;h2 id="list-of-references">List of references&lt;/h2>
+&lt;p>Youtube-link? BaseApp? Tweet? &amp;hellip;&lt;/p>
+&lt;h2 id="discussions">Discussions&lt;/h2>
+&lt;p>Create a discussions-page of your pattern, and add the sentence &amp;ldquo;You can discuss this pattern &lt;a href="https://github.com/microsoft/alguidelines/discussions/42">here&lt;/a>&amp;rdquo; with the right link to that discussions-page.&lt;/p></description></item></channel></rss>

@@ -1,0 +1,118 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>alguidelines.dev - Business Central Design Patterns – 3. CAL Coding Guidelines</title><link>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/</link><description>Recent content in 3. CAL Coding Guidelines on alguidelines.dev - Business Central Design Patterns</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Design</title><link>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/design/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/design/</guid><description>
+&lt;h2 id="cal-coding-guidelines">C/AL Coding Guidelines&lt;/h2>
+&lt;h2 id="design">&lt;strong>Design&lt;/strong>&lt;/h2>
+&lt;p>Find the C/AL guidelines by expanding the menu in the left.&lt;/p></description></item><item><title>Docs: Internally used DotNet Types</title><link>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/internally-used-dot-net-types/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/internally-used-dot-net-types/</guid><description>
+&lt;p>&lt;em>(Dynamics NAV 2015)&lt;/em>&lt;/p>
+&lt;p>&lt;strong>Dot Net Types&lt;/strong>&lt;/p>
+&lt;p>&amp;lsquo;mscorlib&amp;rsquo;.System.Convert&lt;/p>
+&lt;p>&amp;lsquo;mscorlib&amp;rsquo;.System.Globalization.CultureInfo&lt;/p>
+&lt;p>&amp;lsquo;mscorlib&amp;rsquo;.System.Globalization.DateTimeStyles&lt;/p>
+&lt;p>&amp;lsquo;mscorlib&amp;rsquo;.System.Globalization.NumberStyles&lt;/p>
+&lt;p>&amp;lsquo;mscorlib&amp;rsquo;.System.Type&lt;/p>
+&lt;p>&amp;lsquo;mscorlib&amp;rsquo;.System.Array&lt;/p>
+&lt;p>&amp;lsquo;mscorlib&amp;rsquo;.System.EventArgs&lt;/p>
+&lt;p>&amp;lsquo;mscorlib&amp;rsquo;.System.Security.Cryptography.SHA512Managed&lt;/p>
+&lt;p>&amp;lsquo;mscorlib&amp;rsquo;.System.Security.Cryptography.HashAlgorithm&lt;/p>
+&lt;p>&amp;lsquo;mscorlib&amp;rsquo;.System.Text.Encoding&lt;/p>
+&lt;p>&amp;lsquo;mscorlib&amp;rsquo;.System.Text.UTF8Encoding&lt;/p>
+&lt;p>&amp;lsquo;mscorlib&amp;rsquo;.System.Environment&lt;/p>
+&lt;p>&amp;lsquo;mscorlib&amp;rsquo;.System.IO.Directory&lt;/p>
+&lt;p>&amp;lsquo;mscorlib&amp;rsquo;.System.IO.Path&lt;/p>
+&lt;p>&amp;lsquo;mscorlib&amp;rsquo;.System.IO.File&lt;/p>
+&lt;p>&amp;lsquo;mscorlib&amp;rsquo;.System.IO.FileAttributes&lt;/p>
+&lt;p>&amp;lsquo;mscorlib&amp;rsquo;.System.Collections.ArrayList&lt;/p>
+&lt;p>&amp;lsquo;mscorlib&amp;rsquo;.System.Collections.IEnumerator&lt;/p>
+&lt;p>&amp;lsquo;mscorlib&amp;rsquo;.System.Collections.Generic.IEnumerator`1&lt;/p>
+&lt;p>&amp;lsquo;mscorlib&amp;rsquo;.System.TimeSpan&lt;/p>
+&lt;p>&amp;lsquo;mscorlib&amp;rsquo;.System.DateTime&lt;/p>
+&lt;p>&amp;lsquo;mscorlib&amp;rsquo;.System.DateTimeKind&lt;/p>
+&lt;p>&amp;lsquo;mscorlib&amp;rsquo;.System.DateTimeOffset&lt;/p>
+&lt;p>&amp;lsquo;mscorlib&amp;rsquo;.System.Decimal&lt;/p>
+&lt;p>&amp;lsquo;mscorlib&amp;rsquo;.System.String&lt;/p>
+&lt;p>&amp;lsquo;System&amp;rsquo;.System.Diagnostics.Process&lt;/p>
+&lt;p>&amp;lsquo;System&amp;rsquo;.System.Diagnostics.ProcessStartInfo&lt;/p>
+&lt;p>&amp;lsquo;System&amp;rsquo;.System.IO.Compression.CompressionMode&lt;/p>
+&lt;p>&amp;lsquo;System&amp;rsquo;.System.IO.Compression.GZipStream&lt;/p>
+&lt;p>&amp;lsquo;System&amp;rsquo;.System.Uri&lt;/p>
+&lt;p>&amp;lsquo;System&amp;rsquo;.System.UriPartial&lt;/p>
+&lt;p>&amp;lsquo;System.Data&amp;rsquo;.System.Data.DataColumn&lt;/p>
+&lt;p>&amp;lsquo;System.Data&amp;rsquo;.System.Data.DataTable&lt;/p>
+&lt;p>&amp;lsquo;System.Data&amp;rsquo;.System.Data.DataRow&lt;/p>
+&lt;p>&amp;lsquo;System.Web&amp;rsquo;.System.Web.HttpUtility&lt;/p>
+&lt;p>&amp;lsquo;System.Windows.Forms&amp;rsquo;.System.Windows.Forms.DialogResult&lt;/p>
+&lt;p>&amp;lsquo;System.Windows.Forms&amp;rsquo;.System.Windows.Forms.FileDialog&lt;/p>
+&lt;p>&amp;lsquo;System.Windows.Forms&amp;rsquo;.System.Windows.Forms.OpenFileDialog&lt;/p>
+&lt;p>&amp;lsquo;System.Windows.Forms&amp;rsquo;.System.Windows.Forms.SaveFileDialog&lt;/p>
+&lt;p>&amp;lsquo;System.Windows.Forms&amp;rsquo;.System.Windows.Forms.FolderBrowserDialog&lt;/p>
+&lt;p>&amp;lsquo;System.Xml&amp;rsquo;.*&lt;/p>
+&lt;p>&amp;lsquo;DocumentFormat.OpenXml&amp;rsquo;.*&lt;/p>
+&lt;p>&amp;lsquo;mscorlib&amp;rsquo;.System.IO.DirectoryInfo&lt;/p>
+&lt;p>&amp;lsquo;mscorlib&amp;rsquo;.System.IO.FileInfo&lt;/p>
+&lt;p>&amp;lsquo;Microsoft.Dynamics.Nav.Client.CodeViewerTypes&amp;rsquo;.Microsoft.Dynamics.Nav.Client.CodeViewerTypes.BreakpointCollection&lt;/p>
+&lt;p>&amp;lsquo;Microsoft.Dynamics.Nav.Client.CodeViewerTypes&amp;rsquo;.Microsoft.Dynamics.Nav.Client.CodeViewerTypes.VariableCollection&lt;/p>
+&lt;p>&amp;lsquo;Microsoft.Dynamics.Nav.SMTP&amp;rsquo;.Microsoft.Dynamics.Nav.SMTP.SmtpMessage&lt;/p>
+&lt;p>&amp;lsquo;Microsoft.Dynamics.Nav.Management.DSObjectPickerWrapper&amp;rsquo;.*&lt;/p>
+&lt;p>&amp;lsquo;Microsoft.Dynamics.Nav.Timer&amp;rsquo;.*&lt;/p>
+&lt;p>&amp;lsquo;Microsoft.Dynamics.Nav.DO.ClientProxyWrapper&amp;rsquo;.*&lt;/p>
+&lt;p>&amp;lsquo;Microsoft.Dynamics.Nav.Client.BusinessChart&amp;rsquo;.*&lt;/p>
+&lt;p>&amp;lsquo;Microsoft.Dynamics.Nav.Client.BusinessChart.Model&amp;rsquo;.*&lt;/p>
+&lt;p>&amp;lsquo;Microsoft.Dynamics.Nav.Integration.Office&amp;rsquo;.*&lt;/p>
+&lt;p>&amp;lsquo;Microsoft.Dynamics.Nav.Integration.Office.Mock&amp;rsquo;.*&lt;/p>
+&lt;p>&amp;lsquo;Microsoft.Dynamics.Nav.EwsWrapper&amp;rsquo;.*&lt;/p>
+&lt;p>&amp;lsquo;Microsoft.Dynamics.Nav.EwsWrapper.ALTestHelper&amp;rsquo;.*&lt;/p>
+&lt;p>&amp;lsquo;Microsoft.Dynamics.NAV.OLSync.OLSyncSupplier&amp;rsquo;.*&lt;/p>
+&lt;p>&amp;lsquo;Microsoft.Dynamics.Nav.OLSync.Common&amp;rsquo;.*&lt;/p>
+&lt;p>&amp;lsquo;Microsoft.Dynamics.Nav.NavUserAccount&amp;rsquo;.*&lt;/p>
+&lt;p>&amp;lsquo;Microsoft.Dynamics.Nav.OpenXml&amp;rsquo;.*&lt;/p>
+&lt;p>&amp;lsquo;Microsoft.Dynamics.Nav.RapidStart&amp;rsquo;.*&lt;/p>
+&lt;p>&amp;lsquo;Microsoft.Dynamics.Framework.RapidStart.Common&amp;rsquo;.*&lt;/p>
+&lt;p>&amp;lsquo;Microsoft.Dynamics.Nav.Client.TimelineVisualization&amp;rsquo;.Microsoft.Dynamics.Nav.Client.TimelineVisualization.&lt;/p>
+&lt;p>VisualizationScenarios&lt;/p>
+&lt;p>&amp;lsquo;Microsoft.Dynamics.Framework.UI.WinForms.DataVisualization.Timeline&amp;rsquo;.Microsoft.Dynamics.Framework.UI.&lt;/p>
+&lt;p>WinForms.DataVisualization.TimelineVisualization.DataModel+TransactionChangesRow&lt;/p>
+&lt;p>&amp;lsquo;Microsoft.Dynamics.Framework.UI.WinForms.DataVisualization.Timeline&amp;rsquo;.Microsoft.Dynamics.Framework.UI.&lt;/p>
+&lt;p>WinForms.DataVisualization.TimelineVisualization.DataModel+TransactionChangesDataTable&lt;/p>
+&lt;p>&amp;lsquo;Microsoft.Dynamics.Framework.UI.WinForms.DataVisualization.Timeline&amp;rsquo;.Microsoft.Dynamics.Framework.UI.&lt;/p>
+&lt;p>WinForms.DataVisualization.TimelineVisualization.DataModel+TransactionRow&lt;/p>
+&lt;p>&amp;lsquo;Microsoft.Dynamics.Framework.UI.WinForms.DataVisualization.Timeline&amp;rsquo;.Microsoft.Dynamics.Framework.UI.&lt;/p>
+&lt;p>WinForms.DataVisualization.TimelineVisualization.DataModel+TransactionDataTable&lt;/p>
+&lt;p>&amp;lsquo;Microsoft.Office.Interop.Word&amp;rsquo;.*&lt;/p>
+&lt;p>&amp;lsquo;Microsoft.Office.Interop.Excel&amp;rsquo;.*&lt;/p>
+&lt;p>&amp;lsquo;Microsoft.Dynamics.BAPIWrapper&amp;rsquo;.*&lt;/p>
+&lt;p>&amp;lsquo;Microsoft.Dynamics.Nav.Types&amp;rsquo;.Microsoft.Dynamics.Nav.Types.ConfigSettings&lt;/p>
+&lt;p>&amp;lsquo;Microsoft.Dynamics.Nav.DocumentService&amp;rsquo;.*&lt;/p>
+&lt;p>&amp;lsquo;Microsoft.Dynamics.Nav.DocumentService.Types&amp;rsquo;.*&lt;/p>
+&lt;p>&amp;lsquo;mscorlib&amp;rsquo;.System.IO.StreamWriter&lt;/p>
+&lt;p>&amp;lsquo;Microsoft.Dynamics.Nav.Client.TimelineVisualization&amp;rsquo;.Microsoft.Dynamics.Nav.Client.TimelineVisualization.&lt;/p>
+&lt;p>InteractiveTimelineVisualizationAddIn&lt;/p>
+&lt;p>&amp;lsquo;System&amp;rsquo;.System.ComponentModel.CancelEventArgs&lt;/p>
+&lt;p>&amp;lsquo;System&amp;rsquo;.System.Text.RegularExpressions.Regex&lt;/p>
+&lt;p>&amp;lsquo;System&amp;rsquo;.System.Text.RegularExpressions.RegexOptions&lt;/p>
+&lt;p>&amp;lsquo;mscorlib&amp;rsquo;.System.IO.StreamReader&lt;/p>
+&lt;p>&amp;lsquo;System.Windows.Forms&amp;rsquo;.System.Windows.Forms.Control&lt;/p>
+&lt;p>&amp;lsquo;System.Windows.Forms&amp;rsquo;.System.Windows.Forms.ControlEventArgs&lt;/p>
+&lt;p>&amp;lsquo;System.Windows.Forms&amp;rsquo;.System.Windows.Forms.DragEventArgs&lt;/p>
+&lt;p>&amp;lsquo;System.Windows.Forms&amp;rsquo;.System.Windows.Forms.GiveFeedbackEventArgs&lt;/p>
+&lt;p>&amp;lsquo;System.Windows.Forms&amp;rsquo;.System.Windows.Forms.HelpEventArgs&lt;/p>
+&lt;p>&amp;lsquo;System.Windows.Forms&amp;rsquo;.System.Windows.Forms.InvalidateEventArgs&lt;/p>
+&lt;p>&amp;lsquo;System.Windows.Forms&amp;rsquo;.System.Windows.Forms.KeyEventArgs&lt;/p>
+&lt;p>&amp;lsquo;System.Windows.Forms&amp;rsquo;.System.Windows.Forms.KeyPressEventArgs&lt;/p>
+&lt;p>&amp;lsquo;System.Windows.Forms&amp;rsquo;.System.Windows.Forms.LayoutEventArgs&lt;/p>
+&lt;p>&amp;lsquo;System.Windows.Forms&amp;rsquo;.System.Windows.Forms.MouseEventArgs&lt;/p>
+&lt;p>&amp;lsquo;System.Windows.Forms&amp;rsquo;.System.Windows.Forms.PaintEventArgs&lt;/p>
+&lt;p>&amp;lsquo;System.Windows.Forms&amp;rsquo;.System.Windows.Forms.PreviewKeyDownEventArgs&lt;/p>
+&lt;p>&amp;lsquo;System.Windows.Forms&amp;rsquo;.System.Windows.Forms.QueryAccessibilityHelpEventArgs&lt;/p>
+&lt;p>&amp;lsquo;System.Windows.Forms&amp;rsquo;.System.Windows.Forms.UICuesEventArgs&lt;/p></description></item><item><title>Docs: Internationalization</title><link>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/internationalization/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/internationalization/</guid><description>
+&lt;h2 id="cal-coding-guidelines">C/AL Coding Guidelines&lt;/h2>
+&lt;h2 id="internationalization">&lt;strong>Internationalization&lt;/strong>&lt;/h2>
+&lt;p>Find the C/AL guidelines by expanding the menu in the left.&lt;/p></description></item><item><title>Docs: Localizability</title><link>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/localizability/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/localizability/</guid><description>
+&lt;h2 id="cal-coding-guidelines">C/AL Coding Guidelines&lt;/h2>
+&lt;h2 id="localizability">&lt;strong>Localizability&lt;/strong>&lt;/h2>
+&lt;p>Find the C/AL guidelines by expanding the menu in the left.&lt;/p></description></item><item><title>Docs: Readability</title><link>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/</guid><description>
+&lt;h2 id="cal-coding-guidelines">C/AL Coding Guidelines&lt;/h2>
+&lt;h2 id="readability">&lt;strong>Readability&lt;/strong>&lt;/h2>
+&lt;p>Generally, all readability rules are Microsoft style choices only. You can use them to keep consistency with the existing code.&lt;/p>
+&lt;p>Find the C/AL guidelines by expanding the menu in the left.&lt;/p></description></item><item><title>Docs: UX</title><link>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/ux/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/ux/</guid><description>
+&lt;h2 id="cal-coding-guidelines">C/AL Coding Guidelines&lt;/h2>
+&lt;h2 id="user-experience">&lt;strong>User eXperience&lt;/strong>&lt;/h2>
+&lt;p>Find the C/AL guidelines by expanding the menu in the left.&lt;/p></description></item></channel></rss>

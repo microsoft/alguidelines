@@ -1,0 +1,83 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>alguidelines.dev - Business Central Design Patterns – 2. Anti-Patterns</title><link>https://alguidelines.dev/docs/navpatterns/2-anti-patterns/</link><description>Recent content in 2. Anti-Patterns on alguidelines.dev - Business Central Design Patterns</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="https://alguidelines.dev/docs/navpatterns/2-anti-patterns/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Nav Upgrade</title><link>https://alguidelines.dev/docs/navpatterns/2-anti-patterns/nav-upgrade/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/navpatterns/2-anti-patterns/nav-upgrade/</guid><description>
+&lt;h2 id="anti-patterns-in-nav-upgrade">Anti-Patterns in NAV Upgrade&lt;/h2>
+&lt;p>&lt;em>By Carlos Raul Garcia and Bogdana Botez at Microsoft Development Center Copenhagen&lt;/em>&lt;/p>
+&lt;p>&lt;a href="upgrade.png">&lt;img src="upgrade.png" alt=" ">&lt;/a>&lt;/p>
+&lt;p>&lt;strong>Context&lt;/strong>: when NAV is upgraded, whether on-premises or in the cloud, developers have the chance to write upgrade code to move data across changing data structures. Writing good quality code will help successful upgrades.&lt;/p>
+&lt;h3 id="general-on-upgrade">General on upgrade&lt;/h3>
+&lt;p>&lt;strong>Problem:&lt;/strong> assuming that the upgrade table contains data.&lt;/p>
+&lt;p>If the table is empty, it means that either the upgrade has run, or there was no data in the original tenant; in both cases, the upgrade code should exit immediately.&lt;/p>
+&lt;p>&lt;strong>Solution:&lt;/strong> if using an upgrade table, always validate that the table contains data before doing anything.&lt;/p>
+&lt;h3 id="upgrade-code-can-it-be-rerun-safely">Upgrade code, can it be rerun safely?&lt;/h3>
+&lt;p>&lt;strong>Problem&lt;/strong>: if the upgrade code is not written in a way that makes it runnable twice (&lt;a href="http://stackoverflow.com/questions/1077412/what-is-an-idempotent-operation#1077421">idempotent&lt;/a>), then several failures can happen, including something as critical as data corruption.&lt;/p>
+&lt;p>In on premise NAV installations, if something fails at upgrade, there is no way to run only the &amp;ldquo;remaining&amp;rdquo; tasks. You will need to run the whole upgrade again, and might end-up with data that you cannot trust.&lt;/p>
+&lt;p>What about the cloud? In Platform As A Service (PaaS), in some situations, the upgrade code needs to be run twice (for example, when moving tenants from a broken/frozen VM to a healthy one).&lt;/p>
+&lt;p>&lt;strong>Solution:&lt;/strong> Make sure each of your upgrade procedures only kicks in if it didn&amp;rsquo;t run before.&lt;/p>
+&lt;p>&lt;strong>Examples&lt;/strong>&lt;/p>
+&lt;p>The examples below have happened in real live NAV PaaS upgrade:&lt;/p>
+&lt;p>&lt;strong>Table data overwrite&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Problem&lt;/strong>: at upgrade, a new column has bee­n added to a table and initialized with default values. In the meanwhile, during production, some of the default values are changed to production real life values. The second time the upgrade runs, those values will be overwritten with defaults, any personalization lost.&lt;/li>
+&lt;li>&lt;strong>Solution:&lt;/strong> before initializing with default values, check if non-default values exist.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Crash on math operations&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Problem:&lt;/strong> one tenant upgrade managed to divide by zero, by assuming a non-zero value.&lt;/li>
+&lt;li>&lt;strong>Solution:&lt;/strong> don&amp;rsquo;t assume values can never be zero, always check before using them in divisions.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Use of external components&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Problem:&lt;/strong> a one-time registration through web services to an external service failed when attempting to register a second time.&lt;/li>
+&lt;li>&lt;strong>Solution:&lt;/strong> check if already registered, before attempting again.&lt;/li>
+&lt;/ul>
+&lt;h3 id="parallelism">Parallelism&lt;/h3>
+&lt;p>&lt;strong>Problem&lt;/strong>: Upgrade procedures can be run in parallel, causing issues when different procedures attempt to modify the same table at the same time.&lt;/p>
+&lt;p>When modifications to the same table are being made from two or more different procedures, there is no guarantee on sequential run, or on a certain order they will be run in.&lt;/p>
+&lt;p>&lt;strong>Solution&lt;/strong>: if sequential or ordered execution is needed, make the affected upgrade procedures local and call them all, in the desired sequence, from a public upgrade procedure.&lt;/p>
+&lt;h3 id="access-to-cloud-machines">Access to cloud machines&lt;/h3>
+&lt;p>&lt;strong>Problem:&lt;/strong> dependencies on manual installation steps do not fit in the cloud.&lt;/p>
+&lt;p>If Dynamics NAV is installed on-premises, then any additional setup (like dependencies of external dlls, manual configuration steps etc.) can be done manually or semi-manually by the IT admin, at first setup and upgrade.&lt;/p>
+&lt;p>In the cloud, NAV partners don&amp;rsquo;t have access to the machines &amp;ndash; hence they cannot deploy and configure those external dependencies as they did in the old on-premises installations.&lt;/p>
+&lt;p>&lt;strong>Solution:&lt;/strong> Don&amp;rsquo;t assume you will have access to PaaS or SaaS machines. Build your solution in such a way that it doesn&amp;rsquo;t depend on executing manual configurations on the host machine.&lt;/p></description></item><item><title>Docs: Reusable Bugs</title><link>https://alguidelines.dev/docs/navpatterns/2-anti-patterns/reusable-bugs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/navpatterns/2-anti-patterns/reusable-bugs/</guid><description>
+&lt;p>&lt;em>By Bogdana Botez, Andreas Moth, Eric Wauters (waldo), Elly Nkya, Nikola Kukrika&lt;/em>&lt;/p>
+&lt;p>&lt;em>April 1st, 2015&lt;/em>&lt;/p>
+&lt;h2 id="abstract">Abstract&lt;/h2>
+&lt;p>It is difficult to come up with new and different bugs in each release, and it is a waste of resources to not use the ones which already had proven successful in the past. To avoid reinventing the wheel, we propose to come up with new innovative ways to create bugs that are reusable and generic enough to be used in various places of the application.&lt;/p>
+&lt;h2 id="examples">Examples&lt;/h2>
+&lt;p>&lt;strong>Option Strings&lt;/strong>&lt;/p>
+&lt;p>One example of a reusable bug is to find a heavily used table, like table 36 Sales Header, and observe one of the more important fields of type Option, for example Document Type. The OptionString property has the following value: Quote,Order,Invoice,Credit Memo,Blanket Order,Return Order, which you should update to add one option, for example Transport Order in the beginning.&lt;/p>
+&lt;p>The main benefit of this reusable bug is that code changed in one place, has impact in multiple sides on the application: document creation and handling, posting etc.&lt;/p>
+&lt;p>&lt;strong>Application Management&lt;/strong>&lt;/p>
+&lt;p>Codeunit 1, ApplicationManagement is a good place for creating reusable bugs. A simple INSERT on the RecRef on the first line of OnDatabaseInsert will create a sure and versatile bug that is reusable all over the application. Redundancy on database insertion ensures that data is surely conveyed to the data storage layer, twice.&lt;/p>
+&lt;p>&lt;strong>God objects&lt;/strong>&lt;/p>
+&lt;p>We are considering to no longer make localization builds for countries. It consumes lab resources to keep running multiple country builds. Instead, we will merge everything into one single build. This is a bigger scale implementation of the &lt;a href="http://en.wikipedia.org/wiki/God_object">&amp;ldquo;God object&amp;rdquo;&lt;/a>. Inside this unique build, we will use IF statements and sporadically CASE statements to select each country&amp;rsquo;s behavior. For more help on how to use IFs, see also the IF .. THEN|ELSE C/AL Coding Guideline.&lt;/p>
+&lt;p>&lt;strong>Field length economy&lt;/strong>&lt;/p>
+&lt;p>When you post a document, make sure to transfer data to a field that is smaller than the field you are assigning from. This will not immediately be caught and will only hurt a subset of the customers who uses Microsoft Dynamics NAV to its fullest.&lt;/p>
+&lt;h2 id="guidelines">Guidelines&lt;/h2>
+&lt;p>When bug addition is not entirely obvious, there is a second way to approach the problem. By following some general coding best practices like the ones described below, reliable bug innovation is facilitated and can come naturally as a collateral effect.&lt;/p>
+&lt;p>&lt;strong>Code structure&lt;/strong>&lt;/p>
+&lt;p>Put everything in one function and only use comments to explain the structure of your code. And don&amp;rsquo;t use functions - because this only complicates things&amp;hellip; having to navigate from function to function, and completely lose track of where you are in the business logic.&lt;/p>
+&lt;p>On top of that .. put everything in one codeunit. Because also that will simplify and make your structure more readable.&lt;/p>
+&lt;p>Use Hungarian Notation on your variables, because at any time, you need to know what type, and what context your variable is on.&lt;/p>
+&lt;p>Declare all your functions and variables global, so they are available at any time.&lt;/p>
+&lt;p>&lt;strong>Don&amp;rsquo;t do Unit Testing&lt;/strong>&lt;/p>
+&lt;p>Unit testing adds complexity and extra time to the stuff you&amp;rsquo;re doing. Also, it eats up extra codeunits which means: it costs money. You will never be able to foresee all scenarios possible, so you&amp;rsquo;re destined to forget and not test everything. So you will save time in not doing unit testing.&lt;/p>
+&lt;p>&lt;strong>Never add images to actions&lt;/strong>&lt;/p>
+&lt;p>Because there is an image by default. When you don&amp;rsquo;t provide an image on an action on a page, the application will foresee a ball&amp;hellip; and when you never do it, your application will have a very consistent way of showing your actions, by providing that picture of that ball. On top of that, you&amp;rsquo;ll save time.&lt;/p>
+&lt;p>&lt;strong>Do not care about ControlIDs&lt;/strong>&lt;/p>
+&lt;p>When you&amp;rsquo;re doing development of your product, do not care about ControlIDs, and just leave the Offset ID to the default value of 0. This way, when merging, you will receive nice notifications, saying both you and Microsoft have added functions in that objects. You can use this feature to document all these places.&lt;/p>
+&lt;p>&lt;strong>Hooks&lt;/strong>&lt;/p>
+&lt;p>Never apply the hook pattern. Hooks will only reduce upgrade time. This means, you will only shortly enjoy using the AMU (Application Merge Utilities). The more you change in default application, the longer it takes to upgrade, the longer you will enjoy the toolkit&lt;/p>
+&lt;p>This can be taken one level higher. Simply you are not hardcore if you do not use notepad to resolve all of the merge issues.&lt;/p>
+&lt;p>&lt;strong>How to use RecRef&lt;/strong>&lt;/p>
+&lt;p>Why fuss around declaring specific table variables, just generalize, all you need is one, two, or perhaps three RecRef variables, with a few IFs and CASEs here and there for reflection, to carry you all the way.&lt;/p>
+&lt;p>&lt;strong>Arguments&lt;/strong>&lt;/p>
+&lt;p>Using only a few arguments on the functions is a sign of a weak developer. Stick in as many arguments as possible on the function, even if you are not using them, they could be useful in the future.&lt;/p>
+&lt;p>&lt;strong>Just another field / action&lt;/strong>&lt;/p>
+&lt;p>Thinking of the design is overrated, each problem can be solved by adding an additional field or the table/page or with adding another action. We all know this has worked well in the past.&lt;/p>
+&lt;p>&lt;strong>Reusability&lt;/strong>&lt;/p>
+&lt;p>We have decided that each time we fix a bug, we now also explain how it can be applied as a pattern. We then use anti-virus software to search for these patterns, to make sure we do not re-introduce these bugs anywhere else in NAV.&lt;/p>
+&lt;p>&lt;strong>Business logic placement&lt;/strong>&lt;/p>
+&lt;p>As a best practice, we have also decided to move code into pages. Business logic should no longer be in tables and codeunits, but instead pages should know and be aware of the context and update it accordingly. As opposite to tables and codeunits, pages are aware of the context.&lt;/p>
+&lt;h2 id="conclusion">Conclusion&lt;/h2>
+&lt;p>Happy April Fools' Day.&lt;/p>
+&lt;p>Disclaimer: this is inspired from IETF documentation published on April 1st, like for example the revolutionizing &lt;a href="http://en.wikipedia.org/wiki/IP_over_Avian_Carriers">IP over Avian Carriers&lt;/a> standard.&lt;/p></description></item></channel></rss>
