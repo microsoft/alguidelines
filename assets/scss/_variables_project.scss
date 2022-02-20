@@ -8,7 +8,7 @@ Add styles or override variables from the theme here.
 
 body {
 	font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif !important;
-	font-weight:300 !important;
+	font-weight:500 !important;
 }
 
 $display1-weight: 500 !default;
@@ -34,7 +34,7 @@ ul, ol {
 }
 
 .navbar-brand {
-  color: #048273 !important
+  color: #008489 !important
 }
 
 .navbar-bg-onscroll {
@@ -119,8 +119,8 @@ input[type="search"]::placeholder {
 .hero {
   padding: 20px 0px 25px 0px;
   color: white;
-  background: rgb(33,39,73);
-  background: linear-gradient(130deg, #473782 50%, #2c2c62 70%);
+  background: rgb(65, 127, 143);
+  background: linear-gradient(130deg, #4487a1 50%, #0188a3 70%);
   margin-left: -15px;
   margin-right: -15px;
   position: relative;
@@ -150,7 +150,7 @@ input[type="search"]::placeholder {
 			width: 60vw;
 			height: 60vw;
 			display: block;
-			background: linear-gradient(90deg, rgba(42,24,102,1) 59%, rgba(44,44,98,1) 70%);
+			background: linear-gradient(90deg, rgb(0, 129, 155) 59%, rgba(0,145,193,1) 70%);
 			position: absolute;
 			left: -20vw;
 			top: -20vw;
@@ -163,7 +163,7 @@ input[type="search"]::placeholder {
 			width: 20vw;
 			height: 100vw;
 			display: block;
-			background: linear-gradient(-74deg, #2c2c62 50%, #3f3479 70%);
+			background: linear-gradient(-74deg, #007e97 50%, #0091c1 70%);
 			position: absolute;
 			left: 55vw;
 			bottom: -40vw;
@@ -190,11 +190,11 @@ input[type="search"]::placeholder {
 // }
 
 .hero-big {
-  background: rgb(112, 85, 255);
+  background: rgb(0,145,193);
   background: linear-gradient(
     140deg,
-    rgba(112, 85, 255, 1) 0%,
-    rgba(140, 61, 180, 1) 100%
+    rgba(0,145,193, 1) 0%,
+    rgba(0,94,113, 1) 100%
   );
   padding: 12px 38px;
   border: none;
@@ -206,14 +206,14 @@ input[type="search"]::placeholder {
   align-items: center;
 
   font-size: 22px;
-  font-weight: 400;
+  font-weight: 600;
   color: white;
   margin: 10px 0px 40px 0px;
 }
 
 .hero-mid {
-  background: rgb(112, 85, 255);
-  background: linear-gradient(140deg,rgba(112, 85, 255, 1) 0%, rgba(140, 61, 180, 1) 100%);
+  background: rgb(0,145,193);
+  background: linear-gradient(140deg,rgba(0,145,193, 1) 0%, rgba(0,94,113, 1) 100%);
   padding: 16px 30px;
   border-radius: 4px;
   border: none;
@@ -222,7 +222,7 @@ input[type="search"]::placeholder {
   justify-content: center;
   align-items: center;
   font-size: 18px;
-  font-weight: 400;
+  font-weight: 600;
   color: white;
   margin: 30px 0px 10px 0px;
 	&:hover {
@@ -247,7 +247,7 @@ input[type="search"]::placeholder {
 		border-bottom: 1px solid transparent;
 		&:hover {
 			color: #fff !important;
-			border-bottom: 1px solid #E361FD;
+			border-bottom: 1px solid #00b1f7;
 		}
 	}
 }
@@ -273,7 +273,7 @@ input[type="search"]::placeholder {
 
 .section-text {
   color: #5a5b75;
-  font-weight: 400;
+  font-weight: 600;
   margin: 12px 0px;
   font-size: 18px;
 }
@@ -441,7 +441,7 @@ input[type="search"]::placeholder {
   text-transform: uppercase;
   border-radius: 5px;
   color: #5a5b75;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 16px;
 }
 
@@ -461,20 +461,20 @@ input[type="search"]::placeholder {
   background: white;
   padding: 12px 22px;
   border-radius: 4px;
-  border: 1px solid #8147d2;
+  border: 1px solid #00b1f7;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   font-size: 18px;
-  font-weight: 400;
-  color: #8147d2;
+  font-weight: 600;
+  color: #00b1f7;
   margin: 30px 0px 10px 0px;
   font-weight: 700;
 
 	&:hover {
-		background: #7055ff;
-    background: linear-gradient(140deg, #7055ff 0%, #8c3db4 100%);
+		background: #55d7ff;
+    background: linear-gradient(140deg, #55d7ff 0%, #3d98b4 100%);
 		color: #fff;
 		box-shadow: 0 3px 7px #b7b7b7;
 	}
@@ -516,7 +516,7 @@ input[type="search"]::placeholder {
 }
 
 .text-highlight {
-  color: #8147d2;
+  color: #00b1f7;
 }
 
 .community-cards .row {

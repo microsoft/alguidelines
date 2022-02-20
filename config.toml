@@ -20,7 +20,7 @@ tag = "tags"
 
 [params.taxonomy]
 # set taxonomyCloud = [] to hide taxonomy clouds
-taxonomyCloud = []
+taxonomyCloud = ["tags", "categories"] 
 
 # If used, must have same lang as taxonomyCloud
 taxonomyCloudTitle = ["Tag Cloud", "Categories", "Authors"]
@@ -74,14 +74,14 @@ id = ""
 [languages.en]
 description = "Guidelines for when Developing AL for Microsoft Dynamics 365 Business Central"
 languageName = "English"
-title = "alguidelines.dev"
+title = "alguidelines.dev - Business Central Design Patterns"
 # Weight used for sorting.
 weight = 1
 
 # Everything below this are Site Params
 
 [params]
-copyright = "Copyright © 2020 alguidelines.dev Project"
+copyright = "alguidelines.dev Project"
 github_repo = "https://github.com/microsoft/alguidelines"
 github_project_repo = "https://github.com/microsoft/alguidelines"
 privacy_policy = ""
@@ -200,9 +200,9 @@ url = "/docs/"
 pre = "<i class='fas fa-book'></i>"
 weight = 10
 [[menu.main]]
-name = "Blog"
-url = "/blog/"
-pre = "<i class='fas fa-blog'></i>"
+name = "Discussions"
+url = "https://github.com/microsoft/alguidelines/discussions/"
+pre = "<i class='fas fa-comments'></i>"
 weight = 11
 [[menu.main]]
 name = "GitHub"
