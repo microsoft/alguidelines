@@ -1,1 +1,7 @@
 public/
+/node_modules/
+/resources/_gen/
+
+## Locking files for when working with local servers
+.hugo_build.lock
+package-lock.json

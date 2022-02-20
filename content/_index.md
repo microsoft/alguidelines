@@ -1,39 +1,278 @@
-+++
-title = "Home"
-+++
+---
+title: "ALGuidelines.dev"
+linkTitle: "ALGuidelines.dev"
+description: "Design Patterns and Guidelines for AL development for Microsoft Dynamics 365 Business Central"
+images: ["images/og-image-fission.png"]
+---
 
-## Business Central Design Patterns & Best Practices
+<div class="hero">
+  <div class="container">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-xl-7 col-lg-6 col-md-6 hero-section-mobile">
+        <h1 class="hero-title">
+          Guidelines and Patterns<br />
+          for Development for<br />
+          Microsoft Dynamics 365 Business Central
+        </h1>
+        <img
+          class="img-fluid hero-banner show-mobile-big"
+          src="/images/brainstorming-team-meeting_38894532.png"
+          alt-text="Teamwork Graphic"
+        />
+        <br />
+        <a href="https://www.youtube.com/watch?v=CWpaD9RUa6U"
+          ><button class="hero-big">
+            <i class="fab fa-youtube"></i>&nbsp;&nbsp; Watch the Launch
+          </button></a
+        >
+      </div>
 
-This site is meant to house some of the community's knowledge about Microsoft Dynamics 365 Business Central AL Development best practices, particularly around hosting Design Patterns.
+  <div class="col-xl-5 col-lg-6 col-md-6 show-desktop-big">
+        <img
+          class="img-fluid hero-banner"
+          src="/images/brainstorming-team-meeting_38894532.png"
+          alt-text="Teamwork Graphic"
+        />
+      </div>
+    </div>
+  </div>
+</div>
 
-### What are Design Patterns?
+<div class="body-container">
+  <div class="container">
+    <br />
+    <div class="row">
+      <div class="col-lg-5">
+        <h2 class="section-title">Design Patterns?</h2>
+        <p class="section-text-bold">
+          A "Design Pattern" is a software design template to solve common development needs.
+        </p>
+        <p class="section-text">
+          This site is community run and Microsoft endorsed.
+        </p>
+        <a href="/docs"
+          ><button class="hero-mid">Learn More</button></a
+        >
+      </div>
 
-To quote the original NAV Team blog post about the NAV Design Patterns:
+  <div class="col-lg-7">
+        <img
+          class="img-fluid show-mobile-margin"
+          src="/images/body-img-1.png"
+          alt-text="Design Patterns Banner"
+        />
+      </div>
+    </div>
+  </div>
+</div>
 
-> A team of people interested in NAV application design has come together to work on naming and surfacing design solutions to common NAV business needs. When those solutions are generic enough to be applied in various places of the NAV application, with slight variations on implementation but mainly respecting the same base concepts, we can describe them as NAV design patterns.
+<div class="wide-image show-desktop">
+  <img src="/images/wave.webp" class="big-waves" />
+</div>
 
-A design pattern is a repeatable template of how to solve a common development challenge.
+<div class="body-container push-up">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 center-text" style="margin-bottom: 50px">
+        <h2 class="section-title">Benefits</h2>
+      </div>
 
-### What are Development Best Practices?
+  <div class="col-lg-4">
+        <div class="card-shadow">
+          <h2 class="section-text-bold"><i class="fas fa-retweet"></i></h2>
+          <h4 class="section-text-bold">Repeatability</h4>
+          <p class="section-text">
+            By using consistent patterns and best practices, code is far more reusable across diverse projects.
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card-shadow">
+          <h2><i class="fas fa-people-carry"></i></h2>
+          <h4 class="section-text-bold">Teamwork</h4>
+          <p class="section-text">
+            If all code uses design patterns and best practices, it's simpler for new team members to ensure
+            that code is correct, as well as making it easier to jump into a project.
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card-shadow">
+          <h2><i class="fas fa-rocket"></i></h2>
+          <h4 class="section-text-bold">Performance</h4>
+          <p class="section-text">
+            Many design patterns and best practices are also heavily focused on ensuring compliance with
+            the latest performance recommendations to get the most out of every system.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+</div>
 
-(more text coming soon)
+<div class="wide-image show-desktop">
+  <img src="/images/wave.webp" class="big-waves" />
+</div>
 
-### History of "NAV Design Patterns"
+<div class="body-container whats-new">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 center-text" style="margin-bottom: 40px">
+        <h2 class="section-title">What's New</h2>
+      </div>
+      <div class="col-lg-4">
+        <div class="card-shadow">
+          <span class="card-badge">PATTERN</span>
+          <h4 class="section-text-bold mt-4">
+            Event Bridge
+          </h4>
+          <div class="card-shadow-content">
+            <p class="section-text">
+              In the world of interfaces, it is important to preserve (certain) events over multiple implementation of the interface.
+            </p>
+            <a href="/docs/patterns/event-bridge-pattern/">
+              <button class="hero-mid align-self-end">Read Now</button>
+            </a>
+          </div>
+        </div>
+      </div>
 
-In 2013, Microsoft NAV Dev Team and prominent members of the community collaborated on a Community and Microsoft collection of commonly needed / used Design Patterns.
+  <div class="col-lg-4">
+        <div class="card-shadow">
+          <span class="card-badge">BEST PRACTICE</span>
+          <h4 class="section-text-bold mt-4">
+            CASE Action on next line
+          </h4>
+          <div class="card-shadow-content">
+            <p class="section-text">
+              A CASE action should start on a line after the possibility.
+            </p>
+            <a href="/docs/bestpractices/case-actions/"
+              ><button class="hero-mid-2 align-self-end">Read Now</button></a
+            >
+          </div>
+        </div>
+      </div>
 
-For some history on this, waldo's posts [Code is Poetry](https://www.waldo.be/2013/06/14/code-is-poetry/) and [Design is Philosophy](https://www.waldo.be/2013/08/28/design-is-philosophy-2/) are a great read.
+  <div class="col-lg-4">
+        <div class="card-shadow">
+          <span class="card-badge">PATTERN</span>
+          <h4 class="section-text-bold mt-4">
+            Façade
+          </h4>
+          <div class="card-shadow-content">
+            <p class="section-text">
+             The intent of this pattern is to provide a unified API to a single or a collection of potentially complex subsystems.
+            </p>
+            <a
+              href="/docs/patterns/facade-pattern/"
+              ><button class="hero-mid-2 align-self-end">Read Now</button></a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
+<div class="body-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <br />
+        <br />
+        <h1 class="section-title">Join the Community</h1>
+        <br />
 
-#### Behind This Project
+  <div class="show-mobile">
+          <div class="community-cards">
+            <a href="https://discord.gg/4wbfNv3"
+              ><div class="card-shadow">
+                <div class="card-header-custom">
+                  <h2 style="padding-right: 0.8rem;"><i class="fab fa-discord"></i></h2>
+                  <h2 class="section-text-bold">Discord</h2>
+                </div>
+                <p class="section-text">
+                  Join the BC Community to engage with other BC Professionals.
+                </p>
+              </div></a
+            >
 
-This project is a Microsoft Business Central Community initiative with support from the Microsoft Business Central team.  The founding community members are
-* waldo ([Twitter](https://twitter.com/waldo1001), [Blog](https://www.waldo.be), [GitHub](https://github.com/waldo1001))
-* Arend-Jan Kauffmann ([Twitter](https://twitter.com/ajkauffmann), [Blog](https://www.kauffmann.nl/), [GitHub](https://github.com/ajkauffmann))
-* Henrik Helgesen ([Twitter](https://twitter.com/TheDoubleH), [Blog](https://thedoubleh.dev/), [GitHub](https://github.com/thedoubleh))
-* Jeremy Vyska ([Twitter](https://twitter.com/JeremyVyska),[Blog](https://jeremy.vyska.info/articles), [GitHub](https://github.com/JeremyVyska))
+  <a href="https://github.com/microsoft/alguidelines"
+              ><div class="card-shadow">
+                <div class="card-header-custom">
+                  <h2 style="padding-right: 0.8rem;"><i class="fab fa-github"></i></h2>
+                  <h2 class="section-text-bold">GitHub</h2>
+                </div>
+                <p class="section-text">
+                  Dive into the code. Submit PRs
+                  and collaborate with other like-minded contributors.
+                </p>
+              </div></a
+            >
+            <a href="https://twitter.com/search?q=%23bcalhelp"
+              ><div class="card-shadow twitter-card" style="margin-left: auto">
+                <div class="card-header-custom">
+                  <h2 style="padding-right: 0.8rem;"><i class="fab fa-twitter"></i></h2>
+                  <h2 class="section-text-bold">Twitter</h2>
+                </div>
+                <p class="section-text">
+                  Chat about this with the <b class="text-highlight">#bcalhelp</b> hashtag.
+                </p>
+              </div></a
+            >
+          </div>
+        </div>
+      </div>
 
-#### Contributing
-
-To find out more about contributing, read up here:
-[Contributing](/contributing/)
+  <div class="col-lg-8 community-cards show-desktop">
+        <div class="row">
+          <div class="col-lg-6">
+            <a href="https://discord.gg/4wbfNv3"
+              ><div class="card-shadow">
+                <div class="card-header-custom">
+                  <h2 style="padding-right: 0.8rem;"><i class="fab fa-discord"></i></h2>
+                  <h2 class="section-text-bold">Discord</h2>
+                </div>
+                <p class="section-text">
+                  Join the BC Community to engage with other BC Professionals.
+                </p>
+              </div></a
+            >
+          </div>
+          <div class="col-lg-6">
+            <a href="https://github.com/microsoft/alguidelines"
+              ><div class="card-shadow">
+                <div class="card-header-custom">
+                  <h2 style="padding-right: 0.8rem;"><i class="fab fa-github"></i></h2>
+                  <h2 class="section-text-bold">GitHub</h2>
+                </div>
+                <p class="section-text">
+                  Dive into the code.  Submit PRs
+                  and collaborate with other like-minded contributors.
+                </p>
+              </div></a
+            >
+          </div>
+          <div class="col-lg-6">
+            <a href="https://twitter.com/search?q=%23bcalhelp"
+              ><div
+                class="card-shadow twitter-card-desktop"
+                style="margin-left: auto"
+              >
+                <div class="card-header-custom">
+                  <h2 style="padding-right: 0.8rem;"><i class="fab fa-twitter"></i></h2>
+                  <h2 class="section-text-bold">Twitter</h2>
+                </div>
+                <p class="section-text">
+                  Chat about this with the <b class="text-highlight">#bcalhelp</b> hashtag.
+                </p>
+              </div></a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
