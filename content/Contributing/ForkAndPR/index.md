@@ -11,20 +11,22 @@ AL Guidelines is a community project, and as such YOU are encouraged to submit c
 
 If You are toying with an idea, but You aren't ready to create a document just yet, you are encouraged to create a project discussion thread here: https://github.com/microsoft/alguidelines/discussions
 
-{{% notice warning %}}
+{{% alert title="Warning" color="warning" %}}
+This is a warning.
 If You haven't worked in collaboration with "external" GitHub repositories before, please familiarize yourself with that process by visiting:
 
 https://docs.github.com/en/pull-requests/collaborating-with-pull-requests
 
-{{% /notice %}}
+{{% /alert %}}
 
 ## Steps
 Now that You have decided that You are ready to contribute, these are the steps to take.
-{{% notice info %}}
+{{% alert title="Note" color="info" %}}
 You can read more about this process here:
 
 https://docs.github.com/en/get-started/quickstart/contributing-to-projects
-{{% /notice %}}
+
+{{% /alert %}}
 
 ### Step 1: Fork
 In order to work on the repository, You must [Fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) the repository.
@@ -37,20 +39,20 @@ Once You have successfully forked the repository, go to your own GitHub reposito
 
 You are now able to clone your own repository to your local pc and start editing using your favorite editor. [Visual Studio Code](https://code.visualstudio.com/) is perfectly fine for this task.
 
-{{% notice info %}}
+{{% alert title="Note" color="info" %}}
 You can read more about forking here:
 
 https://docs.github.com/en/get-started/quickstart/fork-a-repo
-{{% /notice %}}
+{{% /alert %}}
 
 ### Step 2: Branch
 While not necessarily a must, it is always good practice to create a branch off of your forked repository. That will allow you to work on multiple contributions at the same time and won't have to wait for pull requests to be approved before you can continue on your next contribution.
 
-{{% notice info %}}
+{{% alert title="Note" color="info" %}}
 You can read more about Branches here:
 
 https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches
-{{% /notice %}}
+{{% /alert %}}
 ### Step 3: Pull Request
 Once you are happy with your contribution, it's time to create a pull request to propose changes into the main project! This is the final step in producing a fork of someone else's project, and arguably the most important. If you've made a change that you feel would benefit the community as a whole, you should definitely consider contributing back.
 
