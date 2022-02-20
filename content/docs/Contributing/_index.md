@@ -5,7 +5,7 @@ title = "Contributing"
 weight = 100
 +++
 
-# Contributing
+First off, we're glad you want to help!  The project team is kind and helpful, so if you're not sure if you have a good first contribution, make a [Discussion](https://github.com/microsoft/alguidelines/discussions/) about it or even just create your first try.  You'll get feedback and we will be happy to help refine it, if it even needs it.
 
 ## Code of Conduct
 
@@ -17,11 +17,11 @@ This project has adopted the Microsoft Open Source Code of Conduct. For more inf
 
 ## Steps to Contribute
 
-* [Guide to Fork & PR](/contributing/forkandpr/)
+* [Guide to Fork & PR](/docs/contributing/forkandpr/)
 * Templates:
-  - For [patterns](/contributing/templates/patterns/)
-  - For [guidelines](/contributing/templates/guidelines/)
-* [Understanding the Approval Process](/contributing/theapprovalprocess/)
+  - For [patterns](/docs/contributing/templates/patterns/)
+  - For [guidelines](/docs/contributing/templates/guidelines/)
+* [Understanding the Approval Process](/docs/contributing/theapprovalprocess/)
 
-Here are some [tips and tricks in terms of working with MarkDown and Hugo](/contributing/formattingtips/).
+Here are some [tips and tricks in terms of working with Markdown and Hugo](/docs/contributing/formattingtips/).
 
