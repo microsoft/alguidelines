@@ -30,6 +30,7 @@
 <link rel=preload href=/scss/main.min.465d5fa0bd58415aee47bc5a1c5d8deee19fe158cff814bc698ee863ea6b68eb.css as=style>
 <link href=/scss/main.min.465d5fa0bd58415aee47bc5a1c5d8deee19fe158cff814bc698ee863ea6b68eb.css rel=stylesheet integrity>
 <script src=https://code.jquery.com/jquery-3.6.0.min.js integrity=sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK crossorigin=anonymous></script>
+<script src=https://unpkg.com/lunr@2.3.9/lunr.min.js integrity=sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli crossorigin=anonymous></script>
 </head>
 <body class=td-section>
 <header>
@@ -55,7 +56,8 @@
 </li>
 </ul>
 </div>
-<div class="navbar-nav d-none d-lg-block"></div>
+<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.6d13347581f2cdfa89e23f0c68949bc2.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+</div>
 </nav>
 </header>
 <div class="container-fluid td-outer">
@@ -65,6 +67,7 @@
 <div id=td-sidebar-menu class=td-sidebar__inner>
 <div id=content-mobile>
 <form class="td-sidebar__search d-flex align-items-center">
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.6d13347581f2cdfa89e23f0c68949bc2.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation">
 </button>
 </form>
@@ -483,9 +486,9 @@
 </aside>
 <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
 <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
-<a href=https://github.com/microsoft/alguidelines/tree/master/content/en/docs/NAVPatterns/patterns/queries/_index.md class=td-page-meta--view target=_blank rel=noopener><i class="fa fa-file-alt fa-fw"></i> View page source</a>
-<a href=https://github.com/microsoft/alguidelines/edit/master/content/en/docs/NAVPatterns/patterns/queries/_index.md class=td-page-meta--edit target=_blank rel=noopener><i class="fa fa-edit fa-fw"></i> Edit this page</a>
-<a href="https://github.com/microsoft/alguidelines/new/master/content/en/docs/NAVPatterns/patterns/queries/_index.md?filename=change-me.md&value=---%0Atitle%3A+%22Long+Page+Title%22%0AlinkTitle%3A+%22Short+Nav+Title%22%0Aweight%3A+100%0Adescription%3A+%3E-%0A+++++Page+description+for+heading+and+indexes.%0A---%0A%0A%23%23+Heading%0A%0AEdit+this+template+to+create+your+new+page.%0A%0A%2A+Give+it+a+good+name%2C+ending+in+%60.md%60+-+e.g.+%60getting-started.md%60%0A%2A+Edit+the+%22front+matter%22+section+at+the+top+of+the+page+%28weight+controls+how+its+ordered+amongst+other+pages+in+the+same+directory%3B+lowest+number+first%29.%0A%2A+Add+a+good+commit+message+at+the+bottom+of+the+page+%28%3C80+characters%3B+use+the+extended+description+field+for+more+detail%29.%0A%2A+Create+a+new+branch+so+you+can+preview+your+new+file+and+request+a+review+via+Pull+Request.%0A" class=td-page-meta--child target=_blank rel=noopener><i class="fa fa-edit fa-fw"></i> Create child page</a>
+<a href=https://github.com/microsoft/alguidelines/tree/master/content/docs/NAVPatterns/patterns/queries/_index.md class=td-page-meta--view target=_blank rel=noopener><i class="fa fa-file-alt fa-fw"></i> View page source</a>
+<a href=https://github.com/microsoft/alguidelines/edit/master/content/docs/NAVPatterns/patterns/queries/_index.md class=td-page-meta--edit target=_blank rel=noopener><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+<a href="https://github.com/microsoft/alguidelines/new/master/content/docs/NAVPatterns/patterns/queries/_index.md?filename=change-me.md&value=---%0Atitle%3A+%22Long+Page+Title%22%0AlinkTitle%3A+%22Short+Nav+Title%22%0Aweight%3A+100%0Adescription%3A+%3E-%0A+++++Page+description+for+heading+and+indexes.%0A---%0A%0A%23%23+Heading%0A%0AEdit+this+template+to+create+your+new+page.%0A%0A%2A+Give+it+a+good+name%2C+ending+in+%60.md%60+-+e.g.+%60getting-started.md%60%0A%2A+Edit+the+%22front+matter%22+section+at+the+top+of+the+page+%28weight+controls+how+its+ordered+amongst+other+pages+in+the+same+directory%3B+lowest+number+first%29.%0A%2A+Add+a+good+commit+message+at+the+bottom+of+the+page+%28%3C80+characters%3B+use+the+extended+description+field+for+more+detail%29.%0A%2A+Create+a+new+branch+so+you+can+preview+your+new+file+and+request+a+review+via+Pull+Request.%0A" class=td-page-meta--child target=_blank rel=noopener><i class="fa fa-edit fa-fw"></i> Create child page</a>
 <a href="https://github.com/microsoft/alguidelines/issues/new?title=Queries" class=td-page-meta--issue target=_blank rel=noopener><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
 <a href=https://github.com/microsoft/alguidelines/issues/new class=td-page-meta--project-issue target=_blank rel=noopener><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
 </div>
@@ -592,6 +595,6 @@ Last modified February 20, 2022: <a href=https://github.com/microsoft/alguidelin
 <script src=https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js integrity=sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA==" crossorigin=anonymous></script>
 <script src=/js/tabpane-persist.js></script>
-<script src=/js/main.min.46b25eb30e292e80e9e18facc285e194199cf26288c5a1735cda89fb827eba54.js integrity="sha256-RrJesw4pLoDp4Y+swoXhlBmc8mKIxaFzXNqJ+4J+ulQ=" crossorigin=anonymous></script>
+<script src=/js/main.min.8ab8f81ff7e1454d30024cd6f956d4d341c3a97e2a673f988065f2ee4e147922.js integrity="sha256-irj4H/fhRU0wAkzW+VbU00HDqX4qZz+YgGXy7k4UeSI=" crossorigin=anonymous></script>
 </body>
 </html>
