@@ -85,6 +85,7 @@ copyright = "alguidelines.dev Project"
 github_repo = "https://github.com/microsoft/alguidelines"
 github_project_repo = "https://github.com/microsoft/alguidelines"
 privacy_policy = ""
+shorttitle = "alguidelines.dev"
 
 # Google Custom Search Engine ID. Remove or comment out to disable search.
 # gcs_engine_id = "c632b781ffe71b197"
