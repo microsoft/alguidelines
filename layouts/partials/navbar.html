@@ -2,7 +2,8 @@
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark {{ if $cover}} td-navbar-cover {{ end }}flex-column flex-md-row td-navbar">
         <a class="navbar-brand" href="{{ .Site.Home.RelPermalink }}">
 		    <img src="/images/alguidelines-bclogo-pattern-white.png" height="32px">
-            <span class="font-weight-bold">{{ .Site.Title }}</span>
+            <span class="font-weight-bold show-desktop">{{ .Site.Title }}</span>
+            <span class="font-weight-bold show-mobile" style="display: inline;">{{ .Site.Params.shorttitle }}</span>
 	    </a>
 	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
 		<ul class="navbar-nav mt-2 mt-lg-0">
