@@ -76,7 +76,7 @@ description = "Guidelines for when Developing AL for Microsoft Dynamics 365 Busi
 languageName = "English"
 title = "alguidelines.dev - Business Central Design Patterns"
 # Weight used for sorting.
-weight = 1
+#weight = 1
 
 # Everything below this are Site Params
 
@@ -90,6 +90,7 @@ shorttitle = "alguidelines.dev"
 # Google Custom Search Engine ID. Remove or comment out to disable search.
 # gcs_engine_id = "c632b781ffe71b197"
 #algolia_docsearch = true
+offlineSearch = true
 
 # current release branch - could be rc
 release_branch = "master"
