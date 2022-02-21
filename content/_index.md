@@ -187,8 +187,8 @@ images: ["images/og-image-fission.png"]
 
   <div class="show-mobile">
           <div class="community-cards">
-            <a href="https://discord.gg/4wbfNv3"
-              ><div class="card-shadow">
+            <a href="https://discord.gg/4wbfNv3">
+              <div class="card-shadow">
                 <div class="card-header-custom">
                   <h2 style="padding-right: 0.8rem;"><i class="fab fa-discord"></i></h2>
                   <h2 class="section-text-bold">Discord</h2>
@@ -196,11 +196,10 @@ images: ["images/og-image-fission.png"]
                 <p class="section-text">
                   Join the BC Community to engage with other BC Professionals.
                 </p>
-              </div></a
-            >
-
-  <a href="https://github.com/microsoft/alguidelines"
-              ><div class="card-shadow">
+              </div>
+            </a>
+            <a href="https://github.com/microsoft/alguidelines">
+              <div class="card-shadow">
                 <div class="card-header-custom">
                   <h2 style="padding-right: 0.8rem;"><i class="fab fa-github"></i></h2>
                   <h2 class="section-text-bold">GitHub</h2>
@@ -209,10 +208,10 @@ images: ["images/og-image-fission.png"]
                   Dive into the code. Submit PRs
                   and collaborate with other like-minded contributors.
                 </p>
-              </div></a
-            >
-            <a href="https://twitter.com/search?q=%23bcalhelp"
-              ><div class="card-shadow twitter-card" style="margin-left: auto">
+              </div>
+            </a>
+            <a href="https://twitter.com/search?q=%23bcalhelp">
+              <div class="card-shadow twitter-card" style="margin-left: auto">
                 <div class="card-header-custom">
                   <h2 style="padding-right: 0.8rem;"><i class="fab fa-twitter"></i></h2>
                   <h2 class="section-text-bold">Twitter</h2>
@@ -220,8 +219,8 @@ images: ["images/og-image-fission.png"]
                 <p class="section-text">
                   Chat about this with the <b class="text-highlight">#bcalhelp</b> hashtag.
                 </p>
-              </div></a
-            >
+              </div>
+            </a>
           </div>
         </div>
       </div>
