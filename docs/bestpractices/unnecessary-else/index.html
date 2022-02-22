@@ -25,13 +25,13 @@ Bad code procedureSomeProcedure() beginifIsAdjmtBinCodeChanged() thenError(Adjmt
 If you don&rsquo;t find the discussion of this guideline, please feel free to create a new one with the same title as this article.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://alguidelines.dev/docs/bestpractices/unnecessary-else/"><meta property="og:image" content="https://alguidelines.dev/images/og-image-fission.png"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2022-02-20T13:18:49+01:00"><meta property="og:site_name" content="alguidelines.dev - Business Central Design Patterns">
+<meta property="article:modified_time" content="2022-02-21T23:29:23-08:00"><meta property="og:site_name" content="alguidelines.dev - Business Central Design Patterns">
 <meta itemprop=name content="Unnecessary else">
 <meta itemprop=description content="Created by Microsoft, Described by waldo
 Description else should not be used when the last action in the then part is an exit, break, skip, quit, error.
 Bad code procedureSomeProcedure() beginifIsAdjmtBinCodeChanged() thenError(AdjmtBinCodeChangeNotAllowedErr,...) elseError(BinCodeChangeNotAllowedErr,...);end;Good code procedureSomeProcedure() beginifIsAdjmtBinCodeChanged() thenError(AdjmtBinCodeChangeNotAllowedErr,...) Error(BinCodeChangeNotAllowedErr,...);end;Discussions You can find discussions on all &ldquo;Best Practices&rdquo; here.
 If you don&rsquo;t find the discussion of this guideline, please feel free to create a new one with the same title as this article.">
-<meta itemprop=dateModified content="2022-02-20T13:18:49+01:00">
+<meta itemprop=dateModified content="2022-02-21T23:29:23-08:00">
 <meta itemprop=wordCount content="71"><meta itemprop=image content="https://alguidelines.dev/images/og-image-fission.png">
 <meta itemprop=keywords content="Readability,"><meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="https://alguidelines.dev/images/og-image-fission.png">
@@ -69,7 +69,7 @@ If you don&rsquo;t find the discussion of this guideline, please feel free to cr
 </li>
 </ul>
 </div>
-<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.6d13347581f2cdfa89e23f0c68949bc2.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.16155e6a127efbc5f5c6e1a4492dd4fd.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -80,7 +80,7 @@ If you don&rsquo;t find the discussion of this guideline, please feel free to cr
 <div id=td-sidebar-menu class=td-sidebar__inner>
 <div id=content-mobile>
 <form class="td-sidebar__search d-flex align-items-center">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.6d13347581f2cdfa89e23f0c68949bc2.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.16155e6a127efbc5f5c6e1a4492dd4fd.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation">
 </button>
 </form>
@@ -477,17 +477,17 @@ If you don&rsquo;t find the discussion of this guideline, please feel free to cr
 <a href=/docs/contributing/formattingtips/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docscontributingformattingtips><span>Formatting tips</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docscontributingforkandpr-li>
 <a href=/docs/contributing/forkandpr/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docscontributingforkandpr><span>Guide to Fork & PR</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docscontributingtheapprovalprocess-li>
+<a href=/docs/contributing/theapprovalprocess/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docscontributingtheapprovalprocess><span>Understanding the Approval Process</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docscontributingtemplates-li>
 <a href=/docs/contributing/templates/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docscontributingtemplates><span>Templates</span></a>
 <ul class="ul-3 foldable">
-<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docscontributingtemplatesguidelines-li>
-<a href=/docs/contributing/templates/guidelines/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docscontributingtemplatesguidelines><span>Title of the Guideline</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docscontributingtemplatespatterns-li>
-<a href=/docs/contributing/templates/patterns/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docscontributingtemplatespatterns><span>Title of the pattern</span></a>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docscontributingtemplatespatterns-li>
+<a href=/docs/contributing/templates/patterns/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docscontributingtemplatespatterns><span>Pattern Name</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docscontributingtemplatesbestpractice-li>
+<a href=/docs/contributing/templates/bestpractice/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docscontributingtemplatesbestpractice><span>Title Here</span></a>
 </li>
 </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docscontributingtheapprovalprocess-li>
-<a href=/docs/contributing/theapprovalprocess/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docscontributingtheapprovalprocess><span>Understanding the Approval Process</span></a>
 </li>
 </ul>
 </li>
@@ -527,8 +527,8 @@ If you don&rsquo;t find the discussion of this guideline, please feel free to cr
 <h5 class=taxonomy-title>Categories</h5>
 <ul class=taxonomy-terms>
 <li><a class=taxonomy-term href=https://alguidelines.dev/categories/archived-pattern/ data-taxonomy-term=archived-pattern><span class=taxonomy-label>Archived Pattern</span><span class=taxonomy-count>1</span></a></li>
-<li><a class=taxonomy-term href=https://alguidelines.dev/categories/best-practice/ data-taxonomy-term=best-practice><span class=taxonomy-label>Best Practice</span><span class=taxonomy-count>20</span></a></li>
-<li><a class=taxonomy-term href=https://alguidelines.dev/categories/pattern/ data-taxonomy-term=pattern><span class=taxonomy-label>Pattern</span><span class=taxonomy-count>3</span></a></li>
+<li><a class=taxonomy-term href=https://alguidelines.dev/categories/best-practice/ data-taxonomy-term=best-practice><span class=taxonomy-label>Best Practice</span><span class=taxonomy-count>21</span></a></li>
+<li><a class=taxonomy-term href=https://alguidelines.dev/categories/pattern/ data-taxonomy-term=pattern><span class=taxonomy-label>Pattern</span><span class=taxonomy-count>4</span></a></li>
 </ul>
 </div>
 </aside>
@@ -584,7 +584,7 @@ If you don&rsquo;t find the discussion of this guideline, please feel free to cr
 <p>You can find discussions on all &ldquo;Best Practices&rdquo; <a href=https://github.com/microsoft/alguidelines/discussions/categories/bc-best-practices>here</a>.</p>
 <p>If you don&rsquo;t find the discussion of this guideline, please feel free to create a new one with the same title as this article.</p>
 <div class="text-muted mt-5 pt-3 border-top">
-Last modified February 20, 2022: <a href=https://github.com/microsoft/alguidelines/commit/cceb0c945e0383599f497350ca254d5755edda65>Restructure for Docsy theme (cceb0c94)</a>
+Last modified February 21, 2022: <a href=https://github.com/microsoft/alguidelines/commit/eb783b94ff074295be3294b280f59dccffe02981>Cleanup and fix link (eb783b94)</a>
 </div>
 </div>
 </main>
