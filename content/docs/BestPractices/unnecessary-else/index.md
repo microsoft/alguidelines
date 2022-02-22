@@ -7,6 +7,7 @@ categories: ["Best Practice"]
 _Created by Microsoft, Described by waldo_
 
 ## Description
+
 `else` should not be used when the last action in the `then` part is an `exit`, `break`, `skip`, `quit`, `error`. 
 
 ## Bad code
@@ -22,6 +23,7 @@ _Created by Microsoft, Described by waldo_
 ```
 
 ## Good code
+
 ```al
     procedure SomeProcedure()
     begin
@@ -31,9 +33,8 @@ _Created by Microsoft, Described by waldo_
     end;
 ```
 
-
 ## [Discussions](https://github.com/microsoft/alguidelines/discussions/categories/bc-best-practices?discussions_q=unnecessary+else+category%3A%22BC+Best+Practices%22)
 
 You can find discussions on all "Best Practices" [here](https://github.com/microsoft/alguidelines/discussions/categories/bc-best-practices).
 
-If you don't find the discussion of this guideline, please feel free to create a new one with the same title as this article.  
+If you don't find the discussion of this guideline, please feel free to create a new one with the same title as this article.
