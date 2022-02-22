@@ -65,10 +65,10 @@ images: ["images/og-image-fission.png"]
     </div>
   </div>
 </div>
-
+<!-- 
 <div class="wide-image show-desktop">
   <img src="/images/wave.webp" class="big-waves" />
-</div>
+</div> -->
 
 <div class="body-container push-up">
   <div class="container">
@@ -111,9 +111,9 @@ images: ["images/og-image-fission.png"]
  
 </div>
 
-<div class="wide-image show-desktop">
+<!-- <div class="wide-image show-desktop">
   <img src="/images/wave.webp" class="big-waves" />
-</div>
+</div> -->
 
 <div class="body-container whats-new">
   <div class="container">
