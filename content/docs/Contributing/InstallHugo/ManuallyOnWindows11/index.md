@@ -20,7 +20,6 @@ C:\Hugo
 ├── Bin            # Binaries
 └┬─ Sites          # Hugo Site Repositories
  └── alguidelines  # Hugo Source for alguidelines.dev
-
 ```
 
 {{% /alert %}}
