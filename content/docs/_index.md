@@ -3,7 +3,7 @@ title: "AL Guidelines"
 linkTitle: Docs
 weight: 20
 description: >
-  Patterns and Best Practices for AL Develolpment
+  Patterns and Best Practices for AL Development
 ---
 
 ## Business Central Design Patterns & Best Practices
