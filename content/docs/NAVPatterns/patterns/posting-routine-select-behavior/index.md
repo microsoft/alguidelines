@@ -1,6 +1,8 @@
 +++
 title = "Posting Routine - Select Behavior"
 weight = 940
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 _By waldo_
 

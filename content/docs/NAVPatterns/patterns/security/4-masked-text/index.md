@@ -1,6 +1,8 @@
 +++
 title = "Masked Text"
 weight = 180
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 _By Bogdana Botez at Microsoft Development Center Copenhagen_
 

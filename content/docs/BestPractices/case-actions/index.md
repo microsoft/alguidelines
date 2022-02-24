@@ -1,6 +1,6 @@
 ---
 title: "CASE Action on next line"
-tags: ["Readability"]
+tags: ["AL","Readability"]
 categories: ["Best Practice"]
 ---
 

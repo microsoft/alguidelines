@@ -1,6 +1,8 @@
 +++
 title = "Discovery Event"
 weight = 500
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 _by waldo_
 

@@ -1,6 +1,8 @@
 +++
 title = "Sensitive Data Encapsulation"
 weight = 120
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 _By Bogdana Botez at Microsoft Development Center Copenhagen_
 

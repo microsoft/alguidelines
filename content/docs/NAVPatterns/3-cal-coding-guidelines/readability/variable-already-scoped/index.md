@@ -1,6 +1,8 @@
 +++
 title = "Variable Already Scoped"
 weight = 1400
+tags = ["C/AL","Readability"]
+categories = ["Best Practice"]
 +++
 Do not use scope ''.'' qualifier unnecessarily when a variable is already implicitly or explicitly scoped. It keeps the code simpler.
 

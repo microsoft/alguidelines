@@ -1,6 +1,8 @@
 +++
 title = "Conditional Cascading Update"
 weight = 370
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 _Originally by Jan Hoek at IDYN_
 

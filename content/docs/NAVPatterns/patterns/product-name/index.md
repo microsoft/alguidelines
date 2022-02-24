@@ -1,6 +1,8 @@
 +++
 title = "Product Name"
 weight = 950
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 #### **Abstract**
 

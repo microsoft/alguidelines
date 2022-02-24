@@ -1,6 +1,6 @@
 ---
 title: "Façade"
-tags: [""]
+tags: ["AL","Decoupling","Readability","Testability","Extendability"]
 categories: ["Pattern"]
 ---
 

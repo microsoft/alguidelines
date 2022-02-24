@@ -1,6 +1,8 @@
 +++
 title = "Initialized Variables"
 weight = 660
+tags = ["C/AL"]
+categories = ["Best Practice"]
 +++
 Variables should always be set to a specific value, before they are used.
 

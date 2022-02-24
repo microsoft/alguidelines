@@ -1,6 +1,6 @@
 ---
 title: "begin as an afterword"
-tags: ["Readability"]
+tags: ["AL","Readability"]
 categories: ["Best Practice"]
 ---
 

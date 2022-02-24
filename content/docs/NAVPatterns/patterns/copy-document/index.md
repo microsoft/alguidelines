@@ -1,6 +1,8 @@
 +++
 title = "Copy Document"
 weight = 390
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 _By Bogdan Sturzoiu at Microsoft Development Center Copenhagen_ 
 

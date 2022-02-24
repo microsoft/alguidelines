@@ -1,6 +1,6 @@
 ---
 title: "Variables Declarations Order"
-tags: ["Readability"]
+tags: ["AL","Readability"]
 categories: ["Best Practice"]
 ---
 

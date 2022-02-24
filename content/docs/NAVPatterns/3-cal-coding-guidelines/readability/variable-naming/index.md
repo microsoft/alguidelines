@@ -1,6 +1,8 @@
 +++
 title = "Variable Naming"
 weight = 1420
+tags = ["C/AL","Readability"]
+categories = ["Best Practice"]
 +++
 Variables that refer to a C/AL object must contain the objects name, abbreviated where necessary.
 

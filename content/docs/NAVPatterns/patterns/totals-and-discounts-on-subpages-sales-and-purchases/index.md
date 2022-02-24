@@ -1,6 +1,8 @@
 +++
 title = "Totals and Discounts on Subpages Sales and Purchases"
 weight = 1220
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 _By Nikola Kukrika at Microsoft Development Center Copenhagen_
 

@@ -1,6 +1,8 @@
 +++
 title = "Read-once Initialization and Validation"
 weight = 970
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 _By Tim Grant_
 

@@ -1,6 +1,8 @@
 +++
 title = "Unnecessary Compound Parenthesis"
 weight = 1260
+tags = ["C/AL","Readability"]
+categories = ["Best Practice"]
 +++
 Use parenthesis only to enclose compound expressions inside compound expressions.
 

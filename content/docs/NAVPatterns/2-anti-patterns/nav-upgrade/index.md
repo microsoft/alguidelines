@@ -1,6 +1,7 @@
 +++
 title = "Nav Upgrade"
 weight = 840
+tags = ["C/AL"]
 +++
 ## Anti-Patterns in NAV Upgrade
 

@@ -1,6 +1,6 @@
 ---
 title: "Seperate if and else"
-tags: ["Readability"]
+tags: ["AL","Readability"]
 categories: ["Best Practice"]
 ---
 

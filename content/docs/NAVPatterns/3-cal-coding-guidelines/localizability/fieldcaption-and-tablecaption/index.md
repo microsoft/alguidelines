@@ -1,6 +1,8 @@
 +++
 title = "FIELDCAPTION and TABLECAPTION"
 weight = 580
+tags = ["C/AL"]
+categories = ["Best Practice"]
 +++
 For user messages, errors etc., use FIELDCAPTION not FIELDNAME and TABLECAPTION not TABLENAME.
 

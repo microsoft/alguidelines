@@ -1,6 +1,8 @@
 +++
 title = "Surrogate keys using Autoincrement Pattern"
 weight = 630
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 _By [Soren Klemmensen][anchor0], [_Partner-Ready-Software_ ][anchor1] & [360 Visibility][anchor2]_
 

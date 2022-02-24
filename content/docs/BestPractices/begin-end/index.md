@@ -1,6 +1,6 @@
 ---
 title: "Begin-End - Compound Only"
-tags: ["Readability"]
+tags: ["AL","Readability"]
 categories: ["Best Practice"]
 ---
 

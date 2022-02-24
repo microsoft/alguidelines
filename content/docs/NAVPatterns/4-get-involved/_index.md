@@ -2,6 +2,7 @@
 chapter = true
 title = "(OLD) Get Involved"
 weight = 170
+tags = ["C/AL"]
 +++
 
 **Reminder, this is an ARCHIVE of the Patterns site, this information is not current.**

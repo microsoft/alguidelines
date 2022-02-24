@@ -1,6 +1,6 @@
 ---
 title: "Generic Method"
-tags: [""]
+tags: ["AL","Decoupling","Readability","Testability","Extendability"]
 categories: ["Pattern"]
 ---
 

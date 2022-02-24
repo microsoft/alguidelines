@@ -1,6 +1,8 @@
 +++
 title = "Unused Variables"
 weight = 1330
+tags = ["C/AL"]
+categories = ["Best Practice"]
 +++
 Do not declare variables that are unused.
 

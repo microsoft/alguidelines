@@ -1,6 +1,8 @@
 +++
 title = "FINDSET FINDFIRST FINDLAST"
 weight = 600
+tags = ["C/AL"]
+categories = ["Best Practice"]
 +++
 FINDSET, FIND('+') or FIND('-') should only be used when NEXT is used and vice versa.
 

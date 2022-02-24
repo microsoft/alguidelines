@@ -1,9 +1,9 @@
 ---
 title: "Line Start Keywords"
-tags: ["Readability"]
+tags: ["AL","Readability"]
 categories: ["Best Practice"]
 ---
-<_Created by Microsoft, Described by waldo_\>
+_Created by Microsoft, Described by waldo_
 
 ## Description
 The `end`, `if`, `repeat`, `for`, `while`, `else` and `case` statement should always start a line. 

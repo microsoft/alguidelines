@@ -1,6 +1,6 @@
 ---
 title: "Keyword Pairs - Indentation"
-tags: ["Readability"]
+tags: ["AL","Readability"]
 categories: ["Best Practice"]
 ---
 

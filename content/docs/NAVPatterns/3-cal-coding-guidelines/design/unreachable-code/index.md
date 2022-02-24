@@ -1,6 +1,8 @@
 +++
 title = "Unreachable Code"
 weight = 1310
+tags = ["C/AL"]
+categories = ["Best Practice"]
 +++
 Do not write code that will never be hit.
 

@@ -1,6 +1,8 @@
 +++
 title = "Error Message Processing"
 weight = 550
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 _By Jesper Schulz at Microsoft Development Center Copenhagen_
 

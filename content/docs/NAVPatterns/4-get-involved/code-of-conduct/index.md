@@ -1,6 +1,7 @@
 +++
 title = "Code of Conduct"
 weight = 330
+tags = ["C/AL"]
 +++
 Find below the rules to be used when disseminating or relating to the NAV Design Patterns.
 

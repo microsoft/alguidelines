@@ -1,6 +1,8 @@
 +++
 title = "Unnecessary Function Parenthesis"
 weight = 1280
+tags = ["C/AL","Readability"]
+categories = ["Best Practice"]
 +++
 Do not use parenthesis in a function call if the function does not have any parameters.
 

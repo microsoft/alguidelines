@@ -1,6 +1,8 @@
 +++
 title = "END ELSE Pair"
 weight = 540
+tags = ["C/AL","Readability"]
+categories = ["Best Practice"]
 +++
 The END ELSE pair should always appear on the same line.
 

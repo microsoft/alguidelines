@@ -1,6 +1,6 @@
 ---
 title: "Variable Naming"
-tags: ["Readability"]
+tags: ["AL","Readability"]
 categories: ["Best Practice"]
 ---
 

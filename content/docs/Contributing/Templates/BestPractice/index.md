@@ -1,6 +1,6 @@
 ---
 title: "Title Here"
-tags: []
+tags: ["AL"]
 categories: ["Best Practice"]
 ---
 

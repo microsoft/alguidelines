@@ -1,6 +1,8 @@
 +++
 title = "Internationalization"
 weight = 700
+tags = ["C/AL"]
+categories = ["Best Practice"]
 +++
 ## C/AL Coding Guidelines
 

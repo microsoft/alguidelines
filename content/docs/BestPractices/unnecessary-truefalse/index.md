@@ -1,6 +1,6 @@
 ---
 title: "Unnecessary true/false"
-tags: ["Readability"]
+tags: ["AL","Readability"]
 categories: ["Best Practice"]
 ---
 

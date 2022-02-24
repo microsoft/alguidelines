@@ -1,6 +1,8 @@
 +++
 title = "Instructions in the UI"
 weight = 670
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 _Originally by Nikola Kukrika at Microsoft Development Center Copenhagen_
 

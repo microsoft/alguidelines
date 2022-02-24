@@ -1,6 +1,8 @@
 +++
 title = "CASE Action"
 weight = 310
+tags = ["C/AL","Readability"]
+categories = ["Best Practice"]
 +++
 A CASE action should start on a line after the possibility.
 

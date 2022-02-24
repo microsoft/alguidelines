@@ -1,6 +1,6 @@
 ---
 title: "Named Invocations"
-tags: ["Readability"]
+tags: ["AL","Readability"]
 categories: ["Best Practice"]
 ---
 
