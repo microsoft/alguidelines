@@ -25,11 +25,3 @@ Therefore it's good practice to always check if the table is empty when performi
     if not EmptyTableWLD.IsEmpty() then
         EmptyTableWLD.DeleteAll(true);
 ```
-
-## Discussions
-
-You can discuss the guideline [here](https://github.com/microsoft/alguidelines/discussions/107)
-
-You can find discussions on all "Best Practices" [here](https://github.com/microsoft/alguidelines/discussions/categories/bc-best-practices).
-
-If you don't find the discussion of this guideline, please feel free to create a new one with the same title as this article.  

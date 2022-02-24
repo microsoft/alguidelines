@@ -109,7 +109,3 @@ The naming convention (both starting with "IScale") also makes it very easy to f
 ## When not to use
 
 Obviously, the events should be carefully considered: only the events that make sense to "share" over all implementations, need this approach.
-
-## Discussions
-
-You can discuss this pattern [here](https://github.com/microsoft/alguidelines/discussions/66)
