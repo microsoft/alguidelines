@@ -1,6 +1,8 @@
 +++
 title = "Document"
 weight = 510
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 _By Xavier Garonnat, knk Ingénierie (France), xgaronnat@knk.fr_
 

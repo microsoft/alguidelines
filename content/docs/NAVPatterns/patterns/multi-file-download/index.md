@@ -1,6 +1,8 @@
 +++
 title = "Multi-file Download"
 weight = 800
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 _By Martin Dam at Microsoft Development Center Copenhagen_
 

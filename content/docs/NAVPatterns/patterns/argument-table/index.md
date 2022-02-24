@@ -1,6 +1,8 @@
 +++
 title = "Argument Table"
 weight = 220
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 _Originally By Nikola Kukrika and waldo_
 

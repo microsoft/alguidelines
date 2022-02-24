@@ -1,6 +1,8 @@
 +++
 title = "Cyclomatic Complexity"
 weight = 460
+tags = ["C/AL"]
+categories = ["Best Practice"]
 +++
 Do not write functions that have high cyclomatic complexity. This makes the code hard to maintain.
 

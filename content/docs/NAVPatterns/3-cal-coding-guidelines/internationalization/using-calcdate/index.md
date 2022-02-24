@@ -1,6 +1,8 @@
 +++
 title = "Using Calcdate"
 weight = 1370
+tags = ["C/AL"]
+categories = ["Best Practice"]
 +++
 CALCDATE should only be used with DateFormula variables. Alternatively the string should be enclosed using the <> symbols.
 

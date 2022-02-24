@@ -1,6 +1,8 @@
 +++
 title = "Variable Capacity Mismatch"
 weight = 1410
+tags = ["C/AL"]
+categories = ["Best Practice"]
 +++
 Do not assign a value to a variable whose capacity is smaller.
 

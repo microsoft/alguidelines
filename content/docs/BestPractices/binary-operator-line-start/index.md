@@ -1,6 +1,6 @@
 ---
 title: "Binary Operator to Start Line"
-tags: ["Readability"]
+tags: ["AL","Readability"]
 categories: ["Best Practice"]
 ---
 

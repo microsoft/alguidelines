@@ -1,6 +1,6 @@
 ---
 title: "Event Bridge"
-tags: ["Interface"]
+tags: ["AL","Interface","Extendability"]
 categories: ["Pattern"]
 ---
 

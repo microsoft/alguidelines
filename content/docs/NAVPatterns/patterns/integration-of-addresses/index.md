@@ -1,6 +1,8 @@
 +++
 title = "Integration of Addresses"
 weight = 680
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 {{< youtube 60Wrx9N-gfY>}}
 

@@ -1,6 +1,6 @@
 ---
 title: "Unnecessary else"
-tags: ["Readability"]
+tags: ["AL","Readability"]
 categories: ["Best Practice"]
 ---
 

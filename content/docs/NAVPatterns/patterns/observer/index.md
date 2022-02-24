@@ -1,6 +1,8 @@
 +++
 title = "Observer"
 weight = 900
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 _By Nikolai L'Estrange, from TVision Technology Ltd. in the UK_
 

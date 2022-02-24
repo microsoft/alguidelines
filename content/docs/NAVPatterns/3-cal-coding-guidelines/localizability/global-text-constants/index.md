@@ -1,6 +1,8 @@
 +++
 title = "Global Text Constants"
 weight = 610
+tags = ["C/AL"]
+categories = ["Best Practice"]
 +++
 Declare Text Constant as global variables.
 

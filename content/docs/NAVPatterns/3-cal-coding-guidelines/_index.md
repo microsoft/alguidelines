@@ -2,6 +2,8 @@
 chapter = true
 title = "3. CAL Coding Guidelines"
 weight = 150
+tags = ["C/AL"]
+categories = ["Best Practice"]
 +++
 We've decided to publish our current C/AL coding guidelines. They are actual, as per January 2015 when this is published (but might fall out of sync as time goes by). 
 

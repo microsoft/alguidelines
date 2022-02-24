@@ -1,6 +1,8 @@
 +++
 title = "Hooks"
 weight = 620
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 _By Eric Wauters ([waldo][anchor0]), Partner-Ready-Software_
 

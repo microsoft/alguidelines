@@ -1,6 +1,8 @@
 +++
 title = "Create Data from Templates"
 weight = 400
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 _Originally by Nikola Kukrika at Microsoft Development Center Copenhagen_
 

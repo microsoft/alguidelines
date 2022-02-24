@@ -1,6 +1,8 @@
 +++
 title = "Readability"
 weight = 980
+tags = ["C/AL","Readability"]
+categories = ["Best Practice"]
 +++
 ## C/AL Coding Guidelines
 

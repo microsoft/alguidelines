@@ -1,6 +1,8 @@
 +++
 title = "TryFunction NET Exception Handling in CAL"
 weight = 1240
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 _Originally by Mostafa Balat, Microsoft Development Center Copenhagen_
 

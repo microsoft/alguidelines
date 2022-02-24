@@ -1,6 +1,8 @@
 +++
 title = "Notification Lifecycle Management Pattern"
 weight = 880
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 _By David Bastide at Microsoft Development Center Copenhagen_
 

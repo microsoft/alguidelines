@@ -1,6 +1,8 @@
 +++
 title = "Data Driven Blocked Entity"
 weight = 470
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 _Written by Bogdan Andrei Sturzoiu, at Microsoft Development Center Copenhagen_
 

@@ -1,6 +1,6 @@
 ---
 title: "Spacing Binary Operators"
-tags: ["Readability"]
+tags: ["AL","Readability"]
 categories: ["Best Practice"]
 ---
 

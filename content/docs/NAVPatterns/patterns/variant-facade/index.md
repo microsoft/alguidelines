@@ -1,6 +1,8 @@
 +++
 title = "Variant Facade"
 weight = 1440
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 _By Nikola Kukrika, waldo and Gary Winter_
 

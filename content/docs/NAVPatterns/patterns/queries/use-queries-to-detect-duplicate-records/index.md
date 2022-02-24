@@ -1,6 +1,8 @@
 +++
 title = "Use Queries to Detect Duplicate Records"
 weight = 1340
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 _Originally by Abshishek Ghosh and Bogdan Sturzoiu at Microsoft Development Center Copenhagen_
 

@@ -1,6 +1,8 @@
 +++
 title = "Currently Active Record"
 weight = 450
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 _Authors: Henrik Langbak and Kim Ginnerup, Bording Data_
 

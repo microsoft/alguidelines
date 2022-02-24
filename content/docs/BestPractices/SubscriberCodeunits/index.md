@@ -1,6 +1,6 @@
 ---
 title: "Subscriber Codeunits"
-tags: ["Performance"]
+tags: ["AL","Performance"]
 categories: ["Best Practice"]
 ---
 

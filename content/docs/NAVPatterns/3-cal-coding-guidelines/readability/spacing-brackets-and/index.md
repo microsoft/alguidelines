@@ -1,6 +1,8 @@
 +++
 title = "Spacing Brackets and ::"
 weight = 1130
+tags = ["C/AL","Readability"]
+categories = ["Best Practice"]
 +++
 There must be no spaces characters before and after [] dimension brackets symbols or :: option symbols.
 

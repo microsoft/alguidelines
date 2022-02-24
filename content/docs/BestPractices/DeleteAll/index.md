@@ -1,10 +1,10 @@
 ---
 title: "DeleteAll"
-tags: ["Performance"]
+tags: ["AL","Performance"]
 categories: ["Best Practice"]
 ---
 
-<_Created by waldo, Described by waldo_\>
+_Created by waldo, Described by waldo_
 
 ## Description
 

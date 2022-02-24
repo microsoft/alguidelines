@@ -1,6 +1,7 @@
 +++
 title = "Template for writing Nav Design Patterns"
 weight = 1180
+tags = ["C/AL"]
 +++
 This is a guideline, some parts are optional (if there's no content, remove the whole paragraph).
 

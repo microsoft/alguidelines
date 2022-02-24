@@ -1,6 +1,8 @@
 +++
 title = "Journal Template Batch Line"
 weight = 720
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 _Originally by Bogdana Botez at Microsoft Development Center Copenhagen_
 

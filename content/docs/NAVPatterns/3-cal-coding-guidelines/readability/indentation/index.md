@@ -1,6 +1,8 @@
 +++
 title = "Indentation"
 weight = 650
+tags = ["C/AL","Readability"]
+categories = ["Best Practice"]
 +++
 In general, use an indentation of two space characters. Logical expressions in the IF, WHILE, and UNTIL parts are indented at least 3, 6, and 6 spaces respectively.
 

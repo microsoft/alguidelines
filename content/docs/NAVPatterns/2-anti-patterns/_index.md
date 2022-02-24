@@ -2,6 +2,7 @@
 chapter = true
 title = "2. Anti-Patterns"
 weight = 130
+tags = ["C/AL"]
 +++
 Some of the software development practices, had **not** stood the test of time. Despite that, some are still being used today by developers everywhere.
 

@@ -1,6 +1,8 @@
 +++
 title = "Comment Spacing"
 weight = 360
+tags = ["C/AL","Readability"]
+categories = ["Best Practice"]
 +++
 Always start comments with // followed by one space character.
 

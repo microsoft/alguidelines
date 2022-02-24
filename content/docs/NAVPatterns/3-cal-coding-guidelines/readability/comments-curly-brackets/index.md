@@ -1,6 +1,8 @@
 +++
 title = "Comments inside Curly Brackets"
 weight = 350
+tags = ["C/AL","Readability"]
+categories = ["Best Practice"]
 +++
 Never use curly bracket comments. During development, the "Block comment" functionality can be used instead. However, in production code, block comments are not recommended.
 

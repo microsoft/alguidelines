@@ -1,6 +1,6 @@
 ---
 title: "Suggested Abbreviations"
-tags: ["Readability"]
+tags: ["AL","Readability"]
 categories: ["Best Practice"]
 ---
 

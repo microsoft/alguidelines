@@ -1,6 +1,6 @@
 ---
 title: "One Statement per Line"
-tags: ["Readability"]
+tags: ["AL","Readability"]
 categories: ["Best Practice"]
 ---
 

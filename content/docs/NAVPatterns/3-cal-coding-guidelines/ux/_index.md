@@ -1,6 +1,8 @@
 +++
 title = "UX"
 weight = 1390
+tags = ["C/AL"]
+categories = ["Best Practice"]
 +++
 ## C/AL Coding Guidelines
 

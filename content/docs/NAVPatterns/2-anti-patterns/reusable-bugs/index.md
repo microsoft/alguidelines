@@ -1,6 +1,7 @@
 +++
 title = "Reusable Bugs"
 weight = 1020
+tags = ["C/AL"]
 +++
 _By Bogdana Botez, Andreas Moth, Eric Wauters (waldo), Elly Nkya, Nikola Kukrika_
 

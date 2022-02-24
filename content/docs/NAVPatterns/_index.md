@@ -1,6 +1,7 @@
 +++
 title = "NAV Patterns Archive"
 weight = 20
+tags = ["C/AL"]
 +++
 
 ## About the archive
