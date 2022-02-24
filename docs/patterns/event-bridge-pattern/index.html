@@ -25,15 +25,15 @@ Context An app can have interfaces. It makes it possible for other apps to exten
 Like in this example, we have an interface, to implement different ways for getting weights from scales:">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://alguidelines.dev/docs/patterns/event-bridge-pattern/"><meta property="og:image" content="https://alguidelines.dev/images/og-image-fission.png"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2022-02-20T20:55:49+01:00"><meta property="og:site_name" content="alguidelines.dev - Business Central Design Patterns">
+<meta property="article:modified_time" content="2022-02-24T14:45:35+01:00"><meta property="og:site_name" content="alguidelines.dev - Business Central Design Patterns">
 <meta itemprop=name content="Event Bridge">
 <meta itemprop=description content="Created by waldo & Arend-Jan Kauffmann, Described by waldo
 Abstract In the world of interfaces, it is important to preserve (certain) events over multiple implementation of the interface.
 Context An app can have interfaces. It makes it possible for other apps to extend/change the implementations of a certain part of the business logic.
 Like in this example, we have an interface, to implement different ways for getting weights from scales:">
-<meta itemprop=dateModified content="2022-02-20T20:55:49+01:00">
+<meta itemprop=dateModified content="2022-02-24T14:45:35+01:00">
 <meta itemprop=wordCount content="306"><meta itemprop=image content="https://alguidelines.dev/images/og-image-fission.png">
-<meta itemprop=keywords content="Interface,"><meta name=twitter:card content="summary_large_image">
+<meta itemprop=keywords content="AL,Interface,Extendability,"><meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="https://alguidelines.dev/images/og-image-fission.png">
 <meta name=twitter:title content="Event Bridge">
 <meta name=twitter:description content="Created by waldo & Arend-Jan Kauffmann, Described by waldo
@@ -69,7 +69,7 @@ Like in this example, we have an interface, to implement different ways for gett
 </li>
 </ul>
 </div>
-<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.15c58480f48832fcc402771c708f2f1a.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.2b0c36478a8660f3dec37e0c539508bc.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -80,7 +80,7 @@ Like in this example, we have an interface, to implement different ways for gett
 <div id=td-sidebar-menu class=td-sidebar__inner>
 <div id=content-mobile>
 <form class="td-sidebar__search d-flex align-items-center">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.15c58480f48832fcc402771c708f2f1a.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.2b0c36478a8660f3dec37e0c539508bc.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation">
 </button>
 </form>
@@ -151,7 +151,7 @@ Like in this example, we have an interface, to implement different ways for gett
 <a href=/docs/navpatterns/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatterns><span>NAV Patterns Archive</span></a>
 <ul class="ul-2 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docsnavpatternspatterns-li>
-<a href=/docs/navpatterns/patterns/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatternspatterns><span>Patterns</span></a>
+<a href=/docs/navpatterns/patterns/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatternspatterns><span>1. Patterns</span></a>
 <ul class="ul-3 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsactivity-log-li>
 <a href=/docs/navpatterns/patterns/activity-log/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsactivity-log><span>Activity Logs</span></a>
@@ -519,19 +519,21 @@ Like in this example, we have an interface, to implement different ways for gett
 <div class="taxonomy taxonomy-terms-cloud taxo-tags">
 <h5 class=taxonomy-title>Tag Cloud</h5>
 <ul class=taxonomy-terms>
-<li><a class=taxonomy-term href=https://alguidelines.dev/tags/c/al/ data-taxonomy-term=c/al><span class=taxonomy-label>C/AL</span><span class=taxonomy-count>1</span></a></li>
+<li><a class=taxonomy-term href=https://alguidelines.dev/tags/al/ data-taxonomy-term=al><span class=taxonomy-label>AL</span><span class=taxonomy-count>25</span></a></li>
+<li><a class=taxonomy-term href=https://alguidelines.dev/tags/c/al/ data-taxonomy-term=c/al><span class=taxonomy-label>C/AL</span><span class=taxonomy-count>136</span></a></li>
+<li><a class=taxonomy-term href=https://alguidelines.dev/tags/decoupling/ data-taxonomy-term=decoupling><span class=taxonomy-label>Decoupling</span><span class=taxonomy-count>2</span></a></li>
+<li><a class=taxonomy-term href=https://alguidelines.dev/tags/extendability/ data-taxonomy-term=extendability><span class=taxonomy-label>Extendability</span><span class=taxonomy-count>3</span></a></li>
 <li><a class=taxonomy-term href=https://alguidelines.dev/tags/interface/ data-taxonomy-term=interface><span class=taxonomy-label>Interface</span><span class=taxonomy-count>1</span></a></li>
-<li><a class=taxonomy-term href=https://alguidelines.dev/tags/nav/ data-taxonomy-term=nav><span class=taxonomy-label>NAV</span><span class=taxonomy-count>1</span></a></li>
 <li><a class=taxonomy-term href=https://alguidelines.dev/tags/performance/ data-taxonomy-term=performance><span class=taxonomy-label>Performance</span><span class=taxonomy-count>2</span></a></li>
-<li><a class=taxonomy-term href=https://alguidelines.dev/tags/readability/ data-taxonomy-term=readability><span class=taxonomy-label>Readability</span><span class=taxonomy-count>18</span></a></li>
+<li><a class=taxonomy-term href=https://alguidelines.dev/tags/readability/ data-taxonomy-term=readability><span class=taxonomy-label>Readability</span><span class=taxonomy-count>53</span></a></li>
+<li><a class=taxonomy-term href=https://alguidelines.dev/tags/testability/ data-taxonomy-term=testability><span class=taxonomy-label>Testability</span><span class=taxonomy-count>2</span></a></li>
 </ul>
 </div>
 <div class="taxonomy taxonomy-terms-cloud taxo-categories">
 <h5 class=taxonomy-title>Categories</h5>
 <ul class=taxonomy-terms>
-<li><a class=taxonomy-term href=https://alguidelines.dev/categories/archived-pattern/ data-taxonomy-term=archived-pattern><span class=taxonomy-label>Archived Pattern</span><span class=taxonomy-count>1</span></a></li>
-<li><a class=taxonomy-term href=https://alguidelines.dev/categories/best-practice/ data-taxonomy-term=best-practice><span class=taxonomy-label>Best Practice</span><span class=taxonomy-count>21</span></a></li>
-<li><a class=taxonomy-term href=https://alguidelines.dev/categories/pattern/ data-taxonomy-term=pattern><span class=taxonomy-label>Pattern</span><span class=taxonomy-count>4</span></a></li>
+<li><a class=taxonomy-term href=https://alguidelines.dev/categories/best-practice/ data-taxonomy-term=best-practice><span class=taxonomy-label>Best Practice</span><span class=taxonomy-count>84</span></a></li>
+<li><a class=taxonomy-term href=https://alguidelines.dev/categories/pattern/ data-taxonomy-term=pattern><span class=taxonomy-label>Pattern</span><span class=taxonomy-count>68</span></a></li>
 </ul>
 </div>
 </aside>
@@ -555,7 +557,9 @@ Like in this example, we have an interface, to implement different ways for gett
 <div class="taxonomy taxonomy-terms-article taxo-tags">
 <h5 class=taxonomy-title>Tags:</h5>
 <ul class=taxonomy-terms>
+<li><a class=taxonomy-term href=https://alguidelines.dev/tags/al/ data-taxonomy-term=al><span class=taxonomy-label>AL</span></a></li>
 <li><a class=taxonomy-term href=https://alguidelines.dev/tags/interface/ data-taxonomy-term=interface><span class=taxonomy-label>Interface</span></a></li>
+<li><a class=taxonomy-term href=https://alguidelines.dev/tags/extendability/ data-taxonomy-term=extendability><span class=taxonomy-label>Extendability</span></a></li>
 </ul>
 </div>
 <div class="taxonomy taxonomy-terms-article taxo-categories">
@@ -645,7 +649,7 @@ When a new implementation is created, we need to make sure that these events are
 <h2 id=discussions>Discussions</h2>
 <p>You can discuss this pattern <a href=https://github.com/microsoft/alguidelines/discussions/66>here</a></p>
 <div class="text-muted mt-5 pt-3 border-top">
-Last modified February 20, 2022: <a href=https://github.com/microsoft/alguidelines/commit/871c538bfdd4bcddabb1cd58315de1dd3c6bf841>Massive rework and beautification (871c538b)</a>
+Last modified February 24, 2022: <a href=https://github.com/microsoft/alguidelines/commit/5ee0436639455a35835c5ce88241d3fad662ee06>Added tags & categories + cleanup (5ee04366)</a>
 </div>
 </div>
 </main>
