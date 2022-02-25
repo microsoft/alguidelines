@@ -5,8 +5,6 @@ description: >
   AL Code Best Practices
 ---
 
-# Business Central Best Practices
-
 This section will be cover things that aren't as simple as Design Patterns, but will help make sure your development is:
 
 - high-performance
