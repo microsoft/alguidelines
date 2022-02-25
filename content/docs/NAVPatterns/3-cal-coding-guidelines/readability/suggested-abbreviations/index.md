@@ -1,6 +1,8 @@
 +++
 title = "Suggested Abbreviations"
 weight = 1170
+tags = ["C/AL","Readability"]
+categories = ["Best Practice"]
 +++
 ### Suggested Abbreviations
 

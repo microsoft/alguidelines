@@ -1,6 +1,7 @@
 +++
 title = "Patterns Authors"
 weight = 930
+tags = ["C/AL"]
 +++
 This is the list of people that have been part of the NAV Design Patterns team. If you would like to join the project follow the instructions provided on [Be a NAV Pattern Author][anchor0] page.
 

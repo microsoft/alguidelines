@@ -1,6 +1,8 @@
 +++
 title = "Data Encryption"
 weight = 140
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 _By Bogdana Botez at Microsoft Development Center Copenhagen_
 

@@ -1,12 +1,13 @@
 ---
 title: "Named Invocations"
-tags: ["Readability"]
+tags: ["AL","Readability"]
 categories: ["Best Practice"]
 ---
 
 _Created by Microsoft, Described by waldo_
 
 ## Description
+
 When calling an object statically use the Object Name, not the Object Id.
 
 ## Bad code
@@ -20,9 +21,3 @@ When calling an object statically use the Object Name, not the Object Id.
 ```al
     Page.RunModal(Page::"Posted Sales Shipment Lines", SalesShptLine);
 ```
-
-## [Discussions](https://github.com/microsoft/alguidelines/discussions/categories/bc-best-practices?discussions_q=named+invocations+category%3A%22BC+Best+Practices%22)
-
-You can find discussions on all "Best Practices" [here](https://github.com/microsoft/alguidelines/discussions/categories/bc-best-practices).
-
-If you don't find the discussion of this guideline, please feel free to create a new one with the same title as this article. 

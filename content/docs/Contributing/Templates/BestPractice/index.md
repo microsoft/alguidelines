@@ -1,6 +1,6 @@
 ---
 title: "Title Here"
-tags: []
+tags: ["AL"]
 categories: ["Best Practice"]
 ---
 
@@ -29,11 +29,3 @@ PutCodeblocksHere()
 ```al
 PutCodeblocksHere()
 ```
-
-## Discussions
-
-Please discuss this guideline <!--[here](https://github.com/microsoft/alguidelines/discussions/42) Fix the link -->
-
-You can find discussions on all "Best Practices" [here](https://github.com/microsoft/alguidelines/discussions/categories/bc-best-practices).
-
-<!-- Create a discussions-page of your pattern, and add the sentence "You can discuss this pattern [here](https://github.com/microsoft/alguidelines/discussions/42)" with the right link to that discussions-page. -->

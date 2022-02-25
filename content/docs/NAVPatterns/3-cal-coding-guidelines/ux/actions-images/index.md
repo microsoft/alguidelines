@@ -1,6 +1,8 @@
 +++
 title = "Actions - Images"
 weight = 200
+tags = ["C/AL"]
+categories = ["Best Practice"]
 +++
 All actions must have an image assigned to them.
 

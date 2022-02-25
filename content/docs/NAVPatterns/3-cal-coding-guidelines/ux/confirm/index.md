@@ -1,6 +1,8 @@
 +++
 title = "CONFIRM"
 weight = 380
+tags = ["C/AL"]
+categories = ["Best Practice"]
 +++
 Always end CONFIRM with a question mark.
 

@@ -1,6 +1,7 @@
 +++
 title = "Related Links"
 weight = 990
+tags = ["C/AL"]
 +++
 Find below some related NAV Design Patterns links.
 

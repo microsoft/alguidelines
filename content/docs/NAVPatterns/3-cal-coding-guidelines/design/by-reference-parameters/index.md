@@ -1,6 +1,8 @@
 +++
 title = "By Reference Parameters"
 weight = 280
+tags = ["C/AL"]
+categories = ["Best Practice"]
 +++
 Do not declare parameters by reference if their values are not intended to be changed.
 

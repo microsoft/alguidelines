@@ -1,6 +1,8 @@
 +++
 title = "Singleton Table"
 weight = 1110
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 ## Singleton Table
 

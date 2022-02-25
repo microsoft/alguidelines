@@ -1,6 +1,8 @@
 +++
 title = "Class Coupling"
 weight = 320
+tags = ["C/AL"]
+categories = ["Best Practice"]
 +++
 Do not write functions that have high class coupling. This makes the code hard to maintain.
 

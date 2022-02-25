@@ -1,6 +1,8 @@
 +++
 title = "Use Text Constants"
 weight = 1360
+tags = ["C/AL"]
+categories = ["Best Practice"]
 +++
 Pass user messages using Text Constants. It makes translation easy.
 

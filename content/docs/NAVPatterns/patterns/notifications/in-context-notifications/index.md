@@ -1,6 +1,8 @@
 +++
 title = "In-context Notifications"
 weight = 640
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 _By Soumya Dutta at Microsoft Development Center Copenhagen_
 

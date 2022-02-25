@@ -1,6 +1,8 @@
 +++
 title = "SELECT DISTINCT with Queries"
 weight = 1040
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 _By Bogdana Botez, at Microsoft Development Center Copenhagen_
 

@@ -1,6 +1,6 @@
 ---
 title: "begin as an afterword"
-tags: ["Readability"]
+tags: ["AL","Readability"]
 categories: ["Best Practice"]
 ---
 
@@ -27,8 +27,3 @@ When `begin` follows `then`, `else`, `do`, it should be on the same line, preced
     end;
 ```
 
-## Discussion
-
-Discuss this Best Practice [here](https://github.com/microsoft/alguidelines/discussions/123)
-
-You can find discussions on all "Best Practices" [here](https://github.com/microsoft/alguidelines/discussions/categories/bc-best-practices).

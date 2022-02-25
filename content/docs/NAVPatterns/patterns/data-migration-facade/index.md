@@ -1,6 +1,8 @@
 +++
 title = "Data Migration Façade"
 weight = 480
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 _By David Bastide and Soumya Dutta at Microsoft Development Center Copenhagen_
 

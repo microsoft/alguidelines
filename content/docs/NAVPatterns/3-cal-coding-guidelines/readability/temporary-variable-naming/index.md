@@ -1,6 +1,8 @@
 +++
 title = "Temporary Variable Naming"
 weight = 1200
+tags = ["C/AL","Readability"]
+categories = ["Best Practice"]
 +++
 The name of a temporary variable must be prefixed with the word Temp and not otherwise.
 

@@ -1,6 +1,8 @@
 +++
 title = "Easy Update Of Setup Or Supplementary Information"
 weight = 520
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 _Originally by Anders Larsen at Microsoft Development Center Copenhagen_
 

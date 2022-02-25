@@ -1,6 +1,8 @@
 +++
 title = "Setup Specificity Fallback"
 weight = 1060
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 _By Jan Hoek at IDYN_
 

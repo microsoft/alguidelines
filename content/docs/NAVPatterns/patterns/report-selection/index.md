@@ -1,6 +1,8 @@
 +++
 title = "Report Selection"
 weight = 1010
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 From the PRS workshop at NAVTechDays 2013, this pattern was written by 2 work groups
 

@@ -1,8 +1,8 @@
----
-title: "Pattern Name"
-tags: []
-categories: ["Pattern"]
----
++++
+title = "Pattern Name"
+tags = ["AL"]
+categories = ["Pattern"]
++++
 
 <!-- This is a guideline, some parts are optional (if there's no content, remove the whole paragraph). -->
 
@@ -44,11 +44,3 @@ Usually, there are occasions where NOT to implement the pattern.  List the disad
 ## List of references
 
 Youtube-link? BaseApp? Tweet? ...
-
-## Discussions
-
-Please discuss this guideline <!--[here](https://github.com/microsoft/alguidelines/discussions/42) Fix the link -->
-
-You can find discussions on all "Best Practices" [here](https://github.com/microsoft/alguidelines/discussions/categories/bc-patterns).
-
-<!-- Create a discussions-page of your pattern, and add the sentence "You can discuss this pattern [here](https://github.com/microsoft/alguidelines/discussions/42)" with the right link to that discussions-page. -->

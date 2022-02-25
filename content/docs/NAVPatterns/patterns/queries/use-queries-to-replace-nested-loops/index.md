@@ -1,6 +1,8 @@
 +++
 title = "Use Queries to Replace Nested Loops"
 weight = 1350
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 _Originally by Bogdan Sturzoiu, Microsoft Development Center Copenhagen_
 

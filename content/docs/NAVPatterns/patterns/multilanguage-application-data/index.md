@@ -1,6 +1,8 @@
 +++
 title = "Multilanguage Application Data"
 weight = 820
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 _Originally by Bogdana Botez at Microsoft Development Center Copenhagen_
 

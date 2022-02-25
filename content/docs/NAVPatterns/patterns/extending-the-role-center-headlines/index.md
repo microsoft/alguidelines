@@ -1,6 +1,8 @@
 +++
 title = "Extending the Role Center Headlines"
 weight = 560
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 _By David Bastide at Microsoft Development Center Copenhagen_
 

@@ -1,6 +1,6 @@
 ---
 title: "Façade"
-tags: [""]
+tags: ["AL","Decoupling","Readability","Testability","Extendability"]
 categories: ["Pattern"]
 ---
 
@@ -9,6 +9,7 @@ _Created by Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides (Gang of Fo
 ## Abstract
 
 The intent of this pattern is to provide a unified API to a single or a collection of potentially complex subsystems. If you apply this pattern as a general pattern, you will ensure improved:
+
 - Decoupling
 - Encapsulation
 - Readability
@@ -22,6 +23,7 @@ Whenever you want to write an isolated piece of business logic, from now on refe
 ## Problem
 
 The facade pattern addresses two main problems:
+
 - Over time as systems grow, they tend to become complex and harder to comprehend. By adding a facade on top of the subsystem, that complexity is hidden, and a clear API is defined.
 - Any object or method which is publicly accessible, may not receive breaking changes in future releases without announced deprecation. This complicates maintainability of the system. By adding a facade, you ensure that the subsystem is inaccessible to the outside systems, enabling you to change the implementation details of the subsystem at will.
 
@@ -59,7 +61,7 @@ This is arguably one of easiest patterns to understand and implement. Loosely sp
 
 To achieve this, we are using [access modifiers](https://docs.microsoft.com/bs-cyrl-ba/dynamics365/business-central/dev-itpro/developer/devenv-using-access-modifiers). Let's try to take a look at an example, taken from the system application: [the Image module](https://github.com/microsoft/ALAppExtensions/tree/main/Modules/System/Image). I'm using this very simplified example for illustration purposes. Notice, that even the full subsystem at time of writing isn't complex - it merely has a single codeunit containing the implementation details. However, as it is expected that the complexity will increase over time or that the implementation details can change, the subsystem is already equipped with a facade from the beginning.
 
-*The Facade*
+_The Facade_
 
 ```AL
 codeunit 3971 Image
@@ -90,6 +92,7 @@ codeunit 3971 Image
 ```
 
 The facade codeunit above has some characteristics:
+
 - Access is explicitly set to Public, to underline that this is a facade.
 - All methods are public.
 - All methods are documented.
@@ -102,7 +105,7 @@ Anyone who wants to access the subsystem, will only have to relate to this one p
 
 Test of the subsystem can be limited to testing the facade - it is strictly speaking the only thing that needs verification, that it functions as designed. It is the contract of the subsystem.
 
-*The Subsystem*
+_The Subsystem_
 
 ```AL
 codeunit 3970 "Image Impl."
@@ -135,6 +138,7 @@ codeunit 3970 "Image Impl."
 There are no rules for the subsystem, except that access needs to be **internal**. How you implement, how much you document, how you test, is entirely up to you and not the business of the outside caller. Of course, you should apply all of the best practices and patterns anyway, as you and possibly other developers will have to understand, extend and maintain the subsystem too. But from the view of this pattern, the complexity of the subsystem is irrelevant - just as long as it's not accessible.
 
 ## Usage
+
 The facade pattern is one of the most prominent patterns in the [system application](https://github.com/microsoft/ALAppExtensions/tree/main/Modules/System). You will find plenty of examples here.
 
 ## Benefits
@@ -142,18 +146,23 @@ The facade pattern is one of the most prominent patterns in the [system applicat
 The benefits of this rather simple pattern should be abundantly clear by now. But let's go over them once more, structured by the advantages this patterns brings:
 
 ### Decoupling
+
 As the entire subsystem is inaccessible to outside systems, no dependencies can be taken. Hence this patterns strongly promotes the decoupling of objects.
 
 ### Encapsulation
+
 The entire purpose of this very pattern is to encapsulate complexity; you hide away the implementation details behind an easy to understand facade.
 
 ### Readability
+
 If done right, the developer doesn't need to be able to understand the details of the subsystem. Everything relevant to using the subsystem is described in the facade.
 
 ### Testability
+
 Ensuring the correct behaviour of the subsystem can be done by testing the facade. The facade defines the contract of your subsystem - what does it expose and how should it behave. That contract should be covered with adequate tests, which will ensure that it is upheld, even if you decide to change the implementation of the subsystem.
 
 ### Maintainability
+
 The one thing you may not change freely, is the facade and the test of the facade. It can be extended, but you should not break any existing APIs. But that leaves the entire subsystem to be completely rewritten, if you desire to do so. As no external dependencies can exist, there is no risk of introducing any syntactical breaking changes to the outside world. And as the tests of the public facade remain, there is no risk of introducing semantical breaking changes either - the contract is upheld, as long as your tests pass.
 
 ## When not to use
@@ -173,6 +182,3 @@ This is one of the most commonly used and discussed, initially described here:
 It is also a key pattern in the design of our system application modules, which is described here:
 
 [Module Architecture](https://docs.microsoft.com/en-us/dynamics365/business-central/dev-itpro/developer/devenv-blueprint)
-
-## Discussions
-You can discuss this pattern [here](https://github.com/microsoft/alguidelines/discussions/42)

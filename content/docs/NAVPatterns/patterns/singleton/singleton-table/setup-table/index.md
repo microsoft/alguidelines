@@ -1,6 +1,8 @@
 +++
 title = "Setup Table"
 weight = 1070
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 _By Abhishek Ghosh, at Microsoft Development Center Copenhagen_
 

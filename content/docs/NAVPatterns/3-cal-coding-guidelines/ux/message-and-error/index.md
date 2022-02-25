@@ -1,6 +1,8 @@
 +++
 title = "MESSAGE and ERROR"
 weight = 790
+tags = ["C/AL"]
+categories = ["Best Practice"]
 +++
 Always end MESSAGE or ERROR with a period.
 

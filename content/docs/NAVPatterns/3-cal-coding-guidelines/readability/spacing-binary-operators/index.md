@@ -1,6 +1,8 @@
 +++
 title = "Spacing Binary Operators"
 weight = 1120
+tags = ["C/AL","Readability"]
+categories = ["Best Practice"]
 +++
 There must be exactly one space character on each side of a binary operator such as = + - AND OR =. The parameter comma operator however, should have no spaces.
 
