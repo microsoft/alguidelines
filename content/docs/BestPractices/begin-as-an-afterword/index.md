@@ -8,7 +8,7 @@ _Created by Microsoft, Described by waldo_
 
 ## Description
 
-When `begin` follows `then`, `else`, `do`, it should be on the same line, preceded by one space character. 
+When `begin` follows `then`, `else`, `do`, it should be on the same line, preceded by one space character.
 
 ## Bad code
 
@@ -26,3 +26,4 @@ When `begin` follows `then`, `else`, `do`, it should be on the same line, preced
     ...
     end;
 ```
+
