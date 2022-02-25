@@ -129,9 +129,7 @@ In Business Central, all modules in the System Application are subsystems. Examp
 &lt;p>This is one of the most commonly used and discussed, initially described here:&lt;/p>
 &lt;p>&lt;a href="https://archive.org/details/designpatternsel00gamm/page/185">Design Patterns: Elements of Reusable Object-Oriented Software&lt;/a>. Addison Wesley. pp. 185ff. ISBN 0-201-63361-2.&lt;/p>
 &lt;p>It is also a key pattern in the design of our system application modules, which is described here:&lt;/p>
-&lt;p>&lt;a href="https://docs.microsoft.com/en-us/dynamics365/business-central/dev-itpro/developer/devenv-blueprint">Module Architecture&lt;/a>&lt;/p>
-&lt;h2 id="discussions">Discussions&lt;/h2>
-&lt;p>You can discuss this pattern &lt;a href="https://github.com/microsoft/alguidelines/discussions/42">here&lt;/a>&lt;/p></description></item><item><title>Docs: Generic Method</title><link>https://alguidelines.dev/docs/patterns/generic-method-pattern/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/patterns/generic-method-pattern/</guid><description>
+&lt;p>&lt;a href="https://docs.microsoft.com/en-us/dynamics365/business-central/dev-itpro/developer/devenv-blueprint">Module Architecture&lt;/a>&lt;/p></description></item><item><title>Docs: Generic Method</title><link>https://alguidelines.dev/docs/patterns/generic-method-pattern/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/patterns/generic-method-pattern/</guid><description>
 &lt;p>&lt;em>Created by Gary Winter (Cloud Ready Software), Described by waldo (iFacto Business Solutions | Dynex)&lt;/em>&lt;/p>
 &lt;h2 id="abstract">Abstract&lt;/h2>
 &lt;p>The goal of this pattern is to facilitate a lot of things in one single awesome way of writing code. If you apply this pattern as a general pattern, you&amp;rsquo;ll implement:&lt;/p>
@@ -398,6 +396,4 @@ And because of that, it so much more maintainable, upgradable, readable, .. . On
 &lt;p>There have been a number of occasions where people have been sharing this pattern. Here is one:&lt;/p>
 &lt;div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
 &lt;iframe src="https://www.youtube.com/embed/CWpaD9RUa6U" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video">&lt;/iframe>
-&lt;/div>
-&lt;h2 id="discussions">Discussions&lt;/h2>
-&lt;p>You can discuss this pattern &lt;a href="https://github.com/microsoft/alguidelines/discussions/41">here&lt;/a>&lt;/p></description></item></channel></rss>
+&lt;/div></description></item></channel></rss>

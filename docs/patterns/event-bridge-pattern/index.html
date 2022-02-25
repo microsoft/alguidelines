@@ -25,14 +25,14 @@ Context An app can have interfaces. It makes it possible for other apps to exten
 Like in this example, we have an interface, to implement different ways for getting weights from scales:">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://alguidelines.dev/docs/patterns/event-bridge-pattern/"><meta property="og:image" content="https://alguidelines.dev/images/og-image-fission.png"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2022-02-24T14:45:35+01:00"><meta property="og:site_name" content="alguidelines.dev - Business Central Design Patterns">
+<meta property="article:modified_time" content="2022-02-24T15:36:06-08:00"><meta property="og:site_name" content="alguidelines.dev - Business Central Design Patterns">
 <meta itemprop=name content="Event Bridge">
 <meta itemprop=description content="Created by waldo & Arend-Jan Kauffmann, Described by waldo
 Abstract In the world of interfaces, it is important to preserve (certain) events over multiple implementation of the interface.
 Context An app can have interfaces. It makes it possible for other apps to extend/change the implementations of a certain part of the business logic.
 Like in this example, we have an interface, to implement different ways for getting weights from scales:">
-<meta itemprop=dateModified content="2022-02-24T14:45:35+01:00">
-<meta itemprop=wordCount content="306"><meta itemprop=image content="https://alguidelines.dev/images/og-image-fission.png">
+<meta itemprop=dateModified content="2022-02-24T15:36:06-08:00">
+<meta itemprop=wordCount content="299"><meta itemprop=image content="https://alguidelines.dev/images/og-image-fission.png">
 <meta itemprop=keywords content="AL,Interface,Extendability,"><meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="https://alguidelines.dev/images/og-image-fission.png">
 <meta name=twitter:title content="Event Bridge">
@@ -69,7 +69,7 @@ Like in this example, we have an interface, to implement different ways for gett
 </li>
 </ul>
 </div>
-<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.2b0c36478a8660f3dec37e0c539508bc.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.446cc05ee9bff165bd123d203082adb7.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -80,7 +80,7 @@ Like in this example, we have an interface, to implement different ways for gett
 <div id=td-sidebar-menu class=td-sidebar__inner>
 <div id=content-mobile>
 <form class="td-sidebar__search d-flex align-items-center">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.2b0c36478a8660f3dec37e0c539508bc.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.446cc05ee9bff165bd123d203082adb7.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation">
 </button>
 </form>
@@ -514,7 +514,6 @@ Like in this example, we have an interface, to implement different ways for gett
 <li><a href=#description>Description</a></li>
 <li><a href=#benefits>Benefits</a></li>
 <li><a href=#when-not-to-use>When not to use</a></li>
-<li><a href=#discussions>Discussions</a></li>
 </ul>
 </nav></div>
 <div class="taxonomy taxonomy-terms-cloud taxo-tags">
@@ -647,10 +646,8 @@ When a new implementation is created, we need to make sure that these events are
 <p>The naming convention (both starting with &ldquo;IScale&rdquo;) also makes it very easy to find that corresponding events for the interface.</p>
 <h2 id=when-not-to-use>When not to use</h2>
 <p>Obviously, the events should be carefully considered: only the events that make sense to &ldquo;share&rdquo; over all implementations, need this approach.</p>
-<h2 id=discussions>Discussions</h2>
-<p>You can discuss this pattern <a href=https://github.com/microsoft/alguidelines/discussions/66>here</a></p>
 <div class="text-muted mt-5 pt-3 border-top">
-Last modified February 24, 2022: <a href=https://github.com/microsoft/alguidelines/commit/5ee0436639455a35835c5ce88241d3fad662ee06>Added tags & categories + cleanup (5ee04366)</a>
+Last modified February 24, 2022: <a href=https://github.com/microsoft/alguidelines/commit/fb17dc9640ceef53d1f3b8bbf9e9791ef92fabbc>Removed Discussion Links. Using new Theme solution. (fb17dc96)</a>
 </div>
 </div>
 </main>

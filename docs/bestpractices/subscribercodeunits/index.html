@@ -25,14 +25,14 @@ Description In general, subscribers have to be put in codeunits. There are a few
 Keep the codeunit as small as possible Every time a subscriber gets called, a new instance of the codeunit is being loaded in memory, which takes memory and processing power.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://alguidelines.dev/docs/bestpractices/subscribercodeunits/"><meta property="og:image" content="https://alguidelines.dev/images/og-image-fission.png"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2022-02-24T14:45:35+01:00"><meta property="og:site_name" content="alguidelines.dev - Business Central Design Patterns">
+<meta property="article:modified_time" content="2022-02-24T15:36:06-08:00"><meta property="og:site_name" content="alguidelines.dev - Business Central Design Patterns">
 <meta itemprop=name content="Subscriber Codeunits">
 <meta itemprop=description content="Created by waldo, Described by waldo
 Description In general, subscribers have to be put in codeunits. There are a few performance considerations that you should keep in the back of your minds, when designing such a codeunit.
  Keep the codeunit as small as possible Work with a single instance codeunit only subscribe when necessary Avoid generic OnInsert/OnModify/OnDelete  Let&rsquo;s discuss all points
 Keep the codeunit as small as possible Every time a subscriber gets called, a new instance of the codeunit is being loaded in memory, which takes memory and processing power.">
-<meta itemprop=dateModified content="2022-02-24T14:45:35+01:00">
-<meta itemprop=wordCount content="552"><meta itemprop=image content="https://alguidelines.dev/images/og-image-fission.png">
+<meta itemprop=dateModified content="2022-02-24T15:36:06-08:00">
+<meta itemprop=wordCount content="512"><meta itemprop=image content="https://alguidelines.dev/images/og-image-fission.png">
 <meta itemprop=keywords content="AL,Performance,"><meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="https://alguidelines.dev/images/og-image-fission.png">
 <meta name=twitter:title content="Subscriber Codeunits">
@@ -69,7 +69,7 @@ Keep the codeunit as small as possible Every time a subscriber gets called, a ne
 </li>
 </ul>
 </div>
-<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.2b0c36478a8660f3dec37e0c539508bc.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.446cc05ee9bff165bd123d203082adb7.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -80,7 +80,7 @@ Keep the codeunit as small as possible Every time a subscriber gets called, a ne
 <div id=td-sidebar-menu class=td-sidebar__inner>
 <div id=content-mobile>
 <form class="td-sidebar__search d-flex align-items-center">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.2b0c36478a8660f3dec37e0c539508bc.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.446cc05ee9bff165bd123d203082adb7.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation">
 </button>
 </form>
@@ -528,7 +528,6 @@ Keep the codeunit as small as possible Every time a subscriber gets called, a ne
 </ul>
 </li>
 <li><a href=#avoid-oninsertonmodifyondelete>Avoid OnInsert/OnModify/OnDelete</a></li>
-<li><a href=#discussionshttpsgithubcommicrosoftalguidelinesdiscussions92><a href=https://github.com/microsoft/alguidelines/discussions/92>Discussions</a></a></li>
 <li><a href=#references>References</a></li>
 </ul>
 </nav></div>
@@ -739,14 +738,10 @@ Keep the codeunit as small as possible Every time a subscriber gets called, a ne
 <li>Any &ldquo;OnDelete&rdquo; subscriber slows down the &ldquo;DeleteAll&rdquo;, simply because it needs to perform an operation after every record that was deleted. I fact: 1 SQL call is turned into a loop of SQL calls.</li>
 </ul>
 <p>Avoid subscribers to these events.</p>
-<h2 id=discussionshttpsgithubcommicrosoftalguidelinesdiscussions92><a href=https://github.com/microsoft/alguidelines/discussions/92>Discussions</a></h2>
-<p>You can discuss this guidelines <a href=https://github.com/microsoft/alguidelines/discussions/92>here</a>.</p>
-<p>You can find discussions on all &ldquo;Best Practices&rdquo; <a href=https://github.com/microsoft/alguidelines/discussions/categories/bc-best-practices>here</a>.</p>
-<p>If you don&rsquo;t find the discussion of this guideline, please feel free to create a new one with the same title as this article.</p>
 <h2 id=references>References</h2>
 <p>The <a href=https://alguidelines.dev/bcpatterns/generic-method-pattern/>Generic Method Pattern</a></p>
 <div class="text-muted mt-5 pt-3 border-top">
-Last modified February 24, 2022: <a href=https://github.com/microsoft/alguidelines/commit/5ee0436639455a35835c5ce88241d3fad662ee06>Added tags & categories + cleanup (5ee04366)</a>
+Last modified February 24, 2022: <a href=https://github.com/microsoft/alguidelines/commit/fb17dc9640ceef53d1f3b8bbf9e9791ef92fabbc>Removed Discussion Links. Using new Theme solution. (fb17dc96)</a>
 </div>
 </div>
 </main>
