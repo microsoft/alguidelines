@@ -11,6 +11,7 @@ With AL it is possible to emit custom telemetry signals to Azure Application Ins
 
 - Think about it as an API
 - Naming conventions and telemetry schema
+- Objects emitting telemetry signals
 - Candidate data for telemetry
 - How customers use telemetry
 - Privacy
@@ -30,7 +31,7 @@ Therefore, signal must be treated as any other API
 
 To make it easy for the consumer of telemetry to work with the data, please
 
-- use CamelCasing. This makes all fields in Application Insights look the same (signal logged through the AL LogMessage method will have "al" prefixed to dimension names.
+- use PascalCasing. This makes all fields in Application Insights look the same (signal logged through the AL LogMessage method will have "al" prefixed to dimension names.
 - never use fields/custom dimension keys with spaces or special characters. This makes the KQL queries so much easier to write
 - for custom dimensions, consider using prefixes that helps the telemetry consumer understand where the dimension is coming from (e.g. HttpStatusCode, SqlStatement, ...)
 
@@ -61,6 +62,12 @@ begin
     end;
 end;
 ```
+
+## Objects emitting telemetry signals
+
+Telemetry data includes information about the object that emitted the telemetry signal. It's recommended to call Session.LogMessage() from within the object that causes a situation that you want to have telemetry for. That will make it easier to analyze where exactly in the code an issue occurred.
+
+Of course it is possible to have a single object as a central place to emit telemetry signals. The telemetry data includes a callstack, so eventually it would be possible to trace back to the exact place where an issue occurred. But that requires a more complicated query, so it would be better to emit telemetry signals right from place in the code where an issue occurred.
 
 ## Candidate data for telemetry
 
