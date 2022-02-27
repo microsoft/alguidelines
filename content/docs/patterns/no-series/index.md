@@ -65,7 +65,7 @@ field(107; "No. Series"; Code[20])
 The **`TableRelation`** is important, and the **`Editable`** being false is advised.
 {{% /alert %}}
 
-And on the **OnInsert** trigger, code populates the **No. Series** and **No.** field.
+And on the **`OnInsert`** trigger, code populates the **`No. Series`** and **`No.`** field.
 
 ```AL
 trigger OnInsert()
