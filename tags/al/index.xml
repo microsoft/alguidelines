@@ -1,4 +1,127 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>alguidelines.dev - Business Central Design Patterns – AL</title><link>https://alguidelines.dev/tags/al/</link><description>Recent content in AL on alguidelines.dev - Business Central Design Patterns</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="https://alguidelines.dev/tags/al/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: API Register Fieldset</title><link>https://alguidelines.dev/docs/patterns/api-register-fieldset/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/patterns/api-register-fieldset/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>alguidelines.dev - Business Central Design Patterns – AL</title><link>https://alguidelines.dev/tags/al/</link><description>Recent content in AL on alguidelines.dev - Business Central Design Patterns</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="https://alguidelines.dev/tags/al/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: API Page / Query</title><link>https://alguidelines.dev/docs/bestpractices/api-page/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/bestpractices/api-page/</guid><description>
+&lt;p>&lt;em>Created by Arend-Jan Kauffmann, Described by Arend-Jan Kauffmann&lt;/em>&lt;/p>
+&lt;h2 id="description">Description&lt;/h2>
+&lt;p>API pages are different from UI pages. They require different properties and don&amp;rsquo;t behave the same. Because API pages are used for integration with external applications, they should be treated as contracts. To achieve this, the following topics are important.&lt;/p>
+&lt;ul>
+&lt;li>Separate API app&lt;/li>
+&lt;li>Page properties&lt;/li>
+&lt;li>Versioning&lt;/li>
+&lt;li>Field properties&lt;/li>
+&lt;li>Default fields&lt;/li>
+&lt;/ul>
+&lt;h2 id="separate-api-app">Separate API app&lt;/h2>
+&lt;p>It&amp;rsquo;s a good practice to develop API pages in a separate app instead of combining them in a solution. By doing so, it provides better maintainability and is a good way of separation of concerns.&lt;/p>
+&lt;h2 id="page-properties">Page properties&lt;/h2>
+&lt;p>An API page must define a minimum set of properties. Some of these properties will be part of the URL of the API endpoint. It is recommended to define the properties in the same order as they appear in the URL.&lt;/p>
+&lt;p>The properties that must be defined are:&lt;/p>
+&lt;ul>
+&lt;li>PageType = API / QueryType = API&lt;/li>
+&lt;li>APIPublisher&lt;/li>
+&lt;li>APIGroup&lt;/li>
+&lt;li>APIVersion&lt;/li>
+&lt;li>EntitySetName&lt;/li>
+&lt;li>EntityName&lt;/li>
+&lt;li>DelayedInsert (only Page)&lt;/li>
+&lt;li>ODataKeyFields&lt;/li>
+&lt;/ul>
+&lt;h3 id="apipublisher">APIPublisher&lt;/h3>
+&lt;p>The name of the API publisher is usually the company creating the API. It is the first custom part in the URL for a given endpoint. The value is case insensitive.&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">APIPublisher&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>=&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;contoso&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="apigroup">APIGroup&lt;/h3>
+&lt;p>Sets the group of the API endpoint that page or query is exposed in. In the URL the APIGroup comes after the APIPublisher. It can be used to distinguish different API apps or groups of APIs from each other. The value is case insensitive.&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">APIGroup&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>=&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;app1&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="apiversion">APIVersion&lt;/h3>
+&lt;p>Sets the version(s) of the API endpoint the page or query is exposed in. This property is not mandatory. If it is not specified, then APIs will be exposed as version &amp;lsquo;beta&amp;rsquo;.&lt;/p>
+&lt;p>The APIVersion can be set to &amp;lsquo;beta&amp;rsquo; or have the format &amp;lsquo;vx.y&amp;rsquo;.
+Example:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">APIVersion&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>=&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;beta&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>or&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">APIVersion&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>=&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;v1.0&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="_multiple-api-versions_">&lt;em>Multiple API versions&lt;/em>&lt;/h4>
+&lt;p>You should &lt;strong>never&lt;/strong> break existing versions. Any breaking change requires to create a new version.&lt;/p>
+&lt;p>It is possible to expose an API in multiple versions:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">APIVersion&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>=&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;beta&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;v1.0&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This allows to publish a new version of an API app without copying all individual objects and updating the version numbers. Only those API objects that are changed in a new version need to be copied. The other objects only need an addition to the APIVersion property to become available in the new version endpoint.&lt;/p>
+&lt;h3 id="entitysetname">EntitySetName&lt;/h3>
+&lt;p>The EntitySetName is the plural entity name. Think of it as the name of the collection of entities. It is recommended to use camelCasing for this property. The value is case sensitive!&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">EntitySetName&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>=&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;itemCategories&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="entityname">EntityName&lt;/h3>
+&lt;p>The EntityName sets the singular entity name for the API page or query. This name is not used in the URL. Instead, the EntityName is used in the metadata information. It is recommended to use camelCasing for this property.&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">EntityName&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>=&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;itemCategory&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="delayedinsert">DelayedInsert&lt;/h3>
+&lt;p>This property is required on an editable API page. It does not apply to an API query object. If &lt;code>Editable = false&lt;/code> is set on the API page, then DelayedInsert is not required.
+All APIs pages apply the behavior to first specify all field values and then insert the record at once.&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">DelayedInsert&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>=&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>true&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="full-example">Full example&lt;/h3>
+&lt;p>Together, the page properties look like:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">PageType&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>=&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>API&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>APIPublisher&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>=&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;contoso&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>APIGroup&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>=&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;app1&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>APIVersion&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>=&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;v1.0&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>EntitySetName&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>=&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;itemCategories&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>EntityName&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>=&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;itemCategory&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>DelayedInsert&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>=&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>true&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The full url will look like: &lt;code>https://{url}/api/contoso/app1/v1.0/companies({id})/itemCategories&lt;/code>&lt;/p>
+&lt;h3 id="odatakeyfields">ODataKeyFields&lt;/h3>
+&lt;p>The &lt;code>EntitySetName&lt;/code> property in the URL can be extended with an identifier to indicate a single record.&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;pre tabindex="0">&lt;code>.../itemCategories(768b6173-9b19-40ea-8e5d-ce181ec0d645)
+&lt;/code>&lt;/pre>&lt;p>The property &lt;code>ODataKeyFields&lt;/code> defines which field(s) will be used for the identifier value. It is highly recommended to always use the SystemId field for this property. The SystemId field is immutable and will never change for a record.&lt;/p>
+&lt;p>The field that is defined in this property should be part of the API page.&lt;/p>
+&lt;h2 id="field-properties">Field properties&lt;/h2>
+&lt;p>The base structure of an API page is similar to a UI list page:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">layout&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>{&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">area&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>Content&lt;span style="color:#ce5c00;font-weight:bold">)
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold"> &lt;/span>{&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">repeater&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>records&lt;span style="color:#ce5c00;font-weight:bold">)
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold"> &lt;/span>{&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold"> &lt;/span>}&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>}&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>}&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>When specifying the fields there are some considerations to keep in mind.&lt;/p>
+&lt;pre tabindex="0">&lt;code>field(displayName; Rec.Name) { }
+&lt;/code>&lt;/pre>&lt;p>There are no mandatory properties. The property &lt;code>ApplicationArea&lt;/code> does not play a role in API pages, so it can be skipped. The property &lt;code>Caption&lt;/code> is also optional and should only be used in case the external application requires captions and the caption should be different from the standard caption as defined in the table.&lt;/p>
+&lt;p>The name of the field, in the example above &lt;code>displayName&lt;/code>, should be defined in camelCasing. It may not contain spaces, dots, or other special characters.&lt;/p>
+&lt;p>It is common use to give certain fields a more describing name. Some examples are:&lt;/p>
+&lt;ul>
+&lt;li>id for field SystemId&lt;/li>
+&lt;li>number for field &amp;ldquo;No.&amp;rdquo;&lt;/li>
+&lt;li>displayName for field Name&lt;/li>
+&lt;/ul>
+&lt;h2 id="default-fields">Default fields&lt;/h2>
+&lt;p>An API should at least expose these fields:&lt;/p>
+&lt;ul>
+&lt;li>SystemId
+&lt;ul>
+&lt;li>This field should be exposed wit the name &lt;code>id&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>SystemModifiedAt
+&lt;ul>
+&lt;li>This field should be exposed with the name &lt;code>lastModifiedDateTime&lt;/code>. If you choose a different name, then the webhook functionality may not work properly.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">&lt;span style="color:#204a87;font-weight:bold">layout&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>{&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">area&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>Content&lt;span style="color:#ce5c00;font-weight:bold">)
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold"> &lt;/span>{&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">repeater&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>records&lt;span style="color:#ce5c00;font-weight:bold">)
+&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold"> &lt;/span>{&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">field&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>id&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>SystemId&lt;span style="color:#ce5c00;font-weight:bold">) &lt;/span>{&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>}&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">field&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>lastModifiedDateTime&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>SystemModifiedAt&lt;span style="color:#ce5c00;font-weight:bold">) &lt;/span>{&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>}&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>}&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>}&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>}&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: API Register Fieldset</title><link>https://alguidelines.dev/docs/patterns/api-register-fieldset/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/patterns/api-register-fieldset/</guid><description>
 &lt;p>&lt;em>Created by Arend-Jan Kauffmann, Described by Arend-Jan Kauffmann&lt;/em>&lt;/p>
 &lt;h2 id="abstract">Abstract&lt;/h2>
 &lt;p>The goal of this pattern is to register the fields that are part of the request body of an API call.&lt;/p>
