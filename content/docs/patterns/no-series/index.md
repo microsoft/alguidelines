@@ -187,6 +187,77 @@ begin
 end;
 ```
 
+## Usage in Journals
+
+Journals utilize a **`Document No.`** as a non-primary key field and use a different strategy for use of the Number Series engine.  For each Journal Batch, a different **`No. Series`** can be set.
+
+For example, on the **`General Journal`** Page, in the **`OnNewRecord`**, the **`SetUpNewLine`** function on the **`Gen. Journal Line`** Table is called:
+
+```AL
+procedure SetUpNewLine(LastGenJnlLine: Record "Gen. Journal Line"; Balance: Decimal; BottomLine: Boolean)
+var
+    IsHandled: Boolean;
+begin
+    IsHandled := false;
+    OnBeforeSetUpNewLine(GenJnlTemplate, GenJnlBatch, GenJnlLine, LastGenJnlLine, GLSetupRead, Balance, BottomLine, IsHandled);
+    if IsHandled then
+        exit;
+
+    GenJnlTemplate.Get("Journal Template Name");
+    GenJnlBatch.Get("Journal Template Name", "Journal Batch Name");
+    GenJnlLine.SetRange("Journal Template Name", "Journal Template Name");
+    GenJnlLine.SetRange("Journal Batch Name", "Journal Batch Name");
+    if GenJnlLine.FindFirst then begin
+        "Posting Date" := LastGenJnlLine."Posting Date";
+        "Document Date" := LastGenJnlLine."Posting Date";
+        "Document No." := LastGenJnlLine."Document No.";
+        OnSetUpNewLineOnBeforeIncrDocNo(GenJnlLine, LastGenJnlLine, Balance, BottomLine);
+        if BottomLine and
+            (Balance - LastGenJnlLine."Balance (LCY)" = 0) and
+            not LastGenJnlLine.EmptyLine
+        then
+            IncrementDocumentNo(GenJnlBatch, "Document No.");
+    end else begin
+        "Posting Date" := WorkDate;
+        "Document Date" := WorkDate;
+        if GenJnlBatch."No. Series" <> '' then begin
+            Clear(NoSeriesMgt);
+            "Document No." := NoSeriesMgt.TryGetNextNo(GenJnlBatch."No. Series", "Posting Date");
+        end;
+    end;
+    [...]
+```
+
+If the Batch is empty, and if the **`Gen. Journal Batch`** has a **`No. Series`** set, the **`Document No.`** is set from the number series via the **`NoSeriesManagement`** codeunit's **`TryGetNextNo`** function.  This takes two parameters:
+- Which **`No. Series`** to get the next number from
+- Which date to fetch for
+
+This function does *not* update the **`Last No. Used`** and **`Last Date Used`** fields on the number series.  Those will be updated during the Posting process.
+
+
+If the Batch is not empty *and* the sum of the existing lines totals to zero (in balance), the General Journal assumes the user wants to start a new set of lines under a new **`Document No.`**.  The table level procedure **`IncrementDocumentNo`** function is called:
+
+```AL
+procedure IncrementDocumentNo(GenJnlBatch: Record "Gen. Journal Batch"; var LastDocNumber: Code[20])
+var
+    NoSeriesLine: Record "No. Series Line";
+begin
+    if GenJnlBatch."No. Series" <> '' then begin
+        NoSeriesMgt.SetNoSeriesLineFilter(NoSeriesLine, GenJnlBatch."No. Series", "Posting Date");
+        if NoSeriesLine."Increment-by No." > 1 then
+            NoSeriesMgt.IncrementNoText(LastDocNumber, NoSeriesLine."Increment-by No.")
+        else
+            LastDocNumber := IncStr(LastDocNumber);
+    end else
+        LastDocNumber := IncStr(LastDocNumber);
+end;
+```
+
+If the batch's **`No. Series`** is set, it is checked if the **`Increment-By No.`** setting is anything besides `1`.  If so, use the special **`IncrementNoText`** function.
+
+If neither of those cases is true, then the line's **`Document No.`** is updated with the language function **`IncStr`**.
+
+
 ## Objects to Inspect
 
 Business Central objects in the Base App to review to find out more:
