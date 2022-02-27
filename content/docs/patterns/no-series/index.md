@@ -37,7 +37,7 @@ To understand an example use in the Base App, the Customer data entity is a good
 
 Implementation to connect the Customer "No." field to the Number Series engine is done at the table level.  The Customer table contains:
 
-A field to contain the number (typically the primary key), which will be Code type, length of 20:
+A field to contain the number (typically the primary key), which will be of type **`Code`**, length of **20**:
 
 ```AL
 field(1; "No."; Code[20])
