@@ -1,6 +1,6 @@
 ---
 title: "API Page / Query"
-tages: ["AL","API"]
+tags: ["AL","API"]
 categories: ["Best Practice"]
 ---
 
