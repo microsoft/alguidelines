@@ -14,29 +14,29 @@
 <link rel=icon type=image/png href=/favicons/android-96x96.png sizes=96x96>
 <link rel=icon type=image/png href=/favicons/android-144x144.png sizes=144x144>
 <link rel=icon type=image/png href=/favicons/android-192x192.png sizes=192x192>
-<title>Document | alguidelines.dev - Business Central Design Patterns</title>
-<meta name=description content="By Xavier Garonnat, knk Ingénierie (France), xgaronnat@knk.fr
-Abstract
-A document structure contains a header and a set of lines. Each line is linked …">
-<meta property="og:title" content="Document">
-<meta property="og:description" content="By Xavier Garonnat, knk Ingénierie (France), xgaronnat@knk.fr
-Abstract A document structure contains a header and a set of lines. Each line is linked to the header and could have common data with header.
-Description This pattern should be used as a basis to build any document, showing a header and multiple lines in the same page. Basically, a document is at least composed of two tables and three pages, as shown below:">
+<title>API Page / Query | alguidelines.dev - Business Central Design Patterns</title>
+<meta name=description content="Created by Arend-Jan Kauffmann, Described by Arend-Jan Kauffmann
+Description
+API pages are different from UI pages. They require different properties …">
+<meta property="og:title" content="API Page / Query">
+<meta property="og:description" content="Created by Arend-Jan Kauffmann, Described by Arend-Jan Kauffmann
+Description API pages are different from UI pages. They require different properties and don&rsquo;t behave the same. Because API pages are used for integration with external applications, they should be treated as contracts. To achieve this, the following topics are important.
+ Separate API app Page properties Versioning Field properties Default fields  Separate API app It&rsquo;s a good practice to develop API pages in a separate app instead of combining them in a solution.">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://alguidelines.dev/docs/navpatterns/patterns/document/"><meta property="og:image" content="https://alguidelines.dev/images/og-image-fission.png"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2022-02-24T14:45:35+01:00"><meta property="og:site_name" content="alguidelines.dev - Business Central Design Patterns">
-<meta itemprop=name content="Document">
-<meta itemprop=description content="By Xavier Garonnat, knk Ingénierie (France), xgaronnat@knk.fr
-Abstract A document structure contains a header and a set of lines. Each line is linked to the header and could have common data with header.
-Description This pattern should be used as a basis to build any document, showing a header and multiple lines in the same page. Basically, a document is at least composed of two tables and three pages, as shown below:">
-<meta itemprop=dateModified content="2022-02-24T14:45:35+01:00">
-<meta itemprop=wordCount content="738"><meta itemprop=image content="https://alguidelines.dev/images/og-image-fission.png">
-<meta itemprop=keywords content="C/AL,"><meta name=twitter:card content="summary_large_image">
+<meta property="og:url" content="https://alguidelines.dev/docs/bestpractices/api-page/"><meta property="og:image" content="https://alguidelines.dev/images/og-image-fission.png"><meta property="article:section" content="docs">
+<meta property="article:modified_time" content="2022-02-26T20:59:34+01:00"><meta property="og:site_name" content="alguidelines.dev - Business Central Design Patterns">
+<meta itemprop=name content="API Page / Query">
+<meta itemprop=description content="Created by Arend-Jan Kauffmann, Described by Arend-Jan Kauffmann
+Description API pages are different from UI pages. They require different properties and don&rsquo;t behave the same. Because API pages are used for integration with external applications, they should be treated as contracts. To achieve this, the following topics are important.
+ Separate API app Page properties Versioning Field properties Default fields  Separate API app It&rsquo;s a good practice to develop API pages in a separate app instead of combining them in a solution.">
+<meta itemprop=dateModified content="2022-02-26T20:59:34+01:00">
+<meta itemprop=wordCount content="780"><meta itemprop=image content="https://alguidelines.dev/images/og-image-fission.png">
+<meta itemprop=keywords content><meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="https://alguidelines.dev/images/og-image-fission.png">
-<meta name=twitter:title content="Document">
-<meta name=twitter:description content="By Xavier Garonnat, knk Ingénierie (France), xgaronnat@knk.fr
-Abstract A document structure contains a header and a set of lines. Each line is linked to the header and could have common data with header.
-Description This pattern should be used as a basis to build any document, showing a header and multiple lines in the same page. Basically, a document is at least composed of two tables and three pages, as shown below:">
+<meta name=twitter:title content="API Page / Query">
+<meta name=twitter:description content="Created by Arend-Jan Kauffmann, Described by Arend-Jan Kauffmann
+Description API pages are different from UI pages. They require different properties and don&rsquo;t behave the same. Because API pages are used for integration with external applications, they should be treated as contracts. To achieve this, the following topics are important.
+ Separate API app Page properties Versioning Field properties Default fields  Separate API app It&rsquo;s a good practice to develop API pages in a separate app instead of combining them in a solution.">
 <link rel=preload href=/scss/main.min.84a617ff0c0265eb62b5cd2929c572f4ed37dc4907d0cf068be4eb2974f6d60f.css as=style>
 <link href=/scss/main.min.84a617ff0c0265eb62b5cd2929c572f4ed37dc4907d0cf068be4eb2974f6d60f.css rel=stylesheet integrity>
 <script src=https://code.jquery.com/jquery-3.6.0.min.js integrity=sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK crossorigin=anonymous></script>
@@ -99,132 +99,132 @@ Description This pattern should be used as a basis to build any document, showin
 <a href=/docs/patterns/generic-method-pattern/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docspatternsgeneric-method-pattern><span>Generic Method</span></a>
 </li>
 </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsbestpractices-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-docsbestpractices-li>
 <a href=/docs/bestpractices/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsbestpractices><span>Best Practices</span></a>
 <ul class="ul-2 foldable">
-<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticesapi-page-li>
-<a href=/docs/bestpractices/api-page/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticesapi-page><span>API Page / Query</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticesbegin-as-an-afterword-li>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id=m-docsbestpracticesapi-page-li>
+<a href=/docs/bestpractices/api-page/ class="align-left pl-0 active td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticesapi-page><span class=td-sidebar-nav-active-item>API Page / Query</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsbestpracticesbegin-as-an-afterword-li>
 <a href=/docs/bestpractices/begin-as-an-afterword/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticesbegin-as-an-afterword><span>begin as an afterword</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticesbegin-end-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsbestpracticesbegin-end-li>
 <a href=/docs/bestpractices/begin-end/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticesbegin-end><span>Begin-End - Compound Only</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticesbinary-operator-line-start-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsbestpracticesbinary-operator-line-start-li>
 <a href=/docs/bestpractices/binary-operator-line-start/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticesbinary-operator-line-start><span>Binary Operator to Start Line</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticescase-actions-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsbestpracticescase-actions-li>
 <a href=/docs/bestpractices/case-actions/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticescase-actions><span>CASE Action on next line</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticescomments-spacing-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsbestpracticescomments-spacing-li>
 <a href=/docs/bestpractices/comments-spacing/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticescomments-spacing><span>Comment Spacing</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticescustomtelemetry-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsbestpracticescustomtelemetry-li>
 <a href=/docs/bestpractices/customtelemetry/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticescustomtelemetry><span>Custom Telemetry</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticesdeleteall-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsbestpracticesdeleteall-li>
 <a href=/docs/bestpractices/deleteall/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticesdeleteall><span>DeleteAll</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticesend-else-pair-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsbestpracticesend-else-pair-li>
 <a href=/docs/bestpractices/end-else-pair/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticesend-else-pair><span>end else pair</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticeskeyword-pairs-indentation-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsbestpracticeskeyword-pairs-indentation-li>
 <a href=/docs/bestpractices/keyword-pairs-indentation/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticeskeyword-pairs-indentation><span>Keyword Pairs - Indentation</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticesline-start-keywords-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsbestpracticesline-start-keywords-li>
 <a href=/docs/bestpractices/line-start-keywords/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticesline-start-keywords><span>Line Start Keywords</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticeslonely-repeat-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsbestpracticeslonely-repeat-li>
 <a href=/docs/bestpractices/lonely-repeat/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticeslonely-repeat><span>Lonely Repeat</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticesnamed-invocations-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsbestpracticesnamed-invocations-li>
 <a href=/docs/bestpractices/named-invocations/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticesnamed-invocations><span>Named Invocations</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticesone-statement-per-line-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsbestpracticesone-statement-per-line-li>
 <a href=/docs/bestpractices/one-statement-per-line/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticesone-statement-per-line><span>One Statement per Line</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticesseparate-if-and-else-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsbestpracticesseparate-if-and-else-li>
 <a href=/docs/bestpractices/separate-if-and-else/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticesseparate-if-and-else><span>Seperate if and else</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticesspacing-binary-operators-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsbestpracticesspacing-binary-operators-li>
 <a href=/docs/bestpractices/spacing-binary-operators/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticesspacing-binary-operators><span>Spacing Binary Operators</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticessubscribercodeunits-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsbestpracticessubscribercodeunits-li>
 <a href=/docs/bestpractices/subscribercodeunits/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticessubscribercodeunits><span>Subscriber Codeunits</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticessuggested-abbreviations-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsbestpracticessuggested-abbreviations-li>
 <a href=/docs/bestpractices/suggested-abbreviations/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticessuggested-abbreviations><span>Suggested Abbreviations</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticesunnecessary-else-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsbestpracticesunnecessary-else-li>
 <a href=/docs/bestpractices/unnecessary-else/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticesunnecessary-else><span>Unnecessary else</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticesunnecessary-truefalse-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsbestpracticesunnecessary-truefalse-li>
 <a href=/docs/bestpractices/unnecessary-truefalse/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticesunnecessary-truefalse><span>Unnecessary true/false</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticesvariable-naming-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsbestpracticesvariable-naming-li>
 <a href=/docs/bestpractices/variable-naming/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticesvariable-naming><span>Variable Naming</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticesvariables-declarations-order-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsbestpracticesvariables-declarations-order-li>
 <a href=/docs/bestpractices/variables-declarations-order/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticesvariables-declarations-order><span>Variables Declarations Order</span></a>
 </li>
 </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-docsnavpatterns-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatterns-li>
 <a href=/docs/navpatterns/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatterns><span>NAV Patterns Archive</span></a>
 <ul class="ul-2 foldable">
-<li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-docsnavpatternspatterns-li>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docsnavpatternspatterns-li>
 <a href=/docs/navpatterns/patterns/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatternspatterns><span>1. Patterns</span></a>
 <ul class="ul-3 foldable">
-<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsactivity-log-li>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsactivity-log-li>
 <a href=/docs/navpatterns/patterns/activity-log/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsactivity-log><span>Activity Logs</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsargument-table-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsargument-table-li>
 <a href=/docs/navpatterns/patterns/argument-table/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsargument-table><span>Argument Table</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatternspatternsblocked-entity-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docsnavpatternspatternsblocked-entity-li>
 <a href=/docs/navpatterns/patterns/blocked-entity/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatternspatternsblocked-entity><span>Blocked Entity</span></a>
 <ul class="ul-4 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsblocked-entitydata-driven-blocked-entity-li>
 <a href=/docs/navpatterns/patterns/blocked-entity/data-driven-blocked-entity/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsblocked-entitydata-driven-blocked-entity><span>Data Driven Blocked Entity</span></a>
 </li>
 </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternscached-web-service-calls-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternscached-web-service-calls-li>
 <a href=/docs/navpatterns/patterns/cached-web-service-calls/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternscached-web-service-calls><span>Cached Web Server Calls</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsconditional-cascading-update-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsconditional-cascading-update-li>
 <a href=/docs/navpatterns/patterns/conditional-cascading-update/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsconditional-cascading-update><span>Conditional Cascading Update</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternscopy-document-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternscopy-document-li>
 <a href=/docs/navpatterns/patterns/copy-document/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternscopy-document><span>Copy Document</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternscreate-data-from-templates-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternscreate-data-from-templates-li>
 <a href=/docs/navpatterns/patterns/create-data-from-templates/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternscreate-data-from-templates><span>Create Data from Templates</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternscreate-urls-to-nav-clients-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternscreate-urls-to-nav-clients-li>
 <a href=/docs/navpatterns/patterns/create-urls-to-nav-clients/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternscreate-urls-to-nav-clients><span>Create URLs to NAV Clients</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternscreating-custom-charts-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternscreating-custom-charts-li>
 <a href=/docs/navpatterns/patterns/creating-custom-charts/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternscreating-custom-charts><span>Creating Custom Charts</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternscross-session-events-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternscross-session-events-li>
 <a href=/docs/navpatterns/patterns/cross-session-events/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternscross-session-events><span>Cross Session Events</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternscurrently-active-record-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternscurrently-active-record-li>
 <a href=/docs/navpatterns/patterns/currently-active-record/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternscurrently-active-record><span>Currently Active Record</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsdata-migration-facade-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsdata-migration-facade-li>
 <a href=/docs/navpatterns/patterns/data-migration-facade/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsdata-migration-facade><span>Data Migration Façade</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsdiscovery-event-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsdiscovery-event-li>
 <a href=/docs/navpatterns/patterns/discovery-event/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsdiscovery-event><span>Discovery Event</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id=m-docsnavpatternspatternsdocument-li>
-<a href=/docs/navpatterns/patterns/document/ class="align-left pl-0 active td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsdocument><span class=td-sidebar-nav-active-item>Document</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternseasy-update-of-setup-or-supplementary-information-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsdocument-li>
+<a href=/docs/navpatterns/patterns/document/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsdocument><span>Document</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternseasy-update-of-setup-or-supplementary-information-li>
 <a href=/docs/navpatterns/patterns/easy-update-of-setup-or-supplementary-information/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternseasy-update-of-setup-or-supplementary-information><span>Easy Update Of Setup Or Supplementary Information</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternserror-message-processing-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternserror-message-processing-li>
 <a href=/docs/navpatterns/patterns/error-message-processing/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternserror-message-processing><span>Error Message Processing</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsextending-the-role-center-headlines-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsextending-the-role-center-headlines-li>
 <a href=/docs/navpatterns/patterns/extending-the-role-center-headlines/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsextending-the-role-center-headlines><span>Extending the Role Center Headlines</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsfeature-localization-for-data-structures-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsfeature-localization-for-data-structures-li>
 <a href=/docs/navpatterns/patterns/feature-localization-for-data-structures/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsfeature-localization-for-data-structures><span>Feature Localization For Data Structures</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternshooks-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternshooks-li>
 <a href=/docs/navpatterns/patterns/hooks/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternshooks><span>Hooks</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsimplementation-of-surrogate-keys-using-autoincrement-pattern-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsimplementation-of-surrogate-keys-using-autoincrement-pattern-li>
 <a href=/docs/navpatterns/patterns/implementation-of-surrogate-keys-using-autoincrement-pattern/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsimplementation-of-surrogate-keys-using-autoincrement-pattern><span>Surrogate keys using Autoincrement Pattern</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsinstructions-in-the-ui-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsinstructions-in-the-ui-li>
 <a href=/docs/navpatterns/patterns/instructions-in-the-ui/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsinstructions-in-the-ui><span>Instructions in the UI</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsintegration-of-addresses-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsintegration-of-addresses-li>
 <a href=/docs/navpatterns/patterns/integration-of-addresses/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsintegration-of-addresses><span>Integration of Addresses</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsjournal-error-processing-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsjournal-error-processing-li>
 <a href=/docs/navpatterns/patterns/journal-error-processing/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsjournal-error-processing><span>Journal Error Processing</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsjournal-template-batch-line-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsjournal-template-batch-line-li>
 <a href=/docs/navpatterns/patterns/journal-template-batch-line/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsjournal-template-batch-line><span>Journal Template Batch Line</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsmaster-data-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsmaster-data-li>
 <a href=/docs/navpatterns/patterns/master-data/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsmaster-data><span>Master Data</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsmulti-file-download-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsmulti-file-download-li>
 <a href=/docs/navpatterns/patterns/multi-file-download/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsmulti-file-download><span>Multi-file Download</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsmulti-page-list-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsmulti-page-list-li>
 <a href=/docs/navpatterns/patterns/multi-page-list/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsmulti-page-list><span>Multi-Page List</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsmultilanguage-application-data-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsmultilanguage-application-data-li>
 <a href=/docs/navpatterns/patterns/multilanguage-application-data/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsmultilanguage-application-data><span>Multilanguage Application Data</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatternspatternsnet-exception-handling-in-cal-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docsnavpatternspatternsnet-exception-handling-in-cal-li>
 <a href=/docs/navpatterns/patterns/net-exception-handling-in-cal/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatternspatternsnet-exception-handling-in-cal><span>NET Exception Handling in CAL</span></a>
 <ul class="ul-4 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsnet-exception-handling-in-caltryfunction-net-exception-handling-in-cal-li>
 <a href=/docs/navpatterns/patterns/net-exception-handling-in-cal/tryfunction-net-exception-handling-in-cal/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsnet-exception-handling-in-caltryfunction-net-exception-handling-in-cal><span>TryFunction NET Exception Handling in CAL</span></a>
 </li>
 </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsno-series-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsno-series-li>
 <a href=/docs/navpatterns/patterns/no-series/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsno-series><span>No Series</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatternspatternsnotifications-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docsnavpatternspatternsnotifications-li>
 <a href=/docs/navpatterns/patterns/notifications/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatternspatternsnotifications><span>Notifications</span></a>
 <ul class="ul-4 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsnotificationsin-context-notifications-li>
@@ -233,13 +233,13 @@ Description This pattern should be used as a basis to build any document, showin
 <a href=/docs/navpatterns/patterns/notifications/notification-lifecycle-management-pattern/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsnotificationsnotification-lifecycle-management-pattern><span>Notification Lifecycle Management Pattern</span></a>
 </li>
 </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsobserver-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsobserver-li>
 <a href=/docs/navpatterns/patterns/observer/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsobserver><span>Observer</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsposting-routine-select-behavior-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsposting-routine-select-behavior-li>
 <a href=/docs/navpatterns/patterns/posting-routine-select-behavior/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsposting-routine-select-behavior><span>Posting Routine - Select Behavior</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsproduct-name-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsproduct-name-li>
 <a href=/docs/navpatterns/patterns/product-name/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsproduct-name><span>Product Name</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatternspatternsqueries-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docsnavpatternspatternsqueries-li>
 <a href=/docs/navpatterns/patterns/queries/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatternspatternsqueries><span>Queries</span></a>
 <ul class="ul-4 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsqueriesselect-distinct-with-queries-li>
@@ -250,13 +250,13 @@ Description This pattern should be used as a basis to build any document, showin
 <a href=/docs/navpatterns/patterns/queries/use-queries-to-replace-nested-loops/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsqueriesuse-queries-to-replace-nested-loops><span>Use Queries to Replace Nested Loops</span></a>
 </li>
 </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsread-once-initialization-and-validation-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsread-once-initialization-and-validation-li>
 <a href=/docs/navpatterns/patterns/read-once-initialization-and-validation/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsread-once-initialization-and-validation><span>Read-once Initialization and Validation</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsreleased-entity-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsreleased-entity-li>
 <a href=/docs/navpatterns/patterns/released-entity/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsreleased-entity><span>Released Entity</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsreport-selection-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsreport-selection-li>
 <a href=/docs/navpatterns/patterns/report-selection/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsreport-selection><span>Report Selection</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatternspatternssecurity-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docsnavpatternspatternssecurity-li>
 <a href=/docs/navpatterns/patterns/security/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatternspatternssecurity><span>Security</span></a>
 <ul class="ul-4 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternssecurity1-sensitive-data-encapsulation-li>
@@ -271,11 +271,11 @@ Description This pattern should be used as a basis to build any document, showin
 <a href=/docs/navpatterns/patterns/security/5-ssl-in-nav/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternssecurity5-ssl-in-nav><span>SSL in NAV</span></a>
 </li>
 </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternssetup-specificity-fallback-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternssetup-specificity-fallback-li>
 <a href=/docs/navpatterns/patterns/setup-specificity-fallback/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternssetup-specificity-fallback><span>Setup Specificity Fallback</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternssilent-file-upload-and-download-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternssilent-file-upload-and-download-li>
 <a href=/docs/navpatterns/patterns/silent-file-upload-and-download/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternssilent-file-upload-and-download><span>Silent File Upload and Download</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatternspatternssingleton-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docsnavpatternspatternssingleton-li>
 <a href=/docs/navpatterns/patterns/singleton/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatternspatternssingleton><span>Singleton</span></a>
 <ul class="ul-4 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternssingletonsingleton-codeunit-li>
@@ -291,19 +291,19 @@ Description This pattern should be used as a basis to build any document, showin
 </ul>
 </li>
 </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsstandard-journal-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsstandard-journal-li>
 <a href=/docs/navpatterns/patterns/standard-journal/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsstandard-journal><span>Standard Journal</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternstemporary-dataset-report-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternstemporary-dataset-report-li>
 <a href=/docs/navpatterns/patterns/temporary-dataset-report/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternstemporary-dataset-report><span>Temporary Dataset Report</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternstotals-and-discounts-on-subpages-sales-and-purchases-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternstotals-and-discounts-on-subpages-sales-and-purchases-li>
 <a href=/docs/navpatterns/patterns/totals-and-discounts-on-subpages-sales-and-purchases/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternstotals-and-discounts-on-subpages-sales-and-purchases><span>Totals and Discounts on Subpages Sales and Purchases</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternstransfer-custom-fields-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternstransfer-custom-fields-li>
 <a href=/docs/navpatterns/patterns/transfer-custom-fields/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternstransfer-custom-fields><span>Transfer Custom Fields</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsvariant-facade-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsvariant-facade-li>
 <a href=/docs/navpatterns/patterns/variant-facade/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsvariant-facade><span>Variant Facade</span></a>
 </li>
 </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatterns2-anti-patterns-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docsnavpatterns2-anti-patterns-li>
 <a href=/docs/navpatterns/2-anti-patterns/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatterns2-anti-patterns><span>2. Anti-Patterns</span></a>
 <ul class="ul-3 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns2-anti-patternsnav-upgrade-li>
@@ -312,7 +312,7 @@ Description This pattern should be used as a basis to build any document, showin
 <a href=/docs/navpatterns/2-anti-patterns/reusable-bugs/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns2-anti-patternsreusable-bugs><span>Reusable Bugs</span></a>
 </li>
 </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatterns3-cal-coding-guidelines-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docsnavpatterns3-cal-coding-guidelines-li>
 <a href=/docs/navpatterns/3-cal-coding-guidelines/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatterns3-cal-coding-guidelines><span>3. CAL Coding Guidelines</span></a>
 <ul class="ul-3 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesdesign-li>
@@ -456,7 +456,7 @@ Description This pattern should be used as a basis to build any document, showin
 </ul>
 </li>
 </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatterns4-get-involved-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docsnavpatterns4-get-involved-li>
 <a href=/docs/navpatterns/4-get-involved/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatterns4-get-involved><span>(OLD) Get Involved</span></a>
 <ul class="ul-3 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns4-get-involvedcode-of-conduct-li>
@@ -467,7 +467,7 @@ Description This pattern should be used as a basis to build any document, showin
 <a href=/docs/navpatterns/4-get-involved/template-for-writing-nav-design-patterns/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns4-get-involvedtemplate-for-writing-nav-design-patterns><span>Template for writing Nav Design Patterns</span></a>
 </li>
 </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternsrelated-links-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternsrelated-links-li>
 <a href=/docs/navpatterns/related-links/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternsrelated-links><span>Related Links</span></a>
 </li>
 </ul>
@@ -509,24 +509,31 @@ Description This pattern should be used as a basis to build any document, showin
 </aside>
 <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
 <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
-<a href=https://github.com/microsoft/alguidelines/tree/main/content/docs/NAVPatterns/patterns/document/index.md class=td-page-meta--view target=_blank rel=noopener><i class="fa fa-file-alt fa-fw"></i> View page source</a>
-<a href=https://github.com/microsoft/alguidelines/edit/main/content/docs/NAVPatterns/patterns/document/index.md class=td-page-meta--edit target=_blank rel=noopener><i class="fa fa-edit fa-fw"></i> Edit this page</a>
-<a href="https://github.com/microsoft/alguidelines/new/main/content/docs/NAVPatterns/patterns/document/index.md?filename=change-me.md&value=---%0Atitle%3A+%22Long+Page+Title%22%0AlinkTitle%3A+%22Short+Nav+Title%22%0Aweight%3A+100%0Adescription%3A+%3E-%0A+++++Page+description+for+heading+and+indexes.%0A---%0A%0A%23%23+Heading%0A%0AEdit+this+template+to+create+your+new+page.%0A%0A%2A+Give+it+a+good+name%2C+ending+in+%60.md%60+-+e.g.+%60getting-started.md%60%0A%2A+Edit+the+%22front+matter%22+section+at+the+top+of+the+page+%28weight+controls+how+its+ordered+amongst+other+pages+in+the+same+directory%3B+lowest+number+first%29.%0A%2A+Add+a+good+commit+message+at+the+bottom+of+the+page+%28%3C80+characters%3B+use+the+extended+description+field+for+more+detail%29.%0A%2A+Create+a+new+branch+so+you+can+preview+your+new+file+and+request+a+review+via+Pull+Request.%0A" class=td-page-meta--child target=_blank rel=noopener><i class="fa fa-edit fa-fw"></i> Create child page</a>
-<a href="https://github.com/microsoft/alguidelines/issues/new?title=Document" class=td-page-meta--issue target=_blank rel=noopener><i class="fab fa-github fa-fw"></i> Create Issue</a>
-<a href="https://github.com/microsoft/alguidelines/discussions?discussions_q=Document" class=td-page-meta--issue target=_blank rel=noopener><i class="fab fa-github fa-fw"></i> Discussions</a>
+<a href=https://github.com/microsoft/alguidelines/tree/main/content/docs/BestPractices/api-page/index.md class=td-page-meta--view target=_blank rel=noopener><i class="fa fa-file-alt fa-fw"></i> View page source</a>
+<a href=https://github.com/microsoft/alguidelines/edit/main/content/docs/BestPractices/api-page/index.md class=td-page-meta--edit target=_blank rel=noopener><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+<a href="https://github.com/microsoft/alguidelines/new/main/content/docs/BestPractices/api-page/index.md?filename=change-me.md&value=---%0Atitle%3A+%22Long+Page+Title%22%0AlinkTitle%3A+%22Short+Nav+Title%22%0Aweight%3A+100%0Adescription%3A+%3E-%0A+++++Page+description+for+heading+and+indexes.%0A---%0A%0A%23%23+Heading%0A%0AEdit+this+template+to+create+your+new+page.%0A%0A%2A+Give+it+a+good+name%2C+ending+in+%60.md%60+-+e.g.+%60getting-started.md%60%0A%2A+Edit+the+%22front+matter%22+section+at+the+top+of+the+page+%28weight+controls+how+its+ordered+amongst+other+pages+in+the+same+directory%3B+lowest+number+first%29.%0A%2A+Add+a+good+commit+message+at+the+bottom+of+the+page+%28%3C80+characters%3B+use+the+extended+description+field+for+more+detail%29.%0A%2A+Create+a+new+branch+so+you+can+preview+your+new+file+and+request+a+review+via+Pull+Request.%0A" class=td-page-meta--child target=_blank rel=noopener><i class="fa fa-edit fa-fw"></i> Create child page</a>
+<a href="https://github.com/microsoft/alguidelines/issues/new?title=API%20Page%20/%20Query" class=td-page-meta--issue target=_blank rel=noopener><i class="fab fa-github fa-fw"></i> Create Issue</a>
+<a href="https://github.com/microsoft/alguidelines/discussions?discussions_q=API%20Page%20/%20Query" class=td-page-meta--issue target=_blank rel=noopener><i class="fab fa-github fa-fw"></i> Discussions</a>
 <a href=https://github.com/microsoft/alguidelines/issues/new class=td-page-meta--project-issue target=_blank rel=noopener><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
 </div>
 <div class=td-toc><nav id=TableOfContents>
 <ul>
-<li><a href=#abstract>Abstract</a></li>
 <li><a href=#description>Description</a></li>
-<li><a href=#usage>Usage</a></li>
-<li><a href=#example>Example</a></li>
-<li><a href=#nav-usages>NAV Usages</a></li>
-<li><a href=#ideas-for-improvement>Ideas for improvement</a></li>
-<li><a href=#when-it-should-not-be-used>When it should not be used</a></li>
-<li><a href=#related-topics>Related Topics</a></li>
-<li><a href=#references>References</a></li>
+<li><a href=#separate-api-app>Separate API app</a></li>
+<li><a href=#page-properties>Page properties</a>
+<ul>
+<li><a href=#apipublisher>APIPublisher</a></li>
+<li><a href=#apigroup>APIGroup</a></li>
+<li><a href=#apiversion>APIVersion</a></li>
+<li><a href=#entitysetname>EntitySetName</a></li>
+<li><a href=#entityname>EntityName</a></li>
+<li><a href=#delayedinsert>DelayedInsert</a></li>
+<li><a href=#full-example>Full example</a></li>
+<li><a href=#odatakeyfields>ODataKeyFields</a></li>
+</ul>
+</li>
+<li><a href=#field-properties>Field properties</a></li>
+<li><a href=#default-fields>Default fields</a></li>
 </ul>
 </nav></div>
 <div class="taxonomy taxonomy-terms-cloud taxo-tags">
@@ -558,105 +565,149 @@ Description This pattern should be used as a basis to build any document, showin
 <a href=https://alguidelines.dev/docs/>Docs</a>
 </li>
 <li class=breadcrumb-item>
-<a href=https://alguidelines.dev/docs/navpatterns/>NAV Patterns Archive</a>
-</li>
-<li class=breadcrumb-item>
-<a href=https://alguidelines.dev/docs/navpatterns/patterns/>1. Patterns</a>
+<a href=https://alguidelines.dev/docs/bestpractices/>Best Practices</a>
 </li>
 <li class="breadcrumb-item active" aria-current=page>
-<a href=https://alguidelines.dev/docs/navpatterns/patterns/document/>Document</a>
+<a href=https://alguidelines.dev/docs/bestpractices/api-page/>API Page / Query</a>
 </li>
 </ol>
 </nav>
 <div class=td-content>
-<h1>Document</h1>
+<h1>API Page / Query</h1>
 <header class=article-meta>
-<div class="taxonomy taxonomy-terms-article taxo-tags">
-<h5 class=taxonomy-title>Tags:</h5>
-<ul class=taxonomy-terms>
-<li><a class=taxonomy-term href=https://alguidelines.dev/tags/c/al/ data-taxonomy-term=c/al><span class=taxonomy-label>C/AL</span></a></li>
-</ul>
-</div>
 <div class="taxonomy taxonomy-terms-article taxo-categories">
 <h5 class=taxonomy-title>Categories:</h5>
 <ul class=taxonomy-terms>
-<li><a class=taxonomy-term href=https://alguidelines.dev/categories/pattern/ data-taxonomy-term=pattern><span class=taxonomy-label>Pattern</span></a></li>
+<li><a class=taxonomy-term href=https://alguidelines.dev/categories/best-practice/ data-taxonomy-term=best-practice><span class=taxonomy-label>Best Practice</span></a></li>
 </ul>
 </div>
 </header>
-<p><em>By Xavier Garonnat, knk Ingénierie (France), xgaronnat@knk.fr</em></p>
-<h2 id=abstract>Abstract</h2>
-<p>A document structure contains a header and a set of lines. Each line is linked to the header and could have common data with header.</p>
+<p><em>Created by Arend-Jan Kauffmann, Described by Arend-Jan Kauffmann</em></p>
 <h2 id=description>Description</h2>
-<p>This pattern should be used as a basis to build any document, showing a header and multiple lines in the same page. Basically, a document is at least composed of two tables and three pages, as shown below:</p>
-<p><a href=0005.Document-Pattern-UML-Class-Diagram.jpg><img src=0005.Document-Pattern-UML-Class-Diagram.jpg alt=" "></a></p>
-<h2 id=usage>Usage</h2>
-<p>You should use it any time you have to capture and store a document.</p>
-<h2 id=example>Example</h2>
-<p>To build this example from scratch, you will need:</p>
+<p>API pages are different from UI pages. They require different properties and don&rsquo;t behave the same. Because API pages are used for integration with external applications, they should be treated as contracts. To achieve this, the following topics are important.</p>
 <ul>
-<li>Two tables, one for the header (called &ldquo;Document Header&rdquo;), and one for the document lines (called &ldquo;Document Line&rdquo;). Each document will be composed of &ldquo;1 to N&rdquo; line(s).</li>
-<li>Three pages, one for the header, one for the subpage (lines), and the last for the document list obviously.Table &ldquo;Document Header&rdquo;</li>
+<li>Separate API app</li>
+<li>Page properties</li>
+<li>Versioning</li>
+<li>Field properties</li>
+<li>Default fields</li>
 </ul>
-<p><strong>Table &ldquo;Document Header&rdquo;</strong>: Is the &ldquo;header&rdquo; table of your document (like Sales Header, Purchase Header, Transfer Header &mldr;)</p>
+<h2 id=separate-api-app>Separate API app</h2>
+<p>It&rsquo;s a good practice to develop API pages in a separate app instead of combining them in a solution. By doing so, it provides better maintainability and is a good way of separation of concerns.</p>
+<h2 id=page-properties>Page properties</h2>
+<p>An API page must define a minimum set of properties. Some of these properties will be part of the URL of the API endpoint. It is recommended to define the properties in the same order as they appear in the URL.</p>
+<p>The properties that must be defined are:</p>
 <ul>
-<li>Add a field &ldquo;No.&rdquo; (Code 20): Should be the first field and primary key of your documents, to be driven by Serial No. (See corresponding design pattern)</li>
+<li>PageType = API / QueryType = API</li>
+<li>APIPublisher</li>
+<li>APIGroup</li>
+<li>APIVersion</li>
+<li>EntitySetName</li>
+<li>EntityName</li>
+<li>DelayedInsert (only Page)</li>
+<li>ODataKeyFields</li>
 </ul>
-<p>For this sample, I just added a &ldquo;Sell-to Customer No.&rdquo; to this table. Don&rsquo;t forget to manage deletion of lines with trigger OnDelete().</p>
-<p><strong>Table &ldquo;Document Line&rdquo;</strong>: will store the lines of the document</p>
+<h3 id=apipublisher>APIPublisher</h3>
+<p>The name of the API publisher is usually the company creating the API. It is the first custom part in the URL for a given endpoint. The value is case insensitive.</p>
+<p>Example:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>APIPublisher<span style=color:#f8f8f8;text-decoration:underline> </span>=<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#39;contoso&#39;</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></code></pre></div><h3 id=apigroup>APIGroup</h3>
+<p>Sets the group of the API endpoint that page or query is exposed in. In the URL the APIGroup comes after the APIPublisher. It can be used to distinguish different API apps or groups of APIs from each other. The value is case insensitive.</p>
+<p>Example:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>APIGroup<span style=color:#f8f8f8;text-decoration:underline> </span>=<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#39;app1&#39;</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></code></pre></div><h3 id=apiversion>APIVersion</h3>
+<p>Sets the version(s) of the API endpoint the page or query is exposed in. This property is not mandatory. If it is not specified, then APIs will be exposed as version &lsquo;beta&rsquo;.</p>
+<p>The APIVersion can be set to &lsquo;beta&rsquo; or have the format &lsquo;vx.y&rsquo;.
+Example:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>APIVersion<span style=color:#f8f8f8;text-decoration:underline> </span>=<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#39;beta&#39;</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></code></pre></div><p>or</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>APIVersion<span style=color:#f8f8f8;text-decoration:underline> </span>=<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#39;v1.0&#39;</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></code></pre></div><h4 id=_multiple-api-versions_><em>Multiple API versions</em></h4>
+<p>You should <strong>never</strong> break existing versions. Any breaking change requires to create a new version.</p>
+<p>It is possible to expose an API in multiple versions:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>APIVersion<span style=color:#f8f8f8;text-decoration:underline> </span>=<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#39;beta&#39;</span><span style=color:#000;font-weight:700>,</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#39;v1.0&#39;</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></code></pre></div><p>This allows to publish a new version of an API app without copying all individual objects and updating the version numbers. Only those API objects that are changed in a new version need to be copied. The other objects only need an addition to the APIVersion property to become available in the new version endpoint.</p>
+<h3 id=entitysetname>EntitySetName</h3>
+<p>The EntitySetName is the plural entity name. Think of it as the name of the collection of entities. It is recommended to use camelCasing for this property. The value is case sensitive!</p>
+<p>Example:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>EntitySetName<span style=color:#f8f8f8;text-decoration:underline> </span>=<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#39;itemCategories&#39;</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></code></pre></div><h3 id=entityname>EntityName</h3>
+<p>The EntityName sets the singular entity name for the API page or query. This name is not used in the URL. Instead, the EntityName is used in the metadata information. It is recommended to use camelCasing for this property.</p>
+<p>Example:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>EntityName<span style=color:#f8f8f8;text-decoration:underline> </span>=<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#39;itemCategory&#39;</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></code></pre></div><h3 id=delayedinsert>DelayedInsert</h3>
+<p>This property is required on an editable API page. It does not apply to an API query object. If <code>Editable = false</code> is set on the API page, then DelayedInsert is not required.
+All APIs pages apply the behavior to first specify all field values and then insert the record at once.</p>
+<p>Example:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>DelayedInsert<span style=color:#f8f8f8;text-decoration:underline> </span>=<span style=color:#f8f8f8;text-decoration:underline> </span>true<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></code></pre></div><h3 id=full-example>Full example</h3>
+<p>Together, the page properties look like:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>PageType<span style=color:#f8f8f8;text-decoration:underline> </span>=<span style=color:#f8f8f8;text-decoration:underline> </span>API<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span>APIPublisher<span style=color:#f8f8f8;text-decoration:underline> </span>=<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#39;contoso&#39;</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span>APIGroup<span style=color:#f8f8f8;text-decoration:underline> </span>=<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#39;app1&#39;</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span>APIVersion<span style=color:#f8f8f8;text-decoration:underline> </span>=<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#39;v1.0&#39;</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span>EntitySetName<span style=color:#f8f8f8;text-decoration:underline> </span>=<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#39;itemCategories&#39;</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span>EntityName<span style=color:#f8f8f8;text-decoration:underline> </span>=<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#39;itemCategory&#39;</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span>DelayedInsert<span style=color:#f8f8f8;text-decoration:underline> </span>=<span style=color:#f8f8f8;text-decoration:underline> </span>true<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></code></pre></div><p>The full url will look like: <code>https://{url}/api/contoso/app1/v1.0/companies({id})/itemCategories</code></p>
+<h3 id=odatakeyfields>ODataKeyFields</h3>
+<p>The <code>EntitySetName</code> property in the URL can be extended with an identifier to indicate a single record.</p>
+<p>Example:</p>
+<pre tabindex=0><code>.../itemCategories(768b6173-9b19-40ea-8e5d-ce181ec0d645)
+</code></pre><p>The property <code>ODataKeyFields</code> defines which field(s) will be used for the identifier value. It is highly recommended to always use the SystemId field for this property. The SystemId field is immutable and will never change for a record.</p>
+<p>The field that is defined in this property should be part of the API page.</p>
+<h2 id=field-properties>Field properties</h2>
+<p>The base structure of an API page is similar to a UI list page:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=color:#204a87;font-weight:700>layout</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span>{<span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>area</span><span style=color:#ce5c00;font-weight:700>(</span>Content<span style=color:#ce5c00;font-weight:700>)
+</span><span style=color:#ce5c00;font-weight:700>    </span>{<span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>repeater</span><span style=color:#ce5c00;font-weight:700>(</span>records<span style=color:#ce5c00;font-weight:700>)
+</span><span style=color:#ce5c00;font-weight:700>        </span>{<span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>            </span><span style=color:#ce5c00;font-weight:700>...
+</span><span style=color:#ce5c00;font-weight:700>        </span>}<span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span>}<span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span>}<span style=color:#f8f8f8;text-decoration:underline>
+</span></code></pre></div><p>When specifying the fields there are some considerations to keep in mind.</p>
+<pre tabindex=0><code>field(displayName; Rec.Name) { }
+</code></pre><p>There are no mandatory properties. The property <code>ApplicationArea</code> does not play a role in API pages, so it can be skipped. The property <code>Caption</code> is also optional and should only be used in case the external application requires captions and the caption should be different from the standard caption as defined in the table.</p>
+<p>The name of the field, in the example above <code>displayName</code>, should be defined in camelCasing. It may not contain spaces, dots, or other special characters.</p>
+<p>It is common use to give certain fields a more describing name. Some examples are:</p>
 <ul>
-<li>Add a field &ldquo;Document No.&rdquo; (Code 20): Should be the first field and is related to table &ldquo;Document Header&rdquo;: set TableRelation to your &ldquo;Document Header&rdquo; table</li>
-<li>Add a field &ldquo;Line No.&rdquo; (Integer): this field will be populated automatically by the subpage Page (see AutoSplitKey)</li>
+<li>id for field SystemId</li>
+<li>number for field &ldquo;No.&rdquo;</li>
+<li>displayName for field Name</li>
 </ul>
-<p>First (Primary) Key must be &ldquo;Document No.,Line No.&rdquo;. On table properties, set PasteIsValid to No (to avoid copying/pasting lines, will be implemented by &ldquo;Copy document&rdquo;, another pattern).</p>
-<p>For my sample, I just add a couple of fields: &ldquo;Item No.&rdquo; and &ldquo;Quantity&rdquo; to this table (just copy/paste standard fields from &ldquo;Sales Line&rdquo; table and delete trigger code, this will insure that each field will be well designed)</p>
-<p><strong>Page &ldquo;Document Subpage&rdquo;</strong>: will display the lines in the main form, and will be in charge of assigning line number automatically.</p>
-<p>Create the page for table &ldquo;Document Line&rdquo; with the wizard by selecting the ListPart template, add all yours fields except the primary key (&ldquo;Document No.&rdquo; and &ldquo;Line No.").</p>
-<p>Then edit the properties:</p>
+<h2 id=default-fields>Default fields</h2>
+<p>An API should at least expose these fields:</p>
 <ul>
-<li>Set AutoSplitKey, DelayedInsert and MultipleNewLines to Yes: this combination will make your subpage work as required.</li>
-<li>AutoSplitKey is used to set NAV calculate the last field of the key (&ldquo;Line No.") with proper numbers (10000, 20000&mldr;).</li>
-</ul>
-<p>Set caption to &ldquo;Lines&rdquo;. Save your page, we will use it on the next step.</p>
-<p><strong>Page &ldquo;Document&rdquo;</strong>: will display the document, and the lines with subpage.</p>
-<p>Create the page for &ldquo;Document Header&rdquo; Table with the wizard by selecting the Document template:</p>
+<li>SystemId
 <ul>
-<li>Add a General FastTab</li>
-<li>Add all the revelant fields for the user (or at least &ldquo;No.")</li>
-<li>Click Finish to close the wizard</li>
+<li>This field should be exposed wit the name <code>id</code></li>
 </ul>
-<p>Then simply add your subpage as new line in the designer, and adjust the property &ldquo;SubFormPerLink&rdquo; with &ldquo;Document No.=FIELD(No.)&rdquo; to link header and lines :</p>
-<p><a href=2086.Design-Pattern-Document-SubPage-Properties.png><img src=2086.Design-Pattern-Document-SubPage-Properties.png alt=" "></a></p>
-<p><strong>Page &ldquo;Document List&rdquo;:</strong> Use the Page wizard to create a List page based on the Document table and add fields, FactBox (RecordLinks, Notes&mldr;), etc.</p>
-<p>Once created:</p>
+</li>
+<li>SystemModifiedAt
 <ul>
-<li>Set Editable to No on the List</li>
-<li>CardPageID to Page &ldquo;Document&rdquo; to enable New/Edit/&mldr; Pane actions.</li>
+<li>This field should be exposed with the name <code>lastModifiedDateTime</code>. If you choose a different name, then the webhook functionality may not work properly.</li>
 </ul>
-<p>Save our page and add it to the Role Page &ldquo;Order Processor Role Center&rdquo; for example.</p>
-<p>Now, observe how &ldquo;Line No.&rdquo; is calculated on the first line, and when inserting a new line between the first and second one.</p>
-<p>Code sample (copy link to your browser) : <a href="https://knk1fr-my.sharepoint.com/personal/xgaronnat_knk_fr/_layouts/15/guestaccess.aspx?guestaccesstoken=hL0P%2fyQ1ZreY5KlSPc%2b8dHrO4zjUkqQbg8DnGSbgd1Y%3d&docid=02b3cb93e1ff1459380891795fb8441fc">https://knk1fr-my.sharepoint.com/personal/xgaronnat_knk_fr/_layouts/15/guestaccess.aspx?guestaccesstoken=hL0P%2fyQ1ZreY5KlSPc%2b8dHrO4zjUkqQbg8DnGSbgd1Y%3d&docid=02b3cb93e1ff1459380891795fb8441fc</a></p>
-<h2 id=nav-usages>NAV Usages</h2>
-<p>So many: Sales Order, Purchase Order, Transfer Order, Assembly Order&mldr;</p>
-<p>For posted document, it&rsquo;s quite similar, but you don&rsquo;t have to setup subpage properties like AutoSplitKey, used for data entry purpose only (and your pages content should be mainly read-only / non editable).</p>
-<h2 id=ideas-for-improvement>Ideas for improvement</h2>
-<ul>
-<li>A new property like &ldquo;AutoSplitStartNumber&rdquo;, enabled if AutoSplitKey=Yes, default value with &lt;10000>. Allow to change the numbers of created line.</li>
-<li>Be able to copy/paste header AND lines or import header and line from an Excel file.</li>
+</li>
 </ul>
-<h2 id=when-it-should-not-be-used>When it should not be used</h2>
-<p>This pattern is mainly used for Documents, and may not be used directly for Master data or any other table (Setup, Supplemental, etc&mldr;).</p>
-<h2 id=related-topics>Related Topics</h2>
-<p>Use Series No. Pattern for your documents, and Copy Document to implement document duplication.</p>
-<h2 id=references>References</h2>
-<p>Walkthrough: Creating a Document Page : <a href="http://msdn.microsoft.com/en-us/library/dd338599(v=nav.71).aspx" title="http://msdn.microsoft.com/en-us/library/dd338599(v=nav.71).aspx">http://msdn.microsoft.com/en-us/library/dd338599(v=nav.71).aspx</a><br>
-<div style=position:relative;padding-bottom:56.25%;height:0;overflow:hidden>
-<iframe src=https://www.youtube.com/embed/S9cRD2D4c0 style=position:absolute;top:0;left:0;width:100%;height:100%;border:0 allowfullscreen title="YouTube Video"></iframe>
-</div>
-</p>
+<p>Example:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=color:#204a87;font-weight:700>layout</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span>{<span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>area</span><span style=color:#ce5c00;font-weight:700>(</span>Content<span style=color:#ce5c00;font-weight:700>)
+</span><span style=color:#ce5c00;font-weight:700>    </span>{<span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>repeater</span><span style=color:#ce5c00;font-weight:700>(</span>records<span style=color:#ce5c00;font-weight:700>)
+</span><span style=color:#ce5c00;font-weight:700>        </span>{<span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>            </span><span style=color:#204a87;font-weight:700>field</span><span style=color:#ce5c00;font-weight:700>(</span>id<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> </span>SystemId<span style=color:#ce5c00;font-weight:700>) </span>{<span style=color:#f8f8f8;text-decoration:underline> </span>}<span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>            </span><span style=color:#204a87;font-weight:700>field</span><span style=color:#ce5c00;font-weight:700>(</span>lastModifiedDateTime<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> </span>SystemModifiedAt<span style=color:#ce5c00;font-weight:700>) </span>{<span style=color:#f8f8f8;text-decoration:underline> </span>}<span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>        </span>}<span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span>}<span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span>}<span style=color:#f8f8f8;text-decoration:underline>
+</span></code></pre></div>
 <div class="text-muted mt-5 pt-3 border-top">
-Last modified February 24, 2022: <a href=https://github.com/microsoft/alguidelines/commit/5ee0436639455a35835c5ce88241d3fad662ee06>Added tags & categories + cleanup (5ee04366)</a>
-by waldo1001
+Last modified February 26, 2022: <a href=https://github.com/microsoft/alguidelines/commit/2ec683b653ac49d00073c9d61206f1bb508998ba>New guideline API page (2ec683b6)</a>
+by Arend-Jan Kauffmann
 </div>
 </div>
 </main>
