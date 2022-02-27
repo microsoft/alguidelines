@@ -99,12 +99,11 @@ The function call takes the following parameters:
 
 ```AL
 procedure InitSeries(
-  DefaultNoSeriesCode: Code[20]; 
-  OldNoSeriesCode: Code[20];
-  NewDate: Date;
-  var NewNo: Code[20];
-  var NewNoSeriesCode: Code[20])
-```
+    DefaultNoSeriesCode: Code[20]; 
+    OldNoSeriesCode: Code[20];
+    NewDate: Date;
+    var NewNo: Code[20];
+    var NewNoSeriesCode: Code[20])
 
 The **DefaultNoSeriesCode** parameter is typically from a setup table. In the Customer example, this comes from the **Sales Setup** **Customer Nos.** setting.
 
