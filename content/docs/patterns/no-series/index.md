@@ -31,11 +31,11 @@ This is many roles, features, and controls for generation of a single field so t
 One additional (and somewhat optional) feature in the Number Series engine allows multiple sequences per type, called **Relationships**.  For example, different numbers for Items that are finished goods versus raw materials.  This requires additional hooks on the Page.
 {{% /alert %}}
 
-## Usage in Business Central
+## Usage in Data Entities
 
 To understand an example use in the Base App, the Customer data entity is a good choice.  
 
-Implementation to connect the Customer "No." field to the Number Series engine is done at the table level.  The Customer table contains:
+Implementation to connect the Customer **`No.`** field to the Number Series engine is done at the table level.  The Customer table contains:
 
 A field to contain the number (typically the primary key), which will be of type **`Code`**, length of **20**:
 
@@ -90,7 +90,8 @@ begin
 
 In the case of Customer, this is a Data Entity within the Sales module of the system.  The Sales module has a **Sales Setup** table where the user can specify a **No. Series** to use for Customers by default.
 
-`SalesSetup.Get();` fetches the setup table.
+`SalesSetup.Get();` fetches the sole setup table record.
+
 `SalesSetup.TestField("Customer Nos.");` is the basic validation that the **Sales Setup** table has a non-empty **Customer Nos.** field.  If the setup field isn't populated, when the user attempts to create a new Customer, they will receive an error message.
 
 `NoSeriesMgt.InitSeries(SalesSetup."Customer Nos.", xRec."No. Series", 0D, "No.", "No. Series");` is more parameters to a function than most expect.
@@ -104,6 +105,7 @@ procedure InitSeries(
     NewDate: Date;
     var NewNo: Code[20];
     var NewNoSeriesCode: Code[20])
+```
 
 The **DefaultNoSeriesCode** parameter is typically from a setup table. In the Customer example, this comes from the **Sales Setup** **Customer Nos.** setting.
 
@@ -120,6 +122,30 @@ The **NewNo** is a `var` parameter, and is how the new value comes back from the
  - if passed in with a value, the Number Series used must be configured to have **Manual Nos** enabled.
 
 The **NewNoSeriesCode** is more often used to switch between related number series, but is a required parameter, and is also passed back from the engine, so it is also a `var`.
+
+Additionally, it is a good idea to have `OnValidate` functionality on the **`No.`** field.  The complete code for the Customer **`No.`** field:
+
+```AL
+field(1; "No."; Code[20])
+{
+    Caption = 'No.';
+
+    trigger OnValidate()
+    begin
+        if "No." <> xRec."No." then begin
+            SalesSetup.Get();
+            NoSeriesMgt.TestManual(SalesSetup."Customer Nos.");
+            "No. Series" := '';
+        end;
+        if "Invoice Disc. Code" = '' then
+            "Invoice Disc. Code" := "No.";
+    end;
+}
+```
+
+If the user has changed the **`No.`** field (`"No." <> xRec."No."`), then:
+- the Number Series is checked if manually setting a new value is allowed via the `TestManual` function
+- The `No. Series` is cleared on the record, as it has no longer been given a value from that Series.   
 
 
 Since the Customer data entity supports the **No. Series Relationship** functionality, there are additional components.  On the table, there is a function called `AssistEdit`:
@@ -143,11 +169,15 @@ begin
 end;
 ```
 
-Similar to the OnInsert, some setup fields are checked.
+{{% alert title="Note" color="warning" %}}
+The use of **`WITH`** is deprecated.  While this code block represents the current state of the Base App, the use of **`WTIH`** should not be copied.
+{{% /alert %}}
+
+Similar to the **`OnInsert`** trigger, some setup fields are checked.
 
 Then, the `SelectSeries` function is called.  This will present a List to the user of available and relevant **No. Series** that are connected to the `SalesSetup."Customer Nos."` by a Number Series Relationship.
 
-From the Customer Page (a Card type page), the **No.** field has an AssistEdit trigger:
+From the **`Customer Page`** (a Card type page), the **No.** field has an **`AssistEdit`** trigger:
 
 ```AL
 trigger OnAssistEdit()
@@ -174,7 +204,7 @@ Business Central objects in the Base App to review to find out more:
 
 ## When not to use
 
-Typically, this pattern is used for unique Data Entities. It is not recommended for use in parts of the system where entries are created permanently (such as an Entry No. for ledgers) or highly mutable / working line data (such as Line No. for journals or document lines). 
+Typically, this pattern is used for unique Data Entities. It is not recommended for use in parts of the system where entries are created permanently (such as an **`Entry No.`** for ledgers) or highly mutable / working line data (such as **`Line No.`** for journals or document lines). 
 
 ## List of references
 
