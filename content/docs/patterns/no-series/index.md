@@ -62,7 +62,7 @@ field(107; "No. Series"; Code[20])
 }
 ```
 {{% alert title="Note" color="warning" %}}
-The **TableRelation** is important, and the **Editable** being false is advised.
+The **`TableRelation`** is important, and the **`Editable`** being false is advised.
 {{% /alert %}}
 
 And on the **OnInsert** trigger, code populates the **No. Series** and **No.** field.
