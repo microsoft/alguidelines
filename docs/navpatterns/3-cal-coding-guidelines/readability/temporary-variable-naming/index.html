@@ -2,7 +2,7 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
-<meta name=generator content="Hugo 0.92.2">
+<meta name=generator content="Hugo 0.93.0">
 <meta name=robots content="index, follow">
 <link rel="shortcut icon" href=/favicons/favicon.ico>
 <link rel=apple-touch-icon href=/favicons/apple-touch-icon-180x180.png sizes=180x180>
@@ -14,8 +14,7 @@
 <link rel=icon type=image/png href=/favicons/android-96x96.png sizes=96x96>
 <link rel=icon type=image/png href=/favicons/android-144x144.png sizes=144x144>
 <link rel=icon type=image/png href=/favicons/android-192x192.png sizes=192x192>
-<title>Temporary Variable Naming | alguidelines.dev - Business Central Design Patterns</title>
-<meta name=description content="The name of a temporary variable must be prefixed with the word Temp and not otherwise.
+<title>Temporary Variable Naming | alguidelines.dev - Business Central Design Patterns</title><meta name=description content="The name of a temporary variable must be prefixed with the word Temp and not otherwise.
 Bad code
 JobWIPBuffer@1002 : TEMPORARY Record 1018;   
 Good …">
@@ -48,8 +47,7 @@ TempJobWIPBuffer@1002:Record1018;Good code">
 <link href=/scss/main.min.84a617ff0c0265eb62b5cd2929c572f4ed37dc4907d0cf068be4eb2974f6d60f.css rel=stylesheet integrity>
 <script src=https://code.jquery.com/jquery-3.6.0.min.js integrity=sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK crossorigin=anonymous></script>
 <script src=https://unpkg.com/lunr@2.3.9/lunr.min.js integrity=sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli crossorigin=anonymous></script>
-</head>
-<body class=td-page>
+</head><body class=td-page>
 <header>
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
 <a class=navbar-brand href=/>
@@ -61,36 +59,24 @@ TempJobWIPBuffer@1002:Record1018;Good code">
 <ul class="navbar-nav mt-2 mt-lg-0">
 <li class="nav-item mr-4 mb-2 mb-lg-0">
 <a class=nav-link href=/docs/><i class="fas fa-book"></i><span>Docs</span></a>
-</li>
-<li class="nav-item mr-4 mb-2 mb-lg-0">
+</li><li class="nav-item mr-4 mb-2 mb-lg-0">
 <a class=nav-link href=https://github.com/microsoft/alguidelines/discussions/ target=_blank><i class="fas fa-comments"></i><span>Discussions</span></a>
-</li>
-<li class="nav-item mr-4 mb-2 mb-lg-0">
+</li><li class="nav-item mr-4 mb-2 mb-lg-0">
 <a class=nav-link href=https://github.com/microsoft/alguidelines target=_blank><i class="fab fa-github"></i><span>GitHub</span></a>
-</li>
-<li class="nav-item mr-4 mb-2 mb-lg-0">
+</li><li class="nav-item mr-4 mb-2 mb-lg-0">
 <a class=nav-link href=https://discord.gg/4wbfNv3 target=_blank><i class="fab fa-discord"></i><span>Discord</span></a>
-</li>
-</ul>
-</div>
-<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.9ab69a84696ad11cb17318558d9706e3.json data-offline-search-base-href=/ data-offline-search-max-results=10>
-</div>
-</nav>
-</header>
-<div class="container-fluid td-outer">
+</li></ul></div><div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.c6558a635de208ea1007e79e444e323a.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+</div></nav></header><div class="container-fluid td-outer">
 <div class=td-main>
 <div class="row flex-xl-nowrap">
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
 <div id=td-sidebar-menu class=td-sidebar__inner>
 <div id=content-mobile>
 <form class="td-sidebar__search d-flex align-items-center">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.9ab69a84696ad11cb17318558d9706e3.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.c6558a635de208ea1007e79e444e323a.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation">
 </button>
-</form>
-</div>
-<div id=content-desktop></div>
-<nav class="collapse td-sidebar-nav" id=td-section-nav>
+</form></div><div id=content-desktop></div><nav class="collapse td-sidebar-nav" id=td-section-nav>
 <ul class="td-sidebar-nav__section pr-md-3 ul-0">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-docs-li>
 <a href=/docs/ title="AL Guidelines" class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id=m-docs><span>Docs</span></a>
@@ -108,9 +94,9 @@ TempJobWIPBuffer@1002:Record1018;Good code">
 <a href=/docs/patterns/facade-pattern/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docspatternsfacade-pattern><span>Façade</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docspatternsgeneric-method-pattern-li>
 <a href=/docs/patterns/generic-method-pattern/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docspatternsgeneric-method-pattern><span>Generic Method</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsbestpractices-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docspatternsno-series-li>
+<a href=/docs/patterns/no-series/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docspatternsno-series><span>No. Series</span></a>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsbestpractices-li>
 <a href=/docs/bestpractices/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsbestpractices><span>Best Practices</span></a>
 <ul class="ul-2 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticesapi-page-li>
@@ -157,9 +143,7 @@ TempJobWIPBuffer@1002:Record1018;Good code">
 <a href=/docs/bestpractices/variable-naming/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticesvariable-naming><span>Variable Naming</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticesvariables-declarations-order-li>
 <a href=/docs/bestpractices/variables-declarations-order/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticesvariables-declarations-order><span>Variables Declarations Order</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-docsnavpatterns-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-docsnavpatterns-li>
 <a href=/docs/navpatterns/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatterns><span>NAV Patterns Archive</span></a>
 <ul class="ul-2 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatternspatterns-li>
@@ -174,9 +158,7 @@ TempJobWIPBuffer@1002:Record1018;Good code">
 <ul class="ul-4 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsblocked-entitydata-driven-blocked-entity-li>
 <a href=/docs/navpatterns/patterns/blocked-entity/data-driven-blocked-entity/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsblocked-entitydata-driven-blocked-entity><span>Data Driven Blocked Entity</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternscached-web-service-calls-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternscached-web-service-calls-li>
 <a href=/docs/navpatterns/patterns/cached-web-service-calls/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternscached-web-service-calls><span>Cached Web Server Calls</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsconditional-cascading-update-li>
 <a href=/docs/navpatterns/patterns/conditional-cascading-update/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsconditional-cascading-update><span>Conditional Cascading Update</span></a>
@@ -231,9 +213,7 @@ TempJobWIPBuffer@1002:Record1018;Good code">
 <ul class="ul-4 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsnet-exception-handling-in-caltryfunction-net-exception-handling-in-cal-li>
 <a href=/docs/navpatterns/patterns/net-exception-handling-in-cal/tryfunction-net-exception-handling-in-cal/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsnet-exception-handling-in-caltryfunction-net-exception-handling-in-cal><span>TryFunction NET Exception Handling in CAL</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsno-series-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsno-series-li>
 <a href=/docs/navpatterns/patterns/no-series/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsno-series><span>No Series</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docsnavpatternspatternsnotifications-li>
 <a href=/docs/navpatterns/patterns/notifications/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatternspatternsnotifications><span>Notifications</span></a>
@@ -242,9 +222,7 @@ TempJobWIPBuffer@1002:Record1018;Good code">
 <a href=/docs/navpatterns/patterns/notifications/in-context-notifications/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsnotificationsin-context-notifications><span>In-context Notifications</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsnotificationsnotification-lifecycle-management-pattern-li>
 <a href=/docs/navpatterns/patterns/notifications/notification-lifecycle-management-pattern/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsnotificationsnotification-lifecycle-management-pattern><span>Notification Lifecycle Management Pattern</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsobserver-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsobserver-li>
 <a href=/docs/navpatterns/patterns/observer/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsobserver><span>Observer</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsposting-routine-select-behavior-li>
 <a href=/docs/navpatterns/patterns/posting-routine-select-behavior/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsposting-routine-select-behavior><span>Posting Routine - Select Behavior</span></a>
@@ -259,9 +237,7 @@ TempJobWIPBuffer@1002:Record1018;Good code">
 <a href=/docs/navpatterns/patterns/queries/use-queries-to-detect-duplicate-records/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsqueriesuse-queries-to-detect-duplicate-records><span>Use Queries to Detect Duplicate Records</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsqueriesuse-queries-to-replace-nested-loops-li>
 <a href=/docs/navpatterns/patterns/queries/use-queries-to-replace-nested-loops/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsqueriesuse-queries-to-replace-nested-loops><span>Use Queries to Replace Nested Loops</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsread-once-initialization-and-validation-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsread-once-initialization-and-validation-li>
 <a href=/docs/navpatterns/patterns/read-once-initialization-and-validation/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsread-once-initialization-and-validation><span>Read-once Initialization and Validation</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsreleased-entity-li>
 <a href=/docs/navpatterns/patterns/released-entity/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsreleased-entity><span>Released Entity</span></a>
@@ -280,9 +256,7 @@ TempJobWIPBuffer@1002:Record1018;Good code">
 <a href=/docs/navpatterns/patterns/security/4-masked-text/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternssecurity4-masked-text><span>Masked Text</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternssecurity5-ssl-in-nav-li>
 <a href=/docs/navpatterns/patterns/security/5-ssl-in-nav/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternssecurity5-ssl-in-nav><span>SSL in NAV</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternssetup-specificity-fallback-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternssetup-specificity-fallback-li>
 <a href=/docs/navpatterns/patterns/setup-specificity-fallback/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternssetup-specificity-fallback><span>Setup Specificity Fallback</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternssilent-file-upload-and-download-li>
 <a href=/docs/navpatterns/patterns/silent-file-upload-and-download/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternssilent-file-upload-and-download><span>Silent File Upload and Download</span></a>
@@ -298,11 +272,7 @@ TempJobWIPBuffer@1002:Record1018;Good code">
 <a href=/docs/navpatterns/patterns/singleton/singleton-table/cue-table/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternssingletonsingleton-tablecue-table><span>Cue Table</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternssingletonsingleton-tablesetup-table-li>
 <a href=/docs/navpatterns/patterns/singleton/singleton-table/setup-table/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternssingletonsingleton-tablesetup-table><span>Setup Table</span></a>
-</li>
-</ul>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsstandard-journal-li>
+</li></ul></li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsstandard-journal-li>
 <a href=/docs/navpatterns/patterns/standard-journal/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsstandard-journal><span>Standard Journal</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternstemporary-dataset-report-li>
 <a href=/docs/navpatterns/patterns/temporary-dataset-report/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternstemporary-dataset-report><span>Temporary Dataset Report</span></a>
@@ -312,18 +282,14 @@ TempJobWIPBuffer@1002:Record1018;Good code">
 <a href=/docs/navpatterns/patterns/transfer-custom-fields/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternstransfer-custom-fields><span>Transfer Custom Fields</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsvariant-facade-li>
 <a href=/docs/navpatterns/patterns/variant-facade/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsvariant-facade><span>Variant Facade</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatterns2-anti-patterns-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatterns2-anti-patterns-li>
 <a href=/docs/navpatterns/2-anti-patterns/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatterns2-anti-patterns><span>2. Anti-Patterns</span></a>
 <ul class="ul-3 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns2-anti-patternsnav-upgrade-li>
 <a href=/docs/navpatterns/2-anti-patterns/nav-upgrade/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns2-anti-patternsnav-upgrade><span>Nav Upgrade</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns2-anti-patternsreusable-bugs-li>
 <a href=/docs/navpatterns/2-anti-patterns/reusable-bugs/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns2-anti-patternsreusable-bugs><span>Reusable Bugs</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-docsnavpatterns3-cal-coding-guidelines-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-docsnavpatterns3-cal-coding-guidelines-li>
 <a href=/docs/navpatterns/3-cal-coding-guidelines/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatterns3-cal-coding-guidelines><span>3. CAL Coding Guidelines</span></a>
 <ul class="ul-3 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatterns3-cal-coding-guidelinesdesign-li>
@@ -357,18 +323,14 @@ TempJobWIPBuffer@1002:Record1018;Good code">
 <a href=/docs/navpatterns/3-cal-coding-guidelines/design/variable-capacity-mismatch/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesdesignvariable-capacity-mismatch><span>Variable Capacity Mismatch</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesdesignwith-scope-name-collision-li>
 <a href=/docs/navpatterns/3-cal-coding-guidelines/design/with-scope-name-collision/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesdesignwith-scope-name-collision><span>WITH Scope Name Collision</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatterns3-cal-coding-guidelinesinternally-used-dot-net-types-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatterns3-cal-coding-guidelinesinternally-used-dot-net-types-li>
 <a href=/docs/navpatterns/3-cal-coding-guidelines/internally-used-dot-net-types/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesinternally-used-dot-net-types><span>Internally used DotNet Types</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatterns3-cal-coding-guidelinesinternationalization-li>
 <a href=/docs/navpatterns/3-cal-coding-guidelines/internationalization/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatterns3-cal-coding-guidelinesinternationalization><span>Internationalization</span></a>
 <ul class="ul-4 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesinternationalizationusing-calcdate-li>
 <a href=/docs/navpatterns/3-cal-coding-guidelines/internationalization/using-calcdate/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesinternationalizationusing-calcdate><span>Using Calcdate</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatterns3-cal-coding-guidelineslocalizability-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatterns3-cal-coding-guidelineslocalizability-li>
 <a href=/docs/navpatterns/3-cal-coding-guidelines/localizability/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatterns3-cal-coding-guidelineslocalizability><span>Localizability</span></a>
 <ul class="ul-4 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelineslocalizabilitycaptionml-for-system-tables-li>
@@ -381,9 +343,7 @@ TempJobWIPBuffer@1002:Record1018;Good code">
 <a href=/docs/navpatterns/3-cal-coding-guidelines/localizability/use-text-constants/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelineslocalizabilityuse-text-constants><span>Use Text Constants</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelineslocalizabilityusing-optioncaptionml-li>
 <a href=/docs/navpatterns/3-cal-coding-guidelines/localizability/using-optioncaptionml/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelineslocalizabilityusing-optioncaptionml><span>Using OptionCaptionML</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-docsnavpatterns3-cal-coding-guidelinesreadability-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-docsnavpatterns3-cal-coding-guidelinesreadability-li>
 <a href=/docs/navpatterns/3-cal-coding-guidelines/readability/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatterns3-cal-coding-guidelinesreadability><span>Readability</span></a>
 <ul class="ul-4 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilitybegin-as-an-afterword-li>
@@ -450,9 +410,7 @@ TempJobWIPBuffer@1002:Record1018;Good code">
 <a href=/docs/navpatterns/3-cal-coding-guidelines/readability/variable-naming/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilityvariable-naming><span>Variable Naming</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilityvariables-declarations-order-li>
 <a href=/docs/navpatterns/3-cal-coding-guidelines/readability/variables-declarations-order/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilityvariables-declarations-order><span>Variables Declarations Order</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatterns3-cal-coding-guidelinesux-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatterns3-cal-coding-guidelinesux-li>
 <a href=/docs/navpatterns/3-cal-coding-guidelines/ux/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatterns3-cal-coding-guidelinesux><span>UX</span></a>
 <ul class="ul-4 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesuxactions-images-li>
@@ -463,11 +421,7 @@ TempJobWIPBuffer@1002:Record1018;Good code">
 <a href=/docs/navpatterns/3-cal-coding-guidelines/ux/fielderror/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesuxfielderror><span>FIELDERROR</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesuxmessage-and-error-li>
 <a href=/docs/navpatterns/3-cal-coding-guidelines/ux/message-and-error/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesuxmessage-and-error><span>MESSAGE and ERROR</span></a>
-</li>
-</ul>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatterns4-get-involved-li>
+</li></ul></li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatterns4-get-involved-li>
 <a href=/docs/navpatterns/4-get-involved/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatterns4-get-involved><span>(OLD) Get Involved</span></a>
 <ul class="ul-3 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns4-get-involvedcode-of-conduct-li>
@@ -476,13 +430,9 @@ TempJobWIPBuffer@1002:Record1018;Good code">
 <a href=/docs/navpatterns/4-get-involved/patterns-authors/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns4-get-involvedpatterns-authors><span>Patterns Authors</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns4-get-involvedtemplate-for-writing-nav-design-patterns-li>
 <a href=/docs/navpatterns/4-get-involved/template-for-writing-nav-design-patterns/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns4-get-involvedtemplate-for-writing-nav-design-patterns><span>Template for writing Nav Design Patterns</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternsrelated-links-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternsrelated-links-li>
 <a href=/docs/navpatterns/related-links/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternsrelated-links><span>Related Links</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docscontributing-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docscontributing-li>
 <a href=/docs/contributing/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docscontributing><span>Contributing</span></a>
 <ul class="ul-2 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docscontributingformattingtips-li>
@@ -498,27 +448,14 @@ TempJobWIPBuffer@1002:Record1018;Good code">
 <a href=/docs/contributing/installhugo/manuallyonwindows11/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docscontributinginstallhugomanuallyonwindows11><span>Manually on Windows 11</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docscontributinginstallhugousingpowershellonwindows11-li>
 <a href=/docs/contributing/installhugo/usingpowershellonwindows11/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docscontributinginstallhugousingpowershellonwindows11><span>Powershell on Windows 11</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docscontributingtemplates-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docscontributingtemplates-li>
 <a href=/docs/contributing/templates/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docscontributingtemplates><span>Templates</span></a>
 <ul class="ul-3 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docscontributingtemplatespatterns-li>
 <a href=/docs/contributing/templates/patterns/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docscontributingtemplatespatterns><span>Pattern Name</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docscontributingtemplatesbestpractice-li>
 <a href=/docs/contributing/templates/bestpractice/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docscontributingtemplatesbestpractice><span>Title Here</span></a>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</nav>
-</div>
-</aside>
-<aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+</li></ul></li></ul></li></ul></li></ul></nav></div></aside><aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
 <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
 <a href=https://github.com/microsoft/alguidelines/tree/main/content/docs/NAVPatterns/3-cal-coding-guidelines/readability/temporary-variable-naming/index.md class=td-page-meta--view target=_blank rel=noopener><i class="fa fa-file-alt fa-fw"></i> View page source</a>
 <a href=https://github.com/microsoft/alguidelines/edit/main/content/docs/NAVPatterns/3-cal-coding-guidelines/readability/temporary-variable-naming/index.md class=td-page-meta--edit target=_blank rel=noopener><i class="fa fa-edit fa-fw"></i> Edit this page</a>
@@ -526,86 +463,37 @@ TempJobWIPBuffer@1002:Record1018;Good code">
 <a href="https://github.com/microsoft/alguidelines/issues/new?title=Temporary%20Variable%20Naming" class=td-page-meta--issue target=_blank rel=noopener><i class="fab fa-github fa-fw"></i> Create Issue</a>
 <a href="https://github.com/microsoft/alguidelines/discussions?discussions_q=Temporary%20Variable%20Naming" class=td-page-meta--issue target=_blank rel=noopener><i class="fab fa-github fa-fw"></i> Discussions</a>
 <a href=https://github.com/microsoft/alguidelines/issues/new class=td-page-meta--project-issue target=_blank rel=noopener><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
-</div>
-<div class="taxonomy taxonomy-terms-cloud taxo-tags">
-<h5 class=taxonomy-title>Tag Cloud</h5>
-<ul class=taxonomy-terms>
-<li><a class=taxonomy-term href=https://alguidelines.dev/tags/al/ data-taxonomy-term=al><span class=taxonomy-label>AL</span><span class=taxonomy-count>29</span></a></li>
-<li><a class=taxonomy-term href=https://alguidelines.dev/tags/api/ data-taxonomy-term=api><span class=taxonomy-label>API</span><span class=taxonomy-count>3</span></a></li>
-<li><a class=taxonomy-term href=https://alguidelines.dev/tags/c/al/ data-taxonomy-term=c/al><span class=taxonomy-label>C/AL</span><span class=taxonomy-count>136</span></a></li>
-<li><a class=taxonomy-term href=https://alguidelines.dev/tags/decoupling/ data-taxonomy-term=decoupling><span class=taxonomy-label>Decoupling</span><span class=taxonomy-count>2</span></a></li>
-<li><a class=taxonomy-term href=https://alguidelines.dev/tags/extendability/ data-taxonomy-term=extendability><span class=taxonomy-label>Extendability</span><span class=taxonomy-count>3</span></a></li>
-<li><a class=taxonomy-term href=https://alguidelines.dev/tags/interface/ data-taxonomy-term=interface><span class=taxonomy-label>Interface</span><span class=taxonomy-count>1</span></a></li>
-<li><a class=taxonomy-term href=https://alguidelines.dev/tags/performance/ data-taxonomy-term=performance><span class=taxonomy-label>Performance</span><span class=taxonomy-count>2</span></a></li>
-<li><a class=taxonomy-term href=https://alguidelines.dev/tags/readability/ data-taxonomy-term=readability><span class=taxonomy-label>Readability</span><span class=taxonomy-count>53</span></a></li>
-<li><a class=taxonomy-term href=https://alguidelines.dev/tags/telemetry/ data-taxonomy-term=telemetry><span class=taxonomy-label>Telemetry</span><span class=taxonomy-count>1</span></a></li>
-<li><a class=taxonomy-term href=https://alguidelines.dev/tags/testability/ data-taxonomy-term=testability><span class=taxonomy-label>Testability</span><span class=taxonomy-count>2</span></a></li>
-</ul>
-</div>
-<div class="taxonomy taxonomy-terms-cloud taxo-categories">
-<h5 class=taxonomy-title>Categories</h5>
-<ul class=taxonomy-terms>
-<li><a class=taxonomy-term href=https://alguidelines.dev/categories/best-practice/ data-taxonomy-term=best-practice><span class=taxonomy-label>Best Practice</span><span class=taxonomy-count>86</span></a></li>
-<li><a class=taxonomy-term href=https://alguidelines.dev/categories/pattern/ data-taxonomy-term=pattern><span class=taxonomy-label>Pattern</span><span class=taxonomy-count>70</span></a></li>
-</ul>
-</div>
-</aside>
-<main class="col-12 col-md-9 col-xl-8 pl-md-5" role=main>
+</div><div class="taxonomy taxonomy-terms-cloud taxo-tags">
+<h5 class=taxonomy-title>Tag Cloud</h5><ul class=taxonomy-terms>
+<li><a class=taxonomy-term href=https://alguidelines.dev/tags/al/ data-taxonomy-term=al><span class=taxonomy-label>AL</span><span class=taxonomy-count>30</span></a></li><li><a class=taxonomy-term href=https://alguidelines.dev/tags/api/ data-taxonomy-term=api><span class=taxonomy-label>API</span><span class=taxonomy-count>3</span></a></li><li><a class=taxonomy-term href=https://alguidelines.dev/tags/c/al/ data-taxonomy-term=c/al><span class=taxonomy-label>C/AL</span><span class=taxonomy-count>136</span></a></li><li><a class=taxonomy-term href=https://alguidelines.dev/tags/decoupling/ data-taxonomy-term=decoupling><span class=taxonomy-label>Decoupling</span><span class=taxonomy-count>2</span></a></li><li><a class=taxonomy-term href=https://alguidelines.dev/tags/extendability/ data-taxonomy-term=extendability><span class=taxonomy-label>Extendability</span><span class=taxonomy-count>3</span></a></li><li><a class=taxonomy-term href=https://alguidelines.dev/tags/interface/ data-taxonomy-term=interface><span class=taxonomy-label>Interface</span><span class=taxonomy-count>1</span></a></li><li><a class=taxonomy-term href=https://alguidelines.dev/tags/performance/ data-taxonomy-term=performance><span class=taxonomy-label>Performance</span><span class=taxonomy-count>2</span></a></li><li><a class=taxonomy-term href=https://alguidelines.dev/tags/readability/ data-taxonomy-term=readability><span class=taxonomy-label>Readability</span><span class=taxonomy-count>53</span></a></li><li><a class=taxonomy-term href=https://alguidelines.dev/tags/telemetry/ data-taxonomy-term=telemetry><span class=taxonomy-label>Telemetry</span><span class=taxonomy-count>1</span></a></li><li><a class=taxonomy-term href=https://alguidelines.dev/tags/testability/ data-taxonomy-term=testability><span class=taxonomy-label>Testability</span><span class=taxonomy-count>2</span></a></li></ul></div><div class="taxonomy taxonomy-terms-cloud taxo-categories">
+<h5 class=taxonomy-title>Categories</h5><ul class=taxonomy-terms>
+<li><a class=taxonomy-term href=https://alguidelines.dev/categories/best-practice/ data-taxonomy-term=best-practice><span class=taxonomy-label>Best Practice</span><span class=taxonomy-count>86</span></a></li><li><a class=taxonomy-term href=https://alguidelines.dev/categories/pattern/ data-taxonomy-term=pattern><span class=taxonomy-label>Pattern</span><span class=taxonomy-count>71</span></a></li></ul></div></aside><main class="col-12 col-md-9 col-xl-8 pl-md-5" role=main>
 <nav aria-label=breadcrumb class=td-breadcrumbs>
 <ol class=breadcrumb>
 <li class=breadcrumb-item>
 <a href=https://alguidelines.dev/docs/>Docs</a>
-</li>
-<li class=breadcrumb-item>
+</li><li class=breadcrumb-item>
 <a href=https://alguidelines.dev/docs/navpatterns/>NAV Patterns Archive</a>
-</li>
-<li class=breadcrumb-item>
+</li><li class=breadcrumb-item>
 <a href=https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/>3. CAL Coding Guidelines</a>
-</li>
-<li class=breadcrumb-item>
+</li><li class=breadcrumb-item>
 <a href=https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/>Readability</a>
-</li>
-<li class="breadcrumb-item active" aria-current=page>
+</li><li class="breadcrumb-item active" aria-current=page>
 <a href=https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/readability/temporary-variable-naming/>Temporary Variable Naming</a>
-</li>
-</ol>
-</nav>
-<div class=td-content>
-<h1>Temporary Variable Naming</h1>
-<header class=article-meta>
+</li></ol></nav><div class=td-content>
+<h1>Temporary Variable Naming</h1><header class=article-meta>
 <div class="taxonomy taxonomy-terms-article taxo-tags">
-<h5 class=taxonomy-title>Tags:</h5>
-<ul class=taxonomy-terms>
-<li><a class=taxonomy-term href=https://alguidelines.dev/tags/c/al/ data-taxonomy-term=c/al><span class=taxonomy-label>C/AL</span></a></li>
-<li><a class=taxonomy-term href=https://alguidelines.dev/tags/readability/ data-taxonomy-term=readability><span class=taxonomy-label>Readability</span></a></li>
-</ul>
-</div>
-<div class="taxonomy taxonomy-terms-article taxo-categories">
-<h5 class=taxonomy-title>Categories:</h5>
-<ul class=taxonomy-terms>
-<li><a class=taxonomy-term href=https://alguidelines.dev/categories/best-practice/ data-taxonomy-term=best-practice><span class=taxonomy-label>Best Practice</span></a></li>
-</ul>
-</div>
-</header>
-<p>The name of a temporary variable must be prefixed with the word Temp and not otherwise.</p>
-<p>Bad code</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>JobWIPBuffer@<span style=color:#0000cf;font-weight:700>1002</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>TEMPORARY</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Record</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#0000cf;font-weight:700>1018</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>   
-</span></code></pre></div><p>Good code</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>TempJobWIPBuffer@<span style=color:#0000cf;font-weight:700>1002</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>TEMPORARY</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Record</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#0000cf;font-weight:700>1018</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>   
-</span></code></pre></div><p>Bad code</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>TempJobWIPBuffer@<span style=color:#0000cf;font-weight:700>1002</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Record</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#0000cf;font-weight:700>1018</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>   
-</span></code></pre></div><p>Good code</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>CopyOfJobWIPBuffer@<span style=color:#0000cf;font-weight:700>1002</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Record</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#0000cf;font-weight:700>1018</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span></code></pre></div>
-<div class="text-muted mt-5 pt-3 border-top">
+<h5 class=taxonomy-title>Tags:</h5><ul class=taxonomy-terms>
+<li><a class=taxonomy-term href=https://alguidelines.dev/tags/c/al/ data-taxonomy-term=c/al><span class=taxonomy-label>C/AL</span></a></li><li><a class=taxonomy-term href=https://alguidelines.dev/tags/readability/ data-taxonomy-term=readability><span class=taxonomy-label>Readability</span></a></li></ul></div><div class="taxonomy taxonomy-terms-article taxo-categories">
+<h5 class=taxonomy-title>Categories:</h5><ul class=taxonomy-terms>
+<li><a class=taxonomy-term href=https://alguidelines.dev/categories/best-practice/ data-taxonomy-term=best-practice><span class=taxonomy-label>Best Practice</span></a></li></ul></div></header><p>The name of a temporary variable must be prefixed with the word Temp and not otherwise.</p><p>Bad code</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=display:flex><span>JobWIPBuffer@<span style=color:#0000cf;font-weight:700>1002</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>TEMPORARY</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Record</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#0000cf;font-weight:700>1018</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>   
+</span></span></span></code></pre></div><p>Good code</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=display:flex><span>TempJobWIPBuffer@<span style=color:#0000cf;font-weight:700>1002</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>TEMPORARY</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Record</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#0000cf;font-weight:700>1018</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>   
+</span></span></span></code></pre></div><p>Bad code</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=display:flex><span>TempJobWIPBuffer@<span style=color:#0000cf;font-weight:700>1002</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Record</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#0000cf;font-weight:700>1018</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>   
+</span></span></span></code></pre></div><p>Good code</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=display:flex><span>CopyOfJobWIPBuffer@<span style=color:#0000cf;font-weight:700>1002</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Record</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#0000cf;font-weight:700>1018</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span></code></pre></div><div class="text-muted mt-5 pt-3 border-top">
 Last modified February 24, 2022: <a href=https://github.com/microsoft/alguidelines/commit/5ee0436639455a35835c5ce88241d3fad662ee06>Added tags & categories + cleanup (5ee04366)</a>
 by waldo1001
-</div>
-</div>
-</main>
-</div>
-</div>
-<footer class="bg-dark py-5 row d-print-none">
+</div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class=row>
 <div class="col-6 col-sm-4 text-xs-center order-sm-2">
@@ -614,31 +502,19 @@ by waldo1001
 <a class=text-white target=_blank rel=noopener href=https://github.com/microsoft/alguidelines aria-label=GitHub>
 <i class="fab fa-github"></i>
 </a>
-</li>
-<li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title=Twitter aria-label=Twitter>
+</li><li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title=Twitter aria-label=Twitter>
 <a class=text-white target=_blank rel=noopener href="https://twitter.com/search?q=%23bcalhelp" aria-label=Twitter>
 <i class="fab fa-twitter"></i>
 </a>
-</li>
-<li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title=Discord aria-label=Discord>
+</li><li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title=Discord aria-label=Discord>
 <a class=text-white target=_blank rel=noopener href=https://discord.gg/4wbfNv3 aria-label=Discord>
 <i class="fab fa-discord"></i>
 </a>
-</li>
-</ul>
-</div>
-<div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
-</div>
-<div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+</li></ul></div><div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+</div><div class="col-12 col-sm-4 text-center py-2 order-sm-2">
 <small class=text-white>&copy; 2022 alguidelines.dev Project All Rights Reserved</small>
-</div>
-</div>
-</div>
-</footer>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js integrity=sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN crossorigin=anonymous></script>
+</div></div></div></footer></div><script src=https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js integrity=sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA==" crossorigin=anonymous></script>
 <script src=/js/tabpane-persist.js></script>
-<script src=/js/main.min.8ab8f81ff7e1454d30024cd6f956d4d341c3a97e2a673f988065f2ee4e147922.js integrity="sha256-irj4H/fhRU0wAkzW+VbU00HDqX4qZz+YgGXy7k4UeSI=" crossorigin=anonymous></script>
-</body>
-</html>
+<script src=/js/main.min.fc1551b8c1b40a6eaa08f3cb9c76f12ccd9aebc436cecdaf2341c890206d024a.js integrity="sha256-/BVRuMG0Cm6qCPPLnHbxLM2a68Q2zs2vI0HIkCBtAko=" crossorigin=anonymous></script>
+</body></html>

@@ -79,5 +79,5 @@
 &lt;p>&lt;strong>Business logic placement&lt;/strong>&lt;/p>
 &lt;p>As a best practice, we have also decided to move code into pages. Business logic should no longer be in tables and codeunits, but instead pages should know and be aware of the context and update it accordingly. As opposite to tables and codeunits, pages are aware of the context.&lt;/p>
 &lt;h2 id="conclusion">Conclusion&lt;/h2>
-&lt;p>Happy April Fools' Day.&lt;/p>
+&lt;p>Happy April Fools&amp;rsquo; Day.&lt;/p>
 &lt;p>Disclaimer: this is inspired from IETF documentation published on April 1st, like for example the revolutionizing &lt;a href="http://en.wikipedia.org/wiki/IP_over_Avian_Carriers">IP over Avian Carriers&lt;/a> standard.&lt;/p></description></item></channel></rss>

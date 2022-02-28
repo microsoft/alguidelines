@@ -38,7 +38,7 @@ The CC3 version is computed by summing the following in a code block:
 - each entire CASE as 1\.
 &lt;/code>&lt;/pre></description></item><item><title>Docs: Encapsulate Local Functionality</title><link>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/design/encapsulate-local-functionality/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/design/encapsulate-local-functionality/</guid><description>
 &lt;p>Any function used local must be defined as local.&lt;/p></description></item><item><title>Docs: FINDSET FINDFIRST FINDLAST</title><link>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/design/findset-findfirst-findlast/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/navpatterns/3-cal-coding-guidelines/design/findset-findfirst-findlast/</guid><description>
-&lt;p>FINDSET, FIND('+') or FIND('-') should only be used when NEXT is used and vice versa.&lt;/p>
+&lt;p>FINDSET, FIND(&amp;rsquo;+&amp;rsquo;) or FIND(&amp;rsquo;-&amp;rsquo;) should only be used when NEXT is used and vice versa.&lt;/p>
 &lt;p>Bad code&lt;/p>
 &lt;pre>&lt;code>IF Cust.FIND('-') THEN
 ERROR(CustIsBlockErr)

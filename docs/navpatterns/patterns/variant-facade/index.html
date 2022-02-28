@@ -2,7 +2,7 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
-<meta name=generator content="Hugo 0.92.2">
+<meta name=generator content="Hugo 0.93.0">
 <meta name=robots content="index, follow">
 <link rel="shortcut icon" href=/favicons/favicon.ico>
 <link rel=apple-touch-icon href=/favicons/apple-touch-icon-180x180.png sizes=180x180>
@@ -14,8 +14,7 @@
 <link rel=icon type=image/png href=/favicons/android-96x96.png sizes=96x96>
 <link rel=icon type=image/png href=/favicons/android-144x144.png sizes=144x144>
 <link rel=icon type=image/png href=/favicons/android-192x192.png sizes=192x192>
-<title>Variant Facade | alguidelines.dev - Business Central Design Patterns</title>
-<meta name=description content="By Nikola Kukrika, waldo and Gary Winter
+<title>Variant Facade | alguidelines.dev - Business Central Design Patterns</title><meta name=description content="By Nikola Kukrika, waldo and Gary Winter
 Abstract
 The Variant façade provides a single interface that can take any Record, RecordRef or RecordID as an …">
 <meta property="og:title" content="Variant Facade">
@@ -44,8 +43,7 @@ Problem Since NAV is strongly typed, developers often need to duplicate function
 <link href=/scss/main.min.84a617ff0c0265eb62b5cd2929c572f4ed37dc4907d0cf068be4eb2974f6d60f.css rel=stylesheet integrity>
 <script src=https://code.jquery.com/jquery-3.6.0.min.js integrity=sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK crossorigin=anonymous></script>
 <script src=https://unpkg.com/lunr@2.3.9/lunr.min.js integrity=sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli crossorigin=anonymous></script>
-</head>
-<body class=td-page>
+</head><body class=td-page>
 <header>
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
 <a class=navbar-brand href=/>
@@ -57,36 +55,24 @@ Problem Since NAV is strongly typed, developers often need to duplicate function
 <ul class="navbar-nav mt-2 mt-lg-0">
 <li class="nav-item mr-4 mb-2 mb-lg-0">
 <a class=nav-link href=/docs/><i class="fas fa-book"></i><span>Docs</span></a>
-</li>
-<li class="nav-item mr-4 mb-2 mb-lg-0">
+</li><li class="nav-item mr-4 mb-2 mb-lg-0">
 <a class=nav-link href=https://github.com/microsoft/alguidelines/discussions/ target=_blank><i class="fas fa-comments"></i><span>Discussions</span></a>
-</li>
-<li class="nav-item mr-4 mb-2 mb-lg-0">
+</li><li class="nav-item mr-4 mb-2 mb-lg-0">
 <a class=nav-link href=https://github.com/microsoft/alguidelines target=_blank><i class="fab fa-github"></i><span>GitHub</span></a>
-</li>
-<li class="nav-item mr-4 mb-2 mb-lg-0">
+</li><li class="nav-item mr-4 mb-2 mb-lg-0">
 <a class=nav-link href=https://discord.gg/4wbfNv3 target=_blank><i class="fab fa-discord"></i><span>Discord</span></a>
-</li>
-</ul>
-</div>
-<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.9ab69a84696ad11cb17318558d9706e3.json data-offline-search-base-href=/ data-offline-search-max-results=10>
-</div>
-</nav>
-</header>
-<div class="container-fluid td-outer">
+</li></ul></div><div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.c6558a635de208ea1007e79e444e323a.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+</div></nav></header><div class="container-fluid td-outer">
 <div class=td-main>
 <div class="row flex-xl-nowrap">
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
 <div id=td-sidebar-menu class=td-sidebar__inner>
 <div id=content-mobile>
 <form class="td-sidebar__search d-flex align-items-center">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.9ab69a84696ad11cb17318558d9706e3.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.c6558a635de208ea1007e79e444e323a.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation">
 </button>
-</form>
-</div>
-<div id=content-desktop></div>
-<nav class="collapse td-sidebar-nav" id=td-section-nav>
+</form></div><div id=content-desktop></div><nav class="collapse td-sidebar-nav" id=td-section-nav>
 <ul class="td-sidebar-nav__section pr-md-3 ul-0">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-docs-li>
 <a href=/docs/ title="AL Guidelines" class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id=m-docs><span>Docs</span></a>
@@ -104,9 +90,9 @@ Problem Since NAV is strongly typed, developers often need to duplicate function
 <a href=/docs/patterns/facade-pattern/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docspatternsfacade-pattern><span>Façade</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docspatternsgeneric-method-pattern-li>
 <a href=/docs/patterns/generic-method-pattern/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docspatternsgeneric-method-pattern><span>Generic Method</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsbestpractices-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docspatternsno-series-li>
+<a href=/docs/patterns/no-series/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docspatternsno-series><span>No. Series</span></a>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsbestpractices-li>
 <a href=/docs/bestpractices/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsbestpractices><span>Best Practices</span></a>
 <ul class="ul-2 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticesapi-page-li>
@@ -153,9 +139,7 @@ Problem Since NAV is strongly typed, developers often need to duplicate function
 <a href=/docs/bestpractices/variable-naming/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticesvariable-naming><span>Variable Naming</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticesvariables-declarations-order-li>
 <a href=/docs/bestpractices/variables-declarations-order/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticesvariables-declarations-order><span>Variables Declarations Order</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-docsnavpatterns-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-docsnavpatterns-li>
 <a href=/docs/navpatterns/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatterns><span>NAV Patterns Archive</span></a>
 <ul class="ul-2 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-docsnavpatternspatterns-li>
@@ -170,9 +154,7 @@ Problem Since NAV is strongly typed, developers often need to duplicate function
 <ul class="ul-4 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsblocked-entitydata-driven-blocked-entity-li>
 <a href=/docs/navpatterns/patterns/blocked-entity/data-driven-blocked-entity/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsblocked-entitydata-driven-blocked-entity><span>Data Driven Blocked Entity</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternscached-web-service-calls-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternscached-web-service-calls-li>
 <a href=/docs/navpatterns/patterns/cached-web-service-calls/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternscached-web-service-calls><span>Cached Web Server Calls</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsconditional-cascading-update-li>
 <a href=/docs/navpatterns/patterns/conditional-cascading-update/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsconditional-cascading-update><span>Conditional Cascading Update</span></a>
@@ -227,9 +209,7 @@ Problem Since NAV is strongly typed, developers often need to duplicate function
 <ul class="ul-4 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsnet-exception-handling-in-caltryfunction-net-exception-handling-in-cal-li>
 <a href=/docs/navpatterns/patterns/net-exception-handling-in-cal/tryfunction-net-exception-handling-in-cal/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsnet-exception-handling-in-caltryfunction-net-exception-handling-in-cal><span>TryFunction NET Exception Handling in CAL</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsno-series-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsno-series-li>
 <a href=/docs/navpatterns/patterns/no-series/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsno-series><span>No Series</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatternspatternsnotifications-li>
 <a href=/docs/navpatterns/patterns/notifications/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatternspatternsnotifications><span>Notifications</span></a>
@@ -238,9 +218,7 @@ Problem Since NAV is strongly typed, developers often need to duplicate function
 <a href=/docs/navpatterns/patterns/notifications/in-context-notifications/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsnotificationsin-context-notifications><span>In-context Notifications</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsnotificationsnotification-lifecycle-management-pattern-li>
 <a href=/docs/navpatterns/patterns/notifications/notification-lifecycle-management-pattern/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsnotificationsnotification-lifecycle-management-pattern><span>Notification Lifecycle Management Pattern</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsobserver-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsobserver-li>
 <a href=/docs/navpatterns/patterns/observer/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsobserver><span>Observer</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsposting-routine-select-behavior-li>
 <a href=/docs/navpatterns/patterns/posting-routine-select-behavior/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsposting-routine-select-behavior><span>Posting Routine - Select Behavior</span></a>
@@ -255,9 +233,7 @@ Problem Since NAV is strongly typed, developers often need to duplicate function
 <a href=/docs/navpatterns/patterns/queries/use-queries-to-detect-duplicate-records/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsqueriesuse-queries-to-detect-duplicate-records><span>Use Queries to Detect Duplicate Records</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsqueriesuse-queries-to-replace-nested-loops-li>
 <a href=/docs/navpatterns/patterns/queries/use-queries-to-replace-nested-loops/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsqueriesuse-queries-to-replace-nested-loops><span>Use Queries to Replace Nested Loops</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsread-once-initialization-and-validation-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsread-once-initialization-and-validation-li>
 <a href=/docs/navpatterns/patterns/read-once-initialization-and-validation/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsread-once-initialization-and-validation><span>Read-once Initialization and Validation</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsreleased-entity-li>
 <a href=/docs/navpatterns/patterns/released-entity/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsreleased-entity><span>Released Entity</span></a>
@@ -276,9 +252,7 @@ Problem Since NAV is strongly typed, developers often need to duplicate function
 <a href=/docs/navpatterns/patterns/security/4-masked-text/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternssecurity4-masked-text><span>Masked Text</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternssecurity5-ssl-in-nav-li>
 <a href=/docs/navpatterns/patterns/security/5-ssl-in-nav/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternssecurity5-ssl-in-nav><span>SSL in NAV</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternssetup-specificity-fallback-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternssetup-specificity-fallback-li>
 <a href=/docs/navpatterns/patterns/setup-specificity-fallback/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternssetup-specificity-fallback><span>Setup Specificity Fallback</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternssilent-file-upload-and-download-li>
 <a href=/docs/navpatterns/patterns/silent-file-upload-and-download/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternssilent-file-upload-and-download><span>Silent File Upload and Download</span></a>
@@ -294,11 +268,7 @@ Problem Since NAV is strongly typed, developers often need to duplicate function
 <a href=/docs/navpatterns/patterns/singleton/singleton-table/cue-table/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternssingletonsingleton-tablecue-table><span>Cue Table</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternssingletonsingleton-tablesetup-table-li>
 <a href=/docs/navpatterns/patterns/singleton/singleton-table/setup-table/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternssingletonsingleton-tablesetup-table><span>Setup Table</span></a>
-</li>
-</ul>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsstandard-journal-li>
+</li></ul></li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsstandard-journal-li>
 <a href=/docs/navpatterns/patterns/standard-journal/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsstandard-journal><span>Standard Journal</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternstemporary-dataset-report-li>
 <a href=/docs/navpatterns/patterns/temporary-dataset-report/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternstemporary-dataset-report><span>Temporary Dataset Report</span></a>
@@ -308,18 +278,14 @@ Problem Since NAV is strongly typed, developers often need to duplicate function
 <a href=/docs/navpatterns/patterns/transfer-custom-fields/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternstransfer-custom-fields><span>Transfer Custom Fields</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id=m-docsnavpatternspatternsvariant-facade-li>
 <a href=/docs/navpatterns/patterns/variant-facade/ class="align-left pl-0 active td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsvariant-facade><span class=td-sidebar-nav-active-item>Variant Facade</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatterns2-anti-patterns-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatterns2-anti-patterns-li>
 <a href=/docs/navpatterns/2-anti-patterns/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatterns2-anti-patterns><span>2. Anti-Patterns</span></a>
 <ul class="ul-3 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns2-anti-patternsnav-upgrade-li>
 <a href=/docs/navpatterns/2-anti-patterns/nav-upgrade/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns2-anti-patternsnav-upgrade><span>Nav Upgrade</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns2-anti-patternsreusable-bugs-li>
 <a href=/docs/navpatterns/2-anti-patterns/reusable-bugs/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns2-anti-patternsreusable-bugs><span>Reusable Bugs</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatterns3-cal-coding-guidelines-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatterns3-cal-coding-guidelines-li>
 <a href=/docs/navpatterns/3-cal-coding-guidelines/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatterns3-cal-coding-guidelines><span>3. CAL Coding Guidelines</span></a>
 <ul class="ul-3 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesdesign-li>
@@ -353,18 +319,14 @@ Problem Since NAV is strongly typed, developers often need to duplicate function
 <a href=/docs/navpatterns/3-cal-coding-guidelines/design/variable-capacity-mismatch/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesdesignvariable-capacity-mismatch><span>Variable Capacity Mismatch</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesdesignwith-scope-name-collision-li>
 <a href=/docs/navpatterns/3-cal-coding-guidelines/design/with-scope-name-collision/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesdesignwith-scope-name-collision><span>WITH Scope Name Collision</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesinternally-used-dot-net-types-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesinternally-used-dot-net-types-li>
 <a href=/docs/navpatterns/3-cal-coding-guidelines/internally-used-dot-net-types/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesinternally-used-dot-net-types><span>Internally used DotNet Types</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesinternationalization-li>
 <a href=/docs/navpatterns/3-cal-coding-guidelines/internationalization/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatterns3-cal-coding-guidelinesinternationalization><span>Internationalization</span></a>
 <ul class="ul-4 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesinternationalizationusing-calcdate-li>
 <a href=/docs/navpatterns/3-cal-coding-guidelines/internationalization/using-calcdate/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesinternationalizationusing-calcdate><span>Using Calcdate</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docsnavpatterns3-cal-coding-guidelineslocalizability-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docsnavpatterns3-cal-coding-guidelineslocalizability-li>
 <a href=/docs/navpatterns/3-cal-coding-guidelines/localizability/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatterns3-cal-coding-guidelineslocalizability><span>Localizability</span></a>
 <ul class="ul-4 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelineslocalizabilitycaptionml-for-system-tables-li>
@@ -377,9 +339,7 @@ Problem Since NAV is strongly typed, developers often need to duplicate function
 <a href=/docs/navpatterns/3-cal-coding-guidelines/localizability/use-text-constants/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelineslocalizabilityuse-text-constants><span>Use Text Constants</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelineslocalizabilityusing-optioncaptionml-li>
 <a href=/docs/navpatterns/3-cal-coding-guidelines/localizability/using-optioncaptionml/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelineslocalizabilityusing-optioncaptionml><span>Using OptionCaptionML</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesreadability-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesreadability-li>
 <a href=/docs/navpatterns/3-cal-coding-guidelines/readability/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatterns3-cal-coding-guidelinesreadability><span>Readability</span></a>
 <ul class="ul-4 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilitybegin-as-an-afterword-li>
@@ -446,9 +406,7 @@ Problem Since NAV is strongly typed, developers often need to duplicate function
 <a href=/docs/navpatterns/3-cal-coding-guidelines/readability/variable-naming/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilityvariable-naming><span>Variable Naming</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilityvariables-declarations-order-li>
 <a href=/docs/navpatterns/3-cal-coding-guidelines/readability/variables-declarations-order/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilityvariables-declarations-order><span>Variables Declarations Order</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesux-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesux-li>
 <a href=/docs/navpatterns/3-cal-coding-guidelines/ux/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatterns3-cal-coding-guidelinesux><span>UX</span></a>
 <ul class="ul-4 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesuxactions-images-li>
@@ -459,11 +417,7 @@ Problem Since NAV is strongly typed, developers often need to duplicate function
 <a href=/docs/navpatterns/3-cal-coding-guidelines/ux/fielderror/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesuxfielderror><span>FIELDERROR</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesuxmessage-and-error-li>
 <a href=/docs/navpatterns/3-cal-coding-guidelines/ux/message-and-error/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesuxmessage-and-error><span>MESSAGE and ERROR</span></a>
-</li>
-</ul>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatterns4-get-involved-li>
+</li></ul></li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatterns4-get-involved-li>
 <a href=/docs/navpatterns/4-get-involved/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatterns4-get-involved><span>(OLD) Get Involved</span></a>
 <ul class="ul-3 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns4-get-involvedcode-of-conduct-li>
@@ -472,13 +426,9 @@ Problem Since NAV is strongly typed, developers often need to duplicate function
 <a href=/docs/navpatterns/4-get-involved/patterns-authors/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns4-get-involvedpatterns-authors><span>Patterns Authors</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns4-get-involvedtemplate-for-writing-nav-design-patterns-li>
 <a href=/docs/navpatterns/4-get-involved/template-for-writing-nav-design-patterns/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns4-get-involvedtemplate-for-writing-nav-design-patterns><span>Template for writing Nav Design Patterns</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternsrelated-links-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternsrelated-links-li>
 <a href=/docs/navpatterns/related-links/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternsrelated-links><span>Related Links</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docscontributing-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docscontributing-li>
 <a href=/docs/contributing/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docscontributing><span>Contributing</span></a>
 <ul class="ul-2 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docscontributingformattingtips-li>
@@ -494,27 +444,14 @@ Problem Since NAV is strongly typed, developers often need to duplicate function
 <a href=/docs/contributing/installhugo/manuallyonwindows11/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docscontributinginstallhugomanuallyonwindows11><span>Manually on Windows 11</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docscontributinginstallhugousingpowershellonwindows11-li>
 <a href=/docs/contributing/installhugo/usingpowershellonwindows11/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docscontributinginstallhugousingpowershellonwindows11><span>Powershell on Windows 11</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docscontributingtemplates-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docscontributingtemplates-li>
 <a href=/docs/contributing/templates/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docscontributingtemplates><span>Templates</span></a>
 <ul class="ul-3 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docscontributingtemplatespatterns-li>
 <a href=/docs/contributing/templates/patterns/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docscontributingtemplatespatterns><span>Pattern Name</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docscontributingtemplatesbestpractice-li>
 <a href=/docs/contributing/templates/bestpractice/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docscontributingtemplatesbestpractice><span>Title Here</span></a>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</nav>
-</div>
-</aside>
-<aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+</li></ul></li></ul></li></ul></li></ul></nav></div></aside><aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
 <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
 <a href=https://github.com/microsoft/alguidelines/tree/main/content/docs/NAVPatterns/patterns/variant-facade/index.md class=td-page-meta--view target=_blank rel=noopener><i class="fa fa-file-alt fa-fw"></i> View page source</a>
 <a href=https://github.com/microsoft/alguidelines/edit/main/content/docs/NAVPatterns/patterns/variant-facade/index.md class=td-page-meta--edit target=_blank rel=noopener><i class="fa fa-edit fa-fw"></i> Edit this page</a>
@@ -522,254 +459,105 @@ Problem Since NAV is strongly typed, developers often need to duplicate function
 <a href="https://github.com/microsoft/alguidelines/issues/new?title=Variant%20Facade" class=td-page-meta--issue target=_blank rel=noopener><i class="fab fa-github fa-fw"></i> Create Issue</a>
 <a href="https://github.com/microsoft/alguidelines/discussions?discussions_q=Variant%20Facade" class=td-page-meta--issue target=_blank rel=noopener><i class="fab fa-github fa-fw"></i> Discussions</a>
 <a href=https://github.com/microsoft/alguidelines/issues/new class=td-page-meta--project-issue target=_blank rel=noopener><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
-</div>
-<div class=td-toc><nav id=TableOfContents>
+</div><div class=td-toc><nav id=TableOfContents>
 <ul>
-<li><a href=#abstract>Abstract</a></li>
-<li><a href=#problem>Problem</a></li>
-<li><a href=#solution>Solution</a>
+<li><a href=#abstract>Abstract</a></li><li><a href=#problem>Problem</a></li><li><a href=#solution>Solution</a>
 <ul>
-<li><a href=#signature>Signature</a></li>
-<li><a href=#casting-to-a-record-ref>Casting to a record ref</a></li>
-<li><a href=#using-the-variant>Using the variant</a></li>
-<li><a href=#table-specific-code>Table specific code</a></li>
-</ul>
-</li>
-<li><a href=#example>Example</a></li>
-<li><a href=#consequences>Consequences</a></li>
-<li><a href=#nav-usages>NAV usages</a></li>
-<li><a href=#related-topics>Related Topics</a></li>
-</ul>
-</nav></div>
-<div class="taxonomy taxonomy-terms-cloud taxo-tags">
-<h5 class=taxonomy-title>Tag Cloud</h5>
-<ul class=taxonomy-terms>
-<li><a class=taxonomy-term href=https://alguidelines.dev/tags/al/ data-taxonomy-term=al><span class=taxonomy-label>AL</span><span class=taxonomy-count>29</span></a></li>
-<li><a class=taxonomy-term href=https://alguidelines.dev/tags/api/ data-taxonomy-term=api><span class=taxonomy-label>API</span><span class=taxonomy-count>3</span></a></li>
-<li><a class=taxonomy-term href=https://alguidelines.dev/tags/c/al/ data-taxonomy-term=c/al><span class=taxonomy-label>C/AL</span><span class=taxonomy-count>136</span></a></li>
-<li><a class=taxonomy-term href=https://alguidelines.dev/tags/decoupling/ data-taxonomy-term=decoupling><span class=taxonomy-label>Decoupling</span><span class=taxonomy-count>2</span></a></li>
-<li><a class=taxonomy-term href=https://alguidelines.dev/tags/extendability/ data-taxonomy-term=extendability><span class=taxonomy-label>Extendability</span><span class=taxonomy-count>3</span></a></li>
-<li><a class=taxonomy-term href=https://alguidelines.dev/tags/interface/ data-taxonomy-term=interface><span class=taxonomy-label>Interface</span><span class=taxonomy-count>1</span></a></li>
-<li><a class=taxonomy-term href=https://alguidelines.dev/tags/performance/ data-taxonomy-term=performance><span class=taxonomy-label>Performance</span><span class=taxonomy-count>2</span></a></li>
-<li><a class=taxonomy-term href=https://alguidelines.dev/tags/readability/ data-taxonomy-term=readability><span class=taxonomy-label>Readability</span><span class=taxonomy-count>53</span></a></li>
-<li><a class=taxonomy-term href=https://alguidelines.dev/tags/telemetry/ data-taxonomy-term=telemetry><span class=taxonomy-label>Telemetry</span><span class=taxonomy-count>1</span></a></li>
-<li><a class=taxonomy-term href=https://alguidelines.dev/tags/testability/ data-taxonomy-term=testability><span class=taxonomy-label>Testability</span><span class=taxonomy-count>2</span></a></li>
-</ul>
-</div>
-<div class="taxonomy taxonomy-terms-cloud taxo-categories">
-<h5 class=taxonomy-title>Categories</h5>
-<ul class=taxonomy-terms>
-<li><a class=taxonomy-term href=https://alguidelines.dev/categories/best-practice/ data-taxonomy-term=best-practice><span class=taxonomy-label>Best Practice</span><span class=taxonomy-count>86</span></a></li>
-<li><a class=taxonomy-term href=https://alguidelines.dev/categories/pattern/ data-taxonomy-term=pattern><span class=taxonomy-label>Pattern</span><span class=taxonomy-count>70</span></a></li>
-</ul>
-</div>
-</aside>
-<main class="col-12 col-md-9 col-xl-8 pl-md-5" role=main>
+<li><a href=#signature>Signature</a></li><li><a href=#casting-to-a-record-ref>Casting to a record ref</a></li><li><a href=#using-the-variant>Using the variant</a></li><li><a href=#table-specific-code>Table specific code</a></li></ul></li><li><a href=#example>Example</a></li><li><a href=#consequences>Consequences</a></li><li><a href=#nav-usages>NAV usages</a></li><li><a href=#related-topics>Related Topics</a></li></ul></nav></div><div class="taxonomy taxonomy-terms-cloud taxo-tags">
+<h5 class=taxonomy-title>Tag Cloud</h5><ul class=taxonomy-terms>
+<li><a class=taxonomy-term href=https://alguidelines.dev/tags/al/ data-taxonomy-term=al><span class=taxonomy-label>AL</span><span class=taxonomy-count>30</span></a></li><li><a class=taxonomy-term href=https://alguidelines.dev/tags/api/ data-taxonomy-term=api><span class=taxonomy-label>API</span><span class=taxonomy-count>3</span></a></li><li><a class=taxonomy-term href=https://alguidelines.dev/tags/c/al/ data-taxonomy-term=c/al><span class=taxonomy-label>C/AL</span><span class=taxonomy-count>136</span></a></li><li><a class=taxonomy-term href=https://alguidelines.dev/tags/decoupling/ data-taxonomy-term=decoupling><span class=taxonomy-label>Decoupling</span><span class=taxonomy-count>2</span></a></li><li><a class=taxonomy-term href=https://alguidelines.dev/tags/extendability/ data-taxonomy-term=extendability><span class=taxonomy-label>Extendability</span><span class=taxonomy-count>3</span></a></li><li><a class=taxonomy-term href=https://alguidelines.dev/tags/interface/ data-taxonomy-term=interface><span class=taxonomy-label>Interface</span><span class=taxonomy-count>1</span></a></li><li><a class=taxonomy-term href=https://alguidelines.dev/tags/performance/ data-taxonomy-term=performance><span class=taxonomy-label>Performance</span><span class=taxonomy-count>2</span></a></li><li><a class=taxonomy-term href=https://alguidelines.dev/tags/readability/ data-taxonomy-term=readability><span class=taxonomy-label>Readability</span><span class=taxonomy-count>53</span></a></li><li><a class=taxonomy-term href=https://alguidelines.dev/tags/telemetry/ data-taxonomy-term=telemetry><span class=taxonomy-label>Telemetry</span><span class=taxonomy-count>1</span></a></li><li><a class=taxonomy-term href=https://alguidelines.dev/tags/testability/ data-taxonomy-term=testability><span class=taxonomy-label>Testability</span><span class=taxonomy-count>2</span></a></li></ul></div><div class="taxonomy taxonomy-terms-cloud taxo-categories">
+<h5 class=taxonomy-title>Categories</h5><ul class=taxonomy-terms>
+<li><a class=taxonomy-term href=https://alguidelines.dev/categories/best-practice/ data-taxonomy-term=best-practice><span class=taxonomy-label>Best Practice</span><span class=taxonomy-count>86</span></a></li><li><a class=taxonomy-term href=https://alguidelines.dev/categories/pattern/ data-taxonomy-term=pattern><span class=taxonomy-label>Pattern</span><span class=taxonomy-count>71</span></a></li></ul></div></aside><main class="col-12 col-md-9 col-xl-8 pl-md-5" role=main>
 <nav aria-label=breadcrumb class=td-breadcrumbs>
 <ol class=breadcrumb>
 <li class=breadcrumb-item>
 <a href=https://alguidelines.dev/docs/>Docs</a>
-</li>
-<li class=breadcrumb-item>
+</li><li class=breadcrumb-item>
 <a href=https://alguidelines.dev/docs/navpatterns/>NAV Patterns Archive</a>
-</li>
-<li class=breadcrumb-item>
+</li><li class=breadcrumb-item>
 <a href=https://alguidelines.dev/docs/navpatterns/patterns/>1. Patterns</a>
-</li>
-<li class="breadcrumb-item active" aria-current=page>
+</li><li class="breadcrumb-item active" aria-current=page>
 <a href=https://alguidelines.dev/docs/navpatterns/patterns/variant-facade/>Variant Facade</a>
-</li>
-</ol>
-</nav>
-<div class=td-content>
-<h1>Variant Facade</h1>
-<header class=article-meta>
+</li></ol></nav><div class=td-content>
+<h1>Variant Facade</h1><header class=article-meta>
 <div class="taxonomy taxonomy-terms-article taxo-tags">
-<h5 class=taxonomy-title>Tags:</h5>
-<ul class=taxonomy-terms>
-<li><a class=taxonomy-term href=https://alguidelines.dev/tags/c/al/ data-taxonomy-term=c/al><span class=taxonomy-label>C/AL</span></a></li>
-</ul>
-</div>
-<div class="taxonomy taxonomy-terms-article taxo-categories">
-<h5 class=taxonomy-title>Categories:</h5>
-<ul class=taxonomy-terms>
-<li><a class=taxonomy-term href=https://alguidelines.dev/categories/pattern/ data-taxonomy-term=pattern><span class=taxonomy-label>Pattern</span></a></li>
-</ul>
-</div>
-</header>
-<p><em>By Nikola Kukrika, waldo and Gary Winter</em></p>
-<h2 id=abstract>Abstract</h2>
-<p>The Variant façade provides a single interface that can take any Record, RecordRef or RecordID as an argument. With this pattern the code is encapsulated within the single object, with clear separation between common and table specific code.</p>
-<p><a href=picture1.png><img src=picture1.png alt=" "></a></p>
-<h2 id=problem>Problem</h2>
-<p>Since NAV is strongly typed, developers often need to duplicate functionality in order to add support for a new table. The developer would typically start by duplicating the function, changing the record type and implement slight modifications to the code if needed.</p>
-<p>The problem with this approach is that code duplication is one of the worst things in software development &ndash; it makes code harder to understand, maintain, extend and test.</p>
-<p>One of the good examples of this approach and the resulting duplication is codeunit 229, Document-Print:</p>
-<p><a href=Picture2.png><img src=Picture2.png alt=" "></a></p>
-<p><a href=Picture3.png><img src=Picture3.png alt=" "></a></p>
-<p>After reading the code from the two code snippets above, it is very hard to see the differences. The most of the code is duplicated (more than 95%). To make the matters worse the codeunit itself has 10 additional methods that are used to print different records, some are similar to the ones above while others are completely different.</p>
-<p><a href=Picture4.png><img src=Picture4.png alt=" "></a></p>
-<p><a href=Picture5.png><img src=Picture5.png alt=" "></a></p>
-<p>Figure: the entire code of the codeunit 229, Document Print, 12 methods</p>
-<p><a href=Picture6.png><img src=Picture6.png alt=" "></a></p>
-<p>Figure: Visualization how it would look like with 20 methods</p>
-<p>Problems arising from this way of implementing code are:</p>
-<p><strong>Understanding of the code</strong> is very hard, since the developer needs to read blocks of code that look similar and try to understand what exactly the differences are.</p>
-<p><strong>Maintaining and Extending</strong> the code is hard, since every fix or a new behavior that needs to be implemented multiple times (in this case probably 12 times).</p>
-<p><strong>Upgradability is low</strong> &ndash; each conflict needs to be resolved many times. The hook pattern is hard to implement since it needs to be implemented for every function. Evening suffers the same problem - cannot use the evening easily since it needs to be raised from multiple places in the code.</p>
-<p><strong>Testing the code</strong> is hard since the tests need to be replicated.</p>
-<p><strong>Constant cost of adding support for new tables</strong> &ndash; when the new record type needs to be supported, it has a constant cost. Adding a support for a new record will increase the Maintenance tax and it will make the code harder to understand and extend.</p>
-<p><strong>Conclusion</strong> - <strong>If the functionality needs to be used for many records the approach of duplicating the functions should be avoided.</strong></p>
-<h2 id=solution>Solution</h2>
-<p>The Variant façade pattern provides a single interface that would not need to be changed in the future. It will be able to take any record as a parameter. Common code should be kept separately from record specific code and both must be very visible so the developers can easily see what the differences are.</p>
-<p>The Key components of the pattern are:</p>
-<h3 id=signature>Signature</h3>
-<p>Instead of hardcoding a record type a variant is used as an argument. A Variant Façade function can receive three types of data: Record, RecordID, or RecordRef. This way, it can be reused anywhere in the product and the code will still work.</p>
-<p>A good practice is to combine this pattern with the Argument Table pattern to make sure that the signature does not change (Additional parameters can be added to the argument table without impacting existing code.). If the Argument Table is not needed, it should not be placed in the signature - it is always possible to add it at a latter point and have two public functions (one with and one without arguments).</p>
-<p>Example - For codeunit 229, Document-Print all of the public methods can be simply replaced with a single public method like this:</p>
-<p>With this approach the façade function can serve all of the record types and will not need to change in the future.</p>
-<h3 id=casting-to-a-record-ref>Casting to a record ref</h3>
-<p>After the signature it is necessary to decide if the function will support passing of the Record ID and the RecordRef. Code tends to be easier to understand and maintain if only the records are passed as the arguments, however in some cases it is needed to support the other two types.</p>
-<ul>
-<li><strong>Support for Record, Record ID and RecordRef:</strong></li>
-</ul>
-<p>After the signature if the function supports passing of the RecordID or RecordRef as a parameter it is a good practice to cast them to a RecordRef. Codeunit Data Type Management is used to do this:</p>
-<p>DataTypeManagement.GetRecordRef(RecRelatedVariant,RecordRef)</p>
-<ul>
-<li><strong>Support Records only</strong> - If the function supports only passing in the record, it is a good practice to check if the variant is a record:</li>
-</ul>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=color:#204a87;font-weight:700>IF</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>NOT</span><span style=color:#f8f8f8;text-decoration:underline> </span>RecordVariant<span style=color:#ce5c00;font-weight:700>.</span>ISRECORD<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>THEN</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>    </span>ERROR<span style=color:#ce5c00;font-weight:700>(</span>NotARecordErr<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span></code></pre></div><h3 id=using-the-variant>Using the variant</h3>
-<p>The variant can be passed instead of record when calling the Page.RUN, Codeunit.RUN or Report.RUN statically:</p>
-<p>For example:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=color:#204a87;font-weight:700>Page</span><span style=color:#ce5c00;font-weight:700>.</span>RUN<span style=color:#ce5c00;font-weight:700>(</span>PageID<span style=color:#000;font-weight:700>,</span><span style=color:#204a87;font-weight:700>Variant</span><span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>Codeunit</span><span style=color:#ce5c00;font-weight:700>.</span>RUN<span style=color:#ce5c00;font-weight:700>(</span>CodeunitID<span style=color:#000;font-weight:700>,</span><span style=color:#204a87;font-weight:700>Variant</span><span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>Report</span><span style=color:#ce5c00;font-weight:700>.</span>RUN<span style=color:#ce5c00;font-weight:700>(</span>ReportID<span style=color:#000;font-weight:700>,</span><span style=color:#204a87;font-weight:700>Variant</span><span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span></code></pre></div><p>These calls are identical to using an actual instance of the record, since the variant will be casted to the record automatically, with all filters, markings and values preserved.</p>
-<p>In case the variant was casted to the RecordRef (by using DataTypeManagement.GetRecordRef(RecRelatedVariant,RecordRef)), it is still possible to invoke the functions statically.</p>
-<p>The RecordRef simply needs to be casted into a variant and passed as a parameter, for example:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>VariantArgument<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#ce5c00;font-weight:700>:=</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>RecordRef</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>Page</span><span style=color:#ce5c00;font-weight:700>.</span>RUN<span style=color:#ce5c00;font-weight:700>(</span>PageID<span style=color:#000;font-weight:700>,</span>VariantArgument<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span></code></pre></div><p>Variant can always casted back to the original record in the table specific code, exact process is described below.</p>
-<h3 id=table-specific-code>Table specific code</h3>
-<p>To do table-specific processing, it is necessary to get the RecordRef first, since NUMBER parameter will tell us which table it is. In the table-specific code, it is possible to cast the variant back to the original record type, so data is accessible and it is possible to invoke functions.</p>
-<p>To do this, the best practice is to use the COPY function to preserve filters:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>SalesHeader<span style=color:#ce5c00;font-weight:700>.</span>COPY<span style=color:#ce5c00;font-weight:700>(</span>RecordVariant<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span></code></pre></div><p>Assigning directly such as SalesHeader := RecordVariant, is possible, however all filters will be lost.</p>
-<p>Example of table specific code:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=color:#204a87;font-weight:700>CASE</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>RecordRef</span><span style=color:#ce5c00;font-weight:700>.</span>NUMBER<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>OF</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>DATABASE</span><span style=color:#000;font-weight:700>::</span>&#34;Sales Header&#34;<span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>BEGIN</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>            </span>SalesHeader<span style=color:#ce5c00;font-weight:700>.</span>COPY<span style=color:#ce5c00;font-weight:700>(</span>RecordVariant<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>            </span>SalesHeader<span style=color:#ce5c00;font-weight:700>.</span>PrintDocument<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>END</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>DATABASE</span><span style=color:#000;font-weight:700>::</span>&#34;Purchase Header&#34;<span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>BEGIN</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>            </span>PurchaseHeader<span style=color:#ce5c00;font-weight:700>.</span>COPY<span style=color:#ce5c00;font-weight:700>(</span>RecordVariant<span style=color:#ce5c00;font-weight:700>)
-</span><span style=color:#ce5c00;font-weight:700>        ...
-</span><span style=color:#ce5c00;font-weight:700>        </span><span style=color:#204a87;font-weight:700>END</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#ce5c00;font-weight:700>....
-</span></code></pre></div><p>It is a good practice to try to avoid the table specific code if possible.</p>
-<p>One of the issues with table specific code is that the CASE statement can easily explode when large number of records are supported.</p>
-<p>There are two possible solutions:</p>
-<ol>
-<li>Move the calculations outside of the façade code unit and pass it in as part of the argument table.</li>
-</ol>
-<p>For example, instead of having a case like this within DocumentPrint codeunit:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=color:#204a87;font-weight:700>CASE</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>RecordRef</span><span style=color:#ce5c00;font-weight:700>.</span>NUMBER<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>OF</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>DATABASE</span><span style=color:#000;font-weight:700>::</span>&#34;Sales Header&#34;<span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>BEGIN</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>            </span>SalesHeader<span style=color:#ce5c00;font-weight:700>.</span>COPY<span style=color:#ce5c00;font-weight:700>(</span>RecordVariant<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>            </span><span style=color:#204a87;font-weight:700>CASE</span><span style=color:#f8f8f8;text-decoration:underline> </span>SalesHeader<span style=color:#ce5c00;font-weight:700>.</span>&#34;Document Type&#34;<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>OF</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>                </span>SalesHeader<span style=color:#ce5c00;font-weight:700>.</span>&#34;Document Type&#34;<span style=color:#000;font-weight:700>::</span>Quote<span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>                    </span>ReportSelections<span style=color:#ce5c00;font-weight:700>.</span>SETRANGE<span style=color:#ce5c00;font-weight:700>(</span>Usage<span style=color:#000;font-weight:700>,</span>ReportSelections<span style=color:#ce5c00;font-weight:700>.</span>Usage<span style=color:#000;font-weight:700>::</span>&#34;S.Quote&#34;<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>                </span>SalesHeader<span style=color:#ce5c00;font-weight:700>.</span>&#34;Document Type&#34;<span style=color:#000;font-weight:700>::</span>&#34;Blanket Order&#34;<span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>                    </span>ReportSelections<span style=color:#ce5c00;font-weight:700>.</span>SETRANGE<span style=color:#ce5c00;font-weight:700>(</span>Usage<span style=color:#000;font-weight:700>,</span>ReportSelections<span style=color:#ce5c00;font-weight:700>.</span>Usage<span style=color:#000;font-weight:700>::</span>&#34;S.Blanket&#34;<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>                </span>SalesHeader<span style=color:#ce5c00;font-weight:700>.</span>&#34;Document Type&#34;<span style=color:#000;font-weight:700>::</span><span style=color:#204a87;font-weight:700>Order</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>                    </span>ReportSelections<span style=color:#ce5c00;font-weight:700>.</span>SETRANGE<span style=color:#ce5c00;font-weight:700>(</span>Usage<span style=color:#000;font-weight:700>,</span>ReportSelections<span style=color:#ce5c00;font-weight:700>.</span>Usage<span style=color:#000;font-weight:700>::</span>&#34;S.Order&#34;<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>                </span>SalesHeader<span style=color:#ce5c00;font-weight:700>.</span>&#34;Document Type&#34;<span style=color:#000;font-weight:700>::</span>&#34;Return Order&#34;<span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>                    </span>ReportSelections<span style=color:#ce5c00;font-weight:700>.</span>SETRANGE<span style=color:#ce5c00;font-weight:700>(</span>Usage<span style=color:#000;font-weight:700>,</span>ReportSelections<span style=color:#ce5c00;font-weight:700>.</span>Usage<span style=color:#000;font-weight:700>::</span>&#34;S.Return&#34;<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>                </span>SalesHeader<span style=color:#ce5c00;font-weight:700>.</span>&#34;Document Type&#34;<span style=color:#000;font-weight:700>::</span>Invoice<span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>                    </span>ReportSelections<span style=color:#ce5c00;font-weight:700>.</span>SETRANGE<span style=color:#ce5c00;font-weight:700>(</span>Usage<span style=color:#000;font-weight:700>,</span>ReportSelections<span style=color:#ce5c00;font-weight:700>.</span>Usage<span style=color:#000;font-weight:700>::</span>&#34;S.Invoice&#34;<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>                </span>SalesHeader<span style=color:#ce5c00;font-weight:700>.</span>&#34;Document Type&#34;<span style=color:#000;font-weight:700>::</span>&#34;Credit Memo&#34;<span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>                    </span>ReportSelections<span style=color:#ce5c00;font-weight:700>.</span>SETRANGE<span style=color:#ce5c00;font-weight:700>(</span>Usage<span style=color:#000;font-weight:700>,</span>ReportSelections<span style=color:#ce5c00;font-weight:700>.</span>Usage<span style=color:#000;font-weight:700>::</span>&#34;S.Cr.Memo&#34;<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>END</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span></code></pre></div><p>If the ReportSelections.Usage is simply passed into the function from outside, then the case statement is not needed at all. For example:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>PrintDocumentArguments<span style=color:#ce5c00;font-weight:700>.</span>&#34;Report Selection Usage&#34;<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#ce5c00;font-weight:700>:=</span><span style=color:#f8f8f8;text-decoration:underline> </span>SalesHeader<span style=color:#ce5c00;font-weight:700>.</span>GetReportSelectionUsage<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline></span>DocumentPrint<span style=color:#ce5c00;font-weight:700>.</span>PrintDocument<span style=color:#ce5c00;font-weight:700>(</span>SalesHeader<span style=color:#000;font-weight:700>,</span>PrintDocumentArguments<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span></code></pre></div><p>Where GetReportSelection usage is coded like this:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=color:#204a87;font-weight:700>CASE</span><span style=color:#f8f8f8;text-decoration:underline> </span>SalesHeader<span style=color:#ce5c00;font-weight:700>.</span>&#34;Document Type&#34;<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>OF</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>    </span>SalesHeader<span style=color:#ce5c00;font-weight:700>.</span>&#34;Document Type&#34;<span style=color:#000;font-weight:700>::</span>Quote<span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>EXIT</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#ce5c00;font-weight:700>(</span>ReportSelections<span style=color:#ce5c00;font-weight:700>.</span>Usage<span style=color:#000;font-weight:700>::</span>&#34;S.Quote&#34;<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>    </span>SalesHeader<span style=color:#ce5c00;font-weight:700>.</span>&#34;Document Type&#34;<span style=color:#000;font-weight:700>::</span>&#34;Blanket Order&#34;<span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>EXIT</span><span style=color:#ce5c00;font-weight:700>(</span>ReportSelections<span style=color:#ce5c00;font-weight:700>.</span>Usage<span style=color:#000;font-weight:700>::</span>&#34;S.Blanket&#34;<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>    </span>SalesHeader<span style=color:#ce5c00;font-weight:700>.</span>&#34;Document Type&#34;<span style=color:#000;font-weight:700>::</span><span style=color:#204a87;font-weight:700>Order</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>EXIT</span><span style=color:#ce5c00;font-weight:700>(</span>ReportSelections<span style=color:#ce5c00;font-weight:700>.</span>Usage<span style=color:#000;font-weight:700>::</span>&#34;S.Order&#34;<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>    </span>SalesHeader<span style=color:#ce5c00;font-weight:700>.</span>&#34;Document Type&#34;<span style=color:#000;font-weight:700>::</span>&#34;Return Order&#34;<span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>EXIT</span><span style=color:#ce5c00;font-weight:700>(</span>ReportSelections<span style=color:#ce5c00;font-weight:700>.</span>Usage<span style=color:#000;font-weight:700>::</span>&#34;S.Return&#34;<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>    </span>SalesHeader<span style=color:#ce5c00;font-weight:700>.</span>&#34;Document Type&#34;<span style=color:#000;font-weight:700>::</span>Invoice<span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>EXIT</span><span style=color:#ce5c00;font-weight:700>(</span>ReportSelections<span style=color:#ce5c00;font-weight:700>.</span>Usage<span style=color:#000;font-weight:700>::</span>&#34;S.Invoice&#34;<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>    </span>SalesHeader<span style=color:#ce5c00;font-weight:700>.</span>&#34;Document Type&#34;<span style=color:#000;font-weight:700>::</span>&#34;Credit Memo&#34;<span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>EXIT</span><span style=color:#ce5c00;font-weight:700>(</span>ReportSelections<span style=color:#ce5c00;font-weight:700>.</span>Usage<span style=color:#000;font-weight:700>::</span>&#34;S.Cr.Memo&#34;<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span></code></pre></div><p>This way the code is much more reusable and simpler to read.</p>
-<ol>
-<li>Use Rules Table to replace the code with data-driven approach.</li>
-</ol>
-<p>Setup table would contain the list of the reports and their usages. Based on Table ID and usage it is possible to set filters on the setup table and run the object ID from the result.</p>
-<p>For example:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>ReportSelectionSetup<span style=color:#ce5c00;font-weight:700>.</span>SETRANGE<span style=color:#ce5c00;font-weight:700>(</span>&#34;Table ID&#34;<span style=color:#000;font-weight:700>,</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>RecordRef</span><span style=color:#ce5c00;font-weight:700>.</span>NUMBER<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline></span>ReportSelectionSetup<span style=color:#ce5c00;font-weight:700>.</span>SETRANGE<span style=color:#ce5c00;font-weight:700>(</span>&#34;Usage Type&#34;<span style=color:#000;font-weight:700>,</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>RecordRef</span><span style=color:#ce5c00;font-weight:700>.</span>FieldValue<span style=color:#ce5c00;font-weight:700>(</span>ArgumentTable<span style=color:#ce5c00;font-weight:700>.</span>&#34;Usage Type&#34;<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline></span>ReportSelectionSetup<span style=color:#ce5c00;font-weight:700>.</span>FINDFIRST<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>REPORT</span><span style=color:#ce5c00;font-weight:700>.</span>RUN<span style=color:#ce5c00;font-weight:700>(</span>ReportSelectionSetup<span style=color:#ce5c00;font-weight:700>.</span>&#34;Report ID&#34;<span style=color:#000;font-weight:700>,</span>VariantRecord<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span></code></pre></div><h2 id=example>Example</h2>
-<p>The following code illustrates how the Variant Façade pattern can be used to implement the Document-Print Codeunit.</p>
-<p><a href=Picture7.png><img src=Picture7.png alt=" "></a></p>
-<p><a href=Picture8.png><img src=Picture8.png alt=" "></a></p>
-<p>From the PrintDocument signature it is clear that it will not need to be changed in the future.</p>
-<p>Code duplication is avoided, specific code is isolated in the PrepareRecord function, there is clear extension point to add support for new records in the future. Since code is not duplicated and there is a single flow through the method, inserting hooks and events in the future will be straightforward.</p>
-<p>When adding the support for new records in most cases it is not need to change any code within the method, thus the cost of extending the usage is minimal.</p>
-<p>Note - PrepareRecord function is placed for the illustrational purposes. An improvement would be to move all of the code from the PrepareRecord function before calling the function. So for the SalesHeader and PurchaseHeaders discounts should be calculated before invoking the function. For passing of the argument it should be one of the fields in the Argument Table, thus the entire specific code would be eliminated.</p>
-<h2 id=consequences>Consequences</h2>
-<ul>
-<li>Not needed if the functionality needs to support few tables. Don&rsquo;t use it as a hammer</li>
-<li>Strongly typing the records has it benefits since it is easier to find usages, errors will be visible at the compilation time.</li>
-<li>Code becomes harder to debug within the variant façade</li>
-<li>Be careful with filters and marks, if the function needs to support multiple records. Test these cases thoughtfully because with bad placement of code the filters can easily be lost.</li>
-<li>Case statements can explode if there are too many tables that require specific processing. Then it is a must to find a way to keep the number of options in the CASE statement low. The Rules Table pattern and adding specifics to the Argument Table before invoking the code could help with keep the list shorter.</li>
-</ul>
-<h2 id=nav-usages>NAV usages</h2>
-<ul>
-<li>Codeunit 452 - Report Distribution Management</li>
-<li>Codeunit 700 - Page Management</li>
-<li>Codeunit 701 - Data Type Management</li>
-<li>Codeunit 1268 - Export Launcher</li>
-<li>Codeunit 1410 - Doc. Exch. Service Mgt.</li>
-<li>Codeunit 1501 - Workflow Management</li>
-<li>Codeunit 1521 - Workflow Response Handling</li>
-<li>Codeunit 1531 - Workflow Change Rec Mgt.</li>
-<li>Codeunit 1535 - Approvals Mgmt.</li>
-</ul>
-<h2 id=related-topics>Related Topics</h2>
-<p>OO Facade <a href=https://en.wikipedia.org/wiki/Facade_pattern>https://en.wikipedia.org/wiki/Facade_pattern</a></p>
-<p>Argument Table pattern - <a href=/nav/w/designpatterns/245.argument-table-pattern>https://community.dynamics.com/nav/w/designpatterns/245.argument-table-pattern</a></p>
-<p>Rules Table pattern</p>
-<div class="text-muted mt-5 pt-3 border-top">
+<h5 class=taxonomy-title>Tags:</h5><ul class=taxonomy-terms>
+<li><a class=taxonomy-term href=https://alguidelines.dev/tags/c/al/ data-taxonomy-term=c/al><span class=taxonomy-label>C/AL</span></a></li></ul></div><div class="taxonomy taxonomy-terms-article taxo-categories">
+<h5 class=taxonomy-title>Categories:</h5><ul class=taxonomy-terms>
+<li><a class=taxonomy-term href=https://alguidelines.dev/categories/pattern/ data-taxonomy-term=pattern><span class=taxonomy-label>Pattern</span></a></li></ul></div></header><p><em>By Nikola Kukrika, waldo and Gary Winter</em></p><h2 id=abstract>Abstract</h2><p>The Variant façade provides a single interface that can take any Record, RecordRef or RecordID as an argument. With this pattern the code is encapsulated within the single object, with clear separation between common and table specific code.</p><p><a href=picture1.png><img src=picture1.png alt=" "></a></p><h2 id=problem>Problem</h2><p>Since NAV is strongly typed, developers often need to duplicate functionality in order to add support for a new table. The developer would typically start by duplicating the function, changing the record type and implement slight modifications to the code if needed.</p><p>The problem with this approach is that code duplication is one of the worst things in software development &ndash; it makes code harder to understand, maintain, extend and test.</p><p>One of the good examples of this approach and the resulting duplication is codeunit 229, Document-Print:</p><p><a href=Picture2.png><img src=Picture2.png alt=" "></a></p><p><a href=Picture3.png><img src=Picture3.png alt=" "></a></p><p>After reading the code from the two code snippets above, it is very hard to see the differences. The most of the code is duplicated (more than 95%). To make the matters worse the codeunit itself has 10 additional methods that are used to print different records, some are similar to the ones above while others are completely different.</p><p><a href=Picture4.png><img src=Picture4.png alt=" "></a></p><p><a href=Picture5.png><img src=Picture5.png alt=" "></a></p><p>Figure: the entire code of the codeunit 229, Document Print, 12 methods</p><p><a href=Picture6.png><img src=Picture6.png alt=" "></a></p><p>Figure: Visualization how it would look like with 20 methods</p><p>Problems arising from this way of implementing code are:</p><p><strong>Understanding of the code</strong> is very hard, since the developer needs to read blocks of code that look similar and try to understand what exactly the differences are.</p><p><strong>Maintaining and Extending</strong> the code is hard, since every fix or a new behavior that needs to be implemented multiple times (in this case probably 12 times).</p><p><strong>Upgradability is low</strong> &ndash; each conflict needs to be resolved many times. The hook pattern is hard to implement since it needs to be implemented for every function. Evening suffers the same problem - cannot use the evening easily since it needs to be raised from multiple places in the code.</p><p><strong>Testing the code</strong> is hard since the tests need to be replicated.</p><p><strong>Constant cost of adding support for new tables</strong> &ndash; when the new record type needs to be supported, it has a constant cost. Adding a support for a new record will increase the Maintenance tax and it will make the code harder to understand and extend.</p><p><strong>Conclusion</strong> - <strong>If the functionality needs to be used for many records the approach of duplicating the functions should be avoided.</strong></p><h2 id=solution>Solution</h2><p>The Variant façade pattern provides a single interface that would not need to be changed in the future. It will be able to take any record as a parameter. Common code should be kept separately from record specific code and both must be very visible so the developers can easily see what the differences are.</p><p>The Key components of the pattern are:</p><h3 id=signature>Signature</h3><p>Instead of hardcoding a record type a variant is used as an argument. A Variant Façade function can receive three types of data: Record, RecordID, or RecordRef. This way, it can be reused anywhere in the product and the code will still work.</p><p>A good practice is to combine this pattern with the Argument Table pattern to make sure that the signature does not change (Additional parameters can be added to the argument table without impacting existing code.). If the Argument Table is not needed, it should not be placed in the signature - it is always possible to add it at a latter point and have two public functions (one with and one without arguments).</p><p>Example - For codeunit 229, Document-Print all of the public methods can be simply replaced with a single public method like this:</p><p>With this approach the façade function can serve all of the record types and will not need to change in the future.</p><h3 id=casting-to-a-record-ref>Casting to a record ref</h3><p>After the signature it is necessary to decide if the function will support passing of the Record ID and the RecordRef. Code tends to be easier to understand and maintain if only the records are passed as the arguments, however in some cases it is needed to support the other two types.</p><ul>
+<li><strong>Support for Record, Record ID and RecordRef:</strong></li></ul><p>After the signature if the function supports passing of the RecordID or RecordRef as a parameter it is a good practice to cast them to a RecordRef. Codeunit Data Type Management is used to do this:</p><p>DataTypeManagement.GetRecordRef(RecRelatedVariant,RecordRef)</p><ul>
+<li><strong>Support Records only</strong> - If the function supports only passing in the record, it is a good practice to check if the variant is a record:</li></ul><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=display:flex><span><span style=color:#204a87;font-weight:700>IF</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>NOT</span><span style=color:#f8f8f8;text-decoration:underline> </span>RecordVariant<span style=color:#ce5c00;font-weight:700>.</span>ISRECORD<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>THEN</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>    </span>ERROR<span style=color:#ce5c00;font-weight:700>(</span>NotARecordErr<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span></code></pre></div><h3 id=using-the-variant>Using the variant</h3><p>The variant can be passed instead of record when calling the Page.RUN, Codeunit.RUN or Report.RUN statically:</p><p>For example:</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=display:flex><span><span style=color:#204a87;font-weight:700>Page</span><span style=color:#ce5c00;font-weight:700>.</span>RUN<span style=color:#ce5c00;font-weight:700>(</span>PageID<span style=color:#000;font-weight:700>,</span><span style=color:#204a87;font-weight:700>Variant</span><span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>Codeunit</span><span style=color:#ce5c00;font-weight:700>.</span>RUN<span style=color:#ce5c00;font-weight:700>(</span>CodeunitID<span style=color:#000;font-weight:700>,</span><span style=color:#204a87;font-weight:700>Variant</span><span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>Report</span><span style=color:#ce5c00;font-weight:700>.</span>RUN<span style=color:#ce5c00;font-weight:700>(</span>ReportID<span style=color:#000;font-weight:700>,</span><span style=color:#204a87;font-weight:700>Variant</span><span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span></code></pre></div><p>These calls are identical to using an actual instance of the record, since the variant will be casted to the record automatically, with all filters, markings and values preserved.</p><p>In case the variant was casted to the RecordRef (by using DataTypeManagement.GetRecordRef(RecRelatedVariant,RecordRef)), it is still possible to invoke the functions statically.</p><p>The RecordRef simply needs to be casted into a variant and passed as a parameter, for example:</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=display:flex><span>VariantArgument<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#ce5c00;font-weight:700>:=</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>RecordRef</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>Page</span><span style=color:#ce5c00;font-weight:700>.</span>RUN<span style=color:#ce5c00;font-weight:700>(</span>PageID<span style=color:#000;font-weight:700>,</span>VariantArgument<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span></code></pre></div><p>Variant can always casted back to the original record in the table specific code, exact process is described below.</p><h3 id=table-specific-code>Table specific code</h3><p>To do table-specific processing, it is necessary to get the RecordRef first, since NUMBER parameter will tell us which table it is. In the table-specific code, it is possible to cast the variant back to the original record type, so data is accessible and it is possible to invoke functions.</p><p>To do this, the best practice is to use the COPY function to preserve filters:</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=display:flex><span>SalesHeader<span style=color:#ce5c00;font-weight:700>.</span>COPY<span style=color:#ce5c00;font-weight:700>(</span>RecordVariant<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span></code></pre></div><p>Assigning directly such as SalesHeader := RecordVariant, is possible, however all filters will be lost.</p><p>Example of table specific code:</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=display:flex><span><span style=color:#204a87;font-weight:700>CASE</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>RecordRef</span><span style=color:#ce5c00;font-weight:700>.</span>NUMBER<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>OF</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>DATABASE</span><span style=color:#000;font-weight:700>::</span>&#34;Sales Header&#34;<span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>BEGIN</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>            </span>SalesHeader<span style=color:#ce5c00;font-weight:700>.</span>COPY<span style=color:#ce5c00;font-weight:700>(</span>RecordVariant<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>            </span>SalesHeader<span style=color:#ce5c00;font-weight:700>.</span>PrintDocument<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>END</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>DATABASE</span><span style=color:#000;font-weight:700>::</span>&#34;Purchase Header&#34;<span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>BEGIN</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>            </span>PurchaseHeader<span style=color:#ce5c00;font-weight:700>.</span>COPY<span style=color:#ce5c00;font-weight:700>(</span>RecordVariant<span style=color:#ce5c00;font-weight:700>)
+</span></span></span><span style=display:flex><span><span style=color:#ce5c00;font-weight:700>        ...
+</span></span></span><span style=display:flex><span><span style=color:#ce5c00;font-weight:700>        </span><span style=color:#204a87;font-weight:700>END</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#ce5c00;font-weight:700>....
+</span></span></span></code></pre></div><p>It is a good practice to try to avoid the table specific code if possible.</p><p>One of the issues with table specific code is that the CASE statement can easily explode when large number of records are supported.</p><p>There are two possible solutions:</p><ol>
+<li>Move the calculations outside of the façade code unit and pass it in as part of the argument table.</li></ol><p>For example, instead of having a case like this within DocumentPrint codeunit:</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=display:flex><span><span style=color:#204a87;font-weight:700>CASE</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>RecordRef</span><span style=color:#ce5c00;font-weight:700>.</span>NUMBER<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>OF</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>DATABASE</span><span style=color:#000;font-weight:700>::</span>&#34;Sales Header&#34;<span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>BEGIN</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>            </span>SalesHeader<span style=color:#ce5c00;font-weight:700>.</span>COPY<span style=color:#ce5c00;font-weight:700>(</span>RecordVariant<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>            </span><span style=color:#204a87;font-weight:700>CASE</span><span style=color:#f8f8f8;text-decoration:underline> </span>SalesHeader<span style=color:#ce5c00;font-weight:700>.</span>&#34;Document Type&#34;<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>OF</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>                </span>SalesHeader<span style=color:#ce5c00;font-weight:700>.</span>&#34;Document Type&#34;<span style=color:#000;font-weight:700>::</span>Quote<span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>                    </span>ReportSelections<span style=color:#ce5c00;font-weight:700>.</span>SETRANGE<span style=color:#ce5c00;font-weight:700>(</span>Usage<span style=color:#000;font-weight:700>,</span>ReportSelections<span style=color:#ce5c00;font-weight:700>.</span>Usage<span style=color:#000;font-weight:700>::</span>&#34;S.Quote&#34;<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>                </span>SalesHeader<span style=color:#ce5c00;font-weight:700>.</span>&#34;Document Type&#34;<span style=color:#000;font-weight:700>::</span>&#34;Blanket Order&#34;<span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>                    </span>ReportSelections<span style=color:#ce5c00;font-weight:700>.</span>SETRANGE<span style=color:#ce5c00;font-weight:700>(</span>Usage<span style=color:#000;font-weight:700>,</span>ReportSelections<span style=color:#ce5c00;font-weight:700>.</span>Usage<span style=color:#000;font-weight:700>::</span>&#34;S.Blanket&#34;<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>                </span>SalesHeader<span style=color:#ce5c00;font-weight:700>.</span>&#34;Document Type&#34;<span style=color:#000;font-weight:700>::</span><span style=color:#204a87;font-weight:700>Order</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>                    </span>ReportSelections<span style=color:#ce5c00;font-weight:700>.</span>SETRANGE<span style=color:#ce5c00;font-weight:700>(</span>Usage<span style=color:#000;font-weight:700>,</span>ReportSelections<span style=color:#ce5c00;font-weight:700>.</span>Usage<span style=color:#000;font-weight:700>::</span>&#34;S.Order&#34;<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>                </span>SalesHeader<span style=color:#ce5c00;font-weight:700>.</span>&#34;Document Type&#34;<span style=color:#000;font-weight:700>::</span>&#34;Return Order&#34;<span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>                    </span>ReportSelections<span style=color:#ce5c00;font-weight:700>.</span>SETRANGE<span style=color:#ce5c00;font-weight:700>(</span>Usage<span style=color:#000;font-weight:700>,</span>ReportSelections<span style=color:#ce5c00;font-weight:700>.</span>Usage<span style=color:#000;font-weight:700>::</span>&#34;S.Return&#34;<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>                </span>SalesHeader<span style=color:#ce5c00;font-weight:700>.</span>&#34;Document Type&#34;<span style=color:#000;font-weight:700>::</span>Invoice<span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>                    </span>ReportSelections<span style=color:#ce5c00;font-weight:700>.</span>SETRANGE<span style=color:#ce5c00;font-weight:700>(</span>Usage<span style=color:#000;font-weight:700>,</span>ReportSelections<span style=color:#ce5c00;font-weight:700>.</span>Usage<span style=color:#000;font-weight:700>::</span>&#34;S.Invoice&#34;<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>                </span>SalesHeader<span style=color:#ce5c00;font-weight:700>.</span>&#34;Document Type&#34;<span style=color:#000;font-weight:700>::</span>&#34;Credit Memo&#34;<span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>                    </span>ReportSelections<span style=color:#ce5c00;font-weight:700>.</span>SETRANGE<span style=color:#ce5c00;font-weight:700>(</span>Usage<span style=color:#000;font-weight:700>,</span>ReportSelections<span style=color:#ce5c00;font-weight:700>.</span>Usage<span style=color:#000;font-weight:700>::</span>&#34;S.Cr.Memo&#34;<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>END</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span></code></pre></div><p>If the ReportSelections.Usage is simply passed into the function from outside, then the case statement is not needed at all. For example:</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=display:flex><span>PrintDocumentArguments<span style=color:#ce5c00;font-weight:700>.</span>&#34;Report Selection Usage&#34;<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#ce5c00;font-weight:700>:=</span><span style=color:#f8f8f8;text-decoration:underline> </span>SalesHeader<span style=color:#ce5c00;font-weight:700>.</span>GetReportSelectionUsage<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline></span>DocumentPrint<span style=color:#ce5c00;font-weight:700>.</span>PrintDocument<span style=color:#ce5c00;font-weight:700>(</span>SalesHeader<span style=color:#000;font-weight:700>,</span>PrintDocumentArguments<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span></code></pre></div><p>Where GetReportSelection usage is coded like this:</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=display:flex><span><span style=color:#204a87;font-weight:700>CASE</span><span style=color:#f8f8f8;text-decoration:underline> </span>SalesHeader<span style=color:#ce5c00;font-weight:700>.</span>&#34;Document Type&#34;<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>OF</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>    </span>SalesHeader<span style=color:#ce5c00;font-weight:700>.</span>&#34;Document Type&#34;<span style=color:#000;font-weight:700>::</span>Quote<span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>EXIT</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#ce5c00;font-weight:700>(</span>ReportSelections<span style=color:#ce5c00;font-weight:700>.</span>Usage<span style=color:#000;font-weight:700>::</span>&#34;S.Quote&#34;<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>    </span>SalesHeader<span style=color:#ce5c00;font-weight:700>.</span>&#34;Document Type&#34;<span style=color:#000;font-weight:700>::</span>&#34;Blanket Order&#34;<span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>EXIT</span><span style=color:#ce5c00;font-weight:700>(</span>ReportSelections<span style=color:#ce5c00;font-weight:700>.</span>Usage<span style=color:#000;font-weight:700>::</span>&#34;S.Blanket&#34;<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>    </span>SalesHeader<span style=color:#ce5c00;font-weight:700>.</span>&#34;Document Type&#34;<span style=color:#000;font-weight:700>::</span><span style=color:#204a87;font-weight:700>Order</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>EXIT</span><span style=color:#ce5c00;font-weight:700>(</span>ReportSelections<span style=color:#ce5c00;font-weight:700>.</span>Usage<span style=color:#000;font-weight:700>::</span>&#34;S.Order&#34;<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>    </span>SalesHeader<span style=color:#ce5c00;font-weight:700>.</span>&#34;Document Type&#34;<span style=color:#000;font-weight:700>::</span>&#34;Return Order&#34;<span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>EXIT</span><span style=color:#ce5c00;font-weight:700>(</span>ReportSelections<span style=color:#ce5c00;font-weight:700>.</span>Usage<span style=color:#000;font-weight:700>::</span>&#34;S.Return&#34;<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>    </span>SalesHeader<span style=color:#ce5c00;font-weight:700>.</span>&#34;Document Type&#34;<span style=color:#000;font-weight:700>::</span>Invoice<span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>EXIT</span><span style=color:#ce5c00;font-weight:700>(</span>ReportSelections<span style=color:#ce5c00;font-weight:700>.</span>Usage<span style=color:#000;font-weight:700>::</span>&#34;S.Invoice&#34;<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>    </span>SalesHeader<span style=color:#ce5c00;font-weight:700>.</span>&#34;Document Type&#34;<span style=color:#000;font-weight:700>::</span>&#34;Credit Memo&#34;<span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>EXIT</span><span style=color:#ce5c00;font-weight:700>(</span>ReportSelections<span style=color:#ce5c00;font-weight:700>.</span>Usage<span style=color:#000;font-weight:700>::</span>&#34;S.Cr.Memo&#34;<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span></code></pre></div><p>This way the code is much more reusable and simpler to read.</p><ol>
+<li>Use Rules Table to replace the code with data-driven approach.</li></ol><p>Setup table would contain the list of the reports and their usages. Based on Table ID and usage it is possible to set filters on the setup table and run the object ID from the result.</p><p>For example:</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=display:flex><span>ReportSelectionSetup<span style=color:#ce5c00;font-weight:700>.</span>SETRANGE<span style=color:#ce5c00;font-weight:700>(</span>&#34;Table ID&#34;<span style=color:#000;font-weight:700>,</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>RecordRef</span><span style=color:#ce5c00;font-weight:700>.</span>NUMBER<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline></span>ReportSelectionSetup<span style=color:#ce5c00;font-weight:700>.</span>SETRANGE<span style=color:#ce5c00;font-weight:700>(</span>&#34;Usage Type&#34;<span style=color:#000;font-weight:700>,</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>RecordRef</span><span style=color:#ce5c00;font-weight:700>.</span>FieldValue<span style=color:#ce5c00;font-weight:700>(</span>ArgumentTable<span style=color:#ce5c00;font-weight:700>.</span>&#34;Usage Type&#34;<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline></span>ReportSelectionSetup<span style=color:#ce5c00;font-weight:700>.</span>FINDFIRST<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>REPORT</span><span style=color:#ce5c00;font-weight:700>.</span>RUN<span style=color:#ce5c00;font-weight:700>(</span>ReportSelectionSetup<span style=color:#ce5c00;font-weight:700>.</span>&#34;Report ID&#34;<span style=color:#000;font-weight:700>,</span>VariantRecord<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span></code></pre></div><h2 id=example>Example</h2><p>The following code illustrates how the Variant Façade pattern can be used to implement the Document-Print Codeunit.</p><p><a href=Picture7.png><img src=Picture7.png alt=" "></a></p><p><a href=Picture8.png><img src=Picture8.png alt=" "></a></p><p>From the PrintDocument signature it is clear that it will not need to be changed in the future.</p><p>Code duplication is avoided, specific code is isolated in the PrepareRecord function, there is clear extension point to add support for new records in the future. Since code is not duplicated and there is a single flow through the method, inserting hooks and events in the future will be straightforward.</p><p>When adding the support for new records in most cases it is not need to change any code within the method, thus the cost of extending the usage is minimal.</p><p>Note - PrepareRecord function is placed for the illustrational purposes. An improvement would be to move all of the code from the PrepareRecord function before calling the function. So for the SalesHeader and PurchaseHeaders discounts should be calculated before invoking the function. For passing of the argument it should be one of the fields in the Argument Table, thus the entire specific code would be eliminated.</p><h2 id=consequences>Consequences</h2><ul>
+<li>Not needed if the functionality needs to support few tables. Don&rsquo;t use it as a hammer</li><li>Strongly typing the records has it benefits since it is easier to find usages, errors will be visible at the compilation time.</li><li>Code becomes harder to debug within the variant façade</li><li>Be careful with filters and marks, if the function needs to support multiple records. Test these cases thoughtfully because with bad placement of code the filters can easily be lost.</li><li>Case statements can explode if there are too many tables that require specific processing. Then it is a must to find a way to keep the number of options in the CASE statement low. The Rules Table pattern and adding specifics to the Argument Table before invoking the code could help with keep the list shorter.</li></ul><h2 id=nav-usages>NAV usages</h2><ul>
+<li>Codeunit 452 - Report Distribution Management</li><li>Codeunit 700 - Page Management</li><li>Codeunit 701 - Data Type Management</li><li>Codeunit 1268 - Export Launcher</li><li>Codeunit 1410 - Doc. Exch. Service Mgt.</li><li>Codeunit 1501 - Workflow Management</li><li>Codeunit 1521 - Workflow Response Handling</li><li>Codeunit 1531 - Workflow Change Rec Mgt.</li><li>Codeunit 1535 - Approvals Mgmt.</li></ul><h2 id=related-topics>Related Topics</h2><p>OO Facade <a href=https://en.wikipedia.org/wiki/Facade_pattern>https://en.wikipedia.org/wiki/Facade_pattern</a></p><p>Argument Table pattern - <a href=/nav/w/designpatterns/245.argument-table-pattern>https://community.dynamics.com/nav/w/designpatterns/245.argument-table-pattern</a></p><p>Rules Table pattern</p><div class="text-muted mt-5 pt-3 border-top">
 Last modified February 24, 2022: <a href=https://github.com/microsoft/alguidelines/commit/5ee0436639455a35835c5ce88241d3fad662ee06>Added tags & categories + cleanup (5ee04366)</a>
 by waldo1001
-</div>
-</div>
-</main>
-</div>
-</div>
-<footer class="bg-dark py-5 row d-print-none">
+</div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class=row>
 <div class="col-6 col-sm-4 text-xs-center order-sm-2">
@@ -778,31 +566,19 @@ by waldo1001
 <a class=text-white target=_blank rel=noopener href=https://github.com/microsoft/alguidelines aria-label=GitHub>
 <i class="fab fa-github"></i>
 </a>
-</li>
-<li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title=Twitter aria-label=Twitter>
+</li><li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title=Twitter aria-label=Twitter>
 <a class=text-white target=_blank rel=noopener href="https://twitter.com/search?q=%23bcalhelp" aria-label=Twitter>
 <i class="fab fa-twitter"></i>
 </a>
-</li>
-<li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title=Discord aria-label=Discord>
+</li><li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title=Discord aria-label=Discord>
 <a class=text-white target=_blank rel=noopener href=https://discord.gg/4wbfNv3 aria-label=Discord>
 <i class="fab fa-discord"></i>
 </a>
-</li>
-</ul>
-</div>
-<div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
-</div>
-<div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+</li></ul></div><div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+</div><div class="col-12 col-sm-4 text-center py-2 order-sm-2">
 <small class=text-white>&copy; 2022 alguidelines.dev Project All Rights Reserved</small>
-</div>
-</div>
-</div>
-</footer>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js integrity=sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN crossorigin=anonymous></script>
+</div></div></div></footer></div><script src=https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js integrity=sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA==" crossorigin=anonymous></script>
 <script src=/js/tabpane-persist.js></script>
-<script src=/js/main.min.8ab8f81ff7e1454d30024cd6f956d4d341c3a97e2a673f988065f2ee4e147922.js integrity="sha256-irj4H/fhRU0wAkzW+VbU00HDqX4qZz+YgGXy7k4UeSI=" crossorigin=anonymous></script>
-</body>
-</html>
+<script src=/js/main.min.fc1551b8c1b40a6eaa08f3cb9c76f12ccd9aebc436cecdaf2341c890206d024a.js integrity="sha256-/BVRuMG0Cm6qCPPLnHbxLM2a68Q2zs2vI0HIkCBtAko=" crossorigin=anonymous></script>
+</body></html>

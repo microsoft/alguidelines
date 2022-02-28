@@ -2,7 +2,7 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
-<meta name=generator content="Hugo 0.92.2">
+<meta name=generator content="Hugo 0.93.0">
 <meta name=robots content="index, follow">
 <link rel="shortcut icon" href=/favicons/favicon.ico>
 <link rel=apple-touch-icon href=/favicons/apple-touch-icon-180x180.png sizes=180x180>
@@ -14,8 +14,7 @@
 <link rel=icon type=image/png href=/favicons/android-96x96.png sizes=96x96>
 <link rel=icon type=image/png href=/favicons/android-144x144.png sizes=144x144>
 <link rel=icon type=image/png href=/favicons/android-192x192.png sizes=192x192>
-<title>Data Migration Façade | alguidelines.dev - Business Central Design Patterns</title>
-<meta name=description content="By David Bastide and Soumya Dutta at Microsoft Development Center Copenhagen
+<title>Data Migration Façade | alguidelines.dev - Business Central Design Patterns</title><meta name=description content="By David Bastide and Soumya Dutta at Microsoft Development Center Copenhagen
 
 Context:
 This pattern is describing how you can migrate data using the …">
@@ -45,8 +44,7 @@ Problem: Writing migration code from an external source, such as a product from 
 <link href=/scss/main.min.84a617ff0c0265eb62b5cd2929c572f4ed37dc4907d0cf068be4eb2974f6d60f.css rel=stylesheet integrity>
 <script src=https://code.jquery.com/jquery-3.6.0.min.js integrity=sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK crossorigin=anonymous></script>
 <script src=https://unpkg.com/lunr@2.3.9/lunr.min.js integrity=sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli crossorigin=anonymous></script>
-</head>
-<body class=td-page>
+</head><body class=td-page>
 <header>
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
 <a class=navbar-brand href=/>
@@ -58,36 +56,24 @@ Problem: Writing migration code from an external source, such as a product from 
 <ul class="navbar-nav mt-2 mt-lg-0">
 <li class="nav-item mr-4 mb-2 mb-lg-0">
 <a class=nav-link href=/docs/><i class="fas fa-book"></i><span>Docs</span></a>
-</li>
-<li class="nav-item mr-4 mb-2 mb-lg-0">
+</li><li class="nav-item mr-4 mb-2 mb-lg-0">
 <a class=nav-link href=https://github.com/microsoft/alguidelines/discussions/ target=_blank><i class="fas fa-comments"></i><span>Discussions</span></a>
-</li>
-<li class="nav-item mr-4 mb-2 mb-lg-0">
+</li><li class="nav-item mr-4 mb-2 mb-lg-0">
 <a class=nav-link href=https://github.com/microsoft/alguidelines target=_blank><i class="fab fa-github"></i><span>GitHub</span></a>
-</li>
-<li class="nav-item mr-4 mb-2 mb-lg-0">
+</li><li class="nav-item mr-4 mb-2 mb-lg-0">
 <a class=nav-link href=https://discord.gg/4wbfNv3 target=_blank><i class="fab fa-discord"></i><span>Discord</span></a>
-</li>
-</ul>
-</div>
-<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.9ab69a84696ad11cb17318558d9706e3.json data-offline-search-base-href=/ data-offline-search-max-results=10>
-</div>
-</nav>
-</header>
-<div class="container-fluid td-outer">
+</li></ul></div><div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.c6558a635de208ea1007e79e444e323a.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+</div></nav></header><div class="container-fluid td-outer">
 <div class=td-main>
 <div class="row flex-xl-nowrap">
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
 <div id=td-sidebar-menu class=td-sidebar__inner>
 <div id=content-mobile>
 <form class="td-sidebar__search d-flex align-items-center">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.9ab69a84696ad11cb17318558d9706e3.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.c6558a635de208ea1007e79e444e323a.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation">
 </button>
-</form>
-</div>
-<div id=content-desktop></div>
-<nav class="collapse td-sidebar-nav" id=td-section-nav>
+</form></div><div id=content-desktop></div><nav class="collapse td-sidebar-nav" id=td-section-nav>
 <ul class="td-sidebar-nav__section pr-md-3 ul-0">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-docs-li>
 <a href=/docs/ title="AL Guidelines" class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id=m-docs><span>Docs</span></a>
@@ -105,9 +91,9 @@ Problem: Writing migration code from an external source, such as a product from 
 <a href=/docs/patterns/facade-pattern/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docspatternsfacade-pattern><span>Façade</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docspatternsgeneric-method-pattern-li>
 <a href=/docs/patterns/generic-method-pattern/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docspatternsgeneric-method-pattern><span>Generic Method</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsbestpractices-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docspatternsno-series-li>
+<a href=/docs/patterns/no-series/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docspatternsno-series><span>No. Series</span></a>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsbestpractices-li>
 <a href=/docs/bestpractices/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsbestpractices><span>Best Practices</span></a>
 <ul class="ul-2 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticesapi-page-li>
@@ -154,9 +140,7 @@ Problem: Writing migration code from an external source, such as a product from 
 <a href=/docs/bestpractices/variable-naming/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticesvariable-naming><span>Variable Naming</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticesvariables-declarations-order-li>
 <a href=/docs/bestpractices/variables-declarations-order/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticesvariables-declarations-order><span>Variables Declarations Order</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-docsnavpatterns-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-docsnavpatterns-li>
 <a href=/docs/navpatterns/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatterns><span>NAV Patterns Archive</span></a>
 <ul class="ul-2 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-docsnavpatternspatterns-li>
@@ -171,9 +155,7 @@ Problem: Writing migration code from an external source, such as a product from 
 <ul class="ul-4 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsblocked-entitydata-driven-blocked-entity-li>
 <a href=/docs/navpatterns/patterns/blocked-entity/data-driven-blocked-entity/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsblocked-entitydata-driven-blocked-entity><span>Data Driven Blocked Entity</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternscached-web-service-calls-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternscached-web-service-calls-li>
 <a href=/docs/navpatterns/patterns/cached-web-service-calls/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternscached-web-service-calls><span>Cached Web Server Calls</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsconditional-cascading-update-li>
 <a href=/docs/navpatterns/patterns/conditional-cascading-update/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsconditional-cascading-update><span>Conditional Cascading Update</span></a>
@@ -228,9 +210,7 @@ Problem: Writing migration code from an external source, such as a product from 
 <ul class="ul-4 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsnet-exception-handling-in-caltryfunction-net-exception-handling-in-cal-li>
 <a href=/docs/navpatterns/patterns/net-exception-handling-in-cal/tryfunction-net-exception-handling-in-cal/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsnet-exception-handling-in-caltryfunction-net-exception-handling-in-cal><span>TryFunction NET Exception Handling in CAL</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsno-series-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsno-series-li>
 <a href=/docs/navpatterns/patterns/no-series/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsno-series><span>No Series</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatternspatternsnotifications-li>
 <a href=/docs/navpatterns/patterns/notifications/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatternspatternsnotifications><span>Notifications</span></a>
@@ -239,9 +219,7 @@ Problem: Writing migration code from an external source, such as a product from 
 <a href=/docs/navpatterns/patterns/notifications/in-context-notifications/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsnotificationsin-context-notifications><span>In-context Notifications</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsnotificationsnotification-lifecycle-management-pattern-li>
 <a href=/docs/navpatterns/patterns/notifications/notification-lifecycle-management-pattern/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsnotificationsnotification-lifecycle-management-pattern><span>Notification Lifecycle Management Pattern</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsobserver-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsobserver-li>
 <a href=/docs/navpatterns/patterns/observer/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsobserver><span>Observer</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsposting-routine-select-behavior-li>
 <a href=/docs/navpatterns/patterns/posting-routine-select-behavior/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsposting-routine-select-behavior><span>Posting Routine - Select Behavior</span></a>
@@ -256,9 +234,7 @@ Problem: Writing migration code from an external source, such as a product from 
 <a href=/docs/navpatterns/patterns/queries/use-queries-to-detect-duplicate-records/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsqueriesuse-queries-to-detect-duplicate-records><span>Use Queries to Detect Duplicate Records</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsqueriesuse-queries-to-replace-nested-loops-li>
 <a href=/docs/navpatterns/patterns/queries/use-queries-to-replace-nested-loops/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsqueriesuse-queries-to-replace-nested-loops><span>Use Queries to Replace Nested Loops</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsread-once-initialization-and-validation-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsread-once-initialization-and-validation-li>
 <a href=/docs/navpatterns/patterns/read-once-initialization-and-validation/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsread-once-initialization-and-validation><span>Read-once Initialization and Validation</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsreleased-entity-li>
 <a href=/docs/navpatterns/patterns/released-entity/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsreleased-entity><span>Released Entity</span></a>
@@ -277,9 +253,7 @@ Problem: Writing migration code from an external source, such as a product from 
 <a href=/docs/navpatterns/patterns/security/4-masked-text/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternssecurity4-masked-text><span>Masked Text</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternssecurity5-ssl-in-nav-li>
 <a href=/docs/navpatterns/patterns/security/5-ssl-in-nav/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternssecurity5-ssl-in-nav><span>SSL in NAV</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternssetup-specificity-fallback-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternssetup-specificity-fallback-li>
 <a href=/docs/navpatterns/patterns/setup-specificity-fallback/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternssetup-specificity-fallback><span>Setup Specificity Fallback</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternssilent-file-upload-and-download-li>
 <a href=/docs/navpatterns/patterns/silent-file-upload-and-download/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternssilent-file-upload-and-download><span>Silent File Upload and Download</span></a>
@@ -295,11 +269,7 @@ Problem: Writing migration code from an external source, such as a product from 
 <a href=/docs/navpatterns/patterns/singleton/singleton-table/cue-table/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternssingletonsingleton-tablecue-table><span>Cue Table</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternssingletonsingleton-tablesetup-table-li>
 <a href=/docs/navpatterns/patterns/singleton/singleton-table/setup-table/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternssingletonsingleton-tablesetup-table><span>Setup Table</span></a>
-</li>
-</ul>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsstandard-journal-li>
+</li></ul></li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsstandard-journal-li>
 <a href=/docs/navpatterns/patterns/standard-journal/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsstandard-journal><span>Standard Journal</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternstemporary-dataset-report-li>
 <a href=/docs/navpatterns/patterns/temporary-dataset-report/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternstemporary-dataset-report><span>Temporary Dataset Report</span></a>
@@ -309,18 +279,14 @@ Problem: Writing migration code from an external source, such as a product from 
 <a href=/docs/navpatterns/patterns/transfer-custom-fields/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternstransfer-custom-fields><span>Transfer Custom Fields</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsvariant-facade-li>
 <a href=/docs/navpatterns/patterns/variant-facade/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsvariant-facade><span>Variant Facade</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatterns2-anti-patterns-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatterns2-anti-patterns-li>
 <a href=/docs/navpatterns/2-anti-patterns/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatterns2-anti-patterns><span>2. Anti-Patterns</span></a>
 <ul class="ul-3 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns2-anti-patternsnav-upgrade-li>
 <a href=/docs/navpatterns/2-anti-patterns/nav-upgrade/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns2-anti-patternsnav-upgrade><span>Nav Upgrade</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns2-anti-patternsreusable-bugs-li>
 <a href=/docs/navpatterns/2-anti-patterns/reusable-bugs/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns2-anti-patternsreusable-bugs><span>Reusable Bugs</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatterns3-cal-coding-guidelines-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatterns3-cal-coding-guidelines-li>
 <a href=/docs/navpatterns/3-cal-coding-guidelines/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatterns3-cal-coding-guidelines><span>3. CAL Coding Guidelines</span></a>
 <ul class="ul-3 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesdesign-li>
@@ -354,18 +320,14 @@ Problem: Writing migration code from an external source, such as a product from 
 <a href=/docs/navpatterns/3-cal-coding-guidelines/design/variable-capacity-mismatch/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesdesignvariable-capacity-mismatch><span>Variable Capacity Mismatch</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesdesignwith-scope-name-collision-li>
 <a href=/docs/navpatterns/3-cal-coding-guidelines/design/with-scope-name-collision/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesdesignwith-scope-name-collision><span>WITH Scope Name Collision</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesinternally-used-dot-net-types-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesinternally-used-dot-net-types-li>
 <a href=/docs/navpatterns/3-cal-coding-guidelines/internally-used-dot-net-types/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesinternally-used-dot-net-types><span>Internally used DotNet Types</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesinternationalization-li>
 <a href=/docs/navpatterns/3-cal-coding-guidelines/internationalization/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatterns3-cal-coding-guidelinesinternationalization><span>Internationalization</span></a>
 <ul class="ul-4 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesinternationalizationusing-calcdate-li>
 <a href=/docs/navpatterns/3-cal-coding-guidelines/internationalization/using-calcdate/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesinternationalizationusing-calcdate><span>Using Calcdate</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docsnavpatterns3-cal-coding-guidelineslocalizability-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docsnavpatterns3-cal-coding-guidelineslocalizability-li>
 <a href=/docs/navpatterns/3-cal-coding-guidelines/localizability/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatterns3-cal-coding-guidelineslocalizability><span>Localizability</span></a>
 <ul class="ul-4 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelineslocalizabilitycaptionml-for-system-tables-li>
@@ -378,9 +340,7 @@ Problem: Writing migration code from an external source, such as a product from 
 <a href=/docs/navpatterns/3-cal-coding-guidelines/localizability/use-text-constants/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelineslocalizabilityuse-text-constants><span>Use Text Constants</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelineslocalizabilityusing-optioncaptionml-li>
 <a href=/docs/navpatterns/3-cal-coding-guidelines/localizability/using-optioncaptionml/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelineslocalizabilityusing-optioncaptionml><span>Using OptionCaptionML</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesreadability-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesreadability-li>
 <a href=/docs/navpatterns/3-cal-coding-guidelines/readability/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatterns3-cal-coding-guidelinesreadability><span>Readability</span></a>
 <ul class="ul-4 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilitybegin-as-an-afterword-li>
@@ -447,9 +407,7 @@ Problem: Writing migration code from an external source, such as a product from 
 <a href=/docs/navpatterns/3-cal-coding-guidelines/readability/variable-naming/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilityvariable-naming><span>Variable Naming</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilityvariables-declarations-order-li>
 <a href=/docs/navpatterns/3-cal-coding-guidelines/readability/variables-declarations-order/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilityvariables-declarations-order><span>Variables Declarations Order</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesux-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesux-li>
 <a href=/docs/navpatterns/3-cal-coding-guidelines/ux/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatterns3-cal-coding-guidelinesux><span>UX</span></a>
 <ul class="ul-4 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesuxactions-images-li>
@@ -460,11 +418,7 @@ Problem: Writing migration code from an external source, such as a product from 
 <a href=/docs/navpatterns/3-cal-coding-guidelines/ux/fielderror/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesuxfielderror><span>FIELDERROR</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesuxmessage-and-error-li>
 <a href=/docs/navpatterns/3-cal-coding-guidelines/ux/message-and-error/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesuxmessage-and-error><span>MESSAGE and ERROR</span></a>
-</li>
-</ul>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatterns4-get-involved-li>
+</li></ul></li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatterns4-get-involved-li>
 <a href=/docs/navpatterns/4-get-involved/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatterns4-get-involved><span>(OLD) Get Involved</span></a>
 <ul class="ul-3 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns4-get-involvedcode-of-conduct-li>
@@ -473,13 +427,9 @@ Problem: Writing migration code from an external source, such as a product from 
 <a href=/docs/navpatterns/4-get-involved/patterns-authors/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns4-get-involvedpatterns-authors><span>Patterns Authors</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns4-get-involvedtemplate-for-writing-nav-design-patterns-li>
 <a href=/docs/navpatterns/4-get-involved/template-for-writing-nav-design-patterns/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns4-get-involvedtemplate-for-writing-nav-design-patterns><span>Template for writing Nav Design Patterns</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternsrelated-links-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternsrelated-links-li>
 <a href=/docs/navpatterns/related-links/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternsrelated-links><span>Related Links</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docscontributing-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docscontributing-li>
 <a href=/docs/contributing/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docscontributing><span>Contributing</span></a>
 <ul class="ul-2 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docscontributingformattingtips-li>
@@ -495,27 +445,14 @@ Problem: Writing migration code from an external source, such as a product from 
 <a href=/docs/contributing/installhugo/manuallyonwindows11/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docscontributinginstallhugomanuallyonwindows11><span>Manually on Windows 11</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docscontributinginstallhugousingpowershellonwindows11-li>
 <a href=/docs/contributing/installhugo/usingpowershellonwindows11/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docscontributinginstallhugousingpowershellonwindows11><span>Powershell on Windows 11</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docscontributingtemplates-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docscontributingtemplates-li>
 <a href=/docs/contributing/templates/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docscontributingtemplates><span>Templates</span></a>
 <ul class="ul-3 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docscontributingtemplatespatterns-li>
 <a href=/docs/contributing/templates/patterns/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docscontributingtemplatespatterns><span>Pattern Name</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docscontributingtemplatesbestpractice-li>
 <a href=/docs/contributing/templates/bestpractice/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docscontributingtemplatesbestpractice><span>Title Here</span></a>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</nav>
-</div>
-</aside>
-<aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+</li></ul></li></ul></li></ul></li></ul></nav></div></aside><aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
 <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
 <a href=https://github.com/microsoft/alguidelines/tree/main/content/docs/NAVPatterns/patterns/data-migration-facade/index.md class=td-page-meta--view target=_blank rel=noopener><i class="fa fa-file-alt fa-fw"></i> View page source</a>
 <a href=https://github.com/microsoft/alguidelines/edit/main/content/docs/NAVPatterns/patterns/data-migration-facade/index.md class=td-page-meta--edit target=_blank rel=noopener><i class="fa fa-edit fa-fw"></i> Edit this page</a>
@@ -523,353 +460,173 @@ Problem: Writing migration code from an external source, such as a product from 
 <a href="https://github.com/microsoft/alguidelines/issues/new?title=Data%20Migration%20Fa%c3%a7ade" class=td-page-meta--issue target=_blank rel=noopener><i class="fab fa-github fa-fw"></i> Create Issue</a>
 <a href="https://github.com/microsoft/alguidelines/discussions?discussions_q=Data%20Migration%20Fa%c3%a7ade" class=td-page-meta--issue target=_blank rel=noopener><i class="fab fa-github fa-fw"></i> Discussions</a>
 <a href=https://github.com/microsoft/alguidelines/issues/new class=td-page-meta--project-issue target=_blank rel=noopener><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
-</div>
-<div class=td-toc><nav id=TableOfContents>
+</div><div class=td-toc><nav id=TableOfContents>
 <ul>
-<li><a href=#context>Context:</a></li>
-<li><a href=#problem>Problem:</a></li>
-<li><a href=#solution>Solution:</a></li>
-<li><a href=#usage>Usage:</a>
+<li><a href=#context>Context:</a></li><li><a href=#problem>Problem:</a></li><li><a href=#solution>Solution:</a></li><li><a href=#usage>Usage:</a>
 <ul>
-<li><a href=#usage-without-staging-tables>Usage without staging tables:</a></li>
-<li><a href=#usage-with-staging-tables>Usage with staging tables:</a></li>
-<li><a href=#combining-both-approaches>Combining both approaches:</a></li>
-</ul>
-</li>
-<li><a href=#error-handling-with-staging-tables>Error handling with staging tables:</a></li>
-<li><a href=#limitations>Limitations:</a></li>
-<li><a href=#usages-in-nav>Usages in NAV:</a></li>
-<li><a href=#references>References:</a></li>
-</ul>
-</nav></div>
-<div class="taxonomy taxonomy-terms-cloud taxo-tags">
-<h5 class=taxonomy-title>Tag Cloud</h5>
-<ul class=taxonomy-terms>
-<li><a class=taxonomy-term href=https://alguidelines.dev/tags/al/ data-taxonomy-term=al><span class=taxonomy-label>AL</span><span class=taxonomy-count>29</span></a></li>
-<li><a class=taxonomy-term href=https://alguidelines.dev/tags/api/ data-taxonomy-term=api><span class=taxonomy-label>API</span><span class=taxonomy-count>3</span></a></li>
-<li><a class=taxonomy-term href=https://alguidelines.dev/tags/c/al/ data-taxonomy-term=c/al><span class=taxonomy-label>C/AL</span><span class=taxonomy-count>136</span></a></li>
-<li><a class=taxonomy-term href=https://alguidelines.dev/tags/decoupling/ data-taxonomy-term=decoupling><span class=taxonomy-label>Decoupling</span><span class=taxonomy-count>2</span></a></li>
-<li><a class=taxonomy-term href=https://alguidelines.dev/tags/extendability/ data-taxonomy-term=extendability><span class=taxonomy-label>Extendability</span><span class=taxonomy-count>3</span></a></li>
-<li><a class=taxonomy-term href=https://alguidelines.dev/tags/interface/ data-taxonomy-term=interface><span class=taxonomy-label>Interface</span><span class=taxonomy-count>1</span></a></li>
-<li><a class=taxonomy-term href=https://alguidelines.dev/tags/performance/ data-taxonomy-term=performance><span class=taxonomy-label>Performance</span><span class=taxonomy-count>2</span></a></li>
-<li><a class=taxonomy-term href=https://alguidelines.dev/tags/readability/ data-taxonomy-term=readability><span class=taxonomy-label>Readability</span><span class=taxonomy-count>53</span></a></li>
-<li><a class=taxonomy-term href=https://alguidelines.dev/tags/telemetry/ data-taxonomy-term=telemetry><span class=taxonomy-label>Telemetry</span><span class=taxonomy-count>1</span></a></li>
-<li><a class=taxonomy-term href=https://alguidelines.dev/tags/testability/ data-taxonomy-term=testability><span class=taxonomy-label>Testability</span><span class=taxonomy-count>2</span></a></li>
-</ul>
-</div>
-<div class="taxonomy taxonomy-terms-cloud taxo-categories">
-<h5 class=taxonomy-title>Categories</h5>
-<ul class=taxonomy-terms>
-<li><a class=taxonomy-term href=https://alguidelines.dev/categories/best-practice/ data-taxonomy-term=best-practice><span class=taxonomy-label>Best Practice</span><span class=taxonomy-count>86</span></a></li>
-<li><a class=taxonomy-term href=https://alguidelines.dev/categories/pattern/ data-taxonomy-term=pattern><span class=taxonomy-label>Pattern</span><span class=taxonomy-count>70</span></a></li>
-</ul>
-</div>
-</aside>
-<main class="col-12 col-md-9 col-xl-8 pl-md-5" role=main>
+<li><a href=#usage-without-staging-tables>Usage without staging tables:</a></li><li><a href=#usage-with-staging-tables>Usage with staging tables:</a></li><li><a href=#combining-both-approaches>Combining both approaches:</a></li></ul></li><li><a href=#error-handling-with-staging-tables>Error handling with staging tables:</a></li><li><a href=#limitations>Limitations:</a></li><li><a href=#usages-in-nav>Usages in NAV:</a></li><li><a href=#references>References:</a></li></ul></nav></div><div class="taxonomy taxonomy-terms-cloud taxo-tags">
+<h5 class=taxonomy-title>Tag Cloud</h5><ul class=taxonomy-terms>
+<li><a class=taxonomy-term href=https://alguidelines.dev/tags/al/ data-taxonomy-term=al><span class=taxonomy-label>AL</span><span class=taxonomy-count>30</span></a></li><li><a class=taxonomy-term href=https://alguidelines.dev/tags/api/ data-taxonomy-term=api><span class=taxonomy-label>API</span><span class=taxonomy-count>3</span></a></li><li><a class=taxonomy-term href=https://alguidelines.dev/tags/c/al/ data-taxonomy-term=c/al><span class=taxonomy-label>C/AL</span><span class=taxonomy-count>136</span></a></li><li><a class=taxonomy-term href=https://alguidelines.dev/tags/decoupling/ data-taxonomy-term=decoupling><span class=taxonomy-label>Decoupling</span><span class=taxonomy-count>2</span></a></li><li><a class=taxonomy-term href=https://alguidelines.dev/tags/extendability/ data-taxonomy-term=extendability><span class=taxonomy-label>Extendability</span><span class=taxonomy-count>3</span></a></li><li><a class=taxonomy-term href=https://alguidelines.dev/tags/interface/ data-taxonomy-term=interface><span class=taxonomy-label>Interface</span><span class=taxonomy-count>1</span></a></li><li><a class=taxonomy-term href=https://alguidelines.dev/tags/performance/ data-taxonomy-term=performance><span class=taxonomy-label>Performance</span><span class=taxonomy-count>2</span></a></li><li><a class=taxonomy-term href=https://alguidelines.dev/tags/readability/ data-taxonomy-term=readability><span class=taxonomy-label>Readability</span><span class=taxonomy-count>53</span></a></li><li><a class=taxonomy-term href=https://alguidelines.dev/tags/telemetry/ data-taxonomy-term=telemetry><span class=taxonomy-label>Telemetry</span><span class=taxonomy-count>1</span></a></li><li><a class=taxonomy-term href=https://alguidelines.dev/tags/testability/ data-taxonomy-term=testability><span class=taxonomy-label>Testability</span><span class=taxonomy-count>2</span></a></li></ul></div><div class="taxonomy taxonomy-terms-cloud taxo-categories">
+<h5 class=taxonomy-title>Categories</h5><ul class=taxonomy-terms>
+<li><a class=taxonomy-term href=https://alguidelines.dev/categories/best-practice/ data-taxonomy-term=best-practice><span class=taxonomy-label>Best Practice</span><span class=taxonomy-count>86</span></a></li><li><a class=taxonomy-term href=https://alguidelines.dev/categories/pattern/ data-taxonomy-term=pattern><span class=taxonomy-label>Pattern</span><span class=taxonomy-count>71</span></a></li></ul></div></aside><main class="col-12 col-md-9 col-xl-8 pl-md-5" role=main>
 <nav aria-label=breadcrumb class=td-breadcrumbs>
 <ol class=breadcrumb>
 <li class=breadcrumb-item>
 <a href=https://alguidelines.dev/docs/>Docs</a>
-</li>
-<li class=breadcrumb-item>
+</li><li class=breadcrumb-item>
 <a href=https://alguidelines.dev/docs/navpatterns/>NAV Patterns Archive</a>
-</li>
-<li class=breadcrumb-item>
+</li><li class=breadcrumb-item>
 <a href=https://alguidelines.dev/docs/navpatterns/patterns/>1. Patterns</a>
-</li>
-<li class="breadcrumb-item active" aria-current=page>
+</li><li class="breadcrumb-item active" aria-current=page>
 <a href=https://alguidelines.dev/docs/navpatterns/patterns/data-migration-facade/>Data Migration Façade</a>
-</li>
-</ol>
-</nav>
-<div class=td-content>
-<h1>Data Migration Façade</h1>
-<header class=article-meta>
+</li></ol></nav><div class=td-content>
+<h1>Data Migration Façade</h1><header class=article-meta>
 <div class="taxonomy taxonomy-terms-article taxo-tags">
-<h5 class=taxonomy-title>Tags:</h5>
-<ul class=taxonomy-terms>
-<li><a class=taxonomy-term href=https://alguidelines.dev/tags/c/al/ data-taxonomy-term=c/al><span class=taxonomy-label>C/AL</span></a></li>
-</ul>
-</div>
-<div class="taxonomy taxonomy-terms-article taxo-categories">
-<h5 class=taxonomy-title>Categories:</h5>
-<ul class=taxonomy-terms>
-<li><a class=taxonomy-term href=https://alguidelines.dev/categories/pattern/ data-taxonomy-term=pattern><span class=taxonomy-label>Pattern</span></a></li>
-</ul>
-</div>
-</header>
-<p><em>By David Bastide and Soumya Dutta at Microsoft Development Center Copenhagen</em></p>
-<p><a href=8308.logo.png><img src=8308.logo.png alt=" "></a></p>
-<h2 id=context>Context:</h2>
-<p>This pattern is describing how you can migrate data using the Data Migration Façade.</p>
-<h2 id=problem>Problem:</h2>
-<p>Writing migration code from an external source, such as a product from a competitor, can be time consuming, as you need to tackle the problems of what to migrate, in which order, exception handling&mldr; and can result in code that is fragile due to deep dependencies on the NAV data model (high coupling). Any change to the NAV data model can easily break this code.</p>
-<h2 id=solution>Solution:</h2>
-<p>The idea of the Data Migration Façade is to provide an API that creates and updates master data and related entities (including transactions) without referencing NAV tables.</p>
-<p>Additionally, the framework around the Data Migration Façade provides tools for error handling, and a way to integrate the migration in the Data Migration Overview page (page 1799).</p>
-<p>The façade framework has the following components:</p>
-<ul>
+<h5 class=taxonomy-title>Tags:</h5><ul class=taxonomy-terms>
+<li><a class=taxonomy-term href=https://alguidelines.dev/tags/c/al/ data-taxonomy-term=c/al><span class=taxonomy-label>C/AL</span></a></li></ul></div><div class="taxonomy taxonomy-terms-article taxo-categories">
+<h5 class=taxonomy-title>Categories:</h5><ul class=taxonomy-terms>
+<li><a class=taxonomy-term href=https://alguidelines.dev/categories/pattern/ data-taxonomy-term=pattern><span class=taxonomy-label>Pattern</span></a></li></ul></div></header><p><em>By David Bastide and Soumya Dutta at Microsoft Development Center Copenhagen</em></p><p><a href=8308.logo.png><img src=8308.logo.png alt=" "></a></p><h2 id=context>Context:</h2><p>This pattern is describing how you can migrate data using the Data Migration Façade.</p><h2 id=problem>Problem:</h2><p>Writing migration code from an external source, such as a product from a competitor, can be time consuming, as you need to tackle the problems of what to migrate, in which order, exception handling&mldr; and can result in code that is fragile due to deep dependencies on the NAV data model (high coupling). Any change to the NAV data model can easily break this code.</p><h2 id=solution>Solution:</h2><p>The idea of the Data Migration Façade is to provide an API that creates and updates master data and related entities (including transactions) without referencing NAV tables.</p><p>Additionally, the framework around the Data Migration Façade provides tools for error handling, and a way to integrate the migration in the Data Migration Overview page (page 1799).</p><p>The façade framework has the following components:</p><ul>
 <li>
-<p>Two management codeunits:</p>
-<ul>
-<li><strong>Data Migration Façade</strong> (codeunit 6100): Integrates the extension to the Data Migration Wizard. Starts a migration, or restarts a migration that failed for some records.</li>
-<li><strong>Data Migration Status Facade</strong> (codeunit 6101): Initializes and updates the status of the migration. The status displays in the <strong>Data Migration Overview</strong> page (page 1799).</li>
-</ul>
-</li>
+<p>Two management codeunits:</p><ul>
+<li><strong>Data Migration Façade</strong> (codeunit 6100): Integrates the extension to the Data Migration Wizard. Starts a migration, or restarts a migration that failed for some records.</li><li><strong>Data Migration Status Facade</strong> (codeunit 6101): Initializes and updates the status of the migration. The status displays in the <strong>Data Migration Overview</strong> page (page 1799).</li></ul></li><li>
+<p>Several master data migration façade codeunits that create and update entities. Each codeunit also contains events that help ensure that data is created in the correct order:</p><ul>
+<li><strong>GL Acc. Data Migration Façade</strong> (codeunit 6110)</li><li><strong>Vendor Data Migration Façade</strong> (codeunit 6111)</li><li><strong>Customer Data Migration Façade</strong> (codeunit 6112)</li><li><strong>Item Data Migration Façade</strong> (codeunit 6113)</li><li>If you want to migrate other entities, it is possible to define your own codeunit that will contain your custom code (see &lsquo;Usage&rsquo; below).</li></ul></li><li>
+<p>A page where you can view the status and progress of the migration. It shows one line for each master data entity (item, customer, vendor, general ledger account) that was chosen for migration. You can also stop a migration by choosing the <strong>Stop Migration</strong> action.</p><ul>
+<li><strong>Data Migration Overview</strong> (page 1799)</li></ul></li></ul><h2 id=usage>Usage:</h2><p>There are the following use cases:</p><ul>
 <li>
-<p>Several master data migration façade codeunits that create and update entities. Each codeunit also contains events that help ensure that data is created in the correct order:</p>
-<ul>
-<li><strong>GL Acc. Data Migration Façade</strong> (codeunit 6110)</li>
-<li><strong>Vendor Data Migration Façade</strong> (codeunit 6111)</li>
-<li><strong>Customer Data Migration Façade</strong> (codeunit 6112)</li>
-<li><strong>Item Data Migration Façade</strong> (codeunit 6113)</li>
-<li>If you want to migrate other entities, it is possible to define your own codeunit that will contain your custom code (see &lsquo;Usage&rsquo; below).</li>
-</ul>
-</li>
-<li>
-<p>A page where you can view the status and progress of the migration. It shows one line for each master data entity (item, customer, vendor, general ledger account) that was chosen for migration. You can also stop a migration by choosing the <strong>Stop Migration</strong> action.</p>
-<ul>
-<li><strong>Data Migration Overview</strong> (page 1799)</li>
-</ul>
-</li>
-</ul>
-<h2 id=usage>Usage:</h2>
-<p>There are the following use cases:</p>
-<ul>
-<li>
-<p>Migration with staging tables, where data from another product is exported to a file or set of files, and the exported data is then imported to buffer tables, before running the migration logic. In this case, the migration is implemented in your extension codeunits, and it is called through events, one record at a time.</p>
-</li>
-<li>
-<p>Migration without staging tables, for example, when you migrate data by importing it from an external tool such as external APIs and webservices. In this case, the migration is also implemented in your extension codeunits but it will be called through the OnRun procedure. You will be responsible for looping on the records to migrate, and you must migrate all records in this unique OnRun call for a given entity.</p>
-</li>
-</ul>
-<p>To initialize and start the data migration, you must call the following procedures:</p>
-<ul>
+<p>Migration with staging tables, where data from another product is exported to a file or set of files, and the exported data is then imported to buffer tables, before running the migration logic. In this case, the migration is implemented in your extension codeunits, and it is called through events, one record at a time.</p></li><li>
+<p>Migration without staging tables, for example, when you migrate data by importing it from an external tool such as external APIs and webservices. In this case, the migration is also implemented in your extension codeunits but it will be called through the OnRun procedure. You will be responsible for looping on the records to migrate, and you must migrate all records in this unique OnRun call for a given entity.</p></li></ul><p>To initialize and start the data migration, you must call the following procedures:</p><ul>
 <li><strong>&ldquo;Data Migration Status Façade&rdquo;.InitStatusLine(&lsquo;My Migration Type&rsquo;,Database::Item,42000,0,Codeunit::&ldquo;My extension Item migration codeunit&rdquo;)</strong><br>
-This deletes existing status lines for migrating Items for &lsquo;My Migration Type&rsquo;, and initializes a new status line with 0 records migrated out of 42000.</li>
-</ul>
-<p><strong>&ldquo;Data Migration Façade&rdquo;.StartMigration(&lsquo;My Migration Type&rsquo;,false)</strong><br>
-This starts the migration. False means this is not a retry. A re-try is when you migrate one or more records from the <strong>Show Errors</strong> page, which is described later in this document. Retry = true is only used by the <strong>Show Errors</strong> page and should not be used from extensions.</p>
-<h3 id=usage-without-staging-tables>Usage without staging tables:</h3>
-<p>The overall workflow is:</p>
-<ol>
-<li>Integrate your extension in the <strong>Data Migration Wizard</strong> by subscribing to the events exposed by the <strong>Data Migration Façade</strong>.</li>
-<li>From there, initialize the status of the migration so it can be displayed in the Data Migration Overview. When initializing the status lines, you provide the codeunit ID that will be called for each entity: <strong>&ldquo;Data Migration Status Façade&rdquo;.InitStatusLine(&lsquo;My Migration Type&rsquo;,Database::Item,42000,0,Codeunit::&ldquo;My extension Item migration codeunit&rdquo;)</strong>.</li>
-<li>Launch the migration: <strong>&ldquo;Data Migration Façade&rdquo;.StartMigration(&lsquo;My Migration Type&rsquo;,false).</strong></li>
-<li>Your migration codeunits are called one at a time (<strong>OnRun</strong>) in the following order:</li>
-<li>G/L accounts (first, because customer/vendor posting groups refer to G/L accounts)</li>
-<li>Customers</li>
-<li>Vendors</li>
-<li>Items (because discounts may refer to customer groups)</li>
-<li>Others</li>
-<li>Loop on all of the records to migrate. You can update the increment of the amount of records migrated: <strong>&ldquo;Data Migration Status Facade&rdquo;.IncrementStatusLine(&lsquo;My Migration Type&rsquo;,Database::Item,42).</strong></li>
-</ol>
-<p><a href=NoStagingTableNew2.png><img src=NoStagingTableNew2.png alt=" "></a></p>
-<p><em>Figure 1: sequence diagram of the data migration without staging tables</em></p>
-<p>The following example shows how to migrate items without staging tables:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=color:#204a87;font-weight:700>trigger</span><span style=color:#f8f8f8;text-decoration:underline> </span>OnRun<span style=color:#ce5c00;font-weight:700>()</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>var</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline>    </span>ItemDataMigrationFacade<span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Codeunit</span><span style=color:#f8f8f8;text-decoration:underline> </span>&#34;Item Data Migration Facade&#34;<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline>    </span>ItemNumber<span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Integer</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline>    </span>ItemJson<span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Text</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>begin</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#8f5902;font-style:italic>// loop on items retrieved through a web service for example 
-</span><span style=color:#8f5902;font-style:italic></span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>for</span><span style=color:#f8f8f8;text-decoration:underline> </span>ItemNumber<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#ce5c00;font-weight:700>:=</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#0000cf;font-weight:700>1</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>to</span><span style=color:#f8f8f8;text-decoration:underline> </span>ExternalWebService<span style=color:#ce5c00;font-weight:700>.</span>GetItemCount<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>do</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>begin</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline>        </span>ExternalWebService<span style=color:#ce5c00;font-weight:700>.</span>GetItem<span style=color:#ce5c00;font-weight:700>(</span>ItemNumber<span style=color:#000;font-weight:700>,</span>ItemJson<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#8f5902;font-style:italic>// create item using the facade 
-</span><span style=color:#8f5902;font-style:italic></span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>if</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>not</span><span style=color:#f8f8f8;text-decoration:underline> </span>ItemDataMigrationFacade<span style=color:#ce5c00;font-weight:700>.</span>CreateItemIfNeeded<span style=color:#ce5c00;font-weight:700>(</span>ItemJson<span style=color:#ce5c00;font-weight:700>.</span>ItemNumber<span style=color:#000;font-weight:700>,</span>ItemJson<span style=color:#ce5c00;font-weight:700>.</span>ItemName1<span style=color:#000;font-weight:700>,</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>            </span>ItemJson<span style=color:#ce5c00;font-weight:700>.</span>ItemName2<span style=color:#000;font-weight:700>,</span>ConvertItemType<span style=color:#ce5c00;font-weight:700>(</span>ItemJson<span style=color:#ce5c00;font-weight:700>.</span>ItemType<span style=color:#ce5c00;font-weight:700>)) </span><span style=color:#204a87;font-weight:700>then</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline>                </span><span style=color:#204a87;font-weight:700>exit</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#8f5902;font-style:italic>// item already exists 
-</span><span style=color:#8f5902;font-style:italic></span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#8f5902;font-style:italic>// set some fields using the facade 
-</span><span style=color:#8f5902;font-style:italic></span><span style=color:#f8f8f8;text-decoration:underline>        </span>ItemDataMigrationFacade<span style=color:#ce5c00;font-weight:700>.</span>SetVendorItemNo<span style=color:#ce5c00;font-weight:700>(</span>ItemJson<span style=color:#ce5c00;font-weight:700>.</span>VendItemNumber<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline>        </span>ItemDataMigrationFacade<span style=color:#ce5c00;font-weight:700>.</span>SetUnitVolume<span style=color:#ce5c00;font-weight:700>(</span>ItemJson<span style=color:#ce5c00;font-weight:700>.</span>Volume<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline>        </span>ItemDataMigrationFacade<span style=color:#ce5c00;font-weight:700>.</span>SetAlternativeItemNo<span style=color:#ce5c00;font-weight:700>(</span>ItemJson<span style=color:#ce5c00;font-weight:700>.</span>AltItemNumber<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>if</span><span style=color:#f8f8f8;text-decoration:underline> </span>ItemJson<span style=color:#ce5c00;font-weight:700>.</span>PrimaryVendor<span style=color:#f8f8f8;text-decoration:underline> </span>&lt;&gt;<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#39;&#39;</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>then</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline>            </span>ItemDataMigrationFacade<span style=color:#ce5c00;font-weight:700>.</span>SetVendorNo<span style=color:#ce5c00;font-weight:700>(</span>ItemJson<span style=color:#ce5c00;font-weight:700>.</span>PrimaryVendor<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#8f5902;font-style:italic>// migrate dependencies 
-</span><span style=color:#8f5902;font-style:italic></span><span style=color:#f8f8f8;text-decoration:underline>        </span>MigrateItemUnitOfMeasure<span style=color:#ce5c00;font-weight:700>(</span>ItemDataMigrationFacade<span style=color:#000;font-weight:700>,</span>ItemJson<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#8f5902;font-style:italic>// modify the item (+run trigger) to save the changes made by setters 
-</span><span style=color:#8f5902;font-style:italic></span><span style=color:#f8f8f8;text-decoration:underline>        </span>ItemDataMigrationFacade<span style=color:#ce5c00;font-weight:700>.</span>ModifyItem<span style=color:#ce5c00;font-weight:700>(</span>true<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#8f5902;font-style:italic>// update the status in the migration dashboard 
-</span><span style=color:#8f5902;font-style:italic></span><span style=color:#f8f8f8;text-decoration:underline>        </span>DataMigrationStatusFacade<span style=color:#ce5c00;font-weight:700>.</span>IncrementMigratedRecordCount<span style=color:#ce5c00;font-weight:700>(</span><span style=color:#4e9a06>&#39;My Migration Type&#39;</span><span style=color:#000;font-weight:700>,</span><span style=color:#204a87;font-weight:700>Database</span><span style=color:#000;font-weight:700>::</span>Item<span style=color:#000;font-weight:700>,</span><span style=color:#0000cf;font-weight:700>1</span><span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>end</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>end</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>procedure</span><span style=color:#f8f8f8;text-decoration:underline> </span>MigrateItemUnitOfMeasure<span style=color:#ce5c00;font-weight:700>(</span>ItemDataMigrationFacade<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Codeunit</span><span style=color:#f8f8f8;text-decoration:underline> </span>&#34;Item Data Migration Facade&#34;<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> </span>ItemJson<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Text</span><span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>var</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline>    </span>MyUnitCodeStagingTable<span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Record</span><span style=color:#f8f8f8;text-decoration:underline> </span>&#34;My Unit Code Staging Table&#34;<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline>    </span>DataMigrationStatusFacade<span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Codeunit</span><span style=color:#f8f8f8;text-decoration:underline> </span>&#34;Data Migration Status Facade&#34;<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline>    </span>DescriptionToSet<span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Text</span>[<span style=color:#0000cf;font-weight:700>10</span>]<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline>    </span>UnitCodeJson<span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Text</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>begin</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>if</span><span style=color:#f8f8f8;text-decoration:underline> </span>ItemJson<span style=color:#ce5c00;font-weight:700>.</span>UnitCode<span style=color:#f8f8f8;text-decoration:underline> </span>=<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#39;&#39;</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>then</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#8f5902;font-style:italic>// log an error using the Data migration façade 
-</span><span style=color:#8f5902;font-style:italic></span><span style=color:#f8f8f8;text-decoration:underline>        </span>DataMigrationStatusFacade<span style=color:#ce5c00;font-weight:700>.</span>RegisterErrorNoStagingTablesCase<span style=color:#ce5c00;font-weight:700>(
-</span><span style=color:#ce5c00;font-weight:700>            </span><span style=color:#4e9a06>&#39;My Migration Type&#39;</span><span style=color:#000;font-weight:700>,</span><span style=color:#204a87;font-weight:700>Database</span><span style=color:#000;font-weight:700>::</span>Item<span style=color:#000;font-weight:700>,</span><span style=color:#4e9a06>&#39;Unit of measure is empty.&#39;</span><span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>if</span><span style=color:#f8f8f8;text-decoration:underline> </span>ExternalWebService<span style=color:#ce5c00;font-weight:700>.</span>GetUnitCode<span style=color:#ce5c00;font-weight:700>(</span>ItemJson<span style=color:#ce5c00;font-weight:700>.</span>UnitCode<span style=color:#000;font-weight:700>,</span>UnitCodeJson<span style=color:#ce5c00;font-weight:700>) </span><span style=color:#204a87;font-weight:700>then</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline>        </span>DescriptionToSet<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#ce5c00;font-weight:700>:=</span><span style=color:#f8f8f8;text-decoration:underline> </span>UnitCodeJson<span style=color:#ce5c00;font-weight:700>.</span>Description<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline>    </span>ItemDataMigrationFacade<span style=color:#ce5c00;font-weight:700>.</span>CreateUnitOfMeasureIfNeeded<span style=color:#ce5c00;font-weight:700>(</span>ItemJson<span style=color:#ce5c00;font-weight:700>.</span>UnitCode<span style=color:#000;font-weight:700>,</span><span style=color:#f8f8f8;text-decoration:underline> </span>DescriptionToSet<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline>    
-</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#8f5902;font-style:italic>// set the unit of measure on the item 
-</span><span style=color:#8f5902;font-style:italic></span><span style=color:#f8f8f8;text-decoration:underline>    </span>ItemDataMigrationFacade<span style=color:#ce5c00;font-weight:700>.</span>SetBaseUnitOfMeasure<span style=color:#ce5c00;font-weight:700>(</span>ItemJson<span style=color:#ce5c00;font-weight:700>.</span>UnitCode<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>end</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span></code></pre></div><p><em>Figure 2: Example of Item and Item Unit of Measure migration without staging tables</em></p>
-<h3 id=usage-with-staging-tables>Usage with staging tables:</h3>
-<p>The overall workflow is:</p>
-<ul>
+This deletes existing status lines for migrating Items for &lsquo;My Migration Type&rsquo;, and initializes a new status line with 0 records migrated out of 42000.</li></ul><p><strong>&ldquo;Data Migration Façade&rdquo;.StartMigration(&lsquo;My Migration Type&rsquo;,false)</strong><br>
+This starts the migration. False means this is not a retry. A re-try is when you migrate one or more records from the <strong>Show Errors</strong> page, which is described later in this document. Retry = true is only used by the <strong>Show Errors</strong> page and should not be used from extensions.</p><h3 id=usage-without-staging-tables>Usage without staging tables:</h3><p>The overall workflow is:</p><ol>
+<li>Integrate your extension in the <strong>Data Migration Wizard</strong> by subscribing to the events exposed by the <strong>Data Migration Façade</strong>.</li><li>From there, initialize the status of the migration so it can be displayed in the Data Migration Overview. When initializing the status lines, you provide the codeunit ID that will be called for each entity: <strong>&ldquo;Data Migration Status Façade&rdquo;.InitStatusLine(&lsquo;My Migration Type&rsquo;,Database::Item,42000,0,Codeunit::&ldquo;My extension Item migration codeunit&rdquo;)</strong>.</li><li>Launch the migration: <strong>&ldquo;Data Migration Façade&rdquo;.StartMigration(&lsquo;My Migration Type&rsquo;,false).</strong></li><li>Your migration codeunits are called one at a time (<strong>OnRun</strong>) in the following order:</li><li>G/L accounts (first, because customer/vendor posting groups refer to G/L accounts)</li><li>Customers</li><li>Vendors</li><li>Items (because discounts may refer to customer groups)</li><li>Others</li><li>Loop on all of the records to migrate. You can update the increment of the amount of records migrated: <strong>&ldquo;Data Migration Status Facade&rdquo;.IncrementStatusLine(&lsquo;My Migration Type&rsquo;,Database::Item,42).</strong></li></ol><p><a href=NoStagingTableNew2.png><img src=NoStagingTableNew2.png alt=" "></a></p><p><em>Figure 1: sequence diagram of the data migration without staging tables</em></p><p>The following example shows how to migrate items without staging tables:</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=display:flex><span><span style=color:#204a87;font-weight:700>trigger</span><span style=color:#f8f8f8;text-decoration:underline> </span>OnRun<span style=color:#ce5c00;font-weight:700>()</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>var</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>    </span>ItemDataMigrationFacade<span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Codeunit</span><span style=color:#f8f8f8;text-decoration:underline> </span>&#34;Item Data Migration Facade&#34;<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>    </span>ItemNumber<span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Integer</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>    </span>ItemJson<span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Text</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>begin</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#8f5902;font-style:italic>// loop on items retrieved through a web service for example 
+</span></span></span><span style=display:flex><span><span style=color:#8f5902;font-style:italic></span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>for</span><span style=color:#f8f8f8;text-decoration:underline> </span>ItemNumber<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#ce5c00;font-weight:700>:=</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#0000cf;font-weight:700>1</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>to</span><span style=color:#f8f8f8;text-decoration:underline> </span>ExternalWebService<span style=color:#ce5c00;font-weight:700>.</span>GetItemCount<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>do</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>begin</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>        </span>ExternalWebService<span style=color:#ce5c00;font-weight:700>.</span>GetItem<span style=color:#ce5c00;font-weight:700>(</span>ItemNumber<span style=color:#000;font-weight:700>,</span>ItemJson<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#8f5902;font-style:italic>// create item using the facade 
+</span></span></span><span style=display:flex><span><span style=color:#8f5902;font-style:italic></span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>if</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>not</span><span style=color:#f8f8f8;text-decoration:underline> </span>ItemDataMigrationFacade<span style=color:#ce5c00;font-weight:700>.</span>CreateItemIfNeeded<span style=color:#ce5c00;font-weight:700>(</span>ItemJson<span style=color:#ce5c00;font-weight:700>.</span>ItemNumber<span style=color:#000;font-weight:700>,</span>ItemJson<span style=color:#ce5c00;font-weight:700>.</span>ItemName1<span style=color:#000;font-weight:700>,</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>            </span>ItemJson<span style=color:#ce5c00;font-weight:700>.</span>ItemName2<span style=color:#000;font-weight:700>,</span>ConvertItemType<span style=color:#ce5c00;font-weight:700>(</span>ItemJson<span style=color:#ce5c00;font-weight:700>.</span>ItemType<span style=color:#ce5c00;font-weight:700>)) </span><span style=color:#204a87;font-weight:700>then</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>                </span><span style=color:#204a87;font-weight:700>exit</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#8f5902;font-style:italic>// item already exists 
+</span></span></span><span style=display:flex><span><span style=color:#8f5902;font-style:italic></span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#8f5902;font-style:italic>// set some fields using the facade 
+</span></span></span><span style=display:flex><span><span style=color:#8f5902;font-style:italic></span><span style=color:#f8f8f8;text-decoration:underline>        </span>ItemDataMigrationFacade<span style=color:#ce5c00;font-weight:700>.</span>SetVendorItemNo<span style=color:#ce5c00;font-weight:700>(</span>ItemJson<span style=color:#ce5c00;font-weight:700>.</span>VendItemNumber<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>        </span>ItemDataMigrationFacade<span style=color:#ce5c00;font-weight:700>.</span>SetUnitVolume<span style=color:#ce5c00;font-weight:700>(</span>ItemJson<span style=color:#ce5c00;font-weight:700>.</span>Volume<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>        </span>ItemDataMigrationFacade<span style=color:#ce5c00;font-weight:700>.</span>SetAlternativeItemNo<span style=color:#ce5c00;font-weight:700>(</span>ItemJson<span style=color:#ce5c00;font-weight:700>.</span>AltItemNumber<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>if</span><span style=color:#f8f8f8;text-decoration:underline> </span>ItemJson<span style=color:#ce5c00;font-weight:700>.</span>PrimaryVendor<span style=color:#f8f8f8;text-decoration:underline> </span>&lt;&gt;<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#39;&#39;</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>then</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>            </span>ItemDataMigrationFacade<span style=color:#ce5c00;font-weight:700>.</span>SetVendorNo<span style=color:#ce5c00;font-weight:700>(</span>ItemJson<span style=color:#ce5c00;font-weight:700>.</span>PrimaryVendor<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#8f5902;font-style:italic>// migrate dependencies 
+</span></span></span><span style=display:flex><span><span style=color:#8f5902;font-style:italic></span><span style=color:#f8f8f8;text-decoration:underline>        </span>MigrateItemUnitOfMeasure<span style=color:#ce5c00;font-weight:700>(</span>ItemDataMigrationFacade<span style=color:#000;font-weight:700>,</span>ItemJson<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#8f5902;font-style:italic>// modify the item (+run trigger) to save the changes made by setters 
+</span></span></span><span style=display:flex><span><span style=color:#8f5902;font-style:italic></span><span style=color:#f8f8f8;text-decoration:underline>        </span>ItemDataMigrationFacade<span style=color:#ce5c00;font-weight:700>.</span>ModifyItem<span style=color:#ce5c00;font-weight:700>(</span>true<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#8f5902;font-style:italic>// update the status in the migration dashboard 
+</span></span></span><span style=display:flex><span><span style=color:#8f5902;font-style:italic></span><span style=color:#f8f8f8;text-decoration:underline>        </span>DataMigrationStatusFacade<span style=color:#ce5c00;font-weight:700>.</span>IncrementMigratedRecordCount<span style=color:#ce5c00;font-weight:700>(</span><span style=color:#4e9a06>&#39;My Migration Type&#39;</span><span style=color:#000;font-weight:700>,</span><span style=color:#204a87;font-weight:700>Database</span><span style=color:#000;font-weight:700>::</span>Item<span style=color:#000;font-weight:700>,</span><span style=color:#0000cf;font-weight:700>1</span><span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>end</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>end</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>procedure</span><span style=color:#f8f8f8;text-decoration:underline> </span>MigrateItemUnitOfMeasure<span style=color:#ce5c00;font-weight:700>(</span>ItemDataMigrationFacade<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Codeunit</span><span style=color:#f8f8f8;text-decoration:underline> </span>&#34;Item Data Migration Facade&#34;<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> </span>ItemJson<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Text</span><span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>var</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>    </span>MyUnitCodeStagingTable<span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Record</span><span style=color:#f8f8f8;text-decoration:underline> </span>&#34;My Unit Code Staging Table&#34;<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>    </span>DataMigrationStatusFacade<span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Codeunit</span><span style=color:#f8f8f8;text-decoration:underline> </span>&#34;Data Migration Status Facade&#34;<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>    </span>DescriptionToSet<span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Text</span>[<span style=color:#0000cf;font-weight:700>10</span>]<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>    </span>UnitCodeJson<span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Text</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>begin</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>if</span><span style=color:#f8f8f8;text-decoration:underline> </span>ItemJson<span style=color:#ce5c00;font-weight:700>.</span>UnitCode<span style=color:#f8f8f8;text-decoration:underline> </span>=<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#39;&#39;</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>then</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#8f5902;font-style:italic>// log an error using the Data migration façade 
+</span></span></span><span style=display:flex><span><span style=color:#8f5902;font-style:italic></span><span style=color:#f8f8f8;text-decoration:underline>        </span>DataMigrationStatusFacade<span style=color:#ce5c00;font-weight:700>.</span>RegisterErrorNoStagingTablesCase<span style=color:#ce5c00;font-weight:700>(
+</span></span></span><span style=display:flex><span><span style=color:#ce5c00;font-weight:700>            </span><span style=color:#4e9a06>&#39;My Migration Type&#39;</span><span style=color:#000;font-weight:700>,</span><span style=color:#204a87;font-weight:700>Database</span><span style=color:#000;font-weight:700>::</span>Item<span style=color:#000;font-weight:700>,</span><span style=color:#4e9a06>&#39;Unit of measure is empty.&#39;</span><span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>if</span><span style=color:#f8f8f8;text-decoration:underline> </span>ExternalWebService<span style=color:#ce5c00;font-weight:700>.</span>GetUnitCode<span style=color:#ce5c00;font-weight:700>(</span>ItemJson<span style=color:#ce5c00;font-weight:700>.</span>UnitCode<span style=color:#000;font-weight:700>,</span>UnitCodeJson<span style=color:#ce5c00;font-weight:700>) </span><span style=color:#204a87;font-weight:700>then</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>        </span>DescriptionToSet<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#ce5c00;font-weight:700>:=</span><span style=color:#f8f8f8;text-decoration:underline> </span>UnitCodeJson<span style=color:#ce5c00;font-weight:700>.</span>Description<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>    </span>ItemDataMigrationFacade<span style=color:#ce5c00;font-weight:700>.</span>CreateUnitOfMeasureIfNeeded<span style=color:#ce5c00;font-weight:700>(</span>ItemJson<span style=color:#ce5c00;font-weight:700>.</span>UnitCode<span style=color:#000;font-weight:700>,</span><span style=color:#f8f8f8;text-decoration:underline> </span>DescriptionToSet<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>    
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#8f5902;font-style:italic>// set the unit of measure on the item 
+</span></span></span><span style=display:flex><span><span style=color:#8f5902;font-style:italic></span><span style=color:#f8f8f8;text-decoration:underline>    </span>ItemDataMigrationFacade<span style=color:#ce5c00;font-weight:700>.</span>SetBaseUnitOfMeasure<span style=color:#ce5c00;font-weight:700>(</span>ItemJson<span style=color:#ce5c00;font-weight:700>.</span>UnitCode<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>end</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span></code></pre></div><p><em>Figure 2: Example of Item and Item Unit of Measure migration without staging tables</em></p><h3 id=usage-with-staging-tables>Usage with staging tables:</h3><p>The overall workflow is:</p><ul>
 <li>
-<p>Integrate your extension in the Data Migration Wizard by subscribing to the events exposed by the <strong>Data Migration Façade</strong>.</p>
-</li>
+<p>Integrate your extension in the Data Migration Wizard by subscribing to the events exposed by the <strong>Data Migration Façade</strong>.</p></li><li>
+<p>From there, initialize the status of the migration so it can be displayed in the <strong>Data Migration Overview: &ldquo;Data Migration Status Façade&rdquo;.InitStatusLine(&lsquo;My Migration Type&rsquo;,Database::Item,42000,Database::&ldquo;My extension Staging table for items&rdquo;,0)</strong>.</p></li><li>
+<p>You can either fill the staging tables from the wizard events, or in a subscriber to the event dedicated to filling staging tables (<strong>&lsquo;OnFillStagingTables&rsquo;</strong> in codeunit 6100): in this case, the import of data from the files to the staging tables will be done in the background.</p></li><li>
+<p>Launch the migration: <strong>&ldquo;Data Migration Façade&rdquo;.StartMigration(&lsquo;My Migration Type&rsquo;,false)</strong>.</p></li><li>
+<p>Subscribe to the events to migrate entities and their dependencies.</p></li><li>
+<p>From the event subscribers, call the façade procedures to create entities and set their field values:</p><ul>
+<li><strong>&ldquo;Item Data Migration Façade&rdquo;.CreateItemIfNeeded(&lsquo;ITEM042&rsquo;,&lsquo;My Item Description&rsquo;;&lsquo;My Item Description 2&rsquo;;ItemTypeToSet::Inventory)</strong></li><li><strong>&ldquo;Item Data Migration Façade&rdquo;.SetBaseUnitOfMeasure(&lsquo;BOX&rsquo;)</strong></li><li><strong>&ldquo;Item Data Migration Façade&rdquo;.ModifyItem(true)</strong></li></ul></li></ul><p><a href=StagingTableNew2.png><img src=StagingTableNew2.png alt=" "></a></p><p><em>Figure 3: Simplified sequence diagram of the data migration with staging tables</em></p><p>Below is a simplified example showing how to create an item:</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=display:flex><span>[EventSubscriber<span style=color:#ce5c00;font-weight:700>(</span><span style=color:#204a87;font-weight:700>ObjectType</span><span style=color:#000;font-weight:700>::</span><span style=color:#204a87;font-weight:700>Codeunit</span><span style=color:#000;font-weight:700>,</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Codeunit</span><span style=color:#000;font-weight:700>::</span>&#34;Item Data Migration Facade&#34;<span style=color:#000;font-weight:700>,</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#39;OnMigrateItem&#39;</span><span style=color:#000;font-weight:700>,</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#39;&#39;</span><span style=color:#000;font-weight:700>,</span><span style=color:#f8f8f8;text-decoration:underline> </span>true<span style=color:#000;font-weight:700>,</span><span style=color:#f8f8f8;text-decoration:underline> </span>true<span style=color:#ce5c00;font-weight:700>)</span>]<span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>procedure</span><span style=color:#f8f8f8;text-decoration:underline> </span>OnMigrateItem<span style=color:#ce5c00;font-weight:700>(</span><span style=color:#204a87;font-weight:700>VAR</span><span style=color:#f8f8f8;text-decoration:underline> </span>Sender<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Codeunit</span><span style=color:#f8f8f8;text-decoration:underline> </span>&#34;Item Data Migration Facade&#34;<span style=color:#000;font-weight:700>;</span>RecordIdToMigrate<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>RecordId</span><span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>var</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>    </span>MyItemStagingTable<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Record</span><span style=color:#f8f8f8;text-decoration:underline> </span>&#34;My Item Staging Table&#34;<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>begin</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#8f5902;font-style:italic>// handle the event if it targets this extension&#39;s staging table 
+</span></span></span><span style=display:flex><span><span style=color:#8f5902;font-style:italic></span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>if</span><span style=color:#f8f8f8;text-decoration:underline> </span>RecordIdToMigrate<span style=color:#ce5c00;font-weight:700>.</span>TableNo<span style=color:#f8f8f8;text-decoration:underline> </span>&lt;&gt;<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Database</span><span style=color:#000;font-weight:700>::</span>&#34;My Item Staging Table&#34;<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>then</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>exit</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>    </span>MyItemStagingTable<span style=color:#ce5c00;font-weight:700>.</span>Get<span style=color:#ce5c00;font-weight:700>(</span>RecordIdToMigrate<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#8f5902;font-style:italic>// create item using the facade 
+</span></span></span><span style=display:flex><span><span style=color:#8f5902;font-style:italic></span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>if</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>not</span><span style=color:#f8f8f8;text-decoration:underline> </span>Sender<span style=color:#ce5c00;font-weight:700>.</span>CreateItemIfNeeded<span style=color:#ce5c00;font-weight:700>(</span>MyItemStagingTable<span style=color:#ce5c00;font-weight:700>.</span>ItemNumber<span style=color:#000;font-weight:700>,</span>MyItemStagingTable<span style=color:#ce5c00;font-weight:700>.</span>ItemName1<span style=color:#000;font-weight:700>,</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>        </span>MyItemStagingTable<span style=color:#ce5c00;font-weight:700>.</span>ItemName2<span style=color:#000;font-weight:700>,</span>ConvertItemType<span style=color:#ce5c00;font-weight:700>(</span>MyItemStagingTable<span style=color:#ce5c00;font-weight:700>.</span>ItemType<span style=color:#ce5c00;font-weight:700>)) </span><span style=color:#204a87;font-weight:700>then</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>            </span><span style=color:#204a87;font-weight:700>exit</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#8f5902;font-style:italic>// item already exists
+</span></span></span><span style=display:flex><span><span style=color:#8f5902;font-style:italic></span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#8f5902;font-style:italic>// set some fields using the facade 
+</span></span></span><span style=display:flex><span><span style=color:#8f5902;font-style:italic></span><span style=color:#f8f8f8;text-decoration:underline>    </span>Sender<span style=color:#ce5c00;font-weight:700>.</span>SetVendorItemNo<span style=color:#ce5c00;font-weight:700>(</span>MyItemStagingTable<span style=color:#ce5c00;font-weight:700>.</span>VendItemNumber<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>    </span>Sender<span style=color:#ce5c00;font-weight:700>.</span>SetUnitVolume<span style=color:#ce5c00;font-weight:700>(</span>MyItemStagingTable<span style=color:#ce5c00;font-weight:700>.</span>Volume<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>    </span>Sender<span style=color:#ce5c00;font-weight:700>.</span>SetAlternativeItemNo<span style=color:#ce5c00;font-weight:700>(</span>MyItemStagingTable<span style=color:#ce5c00;font-weight:700>.</span>AltItemNumber<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>if</span><span style=color:#f8f8f8;text-decoration:underline> </span>MyItemStagingTable<span style=color:#ce5c00;font-weight:700>.</span>PrimaryVendor<span style=color:#f8f8f8;text-decoration:underline> </span>&lt;&gt;<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#39;&#39;</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>then</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>        </span>Sender<span style=color:#ce5c00;font-weight:700>.</span>SetVendorNo<span style=color:#ce5c00;font-weight:700>(</span>MyItemStagingTable<span style=color:#ce5c00;font-weight:700>.</span>PrimaryVendor<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#8f5902;font-style:italic>// modify the item (+run trigger) to save the changes made by setters 
+</span></span></span><span style=display:flex><span><span style=color:#8f5902;font-style:italic></span><span style=color:#f8f8f8;text-decoration:underline>    </span>Sender<span style=color:#ce5c00;font-weight:700>.</span>ModifyItem<span style=color:#ce5c00;font-weight:700>(</span>true<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>end</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span></code></pre></div><p><em>Figure 4: Example of event subscriber for Item migration</em></p><p>Below is another example showing how to use additional events to set fields that reference other tables, here the unit of measure:</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=display:flex><span>[EventSubscriber<span style=color:#ce5c00;font-weight:700>(</span><span style=color:#204a87;font-weight:700>ObjectType</span><span style=color:#000;font-weight:700>::</span><span style=color:#204a87;font-weight:700>Codeunit</span><span style=color:#000;font-weight:700>,</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Codeunit</span><span style=color:#000;font-weight:700>::</span>&#34;Item Data Migration Facade&#34;<span style=color:#000;font-weight:700>,</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#39;OnMigrateItemUnitOfMeasure&#39;</span><span style=color:#000;font-weight:700>,</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#39;&#39;</span><span style=color:#000;font-weight:700>,</span><span style=color:#f8f8f8;text-decoration:underline> </span>true<span style=color:#000;font-weight:700>,</span><span style=color:#f8f8f8;text-decoration:underline> </span>true<span style=color:#ce5c00;font-weight:700>)</span>]<span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>procedure</span><span style=color:#f8f8f8;text-decoration:underline> </span>OnMigrateItemUnitOfMeasure<span style=color:#ce5c00;font-weight:700>(</span><span style=color:#204a87;font-weight:700>VAR</span><span style=color:#f8f8f8;text-decoration:underline> </span>Sender<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Codeunit</span><span style=color:#f8f8f8;text-decoration:underline> </span>&#34;Item Data Migration Facade&#34;<span style=color:#000;font-weight:700>;</span>RecordIdToMigrate<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>RecordId</span><span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>var</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>    </span>MyItemStagingTable<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Record</span><span style=color:#f8f8f8;text-decoration:underline> </span>&#34;My Item Staging Table&#34;<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>    </span>MyUnitCodeStagingTable<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Record</span><span style=color:#f8f8f8;text-decoration:underline> </span>&#34;My Unit Code Staging Table&#34;<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>    </span>DescriptionToSet<span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Text</span>[<span style=color:#0000cf;font-weight:700>10</span>]<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>begin</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#8f5902;font-style:italic>// handle the event if it targets this extension&#39;s staging table 
+</span></span></span><span style=display:flex><span><span style=color:#8f5902;font-style:italic></span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>if</span><span style=color:#f8f8f8;text-decoration:underline> </span>RecordIdToMigrate<span style=color:#ce5c00;font-weight:700>.</span>TableNo<span style=color:#f8f8f8;text-decoration:underline> </span>&lt;&gt;<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Database</span><span style=color:#000;font-weight:700>::</span>&#34;My Item Staging Table&#34;<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>then</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>exit</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>    </span>MyItemStagingTable<span style=color:#ce5c00;font-weight:700>.</span>Get<span style=color:#ce5c00;font-weight:700>(</span>RecordIdToMigrate<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>if</span><span style=color:#f8f8f8;text-decoration:underline> </span>MyItemStagingTable<span style=color:#ce5c00;font-weight:700>.</span>UnitCode<span style=color:#f8f8f8;text-decoration:underline> </span>=<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#39;&#39;</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>then</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>        </span>error<span style=color:#ce5c00;font-weight:700>(</span><span style=color:#4e9a06>&#39;Unit of measure is empty.&#39;</span><span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>    </span>MyUnitCodeStagingTable<span style=color:#ce5c00;font-weight:700>.</span>SetRange<span style=color:#ce5c00;font-weight:700>(</span>UnitCode<span style=color:#000;font-weight:700>,</span>MyItemStagingTable<span style=color:#ce5c00;font-weight:700>.</span>UnitCode<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>if</span><span style=color:#f8f8f8;text-decoration:underline> </span>MyUnitCodeStagingTable<span style=color:#ce5c00;font-weight:700>.</span>FindFirst<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>then</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>        </span>DescriptionToSet<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#ce5c00;font-weight:700>:=</span><span style=color:#f8f8f8;text-decoration:underline> </span>MyUnitCodeStagingTable<span style=color:#ce5c00;font-weight:700>.</span>Description<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#8f5902;font-style:italic>// create the unit of measure through the facade 
+</span></span></span><span style=display:flex><span><span style=color:#8f5902;font-style:italic></span><span style=color:#f8f8f8;text-decoration:underline>    </span>Sender<span style=color:#ce5c00;font-weight:700>.</span>CreateUnitOfMeasureIfNeeded<span style=color:#ce5c00;font-weight:700>(</span>MyItemStagingTable<span style=color:#ce5c00;font-weight:700>.</span>UnitCode<span style=color:#000;font-weight:700>,</span><span style=color:#f8f8f8;text-decoration:underline> </span>DescriptionToSet<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#8f5902;font-style:italic>// set the unit of measure on the item 
+</span></span></span><span style=display:flex><span><span style=color:#8f5902;font-style:italic></span><span style=color:#f8f8f8;text-decoration:underline>    </span>Sender<span style=color:#ce5c00;font-weight:700>.</span>SetBaseUnitOfMeasure<span style=color:#ce5c00;font-weight:700>(</span>MyItemStagingTable<span style=color:#ce5c00;font-weight:700>.</span>UnitCode<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#8f5902;font-style:italic>// modify the item to save the changes made by setter 
+</span></span></span><span style=display:flex><span><span style=color:#8f5902;font-style:italic></span><span style=color:#f8f8f8;text-decoration:underline>    </span>Sender<span style=color:#ce5c00;font-weight:700>.</span>ModifyItem<span style=color:#ce5c00;font-weight:700>(</span>false<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>end</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span></code></pre></div><p><em>Figure 5: Example of event subscriber for Item Unit of Measure migration</em></p><h3 id=combining-both-approaches>Combining both approaches:</h3><p>If you want to migrate additional entities, the <strong>Data Migration</strong> framework lets you initialize the migration with entities other than master data. In this case, the <strong>Data Migration Overview</strong> page will show additional lines. Item, vendor, customer, an general ledger accounts are migrated with an event driven approach, and the additional entities are migrated by calling an extension codeunit <strong>OnRun</strong> method.</p><h2 id=error-handling-with-staging-tables>Error handling with staging tables:</h2><p>The migration starts by calling <strong>RUN</strong> on the façade codeunit. Errors thrown during the call are captured by <strong>GETLASTERRORTEXT</strong> and displayed when you choose the <strong>Show Errors</strong> action on the <strong>Data Migration Overview</strong> page.</p><p><a href=errorhandling1.png><img src=errorhandling1.png alt=" "></a></p><p><em>Figure 6: List of errors shown when clicking <strong>Show Errors</strong> on the <strong>Data Migration Overview</strong> page</em></p><p>The <strong>Edit Record</strong> action opens a view of the staging table, where you can edit fields to fix errors. Figure 4 shows an example of a page for the vendor staging table in a migration from C5.</p><p><a href=errorhandling2.png><img src=errorhandling2.png alt=" "></a></p><p><em>Figure 7: Edit a staging table record</em></p><p>The <strong>Staging Table ID</strong> determines the page to open, so it is important that the page ID is equal to the <strong>Staging Table ID</strong>, at least for the master data staging tables, for example, for <strong>G/L Accounts, Items, Customers</strong> and <strong>Vendor</strong>. You should ensure that pages to edit related entities are linked on this page by means of new actions. For example, Figure 4 uses the <strong>C5 Purchaser</strong> action.</p><p>After you fix the staging table record, you can choose the <strong>Migrate</strong> action to mark the selected records as records to retry, and then run <strong>StartMigration</strong> with the <strong>Retry</strong> flag set to true. This is the only place where the retry flag should be set to true in the <strong>StartMigration</strong> procedure.</p><p>Error handling without staging tables</p><p>When migrating data without staging tables, errors can be registered manually by the extension using <strong>DataMigrationStatusFacade.RegisterErrorNoStagingTablesCase</strong>. Otherwise they can be registered automatically if the codeunits fail when called on their <strong>OnRun</strong> procedure.</p><p>Errors will be displayed in the error list, but you cannot open and edit records because there is no staging table. The Edit action will not be available.</p><h2 id=limitations>Limitations:</h2><ul>
 <li>
-<p>From there, initialize the status of the migration so it can be displayed in the <strong>Data Migration Overview: &ldquo;Data Migration Status Façade&rdquo;.InitStatusLine(&lsquo;My Migration Type&rsquo;,Database::Item,42000,Database::&ldquo;My extension Staging table for items&rdquo;,0)</strong>.</p>
-</li>
+<p>Data migration will fail if there are customers, vendors, items in the database and if these entities are selected for migration. For example, if you choose to migrate items and your company already contains items, you will get an error. This should not be an issue if you migrate your data from another tool to NAV, in which case you will most likely start on a fresh empty company. However, if you just want to import additional items to a company with existing items, then it is not supported by the framework. however, you can still use the different functions provided by the different codeunits (such as <strong>Item Data Migration Facade</strong>) to create the entities without strong coupling on the NAV data model.</p></li><li>
+<p><strong>G/L entries</strong> are deleted automatically.</p></li><li>
+<p>There is no automated rollback in case of failure: data that is successfully migrated will be commited, and data that is not successfully migrated with be shown in the errors list. The retry feature (in case of staging tables) then makes it possible for you to retry individual entities or ignore them.</p></li></ul><h2 id=usages-in-nav>Usages in NAV:</h2><p>The Data Migration Façade is available starting from version 2018.</p><p>The following Façade codeunits for data migration management are available:</p><ul>
 <li>
-<p>You can either fill the staging tables from the wizard events, or in a subscriber to the event dedicated to filling staging tables (<strong>&lsquo;OnFillStagingTables&rsquo;</strong> in codeunit 6100): in this case, the import of data from the files to the staging tables will be done in the background.</p>
-</li>
+<p>COD6100 (<strong>Data Migration Facade</strong>)</p></li><li>
+<p>COD6101 (<strong>Data Migration Status Facade</strong>)</p></li></ul><p>The following Entity data migration façade codeunits are available:</p><ul>
 <li>
-<p>Launch the migration: <strong>&ldquo;Data Migration Façade&rdquo;.StartMigration(&lsquo;My Migration Type&rsquo;,false)</strong>.</p>
-</li>
-<li>
-<p>Subscribe to the events to migrate entities and their dependencies.</p>
-</li>
-<li>
-<p>From the event subscribers, call the façade procedures to create entities and set their field values:</p>
-<ul>
-<li><strong>&ldquo;Item Data Migration Façade&rdquo;.CreateItemIfNeeded(&lsquo;ITEM042&rsquo;,&lsquo;My Item Description&rsquo;;&lsquo;My Item Description 2&rsquo;;ItemTypeToSet::Inventory)</strong></li>
-<li><strong>&ldquo;Item Data Migration Façade&rdquo;.SetBaseUnitOfMeasure(&lsquo;BOX&rsquo;)</strong></li>
-<li><strong>&ldquo;Item Data Migration Façade&rdquo;.ModifyItem(true)</strong></li>
-</ul>
-</li>
-</ul>
-<p><a href=StagingTableNew2.png><img src=StagingTableNew2.png alt=" "></a></p>
-<p><em>Figure 3: Simplified sequence diagram of the data migration with staging tables</em></p>
-<p>Below is a simplified example showing how to create an item:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>[EventSubscriber<span style=color:#ce5c00;font-weight:700>(</span><span style=color:#204a87;font-weight:700>ObjectType</span><span style=color:#000;font-weight:700>::</span><span style=color:#204a87;font-weight:700>Codeunit</span><span style=color:#000;font-weight:700>,</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Codeunit</span><span style=color:#000;font-weight:700>::</span>&#34;Item Data Migration Facade&#34;<span style=color:#000;font-weight:700>,</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#39;OnMigrateItem&#39;</span><span style=color:#000;font-weight:700>,</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#39;&#39;</span><span style=color:#000;font-weight:700>,</span><span style=color:#f8f8f8;text-decoration:underline> </span>true<span style=color:#000;font-weight:700>,</span><span style=color:#f8f8f8;text-decoration:underline> </span>true<span style=color:#ce5c00;font-weight:700>)</span>]<span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>procedure</span><span style=color:#f8f8f8;text-decoration:underline> </span>OnMigrateItem<span style=color:#ce5c00;font-weight:700>(</span><span style=color:#204a87;font-weight:700>VAR</span><span style=color:#f8f8f8;text-decoration:underline> </span>Sender<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Codeunit</span><span style=color:#f8f8f8;text-decoration:underline> </span>&#34;Item Data Migration Facade&#34;<span style=color:#000;font-weight:700>;</span>RecordIdToMigrate<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>RecordId</span><span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>var</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline>    </span>MyItemStagingTable<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Record</span><span style=color:#f8f8f8;text-decoration:underline> </span>&#34;My Item Staging Table&#34;<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>begin</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#8f5902;font-style:italic>// handle the event if it targets this extension&#39;s staging table 
-</span><span style=color:#8f5902;font-style:italic></span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>if</span><span style=color:#f8f8f8;text-decoration:underline> </span>RecordIdToMigrate<span style=color:#ce5c00;font-weight:700>.</span>TableNo<span style=color:#f8f8f8;text-decoration:underline> </span>&lt;&gt;<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Database</span><span style=color:#000;font-weight:700>::</span>&#34;My Item Staging Table&#34;<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>then</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>exit</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>    </span>MyItemStagingTable<span style=color:#ce5c00;font-weight:700>.</span>Get<span style=color:#ce5c00;font-weight:700>(</span>RecordIdToMigrate<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#8f5902;font-style:italic>// create item using the facade 
-</span><span style=color:#8f5902;font-style:italic></span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>if</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>not</span><span style=color:#f8f8f8;text-decoration:underline> </span>Sender<span style=color:#ce5c00;font-weight:700>.</span>CreateItemIfNeeded<span style=color:#ce5c00;font-weight:700>(</span>MyItemStagingTable<span style=color:#ce5c00;font-weight:700>.</span>ItemNumber<span style=color:#000;font-weight:700>,</span>MyItemStagingTable<span style=color:#ce5c00;font-weight:700>.</span>ItemName1<span style=color:#000;font-weight:700>,</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>        </span>MyItemStagingTable<span style=color:#ce5c00;font-weight:700>.</span>ItemName2<span style=color:#000;font-weight:700>,</span>ConvertItemType<span style=color:#ce5c00;font-weight:700>(</span>MyItemStagingTable<span style=color:#ce5c00;font-weight:700>.</span>ItemType<span style=color:#ce5c00;font-weight:700>)) </span><span style=color:#204a87;font-weight:700>then</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline>            </span><span style=color:#204a87;font-weight:700>exit</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#8f5902;font-style:italic>// item already exists
-</span><span style=color:#8f5902;font-style:italic></span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#8f5902;font-style:italic>// set some fields using the facade 
-</span><span style=color:#8f5902;font-style:italic></span><span style=color:#f8f8f8;text-decoration:underline>    </span>Sender<span style=color:#ce5c00;font-weight:700>.</span>SetVendorItemNo<span style=color:#ce5c00;font-weight:700>(</span>MyItemStagingTable<span style=color:#ce5c00;font-weight:700>.</span>VendItemNumber<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline>    </span>Sender<span style=color:#ce5c00;font-weight:700>.</span>SetUnitVolume<span style=color:#ce5c00;font-weight:700>(</span>MyItemStagingTable<span style=color:#ce5c00;font-weight:700>.</span>Volume<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline>    </span>Sender<span style=color:#ce5c00;font-weight:700>.</span>SetAlternativeItemNo<span style=color:#ce5c00;font-weight:700>(</span>MyItemStagingTable<span style=color:#ce5c00;font-weight:700>.</span>AltItemNumber<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>if</span><span style=color:#f8f8f8;text-decoration:underline> </span>MyItemStagingTable<span style=color:#ce5c00;font-weight:700>.</span>PrimaryVendor<span style=color:#f8f8f8;text-decoration:underline> </span>&lt;&gt;<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#39;&#39;</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>then</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline>        </span>Sender<span style=color:#ce5c00;font-weight:700>.</span>SetVendorNo<span style=color:#ce5c00;font-weight:700>(</span>MyItemStagingTable<span style=color:#ce5c00;font-weight:700>.</span>PrimaryVendor<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#8f5902;font-style:italic>// modify the item (+run trigger) to save the changes made by setters 
-</span><span style=color:#8f5902;font-style:italic></span><span style=color:#f8f8f8;text-decoration:underline>    </span>Sender<span style=color:#ce5c00;font-weight:700>.</span>ModifyItem<span style=color:#ce5c00;font-weight:700>(</span>true<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>end</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span></code></pre></div><p><em>Figure 4: Example of event subscriber for Item migration</em></p>
-<p>Below is another example showing how to use additional events to set fields that reference other tables, here the unit of measure:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>[EventSubscriber<span style=color:#ce5c00;font-weight:700>(</span><span style=color:#204a87;font-weight:700>ObjectType</span><span style=color:#000;font-weight:700>::</span><span style=color:#204a87;font-weight:700>Codeunit</span><span style=color:#000;font-weight:700>,</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Codeunit</span><span style=color:#000;font-weight:700>::</span>&#34;Item Data Migration Facade&#34;<span style=color:#000;font-weight:700>,</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#39;OnMigrateItemUnitOfMeasure&#39;</span><span style=color:#000;font-weight:700>,</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#39;&#39;</span><span style=color:#000;font-weight:700>,</span><span style=color:#f8f8f8;text-decoration:underline> </span>true<span style=color:#000;font-weight:700>,</span><span style=color:#f8f8f8;text-decoration:underline> </span>true<span style=color:#ce5c00;font-weight:700>)</span>]<span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>procedure</span><span style=color:#f8f8f8;text-decoration:underline> </span>OnMigrateItemUnitOfMeasure<span style=color:#ce5c00;font-weight:700>(</span><span style=color:#204a87;font-weight:700>VAR</span><span style=color:#f8f8f8;text-decoration:underline> </span>Sender<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Codeunit</span><span style=color:#f8f8f8;text-decoration:underline> </span>&#34;Item Data Migration Facade&#34;<span style=color:#000;font-weight:700>;</span>RecordIdToMigrate<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>RecordId</span><span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>var</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline>    </span>MyItemStagingTable<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Record</span><span style=color:#f8f8f8;text-decoration:underline> </span>&#34;My Item Staging Table&#34;<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline>    </span>MyUnitCodeStagingTable<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Record</span><span style=color:#f8f8f8;text-decoration:underline> </span>&#34;My Unit Code Staging Table&#34;<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline>    </span>DescriptionToSet<span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Text</span>[<span style=color:#0000cf;font-weight:700>10</span>]<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>begin</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#8f5902;font-style:italic>// handle the event if it targets this extension&#39;s staging table 
-</span><span style=color:#8f5902;font-style:italic></span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>if</span><span style=color:#f8f8f8;text-decoration:underline> </span>RecordIdToMigrate<span style=color:#ce5c00;font-weight:700>.</span>TableNo<span style=color:#f8f8f8;text-decoration:underline> </span>&lt;&gt;<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Database</span><span style=color:#000;font-weight:700>::</span>&#34;My Item Staging Table&#34;<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>then</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>exit</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>    </span>MyItemStagingTable<span style=color:#ce5c00;font-weight:700>.</span>Get<span style=color:#ce5c00;font-weight:700>(</span>RecordIdToMigrate<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>if</span><span style=color:#f8f8f8;text-decoration:underline> </span>MyItemStagingTable<span style=color:#ce5c00;font-weight:700>.</span>UnitCode<span style=color:#f8f8f8;text-decoration:underline> </span>=<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#39;&#39;</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>then</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline>        </span>error<span style=color:#ce5c00;font-weight:700>(</span><span style=color:#4e9a06>&#39;Unit of measure is empty.&#39;</span><span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>    </span>MyUnitCodeStagingTable<span style=color:#ce5c00;font-weight:700>.</span>SetRange<span style=color:#ce5c00;font-weight:700>(</span>UnitCode<span style=color:#000;font-weight:700>,</span>MyItemStagingTable<span style=color:#ce5c00;font-weight:700>.</span>UnitCode<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>if</span><span style=color:#f8f8f8;text-decoration:underline> </span>MyUnitCodeStagingTable<span style=color:#ce5c00;font-weight:700>.</span>FindFirst<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>then</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline>        </span>DescriptionToSet<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#ce5c00;font-weight:700>:=</span><span style=color:#f8f8f8;text-decoration:underline> </span>MyUnitCodeStagingTable<span style=color:#ce5c00;font-weight:700>.</span>Description<span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#8f5902;font-style:italic>// create the unit of measure through the facade 
-</span><span style=color:#8f5902;font-style:italic></span><span style=color:#f8f8f8;text-decoration:underline>    </span>Sender<span style=color:#ce5c00;font-weight:700>.</span>CreateUnitOfMeasureIfNeeded<span style=color:#ce5c00;font-weight:700>(</span>MyItemStagingTable<span style=color:#ce5c00;font-weight:700>.</span>UnitCode<span style=color:#000;font-weight:700>,</span><span style=color:#f8f8f8;text-decoration:underline> </span>DescriptionToSet<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#8f5902;font-style:italic>// set the unit of measure on the item 
-</span><span style=color:#8f5902;font-style:italic></span><span style=color:#f8f8f8;text-decoration:underline>    </span>Sender<span style=color:#ce5c00;font-weight:700>.</span>SetBaseUnitOfMeasure<span style=color:#ce5c00;font-weight:700>(</span>MyItemStagingTable<span style=color:#ce5c00;font-weight:700>.</span>UnitCode<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#8f5902;font-style:italic>// modify the item to save the changes made by setter 
-</span><span style=color:#8f5902;font-style:italic></span><span style=color:#f8f8f8;text-decoration:underline>    </span>Sender<span style=color:#ce5c00;font-weight:700>.</span>ModifyItem<span style=color:#ce5c00;font-weight:700>(</span>false<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline> 
-</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>end</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span></code></pre></div><p><em>Figure 5: Example of event subscriber for Item Unit of Measure migration</em></p>
-<h3 id=combining-both-approaches>Combining both approaches:</h3>
-<p>If you want to migrate additional entities, the <strong>Data Migration</strong> framework lets you initialize the migration with entities other than master data. In this case, the <strong>Data Migration Overview</strong> page will show additional lines. Item, vendor, customer, an general ledger accounts are migrated with an event driven approach, and the additional entities are migrated by calling an extension codeunit <strong>OnRun</strong> method.</p>
-<h2 id=error-handling-with-staging-tables>Error handling with staging tables:</h2>
-<p>The migration starts by calling <strong>RUN</strong> on the façade codeunit. Errors thrown during the call are captured by <strong>GETLASTERRORTEXT</strong> and displayed when you choose the <strong>Show Errors</strong> action on the <strong>Data Migration Overview</strong> page.</p>
-<p><a href=errorhandling1.png><img src=errorhandling1.png alt=" "></a></p>
-<p><em>Figure 6: List of errors shown when clicking <strong>Show Errors</strong> on the <strong>Data Migration Overview</strong> page</em></p>
-<p>The <strong>Edit Record</strong> action opens a view of the staging table, where you can edit fields to fix errors. Figure 4 shows an example of a page for the vendor staging table in a migration from C5.</p>
-<p><a href=errorhandling2.png><img src=errorhandling2.png alt=" "></a></p>
-<p><em>Figure 7: Edit a staging table record</em></p>
-<p>The <strong>Staging Table ID</strong> determines the page to open, so it is important that the page ID is equal to the <strong>Staging Table ID</strong>, at least for the master data staging tables, for example, for <strong>G/L Accounts, Items, Customers</strong> and <strong>Vendor</strong>. You should ensure that pages to edit related entities are linked on this page by means of new actions. For example, Figure 4 uses the <strong>C5 Purchaser</strong> action.</p>
-<p>After you fix the staging table record, you can choose the <strong>Migrate</strong> action to mark the selected records as records to retry, and then run <strong>StartMigration</strong> with the <strong>Retry</strong> flag set to true. This is the only place where the retry flag should be set to true in the <strong>StartMigration</strong> procedure.</p>
-<p>Error handling without staging tables</p>
-<p>When migrating data without staging tables, errors can be registered manually by the extension using <strong>DataMigrationStatusFacade.RegisterErrorNoStagingTablesCase</strong>. Otherwise they can be registered automatically if the codeunits fail when called on their <strong>OnRun</strong> procedure.</p>
-<p>Errors will be displayed in the error list, but you cannot open and edit records because there is no staging table. The Edit action will not be available.</p>
-<h2 id=limitations>Limitations:</h2>
-<ul>
-<li>
-<p>Data migration will fail if there are customers, vendors, items in the database and if these entities are selected for migration. For example, if you choose to migrate items and your company already contains items, you will get an error. This should not be an issue if you migrate your data from another tool to NAV, in which case you will most likely start on a fresh empty company. However, if you just want to import additional items to a company with existing items, then it is not supported by the framework. however, you can still use the different functions provided by the different codeunits (such as <strong>Item Data Migration Facade</strong>) to create the entities without strong coupling on the NAV data model.</p>
-</li>
-<li>
-<p><strong>G/L entries</strong> are deleted automatically.</p>
-</li>
-<li>
-<p>There is no automated rollback in case of failure: data that is successfully migrated will be commited, and data that is not successfully migrated with be shown in the errors list. The retry feature (in case of staging tables) then makes it possible for you to retry individual entities or ignore them.</p>
-</li>
-</ul>
-<h2 id=usages-in-nav>Usages in NAV:</h2>
-<p>The Data Migration Façade is available starting from version 2018.</p>
-<p>The following Façade codeunits for data migration management are available:</p>
-<ul>
-<li>
-<p>COD6100 (<strong>Data Migration Facade</strong>)</p>
-</li>
-<li>
-<p>COD6101 (<strong>Data Migration Status Facade</strong>)</p>
-</li>
-</ul>
-<p>The following Entity data migration façade codeunits are available:</p>
-<ul>
-<li>
-<p>COD6110 (<strong>GL Acc. Data Migration Facade</strong>)</p>
-</li>
-<li>
-<p>COD6111 (<strong>Vendor Data Migration Facade</strong>)</p>
-</li>
-<li>
-<p>COD6112 (<strong>Customer Data Migration Facade</strong>)</p>
-</li>
-<li>
-<p>COD6113 (<strong>Item Data Migration Facade</strong>)</p>
-</li>
-<li>
-<p>COD6114 (<strong>Ex. Rate Data Migration Facade</strong>)</p>
-</li>
-</ul>
-<h2 id=references>References:</h2>
-<p>Façade pattern on Wikipedia: <a href=https://en.wikipedia.org/wiki/Facade_pattern>https://en.wikipedia.org/wiki/Facade_pattern</a></p>
-<div class="text-muted mt-5 pt-3 border-top">
+<p>COD6110 (<strong>GL Acc. Data Migration Facade</strong>)</p></li><li>
+<p>COD6111 (<strong>Vendor Data Migration Facade</strong>)</p></li><li>
+<p>COD6112 (<strong>Customer Data Migration Facade</strong>)</p></li><li>
+<p>COD6113 (<strong>Item Data Migration Facade</strong>)</p></li><li>
+<p>COD6114 (<strong>Ex. Rate Data Migration Facade</strong>)</p></li></ul><h2 id=references>References:</h2><p>Façade pattern on Wikipedia: <a href=https://en.wikipedia.org/wiki/Facade_pattern>https://en.wikipedia.org/wiki/Facade_pattern</a></p><div class="text-muted mt-5 pt-3 border-top">
 Last modified February 24, 2022: <a href=https://github.com/microsoft/alguidelines/commit/5ee0436639455a35835c5ce88241d3fad662ee06>Added tags & categories + cleanup (5ee04366)</a>
 by waldo1001
-</div>
-</div>
-</main>
-</div>
-</div>
-<footer class="bg-dark py-5 row d-print-none">
+</div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class=row>
 <div class="col-6 col-sm-4 text-xs-center order-sm-2">
@@ -878,31 +635,19 @@ by waldo1001
 <a class=text-white target=_blank rel=noopener href=https://github.com/microsoft/alguidelines aria-label=GitHub>
 <i class="fab fa-github"></i>
 </a>
-</li>
-<li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title=Twitter aria-label=Twitter>
+</li><li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title=Twitter aria-label=Twitter>
 <a class=text-white target=_blank rel=noopener href="https://twitter.com/search?q=%23bcalhelp" aria-label=Twitter>
 <i class="fab fa-twitter"></i>
 </a>
-</li>
-<li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title=Discord aria-label=Discord>
+</li><li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title=Discord aria-label=Discord>
 <a class=text-white target=_blank rel=noopener href=https://discord.gg/4wbfNv3 aria-label=Discord>
 <i class="fab fa-discord"></i>
 </a>
-</li>
-</ul>
-</div>
-<div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
-</div>
-<div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+</li></ul></div><div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+</div><div class="col-12 col-sm-4 text-center py-2 order-sm-2">
 <small class=text-white>&copy; 2022 alguidelines.dev Project All Rights Reserved</small>
-</div>
-</div>
-</div>
-</footer>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js integrity=sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN crossorigin=anonymous></script>
+</div></div></div></footer></div><script src=https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js integrity=sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA==" crossorigin=anonymous></script>
 <script src=/js/tabpane-persist.js></script>
-<script src=/js/main.min.8ab8f81ff7e1454d30024cd6f956d4d341c3a97e2a673f988065f2ee4e147922.js integrity="sha256-irj4H/fhRU0wAkzW+VbU00HDqX4qZz+YgGXy7k4UeSI=" crossorigin=anonymous></script>
-</body>
-</html>
+<script src=/js/main.min.fc1551b8c1b40a6eaa08f3cb9c76f12ccd9aebc436cecdaf2341c890206d024a.js integrity="sha256-/BVRuMG0Cm6qCPPLnHbxLM2a68Q2zs2vI0HIkCBtAko=" crossorigin=anonymous></script>
+</body></html>

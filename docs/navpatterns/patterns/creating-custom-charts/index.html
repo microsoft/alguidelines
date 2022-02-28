@@ -2,7 +2,7 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
-<meta name=generator content="Hugo 0.92.2">
+<meta name=generator content="Hugo 0.93.0">
 <meta name=robots content="index, follow">
 <link rel="shortcut icon" href=/favicons/favicon.ico>
 <link rel=apple-touch-icon href=/favicons/apple-touch-icon-180x180.png sizes=180x180>
@@ -14,8 +14,7 @@
 <link rel=icon type=image/png href=/favicons/android-96x96.png sizes=96x96>
 <link rel=icon type=image/png href=/favicons/android-144x144.png sizes=144x144>
 <link rel=icon type=image/png href=/favicons/android-192x192.png sizes=192x192>
-<title>Creating Custom Charts | alguidelines.dev - Business Central Design Patterns</title>
-<meta name=description content="Originally by Nikola Kukrika at Microsoft Development Center Copenhagen
+<title>Creating Custom Charts | alguidelines.dev - Business Central Design Patterns</title><meta name=description content="Originally by Nikola Kukrika at Microsoft Development Center Copenhagen
 Abstract
 The goal of this solution is to enable you to:
 
@@ -43,8 +42,7 @@ Abstract The goal of this solution is to enable you to:
 <link href=/scss/main.min.84a617ff0c0265eb62b5cd2929c572f4ed37dc4907d0cf068be4eb2974f6d60f.css rel=stylesheet integrity>
 <script src=https://code.jquery.com/jquery-3.6.0.min.js integrity=sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK crossorigin=anonymous></script>
 <script src=https://unpkg.com/lunr@2.3.9/lunr.min.js integrity=sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli crossorigin=anonymous></script>
-</head>
-<body class=td-page>
+</head><body class=td-page>
 <header>
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
 <a class=navbar-brand href=/>
@@ -56,36 +54,24 @@ Abstract The goal of this solution is to enable you to:
 <ul class="navbar-nav mt-2 mt-lg-0">
 <li class="nav-item mr-4 mb-2 mb-lg-0">
 <a class=nav-link href=/docs/><i class="fas fa-book"></i><span>Docs</span></a>
-</li>
-<li class="nav-item mr-4 mb-2 mb-lg-0">
+</li><li class="nav-item mr-4 mb-2 mb-lg-0">
 <a class=nav-link href=https://github.com/microsoft/alguidelines/discussions/ target=_blank><i class="fas fa-comments"></i><span>Discussions</span></a>
-</li>
-<li class="nav-item mr-4 mb-2 mb-lg-0">
+</li><li class="nav-item mr-4 mb-2 mb-lg-0">
 <a class=nav-link href=https://github.com/microsoft/alguidelines target=_blank><i class="fab fa-github"></i><span>GitHub</span></a>
-</li>
-<li class="nav-item mr-4 mb-2 mb-lg-0">
+</li><li class="nav-item mr-4 mb-2 mb-lg-0">
 <a class=nav-link href=https://discord.gg/4wbfNv3 target=_blank><i class="fab fa-discord"></i><span>Discord</span></a>
-</li>
-</ul>
-</div>
-<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.9ab69a84696ad11cb17318558d9706e3.json data-offline-search-base-href=/ data-offline-search-max-results=10>
-</div>
-</nav>
-</header>
-<div class="container-fluid td-outer">
+</li></ul></div><div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.c6558a635de208ea1007e79e444e323a.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+</div></nav></header><div class="container-fluid td-outer">
 <div class=td-main>
 <div class="row flex-xl-nowrap">
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
 <div id=td-sidebar-menu class=td-sidebar__inner>
 <div id=content-mobile>
 <form class="td-sidebar__search d-flex align-items-center">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.9ab69a84696ad11cb17318558d9706e3.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.c6558a635de208ea1007e79e444e323a.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation">
 </button>
-</form>
-</div>
-<div id=content-desktop></div>
-<nav class="collapse td-sidebar-nav" id=td-section-nav>
+</form></div><div id=content-desktop></div><nav class="collapse td-sidebar-nav" id=td-section-nav>
 <ul class="td-sidebar-nav__section pr-md-3 ul-0">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-docs-li>
 <a href=/docs/ title="AL Guidelines" class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id=m-docs><span>Docs</span></a>
@@ -103,9 +89,9 @@ Abstract The goal of this solution is to enable you to:
 <a href=/docs/patterns/facade-pattern/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docspatternsfacade-pattern><span>Façade</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docspatternsgeneric-method-pattern-li>
 <a href=/docs/patterns/generic-method-pattern/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docspatternsgeneric-method-pattern><span>Generic Method</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsbestpractices-li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docspatternsno-series-li>
+<a href=/docs/patterns/no-series/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docspatternsno-series><span>No. Series</span></a>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsbestpractices-li>
 <a href=/docs/bestpractices/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsbestpractices><span>Best Practices</span></a>
 <ul class="ul-2 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticesapi-page-li>
@@ -152,9 +138,7 @@ Abstract The goal of this solution is to enable you to:
 <a href=/docs/bestpractices/variable-naming/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticesvariable-naming><span>Variable Naming</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsbestpracticesvariables-declarations-order-li>
 <a href=/docs/bestpractices/variables-declarations-order/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsbestpracticesvariables-declarations-order><span>Variables Declarations Order</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-docsnavpatterns-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-docsnavpatterns-li>
 <a href=/docs/navpatterns/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatterns><span>NAV Patterns Archive</span></a>
 <ul class="ul-2 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-docsnavpatternspatterns-li>
@@ -169,9 +153,7 @@ Abstract The goal of this solution is to enable you to:
 <ul class="ul-4 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsblocked-entitydata-driven-blocked-entity-li>
 <a href=/docs/navpatterns/patterns/blocked-entity/data-driven-blocked-entity/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsblocked-entitydata-driven-blocked-entity><span>Data Driven Blocked Entity</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternscached-web-service-calls-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternscached-web-service-calls-li>
 <a href=/docs/navpatterns/patterns/cached-web-service-calls/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternscached-web-service-calls><span>Cached Web Server Calls</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsconditional-cascading-update-li>
 <a href=/docs/navpatterns/patterns/conditional-cascading-update/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsconditional-cascading-update><span>Conditional Cascading Update</span></a>
@@ -226,9 +208,7 @@ Abstract The goal of this solution is to enable you to:
 <ul class="ul-4 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsnet-exception-handling-in-caltryfunction-net-exception-handling-in-cal-li>
 <a href=/docs/navpatterns/patterns/net-exception-handling-in-cal/tryfunction-net-exception-handling-in-cal/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsnet-exception-handling-in-caltryfunction-net-exception-handling-in-cal><span>TryFunction NET Exception Handling in CAL</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsno-series-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsno-series-li>
 <a href=/docs/navpatterns/patterns/no-series/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsno-series><span>No Series</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatternspatternsnotifications-li>
 <a href=/docs/navpatterns/patterns/notifications/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatternspatternsnotifications><span>Notifications</span></a>
@@ -237,9 +217,7 @@ Abstract The goal of this solution is to enable you to:
 <a href=/docs/navpatterns/patterns/notifications/in-context-notifications/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsnotificationsin-context-notifications><span>In-context Notifications</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsnotificationsnotification-lifecycle-management-pattern-li>
 <a href=/docs/navpatterns/patterns/notifications/notification-lifecycle-management-pattern/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsnotificationsnotification-lifecycle-management-pattern><span>Notification Lifecycle Management Pattern</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsobserver-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsobserver-li>
 <a href=/docs/navpatterns/patterns/observer/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsobserver><span>Observer</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsposting-routine-select-behavior-li>
 <a href=/docs/navpatterns/patterns/posting-routine-select-behavior/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsposting-routine-select-behavior><span>Posting Routine - Select Behavior</span></a>
@@ -254,9 +232,7 @@ Abstract The goal of this solution is to enable you to:
 <a href=/docs/navpatterns/patterns/queries/use-queries-to-detect-duplicate-records/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsqueriesuse-queries-to-detect-duplicate-records><span>Use Queries to Detect Duplicate Records</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternsqueriesuse-queries-to-replace-nested-loops-li>
 <a href=/docs/navpatterns/patterns/queries/use-queries-to-replace-nested-loops/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsqueriesuse-queries-to-replace-nested-loops><span>Use Queries to Replace Nested Loops</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsread-once-initialization-and-validation-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsread-once-initialization-and-validation-li>
 <a href=/docs/navpatterns/patterns/read-once-initialization-and-validation/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsread-once-initialization-and-validation><span>Read-once Initialization and Validation</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsreleased-entity-li>
 <a href=/docs/navpatterns/patterns/released-entity/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsreleased-entity><span>Released Entity</span></a>
@@ -275,9 +251,7 @@ Abstract The goal of this solution is to enable you to:
 <a href=/docs/navpatterns/patterns/security/4-masked-text/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternssecurity4-masked-text><span>Masked Text</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternssecurity5-ssl-in-nav-li>
 <a href=/docs/navpatterns/patterns/security/5-ssl-in-nav/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternssecurity5-ssl-in-nav><span>SSL in NAV</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternssetup-specificity-fallback-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternssetup-specificity-fallback-li>
 <a href=/docs/navpatterns/patterns/setup-specificity-fallback/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternssetup-specificity-fallback><span>Setup Specificity Fallback</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternssilent-file-upload-and-download-li>
 <a href=/docs/navpatterns/patterns/silent-file-upload-and-download/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternssilent-file-upload-and-download><span>Silent File Upload and Download</span></a>
@@ -293,11 +267,7 @@ Abstract The goal of this solution is to enable you to:
 <a href=/docs/navpatterns/patterns/singleton/singleton-table/cue-table/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternssingletonsingleton-tablecue-table><span>Cue Table</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatternspatternssingletonsingleton-tablesetup-table-li>
 <a href=/docs/navpatterns/patterns/singleton/singleton-table/setup-table/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternssingletonsingleton-tablesetup-table><span>Setup Table</span></a>
-</li>
-</ul>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsstandard-journal-li>
+</li></ul></li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsstandard-journal-li>
 <a href=/docs/navpatterns/patterns/standard-journal/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsstandard-journal><span>Standard Journal</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternstemporary-dataset-report-li>
 <a href=/docs/navpatterns/patterns/temporary-dataset-report/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternstemporary-dataset-report><span>Temporary Dataset Report</span></a>
@@ -307,18 +277,14 @@ Abstract The goal of this solution is to enable you to:
 <a href=/docs/navpatterns/patterns/transfer-custom-fields/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternstransfer-custom-fields><span>Transfer Custom Fields</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternspatternsvariant-facade-li>
 <a href=/docs/navpatterns/patterns/variant-facade/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternspatternsvariant-facade><span>Variant Facade</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatterns2-anti-patterns-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatterns2-anti-patterns-li>
 <a href=/docs/navpatterns/2-anti-patterns/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatterns2-anti-patterns><span>2. Anti-Patterns</span></a>
 <ul class="ul-3 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns2-anti-patternsnav-upgrade-li>
 <a href=/docs/navpatterns/2-anti-patterns/nav-upgrade/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns2-anti-patternsnav-upgrade><span>Nav Upgrade</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns2-anti-patternsreusable-bugs-li>
 <a href=/docs/navpatterns/2-anti-patterns/reusable-bugs/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns2-anti-patternsreusable-bugs><span>Reusable Bugs</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatterns3-cal-coding-guidelines-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatterns3-cal-coding-guidelines-li>
 <a href=/docs/navpatterns/3-cal-coding-guidelines/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatterns3-cal-coding-guidelines><span>3. CAL Coding Guidelines</span></a>
 <ul class="ul-3 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesdesign-li>
@@ -352,18 +318,14 @@ Abstract The goal of this solution is to enable you to:
 <a href=/docs/navpatterns/3-cal-coding-guidelines/design/variable-capacity-mismatch/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesdesignvariable-capacity-mismatch><span>Variable Capacity Mismatch</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesdesignwith-scope-name-collision-li>
 <a href=/docs/navpatterns/3-cal-coding-guidelines/design/with-scope-name-collision/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesdesignwith-scope-name-collision><span>WITH Scope Name Collision</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesinternally-used-dot-net-types-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesinternally-used-dot-net-types-li>
 <a href=/docs/navpatterns/3-cal-coding-guidelines/internally-used-dot-net-types/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesinternally-used-dot-net-types><span>Internally used DotNet Types</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesinternationalization-li>
 <a href=/docs/navpatterns/3-cal-coding-guidelines/internationalization/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatterns3-cal-coding-guidelinesinternationalization><span>Internationalization</span></a>
 <ul class="ul-4 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesinternationalizationusing-calcdate-li>
 <a href=/docs/navpatterns/3-cal-coding-guidelines/internationalization/using-calcdate/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesinternationalizationusing-calcdate><span>Using Calcdate</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docsnavpatterns3-cal-coding-guidelineslocalizability-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docsnavpatterns3-cal-coding-guidelineslocalizability-li>
 <a href=/docs/navpatterns/3-cal-coding-guidelines/localizability/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatterns3-cal-coding-guidelineslocalizability><span>Localizability</span></a>
 <ul class="ul-4 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelineslocalizabilitycaptionml-for-system-tables-li>
@@ -376,9 +338,7 @@ Abstract The goal of this solution is to enable you to:
 <a href=/docs/navpatterns/3-cal-coding-guidelines/localizability/use-text-constants/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelineslocalizabilityuse-text-constants><span>Use Text Constants</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelineslocalizabilityusing-optioncaptionml-li>
 <a href=/docs/navpatterns/3-cal-coding-guidelines/localizability/using-optioncaptionml/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelineslocalizabilityusing-optioncaptionml><span>Using OptionCaptionML</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesreadability-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesreadability-li>
 <a href=/docs/navpatterns/3-cal-coding-guidelines/readability/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatterns3-cal-coding-guidelinesreadability><span>Readability</span></a>
 <ul class="ul-4 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilitybegin-as-an-afterword-li>
@@ -445,9 +405,7 @@ Abstract The goal of this solution is to enable you to:
 <a href=/docs/navpatterns/3-cal-coding-guidelines/readability/variable-naming/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilityvariable-naming><span>Variable Naming</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilityvariables-declarations-order-li>
 <a href=/docs/navpatterns/3-cal-coding-guidelines/readability/variables-declarations-order/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesreadabilityvariables-declarations-order><span>Variables Declarations Order</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesux-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesux-li>
 <a href=/docs/navpatterns/3-cal-coding-guidelines/ux/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatterns3-cal-coding-guidelinesux><span>UX</span></a>
 <ul class="ul-4 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesuxactions-images-li>
@@ -458,11 +416,7 @@ Abstract The goal of this solution is to enable you to:
 <a href=/docs/navpatterns/3-cal-coding-guidelines/ux/fielderror/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesuxfielderror><span>FIELDERROR</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns3-cal-coding-guidelinesuxmessage-and-error-li>
 <a href=/docs/navpatterns/3-cal-coding-guidelines/ux/message-and-error/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns3-cal-coding-guidelinesuxmessage-and-error><span>MESSAGE and ERROR</span></a>
-</li>
-</ul>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatterns4-get-involved-li>
+</li></ul></li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsnavpatterns4-get-involved-li>
 <a href=/docs/navpatterns/4-get-involved/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsnavpatterns4-get-involved><span>(OLD) Get Involved</span></a>
 <ul class="ul-3 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns4-get-involvedcode-of-conduct-li>
@@ -471,13 +425,9 @@ Abstract The goal of this solution is to enable you to:
 <a href=/docs/navpatterns/4-get-involved/patterns-authors/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns4-get-involvedpatterns-authors><span>Patterns Authors</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docsnavpatterns4-get-involvedtemplate-for-writing-nav-design-patterns-li>
 <a href=/docs/navpatterns/4-get-involved/template-for-writing-nav-design-patterns/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatterns4-get-involvedtemplate-for-writing-nav-design-patterns><span>Template for writing Nav Design Patterns</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternsrelated-links-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsnavpatternsrelated-links-li>
 <a href=/docs/navpatterns/related-links/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsnavpatternsrelated-links><span>Related Links</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docscontributing-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docscontributing-li>
 <a href=/docs/contributing/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docscontributing><span>Contributing</span></a>
 <ul class="ul-2 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docscontributingformattingtips-li>
@@ -493,27 +443,14 @@ Abstract The goal of this solution is to enable you to:
 <a href=/docs/contributing/installhugo/manuallyonwindows11/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docscontributinginstallhugomanuallyonwindows11><span>Manually on Windows 11</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docscontributinginstallhugousingpowershellonwindows11-li>
 <a href=/docs/contributing/installhugo/usingpowershellonwindows11/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docscontributinginstallhugousingpowershellonwindows11><span>Powershell on Windows 11</span></a>
-</li>
-</ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docscontributingtemplates-li>
+</li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id=m-docscontributingtemplates-li>
 <a href=/docs/contributing/templates/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docscontributingtemplates><span>Templates</span></a>
 <ul class="ul-3 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docscontributingtemplatespatterns-li>
 <a href=/docs/contributing/templates/patterns/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docscontributingtemplatespatterns><span>Pattern Name</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id=m-docscontributingtemplatesbestpractice-li>
 <a href=/docs/contributing/templates/bestpractice/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docscontributingtemplatesbestpractice><span>Title Here</span></a>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</nav>
-</div>
-</aside>
-<aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+</li></ul></li></ul></li></ul></li></ul></nav></div></aside><aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
 <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
 <a href=https://github.com/microsoft/alguidelines/tree/main/content/docs/NAVPatterns/patterns/creating-custom-charts/index.md class=td-page-meta--view target=_blank rel=noopener><i class="fa fa-file-alt fa-fw"></i> View page source</a>
 <a href=https://github.com/microsoft/alguidelines/edit/main/content/docs/NAVPatterns/patterns/creating-custom-charts/index.md class=td-page-meta--edit target=_blank rel=noopener><i class="fa fa-edit fa-fw"></i> Edit this page</a>
@@ -521,220 +458,68 @@ Abstract The goal of this solution is to enable you to:
 <a href="https://github.com/microsoft/alguidelines/issues/new?title=Creating%20Custom%20Charts" class=td-page-meta--issue target=_blank rel=noopener><i class="fab fa-github fa-fw"></i> Create Issue</a>
 <a href="https://github.com/microsoft/alguidelines/discussions?discussions_q=Creating%20Custom%20Charts" class=td-page-meta--issue target=_blank rel=noopener><i class="fab fa-github fa-fw"></i> Discussions</a>
 <a href=https://github.com/microsoft/alguidelines/issues/new class=td-page-meta--project-issue target=_blank rel=noopener><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
-</div>
-<div class=td-toc><nav id=TableOfContents>
+</div><div class=td-toc><nav id=TableOfContents>
 <ul>
-<li><a href=#abstract>Abstract</a></li>
-<li><a href=#description>Description</a>
+<li><a href=#abstract>Abstract</a></li><li><a href=#description>Description</a>
 <ul>
-<li><a href=#implementation-overview>Implementation Overview</a></li>
-<li><a href=#add-in-buffer-table>Add-in Buffer Table</a></li>
-<li><a href=#cardpart-page>CardPart page</a></li>
-<li><a href=#optional-preserving-user-personalization>Optional: Preserving User Personalization</a></li>
-<li><a href=#optional-show-multiple-charts-within-a-single-cardpart>Optional: Show Multiple Charts within a Single CardPart</a></li>
-</ul>
-</li>
-<li><a href=#usage>Usage</a>
+<li><a href=#implementation-overview>Implementation Overview</a></li><li><a href=#add-in-buffer-table>Add-in Buffer Table</a></li><li><a href=#cardpart-page>CardPart page</a></li><li><a href=#optional-preserving-user-personalization>Optional: Preserving User Personalization</a></li><li><a href=#optional-show-multiple-charts-within-a-single-cardpart>Optional: Show Multiple Charts within a Single CardPart</a></li></ul></li><li><a href=#usage>Usage</a>
 <ul>
-<li><a href=#nav-specific-example-1>NAV Specific Example 1</a></li>
-<li><a href=#nav-specific-example-2>NAV Specific Example 2</a></li>
-</ul>
-</li>
-<li><a href=#nav-usages>NAV Usages</a></li>
-<li><a href=#ideas-for-improvement>Ideas for improvement</a></li>
-</ul>
-</nav></div>
-<div class="taxonomy taxonomy-terms-cloud taxo-tags">
-<h5 class=taxonomy-title>Tag Cloud</h5>
-<ul class=taxonomy-terms>
-<li><a class=taxonomy-term href=https://alguidelines.dev/tags/al/ data-taxonomy-term=al><span class=taxonomy-label>AL</span><span class=taxonomy-count>29</span></a></li>
-<li><a class=taxonomy-term href=https://alguidelines.dev/tags/api/ data-taxonomy-term=api><span class=taxonomy-label>API</span><span class=taxonomy-count>3</span></a></li>
-<li><a class=taxonomy-term href=https://alguidelines.dev/tags/c/al/ data-taxonomy-term=c/al><span class=taxonomy-label>C/AL</span><span class=taxonomy-count>136</span></a></li>
-<li><a class=taxonomy-term href=https://alguidelines.dev/tags/decoupling/ data-taxonomy-term=decoupling><span class=taxonomy-label>Decoupling</span><span class=taxonomy-count>2</span></a></li>
-<li><a class=taxonomy-term href=https://alguidelines.dev/tags/extendability/ data-taxonomy-term=extendability><span class=taxonomy-label>Extendability</span><span class=taxonomy-count>3</span></a></li>
-<li><a class=taxonomy-term href=https://alguidelines.dev/tags/interface/ data-taxonomy-term=interface><span class=taxonomy-label>Interface</span><span class=taxonomy-count>1</span></a></li>
-<li><a class=taxonomy-term href=https://alguidelines.dev/tags/performance/ data-taxonomy-term=performance><span class=taxonomy-label>Performance</span><span class=taxonomy-count>2</span></a></li>
-<li><a class=taxonomy-term href=https://alguidelines.dev/tags/readability/ data-taxonomy-term=readability><span class=taxonomy-label>Readability</span><span class=taxonomy-count>53</span></a></li>
-<li><a class=taxonomy-term href=https://alguidelines.dev/tags/telemetry/ data-taxonomy-term=telemetry><span class=taxonomy-label>Telemetry</span><span class=taxonomy-count>1</span></a></li>
-<li><a class=taxonomy-term href=https://alguidelines.dev/tags/testability/ data-taxonomy-term=testability><span class=taxonomy-label>Testability</span><span class=taxonomy-count>2</span></a></li>
-</ul>
-</div>
-<div class="taxonomy taxonomy-terms-cloud taxo-categories">
-<h5 class=taxonomy-title>Categories</h5>
-<ul class=taxonomy-terms>
-<li><a class=taxonomy-term href=https://alguidelines.dev/categories/best-practice/ data-taxonomy-term=best-practice><span class=taxonomy-label>Best Practice</span><span class=taxonomy-count>86</span></a></li>
-<li><a class=taxonomy-term href=https://alguidelines.dev/categories/pattern/ data-taxonomy-term=pattern><span class=taxonomy-label>Pattern</span><span class=taxonomy-count>70</span></a></li>
-</ul>
-</div>
-</aside>
-<main class="col-12 col-md-9 col-xl-8 pl-md-5" role=main>
+<li><a href=#nav-specific-example-1>NAV Specific Example 1</a></li><li><a href=#nav-specific-example-2>NAV Specific Example 2</a></li></ul></li><li><a href=#nav-usages>NAV Usages</a></li><li><a href=#ideas-for-improvement>Ideas for improvement</a></li></ul></nav></div><div class="taxonomy taxonomy-terms-cloud taxo-tags">
+<h5 class=taxonomy-title>Tag Cloud</h5><ul class=taxonomy-terms>
+<li><a class=taxonomy-term href=https://alguidelines.dev/tags/al/ data-taxonomy-term=al><span class=taxonomy-label>AL</span><span class=taxonomy-count>30</span></a></li><li><a class=taxonomy-term href=https://alguidelines.dev/tags/api/ data-taxonomy-term=api><span class=taxonomy-label>API</span><span class=taxonomy-count>3</span></a></li><li><a class=taxonomy-term href=https://alguidelines.dev/tags/c/al/ data-taxonomy-term=c/al><span class=taxonomy-label>C/AL</span><span class=taxonomy-count>136</span></a></li><li><a class=taxonomy-term href=https://alguidelines.dev/tags/decoupling/ data-taxonomy-term=decoupling><span class=taxonomy-label>Decoupling</span><span class=taxonomy-count>2</span></a></li><li><a class=taxonomy-term href=https://alguidelines.dev/tags/extendability/ data-taxonomy-term=extendability><span class=taxonomy-label>Extendability</span><span class=taxonomy-count>3</span></a></li><li><a class=taxonomy-term href=https://alguidelines.dev/tags/interface/ data-taxonomy-term=interface><span class=taxonomy-label>Interface</span><span class=taxonomy-count>1</span></a></li><li><a class=taxonomy-term href=https://alguidelines.dev/tags/performance/ data-taxonomy-term=performance><span class=taxonomy-label>Performance</span><span class=taxonomy-count>2</span></a></li><li><a class=taxonomy-term href=https://alguidelines.dev/tags/readability/ data-taxonomy-term=readability><span class=taxonomy-label>Readability</span><span class=taxonomy-count>53</span></a></li><li><a class=taxonomy-term href=https://alguidelines.dev/tags/telemetry/ data-taxonomy-term=telemetry><span class=taxonomy-label>Telemetry</span><span class=taxonomy-count>1</span></a></li><li><a class=taxonomy-term href=https://alguidelines.dev/tags/testability/ data-taxonomy-term=testability><span class=taxonomy-label>Testability</span><span class=taxonomy-count>2</span></a></li></ul></div><div class="taxonomy taxonomy-terms-cloud taxo-categories">
+<h5 class=taxonomy-title>Categories</h5><ul class=taxonomy-terms>
+<li><a class=taxonomy-term href=https://alguidelines.dev/categories/best-practice/ data-taxonomy-term=best-practice><span class=taxonomy-label>Best Practice</span><span class=taxonomy-count>86</span></a></li><li><a class=taxonomy-term href=https://alguidelines.dev/categories/pattern/ data-taxonomy-term=pattern><span class=taxonomy-label>Pattern</span><span class=taxonomy-count>71</span></a></li></ul></div></aside><main class="col-12 col-md-9 col-xl-8 pl-md-5" role=main>
 <nav aria-label=breadcrumb class=td-breadcrumbs>
 <ol class=breadcrumb>
 <li class=breadcrumb-item>
 <a href=https://alguidelines.dev/docs/>Docs</a>
-</li>
-<li class=breadcrumb-item>
+</li><li class=breadcrumb-item>
 <a href=https://alguidelines.dev/docs/navpatterns/>NAV Patterns Archive</a>
-</li>
-<li class=breadcrumb-item>
+</li><li class=breadcrumb-item>
 <a href=https://alguidelines.dev/docs/navpatterns/patterns/>1. Patterns</a>
-</li>
-<li class="breadcrumb-item active" aria-current=page>
+</li><li class="breadcrumb-item active" aria-current=page>
 <a href=https://alguidelines.dev/docs/navpatterns/patterns/creating-custom-charts/>Creating Custom Charts</a>
-</li>
-</ol>
-</nav>
-<div class=td-content>
-<h1>Creating Custom Charts</h1>
-<header class=article-meta>
+</li></ol></nav><div class=td-content>
+<h1>Creating Custom Charts</h1><header class=article-meta>
 <div class="taxonomy taxonomy-terms-article taxo-tags">
-<h5 class=taxonomy-title>Tags:</h5>
-<ul class=taxonomy-terms>
-<li><a class=taxonomy-term href=https://alguidelines.dev/tags/c/al/ data-taxonomy-term=c/al><span class=taxonomy-label>C/AL</span></a></li>
-</ul>
-</div>
-<div class="taxonomy taxonomy-terms-article taxo-categories">
-<h5 class=taxonomy-title>Categories:</h5>
-<ul class=taxonomy-terms>
-<li><a class=taxonomy-term href=https://alguidelines.dev/categories/pattern/ data-taxonomy-term=pattern><span class=taxonomy-label>Pattern</span></a></li>
-</ul>
-</div>
-</header>
-<p><em>Originally by Nikola Kukrika at Microsoft Development Center Copenhagen</em></p>
-<h2 id=abstract>Abstract</h2>
-<p>The goal of this solution is to enable you to:</p>
-<ol>
-<li>Use charts in the web client.</li>
-<li>Create charts with custom functionality.</li>
-</ol>
-<h2 id=description>Description</h2>
-<p>This pattern enables you to implement a business chart (Specific Chart type) in a way that is maintainable and reusable on other pages. This also enables you to provide specific functionality that is not possible with the Generic Chart type and it enables you to show charts in the web client.</p>
-<p>The Business Chart add-in is a special because it is a combination of .NET and Javascript add-ins depending on the display target. In the web client, it renders a JavaScript control, while in the win client, it renders a .Net control. Because of this behavior, you can expect minor differences in how the chart is presented in the win client versus in the web client. Note that this implementation is specific to NAV platform code, because it is not possible to create add-ins that combines .NET and JavaScript by using a framework API.</p>
-<p><a href=5153.Picture1.png><img src=5153.Picture1.png alt=" "></a></p>
-<p>Example of the same chart in the win client:</p>
-<p><a href=1411.Picture2.png><img src=1411.Picture2.png alt=" "></a></p>
-<p>The most obvious differences in chart rendering in the two clients are: Slightly different line heights, slightly different chart height, legends in web-client charts can be used as toggle filters to show/hide groups (this is not possible in the win client).</p>
-<h3 id=implementation-overview>Implementation Overview</h3>
-<p><a href=1781.Picture5.png><img src=1781.Picture5.png alt=" "></a></p>
-<h3 id=add-in-buffer-table>Add-in Buffer Table</h3>
-<p>This table is used to encapsulate the logic of the Business Chart Add-in. The table handles the following logic:</p>
-<ul>
-<li>Storing chart values and conversion from .NET to C/AL and vice versa</li>
-<li>Handling of captions: We must use C/AL to provide multilanguage text in add-ins. In addition, the multilanguage text must be encapsulated in a single place, because we pass/read the same dataset from/to the add-in.</li>
-<li>DrillDown logic</li>
-<li>Other helper data related functions, for displaying date, periods, etc.[Bogdana1] [NK2] [NK3]</li>
-</ul>
-<p><strong>Note:</strong> It is recommended that you reuse the <strong>Business Chart Buffer table</strong> (485) as a buffer table or extend. It is a generic table which should cover most of the use cases. Implement a new buffer table only if this table does not meet your needs.</p>
-<h3 id=cardpart-page>CardPart page</h3>
-<p>The CardPart page hosts the Business Chart add-in and must use the add-in buffer table as a source table.</p>
-<p>On the page, you must implement the following triggers:</p>
-<ul>
-<li><strong>AddInReady</strong> &ndash; Executed when the page is done rendering. Used to initialize the add-in.</li>
-<li><strong>DataPointClicked</strong> &ndash; Single-click on an element on the chart.</li>
-<li><strong>DataPointDoubleClicked</strong> &ndash; Double-click on an element on the chart</li>
-</ul>
-<p>The CardPart usually contains a StatusText variable to provide more information about the chart or dataset and a set of actions to control the chart.</p>
-<p>The most commonly used actions are:</p>
-<ul>
-<li><strong>Select Chart</strong>, <strong>Previous Chart</strong>, <strong>Next Chart</strong></li>
-<li><strong>Set Period</strong>, <strong>Work Date</strong></li>
-<li>Actions to filter the data set</li>
-<li><strong>Refresh</strong></li>
-<li><strong>Chart Information</strong> &ndash; a tooltip with a description of the chart and how data is calculated.</li>
-</ul>
-<h3 id=optional-preserving-user-personalization>Optional: Preserving User Personalization</h3>
-<p>One of the most common functionalities is personalization. If the chart can be customized by the user, you should store the settings that the user has entered and apply them the next time the chart is loaded.</p>
-<p>To do this, you need the following:</p>
-<ul>
-<li>A setup record to store the data. You can use the <strong>Business Chart User Setup</strong> table (487) or create a new setup table if you need to store more information.</li>
-<li>A management codeunit to write/apply the settings to the chart and to encapsulate other logic. Since we should not write code on pages, the code for the actions and other logic that does not apply to the setup record should go in this codeunit.</li>
-<li>Setup pages where users can customize how the chart is shown and set different settings.</li>
-</ul>
-<p>The relation between the components is visualized in the following diagram:</p>
-<p><a href=0246.Picture6.png><img src=0246.Picture6.png alt=" "></a></p>
-<h3 id=optional-show-multiple-charts-within-a-single-cardpart>Optional: Show Multiple Charts within a Single CardPart</h3>
-<p>This option is useful on a Role Center where you want to show multiple charts using different datasets within a single part. In that case, you need a record to store the last chart selection, the setup records, and code units for separate charts.</p>
-<p>See, for example, the implementation of the <strong>Mini Generic Chart</strong> page (1390), which uses <strong>MiniChartManagment</strong> CodeUnit to manage separate management codeunits for charts and their setup records. The last selected chart is stored in a separate table, <strong>Mini Chart Definition</strong> (1310).</p>
-<p><a href=1803.Picture7.png><img src=1803.Picture7.png alt=" "></a></p>
-<h2 id=usage>Usage</h2>
-<p>To implement the pattern, create a new ChartPart and set the source table to <strong>Business Chart Buffer</strong>.</p>
-<p>Add a field named <strong>BusinessChart</strong> and set the ControlAddIn property to Microsoft.Dynamics.Nav.Client.BusinessChart.</p>
-<p>Then implement the AddInReady event. This event is executed when the page is done rendering. Code within this method must call the Update method from the <strong>Business Chart Buffer</strong> table, Update(CurrPage.BusinessChart) to initialize the chart and assign initial values.</p>
-<p>If you need a setup record and codeunit, then it is a good idea to encapsulate this logic within a method.</p>
-<h3 id=nav-specific-example-1>NAV Specific Example 1</h3>
-<p>Implementation of the <strong>Finance Performance Chart</strong> page (762)</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>BusinessChart<span style=color:#000;font-weight:700>::</span>AddInReady<span style=color:#ce5c00;font-weight:700>()
-</span><span style=color:#ce5c00;font-weight:700>
-</span><span style=color:#ce5c00;font-weight:700></span>UpdateChart<span style=color:#ce5c00;font-weight:700>(</span>Period<span style=color:#000;font-weight:700>::</span>&#34; &#34;<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>LOCAL</span><span style=color:#f8f8f8;text-decoration:underline> </span>UpdateChart<span style=color:#ce5c00;font-weight:700>(</span>Period<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#39;,Next,Previous&#39;</span><span style=color:#ce5c00;font-weight:700>)
-</span><span style=color:#ce5c00;font-weight:700>
-</span><span style=color:#ce5c00;font-weight:700></span>MoveAndUpdateChart<span style=color:#ce5c00;font-weight:700>(</span>Period<span style=color:#000;font-weight:700>,</span><span style=color:#0000cf;font-weight:700>0</span><span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>LOCAL</span><span style=color:#f8f8f8;text-decoration:underline> </span>MoveAndUpdateChart<span style=color:#ce5c00;font-weight:700>(</span>Period<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#39;,Next,Previous&#39;</span><span style=color:#000;font-weight:700>;</span>Move<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Integer</span><span style=color:#ce5c00;font-weight:700>)
-</span><span style=color:#ce5c00;font-weight:700>
-</span><span style=color:#ce5c00;font-weight:700></span>AccSchedChartManagement<span style=color:#ce5c00;font-weight:700>.</span>GetSetupRecordset<span style=color:#ce5c00;font-weight:700>(</span>AccountSchedulesChartSetup<span style=color:#000;font-weight:700>,</span>AccountSchedulesChartSetup<span style=color:#ce5c00;font-weight:700>.</span>Name<span style=color:#000;font-weight:700>,</span>Move<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline></span>AccSchedChartManagement<span style=color:#ce5c00;font-weight:700>.</span>UpdateData<span style=color:#ce5c00;font-weight:700>(</span>Rec<span style=color:#000;font-weight:700>,</span>Period<span style=color:#000;font-weight:700>,</span>AccountSchedulesChartSetup<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline></span>Update<span style=color:#ce5c00;font-weight:700>(</span>CurrPage<span style=color:#ce5c00;font-weight:700>.</span>BusinessChart<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline></span>StatusText<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#ce5c00;font-weight:700>:=</span><span style=color:#f8f8f8;text-decoration:underline> </span>GetCurrentSelectionText<span style=color:#ce5c00;font-weight:700>(</span>&#34;Period Filter Start Date&#34;<span style=color:#000;font-weight:700>,</span>&#34;Period Filter End Date&#34;<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span></code></pre></div><p>In the MoveAndUpdateChart method, the AccSchedChartManagement codeunit gets a setup record and updates it if necessary. Then, it initializes the chart with setup data and sets the StatusText to show the period for which data is displayed. The same method is used by the actions to move and update the chart so that there is no code duplication.</p>
-<p>The following code is used to implement <strong>DataPointClicked</strong></p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al>BusinessChart<span style=color:#000;font-weight:700>::</span>DataPointClicked<span style=color:#ce5c00;font-weight:700>(</span>point<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>DotNet</span><span style=color:#f8f8f8;text-decoration:underline> </span>&#34;Microsoft.Dynamics.Nav.Client.BusinessChart.BusinessChartDataPoint&#34;<span style=color:#ce5c00;font-weight:700>)
-</span><span style=color:#ce5c00;font-weight:700>
-</span><span style=color:#ce5c00;font-weight:700></span>SetDrillDownIndexes<span style=color:#ce5c00;font-weight:700>(</span>point<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline></span>AccSchedChartManagement<span style=color:#ce5c00;font-weight:700>.</span>DrillDown<span style=color:#ce5c00;font-weight:700>(</span>Rec<span style=color:#000;font-weight:700>,</span>AccountSchedulesChartSetup<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
-</span></code></pre></div><p>SetDrillDownindexes is a method from the <strong>Business Chart Buffer</strong> table that maps the DotNet point variable to C/AL data, so it must be used. The next method that you must implement is the action to be performed on Drilldown.</p>
-<p>The <strong>DataPointDoubleClicked</strong> trigger has the same implementation logic as the DataPointClicked trigger.</p>
-<h3 id=nav-specific-example-2>NAV Specific Example 2</h3>
-<p>Implementation of chart part 1390 on the <strong>Small Business Role Center</strong> page (9022)</p>
-<p><a href=1541.Picture7.png><img src=1541.Picture7.png alt=" "></a></p>
-<p>This chart part contains data from multiple charts within a single part. The <strong>Status Text</strong> field shows the name of the chart and the current period. Users can browse through the charts with <strong>Next Chart</strong> and <strong>Previous Chart</strong> or use <strong>Select Chart</strong> to choose from a list of available charts.</p>
-<p><a href=2553.Picture8.png><img src=2553.Picture8.png alt=" "></a></p>
-<p>On this dialog, users can choose if a chart should be enabled or disabled. If the chart is not enabled, it will be skipped on the <strong>Previous Chart</strong> and <strong>Next Chart</strong> actions. Charts used by this part use different codeunits and setup records. If the user changes the selected chart, this option will be saved and applied next time role center is opened.</p>
-<p>Users can also change the period length.</p>
-<p><a href=5545.Picture9.png><img src=5545.Picture9.png alt=" "></a></p>
-<p>Choosing the <strong>Chart Information</strong> button opens a short description of the chart.</p>
-<p><a href=5582.Picture10.png><img src=5582.Picture10.png alt=" "></a></p>
-<h2 id=nav-usages>NAV Usages</h2>
-<p>Implementation of multiple charts within a single part:</p>
-<ul>
-<li>Page 1390, <strong>Mini Generic Chart</strong></li>
-</ul>
-<p>Charts that use a setup record and select the chart with <strong>Customize Chart Setup</strong> pages:</p>
-<ul>
-<li>Page 772, <strong>Inventory Performance</strong></li>
-<li>Page 771, <strong>Purchase Performance</strong></li>
-<li>Page 770, <strong>Sales Performance</strong></li>
-<li>Page 762, <strong>Finance Performance</strong></li>
-</ul>
-<p>Chart that uses the <strong>Business Chart User Setup</strong> table:</p>
-<ul>
-<li>Page 768, <strong>Aged Acc. Receivable Chart</strong></li>
-</ul>
-<p>Other implementations:</p>
-<ul>
-<li>Page 972, <strong>Time Sheet Chart</strong></li>
-<li>Page 869, <strong>Cash Flow Chart</strong></li>
-<li>Page 760, <strong>Trailing Sales Orders Chart</strong></li>
-</ul>
-<h2 id=ideas-for-improvement>Ideas for improvement</h2>
-<p>We should consider making a generic table for the last chart that the user has used.</p>
-<p>We should investigate if we could make generic code for selecting periods and other common functionality by using RecordRefs.</p>
-<p>Add-In improvements &ndash; Different ways to visualize the data and to pick colors for categories.</p>
-<p>As a nice-to-have feature, we could implement functionality to cycle through the charts with a timer.</p>
-<div class="text-muted mt-5 pt-3 border-top">
+<h5 class=taxonomy-title>Tags:</h5><ul class=taxonomy-terms>
+<li><a class=taxonomy-term href=https://alguidelines.dev/tags/c/al/ data-taxonomy-term=c/al><span class=taxonomy-label>C/AL</span></a></li></ul></div><div class="taxonomy taxonomy-terms-article taxo-categories">
+<h5 class=taxonomy-title>Categories:</h5><ul class=taxonomy-terms>
+<li><a class=taxonomy-term href=https://alguidelines.dev/categories/pattern/ data-taxonomy-term=pattern><span class=taxonomy-label>Pattern</span></a></li></ul></div></header><p><em>Originally by Nikola Kukrika at Microsoft Development Center Copenhagen</em></p><h2 id=abstract>Abstract</h2><p>The goal of this solution is to enable you to:</p><ol>
+<li>Use charts in the web client.</li><li>Create charts with custom functionality.</li></ol><h2 id=description>Description</h2><p>This pattern enables you to implement a business chart (Specific Chart type) in a way that is maintainable and reusable on other pages. This also enables you to provide specific functionality that is not possible with the Generic Chart type and it enables you to show charts in the web client.</p><p>The Business Chart add-in is a special because it is a combination of .NET and Javascript add-ins depending on the display target. In the web client, it renders a JavaScript control, while in the win client, it renders a .Net control. Because of this behavior, you can expect minor differences in how the chart is presented in the win client versus in the web client. Note that this implementation is specific to NAV platform code, because it is not possible to create add-ins that combines .NET and JavaScript by using a framework API.</p><p><a href=5153.Picture1.png><img src=5153.Picture1.png alt=" "></a></p><p>Example of the same chart in the win client:</p><p><a href=1411.Picture2.png><img src=1411.Picture2.png alt=" "></a></p><p>The most obvious differences in chart rendering in the two clients are: Slightly different line heights, slightly different chart height, legends in web-client charts can be used as toggle filters to show/hide groups (this is not possible in the win client).</p><h3 id=implementation-overview>Implementation Overview</h3><p><a href=1781.Picture5.png><img src=1781.Picture5.png alt=" "></a></p><h3 id=add-in-buffer-table>Add-in Buffer Table</h3><p>This table is used to encapsulate the logic of the Business Chart Add-in. The table handles the following logic:</p><ul>
+<li>Storing chart values and conversion from .NET to C/AL and vice versa</li><li>Handling of captions: We must use C/AL to provide multilanguage text in add-ins. In addition, the multilanguage text must be encapsulated in a single place, because we pass/read the same dataset from/to the add-in.</li><li>DrillDown logic</li><li>Other helper data related functions, for displaying date, periods, etc.[Bogdana1] [NK2] [NK3]</li></ul><p><strong>Note:</strong> It is recommended that you reuse the <strong>Business Chart Buffer table</strong> (485) as a buffer table or extend. It is a generic table which should cover most of the use cases. Implement a new buffer table only if this table does not meet your needs.</p><h3 id=cardpart-page>CardPart page</h3><p>The CardPart page hosts the Business Chart add-in and must use the add-in buffer table as a source table.</p><p>On the page, you must implement the following triggers:</p><ul>
+<li><strong>AddInReady</strong> &ndash; Executed when the page is done rendering. Used to initialize the add-in.</li><li><strong>DataPointClicked</strong> &ndash; Single-click on an element on the chart.</li><li><strong>DataPointDoubleClicked</strong> &ndash; Double-click on an element on the chart</li></ul><p>The CardPart usually contains a StatusText variable to provide more information about the chart or dataset and a set of actions to control the chart.</p><p>The most commonly used actions are:</p><ul>
+<li><strong>Select Chart</strong>, <strong>Previous Chart</strong>, <strong>Next Chart</strong></li><li><strong>Set Period</strong>, <strong>Work Date</strong></li><li>Actions to filter the data set</li><li><strong>Refresh</strong></li><li><strong>Chart Information</strong> &ndash; a tooltip with a description of the chart and how data is calculated.</li></ul><h3 id=optional-preserving-user-personalization>Optional: Preserving User Personalization</h3><p>One of the most common functionalities is personalization. If the chart can be customized by the user, you should store the settings that the user has entered and apply them the next time the chart is loaded.</p><p>To do this, you need the following:</p><ul>
+<li>A setup record to store the data. You can use the <strong>Business Chart User Setup</strong> table (487) or create a new setup table if you need to store more information.</li><li>A management codeunit to write/apply the settings to the chart and to encapsulate other logic. Since we should not write code on pages, the code for the actions and other logic that does not apply to the setup record should go in this codeunit.</li><li>Setup pages where users can customize how the chart is shown and set different settings.</li></ul><p>The relation between the components is visualized in the following diagram:</p><p><a href=0246.Picture6.png><img src=0246.Picture6.png alt=" "></a></p><h3 id=optional-show-multiple-charts-within-a-single-cardpart>Optional: Show Multiple Charts within a Single CardPart</h3><p>This option is useful on a Role Center where you want to show multiple charts using different datasets within a single part. In that case, you need a record to store the last chart selection, the setup records, and code units for separate charts.</p><p>See, for example, the implementation of the <strong>Mini Generic Chart</strong> page (1390), which uses <strong>MiniChartManagment</strong> CodeUnit to manage separate management codeunits for charts and their setup records. The last selected chart is stored in a separate table, <strong>Mini Chart Definition</strong> (1310).</p><p><a href=1803.Picture7.png><img src=1803.Picture7.png alt=" "></a></p><h2 id=usage>Usage</h2><p>To implement the pattern, create a new ChartPart and set the source table to <strong>Business Chart Buffer</strong>.</p><p>Add a field named <strong>BusinessChart</strong> and set the ControlAddIn property to Microsoft.Dynamics.Nav.Client.BusinessChart.</p><p>Then implement the AddInReady event. This event is executed when the page is done rendering. Code within this method must call the Update method from the <strong>Business Chart Buffer</strong> table, Update(CurrPage.BusinessChart) to initialize the chart and assign initial values.</p><p>If you need a setup record and codeunit, then it is a good idea to encapsulate this logic within a method.</p><h3 id=nav-specific-example-1>NAV Specific Example 1</h3><p>Implementation of the <strong>Finance Performance Chart</strong> page (762)</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=display:flex><span>BusinessChart<span style=color:#000;font-weight:700>::</span>AddInReady<span style=color:#ce5c00;font-weight:700>()
+</span></span></span><span style=display:flex><span><span style=color:#ce5c00;font-weight:700>
+</span></span></span><span style=display:flex><span><span style=color:#ce5c00;font-weight:700></span>UpdateChart<span style=color:#ce5c00;font-weight:700>(</span>Period<span style=color:#000;font-weight:700>::</span>&#34; &#34;<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>LOCAL</span><span style=color:#f8f8f8;text-decoration:underline> </span>UpdateChart<span style=color:#ce5c00;font-weight:700>(</span>Period<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#39;,Next,Previous&#39;</span><span style=color:#ce5c00;font-weight:700>)
+</span></span></span><span style=display:flex><span><span style=color:#ce5c00;font-weight:700>
+</span></span></span><span style=display:flex><span><span style=color:#ce5c00;font-weight:700></span>MoveAndUpdateChart<span style=color:#ce5c00;font-weight:700>(</span>Period<span style=color:#000;font-weight:700>,</span><span style=color:#0000cf;font-weight:700>0</span><span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>LOCAL</span><span style=color:#f8f8f8;text-decoration:underline> </span>MoveAndUpdateChart<span style=color:#ce5c00;font-weight:700>(</span>Period<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#39;,Next,Previous&#39;</span><span style=color:#000;font-weight:700>;</span>Move<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>Integer</span><span style=color:#ce5c00;font-weight:700>)
+</span></span></span><span style=display:flex><span><span style=color:#ce5c00;font-weight:700>
+</span></span></span><span style=display:flex><span><span style=color:#ce5c00;font-weight:700></span>AccSchedChartManagement<span style=color:#ce5c00;font-weight:700>.</span>GetSetupRecordset<span style=color:#ce5c00;font-weight:700>(</span>AccountSchedulesChartSetup<span style=color:#000;font-weight:700>,</span>AccountSchedulesChartSetup<span style=color:#ce5c00;font-weight:700>.</span>Name<span style=color:#000;font-weight:700>,</span>Move<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline></span>AccSchedChartManagement<span style=color:#ce5c00;font-weight:700>.</span>UpdateData<span style=color:#ce5c00;font-weight:700>(</span>Rec<span style=color:#000;font-weight:700>,</span>Period<span style=color:#000;font-weight:700>,</span>AccountSchedulesChartSetup<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline></span>Update<span style=color:#ce5c00;font-weight:700>(</span>CurrPage<span style=color:#ce5c00;font-weight:700>.</span>BusinessChart<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline></span>StatusText<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#ce5c00;font-weight:700>:=</span><span style=color:#f8f8f8;text-decoration:underline> </span>GetCurrentSelectionText<span style=color:#ce5c00;font-weight:700>(</span>&#34;Period Filter Start Date&#34;<span style=color:#000;font-weight:700>,</span>&#34;Period Filter End Date&#34;<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span></code></pre></div><p>In the MoveAndUpdateChart method, the AccSchedChartManagement codeunit gets a setup record and updates it if necessary. Then, it initializes the chart with setup data and sets the StatusText to show the period for which data is displayed. The same method is used by the actions to move and update the chart so that there is no code duplication.</p><p>The following code is used to implement <strong>DataPointClicked</strong></p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-al data-lang=al><span style=display:flex><span>BusinessChart<span style=color:#000;font-weight:700>::</span>DataPointClicked<span style=color:#ce5c00;font-weight:700>(</span>point<span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>DotNet</span><span style=color:#f8f8f8;text-decoration:underline> </span>&#34;Microsoft.Dynamics.Nav.Client.BusinessChart.BusinessChartDataPoint&#34;<span style=color:#ce5c00;font-weight:700>)
+</span></span></span><span style=display:flex><span><span style=color:#ce5c00;font-weight:700>
+</span></span></span><span style=display:flex><span><span style=color:#ce5c00;font-weight:700></span>SetDrillDownIndexes<span style=color:#ce5c00;font-weight:700>(</span>point<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline></span>AccSchedChartManagement<span style=color:#ce5c00;font-weight:700>.</span>DrillDown<span style=color:#ce5c00;font-weight:700>(</span>Rec<span style=color:#000;font-weight:700>,</span>AccountSchedulesChartSetup<span style=color:#ce5c00;font-weight:700>)</span><span style=color:#000;font-weight:700>;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span></code></pre></div><p>SetDrillDownindexes is a method from the <strong>Business Chart Buffer</strong> table that maps the DotNet point variable to C/AL data, so it must be used. The next method that you must implement is the action to be performed on Drilldown.</p><p>The <strong>DataPointDoubleClicked</strong> trigger has the same implementation logic as the DataPointClicked trigger.</p><h3 id=nav-specific-example-2>NAV Specific Example 2</h3><p>Implementation of chart part 1390 on the <strong>Small Business Role Center</strong> page (9022)</p><p><a href=1541.Picture7.png><img src=1541.Picture7.png alt=" "></a></p><p>This chart part contains data from multiple charts within a single part. The <strong>Status Text</strong> field shows the name of the chart and the current period. Users can browse through the charts with <strong>Next Chart</strong> and <strong>Previous Chart</strong> or use <strong>Select Chart</strong> to choose from a list of available charts.</p><p><a href=2553.Picture8.png><img src=2553.Picture8.png alt=" "></a></p><p>On this dialog, users can choose if a chart should be enabled or disabled. If the chart is not enabled, it will be skipped on the <strong>Previous Chart</strong> and <strong>Next Chart</strong> actions. Charts used by this part use different codeunits and setup records. If the user changes the selected chart, this option will be saved and applied next time role center is opened.</p><p>Users can also change the period length.</p><p><a href=5545.Picture9.png><img src=5545.Picture9.png alt=" "></a></p><p>Choosing the <strong>Chart Information</strong> button opens a short description of the chart.</p><p><a href=5582.Picture10.png><img src=5582.Picture10.png alt=" "></a></p><h2 id=nav-usages>NAV Usages</h2><p>Implementation of multiple charts within a single part:</p><ul>
+<li>Page 1390, <strong>Mini Generic Chart</strong></li></ul><p>Charts that use a setup record and select the chart with <strong>Customize Chart Setup</strong> pages:</p><ul>
+<li>Page 772, <strong>Inventory Performance</strong></li><li>Page 771, <strong>Purchase Performance</strong></li><li>Page 770, <strong>Sales Performance</strong></li><li>Page 762, <strong>Finance Performance</strong></li></ul><p>Chart that uses the <strong>Business Chart User Setup</strong> table:</p><ul>
+<li>Page 768, <strong>Aged Acc. Receivable Chart</strong></li></ul><p>Other implementations:</p><ul>
+<li>Page 972, <strong>Time Sheet Chart</strong></li><li>Page 869, <strong>Cash Flow Chart</strong></li><li>Page 760, <strong>Trailing Sales Orders Chart</strong></li></ul><h2 id=ideas-for-improvement>Ideas for improvement</h2><p>We should consider making a generic table for the last chart that the user has used.</p><p>We should investigate if we could make generic code for selecting periods and other common functionality by using RecordRefs.</p><p>Add-In improvements &ndash; Different ways to visualize the data and to pick colors for categories.</p><p>As a nice-to-have feature, we could implement functionality to cycle through the charts with a timer.</p><div class="text-muted mt-5 pt-3 border-top">
 Last modified February 24, 2022: <a href=https://github.com/microsoft/alguidelines/commit/5ee0436639455a35835c5ce88241d3fad662ee06>Added tags & categories + cleanup (5ee04366)</a>
 by waldo1001
-</div>
-</div>
-</main>
-</div>
-</div>
-<footer class="bg-dark py-5 row d-print-none">
+</div></div></main></div></div><footer class="bg-dark py-5 row d-print-none">
 <div class="container-fluid mx-sm-5">
 <div class=row>
 <div class="col-6 col-sm-4 text-xs-center order-sm-2">
@@ -743,31 +528,19 @@ by waldo1001
 <a class=text-white target=_blank rel=noopener href=https://github.com/microsoft/alguidelines aria-label=GitHub>
 <i class="fab fa-github"></i>
 </a>
-</li>
-<li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title=Twitter aria-label=Twitter>
+</li><li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title=Twitter aria-label=Twitter>
 <a class=text-white target=_blank rel=noopener href="https://twitter.com/search?q=%23bcalhelp" aria-label=Twitter>
 <i class="fab fa-twitter"></i>
 </a>
-</li>
-<li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title=Discord aria-label=Discord>
+</li><li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title=Discord aria-label=Discord>
 <a class=text-white target=_blank rel=noopener href=https://discord.gg/4wbfNv3 aria-label=Discord>
 <i class="fab fa-discord"></i>
 </a>
-</li>
-</ul>
-</div>
-<div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
-</div>
-<div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+</li></ul></div><div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+</div><div class="col-12 col-sm-4 text-center py-2 order-sm-2">
 <small class=text-white>&copy; 2022 alguidelines.dev Project All Rights Reserved</small>
-</div>
-</div>
-</div>
-</footer>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js integrity=sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN crossorigin=anonymous></script>
+</div></div></div></footer></div><script src=https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js integrity=sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA==" crossorigin=anonymous></script>
 <script src=/js/tabpane-persist.js></script>
-<script src=/js/main.min.8ab8f81ff7e1454d30024cd6f956d4d341c3a97e2a673f988065f2ee4e147922.js integrity="sha256-irj4H/fhRU0wAkzW+VbU00HDqX4qZz+YgGXy7k4UeSI=" crossorigin=anonymous></script>
-</body>
-</html>
+<script src=/js/main.min.fc1551b8c1b40a6eaa08f3cb9c76f12ccd9aebc436cecdaf2341c890206d024a.js integrity="sha256-/BVRuMG0Cm6qCPPLnHbxLM2a68Q2zs2vI0HIkCBtAko=" crossorigin=anonymous></script>
+</body></html>

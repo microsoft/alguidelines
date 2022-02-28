@@ -35,7 +35,7 @@
 &lt;li>considerations to take&lt;/li>
 &lt;/ul>
 &lt;h2 id="bad-code">Bad code&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">PutCodeblocksHere&lt;span style="color:#ce5c00;font-weight:bold">()
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="good-code">Good code&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-al" data-lang="al">PutCodeblocksHere&lt;span style="color:#ce5c00;font-weight:bold">()
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-al" data-lang="al">&lt;span style="display:flex;">&lt;span>PutCodeblocksHere&lt;span style="color:#ce5c00;font-weight:bold">()
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="good-code">Good code&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-al" data-lang="al">&lt;span style="display:flex;">&lt;span>PutCodeblocksHere&lt;span style="color:#ce5c00;font-weight:bold">()
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
