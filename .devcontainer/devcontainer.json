@@ -25,9 +25,7 @@
 	"extensions": [
 		"bungcip.better-toml",
 		"davidanson.vscode-markdownlint",
-		"GitHub.vscode-pull-request-github",
-		"gitkraken.gitkraken-authentication",
-		"eamodio.gitlens"
+		"GitHub.vscode-pull-request-github"
 	],
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [
