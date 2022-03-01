@@ -162,13 +162,13 @@ It is common use to give certain fields a more describing name. Some examples ar
 * number for field "No."
 * displayName for field Name
 
-## Default fields
-An API should at least expose these fields:
+## Mandatory fields
+These fields should always be part of the API Page:
 
 * SystemId
-  * This field should be exposed wit the name ```id```
+  * This field should be exposed wit the name ```id```  
 * SystemModifiedAt
-  * This field should be exposed with the name ```lastModifiedDateTime```. If you choose a different name, then the webhook functionality may not work properly.
+  * This field should be exposed with the name ```lastModifiedDateTime```. If you choose a different name, then the webhook functionality will not work properly.
 
 Example:
 

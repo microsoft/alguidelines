@@ -31,11 +31,11 @@ Therefore, signal must be treated as any other API
 
 To make it easy for the consumer of telemetry to work with the data, please
 
-- use PascalCasing. This makes all fields in Application Insights look the same (signal logged through the AL LogMessage method will have "al" prefixed to dimension names.
-- never use fields/custom dimension keys with spaces or special characters. This makes the KQL queries so much easier to write
+- use **PascalCasing**. This makes all fields in Application Insights look the same (signal logged through the AL LogMessage method will have "al" prefixed to dimension names.
+- **Don't use special characters or spaces** for fields/custom dimension keys. This makes the KQL queries so much easier to write
 - for custom dimensions, consider using prefixes that helps the telemetry consumer understand where the dimension is coming from (e.g. HttpStatusCode, SqlStatement, ...)
 
-Consider always having a "message" field that expresses in human readable form what the telemetry event is about.
+Consider always having a **"message"** field that expresses in human readable form what the telemetry event is about.
 If you do, let message names follow the Object ActionInPastTense pattern
 Some examples
 
@@ -65,13 +65,13 @@ end;
 
 ## Objects emitting telemetry signals
 
-Telemetry data includes information about the object that emitted the telemetry signal. It's recommended to call Session.LogMessage() from within the object that causes a situation that you want to have telemetry for. That will make it easier to analyze where exactly in the code an issue occurred.
+Telemetry data includes information about the object that emitted the telemetry signal. It's recommended to call Session.LogMessage() **from within the object** that causes a situation that you want to have telemetry for. That will make it easier to analyze where exactly in the code an issue occurred.
 
 Of course it is possible to have a single object as a central place to emit telemetry signals. The telemetry data includes a callstack, so eventually it would be possible to trace back to the exact place where an issue occurred. But that requires a more complicated query, so it would be better to emit telemetry signals right from place in the code where an issue occurred.
 
 ## Candidate data for telemetry
 
-Telemetry must be actionable for the customer. Do not emit signals that they cannot act on (knowing about CPU performance counters on the database is useless if the partner cannot scale the database)
+Telemetry must be **actionable** for the customer. Do not emit signals that they cannot act on (knowing about CPU performance counters on the database is useless if the partner cannot scale the database)
 
 Also, note that customers pay for data ingestion. So be mindful to not flood their telemetry resources. Consider to use TelemetryScope::ExtensionPublisher by default and only use TelemetryScope::All in case the customer can also act on the data.
 
@@ -91,6 +91,6 @@ Business Central have developed a telemetry maturity model (based on the Gartner
 
 ## Privacy
 
-Telemetry must be privacy compliant.
+Telemetry must be **privacy compliant**.
 
 For privacy reasons, events that have a DataClassification other than SystemMetadata aren't sent to Application Insight resources set up on the tenant. During development of your extension, it's good practice to have a privacy review of the use of LOGMESSAGE calls to ensure that customer data isn't mistakenly leaked into Application Insights resources.
