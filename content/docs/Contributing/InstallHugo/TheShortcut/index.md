@@ -2,7 +2,7 @@
 Title: Devcontainer with VS Code
 ---
 
-#### Use a local devcontainer
+## Use a local devcontainer
 
 If you don't want any local setup (apart from Docker Desktop), but still run your own Hugo instance, you can make use of the preconfigured devcontainer. If you want to learn more about the concept, visit [https://code.visualstudio.com/docs/remote/containers](https://code.visualstudio.com/docs/remote/containers). To use it, you need to take the following steps:
 
@@ -22,7 +22,7 @@ Here is a walkthrough of the full process:
     Your browser does not support the video tag.  
 </video>
 
-#### Use GitHub Codespaces
+## Use GitHub Codespaces
 
 What is also great about this, is that you can also use [GitHub Codespaces](https://github.com/features/codespaces) with that setup. In that case, steps 1-5 become two clicks... Here is another full walkthrough:
 
