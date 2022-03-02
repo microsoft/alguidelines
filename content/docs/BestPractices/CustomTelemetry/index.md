@@ -32,7 +32,7 @@ Therefore, signal must be treated as any other API
 To make it easy for the consumer of telemetry to work with the data, please
 
 - use **PascalCasing**. This makes all fields in Application Insights look the same (signal logged through the AL LogMessage method will have "al" prefixed to dimension names.
-- **Don't use special characters or spaces** for fields/custom dimension keys. This makes the KQL queries so much easier to write
+- **Do not use special characters or spaces** for fields/custom dimension keys. This makes the KQL queries so much easier to write
 - for custom dimensions, consider using prefixes that helps the telemetry consumer understand where the dimension is coming from (e.g. HttpStatusCode, SqlStatement, ...)
 
 Consider always having a **"message"** field that expresses in human readable form what the telemetry event is about.
