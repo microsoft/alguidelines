@@ -1,0 +1,11 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Start local Hugo server",
+            "type": "shell",
+            "command": "hugo serve",
+            "problemMatcher": []
+        }
+    ]
+}
