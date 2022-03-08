@@ -38,6 +38,66 @@ Results in:
   end;
 ```
 
+## Diagrams with Mermaid
+
+When providing a documentation, diagrams come in handy. [Mermaid](https://mermaid-js.github.io/mermaid/#/) lets you create diagrams and visualizations using text and code.
+
+For example the following markdown section:
+
+````
+```mermaid
+classDiagram
+  Animal <|-- Duck
+  Animal <|-- Fish
+  Animal <|-- Zebra
+  Animal : +int age
+  Animal : +String gender
+  Animal: +isMammal()
+  Animal: +mate()
+  class Duck{
+    +String beakColor
+    +swim()
+    +quack()
+  }
+  class Fish{
+    -int sizeInFeet
+    -canEat()
+  }
+  class Zebra{
+    +bool is_wild
+    +run()
+  }
+```
+````
+
+Results in:
+
+```mermaid
+classDiagram
+  Animal <|-- Duck
+  Animal <|-- Fish
+  Animal <|-- Zebra
+  Animal : +int age
+  Animal : +String gender
+  Animal: +isMammal()
+  Animal: +mate()
+  class Duck{
+    +String beakColor
+    +swim()
+    +quack()
+  }
+  class Fish{
+    -int sizeInFeet
+    -canEat()
+  }
+  class Zebra{
+    +bool is_wild
+    +run()
+  }
+```
+
+Can't wait to get started? Use the Mermaid [Live Editor](https://mermaid.live/edit).
+
 ## Hugo Shortcodes
 Since we're using "Hugo", we can use it's shortcode.  Here is a reference: [https://gohugo.io/content-management/shortcodes/](https://gohugo.io/content-management/shortcodes/)
 

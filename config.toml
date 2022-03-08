@@ -109,6 +109,10 @@ notoc = true
 # First one is picked as the Twitter card image if not set on page.
 images = ["images/og-image-fission.png"]
 
+[params.mermaid]
+enable = true
+theme = "neutral"
+
 [params.social]
 #github = ''
 #slackurl = ""
