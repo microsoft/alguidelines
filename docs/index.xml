@@ -23,7 +23,56 @@ end;
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Customer&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>Name&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;waldo&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Customer&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">Modify&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>true&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">end&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="hugo-shortcodes">Hugo Shortcodes&lt;/h2>
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="diagrams-with-mermaid">Diagrams with Mermaid&lt;/h2>
+&lt;p>When providing a documentation, diagrams come in handy. &lt;a href="https://mermaid-js.github.io/mermaid/#/">Mermaid&lt;/a> lets you create diagrams and visualizations using text and code.&lt;/p>
+&lt;p>For example the following markdown section:&lt;/p>
+&lt;pre tabindex="0">&lt;code>```mermaid
+classDiagram
+Animal &amp;lt;|-- Duck
+Animal &amp;lt;|-- Fish
+Animal &amp;lt;|-- Zebra
+Animal : +int age
+Animal : +String gender
+Animal: +isMammal()
+Animal: +mate()
+class Duck{
++String beakColor
++swim()
++quack()
+}
+class Fish{
+-int sizeInFeet
+-canEat()
+}
+class Zebra{
++bool is_wild
++run()
+}
+```
+&lt;/code>&lt;/pre>&lt;p>Results in:&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-mermaid" data-lang="mermaid">classDiagram
+Animal &amp;lt;|-- Duck
+Animal &amp;lt;|-- Fish
+Animal &amp;lt;|-- Zebra
+Animal : +int age
+Animal : +String gender
+Animal: +isMammal()
+Animal: +mate()
+class Duck{
++String beakColor
++swim()
++quack()
+}
+class Fish{
+-int sizeInFeet
+-canEat()
+}
+class Zebra{
++bool is_wild
++run()
+}
+&lt;/code>&lt;/pre>&lt;p>Can&amp;rsquo;t wait to get started? Use the Mermaid &lt;a href="https://mermaid.live/edit">Live Editor&lt;/a>.&lt;/p>
+&lt;h2 id="hugo-shortcodes">Hugo Shortcodes&lt;/h2>
 &lt;p>Since we&amp;rsquo;re using &amp;ldquo;Hugo&amp;rdquo;, we can use it&amp;rsquo;s shortcode. Here is a reference: &lt;a href="https://gohugo.io/content-management/shortcodes/">https://gohugo.io/content-management/shortcodes/&lt;/a>&lt;/p>
 &lt;p>It basically means we are able to use easy notations to do cool things. Let&amp;rsquo;s point out some useful shortcodes:&lt;/p>
 &lt;h3 id="twitter">Twitter&lt;/h3>
