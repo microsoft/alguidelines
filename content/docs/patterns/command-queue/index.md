@@ -15,7 +15,7 @@ Sometimes its neccassary to perform multiple processes in Business Central, for 
 
 ## Description
 The pattern is ideal for executing several independent processes in succession. Since the processes are independent, each process must take care of error handling itself. 
-The pattern should not be used to control a single process.
+The command queue should not be used to control a single process. Also it is important to know that the queue is just in the memory so if the service gets restartet the queue is gone and has to be rebuild
 
 ## The Pattern
 To structure this problem we can use the "Command Queue" pattern. The pattern consist of two main parts the queue and the command interface
