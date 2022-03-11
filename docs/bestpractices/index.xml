@@ -95,8 +95,8 @@ All APIs pages apply the behavior to first specify all field values and then ins
 &lt;li>number for field &amp;ldquo;No.&amp;rdquo;&lt;/li>
 &lt;li>displayName for field Name&lt;/li>
 &lt;/ul>
-&lt;h2 id="default-fields">Default fields&lt;/h2>
-&lt;p>An API should at least expose these fields:&lt;/p>
+&lt;h2 id="mandatory-fields">Mandatory fields&lt;/h2>
+&lt;p>These fields should always be part of the API Page:&lt;/p>
 &lt;ul>
 &lt;li>SystemId
 &lt;ul>
@@ -105,7 +105,7 @@ All APIs pages apply the behavior to first specify all field values and then ins
 &lt;/li>
 &lt;li>SystemModifiedAt
 &lt;ul>
-&lt;li>This field should be exposed with the name &lt;code>lastModifiedDateTime&lt;/code>. If you choose a different name, then the webhook functionality may not work properly.&lt;/li>
+&lt;li>This field should be exposed with the name &lt;code>lastModifiedDateTime&lt;/code>. If you choose a different name, then the webhook functionality will not work properly.&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
@@ -222,11 +222,11 @@ All APIs pages apply the behavior to first specify all field values and then ins
 &lt;h2 id="naming-conventions-and-telemetry-schema">Naming conventions and telemetry schema&lt;/h2>
 &lt;p>To make it easy for the consumer of telemetry to work with the data, please&lt;/p>
 &lt;ul>
-&lt;li>use PascalCasing. This makes all fields in Application Insights look the same (signal logged through the AL LogMessage method will have &amp;ldquo;al&amp;rdquo; prefixed to dimension names.&lt;/li>
-&lt;li>never use fields/custom dimension keys with spaces or special characters. This makes the KQL queries so much easier to write&lt;/li>
+&lt;li>use &lt;strong>PascalCasing&lt;/strong>. This makes all fields in Application Insights look the same (signal logged through the AL LogMessage method will have &amp;ldquo;al&amp;rdquo; prefixed to dimension names.&lt;/li>
+&lt;li>&lt;strong>Do not use special characters or spaces&lt;/strong> for fields/custom dimension keys. This makes the KQL queries so much easier to write&lt;/li>
 &lt;li>for custom dimensions, consider using prefixes that helps the telemetry consumer understand where the dimension is coming from (e.g. HttpStatusCode, SqlStatement, &amp;hellip;)&lt;/li>
 &lt;/ul>
-&lt;p>Consider always having a &amp;ldquo;message&amp;rdquo; field that expresses in human readable form what the telemetry event is about.
+&lt;p>Consider always having a &lt;strong>&amp;ldquo;message&amp;rdquo;&lt;/strong> field that expresses in human readable form what the telemetry event is about.
 If you do, let message names follow the Object ActionInPastTense pattern
 Some examples&lt;/p>
 &lt;ul>
@@ -252,10 +252,10 @@ Some examples&lt;/p>
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">end&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">end&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="objects-emitting-telemetry-signals">Objects emitting telemetry signals&lt;/h2>
-&lt;p>Telemetry data includes information about the object that emitted the telemetry signal. It&amp;rsquo;s recommended to call Session.LogMessage() from within the object that causes a situation that you want to have telemetry for. That will make it easier to analyze where exactly in the code an issue occurred.&lt;/p>
+&lt;p>Telemetry data includes information about the object that emitted the telemetry signal. It&amp;rsquo;s recommended to call Session.LogMessage() &lt;strong>from within the object&lt;/strong> that causes a situation that you want to have telemetry for. That will make it easier to analyze where exactly in the code an issue occurred.&lt;/p>
 &lt;p>Of course it is possible to have a single object as a central place to emit telemetry signals. The telemetry data includes a callstack, so eventually it would be possible to trace back to the exact place where an issue occurred. But that requires a more complicated query, so it would be better to emit telemetry signals right from place in the code where an issue occurred.&lt;/p>
 &lt;h2 id="candidate-data-for-telemetry">Candidate data for telemetry&lt;/h2>
-&lt;p>Telemetry must be actionable for the customer. Do not emit signals that they cannot act on (knowing about CPU performance counters on the database is useless if the partner cannot scale the database)&lt;/p>
+&lt;p>Telemetry must be &lt;strong>actionable&lt;/strong> for the customer. Do not emit signals that they cannot act on (knowing about CPU performance counters on the database is useless if the partner cannot scale the database)&lt;/p>
 &lt;p>Also, note that customers pay for data ingestion. So be mindful to not flood their telemetry resources. Consider to use TelemetryScope::ExtensionPublisher by default and only use TelemetryScope::All in case the customer can also act on the data.&lt;/p>
 &lt;p>If you do not know where to start, consider using telemetry for deflection. In Dynamics 365 Business Central, they started with signal about authorization (successful/failed) to deflect support cases that was due to disabled users/wrong licenses.&lt;/p>
 &lt;h2 id="how-customers-use-telemetry">How customers use telemetry&lt;/h2>
@@ -268,7 +268,7 @@ Some examples&lt;/p>
 &lt;p>Customers typically start in the Application Insights portal and then move on to use more advanced tools for analytics (KQL, Power BI, Excel, &amp;hellip;). Once they have seen the light, they will likely start alerting on telemetry using Azure Monitor Alerts or setting up Power Automate flows.&lt;/p>
 &lt;p>Business Central have developed a telemetry maturity model (based on the Gartner BI maturity model) for how organizations can evolve to use telemetry proactively in their business processes.&lt;/p>
 &lt;h2 id="privacy">Privacy&lt;/h2>
-&lt;p>Telemetry must be privacy compliant.&lt;/p>
+&lt;p>Telemetry must be &lt;strong>privacy compliant&lt;/strong>.&lt;/p>
 &lt;p>For privacy reasons, events that have a DataClassification other than SystemMetadata aren&amp;rsquo;t sent to Application Insight resources set up on the tenant. During development of your extension, it&amp;rsquo;s good practice to have a privacy review of the use of LOGMESSAGE calls to ensure that customer data isn&amp;rsquo;t mistakenly leaked into Application Insights resources.&lt;/p></description></item><item><title>Docs: DeleteAll</title><link>https://alguidelines.dev/docs/bestpractices/deleteall/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/bestpractices/deleteall/</guid><description>
 &lt;p>&lt;em>Created by waldo, Described by waldo&lt;/em>&lt;/p>
 &lt;h2 id="description">Description&lt;/h2>

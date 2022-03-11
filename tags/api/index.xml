@@ -95,8 +95,8 @@ All APIs pages apply the behavior to first specify all field values and then ins
 &lt;li>number for field &amp;ldquo;No.&amp;rdquo;&lt;/li>
 &lt;li>displayName for field Name&lt;/li>
 &lt;/ul>
-&lt;h2 id="default-fields">Default fields&lt;/h2>
-&lt;p>An API should at least expose these fields:&lt;/p>
+&lt;h2 id="mandatory-fields">Mandatory fields&lt;/h2>
+&lt;p>These fields should always be part of the API Page:&lt;/p>
 &lt;ul>
 &lt;li>SystemId
 &lt;ul>
@@ -105,7 +105,7 @@ All APIs pages apply the behavior to first specify all field values and then ins
 &lt;/li>
 &lt;li>SystemModifiedAt
 &lt;ul>
-&lt;li>This field should be exposed with the name &lt;code>lastModifiedDateTime&lt;/code>. If you choose a different name, then the webhook functionality may not work properly.&lt;/li>
+&lt;li>This field should be exposed with the name &lt;code>lastModifiedDateTime&lt;/code>. If you choose a different name, then the webhook functionality will not work properly.&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
