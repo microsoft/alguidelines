@@ -1,8 +1,8 @@
-+++
-title = "Pattern Name"
-tags = ["AL"]
-categories = ["Pattern"]
-+++
+---
+title: "Title Here"
+tags: ["AL"]
+categories: ["Pattern"]
+---
 
 <!-- This is a guideline, some parts are optional (if there's no content, remove the whole paragraph). -->
 
