@@ -166,7 +166,7 @@ It is common use to give certain fields a more describing name. Some examples ar
 These fields should always be part of the API Page:
 
 * SystemId
-  * This field should be exposed wit the name ```id```  
+  * This field should be exposed with the name ```id```
 * SystemModifiedAt
   * This field should be exposed with the name ```lastModifiedDateTime```. If you choose a different name, then the webhook functionality will not work properly.
 
