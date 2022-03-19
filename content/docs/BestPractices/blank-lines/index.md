@@ -8,7 +8,9 @@ categories: ["Best Practice"]
 
 Avoid too many blank lines.
 
-## Bad code
+## #1 Example
+
+### Bad code
 
 ```al
 var
@@ -27,7 +29,7 @@ begin
 end;
 ```
 
-## Good code
+### Good code
 
 ```al
 var
@@ -44,7 +46,9 @@ begin
 end;
 ```
 
-## Bad code
+## #2 Example
+
+### Bad code
 
 ```al
 page 50000 "Blank Lines"
@@ -74,7 +78,7 @@ page 50000 "Blank Lines"
 }
 ```
 
-## Good code
+### Good code
 
 ```al
 page 50000 "Blank Lines"
@@ -102,7 +106,9 @@ page 50000 "Blank Lines"
 }
 ```
 
-## Bad code
+## #3 Example
+
+### Bad code
 
 ```al
 var
@@ -129,7 +135,7 @@ begin
 end;
 ```
 
-## Good code
+### Good code
 
 ```al
 var
