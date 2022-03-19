@@ -18,13 +18,13 @@ In depth description on what this Pattern is all about
 - steps to implement
 - considerations to take
 
-## Bad code
+## <span style="color:red">Bad code</span>
 
 ```al
 PutCodeblocksHere()
 ```
 
-## Good code
+## <span style="color:lime">Good code</span>
 
 ```al
 PutCodeblocksHere()

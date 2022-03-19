@@ -9,25 +9,25 @@ _Created by Microsoft, Described by waldo_
 ## Description
 Do not use `true` or `false` keywords unnecessarily if the expression is already an logical expression.
 
-## Bad code
+## <span style="color:red">Bad code</span>
 
 ```al
     if IsPositive() = true then  
 ```
 
-## Good code
+## <span style="color:lime">Good code</span>
 
 ```al
     if IsPositive() then  
 ```
 
-## Bad code
+## <span style="color:red">Bad code</span>
 
 ```al
     if Complete <> true then  
 ```
 
-## Good code
+## <span style="color:lime">Good code</span>
 
 ```al
     if not Complete then

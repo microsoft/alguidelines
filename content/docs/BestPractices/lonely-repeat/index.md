@@ -10,13 +10,13 @@ _Created by Microsoft, Described by waldo_
 
 The `repeat` statement should always be alone on a line.
 
-## Bad code
+## <span style="color:red">Bad code</span>
 
 ```al
     if ReservEntry.FindSet() then repeat
 ```
 
-## Good code
+## <span style="color:lime">Good code</span>
 
 ```al
     if ReservEntry.FindSet() then 

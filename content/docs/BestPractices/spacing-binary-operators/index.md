@@ -10,37 +10,37 @@ _Created by Microsoft, Described by waldo_
 
 There must be exactly one space character on each side of a binary operator such as = + - AND OR =. The parameter comma operator however, should have a space after the comma.
 
-## Bad code
+## <span style="color:red">Bad code</span>
 
 ```al
     "Line Discount %" := "Line Discount Amount"/"Line Value"*100;  
 ```
 
-## Good code
+## <span style="color:lime">Good code</span>
 
 ```al
     "Line Discount %" := "Line Discount Amount" / "Line Value" * 100;  
 ```
 
-## Bad code
+## <span style="color:red">Bad code</span>
 
 ```al
     StartDate := CalcDate('<+'+Format(Days+i)+'D\>',StartDate);  
 ```
 
-## Good code
+## <span style="color:lime">Good code</span>
 
 ```al
     StartDate := CalcDate('<+' + Format(Days + i) + 'D\>', StartDate);  
 ```
 
-## Bad code
+## <span style="color:red">Bad code</span>
 
 ```al
     StartDate:=0D; // Initialize  
 ```
 
-## Good code
+## <span style="color:lime">Good code</span>
 
 ```al
     StartDate := 0D; // Initialize

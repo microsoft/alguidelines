@@ -16,37 +16,37 @@ Blanks, periods, and other characters (such as parentheses) that would make quot
 
 If a variable is a compound of two or more words or abbreviations, each word or abbreviation should begin with a capital letter.
 
-## Bad code
+## <span style="color:red">Bad code</span>
 
 ```al
     WIPBuffer: Record "Job WIP Buffer"
 ```
 
-## Good code
+## <span style="color:lime">Good code</span>
 
 ```al
     JobWIPBuffer: Record "Job WIP Buffer"    
 ```
 
-## Bad code
+## <span style="color:red">Bad code</span>
 
 ```al
     Postline: Codeunit "Gen. Jnl.-Post Line";    
 ```
 
-## Good code
+## <span style="color:lime">Good code</span>
 
 ```al
     GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line";
 ```
 
-## Bad code
+## <span style="color:red">Bad code</span>
 
 ```al
     "Amount (LCY)": Decimal;    
 ```
 
-## Good code
+## <span style="color:lime">Good code</span>
 
 ```al
     AmountLCY: Decimal;        

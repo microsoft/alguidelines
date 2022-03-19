@@ -10,7 +10,7 @@ _Created by Microsoft, Described by waldo_
 
 A CASE action should start on a line after the possibility.
 
-## Bad code
+## <span style="color:red">Bad code</span>
 
 ```AL
     case Letter of
@@ -19,7 +19,7 @@ A CASE action should start on a line after the possibility.
     end;
 ```
 
-## Good code
+## <span style="color:lime">Good code</span>
 
 ```AL
     case Letter of

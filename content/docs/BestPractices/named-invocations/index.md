@@ -10,13 +10,13 @@ _Created by Microsoft, Described by waldo_
 
 When calling an object statically use the Object Name, not the Object Id.
 
-## Bad code
+## <span style="color:red">Bad code</span>
 
 ```al
     Page.RunModal(525, SalesShptLine);
 ```
 
-## Good code
+## <span style="color:lime">Good code</span>
 
 ```al
     Page.RunModal(Page::"Posted Sales Shipment Lines", SalesShptLine);

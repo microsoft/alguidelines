@@ -10,14 +10,14 @@ _Created by Microsoft, Described by waldo_
 
 The `if..then` pair, `while..do` pair, and `for..do` pair must appear on the same line or the same level of indentation.  If possible, you can align the lines it is even much more readable.
 
-## Bad code
+## <span style="color:red">Bad code</span>
 
 ```al
     if (x = y) and
       (a = b) then
 ```
 
-## Good code
+## <span style="color:lime">Good code</span>
 
 ```al
     if (x = y) and

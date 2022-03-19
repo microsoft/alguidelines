@@ -10,7 +10,7 @@ _Created by Microsoft, Described by waldo_
 
 `if` and `else` statements should be on separate lines. 
 
-## Bad code
+## <span style="color:red">Bad code</span>
 
 ```al
     if Atom = '\>' then HasLogicalOperator := true else begin
@@ -18,7 +18,7 @@ _Created by Microsoft, Described by waldo_
     end;
 ```
 
-## Good code
+## <span style="color:lime">Good code</span>
 
 ```al
     if Atom = '\>' then

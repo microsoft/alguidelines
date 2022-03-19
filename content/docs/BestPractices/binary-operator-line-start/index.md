@@ -10,7 +10,7 @@ _Created by Microsoft, Described by waldo_
 
 Do not start a line with a binary operator. 
 
-## Bad code
+## <span style="color:red">Bad code</span>
 
 ```AL
 "Quantity to Ship" :=
@@ -18,7 +18,7 @@ Quantity
 - "Quantity Shipped"
 ```
 
-## Good code
+## <span style="color:lime">Good code</span>
 
 ```AL
 "Quantity to Ship" :=
