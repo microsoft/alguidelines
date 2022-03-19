@@ -8,20 +8,20 @@ _Created by Microsoft, Described by waldo_
 
 ## Description
 
-Do not start a line with a binary operator. 
+Do not start a line with a binary operator.
 
 ## Bad code
 
 ```AL
 "Quantity to Ship" :=
-Quantity 
-- "Quantity Shipped"
+    Quantity 
+    - "Quantity Shipped"
 ```
 
 ## Good code
 
 ```AL
 "Quantity to Ship" :=
-Quantity -
-"Quantity Shipped"
+    Quantity -
+    "Quantity Shipped"
 ```
