@@ -15,6 +15,7 @@ authors:
     family-names: Kauffmann
   - given-names: Henrik
     family-names: Helgesen
+    orcid: https://orcid.org/0000-0002-3281-6712
   - given-names: Jeremy
     family-names: Vyska
 license: MIT
