@@ -100,7 +100,7 @@ All APIs pages apply the behavior to first specify all field values and then ins
 &lt;ul>
 &lt;li>SystemId
 &lt;ul>
-&lt;li>This field should be exposed wit the name &lt;code>id&lt;/code>&lt;/li>
+&lt;li>This field should be exposed with the name &lt;code>id&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;li>SystemModifiedAt

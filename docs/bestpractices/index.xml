@@ -100,7 +100,7 @@ All APIs pages apply the behavior to first specify all field values and then ins
 &lt;ul>
 &lt;li>SystemId
 &lt;ul>
-&lt;li>This field should be exposed wit the name &lt;code>id&lt;/code>&lt;/li>
+&lt;li>This field should be exposed with the name &lt;code>id&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;li>SystemModifiedAt
@@ -255,7 +255,7 @@ Some examples&lt;/p>
 &lt;p>Telemetry data includes information about the object that emitted the telemetry signal. It&amp;rsquo;s recommended to call Session.LogMessage() &lt;strong>from within the object&lt;/strong> that causes a situation that you want to have telemetry for. That will make it easier to analyze where exactly in the code an issue occurred.&lt;/p>
 &lt;p>Of course it is possible to have a single object as a central place to emit telemetry signals. The telemetry data includes a callstack, so eventually it would be possible to trace back to the exact place where an issue occurred. But that requires a more complicated query, so it would be better to emit telemetry signals right from place in the code where an issue occurred.&lt;/p>
 &lt;h2 id="candidate-data-for-telemetry">Candidate data for telemetry&lt;/h2>
-&lt;p>Telemetry must be &lt;strong>actionable&lt;/strong> for the customer. Do not emit signals that they cannot act on (knowing about CPU performance counters on the database is useless if the partner cannot scale the database)&lt;/p>
+&lt;p>Telemetry must be &lt;strong>actionable&lt;/strong> for the customer. Do not emit signals that they cannot act on (knowing about CPU performance counters on the database is useless if the partner cannot scale the database).&lt;/p>
 &lt;p>Also, note that customers pay for data ingestion. So be mindful to not flood their telemetry resources. Consider to use TelemetryScope::ExtensionPublisher by default and only use TelemetryScope::All in case the customer can also act on the data.&lt;/p>
 &lt;p>If you do not know where to start, consider using telemetry for deflection. In Dynamics 365 Business Central, they started with signal about authorization (successful/failed) to deflect support cases that was due to disabled users/wrong licenses.&lt;/p>
 &lt;h2 id="how-customers-use-telemetry">How customers use telemetry&lt;/h2>
