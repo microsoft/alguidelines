@@ -71,7 +71,7 @@ Of course it is possible to have a single object as a central place to emit tele
 
 ## Candidate data for telemetry
 
-Telemetry must be **actionable** for the customer. Do not emit signals that they cannot act on (knowing about CPU performance counters on the database is useless if the partner cannot scale the database)
+Telemetry must be **actionable** for the customer. Do not emit signals that they cannot act on (knowing about CPU performance counters on the database is useless if the partner cannot scale the database).
 
 Also, note that customers pay for data ingestion. So be mindful to not flood their telemetry resources. Consider to use TelemetryScope::ExtensionPublisher by default and only use TelemetryScope::All in case the customer can also act on the data.
 
