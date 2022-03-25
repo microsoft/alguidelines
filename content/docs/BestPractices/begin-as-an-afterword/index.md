@@ -15,7 +15,7 @@ When `begin` follows `then`, `else`, `do`, it should be on the same line, preced
 ```al
     if ICPartnerRefType = ICPartnerRefType::"Common Item No." then
     begin
-    ...
+        ...
     end;
 ```
 
@@ -23,7 +23,6 @@ When `begin` follows `then`, `else`, `do`, it should be on the same line, preced
 
 ```al
     if ICPartnerRefType = ICPartnerRefType::"Common Item No." then begin
-    ...
+        ...
     end;
 ```
-
