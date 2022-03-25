@@ -1,7 +1,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>alguidelines.dev - Business Central Design Patterns – Templates</title><link>https://alguidelines.dev/docs/contributing/templates/</link><description>Recent content in Templates on alguidelines.dev - Business Central Design Patterns</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="https://alguidelines.dev/docs/contributing/templates/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Title Here</title><link>https://alguidelines.dev/docs/contributing/templates/bestpractice/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/contributing/templates/bestpractice/</guid><description>
 &lt;!-- This is a guideline, some parts are optional (if there's no content, remove the whole paragraph). -->
 &lt;!-- The "Readability" and "Performance" tags are often used. You can, however, add multiple tags, but please do not change the Category -->
-&lt;p>&lt;em>Created by &amp;lt;!&amp;ndash; John Smith &amp;ndash;&amp;gt;&amp;lt;!&amp;ndash;, Cronus International.&amp;ndash;&amp;gt; Described by &amp;lt;!&amp;ndash; Jane Doe&amp;ndash;&amp;gt;&amp;lt;!&amp;ndash;, Contoso, LLC&amp;ndash;&amp;gt;&lt;/em>&lt;/p>
+&lt;p>&lt;em>Created by &lt;!-- John Smith -->&lt;!--, Cronus International.--> Described by &lt;!-- Jane Doe-->&lt;!--, Contoso, LLC-->&lt;/em>&lt;/p>
 &lt;h2 id="description">Description&lt;/h2>
 &lt;p>In depth description on what this Pattern is all about&lt;/p>
 &lt;ul>
@@ -16,7 +16,7 @@
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-al" data-lang="al">&lt;span style="display:flex;">&lt;span>PutCodeblocksHere&lt;span style="color:#ce5c00;font-weight:bold">()
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Title Here</title><link>https://alguidelines.dev/docs/contributing/templates/patterns/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/contributing/templates/patterns/</guid><description>
 &lt;!-- This is a guideline, some parts are optional (if there's no content, remove the whole paragraph). -->
-&lt;p>&lt;em>Created by &amp;lt;!&amp;ndash; John Smith &amp;ndash;&amp;gt;&amp;lt;!&amp;ndash;, Cronus International.&amp;ndash;&amp;gt; Described by &amp;lt;!&amp;ndash; Jane Doe&amp;ndash;&amp;gt;&amp;lt;!&amp;ndash;, Contoso, LLC&amp;ndash;&amp;gt;&lt;/em>&lt;/p>
+&lt;p>&lt;em>Created by &lt;!-- John Smith -->&lt;!--, Cronus International.--> Described by &lt;!-- Jane Doe-->&lt;!--, Contoso, LLC-->&lt;/em>&lt;/p>
 &lt;h2 id="abstract">Abstract&lt;/h2>
 &lt;p>Short, descriptive and easy to remember description of this pattern.&lt;/p>
 &lt;h2 id="context">Context&lt;/h2>
