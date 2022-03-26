@@ -10,13 +10,13 @@ _Created by Microsoft, Described by waldo_
 
 Always start comments with // followed by one space character.
 
-## <span style="color:red">Bad code</span>
+## <span style="color:FireBrick">Bad code</span>
 
 ```al
 RowNo += 1000; //Move way below the budget  
 ```
 
-## <span style="color:lime">Good code</span>
+## <span style="color:ForestGreen">Good code</span>
 
 ```al
 RowNo += 1000; // Move way below the budget

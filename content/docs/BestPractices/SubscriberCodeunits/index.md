@@ -28,7 +28,7 @@ Examples:
 - if you app does things on Sales and Purchase, create a Sales-subs codeunit, and a Purchase-subs.
 - if you have multiple functionalities in your app (let's call'm modules), create a subs-codeunit per module, and only add the subscribers in there that are necessary for that module.
 
-### <span style="color:red">Bad code</span>
+### <span style="color:FireBrick">Bad code</span>
 
 ```AL
 codeunit 2037325 "Setup Subs"
@@ -77,7 +77,7 @@ codeunit 2037325 "Setup Subs"
 }
 ```
 
-### <span style="color:lime">Good code</span>
+### <span style="color:ForestGreen">Good code</span>
 
 Split into 2 codeunits, and move the business logic out.
 
@@ -115,7 +115,7 @@ codeunit 2037324 "RHE Setup Subs"
 
 To avoid the extra "loading of the content" while a subscriber is being executed, use Single Instance codeunit for subscribers.  Do take into account, of course, that it would share the state across the entire session.
 
-### <span style="color:red">Bad code</span>
+### <span style="color:FireBrick">Bad code</span>
 
 ```AL
 codeunit 2037324 "RHE Setup Subs"
@@ -130,7 +130,7 @@ codeunit 2037324 "RHE Setup Subs"
 }
 ```
 
-### <span style="color:lime">Good code</span>
+### <span style="color:ForestGreen">Good code</span>
 
 ```AL
 codeunit 2037324 "RHE Setup Subs"
@@ -151,7 +151,7 @@ codeunit 2037324 "RHE Setup Subs"
 
 If possible, only execute the subscriber when really necessary by using Manual Binding.
 
-### <span style="color:red">Bad code</span>
+### <span style="color:FireBrick">Bad code</span>
 
 ```AL
     //subscriber - code should actually only run when Color=Red.
@@ -171,7 +171,7 @@ If possible, only execute the subscriber when really necessary by using Manual B
         until JustSomeTable.Next() < 1;
 ```
 
-### <span style="color:lime">Good code</span>
+### <span style="color:ForestGreen">Good code</span>
 
 ```AL
     if JustSomeTable.FindSet() then

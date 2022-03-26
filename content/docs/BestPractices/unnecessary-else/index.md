@@ -10,7 +10,7 @@ _Created by Microsoft, Described by waldo_
 
 `else` should not be used when the last action in the `then` part is an `exit`, `break`, `skip`, `quit`, `error`. 
 
-## <span style="color:red">Bad code</span>
+## <span style="color:FireBrick">Bad code</span>
 
 ```al
     procedure SomeProcedure()
@@ -22,7 +22,7 @@ _Created by Microsoft, Described by waldo_
     end;
 ```
 
-## <span style="color:lime">Good code</span>
+## <span style="color:ForestGreen">Good code</span>
 
 ```al
     procedure SomeProcedure()

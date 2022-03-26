@@ -26,14 +26,14 @@ Variables declarations should be ordered by type. In general, object and complex
 
 (Ref: [Microsoft Docs](https://docs.microsoft.com/en-us/dynamics365/business-central/dev-itpro/developer/analyzers/codecop-aa0021))
 
-## <span style="color:red">Bad code</span>
+## <span style="color:FireBrick">Bad code</span>
 
 ```al
     StartingDateFilter: Text;
     Vendor: Record Vendor;
 ```
 
-## <span style="color:lime">Good code</span>
+## <span style="color:ForestGreen">Good code</span>
 
 ```al
     Vendor: Record Vendor;

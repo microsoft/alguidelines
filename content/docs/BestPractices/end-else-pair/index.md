@@ -10,7 +10,7 @@ _Created by Microsoft, Described by waldo_
 
 The `end else` pair should always appear on the same line.
 
-## <span style="color:red">Bad code</span>
+## <span style="color:FireBrick">Bad code</span>
 
 ```al
     if OppEntry.Find('-') then
@@ -23,7 +23,7 @@ The `end else` pair should always appear on the same line.
         end;
 ```
 
-## <span style="color:lime">Good code</span>
+## <span style="color:ForestGreen">Good code</span>
 
 ```al
     if OppEntry.Find('-') then

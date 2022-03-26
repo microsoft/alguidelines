@@ -9,7 +9,7 @@ _Created by Microsoft, Described by waldo_
 
 The `end`, `if`, `repeat`, `for`, `while`, `else` and `case` statement should always start a line. 
 
-## <span style="color:red">Bad code</span>
+## <span style="color:FireBrick">Bad code</span>
 
 ```al
     if IsContactName then ValidateContactName()
@@ -17,7 +17,7 @@ The `end`, `if`, `repeat`, `for`, `while`, `else` and `case` statement should al
     else if IsSalesCycleCode then ValidatSalesCycleCode();
 ```
 
-## <span style="color:lime">Good code</span>
+## <span style="color:ForestGreen">Good code</span>
 
 ```al
     if IsContactName then

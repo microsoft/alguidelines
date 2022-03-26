@@ -10,7 +10,7 @@ _Created by Microsoft, Described by waldo_
 
 When `begin` follows `then`, `else`, `do`, it should be on the same line, preceded by one space character.
 
-## <span style="color:red">Bad code</span>
+## <span style="color:FireBrick">Bad code</span>
 
 ```al
     if ICPartnerRefType = ICPartnerRefType::"Common Item No." then

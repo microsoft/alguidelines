@@ -10,26 +10,26 @@ _Created by Microsoft, Described by waldo_
 
 A line of code should not have more than one statement.
 
-## <span style="color:red">Bad code</span>
+## <span style="color:FireBrick">Bad code</span>
 
 ```al
     if OppEntry.Find('-') then exit;  
 ```
 
-## <span style="color:lime">Good code</span>
+## <span style="color:ForestGreen">Good code</span>
 
 ```al
     if OppEntry.Find('-') then   
         exit;  
 ```
 
-## <span style="color:red">Bad code</span>
+## <span style="color:FireBrick">Bad code</span>
 
 ```al
     TotalCost += Cost; TotalAmt += Amt;  
 ```
 
-## <span style="color:lime">Good code</span>
+## <span style="color:ForestGreen">Good code</span>
 
 ```al
     TotalCost += Cost; 
