@@ -9,7 +9,7 @@ Do not use blank lines:
 - at the beginning or end of any functions (after `begin` and before `end`)
 - inside multiline expressions
 
-## #1 Example
+## Example 1
 
 ### Bad code
 
@@ -33,7 +33,7 @@ begin
 end;
 ```
 
-## #2 Example
+## Example 2
 
 ### Bad code
 
