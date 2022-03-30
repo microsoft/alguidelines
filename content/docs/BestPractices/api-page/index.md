@@ -179,8 +179,8 @@ layout
     {
         repeater(records)
         {
-            field(id; SystemId) { }
-            field(lastModifiedDateTime; SystemModifiedAt) { }
+            field(id; Rec.SystemId) { }
+            field(lastModifiedDateTime; Rec.SystemModifiedAt) { }
         }
     }
 }
