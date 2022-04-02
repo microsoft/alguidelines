@@ -8,20 +8,20 @@ _Created by Microsoft, Described by waldo_
 
 ## Description
 
-`if` and `else` statements should be on separate lines. 
+`if` and `else` statements should be on separate lines.
 
 ## Bad code
 
 ```al
-    if Atom = '\>' then HasLogicalOperator := true else begin
-    ...
+    if Atom = '>' then HasLogicalOperator := true else begin
+        ...
     end;
 ```
 
 ## Good code
 
 ```al
-    if Atom = '\>' then
+    if Atom = '>' then
         HasLogicalOperator := true
     else begin
         ...

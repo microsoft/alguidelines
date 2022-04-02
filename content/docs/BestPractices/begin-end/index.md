@@ -13,7 +13,7 @@ Only use begin..end to enclose [compound statements](https://docs.microsoft.com/
 ```AL
 if FindSet() then begin
     repeat
-    ...
+        ...
     until next() = 0;
 end;
 ```
@@ -23,7 +23,7 @@ end;
 ```AL
 if FindSet() then
     repeat
-    ...
+        ...
     until next() = 0;
 ```
 
@@ -52,4 +52,3 @@ if X then begin
 end else 
     (not X)
 ```
-
