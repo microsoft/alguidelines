@@ -8,7 +8,7 @@ categories: ["Best Practice"]
 
 Avoid too many blank lines.
 
-## #1 Example
+## Example 1
 
 ### Bad code
 
@@ -46,7 +46,7 @@ begin
 end;
 ```
 
-## #2 Example
+## Example 2
 
 ### Bad code
 
@@ -106,7 +106,7 @@ page 50000 "Blank Lines"
 }
 ```
 
-## #3 Example
+## Example 3
 
 ### Bad code
 
