@@ -72,7 +72,7 @@ When a new implementation is created, we need to make sure that these events are
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">end&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>}&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="benefits">Benefits&lt;/h2>
-&lt;p>This new codeunit, with public events, makes the events accessible from all places, including new apps that are dependent from this app, and wants to extend the&lt;/p>
+&lt;p>This new codeunit, with public events, makes the events accessible from all places, including new apps that are dependent from this app.&lt;/p>
 &lt;p>The naming convention (both starting with &amp;ldquo;IScale&amp;rdquo;) also makes it very easy to find that corresponding events for the interface.&lt;/p>
 &lt;h2 id="when-not-to-use">When not to use&lt;/h2>
 &lt;p>Obviously, the events should be carefully considered: only the events that make sense to &amp;ldquo;share&amp;rdquo; over all implementations, need this approach.&lt;/p></description></item><item><title>Docs: Façade</title><link>https://alguidelines.dev/docs/patterns/facade-pattern/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/patterns/facade-pattern/</guid><description>
