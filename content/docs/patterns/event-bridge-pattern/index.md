@@ -102,7 +102,7 @@ codeunit 50405 "Scale Bar" implements IScale
 
 ## Benefits
 
-This new codeunit, with public events, makes the events accessible from all places, including new apps that are dependent from this app, and wants to extend the 
+This new codeunit, with public events, makes the events accessible from all places, including new apps that are dependent from this app.
 
 The naming convention (both starting with "IScale") also makes it very easy to find that corresponding events for the interface.
 
