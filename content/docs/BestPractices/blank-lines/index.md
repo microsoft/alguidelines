@@ -1,48 +1,38 @@
 ---
-title: "Avoid too many blank lines"
+title: "When not to use Blank Lines"
 tags: ["AL","Readability"]
 categories: ["Best Practice"]
 ---
 
 ## Description
 
-Avoid too many blank lines.
+Do not use blank lines:
+
+- at the beginning or end of any functions (after `begin` and before `end`)
+- inside multiline expression
+- after blank lines
 
 ## Example 1
 
 ### Bad code
 
 ```al
-var
-    UserSetup: Record "User Setup";
-    IsEditable: Boolean;
-    IsVisible: Boolean;
-
-
-local procedure Initialize()
+procedure MATRIX_OnDrillDown(MATRIX_ColumnOrdinal: Integer);
 begin
-    IsEditable := false;
-    IsVisible := false;
 
+    SetupDrillDownCol(MATRIX_ColumnOrdinal);
+    DrillDown(false, ValueType);
 
-    UserSetup.Get();
 end;
 ```
 
 ### Good code
 
 ```al
-var
-    UserSetup: Record "User Setup";
-    IsEditable: Boolean;
-    IsVisible: Boolean;
-
-local procedure Initialize()
+procedure MATRIX_OnDrillDown(MATRIX_ColumnOrdinal: Integer);
 begin
-    IsEditable := false;
-    IsVisible := false;
-
-    UserSetup.Get();
+    SetupDrillDownCol(MATRIX_ColumnOrdinal);
+    DrillDown(false, ValueType);
 end;
 ```
 
@@ -51,59 +41,18 @@ end;
 ### Bad code
 
 ```al
-page 50000 "Blank Lines"
-{
-    PageType = List;
-    ApplicationArea = All;
-    UsageCategory = Administration;
-    SourceTable = Customer;
+if NameIsValid and
 
-
-    layout
-    {
-        area(Content)
-        {
-            repeater(GroupName)
-            {
-                ShowCaption = false;
-
-
-                field(Name; Rec.Name)
-                {
-                    ApplicationArea = All;
-                }
-            }
-        }
-    }
-}
+    Name2IsValid
+then
 ```
 
 ### Good code
 
 ```al
-page 50000 "Blank Lines"
-{
-    PageType = List;
-    ApplicationArea = All;
-    UsageCategory = Administration;
-    SourceTable = Customer;
-
-    layout
-    {
-        area(Content)
-        {
-            repeater(GroupName)
-            {
-                ShowCaption = false;
-
-                field(Name; Rec.Name)
-                {
-                    ApplicationArea = All;
-                }
-            }
-        }
-    }
-}
+if NameIsValid and
+    Name2IsValid
+then
 ```
 
 ## Example 3
