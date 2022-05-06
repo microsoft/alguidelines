@@ -52,3 +52,10 @@ if X then begin
 end else 
     (not X)
 ```
+
+## Tips
+
+The [AZ AL Dev Tools/AL Code Outline](https://marketplace.visualstudio.com/items?itemName=andrzejzwierzchowski.al-code-outline) extension adds two new commands to Visual Studio Code to remove begin..end around single statements.
+
+- `Remove Begin..End around Single Statements from the Active Editor` : removes begin..end around single statement from the current editor
+- `Remove Begin..End around Single Statements from the Active Project` : removes begin..end around single statement from the current project
