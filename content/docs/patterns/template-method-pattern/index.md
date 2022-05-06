@@ -13,7 +13,7 @@ The goal of this pattern is to simplify the solution of similar problems and mak
 In nearly every app you have sometimes to solve similar problems for diferent cases. Mostly not the same developer will solve every case. This results in diferent solutions.
 
 ## Description
-The pattner is used when you have problems which are independent but require the same logical flow. Examples which occure very often are: Posting Documents, Printing Reports or Exporting Data. 
+The pattern is used when you have problems which are independent but require the same logical flow. Examples which occur very often are: _Posting Documents_, _Printing Reports_ or _Exporting Data_. 
 
 ## Bad Code Example
 ```al
