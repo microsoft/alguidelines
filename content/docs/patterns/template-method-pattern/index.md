@@ -7,8 +7,7 @@ categories: ["Pattern"]
 _Created by Patrick Schiefer, Described by Patrick Schiefer_
 
 ## Abstract
-The goal of this pattern is too simplify the solution of  similar problems and make your code more readable
-
+The goal of this pattern is to simplify the solution of similar problems and make your code more readable.
 
 ## Problem
 In nearly every app you have sometimes to solve similar problems for diferent cases. Mostly not the same developer will solve every case. This results in diferent solutions.
