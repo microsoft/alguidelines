@@ -2172,4 +2172,9 @@ Therefore it&amp;rsquo;s good practice to always check if the table is empty whe
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-al" data-lang="al">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">if&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>NameIsValid&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">and&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Name2IsValid&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">then&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="tips">Tips&lt;/h2>
+&lt;p>The &lt;a href="https://marketplace.visualstudio.com/items?itemName=andrzejzwierzchowski.al-code-outline">AZ AL Dev Tools/AL Code Outline&lt;/a> extension adds two new commands to Visual Studio Code to remove empty duplicate lines.&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>Remove Empty Lines from the Active Editor&lt;/code> : removes empty duplicate lines from the current editor&lt;/li>
+&lt;li>&lt;code>Remove Empty Lines from the Active Project&lt;/code> : removes empty duplicate lines from the current project&lt;/li>
+&lt;/ul></description></item></channel></rss>
