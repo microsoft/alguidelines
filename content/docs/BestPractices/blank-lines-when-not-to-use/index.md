@@ -51,3 +51,10 @@ if NameIsValid and
     Name2IsValid
 then
 ```
+
+## Tips
+
+The [AZ AL Dev Tools/AL Code Outline](https://marketplace.visualstudio.com/items?itemName=andrzejzwierzchowski.al-code-outline) extension adds two new commands to Visual Studio Code to remove empty duplicate lines.
+
+- `Remove Empty Lines from the Active Editor` : removes empty duplicate lines from the current editor
+- `Remove Empty Lines from the Active Project` : removes empty duplicate lines from the current project
