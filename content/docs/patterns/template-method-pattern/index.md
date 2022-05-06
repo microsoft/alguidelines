@@ -110,9 +110,9 @@ codeunit 50001 SalesHeaderExport implements IDataExport
         //Generate Exportdata here
     end;
 
-    procedure NextLine(): Boolean
+    procedure NextLine(Steps : integer): Boolean
     begin
-        exit(SalesLines.Next() > 0);
+        exit(SalesLines.Next(Steps) <> 0);
     end;
 
     procedure Finish()
