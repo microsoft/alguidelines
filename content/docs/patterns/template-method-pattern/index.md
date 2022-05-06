@@ -147,9 +147,7 @@ codeunit 50002 ExportOrders
 Your code gains readability and it is very easy to add new cases for the template. You don't always have to think about the whole logic. You just have to implement the details
 
 ## When not to use
-The Pattern should not be used for problems which differ to much. So for example if you have two data exports in your app, one is exporting header and lines and the second one only exports headers. In this case I would suggest to not use the pattern or to make two templates out of it.
-
-
+The Pattern should not be used for problems which differ too much. For example, if you have two data exports in your app, one is exporting header and lines and the second one only export header. In this case I would suggest to not use the pattern or to make two templates out of it.
 
 ## References 
 [Detailed Explanation of the pattern](https://patrickschiefer.com/2022/04/08/template-method-pattern/)
