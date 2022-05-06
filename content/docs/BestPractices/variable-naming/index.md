@@ -57,3 +57,7 @@ If a variable is a compound of two or more words or abbreviations, each word or 
 ```al
     AmountLCY: Decimal;        
 ```
+
+## Tips
+
+The [AL Variable Helper](https://marketplace.visualstudio.com/items?itemName=rasmus.al-var-helper) extension provides Intellisense support to assign correct variable names in AL.
