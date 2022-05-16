@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+title: ALGuidelines.dev
+abstract: |
+    "Microsoft ALGuidelines - A Community driven project.
+    
+    Best Practices and Design Patterns for the AL Language."
+keywords: 
+  - AL
+  - "Design Patterns"
+  - "Best Practices"
+authors:
+  - given-names: Eric
+    family-names: Wauters
+  - given-names: Arend-Jan
+    family-names: Kauffmann
+  - given-names: Henrik
+    family-names: Helgesen
+    orcid: https://orcid.org/0000-0002-3281-6712
+  - given-names: Jeremy
+    family-names: Vyska
+license: MIT
+url: "https://alguidelines.dev"
+repository-code: "https://github.com/microsoft/alguidelines" 
