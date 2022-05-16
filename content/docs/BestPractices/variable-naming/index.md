@@ -16,38 +16,48 @@ Blanks, periods, and other characters (such as parentheses) that would make quot
 
 If a variable is a compound of two or more words or abbreviations, each word or abbreviation should begin with a capital letter.
 
-## Bad code
+## Example 1
+
+### Bad code
 
 ```al
     WIPBuffer: Record "Job WIP Buffer"
 ```
 
-## Good code
+### Good code
 
 ```al
     JobWIPBuffer: Record "Job WIP Buffer"    
 ```
 
-## Bad code
+## Example 2
+
+### Bad code
 
 ```al
     Postline: Codeunit "Gen. Jnl.-Post Line";    
 ```
 
-## Good code
+### Good code
 
 ```al
     GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line";
 ```
 
-## Bad code
+## Example 3
+
+### Bad code
 
 ```al
     "Amount (LCY)": Decimal;    
 ```
 
-## Good code
+### Good code
 
 ```al
     AmountLCY: Decimal;        
 ```
+
+## Tips
+
+The [AL Variable Helper](https://marketplace.visualstudio.com/items?itemName=rasmus.al-var-helper) extension provides Intellisense support to assign correct variable names in AL.

@@ -39,3 +39,10 @@ Variables declarations should be ordered by type. In general, object and complex
     Vendor: Record Vendor;
     StartingDateFilter: Text;
 ```
+
+## Tips
+
+The [AZ AL Dev Tools/AL Code Outline](https://marketplace.visualstudio.com/items?itemName=andrzejzwierzchowski.al-code-outline) extension adds two new commands to Visual Studio Code to sorts variables.
+
+- `Sort Variables in the Active Editor` : sorts variables in the current editor
+- `Sort Variables in the Active Project` : sorts variables in the current project
