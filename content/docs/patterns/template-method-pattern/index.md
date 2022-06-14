@@ -43,7 +43,7 @@ codeunit 50010 ExportSalesLines
     //TODO Implementation of procedures used in example
 }
 ```
-As you can see in this example the readability gets bader with every new case.
+As you can see in this example the readability gets worse with every new case.
 
 ## The Pattern
 To implement the Pattern you need at least 3 objects:
