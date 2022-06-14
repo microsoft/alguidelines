@@ -10,7 +10,7 @@ _Created by Patrick Schiefer, Described by Patrick Schiefer_
 The goal of this pattern is to simplify the solution of similar problems and make your code more readable.
 
 ## Problem
-In nearly every app you have sometimes to solve similar problems for diferent cases. Mostly not the same developer will solve every case. This results in diferent solutions.
+In nearly every app you sometimes have to solve similar problems for different cases. Mostly not the same developer will solve every case. This results in different solutions.
 
 ## Description
 The pattern is used when you have problems which are independent but require the same logical flow. Examples which occur very often are: _Posting Documents_, _Printing Reports_ or _Exporting Data_. 
@@ -51,7 +51,7 @@ To implement the Pattern you need at least 3 objects:
 - An Interface which provides the needed procedures
 - A codeunit which Implements the interrface
 
-In my Example I show how to implement a data export with templating
+In my example I show how to implement a data export with templating.
 
 We start with the template
 ```al
@@ -144,7 +144,7 @@ codeunit 50002 ExportOrders
 ```
 
 ## Benefits
-Your code gains readability and it is very easy to add new cases for the template. You don't always have to think about the whole logic. You just have to implement the details
+Your code gains readability and it is very easy to add new cases for the template. You don't always have to think about the whole logic. You just have to implement the details.
 
 ## When not to use
 The Pattern should not be used for problems which differ too much. For example, if you have two data exports in your app, one is exporting header and lines and the second one only export header. In this case I would suggest to not use the pattern or to make two templates out of it.
