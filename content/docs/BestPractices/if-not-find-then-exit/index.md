@@ -59,25 +59,37 @@ or
 ## Good code
 
 ```al
-    SalesHeader.Reset();
-    SalesHeader.SetRange("Document Type", SalesHeader."Document Type"::Order);
-    SalesHeader.SetRange(Status, SalesHeader.Status::Open);
-    if (not SalesHeader.FindSet(false)) then
-        exit;
+    procedure DoSomethingSalesOrder()
+    var
+        SalesHeader: Record "Sales Header";
+    begin
+        SalesHeader.Reset();
+        SalesHeader.SetRange("Document Type", SalesHeader."Document Type"::Order);
+        SalesHeader.SetRange(Status, SalesHeader.Status::Open);
+        if (not SalesHeader.FindSet(false)) then
+            exit;
 
-    repeat
+        repeat
+            DoSomethingSalesLine(SalesHeader);
+        until SalesHeader.Next() = 0;
+
+        DoSomethingElse();
+    end;
+
+    procedure DoSomethingSalesLine(var SalesHeader: Record "Sales Header")
+    var
+        SalesLine: Record "Sales Line";
+    begin
         SalesLine.Reset();
         SalesLine.SetRange("Document Type", SalesHeader."Document Type"::Order);
         SalesLine.SetRange("Document No.", SalesHeader."No.");
-        if (SalesLine.FindSet(true)) then begin
-            repeat
-                DoSomething();
-            until SalesLine.Next() = 0;
-        end;
-    until SalesHeader.Next() = 0;
+        if (not SalesLine.FindSet(true)) then
+            exit;
 
-    DoSomethingElse();
-end;
+        repeat
+            DoSomething();
+        until SalesLine.Next() = 0;
+    end;
 ```
 
 or
