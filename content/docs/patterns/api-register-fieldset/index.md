@@ -64,7 +64,7 @@ Some examples to work with the list of fields:
 
     trigger OnModifyRecord(): Boolean
     begin
-        ItemAPIOperations.ModifyItem(Rec, TempFieldSet;
+        ItemAPIOperations.ModifyItem(Rec, TempFieldSet);
         exit(false);
     end;
 
