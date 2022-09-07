@@ -14,17 +14,18 @@ This is a selection of the community's favorites (more to come).
 
 **Windows**
 
-| Shortcut | Context | Description |
+| What | Where | How |
 |---|---|---|
-|	CTRL + Backspace	|   Editor  |	Delete word	|
+|	Delete word	|   Editor  |	CTRL + Backspace	|
+
 
 **VS Code**
 
-| Shortcut | Context | Description |
+| What | Where | How |
 |---|---|---|
-|	ALT + <Arrow Left/Right>	|   Editor  |	Switch Tab	|
-|	ALT + <Arrow Left/Right>	|   Go To Definition  |	Go Back / Forward	|
-|   ALT + <Arrow Up/Down> |   Editor  |   Move Line Up/Down   |
-|   ALT + SHIFT + <Arrow Up/Down>   |   Editor  | Copy Line Below/Above |
-|   CTRL + X    |   Editor  | Delete Line   |
+|	Switch Tab	|   Editor  |	ALT + <Arrow Left/Right>	|
+|	Move Line Up/Down	|  Editor   |	ALT + <Arrow Up/Down>	|
+|   Copy Line Below/Above |   Editor  |   ALT + SHIFT + <Arrow Up/Down>   |
+|   Delete Line  |   Editor  | CTRL + X (without selection) |
+|   Go Back / Forward   |   Go To Definition  |  ALT + <Arrow Left/Right>  |
 
