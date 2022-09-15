@@ -1,0 +1,59 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>alguidelines.dev - Business Central Design Patterns – Productivity</title><link>https://alguidelines.dev/tags/productivity/</link><description>Recent content in Productivity on alguidelines.dev - Business Central Design Patterns</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="https://alguidelines.dev/tags/productivity/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Keyboard Shortcuts</title><link>https://alguidelines.dev/docs/bestpractices/keyboard-shortcuts/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/bestpractices/keyboard-shortcuts/</guid><description>
+&lt;p>&lt;em>Created by Christian Lenz, Described by Christian Lenz&lt;/em>&lt;/p>
+&lt;h2 id="description">Description&lt;/h2>
+&lt;p>To increase developer productivity while coding, use keyboard shortcuts that are available in the specific context to execute actions faster.&lt;/p>
+&lt;p>This is a selection of the community&amp;rsquo;s favorites (more to come).&lt;/p>
+&lt;p>&lt;strong>Windows&lt;/strong>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>What&lt;/th>
+&lt;th>Where&lt;/th>
+&lt;th>How&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Delete word&lt;/td>
+&lt;td>Editor&lt;/td>
+&lt;td>CTRL + Backspace&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>VS Code&lt;/strong>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>What&lt;/th>
+&lt;th>Where&lt;/th>
+&lt;th>How&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Switch Tab&lt;/td>
+&lt;td>Editor&lt;/td>
+&lt;td>ALT + &amp;lt;Arrow Left/Right&amp;gt;&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Move Line Up/Down&lt;/td>
+&lt;td>Editor&lt;/td>
+&lt;td>ALT + &amp;lt;Arrow Up/Down&amp;gt;&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Copy Line Below/Above&lt;/td>
+&lt;td>Editor&lt;/td>
+&lt;td>ALT + SHIFT + &amp;lt;Arrow Up/Down&amp;gt;&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Delete Line&lt;/td>
+&lt;td>Editor&lt;/td>
+&lt;td>CTRL + X (without selection)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Go Back / Forward&lt;/td>
+&lt;td>Go To Definition&lt;/td>
+&lt;td>ALT + &amp;lt;Arrow Left/Right&amp;gt;&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item></channel></rss>

@@ -424,7 +424,65 @@ this specific table will not be used as temporary by someone else. Reacting to t
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">Exit&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>DoSomething&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>Rec&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">end&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Keyword Pairs - Indentation</title><link>https://alguidelines.dev/docs/bestpractices/keyword-pairs-indentation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/bestpractices/keyword-pairs-indentation/</guid><description>
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Keyboard Shortcuts</title><link>https://alguidelines.dev/docs/bestpractices/keyboard-shortcuts/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/bestpractices/keyboard-shortcuts/</guid><description>
+&lt;p>&lt;em>Created by Christian Lenz, Described by Christian Lenz&lt;/em>&lt;/p>
+&lt;h2 id="description">Description&lt;/h2>
+&lt;p>To increase developer productivity while coding, use keyboard shortcuts that are available in the specific context to execute actions faster.&lt;/p>
+&lt;p>This is a selection of the community&amp;rsquo;s favorites (more to come).&lt;/p>
+&lt;p>&lt;strong>Windows&lt;/strong>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>What&lt;/th>
+&lt;th>Where&lt;/th>
+&lt;th>How&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Delete word&lt;/td>
+&lt;td>Editor&lt;/td>
+&lt;td>CTRL + Backspace&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>VS Code&lt;/strong>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>What&lt;/th>
+&lt;th>Where&lt;/th>
+&lt;th>How&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Switch Tab&lt;/td>
+&lt;td>Editor&lt;/td>
+&lt;td>ALT + &amp;lt;Arrow Left/Right&amp;gt;&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Move Line Up/Down&lt;/td>
+&lt;td>Editor&lt;/td>
+&lt;td>ALT + &amp;lt;Arrow Up/Down&amp;gt;&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Copy Line Below/Above&lt;/td>
+&lt;td>Editor&lt;/td>
+&lt;td>ALT + SHIFT + &amp;lt;Arrow Up/Down&amp;gt;&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Delete Line&lt;/td>
+&lt;td>Editor&lt;/td>
+&lt;td>CTRL + X (without selection)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Go Back / Forward&lt;/td>
+&lt;td>Go To Definition&lt;/td>
+&lt;td>ALT + &amp;lt;Arrow Left/Right&amp;gt;&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item><item><title>Docs: Keyword Pairs - Indentation</title><link>https://alguidelines.dev/docs/bestpractices/keyword-pairs-indentation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/bestpractices/keyword-pairs-indentation/</guid><description>
 &lt;p>&lt;em>Created by Microsoft, Described by waldo&lt;/em>&lt;/p>
 &lt;h2 id="description">Description&lt;/h2>
 &lt;p>The &lt;code>if..then&lt;/code> pair, &lt;code>while..do&lt;/code> pair, and &lt;code>for..do&lt;/code> pair must appear on the same line or the same level of indentation. If possible, you can align the lines it is even much more readable.&lt;/p>
