@@ -477,6 +477,46 @@ this specific table will not be used as temporary by someone else. Reacting to t
 &lt;td>CTRL + X (without selection)&lt;/td>
 &lt;/tr>
 &lt;tr>
+&lt;td>Add Selection To Next Match&lt;/td>
+&lt;td>Editor&lt;/td>
+&lt;td>CTRL + D&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Select All Occurences Of Find Match&lt;/td>
+&lt;td>Editor&lt;/td>
+&lt;td>CTRL + SHIFT + L&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Add Cursors To Line Ends&lt;/td>
+&lt;td>Editor&lt;/td>
+&lt;td>SHIFT + ALT + I (after selecting lines)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Add Cursor Above/Below&lt;/td>
+&lt;td>Editor&lt;/td>
+&lt;td>CTRL + ALT + &amp;lt;Arrow Up/Down&amp;gt;&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Place Multiple Cursors Manually&lt;/td>
+&lt;td>Editor&lt;/td>
+&lt;td>ALT + Click&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Fast Scrolling&lt;/td>
+&lt;td>Editor&lt;/td>
+&lt;td>ALT + Mouse Wheel&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Go To Symbol In File&lt;/td>
+&lt;td>Editor&lt;/td>
+&lt;td>CTRL + SHIFT + O&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Breadcrumbs - Open And Select&lt;/td>
+&lt;td>Editor&lt;/td>
+&lt;td>CTRL + SHIFT + .&lt;/td>
+&lt;/tr>
+&lt;tr>
 &lt;td>Go Back / Forward&lt;/td>
 &lt;td>Go To Definition&lt;/td>
 &lt;td>ALT + &amp;lt;Arrow Left/Right&amp;gt;&lt;/td>
