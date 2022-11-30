@@ -63,7 +63,6 @@ or
     var
         SalesHeader: Record "Sales Header";
     begin
-        SalesHeader.Reset();
         SalesHeader.SetRange("Document Type", SalesHeader."Document Type"::Order);
         SalesHeader.SetRange(Status, SalesHeader.Status::Open);
         if (not SalesHeader.FindSet(false)) then
@@ -95,7 +94,6 @@ or
 or
 
 ```al
-    SalesLine.Reset();
     SalesLine.SetRange("Document Type", SalesHeader."Document Type"::Order);
     if (not SalesLine.FindSet(true)) then
         exit;
