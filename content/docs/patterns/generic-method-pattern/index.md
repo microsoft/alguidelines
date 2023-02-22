@@ -53,7 +53,8 @@ codeunit 53100 "WLD BlockCustomer Meth"
     var
         IsHandled: Boolean;
     begin
-        if not ConfirmBlockCustomer(HideDialog) then exit;
+        if not ConfirmBlockCustomer(HideDialog) then 
+            exit;
         OnBeforeBlockCustomer(Cust, IsHandled);
         DoBlockCustomer(Cust, IsHandled);
         OnAfterBlockCustomer(Cust);
@@ -77,7 +78,8 @@ codeunit 53100 "WLD BlockCustomer Meth"
     begin
         DefaultAnswer := true;
 
-        if HideDialog then exit(DefaultAnswer);
+        if HideDialog then 
+            exit(DefaultAnswer);
         exit(ConfirmManagement.GetResponseOrDefault(ConfirmQst, DefaultAnswer));
     end;
 
@@ -85,7 +87,8 @@ codeunit 53100 "WLD BlockCustomer Meth"
     var
         AcknowledgeMsg: Label 'You successfully executed "BlockCustomer"';
     begin
-        if not GuiAllowed or HideDialog then exit;
+        if not GuiAllowed or HideDialog then 
+            exit;
         Message(AcknowledgeMsg);
     end;
 
@@ -126,7 +129,8 @@ codeunit 53100 "WLD BlockCustomer Meth"
     var
         IsHandled: Boolean;
     begin
-        if not ConfirmBlockCustomer(HideDialog) then exit;
+        if not ConfirmBlockCustomer(HideDialog) then 
+            exit;
         ...
         AcknowledgeBlockCustomer(HideDialog)
     end;
@@ -140,7 +144,8 @@ codeunit 53100 "WLD BlockCustomer Meth"
     begin
         DefaultAnswer := true;
 
-        if HideDialog then exit(DefaultAnswer);
+        if HideDialog then 
+            exit(DefaultAnswer);
         exit(ConfirmManagement.GetResponseOrDefault(ConfirmQst, DefaultAnswer));
     end;
 
@@ -148,7 +153,8 @@ codeunit 53100 "WLD BlockCustomer Meth"
     var
         AcknowledgeMsg: Label 'You successfully executed "BlockCustomer"';
     begin
-        if not GuiAllowed or HideDialog then exit;
+        if not GuiAllowed or HideDialog then 
+            exit;
         Message(AcknowledgeMsg);
     end;
 ...
