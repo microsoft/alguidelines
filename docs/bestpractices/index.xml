@@ -773,7 +773,7 @@ this specific table will not be used as temporary by someone else. Reacting to t
 &lt;/ul>
 &lt;p>Avoid subscribers to these events.&lt;/p>
 &lt;h2 id="references">References&lt;/h2>
-&lt;p>The &lt;a href="https://alguidelines.dev/bcpatterns/generic-method-pattern/">Generic Method Pattern&lt;/a>&lt;/p></description></item><item><title>Docs: Suggested Abbreviations</title><link>https://alguidelines.dev/docs/bestpractices/suggested-abbreviations/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/bestpractices/suggested-abbreviations/</guid><description>
+&lt;p>The &lt;a href="https://alguidelines.dev/docs/patterns/generic-method-pattern/">Generic Method Pattern&lt;/a>&lt;/p></description></item><item><title>Docs: Suggested Abbreviations</title><link>https://alguidelines.dev/docs/bestpractices/suggested-abbreviations/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alguidelines.dev/docs/bestpractices/suggested-abbreviations/</guid><description>
 &lt;p>&lt;em>Created by Microsoft, Described by waldo&lt;/em>&lt;/p>
 &lt;h2 id="description">Description&lt;/h2>
 &lt;p>Whenever possible, do &lt;strong>not&lt;/strong> use abbreviations in variables, functions and objects names.&lt;/p>
