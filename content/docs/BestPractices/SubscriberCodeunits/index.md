@@ -21,7 +21,7 @@ Let's discuss all points
 
 Every time a subscriber gets called, a new instance of the codeunit is being loaded in memory, which takes memory and processing power.  The smaller the codeunit, the less memory, and the faster it is.  
 
-Therefore, it's suggested to split the subscribers by functionality and avoid putting business logic in the actual codeunit.  Tip: put all business logic in an "[Method Codeunit](https://alguidelines.dev/bcpatterns/generic-method-pattern/)".
+Therefore, it's suggested to split the subscribers by functionality and avoid putting business logic in the actual codeunit.  Tip: put all business logic in an "[Method Codeunit](https://alguidelines.dev/docs/patterns/generic-method-pattern/)".
 
 Examples:
 
