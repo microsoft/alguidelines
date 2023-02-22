@@ -23,7 +23,7 @@ Therefore it&amp;rsquo;s good practice to always check if the table is empty whe
 &lt;p>Let&amp;rsquo;s discuss all points&lt;/p>
 &lt;h2 id="keep-the-codeunit-as-small-as-possible">Keep the codeunit as small as possible&lt;/h2>
 &lt;p>Every time a subscriber gets called, a new instance of the codeunit is being loaded in memory, which takes memory and processing power. The smaller the codeunit, the less memory, and the faster it is.&lt;/p>
-&lt;p>Therefore, it&amp;rsquo;s suggested to split the subscribers by functionality and avoid putting business logic in the actual codeunit. Tip: put all business logic in an &amp;ldquo;&lt;a href="https://alguidelines.dev/bcpatterns/generic-method-pattern/">Method Codeunit&lt;/a>&amp;rdquo;.&lt;/p>
+&lt;p>Therefore, it&amp;rsquo;s suggested to split the subscribers by functionality and avoid putting business logic in the actual codeunit. Tip: put all business logic in an &amp;ldquo;&lt;a href="https://alguidelines.dev/docs/patterns/generic-method-pattern/">Method Codeunit&lt;/a>&amp;rdquo;.&lt;/p>
 &lt;p>Examples:&lt;/p>
 &lt;ul>
 &lt;li>if you app does things on Sales and Purchase, create a Sales-subs codeunit, and a Purchase-subs.&lt;/li>
