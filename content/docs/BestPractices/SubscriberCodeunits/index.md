@@ -198,4 +198,4 @@ Avoid subscribers to these events.
 
 ## References
 
-The [Generic Method Pattern](https://alguidelines.dev/bcpatterns/generic-method-pattern/)
+The [Generic Method Pattern](https://alguidelines.dev/docs/patterns/generic-method-pattern/)
