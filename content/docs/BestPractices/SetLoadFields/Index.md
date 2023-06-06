@@ -8,7 +8,7 @@ See the documentation on learn.microsoft.com for more information about [SetLoad
 
 For the performance of your code it is important that you use SetLoadFields as much as possible. 
 
-If you want to retrieve a record from the database to check if the record is available the advice is to set an SetLoadFields on the primary key fields of the table so only those fields will be retrieved from the database.
+If you want to retrieve a record from the database to check if the record is available the advice is to use SetLoadFields on the primary key fields of the table so only those fields will be retrieved from the database.
 
 ## Bad code
 
@@ -25,11 +25,12 @@ if not Item.Get(ItemNo) then
     exit();
 ```
 
-Place the SetLoadFields in the code before filtering the record (there is no need to record filterfields in the SetLoadFields).
+
+Place the SetLoadFields in the code before filtering the record (there is no need to record filter fields in the SetLoadFields because these will be retrieved automatically).
 ## Bad code
 
 ```AL
-Item.Setrange("Third Party Item Exists", false);
+Item.SetRange("Third Party Item Exists", false);
 Item.SetLoadFields("Item Category Code");
 Item.Get(ItemNo);
 ```
@@ -38,7 +39,7 @@ Item.Get(ItemNo);
 
 ```AL
 Item.SetLoadFields("Item Category Code");
-Item.Setrange("Third Party Item Exists", false);
+Item.SetRange("Third Party Item Exists", false);
 Item.Get(ItemNo);
 ```
 
