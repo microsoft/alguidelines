@@ -40,4 +40,4 @@ This project is a Microsoft Business Central Community initiative with support f
 #### Contributing
 
 To find out more about contributing, read up here:
-[Contributing](/contributing/)
+[Contributing](/docs/contributing/)
