@@ -8,7 +8,7 @@ See the documentation on learn.microsoft.com for more information about [SetLoad
 
 For the performance of your code it is important that you use SetLoadFields as much as possible. 
 
-If you want to retrieve a record from the database to check if the record is available the advice is to use SetLoadFields on the primary key fields of the table so only those fields will be retrieved from the database.
+If you want to retrieve a record from the database to check if the record is available always use SetLoadFields on the primary key fields of the table so only those fields will be retrieved from the database.
 
 ## Bad code
 
@@ -26,20 +26,20 @@ if not Item.Get(ItemNo) then
 ```
 
 
-Place the SetLoadFields in the code before filtering the record (there is no need to record filter fields in the SetLoadFields because these will be retrieved automatically).
+Place the SetLoadFields in the code before the line of the Get (or find). (there is no need to record filter fields in the SetLoadFields because these will be retrieved automatically).
 ## Bad code
 
 ```AL
-Item.SetRange("Third Party Item Exists", false);
 Item.SetLoadFields("Item Category Code");
+Item.SetRange("Third Party Item Exists", false);
 Item.Get(ItemNo);
 ```
 
 ## Good code
 
 ```AL
-Item.SetLoadFields("Item Category Code");
 Item.SetRange("Third Party Item Exists", false);
+Item.SetLoadFields("Item Category Code");
 Item.Get(ItemNo);
 ```
 
