@@ -43,3 +43,27 @@ Item.SetLoadFields("Item Category Code");
 Item.Get(ItemNo);
 ```
 
+Place the SetLoadFields in the code before the case statement
+## Bad code
+
+```AL
+Item.SetLoadFields("Item Category Code");
+ItemCategoryCode := FindItemCategoryCode;
+
+case true of
+    Item.Get(ItemNo):
+        SetItemCategoryCode(Item, ItemCategoryCode);
+end;
+```
+
+## Good code
+
+```AL
+ItemCategoryCode := FindItemCategoryCode;
+Item.SetLoadFields("Item Category Code");
+
+case true of
+    Item.Get(ItemNo):
+        SetItemCategoryCode(Item, ItemCategoryCode);
+end;
+```
