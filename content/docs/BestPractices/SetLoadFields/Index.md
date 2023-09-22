@@ -32,7 +32,7 @@ Place the SetLoadFields in the code before the line of the Get (or find). (there
 ```AL
 Item.SetLoadFields("Item Category Code");
 Item.SetRange("Third Party Item Exists", false);
-Item.Get(ItemNo);
+Item.FindFirst();
 ```
 
 ## Good code
@@ -40,7 +40,7 @@ Item.Get(ItemNo);
 ```AL
 Item.SetRange("Third Party Item Exists", false);
 Item.SetLoadFields("Item Category Code");
-Item.Get(ItemNo);
+Item.FindFirst();
 ```
 
 Place the SetLoadFields in the code before the case statement
