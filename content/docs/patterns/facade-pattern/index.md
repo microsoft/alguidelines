@@ -64,6 +64,9 @@ To achieve this, we are using [access modifiers](https://docs.microsoft.com/bs-c
 _The Facade_
 
 ```AL
+/// <summary>
+/// Codeunit to extract image information.
+/// </summary>
 codeunit 3971 Image
 {
     Access = Public;

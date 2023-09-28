@@ -57,16 +57,15 @@ We start with the template
 ```al
 codeunit 50000 ExportTemplate
 {
-    procedure ExportData(export: Interface IDataExport)
+    procedure ExportData(Export: Interface IDataExport)
     begin
-        if not export.CheckData() then
+        if not Export.CheckData() then
             exit;
-        if export.GetLinesToExport() then begin
+        if Export.GetLinesToExport() then 
             repeat
-                export.ExportLine();
-            until not export.NextLine();
-        end;
-        export.Finish();
+                Export.ExportLine();
+            until not Export.NextLine();
+        Export.Finish();
     end;
 }
 ```
@@ -132,13 +131,13 @@ codeunit 50002 ExportOrders
 {
     procedure ExportOrder(DocType: Enum "Sales Document Type"; No: Code[10])
     var
-        export: Codeunit ExportTemplate;
-        exportImpl: Codeunit SalesHeaderExport;
-        exportInt: Interface IDataExport;
+        Export: Codeunit ExportTemplate;
+        ExportImpl: Codeunit SalesHeaderExport;
+        ExportInt: Interface IDataExport;
     begin
-        exportImpl.SetSalesHeader(DocType, No);
-        exportInt := exportImpl;
-        export.ExportData(exportInt);
+        ExportImpl.SetSalesHeader(DocType, No);
+        ExportInt := exportImpl;
+        Export.ExportData(exportInt);
     end;
 }
 ```
