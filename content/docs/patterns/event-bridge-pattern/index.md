@@ -20,8 +20,8 @@ Like in this example, we have an interface, to implement different ways for gett
 ```AL
 interface "IScale"
 {
-    procedure GetWeight(): Decimal;
-    procedure Tare();
+    procedure GetWeight(): Decimal
+    procedure Tare()
 }
 ```
 
@@ -35,13 +35,13 @@ So, if we would implement it like this, it isn't really extensible, as a differe
 ```AL
 codeunit 50407 "Scale Wrong" implements IScale
 {
-    procedure GetWeight() Result: Decimal;
+    procedure GetWeight() Result: Decimal
     begin
         //TODO: Implement Bar GetWeight
         OnAfterGetWeight(Result);
     end;
 
-    procedure Tare();
+    procedure Tare()
     begin
         //TODO: Implement Bar Tare
         OnAfterTare();
@@ -86,13 +86,13 @@ codeunit 50405 "Scale Bar" implements IScale
     var
         IScaleTriggers: Codeunit "IScale Triggers";
 
-    procedure GetWeight() Result: Decimal;
+    procedure GetWeight() Result: Decimal
     begin
         //TODO: Implement Bar GetWeight
         IScaleTriggers.OnAfterGetWeight(Result);
     end;
 
-    procedure Tare();
+    procedure Tare()
     begin
         //TODO: Implement Bar Tare
         IScaleTriggers.OnAfterTare();

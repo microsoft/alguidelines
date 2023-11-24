@@ -26,7 +26,7 @@ First the command interface, it only has one procedure to execute the command
 ```al
 interface ICommand
 {
-    procedure Execute();
+    procedure Execute()
 }
 ```
 
@@ -52,7 +52,7 @@ codeunit 50100 "Queue"
         count += 1;
     end;
 
-    procedure Pop() value: Interface ICommand;
+    procedure Pop() value: Interface ICommand
     begin
         if count > 0 then begin
             value := first.GetValue();
@@ -78,22 +78,22 @@ codeunit 50100 "Queue"
 
 codeunit 50102 "QueueEntry"
 {
-    procedure SetValue(var v: Interface ICommand);
+    procedure SetValue(var v: Interface ICommand)
     begin
         value := v;
     end;
 
-    procedure GetValue(): Interface ICommand;
+    procedure GetValue(): Interface ICommand
     begin
         exit(value);
     end;
 
-    procedure GetNextEntry(): Codeunit QueueEntry;
+    procedure GetNextEntry(): Codeunit QueueEntry
     begin
         exit(NextEntry);
     end;
 
-    procedure SetNextEntry(var Entry: Codeunit QueueEntry);
+    procedure SetNextEntry(var Entry: Codeunit QueueEntry)
     begin
         NextEntry := Entry;
     end;
@@ -136,7 +136,7 @@ codeunit 50104 "SalesOrderPostCommander" implements ICommand
 
 codeunit 50103 "MessageCommander" implements ICommand
 {
-    procedure SetText(value: Text);
+    procedure SetText(value: Text)
     begin
         t := value;
     end;
@@ -185,7 +185,7 @@ codeunit 50105 PatchPostQueue
       // Filter Sales Orders here
    end;
    
-   local procedure AddMessageToQueue(message : Text);
+   local procedure AddMessageToQueue(message : Text)
    var 
      t: Codeunit MessageCommander;
      object: Interface ICommand;
@@ -195,7 +195,7 @@ codeunit 50105 PatchPostQueue
      queue.Push(object);
    end;
 
-   local procedure AddSalesOrderToQueue(No : Text);
+   local procedure AddSalesOrderToQueue(No : Text)
    var 
      SaleOrderCommander: Codeunit SalesOrderPostCommander;
      object: Interface ICommand;
