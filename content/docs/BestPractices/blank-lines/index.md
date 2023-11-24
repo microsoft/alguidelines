@@ -17,7 +17,7 @@ Do not use blank lines:
 ### Bad code
 
 ```al
-procedure MATRIX_OnDrillDown(MATRIX_ColumnOrdinal: Integer);
+procedure MATRIX_OnDrillDown(MATRIX_ColumnOrdinal: Integer)
 begin
 
     SetupDrillDownCol(MATRIX_ColumnOrdinal);
@@ -29,7 +29,7 @@ end;
 ### Good code
 
 ```al
-procedure MATRIX_OnDrillDown(MATRIX_ColumnOrdinal: Integer);
+procedure MATRIX_OnDrillDown(MATRIX_ColumnOrdinal: Integer)
 begin
     SetupDrillDownCol(MATRIX_ColumnOrdinal);
     DrillDown(false, ValueType);

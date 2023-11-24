@@ -75,11 +75,11 @@ As the second part we need an interface for the export functions
 ```al
 interface IDataExport
 {
-    procedure CheckData(): Boolean;
-    procedure GetLinesToExport(): Boolean;
-    procedure ExportLine();
-    procedure NextLine(): Boolean;
-    procedure Finish();
+    procedure CheckData(): Boolean
+    procedure GetLinesToExport(): Boolean
+    procedure ExportLine()
+    procedure NextLine(): Boolean
+    procedure Finish()
 }
 ```
 
