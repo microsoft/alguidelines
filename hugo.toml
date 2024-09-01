@@ -74,10 +74,10 @@ id = ""
 [languages.en]
 title = "alguidelines.dev - Business Central Design Patterns"
 languageName = "English"
+# Weight used for sorting.
 weight = 1
 [languages.en.params]
 description = "Guidelines for when Developing AL for Microsoft Dynamics 365 Business Central"
-# Weight used for sorting.
 
 # Everything below this are Site Params
 
