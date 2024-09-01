@@ -1,10 +1,6 @@
 # syntax=docker/dockerfile:1
 FROM mcr.microsoft.com/devcontainers/base:ubuntu-22.04
 
-# ARG USER=vscode
-# ARG DEBIAN_FRONTEND=noninteractive
-# RUN usermod -s /usr/bin/zsh ${USER}
-
 # VARIANT can be either 'hugo' for the standard version or 'hugo_extended' for the extended version.
 ARG VARIANT=hugo_extended
 # VERSION can be either 'latest' or a specific version number
