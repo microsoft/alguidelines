@@ -39,6 +39,8 @@ In this example, we show the wrong and right way to store values into a JSON obj
 
 ## Example 2
 
+In this second  example, we show the wrong and right way to retrieve values from a JSON object.
+
 ### Bad code
 
 ```al
