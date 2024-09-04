@@ -1,5 +1,5 @@
 ---
-title: "String Values in Tokens"
+title: "Strings in key/value handling"
 tags: ["AL","Readability", "Maintainability"]
 categories: ["Best Practice"]
 ---
