@@ -61,7 +61,7 @@ codeunit 53100 "WLD BlockCustomer Meth"
         AcknowledgeBlockCustomer(HideDialog)
     end;
 
-    local procedure DoBlockCustomer(var Cust: Record Customer; IsHandled: Boolean);
+    local procedure DoBlockCustomer(var Cust: Record Customer; IsHandled: Boolean)
     begin
         if IsHandled then
             exit;
@@ -93,12 +93,12 @@ codeunit 53100 "WLD BlockCustomer Meth"
     end;
 
     [IntegrationEvent(false, false)]
-    local procedure OnBeforeBlockCustomer(var Cust: Record Customer; var IsHandled: Boolean);
+    local procedure OnBeforeBlockCustomer(var Cust: Record Customer; var IsHandled: Boolean)
     begin
     end;
 
     [IntegrationEvent(false, false)]
-    local procedure OnAfterBlockCustomer(var Cust: Record Customer);
+    local procedure OnAfterBlockCustomer(var Cust: Record Customer)
     begin
     end;
 }
@@ -181,12 +181,12 @@ codeunit 53100 "WLD BlockCustomer Meth"
     end;
 ...    
     [IntegrationEvent(false, false)]
-    local procedure OnBeforeBlockCustomer(var Cust: Record Customer; var IsHandled: Boolean);
+    local procedure OnBeforeBlockCustomer(var Cust: Record Customer; var IsHandled: Boolean)
     begin
     end;
 
     [IntegrationEvent(false, false)]
-    local procedure OnAfterBlockCustomer(var Cust: Record Customer);
+    local procedure OnAfterBlockCustomer(var Cust: Record Customer)
     begin
     end;
 }
@@ -200,7 +200,7 @@ The relevant part is:
 ```AL
 codeunit 53100 "WLD BlockCustomer Meth"
 {
-    internal procedure BlockCustomer(var Cust: Record Customer; HideDialog: Boolean);
+    internal procedure BlockCustomer(var Cust: Record Customer; HideDialog: Boolean)
     var
         IsHandled: Boolean;
     begin
@@ -209,7 +209,7 @@ codeunit 53100 "WLD BlockCustomer Meth"
         ...
     end;
 
-    local procedure DoBlockCustomer(var Cust: Record Customer; IsHandled: Boolean);
+    local procedure DoBlockCustomer(var Cust: Record Customer; IsHandled: Boolean)
     begin
         if IsHandled then
             exit;
