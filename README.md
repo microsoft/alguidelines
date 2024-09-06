@@ -40,14 +40,7 @@ contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additio
 
 ### Setup
 
-1. Clone and setup
-```sh
-# Clone all submodules
-git submodule update --init --recursive --depth 1
-# Install NPM dependencies
-npm install
-```
-2. Run Hugo server
+**Run Hugo server**
 ```
 $ hugo server
 Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)

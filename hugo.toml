@@ -4,7 +4,7 @@ languageCode = 'en-us'
 title = 'AL Guidelines'
 
 # Hugo allows theme composition (and inheritance). The precedence is from left to right.
-theme = ["docsy"]
+theme = ["github.com/google/docsy"]
 
 # Will give values to .Lastmod etc.
 enableGitInfo = true
@@ -72,11 +72,12 @@ id = ""
 
 [languages]
 [languages.en]
-description = "Guidelines for when Developing AL for Microsoft Dynamics 365 Business Central"
-languageName = "English"
 title = "alguidelines.dev - Business Central Design Patterns"
+languageName = "English"
 # Weight used for sorting.
 weight = 1
+[languages.en.params]
+description = "Guidelines for when Developing AL for Microsoft Dynamics 365 Business Central"
 
 # Everything below this are Site Params
 
@@ -149,8 +150,8 @@ url = '/blog/serverless-next.js-example-blog-with-fission/'
 [params.ui]
 #  Set to true to disable breadcrumb navigation.
 breadcrumb_disable = false
-# Set to true to disable the About link in the site footer
-footer_about_disable = false
+# Set to true to show an About link in the site footer
+footer_about_enable = true
 # Set to false if you don't want to display a logo (/assets/icons/logo.svg) in the top navbar
 navbar_logo = true
 # Set to true if you don't want the top navbar to be translucent when over a `block/cover`, like on the homepage.
