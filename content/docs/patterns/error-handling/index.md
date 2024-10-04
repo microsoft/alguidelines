@@ -19,6 +19,6 @@ The youtube video shows more about errors presented in such way that the user wi
 
 ## List of references
 
-For usage of number series, there is more information available on:
+For error handling, there is more information available on:
 - [Microsoft Learn: Error collections](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/developer/devenv-error-collection/)
 - [Youtube: Microsoft Presents: User friendly error handling in AL](https://www.youtube.com/watch?v=D8233xMjVog&list=PLI1l3dMI8xlDM9onioMWUyMSCiFs_mMWw&index=27)
