@@ -21,6 +21,12 @@ Using `SetAutoCalcFields` ensures that FlowFields are computed automatically whe
 - Use `SetAutoCalcFields` before retrieving records (`FindSet`, `Find('-')`, etc.) when FlowFields need to be accessed.
 - Avoid redundant `CalcFields` calls if `SetAutoCalcFields` has already been used.
 
+## SetAutoCalcFields on List Pages
+SetAutoCalcFields can be utilized in the OnOpenPage trigger to ensure specific FlowFields are pre-calculated before the user interacts with the page. This is particularly beneficial for list pages where calculations are necessary but not included in the visible fields. However, it's important to note that any FlowField already displayed on the page will be calculated automatically, making SetAutoCalcFields unnecessary for those fields.
+
+## SetAutoCalcFields or CalcFields
+It's best practice to use SetAutoCalcFields when fetching a record since it ensures automatic FlowField calculation. On the other hand, CalcFields should only be used if you already have the record and need to explicitly trigger the calculation. This distinction prevents unnecessary performance overhead, ensuring that database queries remain optimized.
+
 
 ## Examples
 ### Bad Code
