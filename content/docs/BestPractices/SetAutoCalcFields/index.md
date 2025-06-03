@@ -6,6 +6,8 @@ categories: ["Best Practice"]
 
 _Created by SosicStefan, Described by SosicStefan_
 
+## Description
+
 In Business Central, `SetAutoCalcFields` is an essential method for optimizing the retrieval of calculated fields, such as FlowFields. Without `SetAutoCalcFields`, FlowFields require explicit calculation via `CalcFields`, which adds performance overhead. By automatically computing FlowFields upon retrieval, `SetAutoCalcFields` reduces unnecessary calls and improves efficiency when reading FlowFields from multiple records in a loop.
 
 See the documentation on learn.microsoft.com for more information about [SetAutoCalcFields](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/developer/methods-auto/record/record-setautocalcfields-method).
