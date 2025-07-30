@@ -22,10 +22,10 @@ Implement proper event patterns to enable extensibility without modifying base a
 codeunit 50100 "Sales Document Events Handler"
 {
     [EventSubscriber(ObjectType::Table, Database::"Sales Header", OnBeforeInsert, '', false, false)]
-    local procedure OnBeforeInsertSalesHeader(var Rec: Record "Sales Header"; RunTrigger: Boolean)
+    local procedure OnBeforeInsertSalesHeader(var SalesHeader: Record "Sales Header"; RunTrigger: Boolean)
     begin
         // Custom validation logic
-        ValidateCustomFields(Rec);        
+        ValidateCustomFields(SalesHeader);        
     end;    
 }
 ```

@@ -65,24 +65,24 @@ SalesPostingTests.Codeunit.al
 ## Rule 3: Variable and Function Naming
 
 ### Intent
-Use consistent naming conventions for variables and functions to improve code readability. Use camelCase for variable and function names, descriptive names that clearly indicate purpose, and avoid abbreviations unless they are well-known business terms. Use consistent parameter naming in procedures.
+Use consistent naming conventions for variables and functions to improve code readability. Use PascalCase for variable and function names, descriptive names that clearly indicate purpose, and avoid abbreviations unless they are well-known business terms. Use consistent parameter naming in procedures.
 
 ### Examples
 
 ```al
 // Good examples - Variables
 var
-  customerLedgerEntry: Record "Cust. Ledger Entry";
-  totalAmount: Decimal;
-  discountPercentage: Decimal;
-  isValidTransaction: Boolean;
+  CustomerLedgerEntry: Record "Cust. Ledger Entry";
+  TotalAmount: Decimal;
+  DiscountPercentage: Decimal;
+  IsValidTransaction: Boolean;
 ```
 
 ```al
 // Good examples - Functions
-procedure calculateCustomerBalance(customerNo: Code[20]): Decimal
-procedure validateSalesDocument(var salesHeader: Record "Sales Header")
-procedure updateInventoryQuantity(itemNo: Code[20]; quantity: Decimal)
+procedure CalculateCustomerBalance(CustomerNo: Code[20]): Decimal
+procedure ValidateSalesDocument(var SalesHeader: Record "Sales Header")
+procedure UpdateInventoryQuantity(ItemNo: Code[20]; Quantity: Decimal)
 ```
 
 ## Rule 4: Parameter Naming in Event Subscribers

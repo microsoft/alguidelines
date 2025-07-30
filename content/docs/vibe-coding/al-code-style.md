@@ -11,7 +11,7 @@ alwaysApply: true
 These rules ensure consistent code structure and organization across AL projects, making code more maintainable and AI-assistant friendly.
 
 ## Style guidelines for AL code
-  - Always use camelCase for variable and function names.
+  - Always use PascalCase for variable and function names.
   - Use PascalCase for object names (e.g., tables, pages, reports).
   - Maintain a consistent indentation style (2 spaces preferred).
 
@@ -22,7 +22,7 @@ These rules ensure consistent code structure and organization across AL projects
 ## Rule 1: Consistent Indentation and Formatting
 
 ### Intent
-Maintain consistent code formatting to improve readability and enable better AI understanding of code structure. Use 2-space indentation consistently throughout your project and maintain consistent formatting within functions and procedures.
+Maintain consistent code formatting to improve readability and enable better AI understanding of code structure. Use indentation with two spaces consistently throughout your project and maintain consistent formatting within functions and procedures.
 
 ### Examples
 

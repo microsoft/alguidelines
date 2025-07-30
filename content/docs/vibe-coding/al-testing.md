@@ -169,7 +169,6 @@ Organize test files to mirror the application structure while maintaining clear 
 - Use same feature-based organization for tests
 - Place shared test utilities in Common folder
 - Maintain consistent naming patterns
-- When creating test files, mirror the feature organization of the App project but place all tests in the Test project structure
 
 ### Examples
 

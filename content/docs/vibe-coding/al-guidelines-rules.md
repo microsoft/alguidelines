@@ -36,7 +36,7 @@ The following rule sets provide comprehensive guidance for AL development:
 ## Key Guidelines Summary
 
 - **File Naming**: Use `<ObjectName>.<ObjectType>.al` pattern consistently
-- **Code Style**: Use 2-space indentation and camelCase for variables, PascalCase for objects
+- **Code Style**: Use two space indentation and PascalCase for variables, PascalCase for objects
 - **Folder Structure**: Organize by feature (`src/feature/subfeature/`) not by object type
 - **Performance**: Filter data early, use temporary tables, avoid unnecessary loops
 - **Events**: Prefer integration events over direct modifications for extensibility

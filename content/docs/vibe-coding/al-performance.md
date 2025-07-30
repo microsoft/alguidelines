@@ -26,7 +26,7 @@ Optimize queries by filtering data as early as possible to reduce data transfer 
 
 ```al
 // Good example - Early filtering
-procedure GetCustomersByCity(CityFilter: Text): Integer
+procedure GetNumberOfCustomersByCity(CityFilter: Text): Integer
 var
   Customer: Record Customer;
 begin
@@ -43,7 +43,7 @@ end;
 
 ```al
 // Bad example (avoid processing all records)
-procedure GetCustomersByCity(CityFilter: Text): Integer
+procedure GetNumberOfCustomersByCity(CityFilter: Text): Integer
 var
   Customer: Record Customer;
   Count: Integer;
