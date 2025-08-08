@@ -123,16 +123,16 @@ images: ["images/og-image-fission.png"]
       </div>
       <div class="col-lg-4">
         <div class="card-shadow">
-          <span class="card-badge">PATTERN</span>
+          <span class="card-badge">NEW</span>
           <h4 class="section-text-bold mt-4">
-            No. Series
+            Vibe Coding for AL
           </h4>
           <div class="card-shadow-content">
             <p class="section-text">
-              The “Number Series” system is used extensively to provide numbers to master records, documents, and other transactions through Microsoft Dynamics 365 Business Central.
+              AI-optimized coding rules and guidelines designed to enhance the AL developer experience in modern AI-powered IDEs like VS Code and Cursor.
             </p>
-            <a href="/docs/patterns/no-series/">
-              <button class="hero-mid-2 align-self-end">Read Now</button>
+            <a href="/docs/vibe-coding/">
+              <button class="hero-mid-2 align-self-end">Explore Rules</button>
             </a>
           </div>
         </div>
