@@ -1,6 +1,6 @@
 ---
 title: "Subscriber Codeunits"
-tags: ["Performance"]
+tags: ["AL","Performance"]
 categories: ["Best Practice"]
 ---
 
@@ -18,15 +18,18 @@ In general, subscribers have to be put in codeunits.  There are a few performanc
 Let's discuss all points
 
 ## Keep the codeunit as small as possible
+
 Every time a subscriber gets called, a new instance of the codeunit is being loaded in memory, which takes memory and processing power.  The smaller the codeunit, the less memory, and the faster it is.  
 
-Therefore, it's suggested to split the subscribers by functionality and avoid putting business logic in the actual codeunit.  Tip: put all business logic in an "[Method Codeunit](https://alguidelines.dev/bcpatterns/generic-method-pattern/)".
+Therefore, it's suggested to split the subscribers by functionality and avoid putting business logic in the actual codeunit.  Tip: put all business logic in an "[Method Codeunit](https://alguidelines.dev/docs/patterns/generic-method-pattern/)".
 
 Examples:
+
 - if you app does things on Sales and Purchase, create a Sales-subs codeunit, and a Purchase-subs.
 - if you have multiple functionalities in your app (let's call'm modules), create a subs-codeunit per module, and only add the subscribers in there that are necessary for that module.
 
 ### Bad code
+
 ```AL
 codeunit 2037325 "Setup Subs"
 {
@@ -73,6 +76,7 @@ codeunit 2037325 "Setup Subs"
     end;
 }
 ```
+
 ### Good code
 
 Split into 2 codeunits, and move the business logic out.
@@ -112,6 +116,7 @@ codeunit 2037324 "RHE Setup Subs"
 To avoid the extra "loading of the content" while a subscriber is being executed, use Single Instance codeunit for subscribers.  Do take into account, of course, that it would share the state across the entire session.
 
 ### Bad code
+
 ```AL
 codeunit 2037324 "RHE Setup Subs"
 {
@@ -124,7 +129,9 @@ codeunit 2037324 "RHE Setup Subs"
     end;
 }
 ```
+
 ### Good code
+
 ```AL
 codeunit 2037324 "RHE Setup Subs"
 {
@@ -145,6 +152,7 @@ codeunit 2037324 "RHE Setup Subs"
 If possible, only execute the subscriber when really necessary by using Manual Binding.
 
 ### Bad code
+
 ```AL
     //subscriber - code should actually only run when Color=Red.
     [EventSubscriber(ObjectType::Table, Database::"Just Some Table WLD", 'OnAfterValidateEvent', 'Message 2', false, false)]
@@ -162,7 +170,9 @@ If possible, only execute the subscriber when really necessary by using Manual B
             JustSomeTable.Validate("Message 2", format(Random(1000))); 
         until JustSomeTable.Next() < 1;
 ```
+
 ### Good code
+
 ```AL
     if JustSomeTable.FindSet() then
         repeat
@@ -177,21 +187,15 @@ If possible, only execute the subscriber when really necessary by using Manual B
 ```
 
 ## Avoid OnInsert/OnModify/OnDelete
+
 The reason for this is, that it breaks the batch-calls:
+
 - Any "OnInsert" subscriber breaks the bulk inserts, simply because it needs to perform an operation after every record that was inserted
 - Any "OnModify" subscriber slows down the "ModifyAll", simply because it needs to perform an operation after every record that was modified.  I fact: 1 SQL call is turned into a loop of SQL calls.
 - Any "OnDelete" subscriber slows down the "DeleteAll", simply because it needs to perform an operation after every record that was deleted.  I fact: 1 SQL call is turned into a loop of SQL calls.
 
 Avoid subscribers to these events.
 
-## [Discussions](https://github.com/microsoft/alguidelines/discussions/92)
-
-You can discuss this guidelines [here](https://github.com/microsoft/alguidelines/discussions/92).
-
-You can find discussions on all "Best Practices" [here](https://github.com/microsoft/alguidelines/discussions/categories/bc-best-practices).
-
-If you don't find the discussion of this guideline, please feel free to create a new one with the same title as this article.  
-
 ## References
 
-The [Generic Method Pattern](https://alguidelines.dev/bcpatterns/generic-method-pattern/)
+The [Generic Method Pattern](https://alguidelines.dev/docs/patterns/generic-method-pattern/)

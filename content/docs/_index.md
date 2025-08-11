@@ -3,7 +3,7 @@ title: "AL Guidelines"
 linkTitle: Docs
 weight: 20
 description: >
-  Patterns and Best Practices for AL Develolpment
+  Patterns and Best Practices for AL Development
 ---
 
 ## Business Central Design Patterns & Best Practices
@@ -40,4 +40,4 @@ This project is a Microsoft Business Central Community initiative with support f
 #### Contributing
 
 To find out more about contributing, read up here:
-[Contributing](/contributing/)
+[Contributing](/docs/contributing/)

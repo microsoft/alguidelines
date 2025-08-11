@@ -1,6 +1,8 @@
 +++
 title = "Data Migration Façade"
 weight = 480
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 _By David Bastide and Soumya Dutta at Microsoft Development Center Copenhagen_
 
@@ -106,7 +108,7 @@ begin
     end; 
 end;
 
-procedure MigrateItemUnitOfMeasure(ItemDataMigrationFacade : Codeunit "Item Data Migration Facade"; ItemJson : Text); 
+procedure MigrateItemUnitOfMeasure(ItemDataMigrationFacade : Codeunit "Item Data Migration Facade"; ItemJson : Text)
 var 
     MyUnitCodeStagingTable: Record "My Unit Code Staging Table"; 
     DataMigrationStatusFacade: Codeunit "Data Migration Status Facade"; 
@@ -152,7 +154,7 @@ _Figure 3: Simplified sequence diagram of the data migration with staging tables
 Below is a simplified example showing how to create an item: 
 ```al
 [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Data Migration Facade", 'OnMigrateItem', '', true, true)] 
-procedure OnMigrateItem(VAR Sender : Codeunit "Item Data Migration Facade";RecordIdToMigrate : RecordId); 
+procedure OnMigrateItem(VAR Sender : Codeunit "Item Data Migration Facade";RecordIdToMigrate : RecordId)
 var 
     MyItemStagingTable : Record "My Item Staging Table"; 
 begin 
@@ -184,7 +186,7 @@ Below is another example showing how to use additional events to set fields that
 
 ```al
 [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Data Migration Facade", 'OnMigrateItemUnitOfMeasure', '', true, true)] 
-procedure OnMigrateItemUnitOfMeasure(VAR Sender : Codeunit "Item Data Migration Facade";RecordIdToMigrate : RecordId); 
+procedure OnMigrateItemUnitOfMeasure(VAR Sender : Codeunit "Item Data Migration Facade";RecordIdToMigrate : RecordId)
 var 
     MyItemStagingTable : Record "My Item Staging Table"; 
     MyUnitCodeStagingTable : Record "My Unit Code Staging Table"; 

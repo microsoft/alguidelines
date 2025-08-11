@@ -1,6 +1,8 @@
 +++
 title = "Blocked Entity"
 weight = 270
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 _Originally by Abhishek Ghosh at Microsoft Development Center Copenhagen_ 
 

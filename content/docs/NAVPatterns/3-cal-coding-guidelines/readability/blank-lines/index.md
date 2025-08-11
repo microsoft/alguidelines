@@ -1,6 +1,8 @@
 +++
 title = "Blank Lines"
 weight = 260
+tags = ["C/AL","Readability"]
+categories = ["Best Practice"]
 +++
 Do not use blank lines at the beginning or end of any functions, after BEGIN, before END, or inside multiline expressions.
 

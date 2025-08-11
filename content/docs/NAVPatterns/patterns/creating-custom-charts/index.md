@@ -1,6 +1,8 @@
 +++
 title = "Creating Custom Charts"
 weight = 420
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 _Originally by Nikola Kukrika at Microsoft Development Center Copenhagen_
 

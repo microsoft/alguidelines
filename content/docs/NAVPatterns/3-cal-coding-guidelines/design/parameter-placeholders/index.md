@@ -1,6 +1,8 @@
 +++
 title = "Parameter Placeholders"
 weight = 920
+tags = ["C/AL"]
+categories = ["Best Practice"]
 +++
 The number of parameters passed to a string must match the placeholders.
 

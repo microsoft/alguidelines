@@ -1,6 +1,8 @@
 +++
 title = "FIELDERROR"
 weight = 590
+tags = ["C/AL"]
+categories = ["Best Practice"]
 +++
 Never use FIELDERROR with a period as it is automatically inserted.
 

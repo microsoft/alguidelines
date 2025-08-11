@@ -1,6 +1,8 @@
 +++
 title = "Cached Web Server Calls"
 weight = 290
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 _Originally by Mostafa Balat, Microsoft Development Center Copenhagen_
 

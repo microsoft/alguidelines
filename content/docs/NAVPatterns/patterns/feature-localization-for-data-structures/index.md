@@ -1,6 +1,8 @@
 +++
 title = "Feature Localization For Data Structures"
 weight = 570
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 _Originally by Bogdan Sturzoiu at Microsoft Development Center Copenhagen_ 
 

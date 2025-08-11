@@ -1,6 +1,8 @@
 +++
 title = "One Statement Per Line"
 weight = 910
+tags = ["C/AL","Readability"]
+categories = ["Best Practice"]
 +++
 A line of code should not have more than one statement.
 

@@ -1,6 +1,8 @@
 +++
 title = "Released Entity"
 weight = 1000
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 _Authors: Henrik Langbak and Kim Ginnerup, Bording Data_
 

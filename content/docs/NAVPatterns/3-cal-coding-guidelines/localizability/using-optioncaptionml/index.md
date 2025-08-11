@@ -1,6 +1,8 @@
 +++
 title = "Using OptionCaptionML"
 weight = 1380
+tags = ["C/AL"]
+categories = ["Best Practice"]
 +++
 The OptionCaptionML should be filled in for sourceexpression using option data types.
 

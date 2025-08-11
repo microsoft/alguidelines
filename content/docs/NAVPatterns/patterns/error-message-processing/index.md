@@ -1,6 +1,8 @@
 +++
 title = "Error Message Processing"
 weight = 550
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 _By Jesper Schulz at Microsoft Development Center Copenhagen_
 
@@ -82,9 +84,9 @@ BEGIN
     END ELSE
         TempErrorMessage.LogSimpleMessage(TempErrorMessage."Message Type"::Error,NoSATAccountDefinedErr);
 
-        IF NOT TempErrorMessage.HasErrors(TRUE) THEN
-            SaveXMLToClient(Document,Year,Month,'CT');
-        TempErrorMessage.ShowErrorMessages(FALSE);
+    IF NOT TempErrorMessage.HasErrors(TRUE) THEN
+        SaveXMLToClient(Document,Year,Month,'CT');
+    TempErrorMessage.ShowErrorMessages(FALSE);
 END;
 ```
 

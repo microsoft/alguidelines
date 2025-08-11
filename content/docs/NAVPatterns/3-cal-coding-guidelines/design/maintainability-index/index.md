@@ -1,6 +1,8 @@
 +++
 title = "Maintainability Index"
 weight = 770
+tags = ["C/AL"]
+categories = ["Best Practice"]
 +++
 [Maintainability Index][anchor0]: Do not write functions that have a very low maintainability index. This makes the code hard to maintain.
 

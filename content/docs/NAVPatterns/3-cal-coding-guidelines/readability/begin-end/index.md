@@ -1,6 +1,8 @@
 +++
 title = "Begin-End - Compound Only"
 weight = 240
+tags = ["C/AL","Readability"]
+categories = ["Best Practice"]
 +++
 Only use BEGIN..END to enclose compound statements.
 

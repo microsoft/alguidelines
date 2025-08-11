@@ -1,6 +1,8 @@
 +++
 title = "Nested WITHs"
 weight = 850
+tags = ["C/AL","Readability"]
+categories = ["Best Practice"]
 +++
 Do not nest WITHs that reference different types of objects.
 

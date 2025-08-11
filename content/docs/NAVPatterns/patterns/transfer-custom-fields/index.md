@@ -1,6 +1,8 @@
 +++
 title = "Transfer Custom Fields"
 weight = 1230
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 {{< youtube cGaBqwfGCws>}}
 

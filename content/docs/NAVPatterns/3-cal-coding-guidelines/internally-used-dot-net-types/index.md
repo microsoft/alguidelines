@@ -1,6 +1,8 @@
 +++
 title = "Internally used DotNet Types"
 weight = 690
+tags = ["C/AL"]
+categories = ["Best Practice"]
 +++
 _(Dynamics NAV 2015)_
 

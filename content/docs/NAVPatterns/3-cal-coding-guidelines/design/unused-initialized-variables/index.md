@@ -1,6 +1,8 @@
 +++
 title = "Unused Initialized Variables"
 weight = 1320
+tags = ["C/AL"]
+categories = ["Best Practice"]
 +++
 The value assigned to a variable must be used. Else the variable is not necessary. 
 

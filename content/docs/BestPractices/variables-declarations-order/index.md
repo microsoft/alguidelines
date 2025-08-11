@@ -1,12 +1,13 @@
 ---
 title: "Variables Declarations Order"
-tags: ["Readability"]
+tags: ["AL","Readability"]
 categories: ["Best Practice"]
 ---
 
 _Created by Microsoft, Described by waldo_
 
 ## Description
+
 Variables declarations should be ordered by type. In general, object and complex variable types are listed first followed by simple variables. The order should be:
 
 - Record
@@ -25,7 +26,6 @@ Variables declarations should be ordered by type. In general, object and complex
 
 (Ref: [Microsoft Docs](https://docs.microsoft.com/en-us/dynamics365/business-central/dev-itpro/developer/analyzers/codecop-aa0021))
 
-
 ## Bad code
 
 ```al
@@ -40,8 +40,9 @@ Variables declarations should be ordered by type. In general, object and complex
     StartingDateFilter: Text;
 ```
 
-## [Discussions](https://github.com/microsoft/alguidelines/discussions/categories/bc-best-practices?discussions_q=one+variables+declarations+order+category%3A%22BC+Best+Practices%22)
+## Tips
 
-You can find discussions on all "Best Practices" [here](https://github.com/microsoft/alguidelines/discussions/categories/bc-best-practices).
+The [AZ AL Dev Tools/AL Code Outline](https://marketplace.visualstudio.com/items?itemName=andrzejzwierzchowski.al-code-outline) extension adds two new commands to Visual Studio Code to sorts variables.
 
-If you don't find the discussion of this guideline, please feel free to create a new one with the same title as this article.  
+- `Sort Variables in the Active Editor` : sorts variables in the current editor
+- `Sort Variables in the Active Project` : sorts variables in the current project

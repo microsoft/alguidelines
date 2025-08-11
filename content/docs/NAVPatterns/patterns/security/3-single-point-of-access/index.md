@@ -1,6 +1,8 @@
 +++
 title = "Single Point of Access"
 weight = 160
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 _By Bogdana Botez at Microsoft Development Center Copenhagen_
 

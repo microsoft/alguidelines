@@ -534,6 +534,10 @@ input[type="search"]::placeholder {
   display: none;
 }
 
+.show-mobile-inline {
+  display: none;
+}
+
 @media (max-width: 1299px) {
   .hero {
     background: url("/images/hero-bg.webp") no-repeat;
@@ -554,6 +558,10 @@ input[type="search"]::placeholder {
 
   .show-mobile {
     display: block;
+  }
+
+  .show-mobile-inline {
+    display: inline;
   }
 
   .hero {

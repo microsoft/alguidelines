@@ -123,16 +123,16 @@ images: ["images/og-image-fission.png"]
       </div>
       <div class="col-lg-4">
         <div class="card-shadow">
-          <span class="card-badge">PATTERN</span>
+          <span class="card-badge">NEW</span>
           <h4 class="section-text-bold mt-4">
-            Event Bridge
+            Vibe Coding for AL
           </h4>
           <div class="card-shadow-content">
             <p class="section-text">
-              In the world of interfaces, it is important to preserve (certain) events over multiple implementation of the interface.
+              AI-optimized coding rules and guidelines designed to enhance the AL developer experience in modern AI-powered IDEs like VS Code and Cursor.
             </p>
-            <a href="/docs/patterns/event-bridge-pattern/">
-              <button class="hero-mid align-self-end">Read Now</button>
+            <a href="/docs/vibe-coding/">
+              <button class="hero-mid-2 align-self-end">Explore Rules</button>
             </a>
           </div>
         </div>
@@ -140,15 +140,15 @@ images: ["images/og-image-fission.png"]
 
   <div class="col-lg-4">
         <div class="card-shadow">
-          <span class="card-badge">BEST PRACTICE</span>
+          <span class="card-badge">TAG</span>
           <h4 class="section-text-bold mt-4">
-            CASE Action on next line
+            API
           </h4>
           <div class="card-shadow-content">
             <p class="section-text">
-              A CASE action should start on a line after the possibility.
+              Two API Related Design Patterns and one Best Practice for working with API's
             </p>
-            <a href="/docs/bestpractices/case-actions/"
+            <a href="/tags/api/"
               ><button class="hero-mid-2 align-self-end">Read Now</button></a
             >
           </div>
@@ -159,14 +159,14 @@ images: ["images/og-image-fission.png"]
         <div class="card-shadow">
           <span class="card-badge">PATTERN</span>
           <h4 class="section-text-bold mt-4">
-            Façade
+            Event Bridge
           </h4>
           <div class="card-shadow-content">
             <p class="section-text">
-             The intent of this pattern is to provide a unified API to a single or a collection of potentially complex subsystems.
+             In the world of interfaces, it is important to preserve (certain) events over multiple implementation of the interface.
             </p>
             <a
-              href="/docs/patterns/facade-pattern/"
+              href="/docs/patterns/event-bridge-pattern/"
               ><button class="hero-mid-2 align-self-end">Read Now</button></a
             >
           </div>

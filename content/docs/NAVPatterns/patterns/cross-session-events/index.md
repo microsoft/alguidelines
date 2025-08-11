@@ -1,6 +1,8 @@
 +++
 title = "Cross Session Events"
 weight = 430
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 
 _By Nikolai L'Estrange, from TVision Technology Ltd. in the UK_  

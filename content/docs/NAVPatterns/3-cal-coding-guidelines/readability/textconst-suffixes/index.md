@@ -1,6 +1,8 @@
 +++
 title = "TextConst Suffixes"
 weight = 1210
+tags = ["C/AL","Readability"]
+categories = ["Best Practice"]
 +++
 TextConst variable names should have a suffix (an approved three-letter suffix: Msg, Tok, Err, Qst, Lbl, Txt) describing usage.
 

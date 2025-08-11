@@ -1,6 +1,8 @@
 +++
 title = "WITH Scope Name Collision"
 weight = 1450
+tags = ["C/AL"]
+categories = ["Best Practice"]
 +++
 Do not use the WITH scope when it has a variable whose name is the same as a local variable. This can lead to wrong code assumptions.
 

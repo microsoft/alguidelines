@@ -1,6 +1,8 @@
 +++
 title = "Activity Logs"
 weight = 210
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 _Originally by Ciprian Iordache at Microsoft Development Center Copenhagen_
 

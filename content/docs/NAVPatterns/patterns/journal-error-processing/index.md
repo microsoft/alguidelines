@@ -1,6 +1,8 @@
 +++
 title = "Journal Error Processing"
 weight = 710
+tags = ["C/AL"]
+categories = ["Pattern"]
 +++
 _Originally by Bogdana Botez at Microsoft Development Center Copenhagen_ 
 

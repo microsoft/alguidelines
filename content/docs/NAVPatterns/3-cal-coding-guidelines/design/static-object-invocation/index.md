@@ -1,6 +1,8 @@
 +++
 title = "Static Object Invocation"
 weight = 1160
+tags = ["C/AL"]
+categories = ["Best Practice"]
 +++
 Call objects statically whenever possible. It reduces extra noise and removes extra variables. Downside: changing the name of the object which is called statically will need a code update. 
 

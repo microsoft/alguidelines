@@ -1,6 +1,8 @@
 +++
 title = "Localizability"
 weight = 750
+tags = ["C/AL"]
+categories = ["Best Practice"]
 +++
 ## C/AL Coding Guidelines
 

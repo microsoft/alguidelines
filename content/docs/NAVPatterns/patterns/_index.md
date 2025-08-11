@@ -1,8 +1,8 @@
 ---
-title: "Patterns"
+title: "1. Patterns"
 weight: 110
-tags: ["NAV", "C/AL"]
-categories: ["Archived Pattern"]
+tags: ["C/AL"]
+categories: ["Pattern"]
 description: >
   Patterns described to be used with Microsoft Dynamics NAV
 ---

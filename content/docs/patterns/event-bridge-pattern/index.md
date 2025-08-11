@@ -1,6 +1,6 @@
 ---
 title: "Event Bridge"
-tags: ["Interface"]
+tags: ["AL","Interface","Extendability"]
 categories: ["Pattern"]
 ---
 
@@ -20,8 +20,8 @@ Like in this example, we have an interface, to implement different ways for gett
 ```AL
 interface "IScale"
 {
-    procedure GetWeight(): Decimal;
-    procedure Tare();
+    procedure GetWeight(): Decimal
+    procedure Tare()
 }
 ```
 
@@ -35,13 +35,13 @@ So, if we would implement it like this, it isn't really extensible, as a differe
 ```AL
 codeunit 50407 "Scale Wrong" implements IScale
 {
-    procedure GetWeight() Result: Decimal;
+    procedure GetWeight() Result: Decimal
     begin
         //TODO: Implement Bar GetWeight
         OnAfterGetWeight(Result);
     end;
 
-    procedure Tare();
+    procedure Tare()
     begin
         //TODO: Implement Bar Tare
         OnAfterTare();
@@ -86,13 +86,13 @@ codeunit 50405 "Scale Bar" implements IScale
     var
         IScaleTriggers: Codeunit "IScale Triggers";
 
-    procedure GetWeight() Result: Decimal;
+    procedure GetWeight() Result: Decimal
     begin
         //TODO: Implement Bar GetWeight
         IScaleTriggers.OnAfterGetWeight(Result);
     end;
 
-    procedure Tare();
+    procedure Tare()
     begin
         //TODO: Implement Bar Tare
         IScaleTriggers.OnAfterTare();
@@ -102,14 +102,10 @@ codeunit 50405 "Scale Bar" implements IScale
 
 ## Benefits
 
-This new codeunit, with public events, makes the events accessible from all places, including new apps that are dependent from this app, and wants to extend the 
+This new codeunit, with public events, makes the events accessible from all places, including new apps that are dependent from this app.
 
 The naming convention (both starting with "IScale") also makes it very easy to find that corresponding events for the interface.
 
 ## When not to use
 
 Obviously, the events should be carefully considered: only the events that make sense to "share" over all implementations, need this approach.
-
-## Discussions
-
-You can discuss this pattern [here](https://github.com/microsoft/alguidelines/discussions/66)

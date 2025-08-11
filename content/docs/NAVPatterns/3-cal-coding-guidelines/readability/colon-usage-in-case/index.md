@@ -1,6 +1,8 @@
 +++
 title = "Colon usage in CASE"
 weight = 340
+tags = ["C/AL","Readability"]
+categories = ["Best Practice"]
 +++
 The last possibility on a CASE statement must be immediately followed by a colon.
 
