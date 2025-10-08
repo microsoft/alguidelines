@@ -103,7 +103,22 @@ codeunit 4123 UpgradeMyFeature
 
 ### Rule: Minimize Upgrade Blocking
 - **Throw errors ONLY** when absolutely necessary to abort upgrade
-- Handle unexpected scenarios gracefully without blocking. All read operations (GET, FIND, FINDSET, FINDLAST) should have IF THEN
+- Handle unexpected scenarios gracefully without blocking. All read operations (Get, Find, FindSet, FindFirst, FindLast) should have if [OPERATION] then to make it safe.
+**BAD EXAMPLE**
+```al
+Item.Get();
+Customer.FindSet();
+Vendor.FindLast();
+```
+**GOOD EXAMPLE**
+```al
+if Item.Get() then
+    // CustomCode;
+if Customer.FindSet() then;
+if not Vendor.FindLast() then
+   exit;
+```
+
 - Use telemetry for logging issues instead of throwing errors
 - Customers should not be blocked from upgrading due to data inconsistencies
 
@@ -127,22 +142,22 @@ Every GET, FIND, FINDSET, FINDLAST operation MUST be within IF-THEN structure:
 
 **CORRECT Examples:**
 ```al
-if Customer.Get(CustomerNo) then
-    Customer.Modify();
+if MyTable.Get(CustomerNo) then
+    MyTable.Modify();
 
-if ItemLedgerEntry.FindSet() then
+if MyTable.FindSet() then
     repeat
         // Process records
-    until ItemLedgerEntry.Next() = 0;
+    until MyTable.Next() = 0;
 
-if SalesHeader.FindLast() then
+if MyTable.FindLast() then
     // Process record
 ```
 
 **INCORRECT Examples:**
 ```al
-Customer.Get(CustomerNo); // WRONG - not protected
-SalesHeader.FindLast();   // WRONG - not protected
+MyTable.Get(CustomerNo); // WRONG - not protected
+MyTable.FindLast();   // WRONG - not protected
 ```
 
 ## 5. Execution Control - Use Upgrade Tags (Not Version Checks)
@@ -221,9 +236,10 @@ end;
 ### Upgrade Tag Rules
 - Maximum 2 levels of nesting in upgrade tag logic
 - No complex if-then structures
-- Reuse existing event subscribers when possible - only add new lines
+- **IMPORTANT** When adding new lines to the register upgrade tags subscribers you must check from where the upgrade method is called. If it is called from OnUpgradePerCompany then it must be registered from OnGetPerCompanyUpgradeTags method. If it is called from OnUpgradePerDatabase it must be registered under OnGetPerDatabaseUpgradeTags. It **MUST** not be called from both, we need to use a different tags in this case.
+- Reuse existing event subscribers when possible - only add new lines.
 - Use upgrade tags ONLY in upgrade code
-
+- Every new upgrade tag added **MUST** be referenced within an OnGetPerDatabaseUpgradeTags or OnGetPerCompanyUpgradeTags event subscriber 
 ## 6. No Outside Calls During Upgrade
 
 ### Rule: No Outside Calls During Upgrade
@@ -262,7 +278,9 @@ if GetExecutionContext() = ExecutionContext::Upgrade then
 - New fields and tables added in the same PR
 - Initializing newly added data structures
 
-If there is no new fields and tables, comment should be added that the validation triggers and event subscribers will not be raised, potentially breaking the business logic.
+**IMPORTANT**
+- If there is no new fields and tables, comment should be added that the validation triggers and event subscribers will not be raised, potentially breaking the business logic.
+- If a new field is added, especially with InitValue, datatransfer is strongly recommended to be used to have a fast upgrade.
 
 ### DataTransfer vs Loop/Modify Comparison
 
@@ -373,35 +391,43 @@ end;
 When a field is added with InitValue:
 - InitValue applies ONLY to new records
 - Existing records get datatype default (0 for numbers, false for Boolean)
-- Code reviewer MUST ask if upgrade code is needed
+- Code reviewer MUST ask if upgrade code is needed for each of the fields. 
 
 **Example Field Addition:**
 ```al
-field(100; "Override Allowed"; Boolean)
+field(100; "New Field"; Boolean)
 {
     DataClassification = CustomerContent;
-    Caption = 'Override Manual';
+    Caption = 'New Field';
     InitValue = true;
+}
+
+field(101; "New Field 2"; Integer)
+{
+    DataClassification = CustomerContent;
+    Caption = 'New Field 2';
+    InitValue = 5;
 }
 ```
 
 **Required Upgrade Code:**
 ```al
-local procedure UpgradeAllocationAccounts()
+local procedure UpgradeMyTables()
 var
-    BlankAllocationAccount: Record "Allocation Account";
+    BlankMyTable: Record "My Table";
     UpgradeTag: Codeunit "Upgrade Tag";
     UpgradeTagDefinitions: Codeunit "Upgrade Tag Definitions";
-    AllocationAccountDataTransfer: DataTransfer;
+    MyTableDataTransfer: DataTransfer;
 begin
-    if UpgradeTag.HasUpgradeTag(UpgradeTagDefinitions.GetUpgradeAllocationAccountsTag()) then
+    if UpgradeTag.HasUpgradeTag(UpgradeTagDefinitions.GetUpgradeMyTablesTag()) then
         exit;
 
-    AllocationAccountDataTransfer.SetTables(Database::"Allocation Account", Database::"Allocation Account");
-    AllocationAccountDataTransfer.AddConstantValue(true, BlankAllocationAccount.FieldNo("Override Allowed"));
-    AllocationAccountDataTransfer.CopyFields();
+    MyTableDataTransfer.SetTables(Database::"My Table", Database::"My Table");
+    MyTableDataTransfer.AddConstantValue(true, BlankMyTable.FieldNo("New Field"));
+    MyTableDataTransfer.AddConstantValue(5, BlankMyTable.FieldNo("New Field 2"));    
+    MyTableDataTransfer.CopyFields();
 
-    UpgradeTag.SetUpgradeTag(UpgradeTagDefinitions.GetUpgradeAllocationAccountsTag());
+    UpgradeTag.SetUpgradeTag(UpgradeTagDefinitions.GetUpgradeMyTablesTag());
 end;
 ```
 
@@ -416,7 +442,7 @@ When reviewing upgrade code, verify:
 5. ✅ No external calls (HTTP, DotNet interop)
 6. ✅ DataTransfer used for tables > 300k records
 7. ✅ DataTransfer only used for new fields/tables
-8. ✅ InitValue fields have corresponding upgrade code
+8. ✅ InitValue fields have corresponding upgrade code. Each new file **MUST** be verified.
 9. ✅ Proper error handling (minimal blocking)
 10. ✅ Upgrade tags properly registered with event subscribers
 
