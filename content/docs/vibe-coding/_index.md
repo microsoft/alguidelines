@@ -1,5 +1,6 @@
 ---
 title: "Vibe Coding for AL"
+weight: 90
 tags: ["AL", "Vibe Coding"]
 categories: ["Vibe Coding"]
 description: >
