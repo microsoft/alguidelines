@@ -10,7 +10,7 @@ description: >
 
 The AL Object ID Ninja MCP Server manages AL object IDs to prevent collisions in Business Central development. It provides two modes: LITE for individual developers and STANDARD for teams with shared ID pools and backend integration.
 
-**Created by**: [SShadowS (Vjeko Kundačina)](https://github.com/SShadowS)
+**Created by**: [SShadowS (Torben Leth)](https://github.com/SShadowS)
 
 ---
 
