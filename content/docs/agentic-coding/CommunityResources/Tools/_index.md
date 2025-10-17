@@ -84,6 +84,15 @@ Each MCP server below has its own dedicated page with detailed information, setu
 
 ---
 
+### [BC Telemetry Buddy (Waldo)](waldo-bctelemetrybuddy.md)
+
+**Key Features**:
+- Simple helpers for collecting Business Central telemetry
+- Forward telemetry events to a custom endpoint for analysis
+- Lightweight and easy to add to development workflows
+
+---
+
 ## Contributing Tools
 
 **Created a tool for AI-assisted AL development?**
