@@ -10,7 +10,7 @@ description: >
 
 The NAB AL Tools MCP Server exposes XLIFF translation management capabilities (the same core features used by the NAB AL Tools VS Code extension) as a standalone MCP server. It lets AI assistants and other MCP-compatible clients inspect, create, refresh and save XLF files used for AL localization workflows.
 
-**Publisher**: [nabsolutions / jwikman](https://github.com/jwikman)
+**Publisher**: [nabsolutions / Johannes Wikman](https://github.com/jwikman)
 
 ---
 
