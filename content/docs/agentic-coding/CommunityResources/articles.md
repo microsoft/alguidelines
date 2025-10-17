@@ -14,33 +14,49 @@ This page curates blog posts, articles, and written guides from the Business Cen
 
 ### Getting Started
 
-#### "My First Month with GitHub Copilot for AL Development"
-**Author**: Community Contributor  
-**Published**: Example Date  
-**Summary**: A developer's experience adopting GitHub Copilot for AL development, including lessons learned, productivity gains, and common pitfalls.
+#### "Vibe Coding — yes or no?" — Demiliani
+**Author**: Demiliani
+**Published**: 2025-08-21
+**Summary**: A thoughtful exploration of the Vibe Coding approach and whether its rules and conventions help or hinder real-world AL development.
 
 **Key Takeaways**:
-- How to configure Copilot for optimal AL suggestions
-- Prompting patterns that work well for AL
-- Mistakes to avoid when starting out
+- Pros and cons of strict Vibe Coding rules
+- When to adopt vs. adapt guidance for your team
+- Practical examples and trade-offs
 
-**Link**: [Example - Replace with actual link when available]
+**Link**: https://demiliani.com/2025/08/21/vibe-coding-yes-or-no/
 
 ---
 
-#### "Effective Prompting for Business Central Extensions"
-**Author**: Community Contributor  
-**Published**: Example Date  
-**Summary**: Deep dive into writing effective prompts specifically for AL and Business Central development scenarios.
+#### "Gestión de contexto y estados en servidores MCP" — TechSphere Dynamics
+**Author**: TechSphere Dynamics
+**Published**: 2025-08-15
+**Summary**: A Spanish-language deep dive into context handling and state management patterns for MCP servers, including practical patterns used in production systems.
 
 **Key Takeaways**:
-- AL-specific prompting patterns
-- How to provide context for better results
-- Examples of before/after prompt improvements
+- Context lifecycle and state management strategies
+- Common pitfalls when preserving or discarding context
+- Examples of robust MCP server patterns
 
-**Link**: [Example - Replace with actual link when available]
+**Link**: https://techspheredynamics.com/2025/08/15/gestion-de-contexto-y-estados-en-servidores-mcp/
 
 ---
+
+#### "Testing GitHub Copilot: knowledge engineering — what actually works and what doesn't" — Nubimancy
+**Author**: Nubimancy
+**Published**: 2025-09-09
+**Summary**: An empirical look at how well GitHub Copilot handles knowledge-engineering tasks, with experiments and practical recommendations for prompt authors.
+
+**Key Takeaways**:
+- Which prompting patterns produce reliable results
+- When Copilot is prone to hallucination or brittle outputs
+- Strategies to validate and refine AI-suggested knowledge artifacts
+
+**Link**: https://nubimancy.com/2025/09/09/testing-github-copilot-knowledge-engineering-what-actually-works-and-what-doesnt/
+
+---
+
+Each of these are just "great examples" from those blogs, so make sure to explore around!
 
 ### Advanced Techniques
 
