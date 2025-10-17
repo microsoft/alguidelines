@@ -1,7 +1,7 @@
 ---
 title: "Community Resources"
 linkTitle: "Community Resources"
-weight: 30
+weight: 100
 description: >
   Curated resources from the AL and Business Central community for agentic coding
 ---
