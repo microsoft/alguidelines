@@ -1,5 +1,5 @@
 ---
-title: "BC Telemetry Buddy (Waldo)"
+title: "BC Telemetry Buddy (waldo)"
 linkTitle: "BC Telemetry Buddy"
 weight: 7
 description: >
@@ -8,7 +8,7 @@ description: >
 
 ## Overview
 
-BC Telemetry Buddy (by Waldo) is a community tool that simplifies collecting telemetry from Business Central extensions and forwarding events to analysis endpoints. It's useful for teams who want lightweight telemetry during development or targeted diagnostics in production-like environments.
+BC Telemetry Buddy (by waldo) is a community tool that simplifies collecting telemetry from Business Central extensions and forwarding events to analysis endpoints. It's useful for teams who want lightweight telemetry during development or targeted diagnostics in production-like environments.
 
 **Publisher**: [waldo1001](https://github.com/waldo1001)
 
@@ -26,3 +26,4 @@ BC Telemetry Buddy (by Waldo) is a community tool that simplifies collecting tel
 ## Links
 
 - **GitHub**: https://github.com/waldo1001/waldo.BCTelemetryBuddy
+- **Marketplace**: [BC Telemetry Buddy](https://marketplace.visualstudio.com/items?itemName=waldoBC.bc-telemetry-buddy)
