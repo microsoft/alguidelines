@@ -28,7 +28,7 @@ Each guide follows a practical, scenario-based approach:
 
 ## Before You Start
 
-Make sure you've completed the [Getting Started](../getting-started) section to:
+Make sure you've completed the [Getting Started](../gettingstarted) section to:
 - Understand agentic coding concepts
 - Set up your environment
 - Learn effective prompting

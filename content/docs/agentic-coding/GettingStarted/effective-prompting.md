@@ -354,5 +354,5 @@ Requirements:
 
 Now that you know how to write effective prompts:
 - Review the [best practices](../best-practices) for AI-assisted development
-- Try the [practical examples](../../getting-more) with your new prompting skills
+- Try the [practical examples](../../gettingmore) with your new prompting skills
 - Understand the [limitations](../limitations) of AI assistants

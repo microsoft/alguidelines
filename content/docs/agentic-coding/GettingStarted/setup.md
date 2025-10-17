@@ -223,4 +223,4 @@ src/
 Now that your environment is set up:
 - Learn [effective prompting techniques](../effective-prompting)
 - Review [best practices](../best-practices) for AI-assisted development
-- Try the [practical examples](../../getting-more) to see AI assistance in action
+- Try the [practical examples](../../gettingmore) to see AI assistance in action

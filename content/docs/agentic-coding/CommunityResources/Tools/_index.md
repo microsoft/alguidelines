@@ -145,7 +145,7 @@ Share it with the community!
 
 ## Related Resources
 
-- [Setup Guide](../../getting-started/setup) - Environment configuration
+- [Setup Guide](../../gettingstarted/setup) - Environment configuration
 - [Blog Posts](../articles) - Tool reviews and comparisons
 - [Videos](../videos) - Tool demonstrations
 - [GitHub Discussions](https://github.com/microsoft/alguidelines/discussions) - Tool recommendations and support

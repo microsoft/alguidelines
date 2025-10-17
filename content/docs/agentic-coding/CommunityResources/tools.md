@@ -563,7 +563,7 @@ Extensions are frequently updated. Check for updates regularly:
 
 ## Related Resources
 
-- [Setup Guide](../../getting-started/setup) - Environment configuration
+- [Setup Guide](../../gettingstarted/setup) - Environment configuration
 - [Blog Posts](../articles) - Tool reviews and comparisons
 - [Videos](../videos) - Tool demonstrations
 - [Discussions](../discussions) - Tool recommendations and support

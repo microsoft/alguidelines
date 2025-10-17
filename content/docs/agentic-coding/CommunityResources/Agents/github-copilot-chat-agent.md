@@ -600,9 +600,9 @@ No separate charge - comes with Copilot subscription.
 - [VS Code Extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat)
 
 ### AL Guidelines Resources
-- [Effective Prompting](../../getting-started/effective-prompting)
-- [Best Practices](../../getting-started/best-practices)
-- [Getting More Examples](../../getting-more)
+- [Effective Prompting](../../gettingstarted/effective-prompting)
+- [Best Practices](../../gettingstarted/best-practices)
+- [Getting More Examples](../../gettingmore)
 
 ## Complementary Tools
 

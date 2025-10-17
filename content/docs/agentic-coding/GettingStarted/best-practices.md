@@ -411,5 +411,5 @@ Ensure quality isn't suffering:
 ## Next Steps
 
 - Understand [AI limitations](../limitations) to know when caution is needed
-- Try the [practical examples](../../getting-more) to apply these best practices
+- Try the [practical examples](../../gettingmore) to apply these best practices
 - Explore [community resources](../../community-resources) for more tips and techniques
