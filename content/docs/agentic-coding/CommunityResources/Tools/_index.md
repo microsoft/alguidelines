@@ -93,6 +93,15 @@ Each MCP server below has its own dedicated page with detailed information, setu
 
 ---
 
+### [NAB AL Tools MCP](nab-al-tools-mcp.md)
+
+**Key Features**:
+- XLIFF/XLF translation tooling exposed as MCP tools
+- Rich validation and annotations (Zod schemas)
+- Multiple invocation options (npx, global, local)
+
+---
+
 ## Contributing Tools
 
 **Created a tool for AI-assisted AL development?**
