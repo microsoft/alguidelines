@@ -1,7 +1,7 @@
 ---
 title: "Community Resources"
 linkTitle: "Community Resources"
-weight: 30
+weight: 100
 description: >
   Curated resources from the AL and Business Central community for agentic coding
 ---
@@ -95,7 +95,7 @@ The community is grateful to developers who regularly share their knowledge abou
 ## Learning Paths
 
 ### For Beginners
-1. Start with [Getting Started](../getting-started) in this hub
+1. Start with [Getting Started](../gettingstarted) in this hub
 2. Watch introductory videos about AI coding assistants
 3. Read beginner-friendly blog posts
 4. Try simple prompts with your own code

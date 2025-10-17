@@ -159,8 +159,8 @@ Many developers use multiple agents for different tasks:
 ### New to AI Coding?
 
 1. **Start Simple**: [GitHub Copilot](github-copilot-agent)
-2. **Learn the Basics**: [Effective Prompting](../../getting-started/effective-prompting)
-3. **Try Examples**: [Getting More](../../getting-more)
+2. **Learn the Basics**: [Effective Prompting](../../gettingstarted/effective-prompting)
+3. **Try Examples**: [Getting More](../../gettingmore)
 4. **Explore Others**: Try Claude or Cursor for comparison
 
 ### Already Using AI?
@@ -202,15 +202,15 @@ See individual agent pages for specific privacy information.
 1. **Read agent pages** to understand capabilities
 2. **Choose one** to start with
 3. **Follow setup** instructions
-4. **Practice** with examples from [Getting More](../../getting-more)
+4. **Practice** with examples from [Getting More](../../gettingmore)
 5. **Experiment** with others as needed
 
 ## Resources
 
-- [Setup Guide](../../getting-started/setup) - Environment configuration
-- [Effective Prompting](../../getting-started/effective-prompting) - Get better results
-- [Best Practices](../../getting-started/best-practices) - Use AI effectively
-- [Limitations](../../getting-started/limitations) - Understand constraints
+- [Setup Guide](../../gettingstarted/setup) - Environment configuration
+- [Effective Prompting](../../gettingstarted/effective-prompting) - Get better results
+- [Best Practices](../../gettingstarted/best-practices) - Use AI effectively
+- [Limitations](../../gettingstarted/limitations) - Understand constraints
 
 ---
 

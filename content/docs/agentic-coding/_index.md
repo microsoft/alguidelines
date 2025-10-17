@@ -44,6 +44,15 @@ Practical examples and advanced techniques:
 - Refactoring legacy code
 - Testing strategies
 
+### Vibe Coding Rules
+Comprehensive AI-specific coding guidelines and instructions:
+- AL code style and formatting rules
+- Error handling patterns
+- Event-driven architecture guidelines
+- Performance optimization techniques
+- Testing and upgrade code best practices
+- Naming conventions and standards
+
 ### Community Resources
 Curated resources from the AL and Business Central community:
 - Articles and blog posts

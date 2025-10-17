@@ -468,6 +468,6 @@ Extensive validation for:
 ## Next Steps
 
 Now that you understand AI limitations:
-- Apply this knowledge in the [practical examples](../../getting-more)
+- Apply this knowledge in the [practical examples](../../gettingmore)
 - See how to work within these limitations in [best practices](../best-practices)
 - Explore [community resources](../../community-resources) for more insights

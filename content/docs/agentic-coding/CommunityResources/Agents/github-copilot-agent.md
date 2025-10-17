@@ -503,13 +503,13 @@ Before accepting Copilot suggestions:
 ### Official Resources
 - [GitHub Copilot Documentation](https://docs.github.com/copilot)
 - [VS Code Extension Page](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
-- [Getting Started Guide](https://docs.github.com/copilot/getting-started-with-github-copilot)
+- [Getting Started Guide](https://docs.github.com/copilot/gettingstarted-with-github-copilot)
 
 ### AL Guidelines Resources
-- [Setup Guide](../../getting-started/setup)
-- [Effective Prompting](../../getting-started/effective-prompting)
-- [Best Practices](../../getting-started/best-practices)
-- [Code Review Examples](../../getting-more/code-review)
+- [Setup Guide](../../gettingstarted/setup)
+- [Effective Prompting](../../gettingstarted/effective-prompting)
+- [Best Practices](../../gettingstarted/best-practices)
+- [Code Review Examples](../../gettingmore/code-review)
 
 ## When to Use GitHub Copilot
 

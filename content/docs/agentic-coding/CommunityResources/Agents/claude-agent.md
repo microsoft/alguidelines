@@ -743,9 +743,9 @@ with pros and cons of each."
 - [API Documentation](https://docs.anthropic.com/claude/reference)
 
 ### AL Guidelines
-- [Effective Prompting](../../getting-started/effective-prompting)
-- [Best Practices](../../getting-started/best-practices)
-- [Code Review Examples](../../getting-more/code-review)
+- [Effective Prompting](../../gettingstarted/effective-prompting)
+- [Best Practices](../../gettingstarted/best-practices)
+- [Code Review Examples](../../gettingmore/code-review)
 
 ---
 

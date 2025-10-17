@@ -2,7 +2,7 @@
 title: "Manually on Windows 11"
 ---
 
-This guide will walk You thrugh installing Hugo on a Windows 11 PC. For the official install guide, You can wisit <https://gohugo.io/getting-started/installing/>.
+This guide will walk You thrugh installing Hugo on a Windows 11 PC. For the official install guide, You can wisit <https://gohugo.io/gettingstarted/installing/>.
 
 ## Download Binaries
 
