@@ -10,6 +10,68 @@ _Created by Microsoft, Described by Jeremy Vyska (Spare Brained Ideas)_
 
 The "Number Series" system is used extensively to provide numbers to master records, documents, and other transactions through Microsoft Dynamics 365 Business Central.
 
+## Important: BC v24+ Modern Pattern (Updated 2024)
+
+**As of Business Central version 24.0 and later**, Microsoft deprecated the `NoSeriesManagement` codeunit in favor of the new `codeunit "No. Series"` with simplified methods.
+
+### Modern Implementation (BC v24+)
+
+**Variable declaration:**
+```al
+var
+    NoSeries: Codeunit "No. Series";
+```
+
+**OnInsert pattern (simplified):**
+```al
+trigger OnInsert()
+begin
+    if "No." = '' then begin
+        MySetup.Get();
+        MySetup.TestField("Document Nos.");
+        "No. Series" := MySetup."Document Nos.";
+        if NoSeries.AreRelated(MySetup."Document Nos.", xRec."No. Series") then
+            "No. Series" := xRec."No. Series";
+        "No." := NoSeries.GetNextNo("No. Series");
+    end;
+end;
+```
+
+**OnValidate pattern (same as before):**
+```al
+trigger OnValidate()
+begin
+    if "No." <> xRec."No." then begin
+        MySetup.Get();
+        NoSeries.TestManual(MySetup."Document Nos.");
+        "No. Series" := '';
+    end;
+end;
+```
+
+### Key Differences from Legacy Pattern
+
+| Legacy (NoSeriesManagement) | Modern (No. Series) |
+|----------------------------|---------------------|
+| `NoSeriesMgt.InitSeries(...)` - 5 parameters | `NoSeries.GetNextNo(...)` - 1-2 parameters |
+| `NoSeriesMgt.TestManual(...)` | `NoSeries.TestManual(...)` - Same method name |
+| `NoSeriesMgt.TryGetNextNo(...)` | `NoSeries.PeekNextNo(...)` - New name |
+| `NoSeriesMgt.SelectSeries(...)` | `NoSeries.AreRelated(...)` - Simplified API |
+| Complex parameter passing | Simplified, intuitive API |
+
+### Migration Strategy
+
+For **backward compatibility** (supporting both BC v23 and v24+):
+1. Use conditional compilation with `#if` directives based on platform version
+2. Check runtime platform version and branch logic accordingly
+3. Implement both patterns in separate procedures with version detection
+
+{{% alert title="Note" color="warning" %}}
+**The examples below reflect the LEGACY pattern** (NoSeriesManagement codeunit) for reference and historical context. For new development on BC v24+, use the modern `codeunit "No. Series"` pattern shown above.
+{{% /alert %}}
+
+---
+
 ## Description
 
 At the heart of things, the Number Series engine allows users to define structure for a sequential numeric or alphanumeric string (collectively referred to as a 'number series'), then assign that structure to different parts of the system.
