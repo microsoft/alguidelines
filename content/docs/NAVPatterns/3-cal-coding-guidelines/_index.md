@@ -23,6 +23,6 @@ We're looking forward to your comments. Where you can, do provide concrete examp
 
 
 
-[anchor0]: https://blogs.msdn.microsoft.com/nav/2015/01/09/cal-coding-guidelines-used-at-microsoft-development-center-copenhagen "download the C/AL coding guidelines as pdf"
+[anchor0]: /files/CAL-Coding-Guidelines-at-Microsoft-Development-Center-Copenhagen.pdf "download the C/AL coding guidelines as pdf"
 [anchor1]: /members/waldo/default.aspx "waldo"
 [anchor2]: https://www.youtube.com/watch?v=z6skKy0pkmU&list=PLhZ3P-LY7CqmVszuvtJLujFyHpsVN0U_w&index=26
