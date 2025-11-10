@@ -35,7 +35,7 @@ The properties that must be defined are:
 - ODataKeyFields
 
 ### APIPublisher
-The name of the API publisher is usually the company creating the API. It is the first custom part in the URL for a given endpoint. The value is case insensitive.
+The name of the API publisher is usually the company creating the API. It is the first custom part in the URL for a given endpoint. While the value is case insensitive for HTTP operations (GET, POST, etc.), it is case sensitive when checking for active subscriptions.
 
 Example:
 
@@ -44,7 +44,7 @@ APIPublisher = 'contoso';
 ```
 
 ### APIGroup
-Sets the group of the API endpoint that page or query is exposed in. In the URL the APIGroup comes after the APIPublisher. It can be used to distinguish different API apps or groups of APIs from each other. The value is case insensitive.
+Sets the group of the API endpoint that page or query is exposed in. In the URL the APIGroup comes after the APIPublisher. It can be used to distinguish different API apps or groups of APIs from each other. While the value is case insensitive for HTTP operations (GET, POST, etc.), it is case sensitive when checking for active subscriptions.
 
 Example:
 
