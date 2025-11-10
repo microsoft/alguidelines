@@ -131,7 +131,7 @@ images: ["images/og-image-fission.png"]
             <p class="section-text">
               AI-optimized coding rules and guidelines designed to enhance the AL developer experience in modern AI-powered IDEs like VS Code and Cursor.
             </p>
-            <a href="/docs/vibe-coding/">
+            <a href="/docs/agentic-coding/vibe-coding-rules/">
               <button class="hero-mid-2 align-self-end">Explore Rules</button>
             </a>
           </div>
