@@ -1,6 +1,6 @@
 +++
 title = "NAV Patterns Archive"
-weight = 20
+weight = 4
 tags = ["C/AL"]
 +++
 

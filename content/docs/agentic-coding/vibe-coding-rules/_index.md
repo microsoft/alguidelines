@@ -1,5 +1,6 @@
 ---
-title: "Vibe Coding for AL"
+title: "Vibe Coding Rules for AL"
+weight: 90
 tags: ["AL", "Vibe Coding"]
 categories: ["Vibe Coding"]
 description: >
@@ -8,9 +9,9 @@ description: >
 
 _Created by the Business Central Community, Enhanced for AI-powered AL Development_
 
-# Vibe Coding for AL
+# Vibe Coding Rules for AL
 
-Welcome to the **Vibe Coding for AL** initiative! This section contains AI-optimized coding rules and guidelines specifically designed to enhance the AL developer experience in modern AI-powered IDEs like VS Code and Cursor.
+Welcome to the **Vibe Coding Rules for AL** initiative! This section contains AI-optimized coding rules and guidelines specifically designed to enhance the AL developer experience in modern AI-powered IDEs like VS Code and Cursor.
 
 ## What is Vibe Coding?
 
