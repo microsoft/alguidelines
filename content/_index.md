@@ -125,14 +125,14 @@ images: ["images/og-image-fission.png"]
         <div class="card-shadow">
           <span class="card-badge">NEW</span>
           <h4 class="section-text-bold mt-4">
-            Vibe Coding for AL
+            Getting Started With Agentic Coding
           </h4>
           <div class="card-shadow-content">
             <p class="section-text">
-              AI-optimized coding rules and guidelines designed to enhance the AL developer experience in modern AI-powered IDEs like VS Code and Cursor.
+              Essential concepts and practices for working with AI coding assistants in your AL development workflow.
             </p>
-            <a href="/docs/vibe-coding/">
-              <button class="hero-mid-2 align-self-end">Explore Rules</button>
+            <a href="/docs/agentic-coding/gettingstarted/">
+              <button class="hero-mid-2 align-self-end">Get Started</button>
             </a>
           </div>
         </div>
@@ -140,16 +140,16 @@ images: ["images/og-image-fission.png"]
 
   <div class="col-lg-4">
         <div class="card-shadow">
-          <span class="card-badge">TAG</span>
+          <span class="card-badge">GUIDE</span>
           <h4 class="section-text-bold mt-4">
-            API
+            Vibe Coding Rules
           </h4>
           <div class="card-shadow-content">
             <p class="section-text">
-              Two API Related Design Patterns and one Best Practice for working with API's
+              AI-optimized coding rules and guidelines designed to enhance the AL developer experience in modern AI-powered IDEs.
             </p>
-            <a href="/tags/api/"
-              ><button class="hero-mid-2 align-self-end">Read Now</button></a
+            <a href="/docs/agentic-coding/vibe-coding-rules/"
+              ><button class="hero-mid-2 align-self-end">Explore Rules</button></a
             >
           </div>
         </div>
@@ -157,17 +157,17 @@ images: ["images/og-image-fission.png"]
 
   <div class="col-lg-4">
         <div class="card-shadow">
-          <span class="card-badge">PATTERN</span>
+          <span class="card-badge">TOOLS</span>
           <h4 class="section-text-bold mt-4">
-            Event Bridge
+            Agentic Tools
           </h4>
           <div class="card-shadow-content">
             <p class="section-text">
-             In the world of interfaces, it is important to preserve (certain) events over multiple implementation of the interface.
+              Model Context Protocol (MCP) servers that enhance AI assistants for Business Central development workflows.
             </p>
             <a
-              href="/docs/patterns/event-bridge-pattern/"
-              ><button class="hero-mid-2 align-self-end">Read Now</button></a
+              href="/docs/agentic-coding/communityresources/tools/"
+              ><button class="hero-mid-2 align-self-end">Explore Tools</button></a
             >
           </div>
         </div>
@@ -210,17 +210,6 @@ images: ["images/og-image-fission.png"]
                 </p>
               </div>
             </a>
-            <a href="https://twitter.com/search?q=%23bcalhelp">
-              <div class="card-shadow twitter-card" style="margin-left: auto">
-                <div class="card-header-custom">
-                  <h2 style="padding-right: 0.8rem;"><i class="fab fa-twitter"></i></h2>
-                  <h2 class="section-text-bold">Twitter</h2>
-                </div>
-                <p class="section-text">
-                  Chat about this with the <b class="text-highlight">#bcalhelp</b> hashtag.
-                </p>
-              </div>
-            </a>
           </div>
         </div>
       </div>
@@ -250,22 +239,6 @@ images: ["images/og-image-fission.png"]
                 <p class="section-text">
                   Dive into the code.  Submit PRs
                   and collaborate with other like-minded contributors.
-                </p>
-              </div></a
-            >
-          </div>
-          <div class="col-lg-6">
-            <a href="https://twitter.com/search?q=%23bcalhelp"
-              ><div
-                class="card-shadow twitter-card-desktop"
-                style="margin-left: auto"
-              >
-                <div class="card-header-custom">
-                  <h2 style="padding-right: 0.8rem;"><i class="fab fa-twitter"></i></h2>
-                  <h2 class="section-text-bold">Twitter</h2>
-                </div>
-                <p class="section-text">
-                  Chat about this with the <b class="text-highlight">#bcalhelp</b> hashtag.
                 </p>
               </div></a
             >
