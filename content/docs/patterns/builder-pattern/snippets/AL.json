@@ -1,0 +1,25 @@
+{
+    "Generic Builder Codeunit": {
+        "prefix": "tbuilder",
+        "body": [
+            "codeunit ${1:ID} \"${2:YourName}Builder\"",
+            "{",
+            "    var",
+            "        MyProduct: Record ${3:YourTable};",
+            "",
+            "    procedure Init(): Codeunit \"${2:YourName}Builder\"",
+            "    begin",
+            "        MyProduct.Init();",
+            "        exit(this);",
+            "    end;",
+            "",
+            "    procedure Build(var Result: Record ${3:YourTable}): Codeunit \"${2:YourName}Builder\"",
+            "    begin",
+            "        Result := MyProduct;",
+            "        exit(this);",
+            "    end;",
+            "}"
+        ],
+        "description": "Builder-Pattern Codeunit with placeholders for ID, Name (ending with 'Builder') and Record-Type"
+    }
+}
