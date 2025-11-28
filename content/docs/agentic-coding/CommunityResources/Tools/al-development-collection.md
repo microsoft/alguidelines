@@ -35,7 +35,7 @@ The AL Development Collection provides a complete AI-native development toolkit 
 - Analysis (al-diagnose, al-performance, al-migrate)
 - Copilot features (al-copilot-capability, al-copilot-promptdialog, al-copilot-test)
 
-**Smart Complexity Routing(Experimental)**:
+**Smart Complexity Routing (Experimental)**:
 - 🟢 LOW → al-developer (direct implementation)
 - 🟡 MEDIUM → al-conductor (TDD orchestration)
 - 🔴 HIGH → al-architect → al-conductor (full design + TDD)
