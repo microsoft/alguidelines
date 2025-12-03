@@ -92,7 +92,9 @@ Entities where the Blocked Entity has been implemented include:
 
 The [Released Entity][anchor4].
 
-{{< youtube O2R-fTSup1o >}}
+{{% alert title="Note" %}}
+There was previously a video demonstration of this pattern, but it is no longer available.
+{{% /alert %}}
 
 [anchor0]: 2260.BlockedEntityPattern.png
 [anchor1]: /navpatterns/1-patterns/blocked-entity/data-driven-blocked-entity/
