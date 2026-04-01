@@ -14,6 +14,21 @@ This page curates blog posts, articles, and written guides from the Business Cen
 
 ### Getting Started
 
+#### "AI for BC Development - The Knowledge Gap That Ships to Production" — Kine
+**Author**: Kine (blog.kine.cz)
+**Published**: 2025
+**Summary**: A critical self-assessment guide on whether you are ready to validate what AI produces for BC development. Covers common AI mistakes in AL code (wrong field assignment, missing keys, reinventing standard libraries) and what BC knowledge areas you need to review AI output responsibly.
+
+**Key Takeaways**:
+- Common AI mistakes in AL code that ship to production
+- Self-assessment framework for AI-assisted development readiness
+- BC knowledge areas required to review AI output responsibly
+- Practical examples of wrong field assignments, missing keys, and reinvented standard libraries
+
+**Link**: https://blog.kine.cz/posts/bcdevelopmentserie-02b/
+
+---
+
 #### "Vibe Coding — yes or no?" — Demiliani
 **Author**: Demiliani
 **Published**: 2025-08-21
