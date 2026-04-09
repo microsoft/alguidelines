@@ -76,19 +76,35 @@ AI-first code editor built on VS Code with integrated AI assistance.
 
 ---
 
+### [Claude Code](claude-code-agent)
+Anthropic's agentic CLI tool for terminal-native development with full file system access.
+
+**Best For**:
+- Multi-file feature development from the terminal
+- Automated bug fixing with build-verify loops
+- Refactoring and test generation at scale
+- MCP-extensible workflows for BC-specific tooling
+
+**Key Features**: File system access, shell command execution, MCP extensibility, CLAUDE.md project context, VS Code extension, agentic multi-step execution
+
+---
+
 ## Comparison Matrix
 
-| Feature | GitHub Copilot | Copilot Chat | Claude | Cursor |
-|---------|---------------|--------------|---------|---------|
-| **Inline Completion** | ✓✓✓ Excellent | Limited | N/A | ✓✓✓ Excellent |
-| **Chat Interface** | N/A | ✓✓✓ Excellent | ✓✓✓ Excellent | ✓✓✓ Excellent |
-| **AL Awareness** | ✓✓ Good | ✓✓ Good | ✓ Basic | ✓✓ Good |
-| **Code Explanation** | Limited | ✓✓✓ Excellent | ✓✓✓ Excellent | ✓✓✓ Excellent |
-| **VS Code Integration** | ✓✓✓ Native | ✓✓✓ Native | ✗ Web/API | ✓✓✓ Fork |
-| **Context Window** | Medium | Medium | ✓✓✓ Very Large | Large |
-| **Multi-file Editing** | Limited | Limited | Manual | ✓✓✓ Excellent |
-| **Pricing** | $10-19/mo | Included | Free/Pro | $20/mo |
-| **Team Features** | ✓✓ Good | ✓✓ Good | Limited | ✓ Basic |
+| Feature | GitHub Copilot | Copilot Chat | Claude | Claude Code | Cursor |
+|---------|---------------|--------------|---------|-------------|---------|
+| **Inline Completion** | ✓✓✓ Excellent | Limited | N/A | N/A | ✓✓✓ Excellent |
+| **Chat Interface** | N/A | ✓✓✓ Excellent | ✓✓✓ Excellent | ✓✓✓ Terminal | ✓✓✓ Excellent |
+| **AL Awareness** | ✓✓ Good | ✓✓ Good | ✓ Basic | ✓✓ Good (via MCP) | ✓✓ Good |
+| **Code Explanation** | Limited | ✓✓✓ Excellent | ✓✓✓ Excellent | ✓✓✓ Excellent | ✓✓✓ Excellent |
+| **VS Code Integration** | ✓✓✓ Native | ✓✓✓ Native | ✗ Web/API | ✓✓ Extension | ✓✓✓ Fork |
+| **Context Window** | Medium | Medium | ✓✓✓ Very Large | ✓✓✓ Very Large | Large |
+| **Multi-file Editing** | Limited | Limited | Manual | ✓✓✓ Excellent | ✓✓✓ Excellent |
+| **Agentic Execution** | N/A | Limited | N/A | ✓✓✓ Excellent | ✓✓ Good |
+| **MCP Extensibility** | N/A | N/A | N/A | ✓✓✓ Excellent | ✓✓ Good |
+| **Shell/Build Access** | N/A | Limited | N/A | ✓✓✓ Excellent | Limited |
+| **Pricing** | $10-19/mo | Included | Free/Pro | $20-200/mo | $20/mo |
+| **Team Features** | ✓✓ Good | ✓✓ Good | Limited | ✓ Basic | ✓ Basic |
 
 **Legend**: ✓✓✓ Excellent | ✓✓ Good | ✓ Basic | Limited | ✗ Not Available | N/A Not Applicable
 
@@ -116,6 +132,13 @@ AI-first code editor built on VS Code with integrated AI assistance.
 - Excellent reasoning
 - Detailed explanations
 - Free tier available
+
+**Want Agentic Automation?**
+→ Use [Claude Code](claude-code-agent) for multi-step development
+- Reads and edits files directly in your project
+- Runs builds, fixes errors, iterates autonomously
+- MCP servers add BC-specific intelligence
+- CLAUDE.md files encode your project conventions
 
 ### For Teams
 
@@ -146,13 +169,15 @@ Many developers use multiple agents for different tasks:
 **Daily Coding**: GitHub Copilot (inline suggestions)
 **Learning & Debugging**: Copilot Chat or Cursor Chat
 **Complex Problems**: Claude (detailed analysis)
-**Refactoring**: Cursor (multi-file editing)
+**Multi-Step Development**: Claude Code (agentic file editing + build loops)
+**Refactoring**: Cursor or Claude Code (multi-file editing)
 
 **Example Workflow**:
 1. Write code with GitHub Copilot inline suggestions
 2. Ask Copilot Chat to explain complex BC patterns
 3. Use Claude for architecture review of large features
-4. Use Cursor for complex multi-file refactoring
+4. Use Claude Code for multi-file feature development and bug fixing
+5. Use Cursor for visual multi-file refactoring
 
 ## Getting Started
 
@@ -166,9 +191,10 @@ Many developers use multiple agents for different tasks:
 ### Already Using AI?
 
 **Expand Your Toolkit**:
-- If using Copilot → Try Cursor for advanced features
-- If using Claude → Add Copilot for inline completion
-- If using Cursor → Use Claude for deep analysis
+- If using Copilot → Try Cursor for advanced features or Claude Code for agentic workflows
+- If using Claude (web) → Try Claude Code for direct file editing and build automation
+- If using Cursor → Use Claude Code for terminal-based agentic tasks with MCP extensibility
+- If using Claude Code → Add Copilot for inline completions while typing
 
 ## Common Questions
 
