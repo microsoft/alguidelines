@@ -110,13 +110,13 @@ MCP servers extend Claude Code with specialized tools:
     "al-dependencies": {
       "command": "node",
       "args": ["path/to/al-dependencies-mcp/index.js"],
-      "env": { "AL_PACKAGES": ".//.alpackages" }
+      "env": { "AL_PACKAGES": "./.alpackages" }
     }
   }
 }
 ```
 
-> **Note**: The MCP server names above are illustrative examples. See [MCP Tools](/docs/agentic-coding/communityresources/tools/) for available community MCP servers for AL development.
+> **Note**: The MCP server names above are illustrative examples. See [MCP Tools](../tools) for available community MCP servers for AL development.
 
 ### Agentic Capabilities
 
@@ -168,7 +168,7 @@ Claude Code supports hooks — custom scripts that run automatically at specific
 {
   "hooks": {
     "postEdit": [{
-      "command": "powershell -File ./scripts/run-codecop.ps1 $FILE",
+      "command": "powershell -File ./scripts/run-codecop.ps1 <EDITED_FILE_PATH>",
       "description": "Run CodeCop after file edits"
     }]
   }
@@ -688,7 +688,7 @@ For long sessions, manage context to keep Claude Code effective:
 * Files Claude Code doesn't read are never sent
 * CLAUDE.md lets you control what context is shared
 * MCP servers run locally — their tool output is sent to the API for reasoning
-* Git credentials are never transmitted
+* Git credentials are handled locally by your git client (and are not sent to the Claude API).
 
 ### Best Practices
 
@@ -720,10 +720,10 @@ For long sessions, manage context to keep Claude Code effective:
 
 **Use With**:
 
-* [GitHub Copilot](/docs/agentic-coding/communityresources/agents/github-copilot-agent/) - For inline completions while typing
+* [GitHub Copilot](github-copilot-agent) - For inline completions while typing
 * [AL Language Extension](https://marketplace.visualstudio.com/items?itemName=ms-dynamics-smb.al) - For AL language support in VS Code
 * AL Code Analyzers - CodeCop, AppSourceCop, etc. for quality checks
-* MCP Servers - For BC-specific intelligence (see [Tools](/docs/agentic-coding/communityresources/tools/))
+* MCP Servers - For BC-specific intelligence (see [Tools](../tools))
 
 **Example Daily Workflow**:
 
@@ -746,10 +746,10 @@ For long sessions, manage context to keep Claude Code effective:
 
 ### AL Guidelines
 
-* [Setup Guide](/docs/agentic-coding/gettingstarted/setup/)
-* [Effective Prompting](/docs/agentic-coding/gettingstarted/effective-prompting/)
-* [Best Practices](/docs/agentic-coding/gettingstarted/best-practices/)
-* [MCP Tools](/docs/agentic-coding/communityresources/tools/)
+* [Setup Guide](../../gettingstarted/setup)
+* [Effective Prompting](../../gettingstarted/effective-prompting)
+* [Best Practices](../../gettingstarted/best-practices)
+* [MCP Tools](../tools)
 
 ### Community
 
@@ -762,7 +762,7 @@ For long sessions, manage context to keep Claude Code effective:
 
 * Install [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview)
 * Create a CLAUDE.md for your AL project
-* Configure [MCP servers](/docs/agentic-coding/communityresources/tools/) for BC intelligence
-* Compare with other [AI Agents](/docs/agentic-coding/communityresources/agents/)
+* Configure [MCP servers](../tools) for BC intelligence
+* Compare with other [AI Agents](./)
 
 **Questions?** Join [GitHub Discussions](https://github.com/microsoft/alguidelines/discussions)
