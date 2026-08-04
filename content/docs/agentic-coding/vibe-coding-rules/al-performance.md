@@ -215,7 +215,6 @@ begin
   CalculateCustomerTotals(CustomerNo, TotalBalance, LastPaymentDate);
   
   // Single database write with all changes
-  Customer.SetLoadFields("Balance (LCY)", "Last Payment Date");
   if Customer.Get(CustomerNo) then begin
     Customer."Balance (LCY)" := TotalBalance;
     Customer."Last Payment Date" := LastPaymentDate;
