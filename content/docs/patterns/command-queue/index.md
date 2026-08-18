@@ -11,7 +11,7 @@ The goal of this pattern is to control the flow of multiple processes
 
 
 ## Problem
-Sometimes its neccassary to perform multiple processes in Business Central, for example you want to post more than one order or before you post an Order you also have to post a purchase order this often leads to spaghetti code with big if else structures, which is not easy to read
+Sometimes its necessary to perform multiple processes in Business Central, for example you want to post more than one order or before you post an Order you also have to post a purchase order this often leads to spaghetti code with big if else structures, which is not easy to read
 
 ## Description
 The pattern is ideal for executing several independent processes in succession. Since the processes are independent, each process must take care of error handling itself. 

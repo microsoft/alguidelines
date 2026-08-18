@@ -49,7 +49,7 @@ As you can see in this example the readability gets worse with every new case.
 To implement the Pattern you need at least 3 objects:
 - A template codeunit
 - An Interface which provides the needed procedures
-- A codeunit which Implements the interrface
+- A codeunit which Implements the interface
 
 In my example I show how to implement a data export with templating.
 
