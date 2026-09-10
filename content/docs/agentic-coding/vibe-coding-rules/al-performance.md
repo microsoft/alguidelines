@@ -74,10 +74,10 @@ Item.FindFirst();
 ```
 
 ```al
-// Bad example (avoid SetLoadFields after filtering)
-Item.SetLoadFields("Item Category Code");
+// Bad example - SetLoadFields should be called before database operations like `FindFirst` or `FindSet`
 Item.SetRange("Third Party Item Exists", false);
 Item.FindFirst();
+Item.SetLoadFields("Item Category Code");
 ```
 
 ## Rule 3: Use Temporary Tables, Dictionaries, and Lists for Performance
