@@ -30,7 +30,7 @@ interface "IScale"
 Multiple apps can subscribe to certain events of the app.
 When a new implementation is created, we need to make sure that these events are raised at the right times.  If those events were published on the implementation codeunit, it might very well be that those events will not be raised, hard to find, or whatever.
 
-So, if we would implement it like this, it isn't really extensible, as a different implemention would implement different events .. and it's not possible to subscribe to all of them (including future implementations)
+So, if we would implement it like this, it isn't really extensible, as a different implementation would implement different events .. and it's not possible to subscribe to all of them (including future implementations)
 
 ```AL
 codeunit 50407 "Scale Wrong" implements IScale
